@@ -5,3 +5,4 @@ preview.pdf
 node_modules/
 dist/qa/
 package-lock.json
+dist/*.zip
