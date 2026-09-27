@@ -1,20 +1,22 @@
 import { CopyButton } from "@/components/CopyButton";
 import { Flash } from "@/components/Flash";
 import { SubmitButton } from "@/components/SubmitButton";
-import { lerCodigoAfiliadoML } from "@/lib/configuracoes";
+import { lerCodigoAfiliadoML, lerConfig } from "@/lib/configuracoes";
 import { env } from "@/lib/env";
 import { formatDate } from "@/lib/format";
+import type { PassoDiagnostico } from "@/marketplaces/mercadolivre/adapter";
 import { criarUrlAutorizacao, mlConfigurado, statusConexao } from "@/marketplaces/mercadolivre/oauth";
 import { todosAdapters } from "@/marketplaces/registry";
 import { sair } from "../../login/actions";
-import { colarCodigo, desconectarML, desligarLinkAutomatico, detectarCodigo, salvarCodigoManual } from "./actions";
+import { colarCodigo, desconectarML, desligarLinkAutomatico, detectarCodigo, rodarDiagnostico, salvarCodigoManual } from "./actions";
 
 export const dynamic = "force-dynamic";
 
 export default async function ConfiguracoesPage({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
   const sp = await searchParams;
   const e = env();
-  const [status, codigo] = await Promise.all([statusConexao(), lerCodigoAfiliadoML()]);
+  const [status, codigo, diagBruto] = await Promise.all([statusConexao(), lerCodigoAfiliadoML(), lerConfig("ml_diagnostico")]);
+  const diag = diagBruto ? (JSON.parse(diagBruto) as { em: string; passos: PassoDiagnostico[] }) : null;
   // Link de autorização para abrir em outro navegador/celular (se o botão der erro 403)
   let urlAutorizacao: string | null = null;
   if (mlConfigurado() && !status.conectado) {
@@ -140,6 +142,48 @@ export default async function ConfiguracoesPage({ searchParams }: { searchParams
           </>
         )}
       </section>
+
+      {status.conectado && (
+        <section className="card" id="diagnostico">
+          <h2>🩺 Diagnóstico da API</h2>
+          <p className="muted small">Testa, com a sua conta, cada recurso do ML que o painel usa. Se a busca não trouxer ofertas, rode e me mande um print desta tabela.</p>
+          <form action={rodarDiagnostico}>
+            <SubmitButton className="btn btn-sec" pendente="Testando… (até 30s)">
+              Rodar diagnóstico
+            </SubmitButton>
+          </form>
+          {diag && (
+            <>
+              <p className="muted small mt">Último teste: {formatDate(diag.em)}</p>
+              <table className="tabela">
+                <thead>
+                  <tr>
+                    <th>Teste</th>
+                    <th>Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {diag.passos.map((p, i) => (
+                    <tr key={i}>
+                      <td>
+                        {p.status === 200 ? "✅" : "❌"} {p.nome}
+                        <br />
+                        <span className="muted small">
+                          <code>{p.caminho}</code>
+                        </span>
+                      </td>
+                      <td className="small">
+                        {p.status !== 200 && <strong>{p.status || "erro"} · </strong>}
+                        {p.detalhe}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          )}
+        </section>
+      )}
 
       <section className="card">
         <h2>🏪 Marketplaces</h2>

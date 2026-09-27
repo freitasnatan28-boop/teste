@@ -35,12 +35,62 @@ interface MlHighlights {
 }
 type MlBulk = { id?: string; code?: number; status_code?: number; body: MlItem | null }[];
 
+export interface PassoDiagnostico {
+  nome: string;
+  caminho: string;
+  status: number;
+  detalhe: string;
+}
+
 export interface CategoriaML {
   id: string;
   name: string;
 }
 
 const CONCORRENCIA = 4;
+
+/** Junta os erros de cada etapa para mostrar no painel (em vez de sumir em silêncio). */
+class Falhas {
+  private lista: { etapa: string; msg: string }[] = [];
+  add(etapa: string, e: unknown) {
+    const msg = e instanceof MlHttpError ? `${e.status}${e.message.includes(":") ? " —" + e.message.split(":").slice(1).join(":").split(" — O ML")[0] : ""}` : e instanceof Error ? e.message : String(e);
+    this.lista.push({ etapa, msg: msg.slice(0, 160) });
+  }
+  get total() {
+    return this.lista.length;
+  }
+  resumo(): string | null {
+    if (!this.lista.length) return null;
+    const porEtapa = new Map<string, { n: number; msg: string }>();
+    for (const f of this.lista) {
+      const atual = porEtapa.get(f.etapa);
+      porEtapa.set(f.etapa, { n: (atual?.n ?? 0) + 1, msg: atual?.msg ?? f.msg });
+    }
+    return (
+      "Falhas: " +
+      [...porEtapa.entries()].map(([etapa, { n, msg }]) => `${etapa} (${n}x, ex.: ${msg})`).join("; ") +
+      ". Use Config. → Diagnóstico da API para ver detalhes."
+    );
+  }
+}
+
+interface MlProductItems {
+  results?: {
+    item_id: string;
+    category_id?: string;
+    price: number;
+    original_price?: number | null;
+    currency_id?: string;
+    shipping?: { free_shipping?: boolean };
+    official_store_id?: number | null;
+  }[];
+}
+interface MlUserProduct {
+  id: string;
+  name?: string;
+  user_id?: number;
+  seller_id?: number;
+}
 
 let cacheCategorias: { lista: CategoriaML[]; ate: number } | null = null;
 
@@ -160,6 +210,57 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
     return null;
   }
 
+  // ---------- Diagnóstico: testa cada recurso da API com a sua conta ----------
+
+  async diagnostico(): Promise<PassoDiagnostico[]> {
+    const passos: PassoDiagnostico[] = [];
+    const testar = async <T,>(nome: string, path: string, resumir: (j: T) => string): Promise<T | null> => {
+      try {
+        const j = await this.get<T>(path);
+        passos.push({ nome, caminho: path.split("?")[0], status: 200, detalhe: resumir(j) });
+        return j;
+      } catch (e) {
+        const status = e instanceof MlHttpError ? e.status : 0;
+        const msg = e instanceof Error ? e.message.split(" — O ML")[0] : String(e);
+        passos.push({ nome, caminho: path.split("?")[0], status, detalhe: msg.slice(0, 200) });
+        return null;
+      }
+    };
+
+    await testar<{ nickname?: string }>("Sua conta", "/users/me", (j) => `conta ${j.nickname ?? "?"}`);
+    await testar<MlSiteSearch>("Busca pública", `/sites/${ML_SITE}/search?q=air%20fryer&limit=3`, (j) => `${j.results?.length ?? 0} resultado(s)`);
+    const busca = await testar<MlProductSearch>("Busca no catálogo", `/products/search?status=active&site_id=${ML_SITE}&q=air%20fryer&limit=5`, (j) => `${j.results?.length ?? 0} produto(s)`);
+    const pid = busca?.results?.[0]?.id;
+    let itemId: string | undefined;
+    if (pid) {
+      const p = await testar<MlProduct>("Detalhe do produto", `/products/${pid}`, (j) => (j.buy_box_winner ? `preço R$ ${j.buy_box_winner.price} (item ${j.buy_box_winner.item_id})` : "sem buy box (buy_box_winner vazio)"));
+      itemId = p?.buy_box_winner?.item_id;
+      const its = await testar<MlProductItems>("Vendedores do produto", `/products/${pid}/items?limit=3`, (j) => `${j.results?.length ?? 0} anúncio(s)` + (j.results?.[0] ? `, 1º a R$ ${j.results[0].price}` : ""));
+      itemId = itemId ?? its?.results?.[0]?.item_id;
+    }
+    const h = await testar<MlHighlights>("Mais vendidos", `/highlights/${ML_SITE}/category/MLB5672`, (j) => {
+      const c = j.content ?? [];
+      const n = (t: string) => c.filter((x) => x.type === t).length;
+      return `${c.length} (produto ${n("PRODUCT")}, anúncio ${n("ITEM")}, MLBU ${n("USER_PRODUCT")})`;
+    });
+    const up = h?.content?.find((c) => c.type === "USER_PRODUCT")?.id;
+    itemId = itemId ?? h?.content?.find((c) => c.type === "ITEM")?.id;
+    if (up) {
+      const u = await testar<MlUserProduct>("Produto de vendedor (MLBU)", `/user-products/${up}`, (j) => `vendedor ${j.user_id ?? j.seller_id ?? "?"}`);
+      const vend = u?.user_id ?? u?.seller_id;
+      if (vend) {
+        const r = await testar<{ results?: string[] }>("Anúncios do MLBU", `/users/${vend}/items/search?user_product_id=${up}`, (j) => `${j.results?.length ?? 0} anúncio(s)`);
+        itemId = itemId ?? r?.results?.[0];
+      }
+    }
+    if (itemId) {
+      await testar<MlBulk>("Anúncios em lote", `/items/bulk?ids=${itemId}`, (j) => `código ${j[0]?.status_code ?? j[0]?.code ?? "?"}`);
+      await testar<MlItem>("Anúncio", `/items/${itemId}`, (j) => `R$ ${j.price}, vendidos ${j.sold_quantity ?? "?"}`);
+      await testar<MlReviews>("Avaliações", `/reviews/item/${itemId}`, (j) => `nota ${j.rating_average ?? "?"} (${j.paging?.total ?? 0})`);
+    }
+    return passos;
+  }
+
   // ---------- Categorias (específico do ML) ----------
 
   // Categorias são públicas na API (não precisam de login)
@@ -206,16 +307,14 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
   private async buscarNoCatalogo(q: string, limite: number, avisos: string[]): Promise<OfertaNormalizada[]> {
     const params = new URLSearchParams({ status: "active", site_id: ML_SITE, q, limit: String(limite) });
     const r = await this.get<MlProductSearch>(`/products/search?${params}`);
-    const produtos = await mapLimit(r.results, CONCORRENCIA, async ({ id }) => {
-      try {
-        return mapProduto(await this.get<MlProduct>(`/products/${id}`));
-      } catch {
-        return null;
-      }
-    });
+    if (!r.results?.length) avisos.push("O catálogo do ML não trouxe nenhum produto para essa palavra-chave. Tente um termo mais genérico (ex.: \"fritadeira\").");
+    const falhas = new Falhas();
+    const produtos = await mapLimit(r.results ?? [], CONCORRENCIA, async ({ id }) => this.produtoDeCatalogo(id, falhas));
     const validos = produtos.filter((p): p is OfertaNormalizada => p !== null);
-    const semVenda = r.results.length - validos.length;
+    const semVenda = (r.results?.length ?? 0) - validos.length - falhas.total;
     if (semVenda > 0) avisos.push(`${semVenda} produto(s) do catálogo sem vendedor ativo foram ignorados.`);
+    const resumo = falhas.resumo();
+    if (resumo) avisos.push(resumo);
     return validos;
   }
 
@@ -238,28 +337,77 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
       }
       throw e;
     }
-    const produtos = h.content.filter((c) => c.type === "PRODUCT");
-    const itens = h.content.filter((c) => c.type === "ITEM");
-    const outros = h.content.length - produtos.length - itens.length;
-    if (outros > 0) avisos.push(`${outros} item(ns) do tipo "produto de vendedor" (MLBU) não são suportados pela API pública e foram ignorados.`);
+    const content = h.content ?? [];
+    if (!content.length) avisos.push("O ML não retornou ranking para essa categoria.");
+    const falhas = new Falhas();
+    const produtos = content.filter((c) => c.type === "PRODUCT");
+    const userProducts = content.filter((c) => c.type === "USER_PRODUCT");
+    const itens = content.filter((c) => c.type === "ITEM");
 
     const deProdutos = await mapLimit(produtos, CONCORRENCIA, async (c) => {
-      try {
-        const o = mapProduto(await this.get<MlProduct>(`/products/${c.id}`));
-        return o ? { ...o, posicaoMaisVendidos: c.position } : null;
-      } catch {
-        return null;
-      }
+      const o = await this.produtoDeCatalogo(c.id, falhas);
+      return o ? { ...o, posicaoMaisVendidos: c.position } : null;
     });
-    const bulk = await this.itensEmLote(itens.map((c) => c.id));
-    const deItens = itens
-      .map((c) => (bulk[c.id] ? { ...mapItem(bulk[c.id]), posicaoMaisVendidos: c.position } : null))
-      .filter((x) => x !== null);
+
+    // User Products (MLBU): descobre o anúncio (item) de cada um
+    const itemDeUp = await mapLimit(userProducts, CONCORRENCIA, async (c) => {
+      const itemId = await this.itemDeUserProduct(c.id, falhas);
+      return itemId ? { itemId, position: c.position } : null;
+    });
+    const todosItens = [
+      ...itens.map((c) => ({ itemId: c.id, position: c.position })),
+      ...itemDeUp.filter((x): x is { itemId: string; position: number } => x !== null),
+    ];
+    const bulk = await this.itensEmLote(
+      todosItens.map((x) => x.itemId),
+      falhas,
+    );
+    const deItens = todosItens.map((x) => (bulk[x.itemId] ? { ...mapItem(bulk[x.itemId]), posicaoMaisVendidos: x.position } : null)).filter((x) => x !== null);
+
+    const resumo = falhas.resumo();
+    if (resumo) avisos.push(resumo);
     return [...deProdutos.filter((x) => x !== null), ...deItens] as OfertaNormalizada[];
   }
 
+  /** Produto de catálogo → oferta. Usa o "buy box"; se vier vazio, pega o 1º vendedor em /products/{id}/items. */
+  private async produtoDeCatalogo(id: string, falhas: Falhas): Promise<OfertaNormalizada | null> {
+    let p: MlProduct;
+    try {
+      p = await this.get<MlProduct>(`/products/${id}`);
+    } catch (e) {
+      falhas.add("detalhe do produto (/products)", e);
+      return null;
+    }
+    const direto = mapProduto(p);
+    if (direto) return direto;
+    try {
+      const r = await this.get<MlProductItems>(`/products/${id}/items?limit=1`);
+      const it = r.results?.[0];
+      if (!it) return null;
+      return mapProduto({ ...p, buy_box_winner: { ...it, item_id: it.item_id } });
+    } catch (e) {
+      if (e instanceof MlHttpError && e.status === 404) return null;
+      falhas.add("vendedores do produto (/products/items)", e);
+      return null;
+    }
+  }
+
+  /** User Product (MLBU) → id do anúncio que vende esse produto. */
+  private async itemDeUserProduct(id: string, falhas: Falhas): Promise<string | null> {
+    try {
+      const up = await this.get<MlUserProduct>(`/user-products/${id}`);
+      const vendedor = up.user_id ?? up.seller_id;
+      if (!vendedor) return null;
+      const r = await this.get<{ results?: string[] }>(`/users/${vendedor}/items/search?user_product_id=${id}`);
+      return r.results?.[0] ?? null;
+    } catch (e) {
+      falhas.add("produto de vendedor (MLBU)", e);
+      return null;
+    }
+  }
+
   /** Busca vários anúncios de uma vez (máx. 20 por chamada). */
-  private async itensEmLote(ids: string[]): Promise<Record<string, MlItem>> {
+  private async itensEmLote(ids: string[], falhas?: Falhas): Promise<Record<string, MlItem>> {
     const mapa: Record<string, MlItem> = {};
     const unicos = [...new Set(ids)];
     for (let i = 0; i < unicos.length; i += 20) {
@@ -269,12 +417,18 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
         r = await this.get<MlBulk>(`/items/bulk?ids=${lote}`);
       } catch (e) {
         // Endpoint antigo (/items?ids=) funciona até 25/10/2026
-        if (e instanceof MlHttpError && e.status === 404) r = await this.get<MlBulk>(`/items?ids=${lote}`);
-        else continue;
+        try {
+          if (e instanceof MlHttpError && e.status === 404) r = await this.get<MlBulk>(`/items?ids=${lote}`);
+          else throw e;
+        } catch (e2) {
+          falhas?.add("anúncios (/items)", e2);
+          continue;
+        }
       }
       for (const el of r) {
-        const ok = (el.status_code ?? el.code) === 200;
-        if (ok && el.body) mapa[el.body.id] = el.body;
+        const cod = el.status_code ?? el.code;
+        if (cod === 200 && el.body) mapa[el.body.id] = el.body;
+        else falhas?.add("anúncios (/items)", new Error(`${cod ?? "?"} no item ${el.id ?? ""}`));
       }
     }
     return mapa;

@@ -2,7 +2,8 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { exigirLogin, mensagemErro } from "@/lib/auth";
-import { lerCodigoAfiliadoML, salvarCodigoAfiliadoML } from "@/lib/configuracoes";
+import { lerCodigoAfiliadoML, salvarCodigoAfiliadoML, salvarConfig } from "@/lib/configuracoes";
+import { mercadoLivre } from "@/marketplaces/registry";
 import { detectarCodigosAfiliado } from "@/marketplaces/mercadolivre/links";
 import { desconectar, trocarCodigoPorToken } from "@/marketplaces/mercadolivre/oauth";
 import { aplicarLinksAutomaticosEmTodas, removerLinksAutomaticos } from "@/services/ofertas";
@@ -82,4 +83,19 @@ export async function desligarLinkAutomatico() {
   revalidatePath("/configuracoes");
   revalidatePath("/ofertas");
   redirect("/configuracoes?msg=" + encodeURIComponent("Link automático desligado. Os links que você colou manualmente continuam salvos."));
+}
+
+// ---------- Diagnóstico da API do ML ----------
+
+export async function rodarDiagnostico() {
+  await exigirLogin();
+  let destino = "/configuracoes?msg=" + encodeURIComponent("Diagnóstico concluído — veja a tabela abaixo.") + "#diagnostico";
+  try {
+    const passos = await mercadoLivre.diagnostico();
+    await salvarConfig("ml_diagnostico", JSON.stringify({ em: new Date().toISOString(), passos }));
+  } catch (e) {
+    destino = "/configuracoes?erro=" + encodeURIComponent(mensagemErro(e));
+  }
+  revalidatePath("/configuracoes");
+  redirect(destino);
 }
