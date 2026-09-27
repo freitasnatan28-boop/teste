@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oficina de Papelão – 120 brinquedos para fazer em casa com as crianças</title>
+<meta name="description" content="120 projetos passo a passo para transformar caixas, rolos e tampinhas em brinquedos junto com as crianças. Guia em PDF, acesso imediato por R$ {{PRECO}}.">
+<meta name="theme-color" content="#C89B6D">
+{{CANONICAL}}
+<!-- Open Graph: prévia do link no WhatsApp, Facebook e Instagram -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Oficina de Papelão – 120 brinquedos para fazer com as crianças">
+<meta property="og:description" content="Caixas, rolos e tampinhas viram brinquedos com passo a passo simples. Guia em PDF por R$ {{PRECO}}.">
+<meta property="og:image" content="{{OG_IMAGE}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Capa do guia Oficina de Papelão com 120 projetos">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+{{PIXEL}}
+<style>
+/* Fontes: Poppins servida pelo próprio site (subconjunto latino), sem Google Fonts */
+@font-face{font-family:Poppins;font-weight:400;font-style:normal;font-display:swap;src:url(fonts/poppins-400.woff2) format("woff2")}
+@font-face{font-family:Poppins;font-weight:500;font-style:normal;font-display:swap;src:url(fonts/poppins-500.woff2) format("woff2")}
+@font-face{font-family:Poppins;font-weight:700;font-style:normal;font-display:swap;src:url(fonts/poppins-700.woff2) format("woff2")}
+/* Paleta igual à do PDF. --green e --red foram escurecidos para contraste AA com texto branco */
+:root{--ink:#2B2A33;--muted:#6B6875;--cream:#FFF8EE;--kraft:#C89B6D;--kraft-d:#8A6440;--red:#C92A2A;--yellow:#FAB005;--green:#237A35;--green-d:#185C26;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+h1,h2,h3{line-height:1.15;letter-spacing:-.01em;font-weight:700}
+h2{font-size:clamp(26px,5vw,36px);text-align:center;margin-bottom:14px}
+.lead{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 34px;font-size:17px}
+.btn{display:block;width:100%;max-width:460px;min-height:56px;margin:0 auto;text-align:center;background:var(--green);color:#fff;text-decoration:none;font-weight:700;font-size:19px;padding:18px 22px;border-radius:14px;box-shadow:0 6px 0 var(--green-d),0 12px 24px rgba(35,122,53,.25);transition:transform .1s}
+.btn:active{transform:translateY(3px);box-shadow:0 3px 0 var(--green-d)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.btn small{display:block;font-weight:500;font-size:13px;margin-top:2px}
+.safe{text-align:center;font-size:13px;color:var(--muted);margin-top:14px}
+/* barra do topo */
+.top{background:var(--red);color:#fff;text-align:center;font-size:14px;font-weight:700;padding:9px 12px}
+/* hero */
+.hero{padding:34px 0 40px;text-align:center;background:linear-gradient(180deg,#FFF3E0 0%,var(--cream) 100%)}
+.tag{display:inline-block;background:#fff;border:1.5px solid var(--kraft-d);color:var(--kraft-d);font-weight:500;font-size:13px;padding:6px 14px;border-radius:99px;margin-bottom:16px}
+.hero h1{font-size:clamp(28px,6.4vw,50px);max-width:780px;margin:0 auto 14px}
+.hero h1 span{color:var(--kraft-d)}
+.hero p.sub{font-size:clamp(16px,2.6vw,19px);color:var(--muted);max-width:620px;margin:0 auto 22px}
+.hero img.mock{max-width:560px;width:100%;margin:22px auto 0}
+/* cenas */
+.pain{background:#fff}
+.pain-grid{display:grid;grid-template-columns:1fr;gap:12px;max-width:680px;margin:0 auto}
+.pain-item{background:var(--cream);border-radius:14px;padding:16px 18px;font-size:16px}
+.pain-item b{color:var(--red)}
+.turn{max-width:680px;margin:26px auto 0;text-align:center;font-size:18px;font-weight:700}
+/* categorias */
+.cats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.cat{background:#fff;border-radius:16px;padding:16px 14px;display:flex;align-items:center;gap:12px;border-left:6px solid var(--c)}
+.cat .ic{flex:0 0 42px;height:42px;border-radius:50%;background:var(--t);display:grid;place-items:center;font-weight:700;color:var(--ink);font-size:15px}
+.cat b{display:block;font-size:15px}
+.cat small{color:var(--muted);font-size:13px;line-height:1.35;display:block}
+/* por dentro */
+.inside{background:#fff}
+.pages{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+.pages img{border-radius:10px;box-shadow:0 8px 24px rgba(60,40,20,.14)}
+.feat{display:grid;grid-template-columns:1fr;gap:10px;max-width:680px;margin:30px auto 0}
+.feat div{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border-radius:12px;padding:13px 16px}
+.feat i{font-style:normal;flex:0 0 26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px;margin-top:1px}
+/* galeria de fotos reais (aparece quando houver fotos em imagens/) */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal figure{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(60,40,20,.1)}
+.gal img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.gal figcaption{font-size:13px;padding:8px 10px;line-height:1.3}
+.gal figcaption b{display:block;font-size:11px;letter-spacing:.04em;color:var(--muted);font-weight:500;text-transform:uppercase}
+/* passos */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step{background:#fff;border-radius:16px;padding:22px 18px;text-align:center}
+.step .n{width:44px;height:44px;border-radius:50%;background:var(--yellow);font-weight:700;font-size:20px;display:grid;place-items:center;margin:0 auto 10px}
+.step b{display:block;margin-bottom:4px}
+.step p{font-size:14px;color:var(--muted)}
+/* benefícios */
+.benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.benefit{background:#fff;border-radius:16px;padding:18px}
+.benefit b{display:block;margin-bottom:4px;color:var(--kraft-d)}
+.benefit p{font-size:14.5px;color:var(--muted)}
+/* bônus */
+.bonus{background:#fff}
+.bonus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:760px;margin:0 auto}
+.bcard{background:var(--cream);border-radius:18px;padding:16px;text-align:center}
+.bcard img{border-radius:8px;margin:0 auto 12px;width:auto;max-height:300px;box-shadow:0 6px 18px rgba(60,40,20,.12)}
+.bcard .lbl{display:inline-block;background:var(--red);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;margin-bottom:6px}
+.bcard p{font-size:14px;color:var(--muted)}
+/* oferta */
+.offer{background:linear-gradient(180deg,var(--cream),#FFE8CC)}
+.box{max-width:520px;margin:0 auto;background:#fff;border-radius:22px;padding:28px 22px;box-shadow:0 14px 40px rgba(60,40,20,.14);border:3px solid var(--yellow);text-align:center}
+.box h2{font-size:22px;margin-bottom:14px}
+.box ul{list-style:none;text-align:left;margin:0 auto 18px;max-width:380px}
+.box li{padding:7px 0 7px 26px;border-bottom:1px dashed #eadfce;font-size:15px;position:relative}
+.box li::before{content:"";position:absolute;left:4px;top:13px;width:6px;height:11px;border:solid var(--green);border-width:0 3px 3px 0;transform:rotate(45deg)}
+.price{font-size:64px;font-weight:700;line-height:1;margin:6px 0 2px}
+.price small{font-size:24px;vertical-align:top;margin-right:4px}
+.price-note{color:var(--muted);font-size:14px;margin-bottom:18px}
+.per{background:#FFF3BF;border-radius:12px;padding:10px 12px;font-size:14px;margin:0 auto 18px;max-width:380px}
+/* garantia */
+.guar{display:flex;gap:18px;align-items:center;max-width:680px;margin:0 auto;background:#fff;border-radius:18px;padding:22px}
+.seal{flex:0 0 112px;width:112px;height:112px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;text-align:center;font-weight:700;line-height:1.1;font-size:12.5px;letter-spacing:.02em}
+.seal b{font-size:34px;display:block;line-height:1}
+/* perguntas */
+details{background:#fff;border-radius:14px;margin:0 auto 10px;max-width:720px}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px;padding:16px 18px;min-height:48px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:700;color:var(--kraft-d)}
+details[open] summary::after{content:"–"}
+details p{padding:0 18px 16px;color:var(--muted);font-size:15px}
+/* rodapé */
+footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 100px;line-height:1.7}
+footer a{color:var(--ink);display:inline-block;padding:12px 8px;min-height:44px}
+/* botão fixo no celular */
+.sticky{position:fixed;left:0;right:0;bottom:0;background:#fff;padding:10px 14px;box-shadow:0 -4px 20px rgba(0,0,0,.1);display:none;z-index:9;transform:translateY(120%);transition:transform .25s}
+.sticky.show{transform:none}
+.sticky .btn{font-size:16px;padding:14px 10px;min-height:48px}
+.pulse{animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none}html{scroll-behavior:auto}}
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-top:14px;font-size:13.5px;color:var(--muted);font-weight:500}
+/* antes e depois */
+.hook{background:#fff}
+.ba{display:grid;grid-template-columns:1fr 36px 1fr;align-items:center;gap:8px;max-width:680px;margin:0 auto 12px}
+.ba-card{background:var(--cream);border-radius:14px;padding:14px 16px;min-height:92px}
+.ba-card b{display:block;font-size:15.5px;line-height:1.3}
+.ba-card small{color:var(--muted);font-size:13px}
+.ba-after{background:#EBFBEE;border:2px solid var(--green)}
+.ba-l{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+.ba-after .ba-l{color:var(--green)}
+.ba-arrow{text-align:center;font-size:24px;color:var(--kraft-d);font-weight:700}
+@media(max-width:720px){
+ .pages{grid-template-columns:1fr 1fr}.pages img:nth-child(3){display:none}
+ .steps,.benefits,.bonus-grid{grid-template-columns:1fr}
+ .cats{grid-template-columns:1fr}
+ .gal{grid-template-columns:1fr 1fr}
+ .guar{flex-direction:column;text-align:center}
+ .sticky{display:block}
+}
+@media(max-width:380px){.ba{grid-template-columns:1fr 24px 1fr;gap:4px}.ba-card{padding:12px 10px}.ba-card b{font-size:14px}}
+</style>
+</head>
+<body>
+
+<div class="top">Antes de jogar aquela caixa fora, leia isto</div>
+
+<header class="hero">
+ <div class="wrap">
+  <span class="tag">120 projetos · crianças de 3 a 10 anos</span>
+  <h1>Aquela caixa de papelão pode virar <span>a tarde mais divertida da semana</span> das crianças</h1>
+  <p class="sub">120 brinquedos passo a passo para fazer <b>junto com elas</b>, usando caixa de sapato, rolo de papel e tampinhas que iriam para o lixo. Não precisa ter jeito para artesanato.</p>
+  <a class="btn pulse js-checkout" href="{{CHECKOUT}}">QUERO OS 120 PROJETOS<small>Por R$ {{PRECO}} · acesso imediato no e-mail</small></a>
+  <div class="trust"><span>🔒 Compra segura</span><span>⚡ Receba na hora</span><span>🛡️ 7 dias de garantia</span></div>
+  {{IMG_HERO}}
+ </div>
+</header>
+
+<main>
+<section class="hook">
+ <div class="wrap">
+  <h2>Uma caixa de sapato. 30 minutos. Isto aqui:</h2>
+  <div class="ba">
+   <div class="ba-card"><span class="ba-l">ANTES</span><b>Caixa de sapato + 4 tampas de pote</b><small>ia para o lixo</small></div>
+   <div class="ba-arrow" aria-hidden="true">➜</div>
+   <div class="ba-card ba-after"><span class="ba-l">DEPOIS</span><b>Carro de Corrida Turbo</b><small>com volante, rodas e número de piloto</small></div>
+  </div>
+  <div class="ba">
+   <div class="ba-card"><span class="ba-l">ANTES</span><b>Rolo de papel toalha</b><small>ia para o lixo</small></div>
+   <div class="ba-arrow" aria-hidden="true">➜</div>
+   <div class="ba-card ba-after"><span class="ba-l">DEPOIS</span><b>Foguete Rumo à Lua</b><small>com contagem regressiva e tudo</small></div>
+  </div>
+  <div class="ba">
+   <div class="ba-card"><span class="ba-l">ANTES</span><b>Caixa de papelão média</b><small>ia para o lixo</small></div>
+   <div class="ba-arrow" aria-hidden="true">➜</div>
+   <div class="ba-card ba-after"><span class="ba-l">DEPOIS</span><b>Fogãozinho de 4 bocas</b><small>com forno que abre e botões que giram</small></div>
+  </div>
+  <p class="turn">E isso são só 3. Tem mais 117 esperando por vocês.</p>
+ </div>
+</section>
+
+<section class="pain">
+ <div class="wrap">
+  <h2>Toda casa com criança conhece estas cenas</h2>
+  <p class="lead">A Oficina de Papelão nasceu para elas.</p>
+  <div class="pain-grid">
+   <div class="pain-item"><b>“Tô entediado!”</b> no meio da tarde, e as ideias de brincadeira já acabaram.</div>
+   <div class="pain-item">O <b>celular e a TV</b> viram a opção mais fácil, mas dá vontade de oferecer outra coisa.</div>
+   <div class="pain-item">Brinquedo novo é <b>caro</b> e, depois de 2 dias, fica esquecido no canto.</div>
+   <div class="pain-item">Dá vontade de brincar junto, mas <b>falta ideia</b>, e procurar na internet toda vez cansa.</div>
+  </div>
+  <p class="turn">…e a solução pode estar na próxima caixa que chegar aí.</p>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <h2>120 projetos em 12 categorias</h2>
+  <p class="lead">Tem projeto para todos os gostos: quem ama carrinho, quem ama bicho, quem ama brincar de casinha e quem ama inventar.</p>
+  <div class="cats">
+   <div class="cat" style="--c:#E03131;--t:#FFE3E3"><span class="ic">10</span><div><b>Veículos</b><small>Carro de corrida, caminhão de bombeiros, trem, escavadeira…</small></div></div>
+   <div class="cat" style="--c:#3B5BDB;--t:#E3E9FF"><span class="ic">10</span><div><b>Céu e Espaço</b><small>Foguete, capacete de astronauta, avião, sistema solar…</small></div></div>
+   <div class="cat" style="--c:#0C8599;--t:#DDF6F9"><span class="ic">10</span><div><b>Fundo do Mar</b><small>Barquinho que flutua, navio pirata, polvo, aquário…</small></div></div>
+   <div class="cat" style="--c:#E67700;--t:#FFF0D6"><span class="ic">10</span><div><b>Casas e Cidade</b><small>Prédio, mercadinho, garagem com rampa, semáforo…</small></div></div>
+   <div class="cat" style="--c:#9C36B5;--t:#F6E5FB"><span class="ic">10</span><div><b>Castelos e Fantasia</b><small>Castelo, espada e escudo, coroa, baú do tesouro…</small></div></div>
+   <div class="cat" style="--c:#5C940D;--t:#EAF6D8"><span class="ic">10</span><div><b>Animais da Fazenda</b><small>Vaquinha, cavalinho de pau, celeiro, porquinho cofrinho…</small></div></div>
+   <div class="cat" style="--c:#D9480F;--t:#FFE8D9"><span class="ic">10</span><div><b>Animais Selvagens</b><small>Leão, girafa, jacaré que abre a boca, pinguim…</small></div></div>
+   <div class="cat" style="--c:#2B8A3E;--t:#DDF3E2"><span class="ic">10</span><div><b>Dinossauros</b><small>Tiranossauro, fóssil para escavar, vulcão em erupção…</small></div></div>
+   <div class="cat" style="--c:#495057;--t:#E9ECEF"><span class="ic">10</span><div><b>Robôs e Invenções</b><small>Robô de caixas, braço robótico, câmera, walkie-talkie…</small></div></div>
+   <div class="cat" style="--c:#D6336C;--t:#FFE3EE"><span class="ic">10</span><div><b>Casinha de Brincar</b><small>Fogãozinho, geladeira, caixa registradora, pia…</small></div></div>
+   <div class="cat" style="--c:#1971C2;--t:#DCEEFF"><span class="ic">10</span><div><b>Jogos e Brincadeiras</b><small>Labirinto, pinball, boliche, pescaria, cofre com senha…</small></div></div>
+   <div class="cat" style="--c:#F08C00;--t:#FFF1CC"><span class="ic">10</span><div><b>Música e Arte</b><small>Violão, bateria, teatro de fantoches, caleidoscópio…</small></div></div>
+  </div>
+  <div style="margin-top:30px"><a class="btn js-checkout" href="{{CHECKOUT}}">QUERO ACESSAR OS 120 PROJETOS<small>R$ {{PRECO}} · pagamento único</small></a></div>
+ </div>
+</section>
+
+<section class="inside">
+ <div class="wrap">
+  <h2>Veja como é por dentro</h2>
+  <p class="lead">Cada projeto tem uma página completa, fácil de seguir mesmo sem jeito para artesanato.</p>
+  <div class="pages">
+   {{IMG_P1}}
+   {{IMG_P2}}
+   {{IMG_P3}}
+  </div>
+  <div class="feat">
+   <div><i aria-hidden="true">✓</i><span><b>Idade, tempo e nível</b>: você escolhe o projeto certo para a criança e para o tempo que tem.</span></div>
+   <div><i aria-hidden="true">✓</i><span><b>Lista de materiais</b>: coisas de casa, como caixa, rolo, tampinha, cola e tinta guache.</span></div>
+   <div><i aria-hidden="true">✓</i><span><b>Peças com medidas</b>: sem molde complicado, você marca com uma tampa, um copo ou uma régua.</span></div>
+   <div><i aria-hidden="true">✓</i><span><b>Passo a passo numerado</b>, com as etapas de corte marcadas para o adulto fazer com segurança.</span></div>
+   <div><i aria-hidden="true">✓</i><span><b>Hora de brincar</b>: uma ideia de brincadeira para cada brinquedo depois de pronto.</span></div>
+  </div>
+ </div>
+</section>
+
+{{GALERIA}}
+
+<section>
+ <div class="wrap">
+  <h2>Como funciona</h2>
+  <p class="lead">Do pagamento à primeira brincadeira em poucos minutos.</p>
+  <div class="steps">
+   <div class="step"><div class="n">1</div><b>Garanta seu acesso</b><p>Pagamento seguro por Pix ou cartão.</p></div>
+   <div class="step"><div class="n">2</div><b>Receba no e-mail</b><p>O guia em PDF chega na hora. Abra no celular ou imprima.</p></div>
+   <div class="step"><div class="n">3</div><b>Escolha e crie</b><p>Separe as caixas, escolha um projeto com a criança e divirtam-se.</p></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <h2>Muito mais que um brinquedo</h2>
+  <p class="lead">Enquanto constrói, a criança exercita habilidades importantes, e vocês criam memórias juntos.</p>
+  <div class="benefits">
+   <div class="benefit"><b>Criatividade e imaginação</b><p>Cada caixa vira um mundo novo: nave, castelo, mercadinho…</p></div>
+   <div class="benefit"><b>Coordenação motora</b><p>Recortar, colar e pintar exercitam as mãos e a atenção aos detalhes.</p></div>
+   <div class="benefit"><b>Menos tempo de tela</b><p>Uma tarde de mãos na massa, longe do celular e da TV.</p></div>
+   <div class="benefit"><b>Tempo de qualidade</b><p>Projetos pensados para pais, mães, avós e crianças fazerem juntos.</p></div>
+   <div class="benefit"><b>Consciência ambiental</b><p>A criança aprende na prática que dá para reaproveitar.</p></div>
+   <div class="benefit"><b>Economia</b><p>Brinquedos novos feitos com o que iria para o lixo.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="bonus">
+ <div class="wrap">
+  <h2>E você ainda leva 2 bônus</h2>
+  <p class="lead">Já vêm dentro do guia, sem pagar nada a mais.</p>
+  <div class="bonus-grid">
+   <div class="bcard">{{IMG_B1}}<span class="lbl">BÔNUS 1</span><h3>Checklist dos 120 projetos</h3><p>A criança pinta cada projeto concluído e se anima para fazer o próximo.</p></div>
+   <div class="bcard">{{IMG_B2}}<span class="lbl">BÔNUS 2</span><h3>Certificado de Pequeno Construtor</h3><p>Para imprimir e entregar numa cerimônia especial, comemorando cada conquista.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- ESPAÇO PARA DEPOIMENTOS REAIS
+     Quando tiver prints de clientes de verdade (com autorização), adicione aqui, por exemplo:
+     <section><div class="wrap"><h2>Quem já fez</h2> ...prints... </div></section>
+     Não use depoimentos inventados nem números de clientes que não existem. -->
+
+<section class="offer" id="oferta">
+ <div class="wrap">
+  <div class="box">
+   <h2>Oficina de Papelão completa</h2>
+   <ul>
+    <li>Guia com 120 projetos passo a passo</li>
+    <li>12 categorias para crianças de 3 a 10 anos</li>
+    <li>Lista de materiais e medidas de cada peça</li>
+    <li>Ideia de brincadeira para cada projeto</li>
+    <li>Bônus: Checklist dos 120 projetos</li>
+    <li>Bônus: Certificado de Pequeno Construtor</li>
+   </ul>
+   <div class="price"><small>R$</small>{{PRECO}}</div>
+   <div class="price-note">pagamento único · acesso imediato</div>
+   <div class="per">Dá menos de <b>9 centavos por projeto</b>.<br>Menos que um picolé por 120 tardes diferentes.</div>
+   <a class="btn pulse js-checkout" href="{{CHECKOUT}}">SIM, QUERO A OFICINA<small>Receba no e-mail em minutos</small></a>
+   <p class="safe">Pix ou cartão · Compra segura · 7 dias de garantia</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <div class="guar">
+   <div class="seal"><span><b>7</b>DIAS DE<br>GARANTIA</span></div>
+   <div><h2 style="font-size:22px;text-align:inherit;margin-bottom:6px">Risco zero para você</h2><p style="color:var(--muted)">Baixe o guia, faça os projetos com as crianças e, se não gostar, peça o reembolso em até 7 dias. Você recebe 100% do valor de volta, sem perguntas.</p></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <h2>Perguntas frequentes</h2>
+  <p class="lead">Ficou alguma dúvida? A gente responde.</p>
+  <details><summary>Como vou receber o material?</summary><p>Assim que o pagamento é aprovado, você recebe no seu e-mail o acesso ao guia em PDF. No Pix, é na hora.</p></details>
+  <details><summary>É um produto físico?</summary><p>Não. É um guia digital em PDF. Você pode ver no celular, no tablet ou no computador, ou imprimir as páginas que quiser.</p></details>
+  <details><summary>Para qual idade é indicado?</summary><p>Para crianças de 3 a 10 anos. Cada projeto mostra a idade indicada e o nível de dificuldade, do fácil ao desafio.</p></details>
+  <details><summary>Preciso comprar materiais caros?</summary><p>Não. Os projetos usam principalmente sucata de casa (caixas, rolos de papel, tampinhas e garrafas), mais cola, tesoura sem ponta e tinta guache.</p></details>
+  <details><summary>É seguro para a criança?</summary><p>Todos os passos com estilete, furos ou cola quente estão marcados para o adulto fazer. A criança participa pintando, colando e decorando, sempre com um adulto por perto.</p></details>
+  <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. Se não gostar, devolvemos 100% do valor pago.</p></details>
+ </div>
+</section>
+
+<section style="padding-top:10px">
+ <div class="wrap" style="text-align:center">
+  <h2>Daqui a 10 minutos, vocês podem estar montando o primeiro brinquedo</h2>
+  <p class="lead">Ou a caixa vai para o lixo, ou vira o brinquedo favorito da criança. Você escolhe.</p>
+  <a class="btn pulse js-checkout" href="{{CHECKOUT}}">QUERO COMEÇAR HOJE<small>R$ {{PRECO}} · acesso imediato · 7 dias de garantia</small></a>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ {{RODAPE}}
+</footer>
+
+<div class="sticky" id="sticky"><a class="btn js-checkout" href="{{CHECKOUT}}">QUERO OS 120 PROJETOS · R$ {{PRECO}}</a></div>
+
+<script>
+/* Botão fixo no celular: aparece quando o topo da página sai da tela */
+(function(){var s=document.getElementById('sticky'),h=document.querySelector('.hero');
+if(!s||!h||!('IntersectionObserver' in window)){if(s)s.classList.add('show');return;}
+new IntersectionObserver(function(e){s.classList.toggle('show',!e[0].isIntersecting)}).observe(h);})();
+
+/* Checkout, parâmetros de campanha e eventos do Pixel */
+(function(){
+ var PARAMS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'];
+ var DADOS={content_name:'Oficina de Papelão – 120 projetos',content_type:'product',value:{{PRECO_NUM}},currency:'BRL'};
+ var q=new URLSearchParams(location.search);
+ var links=document.querySelectorAll('a.js-checkout');
+ function externo(a){return /^https?:\/\//i.test(a.getAttribute('href')||'');}
+ /* registra o evento no Pixel (se estiver instalado) e numa lista para testes */
+ function evento(nome){
+  (window.__eventos=window.__eventos||[]).push(nome);
+  try{if(typeof fbq==='function')fbq('track',nome,DADOS);}catch(e){}
+ }
+ /* 1) repassa utm_* e fbclid da URL da página para o link do checkout */
+ for(var i=0;i<links.length;i++){
+  var a=links[i]; if(!externo(a))continue;
+  try{var u=new URL(a.getAttribute('href'));
+   PARAMS.forEach(function(k){var v=q.get(k);if(v&&!u.searchParams.has(k))u.searchParams.set(k,v);});
+   a.setAttribute('href',u.toString());}catch(e){}
+ }
+ /* 2) InitiateCheckout no clique, antes de redirecionar */
+ document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a.js-checkout'); if(!a)return;
+  evento('InitiateCheckout');
+  if(!externo(a)||typeof fbq!=='function')return;              /* sem pixel: segue normal */
+  if(e.defaultPrevented||e.button!==0||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
+  e.preventDefault(); var destino=a.href;
+  setTimeout(function(){location.href=destino;},300);          /* tempo para o pixel enviar */
+ });
+ /* 3) ViewContent uma única vez, quando a oferta aparece na tela */
+ var oferta=document.getElementById('oferta');
+ if(oferta&&'IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(en){
+   for(var k=0;k<en.length;k++){if(en[k].isIntersecting){evento('ViewContent');io.disconnect();break;}}
+  },{threshold:0.25});
+  io.observe(oferta);
+ }
+})();
+</script>
+</body>
+</html>

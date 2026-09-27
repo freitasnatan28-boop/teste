@@ -2,3 +2,6 @@
 __pycache__/
 preview.pdf
 /Oficina-de-Papelao-120-projetos.pdf
+node_modules/
+dist/qa/
+package-lock.json

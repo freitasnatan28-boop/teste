@@ -50,7 +50,7 @@ Depois mande um prompt por vez.
 006: Imagem de uma Ambulância Socorro Rápido feita de papelão com caixa de sapato, caixa de leite e tampinhas pretas. Só uma imagem, seguindo as regras.
 007: Imagem de uma Viatura de Polícia feita de papelão com caixa de sapato, tampinhas pretas e papel azul e vermelho. Só uma imagem, seguindo as regras.
 008: Imagem de um Trem com 3 Vagões feito de papelão com caixas de leite, rolo de papel higiênico e tampinhas. Só uma imagem, seguindo as regras.
-009: Imagem de uma Moto Veloz feita de papelão com caixa de creme dental, CDs velhos e canudo. Só uma imagem, seguindo as regras.
+009: Imagem de uma Moto Veloz feita de papelão com caixa de creme dental, cDs velhos e canudo. Só uma imagem, seguindo as regras.
 010: Imagem de uma Escavadeira com Pá que Mexe feita de papelão com caixa de sapato pequena, caixa de leite e palitos de picolé. Só uma imagem, seguindo as regras.
 011: Imagem de um Foguete Rumo à Lua feito de papelão com rolo de papel toalha, folha de papel colorido e papelão fino. Só uma imagem, seguindo as regras.
 012: Imagem de um Avião Voa Longe feito de papelão com rolo de papel toalha, papelão fino e palito de picolé. Só uma imagem, seguindo as regras.
@@ -85,19 +85,19 @@ Depois mande um prompt por vez.
 041: Imagem de um Castelo de Quatro Torres feito de papelão com caixa de sapato, rolos de papel higiênico e papel colorido. Só uma imagem, seguindo as regras.
 042: Imagem de uma Torre da Princesa feita de papelão com rolo de papel toalha, folha de papel colorido e lã amarela. Só uma imagem, seguindo as regras.
 043: Imagem de uma espada e um escudo de cavaleiro feitos de papelão com caixa de papelão grande, papel alumínio e fita crepe. Só uma imagem, seguindo as regras.
-044: Imagem de uma Coroa Real Brilhante feita de papelão com caixa de cereal, papel dourado e tampinhas. Só uma imagem, seguindo as regras.
+044: Imagem de uma Coroa Real Brilhante feita de papelão com caixa de cereal, papel dourado e tampinhas, botões. Só uma imagem, seguindo as regras.
 045: Imagem de um Dragão Amigo feito de papelão com rolo de papel toalha, rolo de papel higiênico e papel celofane laranja e vermelho. Só uma imagem, seguindo as regras.
 046: Imagem de uma Carruagem Encantada feita de papelão com caixa de sapato pequena, tampas de pote e palitos de churrasco. Só uma imagem, seguindo as regras.
 047: Imagem de uma Casa na Árvore feita de papelão com rolo de papel toalha, caixa pequena e papel verde amassado. Só uma imagem, seguindo as regras.
-048: Imagem de um Baú do Tesouro feito de papelão com caixa de sapato com tampa, papel alumínio e botões. Só uma imagem, seguindo as regras.
-049: Imagem de um Trono do Rei e da Rainha feito de papelão com caixa de papelão grande, almofada e papel dourado. Só uma imagem, seguindo as regras.
+048: Imagem de um Baú do Tesouro feito de papelão com caixa de sapato com tampa, papel alumínio e botões e tampinhas. Só uma imagem, seguindo as regras.
+049: Imagem de um Trono do Rei e da Rainha feito de papelão com caixa de papelão grande e firme, almofada e papel dourado. Só uma imagem, seguindo as regras.
 050: Imagem de uma Porta do Castelo que Sobe e Desce feita de papelão com caixa de sapato, rolo de papel higiênico e barbante. Só uma imagem, seguindo as regras.
 051: Imagem de uma Vaquinha Malhada feita de papelão com caixa de leite, papel preto e rosa e rolinhos. Só uma imagem, seguindo as regras.
 052: Imagem de um Porquinho Cofrinho feito de papelão com garrafa PET pequena, tampinhas e limpador de cachimbo. Só uma imagem, seguindo as regras.
 053: Imagem de uma Galinha com Ninho de Ovos feita de papelão com prato de papel, caixa de ovos e papel vermelho e amarelo. Só uma imagem, seguindo as regras.
 054: Imagem de um Cavalinho de Pau feito de papelão com caixa de cereal, cabo de vassoura velho e lã para a crina. Só uma imagem, seguindo as regras.
 055: Imagem de uma Ovelhinha Fofinha feita de papelão com rolo de papel higiênico, algodão e papel preto. Só uma imagem, seguindo as regras.
-056: Imagem de um Celeiro Vermelho feito de papelão com caixa de sapato, papelão fino e palha. Só uma imagem, seguindo as regras.
+056: Imagem de um Celeiro Vermelho feito de papelão com caixa de sapato, papelão fino e palha, barbante. Só uma imagem, seguindo as regras.
 057: Imagem de um Patinho na Lagoa feito de papelão com rolo de papel higiênico, papel laranja e prato de papel azul. Só uma imagem, seguindo as regras.
 058: Imagem de um Coelho Saltitante feito de papelão com rolo de papel higiênico, papel branco e rosa e algodão. Só uma imagem, seguindo as regras.
 059: Imagem de um Cachorro na Casinha feito de papelão com caixa de sapato pequena, rolo de papel higiênico e papel marrom e preto. Só uma imagem, seguindo as regras.
@@ -120,12 +120,12 @@ Depois mande um prompt por vez.
 076: Imagem de um Ovo de Dinossauro Surpresa feito de papelão com bexiga, jornal picado e dinossauro pequeno de brinquedo. Só uma imagem, seguindo as regras.
 077: Imagem de um Fóssil para Escavar feito de papelão com caixa de sapato, palitos de picolé e papelão branco. Só uma imagem, seguindo as regras.
 078: Imagem de uma Máscara de Dinossauro feita de papelão com prato de papel, elástico e tinta verde. Só uma imagem, seguindo as regras.
-079: Imagem de um Vulcão em Erupção feito de papelão com garrafa PET pequena, prato de papelão e jornal. Só uma imagem, seguindo as regras.
+079: Imagem de um Vulcão em Erupção feito de papelão com garrafa PET pequena, prato de papelão e jornal e fita crepe. Só uma imagem, seguindo as regras.
 080: Imagem de um par de garras de dinossauro feito de papelão com caixinhas pequenas, papelão fino e tinta verde. Só uma imagem, seguindo as regras.
 081: Imagem de um Robô de Caixas feito de papelão com caixa de sapato, caixa menor e rolos de papel higiênico. Só uma imagem, seguindo as regras.
 082: Imagem de uma Máscara de Robô feita de papelão com caixa onde caiba a cabeça da criança, papel alumínio e tampinhas. Só uma imagem, seguindo as regras.
 083: Imagem de um Braço Robótico de Canudos feito de papelão com papelão fino, canudos grossos e barbante. Só uma imagem, seguindo as regras.
-084: Imagem de uma Fantasia de Robô feita de papelão com caixa grande, papel alumínio e tampinhas. Só uma imagem, seguindo as regras.
+084: Imagem de uma Fantasia de Robô feita de papelão com caixa grande, papel alumínio e tampinhas e botões. Só uma imagem, seguindo as regras.
 085: Imagem de um Computador de Brinquedo feito de papelão com caixa de pizza pequena, tampinhas pequenas e papel preto. Só uma imagem, seguindo as regras.
 086: Imagem de um Controle de Videogame feito de papelão com papelão firme, tampinhas coloridas e papel colorido. Só uma imagem, seguindo as regras.
 087: Imagem de uma Câmera Fotográfica feita de papelão com caixa pequena, rolo de papel higiênico e barbante. Só uma imagem, seguindo as regras.
@@ -144,7 +144,7 @@ Depois mande um prompt por vez.
 100: Imagem de uma mesa e uma cadeira de boneca feitas de papelão com caixa de sapato pequena, rolos de papel higiênico e palitos de picolé. Só uma imagem, seguindo as regras.
 101: Imagem de um Labirinto de Bolinha feito de papelão com tampa de caixa de sapato, canudos e bolinha de gude. Só uma imagem, seguindo as regras.
 102: Imagem de uma Pista de Carrinhos com Rampas feita de papelão com rolos de papel toalha cortados ao meio no comprimento, tiras de papelão e caixas para dar altura. Só uma imagem, seguindo as regras.
-103: Imagem de um Pinball de Mesa feito de papelão com tampa de caixa grande, tampinhas e palitos de picolé. Só uma imagem, seguindo as regras.
+103: Imagem de um Pinball de Mesa feito de papelão com tampa de caixa grande, tampinhas e rolos cortados e palitos de picolé. Só uma imagem, seguindo as regras.
 104: Imagem de um Jogo da Velha Gigante feito de papelão com pedaço grande de papelão, tampinhas e tinta de 2 cores. Só uma imagem, seguindo as regras.
 105: Imagem de um Basquete de Mesa feito de papelão com caixa de sapato, rolo de papel higiênico e copo de papel pequeno. Só uma imagem, seguindo as regras.
 106: Imagem de um Boliche de Rolinhos feito de papelão com rolos de papel higiênico, bola pequena e tintas coloridas. Só uma imagem, seguindo as regras.
@@ -154,7 +154,7 @@ Depois mande um prompt por vez.
 110: Imagem de um Quebra-Cabeça Gigante feito de papelão com pedaço grande de papelão liso, tintas e lápis. Só uma imagem, seguindo as regras.
 111: Imagem de um Violão de Elásticos feito de papelão com caixa de lenço de papel, rolo de papel toalha e elásticos de tamanhos diferentes. Só uma imagem, seguindo as regras.
 112: Imagem de uma Bateria de Latas e Caixas feita de papelão com caixas, tampas de panela velhas e colheres de pau. Só uma imagem, seguindo as regras.
-113: Imagem de um Chocalho Colorido feito de papelão com rolo de papel higiênico, arroz e papel colorido. Só uma imagem, seguindo as regras.
+113: Imagem de um Chocalho Colorido feito de papelão com rolo de papel higiênico, arroz, feijão e papel colorido. Só uma imagem, seguindo as regras.
 114: Imagem de um Piano de Teclas feito de papelão com caixa de sapato comprida, papel branco e preto e canetinhas. Só uma imagem, seguindo as regras.
 115: Imagem de um Teatro de Fantoches feito de papelão com caixa de papelão grande, retalhos de pano e palitos de picolé. Só uma imagem, seguindo as regras.
 116: Imagem de um Cavalete de Pintura feito de papelão com caixa de papelão média, prendedores de roupa e folhas de papel. Só uma imagem, seguindo as regras.
