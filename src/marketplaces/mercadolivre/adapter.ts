@@ -59,10 +59,11 @@ class Falhas {
   get total() {
     return this.lista.length;
   }
-  resumo(): string | null {
-    if (!this.lista.length) return null;
+  resumo(ignorar: string[] = []): string | null {
+    const lista = this.lista.filter((f) => !ignorar.includes(f.etapa));
+    if (!lista.length) return null;
     const porEtapa = new Map<string, { n: number; msg: string }>();
-    for (const f of this.lista) {
+    for (const f of lista) {
       const atual = porEtapa.get(f.etapa);
       porEtapa.set(f.etapa, { n: (atual?.n ?? 0) + 1, msg: atual?.msg ?? f.msg });
     }
@@ -119,6 +120,16 @@ export const CATEGORIAS_RAIZ_MLB: CategoriaML[] = [
 // Memoriza que a busca pública está bloqueada para não tentar toda hora.
 let buscaPublicaBloqueadaAte = 0;
 
+// Recursos que o ML negou (403) para o seu app: não tentamos de novo por 6h.
+// (Hoje o ML costuma bloquear para apps comuns: anúncios de outros vendedores,
+// produtos de vendedor MLBU e avaliações.)
+type Recurso = "items" | "user-products" | "reviews";
+const bloqueadoAte: Partial<Record<Recurso, number>> = {};
+const bloqueado = (r: Recurso) => (bloqueadoAte[r] ?? 0) > Date.now();
+function marcarSe403(r: Recurso, e: unknown) {
+  if (e instanceof MlHttpError && (e.status === 403 || e.status === 401)) bloqueadoAte[r] = Date.now() + 6 * 3600_000;
+}
+
 export class MercadoLivreAdapter implements MarketplaceAdapter {
   readonly id = "mercadolivre" as const;
   readonly nome = "Mercado Livre";
@@ -158,16 +169,27 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
     const { tipo, id } = parseIdExterno(idExterno);
     try {
       if (tipo === "produto" || tipo === "desconhecido") {
-        try {
-          const p = await this.get<MlProduct>(`/products/${id}`);
-          const o = mapProduto(p);
-          if (o) return (await this.completar([o]))[0];
-          if (tipo === "produto") return null; // produto sem vendedor ativo
-        } catch (e) {
-          if (!(e instanceof MlHttpError && e.status === 404) || tipo === "produto") throw e;
+        const falhas = new Falhas();
+        const o = await this.produtoDeCatalogo(id, falhas);
+        if (o) return (await this.completar([o]))[0];
+        if (tipo === "produto") {
+          if (falhas.total) throw new MarketplaceError(falhas.resumo() ?? "Erro ao consultar o produto");
+          return null; // produto sem vendedor ativo
         }
       }
-      const item = await this.get<MlItem>(`/items/${id}`);
+      let item: MlItem;
+      try {
+        item = await this.get<MlItem>(`/items/${id}`);
+      } catch (e) {
+        marcarSe403("items", e);
+        if (e instanceof MlHttpError && e.status === 403) {
+          throw new MarketplaceError(
+            "Esse link é de um anúncio avulso, e o Mercado Livre não libera anúncios de outros vendedores para o seu app. Use o link da página do produto (o endereço tem /p/MLB…) — no app, abra o produto e toque em Compartilhar.",
+            "proibido",
+          );
+        }
+        throw e;
+      }
       if (item.status && item.status !== "active") return null;
       return (await this.completar([mapItem(item)], { [item.id]: item }))[0];
     } catch (e) {
@@ -350,7 +372,15 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
     });
 
     // User Products (MLBU): descobre o anúncio (item) de cada um
-    const itemDeUp = await mapLimit(userProducts, CONCORRENCIA, async (c) => {
+    if (bloqueado("items") && (userProducts.length || itens.length)) {
+      avisos.push(
+        `${userProducts.length + itens.length} item(ns) do ranking são anúncios de vendedores que o ML não libera para o seu app — foram ignorados. Os produtos de catálogo entraram normalmente.`,
+      );
+      const resumo = falhas.resumo();
+      if (resumo) avisos.push(resumo);
+      return deProdutos.filter((x) => x !== null) as OfertaNormalizada[];
+    }
+    const itemDeUp = await mapLimit(bloqueado("user-products") ? [] : userProducts, CONCORRENCIA, async (c) => {
       const itemId = await this.itemDeUserProduct(c.id, falhas);
       return itemId ? { itemId, position: c.position } : null;
     });
@@ -364,7 +394,12 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
     );
     const deItens = todosItens.map((x) => (bulk[x.itemId] ? { ...mapItem(bulk[x.itemId]), posicaoMaisVendidos: x.position } : null)).filter((x) => x !== null);
 
-    const resumo = falhas.resumo();
+    const ignorados = userProducts.length + itens.length - deItens.length;
+    const etapasBloqueadas = ["anúncios (/items)", "produto de vendedor (MLBU)"];
+    if (ignorados > 0 && (bloqueado("items") || bloqueado("user-products"))) {
+      avisos.push(`${ignorados} item(ns) do ranking são anúncios de vendedores que o ML não libera para o seu app — foram ignorados. Os produtos de catálogo entraram normalmente.`);
+    }
+    const resumo = falhas.resumo(bloqueado("items") || bloqueado("user-products") ? etapasBloqueadas : []);
     if (resumo) avisos.push(resumo);
     return [...deProdutos.filter((x) => x !== null), ...deItens] as OfertaNormalizada[];
   }
@@ -375,7 +410,7 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
     try {
       p = await this.get<MlProduct>(`/products/${id}`);
     } catch (e) {
-      falhas.add("detalhe do produto (/products)", e);
+      if (!(e instanceof MlHttpError && e.status === 404)) falhas.add("detalhe do produto (/products)", e);
       return null;
     }
     const direto = mapProduto(p);
@@ -401,6 +436,7 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
       const r = await this.get<{ results?: string[] }>(`/users/${vendedor}/items/search?user_product_id=${id}`);
       return r.results?.[0] ?? null;
     } catch (e) {
+      marcarSe403("user-products", e);
       falhas.add("produto de vendedor (MLBU)", e);
       return null;
     }
@@ -409,6 +445,7 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
   /** Busca vários anúncios de uma vez (máx. 20 por chamada). */
   private async itensEmLote(ids: string[], falhas?: Falhas): Promise<Record<string, MlItem>> {
     const mapa: Record<string, MlItem> = {};
+    if (bloqueado("items")) return mapa;
     const unicos = [...new Set(ids)];
     for (let i = 0; i < unicos.length; i += 20) {
       const lote = unicos.slice(i, i + 20).join(",");
@@ -421,6 +458,7 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
           if (e instanceof MlHttpError && e.status === 404) r = await this.get<MlBulk>(`/items?ids=${lote}`);
           else throw e;
         } catch (e2) {
+          marcarSe403("items", e2);
           falhas?.add("anúncios (/items)", e2);
           continue;
         }
@@ -428,7 +466,10 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
       for (const el of r) {
         const cod = el.status_code ?? el.code;
         if (cod === 200 && el.body) mapa[el.body.id] = el.body;
-        else falhas?.add("anúncios (/items)", new Error(`${cod ?? "?"} no item ${el.id ?? ""}`));
+        else {
+          if (cod === 403) bloqueadoAte.items = Date.now() + 6 * 3600_000;
+          falhas?.add("anúncios (/items)", new Error(`${cod ?? "?"} no item ${el.id ?? ""}`));
+        }
       }
     }
     return mapa;
@@ -440,12 +481,13 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
     const itens = { ...jaCarregados, ...(await this.itensEmLote(faltando)) };
     return mapLimit(ofertas, CONCORRENCIA, async (o) => {
       let reviews: MlReviews | null = null;
-      if (o.itemId) {
+      if (o.itemId && !bloqueado("reviews")) {
         try {
           const { tipo, id } = parseIdExterno(o.idExterno);
           const extra = tipo === "produto" ? `?catalog_product_id=${id}` : "";
           reviews = await this.get<MlReviews>(`/reviews/item/${o.itemId}${extra}`);
-        } catch {
+        } catch (e) {
+          marcarSe403("reviews", e);
           reviews = null; // avaliação é opcional
         }
       }
