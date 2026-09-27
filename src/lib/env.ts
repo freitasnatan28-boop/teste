@@ -10,9 +10,10 @@ const schema = z.object({
   APP_URL: z.string().url().default("http://localhost:3000"),
   PANEL_PASSWORD: z.string().min(1, "Defina PANEL_PASSWORD no .env"),
   SESSION_SECRET: z.string().min(32, "SESSION_SECRET precisa ter pelo menos 32 caracteres"),
-  ML_CLIENT_ID: z.string().optional().default(""),
-  ML_CLIENT_SECRET: z.string().optional().default(""),
-  ML_REDIRECT_URI: z.string().optional().default(""),
+  // .trim() evita erro por espaço ou quebra de linha colados sem querer no .env
+  ML_CLIENT_ID: z.string().trim().optional().default(""),
+  ML_CLIENT_SECRET: z.string().trim().optional().default(""),
+  ML_REDIRECT_URI: z.string().trim().optional().default(""),
   ML_USE_PKCE: bool,
   ML_MOCK: bool,
   SHOPEE_ENABLED: bool,

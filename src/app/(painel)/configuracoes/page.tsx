@@ -1,9 +1,10 @@
+import { CopyButton } from "@/components/CopyButton";
 import { Flash } from "@/components/Flash";
 import { SubmitButton } from "@/components/SubmitButton";
 import { lerCodigoAfiliadoML } from "@/lib/configuracoes";
 import { env } from "@/lib/env";
 import { formatDate } from "@/lib/format";
-import { mlConfigurado, statusConexao } from "@/marketplaces/mercadolivre/oauth";
+import { criarUrlAutorizacao, mlConfigurado, statusConexao } from "@/marketplaces/mercadolivre/oauth";
 import { todosAdapters } from "@/marketplaces/registry";
 import { sair } from "../../login/actions";
 import { colarCodigo, desconectarML, desligarLinkAutomatico, detectarCodigo, salvarCodigoManual } from "./actions";
@@ -14,6 +15,15 @@ export default async function ConfiguracoesPage({ searchParams }: { searchParams
   const sp = await searchParams;
   const e = env();
   const [status, codigo] = await Promise.all([statusConexao(), lerCodigoAfiliadoML()]);
+  // Link de autorização para abrir em outro navegador/celular (se o botão der erro 403)
+  let urlAutorizacao: string | null = null;
+  if (mlConfigurado() && !status.conectado) {
+    try {
+      urlAutorizacao = await criarUrlAutorizacao();
+    } catch {
+      urlAutorizacao = null;
+    }
+  }
   const adapters = todosAdapters();
 
   return (
@@ -102,6 +112,20 @@ export default async function ConfiguracoesPage({ searchParams }: { searchParams
             <a className="btn" href="/api/ml/oauth/start">
               Conectar Mercado Livre
             </a>
+            {urlAutorizacao && (
+              <details className="mt">
+                <summary>Deu &quot;403 ERROR&quot; ao clicar em Conectar?</summary>
+                <p className="muted small">
+                  Esse erro vem do firewall do Mercado Livre (não do painel). Costuma acontecer com VPN, proxy, extensões do navegador ou internet bloqueada. Tente: desligar VPN/proxy, abrir
+                  numa janela anônima ou em outro navegador (Safari/Chrome), ou abrir no celular usando o 4G. Copie o link abaixo e cole no outro navegador:
+                </p>
+                <p className="link-salvo small">{urlAutorizacao}</p>
+                <div className="acoes">
+                  <CopyButton texto={urlAutorizacao} rotulo="Copiar link de autorização" />
+                </div>
+                <p className="muted small">Depois de autorizar, copie o endereço que abrir (com code=TG-…) e cole no campo abaixo.</p>
+              </details>
+            )}
             <details className="mt">
               <summary>O retorno não voltou para o painel? Cole o endereço aqui</summary>
               <p className="muted small">
