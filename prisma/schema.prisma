@@ -1,0 +1,107 @@
+// Banco de dados do painel.
+// Hoje usa SQLite (um arquivo, zero configuração). Para migrar para Postgres,
+// troque o provider para "postgresql" e o DATABASE_URL no .env.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Um produto/oferta vindo de qualquer marketplace.
+model Product {
+  id                  String   @id @default(cuid())
+  marketplace         String // "mercadolivre" | "shopee"
+  externalId          String // ID no marketplace (ex.: MLB123 do catálogo ou MLB-anúncio)
+  itemId              String? // anúncio vencedor (buy box) no ML
+  title               String
+  permalink           String?
+  imageUrl            String?
+  categoryId          String?
+  categoryName        String?
+  rootCategoryId      String?
+  price               Float
+  originalPrice       Float?
+  currency            String   @default("BRL")
+  rating              Float?
+  reviewsCount        Int?
+  soldQuantity        Int?
+  bestSellerPosition  Int?
+  freeShipping        Boolean  @default(false)
+  officialStore       Boolean  @default(false)
+  officialStoreName   String?
+  // Score 0–100 e o detalhamento (JSON) de como foi calculado
+  score               Int      @default(0)
+  scoreDetails        String?
+  // Desconto real (considerando o histórico) e alerta de "preço de" inflado
+  realDiscountPct     Float?
+  suspiciousDiscount  Boolean  @default(false)
+  suspiciousReason    String?
+  // Link de afiliado (colado do Gerador de Links do ML, ex.: https://meli.la/xxxx)
+  affiliateUrl        String?
+  affiliateUpdatedAt  DateTime?
+  hidden              Boolean  @default(false)
+  lastCheckedAt       DateTime @default(now())
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  priceHistory PriceSnapshot[]
+  tags         Tag[]
+
+  @@unique([marketplace, externalId])
+  @@index([score])
+}
+
+// Histórico: um registro por consulta de preço.
+model PriceSnapshot {
+  id            String   @id @default(cuid())
+  productId     String
+  price         Float
+  originalPrice Float?
+  capturedAt    DateTime @default(now())
+  product       Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId, capturedAt])
+}
+
+// Tags de nicho (natal, casa, moda, maternidade, verão...).
+model Tag {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  // JSON: lista de palavras-chave que marcam a tag automaticamente
+  keywords    String    @default("[]")
+  // JSON: lista de IDs de categoria raiz do ML que marcam a tag automaticamente
+  categoryIds String    @default("[]")
+  products    Product[]
+}
+
+// Tokens OAuth dos marketplaces (ex.: Mercado Livre expira a cada 6h).
+model OAuthToken {
+  provider     String   @id // "mercadolivre"
+  accessToken  String
+  refreshToken String?
+  expiresAt    DateTime
+  userId       String?
+  nickname     String?
+  updatedAt    DateTime @updatedAt
+}
+
+// "state" temporário do fluxo OAuth (proteção contra CSRF).
+model OAuthState {
+  state        String   @id
+  codeVerifier String?
+  createdAt    DateTime @default(now())
+}
+
+// Cache de categorias do ML (nome e categoria raiz).
+model CategoryCache {
+  id        String   @id
+  name      String
+  rootId    String
+  rootName  String
+  updatedAt DateTime @updatedAt
+}

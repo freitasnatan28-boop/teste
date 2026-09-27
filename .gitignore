@@ -1,0 +1,21 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# Segredos: NUNCA versionar
+.env
+.env.local
+.env.*.local
+
+# Banco local (SQLite)
+prisma/*.db
+prisma/*.db-journal
+
+# Sessões do WhatsApp (Fase 3)
+sessions/
+
+logs/
+*.log
+.DS_Store
