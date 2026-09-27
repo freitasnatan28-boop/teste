@@ -230,6 +230,12 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
           "nao_encontrado",
         );
       }
+      if (e instanceof MlHttpError && e.status === 403) {
+        throw new MarketplaceError(
+          "O ML não liberou o ranking de mais vendidos para o seu app. Use a busca por palavra-chave (deixe a categoria em “nenhuma”) ou libere a permissão: DevCenter → seu app → Editar → Permissões → marque Leitura em “Métricas do negócio” e nos demais grupos → salve → em Config., Desconectar e Conectar de novo.",
+          "proibido",
+        );
+      }
       throw e;
     }
     const produtos = h.content.filter((c) => c.type === "PRODUCT");

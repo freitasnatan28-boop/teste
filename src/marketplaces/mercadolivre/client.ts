@@ -10,7 +10,11 @@ export class MlHttpError extends MarketplaceError {
     detalhe: string,
   ) {
     const codigo = status === 403 ? "proibido" : status === 404 ? "nao_encontrado" : status === 429 ? "limite" : status === 401 ? "nao_conectado" : "outro";
-    super(`Mercado Livre respondeu ${status} em ${path.split("?")[0]}${detalhe ? `: ${detalhe}` : ""}`, codigo);
+    const dica =
+      status === 403
+        ? " — O ML não liberou esse recurso para o seu app. No DevCenter, edite o app e, em Permissões, marque Leitura em todos os grupos (principalmente \"Publicação e sincronização\" e \"Métricas do negócio\"); salve e depois Desconecte e Conecte de novo em Config."
+        : "";
+    super(`Mercado Livre respondeu ${status} em ${path.split("?")[0]}${detalhe ? `: ${detalhe}` : ""}${dica}`, codigo);
   }
 }
 
