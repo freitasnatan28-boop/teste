@@ -44,13 +44,7 @@ def limpar_material(m):
     m = re.sub(r"\(.*?\)", "", m)                      # tira parênteses
     m = re.sub(r"^\d+\s+(ou \d+\s+)?", "", m.strip())  # tira a quantidade
     m = re.sub(r"\s+(vazia e lavada|vazia|sem ponta|iguais)\b", "", m)
-    if " ou " in m:                                    # "Tampinhas, botões ou papel" -> "Tampinhas"
-        m = m.split(" ou ")[0].split(",")[0]
-    if not re.match(r"(papel|tinta|lã)\b", m, re.I):     # "Botões e tampinhas" -> "Botões" (cores ficam)
-        m = m.split(" e ")[0]
-    m = m.strip(" ,")
-    if len(m) > 1 and m[1].isupper():                   # siglas: "CDs", "PET"
-        return m
+    m = m.split(" ou ")[0].strip(" ,")
     return m[0].lower() + m[1:] if m else m
 
 
