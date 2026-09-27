@@ -25,6 +25,7 @@ export function OfertaCard({ p }: { p: Product & { tags: Tag[] } }) {
           {anunciado != null && <span className="badge badge-desconto">-{formatPct(anunciado)}</span>}
         </div>
         <div className="badges">
+          {p.marketplace === "mercadolivre" && <span className="badge badge-ml">Mercado Livre</span>}
           {p.suspiciousDiscount && <span className="badge badge-alerta">⚠️ desconto suspeito</span>}
           {p.freeShipping && <span className="badge">🚚 frete grátis</span>}
           {p.officialStore && <span className="badge">🏬 loja oficial</span>}
@@ -36,7 +37,7 @@ export function OfertaCard({ p }: { p: Product & { tags: Tag[] } }) {
           )}
           {p.soldQuantity != null && p.soldQuantity > 0 && <span className="badge">+{p.soldQuantity} vendidos</span>}
           {p.bestSellerPosition != null && <span className="badge">🏆 {p.bestSellerPosition}º mais vendido</span>}
-          {p.affiliateUrl ? <span className="badge badge-ok">🔗 link pronto</span> : <span className="badge badge-pendente">sem link</span>}
+          {p.affiliateUrl ? <span className="badge badge-ok">{p.affiliateSource === "auto" ? "⚡ link automático" : "🔗 link pronto"}</span> : <span className="badge badge-pendente">sem link</span>}
           {p.tags.map((t) => (
             <span key={t.id} className="badge badge-tag">
               #{t.slug}

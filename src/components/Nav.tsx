@@ -8,18 +8,30 @@ const ITENS = [
 
 export function Nav() {
   return (
-    <nav className="nav" aria-label="Menu principal">
-      <Link href="/ofertas" className="nav-marca">
-        Tia Fifi <span>ofertas</span>
-      </Link>
-      <div className="nav-itens">
+    <>
+      <header className="topo">
+        <Link href="/ofertas" className="marca">
+          <span className="avatar" aria-hidden />
+          <span>
+            Tia Fifi <em>ofertas</em>
+          </span>
+        </Link>
+        <nav className="menu-topo" aria-label="Menu principal">
+          {ITENS.map((i) => (
+            <Link key={i.href} href={i.href}>
+              {i.rotulo}
+            </Link>
+          ))}
+        </nav>
+      </header>
+      <nav className="abas" aria-label="Menu">
         {ITENS.map((i) => (
-          <Link key={i.href} href={i.href} className="nav-item">
+          <Link key={i.href} href={i.href} className="aba">
             <span aria-hidden>{i.icone}</span>
             <span>{i.rotulo}</span>
           </Link>
         ))}
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }

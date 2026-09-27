@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Flash } from "@/components/Flash";
 import { OfertaCard } from "@/components/OfertaCard";
 import { SubmitButton } from "@/components/SubmitButton";
+import { lerCodigoAfiliadoML } from "@/lib/configuracoes";
 import { prisma } from "@/lib/db";
 import { mercadoLivre } from "@/marketplaces/registry";
 import { listarOfertas, type FiltrosLista } from "@/services/ofertas";
@@ -27,19 +28,45 @@ export default async function OfertasPage({ searchParams }: { searchParams: Prom
     ordem: (["score", "desconto", "preco", "recentes"] as const).find((o) => o === sp.ordem) ?? "score",
   };
 
-  const [ofertas, tags, categoriasSalvas, categoriasML] = await Promise.all([
+  const [ofertas, tags, categoriasSalvas, categoriasML, total, comLink, codigo] = await Promise.all([
     listarOfertas(filtros),
     prisma.tag.findMany({ orderBy: { name: "asc" } }),
     prisma.categoryCache.findMany({ distinct: ["rootId"], select: { rootId: true, rootName: true }, orderBy: { rootName: "asc" } }),
     mercadoLivre.habilitado() ? mercadoLivre.listarCategorias() : Promise.resolve([]),
+    prisma.product.count({ where: { hidden: false } }),
+    prisma.product.count({ where: { hidden: false, affiliateUrl: { not: null } } }),
+    lerCodigoAfiliadoML(),
   ]);
 
   return (
     <>
+      <section className="hero">
+        <div className="hero-texto">
+          <p className="sobretitulo">Painel de ofertas</p>
+          <h1>Oi, afilhada! 💅</h1>
+          <p>Parece caro, né? A Tia acha o barato pra você divulgar.</p>
+          <div className="hero-numeros">
+            <span>{total} ofertas</span>
+            <span>{comLink} com link</span>
+            <span>{codigo?.ativo ? "⚡ link automático ligado" : "link automático desligado"}</span>
+          </div>
+        </div>
+        <div className="hero-foto">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/tia-fifi.webp" alt="Tia Fifi com caixas do Mercado Livre e da Shopee" />
+        </div>
+      </section>
+
       <Flash msg={sp.msg} erro={sp.erro} />
 
+      {!codigo?.ativo && (
+        <div className="aviso">
+          ⚡ <strong>Dica:</strong> ligue o <Link href="/configuracoes">link de afiliado automático</Link> e toda oferta já chega com o seu link.
+        </div>
+      )}
+
       <section className="card">
-        <h2>Buscar ofertas no Mercado Livre</h2>
+        <h2>🔎 Buscar ofertas no Mercado Livre</h2>
         {!mercadoLivre.habilitado() ? (
           <p className="muted">
             O Mercado Livre ainda não está configurado. Veja <Link href="/configuracoes">Configurações</Link>.

@@ -91,7 +91,42 @@ export async function salvarOferta(o: OfertaNormalizada): Promise<string> {
   }
 
   await recalcular(productId);
+  // Refaz o link automático (o endereço do produto pode ter mudado); links manuais não são tocados
+  await aplicarLinkAutomatico(productId, true);
   return productId;
+}
+
+/**
+ * Se o modo automático estiver ligado, monta o link de afiliado do produto.
+ * Nunca substitui um link que você colou manualmente.
+ */
+export async function aplicarLinkAutomatico(productId: string, forcar = false): Promise<boolean> {
+  const p = await prisma.product.findUniqueOrThrow({ where: { id: productId } });
+  // Link colado por você (inclusive os antigos, sem origem marcada) nunca é trocado
+  if (p.affiliateUrl && p.affiliateSource !== "auto") return false;
+  if (p.affiliateUrl && !forcar) return false;
+  let r;
+  try {
+    r = await adapter(p.marketplace).gerarLinkAfiliado({ idExterno: p.externalId, urlProduto: p.permalink });
+  } catch {
+    return false;
+  }
+  if (r.tipo !== "automatico") return false;
+  await prisma.product.update({ where: { id: productId }, data: { affiliateUrl: r.url, affiliateSource: "auto", affiliateUpdatedAt: new Date() } });
+  return true;
+}
+
+/** Gera (ou refaz) os links automáticos de todas as ofertas que não têm link manual. */
+export async function aplicarLinksAutomaticosEmTodas(): Promise<number> {
+  const produtos = await prisma.product.findMany({ where: { hidden: false, OR: [{ affiliateUrl: null }, { affiliateSource: "auto" }] }, select: { id: true } });
+  let n = 0;
+  for (const p of produtos) if (await aplicarLinkAutomatico(p.id, true)) n++;
+  return n;
+}
+
+/** Remove os links automáticos (quando você desliga o modo automático). */
+export async function removerLinksAutomaticos() {
+  await prisma.product.updateMany({ where: { affiliateSource: "auto" }, data: { affiliateUrl: null, affiliateSource: null, affiliateUpdatedAt: null } });
 }
 
 /** Recalcula desconto real, alerta de desconto suspeito e score. */
@@ -141,7 +176,7 @@ export async function importarPorLink(marketplace: string, url: string) {
   const id = await salvarOferta(o);
   // Se o link colado já era de afiliado, aproveita
   const link = a.validarLinkAfiliado(url);
-  if (link.ok) await prisma.product.update({ where: { id }, data: { affiliateUrl: link.url, affiliateUpdatedAt: new Date() } });
+  if (link.ok) await prisma.product.update({ where: { id }, data: { affiliateUrl: link.url, affiliateSource: "manual", affiliateUpdatedAt: new Date() } });
   return id;
 }
 
@@ -176,7 +211,7 @@ export async function salvarLinkAfiliado(productId: string, url: string) {
   const p = await prisma.product.findUniqueOrThrow({ where: { id: productId } });
   const r = adapter(p.marketplace).validarLinkAfiliado(url);
   if (!r.ok) throw new MarketplaceError(r.erro);
-  await prisma.product.update({ where: { id: productId }, data: { affiliateUrl: r.url, affiliateUpdatedAt: new Date() } });
+  await prisma.product.update({ where: { id: productId }, data: { affiliateUrl: r.url, affiliateSource: "manual", affiliateUpdatedAt: new Date() } });
 }
 
 export interface FiltrosLista {

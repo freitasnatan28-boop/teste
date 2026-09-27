@@ -42,6 +42,8 @@ model Product {
   suspiciousReason    String?
   // Link de afiliado (colado do Gerador de Links do ML, ex.: https://meli.la/xxxx)
   affiliateUrl        String?
+  // "manual" (colado por você) ou "auto" (montado com seu código de afiliado)
+  affiliateSource     String?
   affiliateUpdatedAt  DateTime?
   hidden              Boolean  @default(false)
   lastCheckedAt       DateTime @default(now())
@@ -103,5 +105,12 @@ model CategoryCache {
   name      String
   rootId    String
   rootName  String
+  updatedAt DateTime @updatedAt
+}
+
+// Configurações editáveis pelo painel (ex.: seu código de afiliado do ML).
+model Setting {
+  key       String   @id
+  value     String
   updatedAt DateTime @updatedAt
 }

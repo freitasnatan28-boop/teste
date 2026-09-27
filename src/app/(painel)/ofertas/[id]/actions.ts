@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { exigirLogin, mensagemErro } from "@/lib/auth";
 import { prisma } from "@/lib/db";
-import { atualizarProduto, salvarLinkAfiliado } from "@/services/ofertas";
+import { aplicarLinkAutomatico, atualizarProduto, salvarLinkAfiliado } from "@/services/ofertas";
 
 function voltar(id: string, tipo: "msg" | "erro", texto: string): never {
   revalidatePath(`/ofertas/${id}`);
@@ -26,8 +26,10 @@ export async function salvarLink(formData: FormData) {
 export async function removerLink(formData: FormData) {
   await exigirLogin();
   const id = String(formData.get("id"));
-  await prisma.product.update({ where: { id }, data: { affiliateUrl: null, affiliateUpdatedAt: null } });
-  voltar(id, "msg", "Link removido.");
+  await prisma.product.update({ where: { id }, data: { affiliateUrl: null, affiliateSource: null, affiliateUpdatedAt: null } });
+  // Se o modo automático estiver ligado, volta a usar o link automático
+  const auto = await aplicarLinkAutomatico(id);
+  voltar(id, "msg", auto ? "Link manual removido — voltou a usar o link automático." : "Link removido.");
 }
 
 export async function atualizar(formData: FormData) {

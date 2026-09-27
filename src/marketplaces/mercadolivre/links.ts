@@ -14,6 +14,10 @@ export function validarLinkAfiliadoML(input: string): { ok: true; url: string } 
   if (host === "meli.la" && url.pathname.length > 1) return { ok: true, url: url.toString() };
   // Link longo gerado pelo portal: https://mercadolivre.com/sec/XXXX
   if (HOSTS_AFILIADO.includes(host) && url.pathname.startsWith("/sec/")) return { ok: true, url: url.toString() };
+  // Link longo com o seu código de afiliado (?matt_tool=...&matt_word=...) ou vitrine /social/
+  if ((host.endsWith("mercadolivre.com.br") || host.endsWith("mercadolibre.com")) && (url.searchParams.get("matt_tool") || url.pathname.startsWith("/social/"))) {
+    return { ok: true, url: url.toString() };
+  }
   if (host.endsWith("mercadolivre.com.br") || host.endsWith("mercadolibre.com")) {
     return {
       ok: false,
@@ -90,4 +94,67 @@ export async function resolverRedirecionamentos(input: string, maxSaltos = 6): P
     return atual;
   }
   return atual;
+}
+
+// ---------- Link automático com o seu código de afiliado ----------
+//
+// O Gerador de Links do ML leva o comprador para a página do produto com dois
+// parâmetros que identificam você: matt_tool (ID da sua conta de afiliado) e
+// matt_word (a etiqueta). Com eles, o painel monta o link de qualquer produto
+// sozinho, sem login e sem acessar o Portal do Afiliado.
+
+export interface CodigosAfiliado {
+  mattTool: string;
+  mattWord: string;
+}
+
+/** Procura matt_tool e matt_word dentro de um endereço. */
+export function extrairCodigosAfiliado(input: string): CodigosAfiliado | null {
+  try {
+    const u = new URL(input.trim());
+    const mattTool = u.searchParams.get("matt_tool")?.trim();
+    const mattWord = u.searchParams.get("matt_word")?.trim() ?? "";
+    if (mattTool && /^[\w-]{2,64}$/.test(mattTool)) return { mattTool, mattWord };
+  } catch {
+    /* não é URL */
+  }
+  return null;
+}
+
+/** Abre um link curto (meli.la) seguindo os redirecionamentos e procura os códigos em cada endereço. */
+export async function detectarCodigosAfiliado(input: string): Promise<CodigosAfiliado | null> {
+  const direto = extrairCodigosAfiliado(input);
+  if (direto) return direto;
+  let atual = input.trim();
+  for (let i = 0; i < 8; i++) {
+    if (!hostDoML(atual)) return null;
+    const res = await fetch(atual, { method: "GET", redirect: "manual", signal: AbortSignal.timeout(10_000) });
+    const loc = res.headers.get("location");
+    if (!(res.status >= 300 && res.status < 400 && loc)) return null;
+    atual = new URL(loc, atual).toString();
+    const achado = extrairCodigosAfiliado(atual);
+    if (achado) return achado;
+  }
+  return null;
+}
+
+/** Monta o link de afiliado de um produto com os seus códigos. */
+export function montarLinkAfiliado(urlProduto: string, c: CodigosAfiliado, etiqueta?: string): string | null {
+  let u: URL;
+  try {
+    u = new URL(urlProduto);
+  } catch {
+    return null;
+  }
+  const host = u.hostname.toLowerCase();
+  if (!host.endsWith("mercadolivre.com.br") && !host.endsWith("mercadolibre.com")) return null;
+  u.hash = "";
+  // Remove rastreios de terceiros para o link ficar limpo
+  for (const k of [...u.searchParams.keys()]) {
+    if (k.startsWith("matt_") || k.startsWith("utm_") || k === "tracking_id" || k === "forceInApp") u.searchParams.delete(k);
+  }
+  u.searchParams.set("matt_tool", c.mattTool);
+  const palavra = (etiqueta ?? c.mattWord).trim();
+  if (palavra) u.searchParams.set("matt_word", palavra);
+  return u.toString();
 }

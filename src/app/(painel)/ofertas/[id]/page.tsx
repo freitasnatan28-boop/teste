@@ -7,6 +7,7 @@ import { Sparkline } from "@/components/Sparkline";
 import { SubmitButton } from "@/components/SubmitButton";
 import { prisma } from "@/lib/db";
 import { discountPct, formatBRL, formatDate, formatPct } from "@/lib/format";
+import { ML_LINK_BUILDER_URL } from "@/marketplaces/mercadolivre/constants";
 import { adapter } from "@/marketplaces/registry";
 import { atualizar, ocultar, removerLink, salvarLink, salvarTags } from "./actions";
 
@@ -85,40 +86,52 @@ export default async function OfertaPage({ params, searchParams }: { params: Pro
                 {p.affiliateUrl}
               </a>
             </p>
+            <p className="small">
+              {p.affiliateSource === "auto" ? (
+                <span className="badge badge-ok">⚡ automático</span>
+              ) : (
+                <span className="badge">✋ colado por você</span>
+              )}{" "}
+              <span className="muted">em {p.affiliateUpdatedAt ? formatDate(p.affiliateUpdatedAt) : "—"}</span>
+            </p>
             <div className="acoes">
               <CopyButton texto={p.affiliateUrl} rotulo="Copiar link" />
-              <form action={removerLink}>
-                <input type="hidden" name="id" value={p.id} />
-                <button className="btn btn-perigo" type="submit">
-                  Remover
-                </button>
-              </form>
+              {p.affiliateSource !== "auto" && (
+                <form action={removerLink}>
+                  <input type="hidden" name="id" value={p.id} />
+                  <button className="btn btn-perigo" type="submit">
+                    Remover
+                  </button>
+                </form>
+              )}
             </div>
-            <p className="muted small">Salvo em {p.affiliateUpdatedAt ? formatDate(p.affiliateUpdatedAt) : "—"}. Para trocar, cole um novo abaixo.</p>
           </>
         ) : (
-          <p className="muted">Ainda sem link de afiliado.</p>
+          <p className="muted">
+            Ainda sem link de afiliado. Dica: ligue o <Link href="/configuracoes">link automático</Link> e todas as ofertas ganham link sozinhas.
+          </p>
         )}
-        {instrucoesLink.tipo === "manual" && (
-          <>
+        <details className="mt" open={!p.affiliateUrl}>
+          <summary>{p.affiliateUrl ? "Usar outro link (manual)" : "Gerar o link manualmente"}</summary>
+          {instrucoesLink.tipo === "manual" && (
             <ol className="passos">
               {instrucoesLink.instrucoes.map((i) => (
                 <li key={i}>{i}</li>
               ))}
             </ol>
-            <div className="acoes">
-              {instrucoesLink.urlProduto && <CopyButton texto={instrucoesLink.urlProduto} rotulo="1. Copiar link do produto" />}
-              <a className="btn btn-sec" href={instrucoesLink.urlGerador} target="_blank" rel="noopener noreferrer">
-                2. Abrir Gerador de Links ↗
-              </a>
-            </div>
-          </>
-        )}
-        <form action={salvarLink} className="linha-form">
-          <input type="hidden" name="id" value={p.id} />
-          <input name="url" type="url" required placeholder="https://meli.la/..." aria-label="Link de afiliado" />
-          <SubmitButton pendente="Salvando…">Salvar link</SubmitButton>
-        </form>
+          )}
+          <div className="acoes">
+            {p.permalink && <CopyButton texto={p.permalink} rotulo="Copiar link do produto" />}
+            <a className="btn btn-sec" href={ML_LINK_BUILDER_URL} target="_blank" rel="noopener noreferrer">
+              Abrir Gerador de Links ↗
+            </a>
+          </div>
+          <form action={salvarLink} className="linha-form">
+            <input type="hidden" name="id" value={p.id} />
+            <input name="url" type="url" required placeholder="https://meli.la/..." aria-label="Link de afiliado" />
+            <SubmitButton pendente="Salvando…">Salvar link</SubmitButton>
+          </form>
+        </details>
       </section>
 
       <section className="card">

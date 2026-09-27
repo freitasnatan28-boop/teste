@@ -233,7 +233,7 @@ Faça primeiro com `ML_MOCK=true` (produtos de exemplo) e depois com a sua conta
     - O botão **↻ Atualizar preços** consulta tudo de novo.
     - No servidor, isso roda sozinho a cada 6 horas.
     - Você também pode rodar manualmente: `npm run precos:atualizar`.
-11. **Testes automáticos** (opcional): `npm test`. Devem aparecer 32 testes passando.
+11. **Testes automáticos** (opcional): `npm test`. Devem aparecer 37 testes passando.
 
 **Me avise quando a Fase 1 funcionar com a sua conta real.** Aí eu começo a Fase 2 (mensagens com IA).
 
@@ -241,7 +241,27 @@ Faça primeiro com `ML_MOCK=true` (produtos de exemplo) e depois com a sua conta
 
 ## 6. Links de afiliado: como funciona e riscos
 
-**O Mercado Livre NÃO oferece API pública para gerar links de afiliado.** Os caminhos oficiais são dois:
+**O Mercado Livre NÃO oferece API pública para gerar links de afiliado.** O painel tem dois modos:
+
+### ⚡ Modo automático (recomendado)
+
+O link gerado pelo Portal do Afiliado leva o comprador para o produto com dois parâmetros que identificam você:
+`matt_tool` (ID da sua conta de afiliado) e `matt_word` (etiqueta). O painel descobre esses códigos **uma vez**
+e passa a montar o link de todas as ofertas sozinho. Não há login automático nem acesso ao Portal.
+
+1. Em **Config. → Link de afiliado automático**, cole **um** link seu (`https://meli.la/...`) e toque em **Detectar meu código**.
+   - Se a detecção falhar, abra o seu link no navegador, copie o endereço completo da barra (ele contém `matt_tool=`)
+     e cole esse endereço. Ou use a opção "Prefiro digitar o código".
+2. Pronto: toda oferta nova chega com **⚡ link automático**. Links que você colar manualmente sempre têm prioridade.
+3. **Valide antes de usar em escala.**
+   - Abra um link gerado numa aba anônima.
+   - Em 24 a 48 horas, confira no relatório do Portal do Afiliado se os cliques aparecem na sua etiqueta.
+   - Se não aparecerem, desligue o modo automático e use o manual. **Risco:** o ML pode mudar o formato
+     sem aviso, e aí os cliques deixam de ser atribuídos a você. A validação serve para pegar isso cedo.
+
+### ✋ Modo manual
+
+Os caminhos oficiais são dois:
 - o **Gerador de Links** no Portal do Afiliado (só no computador): <https://www.mercadolivre.com.br/afiliados/linkbuilder>;
 - a **Barra de Afiliados** (computador e celular): ative uma vez em Portal do Afiliado → Configurações.
   Depois, no app do ML, abra o produto e toque em **Compartilhar**: o link gerado já é de afiliado.

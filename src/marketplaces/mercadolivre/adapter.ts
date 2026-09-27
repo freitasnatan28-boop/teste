@@ -8,15 +8,18 @@
 //  - Só categoria: /highlights/MLB/category/{id} (20 mais vendidos da categoria).
 //  - Complementos: /items/bulk (vendas, preço "de"), /reviews/item/{id} (avaliações).
 //
-// Link de afiliado: o ML NÃO tem API pública de afiliados. O link é gerado
-// manualmente no Gerador de Links (ou na Barra de Afiliados do app) e colado no painel.
+// Link de afiliado: o ML NÃO tem API pública de afiliados. Dois modos:
+//  - automático: você informa uma vez o seu código (matt_tool/matt_word, detectado a
+//    partir de um link seu) e o painel monta o link de cada produto;
+//  - manual: link gerado no Gerador de Links (ou Barra de Afiliados) e colado no painel.
 import { env } from "@/lib/env";
 import { mapLimit } from "@/lib/concurrency";
 import type { FiltroBusca, MarketplaceAdapter, OfertaNormalizada, ResultadoBusca, ResultadoLinkAfiliado } from "../types";
 import { MarketplaceError } from "../types";
 import { mlGet, MlHttpError } from "./client";
 import { ML_LINK_BUILDER_URL, ML_SITE } from "./constants";
-import { ehLinkCurtoML, extrairIdDeUrlML, resolverRedirecionamentos, validarLinkAfiliadoML } from "./links";
+import { lerCodigoAfiliadoML } from "@/lib/configuracoes";
+import { ehLinkCurtoML, extrairIdDeUrlML, montarLinkAfiliado, resolverRedirecionamentos, validarLinkAfiliadoML } from "./links";
 import { enriquecer, mapItem, mapProduto, parseIdExterno, type MlItem, type MlProduct, type MlReviews } from "./mappers";
 import { mockMlGet } from "./mock";
 import { mlConfigurado } from "./oauth";
@@ -124,6 +127,12 @@ export class MercadoLivreAdapter implements MarketplaceAdapter {
   }
 
   async gerarLinkAfiliado(oferta: Pick<OfertaNormalizada, "idExterno" | "urlProduto">): Promise<ResultadoLinkAfiliado> {
+    // Modo automático: monta o link com o seu código de afiliado (matt_tool/matt_word)
+    const codigo = await lerCodigoAfiliadoML();
+    if (codigo?.ativo && oferta.urlProduto) {
+      const url = montarLinkAfiliado(oferta.urlProduto, codigo);
+      if (url) return { tipo: "automatico", url };
+    }
     return {
       tipo: "manual",
       urlGerador: ML_LINK_BUILDER_URL,
