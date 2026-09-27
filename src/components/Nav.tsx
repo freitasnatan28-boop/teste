@@ -3,6 +3,8 @@ import Link from "next/link";
 const ITENS = [
   { href: "/ofertas", rotulo: "Ofertas", icone: "🏷️" },
   { href: "/adicionar", rotulo: "Adicionar", icone: "➕" },
+  { href: "/whatsapp", rotulo: "WhatsApp", icone: "💬" },
+  { href: "/piloto", rotulo: "Piloto", icone: "🤖" },
   { href: "/configuracoes", rotulo: "Config.", icone: "⚙️" },
 ];
 

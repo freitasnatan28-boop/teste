@@ -19,3 +19,5 @@ sessions/
 logs/
 *.log
 .DS_Store
+prisma/*.db-shm
+prisma/*.db-wal

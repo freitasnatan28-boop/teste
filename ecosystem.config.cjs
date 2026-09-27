@@ -10,6 +10,14 @@ module.exports = {
       max_memory_restart: "500M",
     },
     {
+      // Robô do WhatsApp: conexão, fila de envio e piloto automático
+      name: "whatsapp",
+      script: "node_modules/.bin/tsx",
+      args: "worker/whatsapp.mts",
+      max_memory_restart: "500M",
+      restart_delay: 10000,
+    },
+    {
       // Atualiza os preços de todas as ofertas a cada 6 horas (alimenta o histórico)
       name: "atualizar-precos",
       script: "node_modules/.bin/tsx",

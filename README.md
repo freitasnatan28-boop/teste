@@ -5,9 +5,9 @@ guarda seus links de afiliado e, nas próximas fases, gera mensagens com IA, dis
 
 | Fase | O que faz | Situação |
 | --- | --- | --- |
-| **1** | Ofertas do Mercado Livre, score, histórico de preços, links de afiliado | ✅ **pronta para testar** |
-| 2 | Mensagens com IA na voz da "Tia Fifi" (Claude) | aguardando você confirmar a Fase 1 |
-| 3 | WhatsApp (Baileys): grupos, fila e disparo com anti-banimento | — |
+| **1** | Ofertas do Mercado Livre, score, histórico de preços, links de afiliado | ✅ funcionando |
+| **2** | Mensagens na voz da "Tia Fifi" (IA opcional, com frases prontas de reserva) | ✅ **pronta para testar** |
+| **3** | WhatsApp (Baileys): grupos, fila, disparo com anti-banimento e piloto automático | ✅ **pronta para testar** |
 | 4 | Redirecionador de grupos, encurtador e dashboard de cliques | — |
 | 5 | Shopee (Affiliate Open API) | esqueleto pronto, desligado |
 | 6 | Multiusuário / virar produto | futuro |
@@ -26,6 +26,7 @@ guarda seus links de afiliado e, nas próximas fases, gera mensagens com IA, dis
 8. [Colocar no ar numa VPS (passo a passo)](#8-colocar-no-ar-numa-vps-passo-a-passo)
 9. [Segurança e cuidados](#9-segurança-e-cuidados)
 10. [Comandos úteis](#10-comandos-úteis)
+11. [WhatsApp e piloto automático](#11-whatsapp-e-piloto-automático)
 
 ---
 
@@ -455,5 +456,68 @@ pm2 logs painel       # mostra os erros e mensagens do painel (Ctrl+C para sair)
 | `npm test` | Roda os testes automáticos |
 | `npm run typecheck` | Procura erros de tipo no código |
 | `npm run precos:atualizar` | Atualiza os preços de todas as ofertas |
+| `npm run whatsapp` | Liga o robô do WhatsApp (conexão, fila e piloto automático) |
 | `npm run db:studio` | Abre um visualizador do banco no navegador (dá para editar as tags e as palavras-chave) |
 | `npx prisma migrate deploy` | Aplica as mudanças do banco |
+
+---
+
+## 11. WhatsApp e piloto automático
+
+### ⚠️ Antes de tudo: risco de banimento
+O WhatsApp **não tem forma oficial** de postar em grupos automaticamente. O painel usa a biblioteca Baileys,
+que funciona como um "WhatsApp Web" robô. Ela é muito usada, mas **o número pode ser banido**.
+
+Para reduzir o risco:
+- use um **chip/número separado**, nunca o seu pessoal;
+- deixe o número "aquecido": ele já deve ser usado normalmente há algumas semanas;
+- mantenha os limites conservadores que já vêm prontos:
+  - 20 a 60 segundos entre um grupo e outro;
+  - no máximo 20 mensagens por hora;
+  - 8 ofertas por dia.
+
+O robô **só** posta em grupos onde o número é **admin**. Ele nunca manda mensagem privada nem adiciona pessoas,
+e pausa sozinho por 15 minutos se der erro.
+
+### Como ligar (no computador)
+Você vai precisar de **dois Terminais abertos**, os dois dentro da pasta `tia-fifi`:
+1. Terminal 1: `npm run dev`. É o painel.
+2. Terminal 2: `npm run whatsapp`. É o robô.
+
+Depois, no painel:
+1. Vá em **WhatsApp**. Vai aparecer um QR code.
+2. No celular do número que vai postar, abra o WhatsApp e toque em **Dispositivos conectados → Conectar dispositivo**.
+3. Escaneie o QR code da tela.
+4. Toque em **Atualizar lista de grupos** e marque **Receber ofertas** nos grupos de destino.
+   - Se quiser, escolha **tags** para cada grupo. Exemplo: um grupo de mães só recebe ofertas com a tag `maternidade`.
+5. Vá em **Piloto** e confira:
+   - as palavras-chave;
+   - quantas ofertas por dia e em que horário;
+   - se você quer aprovar cada mensagem antes de enviar.
+6. Toque em **Rodar uma rodada agora** para testar. A oferta entra na fila, e o robô envia com intervalo entre os grupos.
+7. Se estiver tudo certo, marque **Ligar piloto automático** e salve.
+
+> A sessão do WhatsApp fica salva na pasta `sessions/`, que **não** vai para o GitHub.
+> Se o celular desconectar o aparelho, o painel mostra um aviso e um QR novo.
+
+### Enviar uma oferta específica
+Abra a oferta e vá em **💬 Mensagem para o WhatsApp → Gerar 3 variações**. Edite a variação que preferir e toque em
+**Enviar esta nos grupos**.
+
+### Mensagens com IA (opcional)
+Sem chave, o painel usa as **frases prontas** da personagem, com os bordões e o preço real.
+Para a IA escrever frases novas a cada oferta:
+1. Crie uma chave em <https://console.anthropic.com>. É pago por uso: centavos por mensagem.
+2. Coloque no `.env`: `ANTHROPIC_API_KEY=sk-ant-...`.
+3. Reinicie o painel e o robô.
+
+A IA escreve **só** a frase de impacto e o nome curto. Preço, "de/por", frete e link entram direto dos dados reais,
+então ela não inventa preço, avaliação nem depoimento.
+
+A personagem (nome, personalidade, bordões, emojis e palavras proibidas) é editável em **Piloto → Personagem**.
+
+### No servidor (VPS)
+O `ecosystem.config.cjs` já inclui o robô (`whatsapp`). Depois do `pm2 start ecosystem.config.cjs`, os três processos
+ficam ligados 24h: painel, robô e atualização de preços.
+
+Na primeira vez, acesse o painel pelo endereço do servidor, vá em **WhatsApp** e escaneie o QR.

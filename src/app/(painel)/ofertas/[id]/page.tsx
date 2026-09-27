@@ -9,7 +9,7 @@ import { prisma } from "@/lib/db";
 import { discountPct, formatBRL, formatDate, formatPct } from "@/lib/format";
 import { ML_LINK_BUILDER_URL } from "@/marketplaces/mercadolivre/constants";
 import { adapter } from "@/marketplaces/registry";
-import { atualizar, ocultar, removerLink, salvarLink, salvarTags } from "./actions";
+import { atualizar, enviarMensagem, gerarMensagens, ocultar, removerLink, salvarLink, salvarTags } from "./actions";
 
 export const dynamic = "force-dynamic";
 
@@ -35,6 +35,8 @@ export default async function OfertaPage({ params, searchParams }: { params: Pro
   const anunciado = discountPct(p.price, p.originalPrice);
   const instrucoesLink = await adapter(p.marketplace).gerarLinkAfiliado({ idExterno: p.externalId, urlProduto: p.permalink });
   const historicoDesc = [...p.priceHistory].reverse();
+  const rascunho = await prisma.offerMessage.findFirst({ where: { productId: p.id, status: "rascunho" }, orderBy: { createdAt: "desc" } });
+  const variantes = rascunho ? (JSON.parse(rascunho.variants) as string[]) : [];
 
   return (
     <>
@@ -132,6 +134,37 @@ export default async function OfertaPage({ params, searchParams }: { params: Pro
             <SubmitButton pendente="Salvando…">Salvar link</SubmitButton>
           </form>
         </details>
+      </section>
+
+      <section className="card" id="whatsapp">
+        <h2>💬 Mensagem para o WhatsApp</h2>
+        {!p.affiliateUrl ? (
+          <p className="muted">Primeiro a oferta precisa de um link de afiliado (acima).</p>
+        ) : (
+          <>
+            <form action={gerarMensagens}>
+              <input type="hidden" name="id" value={p.id} />
+              <SubmitButton className="btn btn-sec" pendente="Escrevendo… (até 30s)">
+                ✨ Gerar 3 variações
+              </SubmitButton>
+            </form>
+            {variantes.length > 0 && (
+              <div className="variantes">
+                {variantes.map((texto, i) => (
+                  <form key={i} action={enviarMensagem} className="aprovacao">
+                    <input type="hidden" name="id" value={p.id} />
+                    <p className="small muted">Variação {i + 1} — edite à vontade</p>
+                    <textarea name="texto" defaultValue={texto} rows={8} aria-label={`Variação ${i + 1}`} />
+                    <div className="acoes">
+                      <SubmitButton pendente="Colocando na fila…">📤 Enviar esta nos grupos</SubmitButton>
+                      <CopyButton texto={texto} rotulo="Copiar" />
+                    </div>
+                  </form>
+                ))}
+              </div>
+            )}
+          </>
+        )}
       </section>
 
       <section className="card">

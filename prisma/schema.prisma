@@ -114,3 +114,78 @@ model Setting {
   value     String
   updatedAt DateTime @updatedAt
 }
+
+// ================= WhatsApp (Fase 3) =================
+
+// Um número de WhatsApp conectado por QR code (hoje usamos 1: "principal").
+model WhatsAppSession {
+  id          String    @id
+  status      String    @default("desconectado") // desconectado | aguardando_qr | conectado | pausado
+  qr          String?
+  phone       String?
+  lastError   String?
+  pausedUntil DateTime?
+  updatedAt   DateTime  @updatedAt
+}
+
+// Grupos em que o número é admin. Você marca quais recebem ofertas.
+model WhatsAppGroup {
+  jid          String    @id
+  sessionId    String
+  name         String
+  participants Int       @default(0)
+  isAdmin      Boolean   @default(false)
+  enabled      Boolean   @default(false)
+  // JSON: tags de nicho do grupo (vazio = recebe todas as ofertas)
+  tags         String    @default("[]")
+  lastSentAt   DateTime?
+  updatedAt    DateTime  @updatedAt
+}
+
+// Mensagem pronta de uma oferta (gerada pela IA ou pelo modelo padrão).
+model OfferMessage {
+  id        String    @id @default(cuid())
+  productId String
+  text      String
+  // JSON com as variações geradas
+  variants  String    @default("[]")
+  // aguardando_aprovacao | aprovada | enviada | descartada
+  status    String    @default("aprovada")
+  origin    String    @default("manual") // manual | piloto
+  createdAt DateTime  @default(now())
+  sentAt    DateTime?
+  jobs      SendJob[]
+
+  @@index([status])
+}
+
+// Fila de envio: 1 linha por grupo.
+model SendJob {
+  id          String       @id @default(cuid())
+  messageId   String
+  message     OfferMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  productId   String
+  groupJid    String
+  imageUrl    String?
+  text        String
+  scheduledAt DateTime     @default(now())
+  status      String       @default("pendente") // pendente | enviado | erro | cancelado
+  attempts    Int          @default(0)
+  error       String?
+  sentAt      DateTime?
+  createdAt   DateTime     @default(now())
+
+  @@index([status, scheduledAt])
+}
+
+// Personagem que "fala" nas mensagens.
+model Persona {
+  id           String   @id @default("principal")
+  name         String
+  personality  String
+  // JSON: listas de bordões, emojis e palavras proibidas
+  catchphrases String   @default("[]")
+  emojis       String   @default("[]")
+  forbidden    String   @default("[]")
+  updatedAt    DateTime @updatedAt
+}
