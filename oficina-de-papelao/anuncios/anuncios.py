@@ -5,9 +5,10 @@ Os 3 anúncios da Oficina de Papelão (roteiros em roteiros.md).
   python anuncios.py            # renderiza A, B e C em 9:16 e 4:5
   python anuncios.py C 9x16     # só um anúncio / formato
 
-Versão SEM LOCUÇÃO (o gerador de voz está bloqueado na rede deste ambiente):
-o texto do roteiro aparece como legenda palavra por palavra, com trilha e
-efeitos gerados por código. Visual: páginas do PDF, capa e ilustrações próprias.
+Narração com voz neural offline (Piper pt-BR, ver narracao.py) por baixo da legenda
+palavra por palavra; trilha e efeitos gerados por código, com ducking sob a voz.
+Sem os modelos em modelos/, sai a versão só com legenda. Visual: páginas do PDF,
+capa e ilustrações próprias.
 Quando houver fotos das peças prontas em meus_assets/imagens/NNN.(png|jpg),
 as cenas de "peça pronta" passam a usar a foto automaticamente.
 """
@@ -17,6 +18,7 @@ from PIL import Image, ImageDraw
 
 import motor as M
 import audio as AU
+import narracao as N
 
 sys.path.insert(0, M.PROJ)
 import build_site as B
@@ -203,11 +205,11 @@ def anuncio_A(pal):
         (3.0, 4.65, "Esse *foguete,* um rolo de papel."),
         (4.7, 6.35, "E o *fogãozinho,* uma caixa."),
         (6.45, 8.75, "A gente quase joga isso *fora* toda semana."),
-        (8.85, 12.6, "Esse guia ensina *120~brinquedos* assim, com _passo~a~passo_ e _medidas._"),
-        (12.6, 15.4, "*Carro,* *castelo,* *dinossauro,* *robô,* *casinha:* são 12 categorias."),
+        (8.85, 12.6, "O guia ensina *120~brinquedos* assim, com _passo~a~passo_ e _medidas._"),
+        (12.6, 15.4, "*Carro,* *castelo,* *dinossauro,* um *robô,* *casinha:* são 12 categorias."),
         (15.45, 16.95, "Tudo com _material~de~casa._"),
         (17.05, 19.5, "E custa só *R$~9,90.*"),
-        (19.7, 23.3, "_Toca_ em *Saiba~mais* e recebe agora no e-mail."),
+        (19.7, 23.3, "_Toque_ no botão *Saiba~mais.* Chega no seu e-mail."),
     ]
     el = [("selo", 9.3, 12.6, "Passo a passo com medidas", 0),
           ("selo", 12.6, 15.4, "12 categorias", 0),
@@ -235,7 +237,7 @@ def anuncio_B(pal):
         (9.45, 11.1, "Um *robô* de caixas."),
         (11.25, 15.35, "Tá tudo nesse guia: *120~projetos,* com _idade_ e _tempo_ de cada um."),
         (15.5, 17.4, "Por apenas *R$~9,90.*"),
-        (17.6, 20.2, "_Toca_ em *Saiba~mais.*"),
+        (17.6, 20.2, "_Toque_ no botão, *saiba~mais.*"),
     ]
     el = [("selo", 12.4, 15.4, "Idade e tempo de cada projeto", 0),
           ("preco", 15.5, 20.5, "R$ 9,90", "POR APENAS"),
@@ -259,7 +261,7 @@ def anuncio_C(pal):
         (6.45, 11.15, "É um guia com *120~projetos:* carrinhos, bichos, casinha, jogos e instrumentos."),
         (11.25, 16.75, "E não precisa ter _jeito_ pra artesanato: tem a *lista~de~materiais* e as *medidas* de cada peça."),
         (16.9, 20.7, "Por apenas *R$~9,90,* com acesso na hora e _7~dias_ de garantia."),
-        (20.85, 23.3, "_Toca_ em *Saiba~mais.*"),
+        (20.85, 23.3, "_Toque_ no botão *Saiba~mais.*"),
     ]
     el = [("selo", 12.0, 16.8, "Passo a passo com medidas", 0),
           ("selo", 13.2, 16.8, "Materiais que você tem em casa", 1),
@@ -269,6 +271,66 @@ def anuncio_C(pal):
 
 
 ANUNCIOS = {"A": anuncio_A, "B": anuncio_B, "C": anuncio_C}
+
+# ---------------------------------------------------------------- narração
+# Uma fala por frase da legenda (mesma ordem). Números por extenso para a voz ler certo.
+# Vozes Piper pt-BR (as femininas Francisca/Thalita do edge-tts estão bloqueadas na rede deste ambiente).
+VOZ = {"A": "faber", "B": "cadu", "C": "faber"}
+FALA = {
+    "A": ["Esse carro de corrida era uma caixa de sapato.", "Esse foguete, um rolo de papel.", "E o fogãozinho, uma caixa.",
+          "A gente quase joga isso fora toda semana.",
+          "O guia ensina cento e vinte brinquedos assim, com passo a passo e medidas.",
+          "Carro, castelo, dinossauro, um robô, casinha: são doze categorias.", "Tudo com material de casa.",
+          "E custa só nove e noventa.", "Toque no botão Saiba mais. Chega no seu e-mail."],
+    "B": ["Me empresta o celular?", "Hoje não.",
+          "Ideia pra hoje à tarde, sem tela: uma pista de carrinhos com rolo de papel toalha.",
+          "Um labirinto de bolinha na tampa da caixa.", "Um robô de caixas.",
+          "Tá tudo nesse guia: cento e vinte projetos, com idade e tempo de cada um.",
+          "Por apenas nove e noventa.", "Toque no botão, saiba mais."],
+    "C": ["Carro, foguete, castelo, dinossauro... tudo de papelão.", "Olha que ideia pra tirar as crianças um pouco das telas.",
+          "É um guia com cento e vinte projetos: carrinhos, bichos, casinha, jogos e instrumentos.",
+          "E não precisa ter jeito pra artesanato: tem a lista de materiais e as medidas de cada peça.",
+          "Por apenas nove e noventa, com acesso na hora e sete dias de garantia.", "Toque no botão Saiba mais."],
+}
+
+
+def narrar(nome, cenas, frases, el):
+    """Sintetiza cada frase no seu lugar. Se a fala não cabe, acelera até 1,25x; se ainda assim não cabe,
+    estica a linha do tempo naquele trecho (cenas, selos e preço acompanham). A legenda passa a seguir a voz."""
+    if not N.disponivel(VOZ[nome]):
+        print("  (sem modelo de voz em modelos/: versão só com legenda)")
+        return cenas, frases, el, None
+    assert len(frases) == len(FALA[nome])
+    falas, nos, extra, novas = [], [(0.0, 0.0)], 0.0, []
+    for (t0, t1, txt), fala in zip(frases, FALA[nome]):
+        janela = t1 - t0
+        x = N.falar(fala, VOZ[nome], 1.1)
+        d = len(x) / N.SR
+        if d > janela - 0.05:
+            x = N.falar(fala, VOZ[nome], min(1.25, 1.1 * d / max(0.3, janela - 0.05)))
+            d = len(x) / N.SR
+        nova = max(janela, d + 0.05)
+        T0 = t0 + extra
+        nos += [(t0, T0), (t1, T0 + nova)]
+        extra += nova - janela
+        falas.append((T0, x))
+        novas.append((T0, T0 + d, txt))
+    fim = sum(c.dur for c in cenas)
+    nos.append((fim, fim + extra))
+    mapa = lambda t: float(np.interp(t, [a for a, _ in nos], [b for _, b in nos]))
+    ini = 0.0
+    for c in cenas:  # reescala cada cena para os novos limites
+        nd = mapa(ini + c.dur) - mapa(ini)
+        f = nd / c.dur
+        c.camera = [(k[0] * f,) + tuple(k[1:]) for k in c.camera]
+        ini += c.dur
+        c.dur = nd
+    el = [(e[0], mapa(e[1]), mapa(e[2])) + tuple(e[3:]) for e in el]
+    total = fim + extra
+    voz = np.zeros(int(total * N.SR) + N.SR)
+    for T0, x in falas:
+        s0 = int(T0 * N.SR); voz[s0:s0 + len(x)] += x[:len(voz) - s0]
+    return cenas, novas, el, voz[:int(total * N.SR)]
 
 
 # ---------------------------------------------------------------- render
@@ -286,6 +348,7 @@ def renderizar(nome, fmt_nome):
     fmt = M.FORMATOS[fmt_nome]
     pal = Palco(fmt)
     cenas, frases, el = ANUNCIOS[nome](pal)
+    cenas, frases, el, voz = narrar(nome, cenas, frases, el)
     dur = sum(c.dur for c in cenas)
     leg = M.Legenda(frases)
     sob = M.Sobreposicao(FAIXA, el, leg)
@@ -299,7 +362,7 @@ def renderizar(nome, fmt_nome):
     for e in el:
         eventos.append((e[1], {"selo": "tic", "preco": "pop", "cta": "tic", "diagonal": "whoosh"}[e[0]]))
     wav = os.path.join(TMP, f"{nome}_{fmt_nome}.wav")
-    som = AU.montar(dur, eventos, musica_propria(dur))
+    som = AU.montar(dur, eventos, musica_propria(dur), voz)
     with wave.open(wav, "wb") as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(AU.SR)
         w.writeframes((np.clip(som, -1, 1) * 32767).astype(np.int16).tobytes())

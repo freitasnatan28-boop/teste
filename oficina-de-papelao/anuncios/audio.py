@@ -100,10 +100,19 @@ def tic():
     return (np.sin(2 * np.pi * 1850 * tt) + 0.4 * np.sin(2 * np.pi * 2780 * tt)) * np.exp(-tt * 60) * 0.35
 
 
-def montar(dur, eventos, musica=None):
-    """eventos: [(t, 'whoosh'|'pop'|'tic')]. Retorna estéreo float32."""
+def montar(dur, eventos, musica=None, voz=None):
+    """eventos: [(t, 'whoosh'|'pop'|'tic')]; voz: narração mono (opcional). Retorna estéreo float32.
+    Com voz, a trilha abaixa sozinha enquanto alguém fala (ducking, ~-22 dB em relação à voz)."""
     base = musica if musica is not None else trilha(dur)
     base = np.pad(base, (0, max(0, int(SR * dur) - len(base))))[:int(SR * dur)] * 0.62
+    if voz is not None:
+        voz = np.pad(voz, (0, max(0, len(base) - len(voz))))[:len(base)]
+        janela = int(0.12 * SR)
+        env = np.convolve(np.abs(voz), np.ones(janela) / janela, mode="same")
+        presenca = np.clip(env / 0.04, 0, 1)
+        suave = int(0.25 * SR)  # sobe e desce devagar, sem "bombear"
+        presenca = np.convolve(presenca, np.ones(suave) / suave, mode="same")
+        base = base * (1 - 0.8 * np.clip(presenca * 1.5, 0, 1)) + voz * 0.95
     sfx = {"whoosh": whoosh(), "pop": pop(), "tic": tic()}
     for t, nome in eventos:
         s = int(t * SR); x = sfx[nome]

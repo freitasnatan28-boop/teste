@@ -320,7 +320,7 @@ class Legenda:
         self.eventos = []  # (t0, t1, bloco, [tempos de cada palavra])
         for t0, t1, frase in frases:
             toks = tokens(frase)
-            pesos = [len(w) + 3 for w, _ in toks]
+            pesos = [len(w) + 3 + (5 if w[-1] in ".,:!?…" else 0) for w, _ in toks]  # pontuação = pausa na fala
             total = sum(pesos)
             tempos, acc = [], t0
             for p in pesos:
