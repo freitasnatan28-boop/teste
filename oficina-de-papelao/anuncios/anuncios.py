@@ -195,7 +195,7 @@ def anuncio_A(pal):
         cena_ilustracao(pal, ilustra_caixas(), 2.4),
         cena_folheando(pal, 3.8, pag_projeto(1), t_troca=0.9),
         # cada categoria entra junto com a palavra da legenda; "são 12 categorias" mostra a capa com os 12 ícones
-        *cenas_categorias(pal, [0, 4, 7, 8, 9], [0.32, 0.40, 0.50, 0.29, 0.39]),
+        *cenas_categorias(pal, [0, 4, 7, 8], [0.36, 0.46, 0.62, 0.46]),
         cena_pagina(pal, 1, 0.9, [(0, .5, .6, 1.0), (0.9, .5, .66, .9)]),
         cena_pagina(pal, 2, 1.6, [(0, .5, .36, .80), (1.6, .5, .34, .68)]),
         cena_hero(pal, 6.5),
@@ -204,12 +204,12 @@ def anuncio_A(pal):
         (0.15, 2.9, "Esse *carro* de corrida era uma *caixa~de~sapato.*"),
         (3.0, 4.65, "Esse *foguete,* um rolo de papel."),
         (4.7, 6.35, "E o *fogãozinho,* uma caixa."),
-        (6.45, 8.75, "A gente quase joga isso *fora* toda semana."),
+        (6.45, 8.75, "A gente joga isso *fora* toda semana."),
         (8.85, 12.6, "O guia ensina *120~brinquedos* assim, com _passo~a~passo_ e _medidas._"),
-        (12.6, 15.4, "*Carro,* *castelo,* *dinossauro,* um *robô,* *casinha:* são 12 categorias."),
+        (12.6, 15.4, "*Carro,* *castelo,* um *dinossauro,* um *robô…* são 12 categorias."),
         (15.45, 16.95, "Tudo com _material~de~casa._"),
         (17.05, 19.5, "E custa só *R$~9,90.*"),
-        (19.7, 23.3, "_Toque_ no botão *Saiba~mais.* Chega no seu e-mail."),
+        (19.7, 23.3, "É só _tocar_ em *Saiba~mais.* Chega no seu e-mail."),
     ]
     el = [("selo", 9.3, 12.6, "Passo a passo com medidas", 0),
           ("selo", 12.6, 15.4, "12 categorias", 0),
@@ -237,7 +237,7 @@ def anuncio_B(pal):
         (9.45, 11.1, "Um *robô* de caixas."),
         (11.25, 15.35, "Tá tudo nesse guia: *120~projetos,* com _idade_ e _tempo_ de cada um."),
         (15.5, 17.4, "Por apenas *R$~9,90.*"),
-        (17.6, 20.2, "_Toque_ no botão, *saiba~mais.*"),
+        (17.6, 20.2, "É só _tocar_ no botão *Saiba~mais.*"),
     ]
     el = [("selo", 12.4, 15.4, "Idade e tempo de cada projeto", 0),
           ("preco", 15.5, 20.5, "R$ 9,90", "POR APENAS"),
@@ -256,12 +256,12 @@ def anuncio_C(pal):
         cena_hero(pal, 2.7, com_bonus=True),
     ]
     legenda = [
-        (0.1, 2.95, "*Carro,* *foguete,* *castelo,* *dinossauro…* tudo de _papelão._"),
+        (0.1, 2.95, "*Carro,* *foguete,* *castelo,* um *dinossauro…* tudo de _papelão._"),
         (3.05, 6.35, "Olha que *ideia* pra tirar as crianças um pouco das _telas._"),
         (6.45, 11.15, "É um guia com *120~projetos:* carrinhos, bichos, casinha, jogos e instrumentos."),
         (11.25, 16.75, "E não precisa ter _jeito_ pra artesanato: tem a *lista~de~materiais* e as *medidas* de cada peça."),
         (16.9, 20.7, "Por apenas *R$~9,90,* com acesso na hora e _7~dias_ de garantia."),
-        (20.85, 23.3, "_Toque_ no botão *Saiba~mais.*"),
+        (20.85, 23.3, "É só _tocar_ no botão *Saiba~mais.*"),
     ]
     el = [("selo", 12.0, 16.8, "Passo a passo com medidas", 0),
           ("selo", 13.2, 16.8, "Materiais que você tem em casa", 1),
@@ -274,28 +274,29 @@ ANUNCIOS = {"A": anuncio_A, "B": anuncio_B, "C": anuncio_C}
 
 # ---------------------------------------------------------------- narração
 # Uma fala por frase da legenda (mesma ordem). Números por extenso para a voz ler certo.
-# Vozes Piper pt-BR (as femininas Francisca/Thalita do edge-tts estão bloqueadas na rede deste ambiente).
-VOZ = {"A": "faber", "B": "cadu", "C": "faber"}
+# Vozes Kokoro pt-BR: Dora (feminina) no lugar de Francisca/Thalita e Alex (masculina) no lugar de Antonio,
+# porque o edge-tts está bloqueado na rede deste ambiente. Velocidade natural (1,0x) para soar menos robótico.
+VOZ = {"A": "dora", "B": "dora", "C": "alex"}
 FALA = {
     "A": ["Esse carro de corrida era uma caixa de sapato.", "Esse foguete, um rolo de papel.", "E o fogãozinho, uma caixa.",
-          "A gente quase joga isso fora toda semana.",
+          "A gente joga isso fora toda semana.",
           "O guia ensina cento e vinte brinquedos assim, com passo a passo e medidas.",
-          "Carro, castelo, dinossauro, um robô, casinha: são doze categorias.", "Tudo com material de casa.",
-          "E custa só nove e noventa.", "Toque no botão Saiba mais. Chega no seu e-mail."],
+          "Carro, castelo, um dinossauro, um robô... são doze categorias.", "Tudo com material de casa.",
+          "E custa só nove e noventa.", "É só tocar em Saiba mais. Chega no seu e-mail."],
     "B": ["Me empresta o celular?", "Hoje não.",
           "Ideia pra hoje à tarde, sem tela: uma pista de carrinhos com rolo de papel toalha.",
           "Um labirinto de bolinha na tampa da caixa.", "Um robô de caixas.",
           "Tá tudo nesse guia: cento e vinte projetos, com idade e tempo de cada um.",
-          "Por apenas nove e noventa.", "Toque no botão, saiba mais."],
-    "C": ["Carro, foguete, castelo, dinossauro... tudo de papelão.", "Olha que ideia pra tirar as crianças um pouco das telas.",
+          "Por apenas nove e noventa.", "É só tocar no botão Saiba mais."],
+    "C": ["Carro, foguete, castelo, um dinossauro... tudo de papelão.", "Olha que ideia pra tirar as crianças um pouco das telas.",
           "É um guia com cento e vinte projetos: carrinhos, bichos, casinha, jogos e instrumentos.",
           "E não precisa ter jeito pra artesanato: tem a lista de materiais e as medidas de cada peça.",
-          "Por apenas nove e noventa, com acesso na hora e sete dias de garantia.", "Toque no botão Saiba mais."],
+          "Por apenas nove e noventa, com acesso na hora e sete dias de garantia.", "É só tocar no botão Saiba mais."],
 }
 
 
 def narrar(nome, cenas, frases, el):
-    """Sintetiza cada frase no seu lugar. Se a fala não cabe, acelera até 1,25x; se ainda assim não cabe,
+    """Sintetiza cada frase no seu lugar. Se a fala não cabe, acelera até 1,08x; se ainda assim não cabe,
     estica a linha do tempo naquele trecho (cenas, selos e preço acompanham). A legenda passa a seguir a voz."""
     if not N.disponivel(VOZ[nome]):
         print("  (sem modelo de voz em modelos/: versão só com legenda)")
@@ -304,12 +305,12 @@ def narrar(nome, cenas, frases, el):
     falas, nos, extra, novas = [], [(0.0, 0.0)], 0.0, []
     for (t0, t1, txt), fala in zip(frases, FALA[nome]):
         janela = t1 - t0
-        x = N.falar(fala, VOZ[nome], 1.1)
+        x = N.falar(fala, VOZ[nome], 1.0)
         d = len(x) / N.SR
-        if d > janela - 0.05:
-            x = N.falar(fala, VOZ[nome], min(1.25, 1.1 * d / max(0.3, janela - 0.05)))
+        if d > janela - 0.05:  # acelera só um pouco (acima de ~1,08x a voz fica robótica)
+            x = N.falar(fala, VOZ[nome], min(1.08, d / max(0.3, janela - 0.05)))
             d = len(x) / N.SR
-        nova = max(janela, d + 0.05)
+        nova = max(janela, d + 0.08)
         T0 = t0 + extra
         nos += [(t0, T0), (t1, T0 + nova)]
         extra += nova - janela
