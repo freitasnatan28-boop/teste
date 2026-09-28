@@ -9,7 +9,7 @@ Conferência da fala com Whisper base (sherpa-onnx) no áudio final: ver `saida/
 
 | Anúncio | Referência | Gancho | Voz | Duração | Assets usados |
 | --- | --- | --- | --- | --- | --- |
-| A | REF 1 (confissão → aqui "resultado primeiro") | "Esse carro de corrida era uma caixa de sapato." | Dora | 24,9 s | Páginas 001, 011, 091, capa, "Antes de começar", capas das categorias 1, 5, 8, 9, 10; ilustração de caixas; trilha própria |
+| A | REF 1 (confissão → aqui "resultado primeiro") | "Esse carro de corrida era uma caixa de sapato." | Dora | 24,9 s | Páginas 001, 011, 091, capa, "Antes de começar", capas das categorias 1, 5, 8, 9; ilustração de caixas; trilha própria |
 | B | REF 2 (telas) | "Me empresta o celular? Hoje não. Ideia pra hoje à tarde, sem tela" | Dora | 21,1 s | Ilustrações de celular e caixas; páginas 102, 101, 081; capa + páginas em leque; trilha própria |
 | C | REF 3 ("olha que ideia" + objeção) | "Carro, foguete, castelo, dinossauro… tudo de papelão." | Alex | 24,2 s | 12 capas de categoria; página 041; capa; checklist e certificado; trilha própria |
 
