@@ -40,68 +40,88 @@ anúncio mostra o produto de verdade, e não uma página inventada pela IA.
 
 ---
 
-# Anúncio P – apresentadora em 3 gerações de 8 s (total 24 s)
+# Anúncio P – apresentadora em 4 gerações de 8 s (total 32 s)
 
 Formato de "criadora de conteúdo": ela **mostra** e **convida**, sem fingir que é cliente (isso seria depoimento falso).
-Cada geração do Veo 3 tem 8 s, então o vídeo são **3 clipes inteiros, um depois do outro**. Cada prompt é completo
-(repete a personagem para ela sair igual) e termina na posição em que o próximo começa, para o corte ficar natural.
-A fala de cada clipe tem até ~18 palavras (cabe em 8 s sem correr). Legenda, preço, selos e botão eu coloco na edição,
-por cima dos clipes; a duração continua 24 s.
+Cada geração do Veo 3 tem 8 s; o vídeo são **4 clipes inteiros, um depois do outro**. Cada prompt repete a personagem
+(para ela sair igual) e termina na posição em que o próximo começa.
 
-**Dica:** gere 2 ou 3 vezes cada clipe e escolha o que tiver a fala mais clara e a boca mais sincronizada.
+**Diálogo no limite:** cada fala tem 17 a 20 palavras, o máximo que cabe em 8 s num ritmo natural (~2,7 palavras/s).
+Mais que isso, o Veo corta a frase ou acelera a voz. Gere 2 ou 3 vezes cada clipe e escolha o de fala completa, clara e
+com a boca sincronizada. Legenda, selos, preço e botão eu coloco na edição, por cima (sem aumentar a duração).
+Quer uma versão de 24 s? Tire o clipe P3.
 
 ## Clipe P1 (0–8 s) · gancho
 
-> Vertical 9:16 video, 8 seconds, handheld smartphone footage, realistic. A friendly Brazilian woman in her mid-thirties,
-> curly dark hair in a loose bun, light green t-shirt, natural no-makeup look, sits at a wooden kitchen table with
-> cardboard scraps, paint jars and a brush, warm daylight from a window.
+> Vertical 9:16 video, 8 seconds, handheld smartphone footage, realistic. A friendly Brazilian woman in her
+> mid-thirties, curly dark hair in a loose bun, light green t-shirt, natural no-makeup look, at a wooden kitchen table
+> with cardboard scraps, paint jars and a brush, warm daylight from a window.
 > 0–2 s: she lifts an empty shoe box toward the camera with a playful look.
-> 2–5 s: quick hand movement, she swaps it for a finished red race car made from a shoe box, bottle-cap wheels,
-> a big white number 1 painted on the side, and turns it to show it.
-> 5–8 s: she places the car on the table and smiles at the camera.
-> She speaks directly to the camera in Brazilian Portuguese, warm and casual, clear lip sync:
-> "Essa caixa de sapato ia pro lixo… Olha só o que ela virou em meia hora!"
-> The toy clearly looks handmade from brown corrugated cardboard with simple gouache paint, slightly imperfect.
+> 2–5 s: she swaps it for a finished red race car made from a shoe box, bottle-cap wheels, a big white number 1 painted
+> on the side, and turns it to show it.
+> 5–8 s: she rolls the car across the table and smiles at the camera.
+> She speaks directly to the camera in Brazilian Portuguese, warm, lively and casual, clear lip sync:
+> "Aquela caixa de sapato que ia pro lixo? Olha o que ela virou em meia hora, com tampinha e tinta!"
+> Handmade toys clearly made from brown corrugated cardboard with simple gouache paint, slightly imperfect.
 > Ambient room sound only, no music, no subtitles, no text, no logos.
 
-Fala: 15 palavras · ~5 s.
+Fala: 20 palavras · ~7 s.
 
 ## Clipe P2 (8–16 s) · o momento juntos
 
 > Vertical 9:16 video, 8 seconds, handheld smartphone footage, realistic. The same friendly Brazilian woman in her
-> mid-thirties, curly dark hair in a loose bun, light green t-shirt, at the same wooden kitchen table with the red
-> shoe-box race car, warm daylight.
-> 0–3 s: a boy about six years old sits next to her and happily paints a small cardboard rocket made from a paper towel
-> roll with a brush; she holds the rocket steady for him.
-> 3–6 s: the camera slowly moves past a few finished handmade cardboard toys on the table: a small castle with
-> toilet-paper-roll towers and a robot made of boxes with bottle-cap buttons.
-> 6–8 s: back on her, she looks at the camera and smiles.
-> She speaks in Brazilian Portuguese, warm and casual, clear lip sync (voice continues over the toy shots):
-> "Ele pinta, eu faço a parte do corte… e são trinta minutos juntos, longe da tela."
-> No scissors or knives in the child's hands. Ambient room sound only, no music, no subtitles, no text, no logos.
-
-Fala: 16 palavras · ~5,5 s.
-
-## Clipe P3 (16–24 s) · produto e CTA
-
-> Vertical 9:16 video, 8 seconds, handheld smartphone footage, realistic. The same friendly Brazilian woman in her
-> mid-thirties, curly dark hair in a loose bun, light green t-shirt, at the same wooden kitchen table, warm daylight.
-> 0–4 s: she holds a tablet facing the camera with both hands, steady, screen showing a colorful page slightly out of focus.
-> 4–8 s: she lowers the tablet, points down toward the bottom of the screen with a friendly smile.
+> mid-thirties, curly dark hair in a loose bun, light green t-shirt, natural no-makeup look, at a wooden kitchen table
+> with cardboard scraps, paint jars and a brush, warm daylight from a window.
+> 0–4 s: a boy about six years old sits next to her and happily paints a small cardboard rocket made from a paper towel
+> roll; she holds the rocket steady for him.
+> 4–6 s: the boy glues a paper fin on the rocket, proud.
+> 6–8 s: she looks at the camera and smiles.
 > She speaks in Brazilian Portuguese, warm and casual, clear lip sync:
-> "São cento e vinte projetos assim, com passo a passo e medidas. É só tocar em Saiba mais."
+> "Ele pinta, cola e decora. Eu faço só a parte do corte. São trinta minutos juntos, longe da tela."
+> No scissors or knives in the child's hands.
+> Handmade toys clearly made from brown corrugated cardboard with simple gouache paint, slightly imperfect.
 > Ambient room sound only, no music, no subtitles, no text, no logos.
 
-Fala: 17 palavras · ~6 s. Na edição, troco a tela do tablet pela página real do guia (por isso ela segura firme) e
-coloco "R$ 9,90" com "pop" entre 17 e 21 s e o botão "Toque em Saiba mais" de 21 a 24 s.
+Fala: 19 palavras · ~7 s.
+
+## Clipe P3 (16–24 s) · variedade
+
+> Vertical 9:16 video, 8 seconds, handheld smartphone footage, realistic. The same friendly Brazilian woman in her
+> mid-thirties, curly dark hair in a loose bun, light green t-shirt, natural no-makeup look, at a wooden kitchen table
+> with cardboard scraps, paint jars and a brush, warm daylight from a window.
+> 0–5 s: the camera slowly moves along the table past finished handmade cardboard toys: a small castle with
+> toilet-paper-roll towers and paper cone roofs, a robot made of boxes with bottle-cap buttons, a toy stove made from a
+> box with black paper burners.
+> 5–8 s: back on her, she holds up the rocket and smiles.
+> She speaks in Brazilian Portuguese, enthusiastic and casual, clear lip sync (voice continues over the toy shots):
+> "Não é só carrinho: tem foguete, castelo, robô, casinha… são cento e vinte projetos com passo a passo e medidas."
+> Handmade toys clearly made from brown corrugated cardboard with simple gouache paint, slightly imperfect.
+> Ambient room sound only, no music, no subtitles, no text, no logos.
+
+Fala: 20 palavras · ~7,5 s.
+
+## Clipe P4 (24–32 s) · preço e CTA
+
+> Vertical 9:16 video, 8 seconds, handheld smartphone footage, realistic. The same friendly Brazilian woman in her
+> mid-thirties, curly dark hair in a loose bun, light green t-shirt, natural no-makeup look, at a wooden kitchen table
+> with cardboard scraps, paint jars and a brush, warm daylight from a window.
+> 0–4 s: she holds a tablet facing the camera with both hands, steady, screen showing a colorful page slightly out of focus.
+> 4–8 s: she lowers the tablet and points down toward the bottom of the screen with a friendly smile.
+> She speaks in Brazilian Portuguese, warm and casual, clear lip sync:
+> "Tá tudo nesse guia, por nove e noventa, e chega na hora no seu e-mail. É só tocar em Saiba mais."
+> Handmade toys clearly made from brown corrugated cardboard with simple gouache paint, slightly imperfect.
+> Ambient room sound only, no music, no subtitles, no text, no logos.
+
+Fala: 20 palavras · ~7 s. Na edição, troco a tela do tablet pela página real do guia (por isso ela segura firme).
 
 ## Montagem final
 
 | Tempo | Clipe | Na tela (eu coloco) |
 | --- | --- | --- |
 | 0–8 s | P1 | Legenda palavra por palavra; faixa "120 PROJETOS DE PAPELÃO PARA CRIANÇAS" |
-| 8–16 s | P2 | Selos "Passo a passo com medidas" e "Material de casa" |
-| 16–24 s | P3 | Página real do guia no tablet; "R$ 9,90"; "Acesso na hora · 7 dias de garantia"; botão "Toque em Saiba mais" |
+| 8–16 s | P2 | Selo "A criança participa, o adulto faz o corte" |
+| 16–24 s | P3 | Selos "12 categorias" e "Passo a passo com medidas" |
+| 24–32 s | P4 | Página real do guia no tablet; "R$ 9,90" com "pop"; "Acesso na hora · 7 dias de garantia"; botão "Toque em Saiba mais" |
 | todo | — | Aviso discreto "cena ilustrativa" no canto (ela é gerada por IA e não é cliente) |
 
-Os clipes 01 a 12 (peças prontas, acima) também têm 8 s cada e servem para outras versões ou para trocar o P2.
+Os clipes 01 a 12 (peças prontas, acima) também têm 8 s e servem para outras versões.
