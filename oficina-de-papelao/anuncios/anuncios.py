@@ -276,7 +276,7 @@ ANUNCIOS = {"A": anuncio_A, "B": anuncio_B, "C": anuncio_C}
 # Uma fala por frase da legenda (mesma ordem). Números por extenso para a voz ler certo.
 # Vozes Kokoro pt-BR: Dora (feminina) no lugar de Francisca/Thalita e Alex (masculina) no lugar de Antonio,
 # porque o edge-tts está bloqueado na rede deste ambiente. Velocidade natural (1,0x) para soar menos robótico.
-VOZ = {"A": "dora", "B": "dora", "C": "alex"}
+VOZ = {"A": "fem1", "B": "fem2", "C": "masc"}  # papéis; narracao.py escolhe a voz do melhor motor disponível
 FALA = {
     "A": ["Esse carro de corrida era uma caixa de sapato.", "Esse foguete, um rolo de papel.", "E o fogãozinho, uma caixa.",
           "A gente joga isso fora toda semana.",
@@ -298,6 +298,7 @@ FALA = {
 def narrar(nome, cenas, frases, el):
     """Sintetiza cada frase no seu lugar. Se a fala não cabe, acelera até 1,08x; se ainda assim não cabe,
     estica a linha do tempo naquele trecho (cenas, selos e preço acompanham). A legenda passa a seguir a voz."""
+    print(f"  voz: {N.motor_ativo()} / {N.VOZES[N.motor_ativo()][VOZ[nome]]}")
     if not N.disponivel(VOZ[nome]):
         print("  (sem modelo de voz em modelos/: versão só com legenda)")
         return cenas, frases, el, None
