@@ -12,12 +12,13 @@ Conferência da fala com Whisper base (sherpa-onnx) no áudio final: ver `saida/
 | A | REF 1 (confissão → aqui "resultado primeiro") | "Esse carro de corrida era uma caixa de sapato." | Dora | 24,9 s | Páginas 001, 011, 091, capa, "Antes de começar", capas das categorias 1, 5, 8, 9; ilustração de caixas; trilha própria |
 | B | REF 2 (telas) | "Me empresta o celular? Hoje não. Ideia pra hoje à tarde, sem tela" | Dora | 21,1 s | Ilustrações de celular e caixas; páginas 102, 101, 081; capa + páginas em leque; trilha própria |
 | C | REF 3 ("olha que ideia" + objeção) | "Carro, foguete, castelo, dinossauro… tudo de papelão." | Alex | 24,2 s | 12 capas de categoria; página 041; capa; checklist e certificado; trilha própria |
+| M | Motion graphics (sem narração) | "ESSA CAIXA / IA PRO LIXO?" → "VIRA ISSO!" | — (só trilha) | 19,8 s | 12 ícones das categorias, capa, páginas 001 e 011, checklist e certificado, ilustração de caixas; trilha própria em 112 bpm, animações no tempo da música |
 
 Ajustes de texto para soar natural e ser entendido (testados com Whisper): chamada final **"É só tocar em Saiba mais"**
 (B e C: "É só tocar no botão Saiba mais"); "Esse guia ensina" → **"O guia ensina"**; na lista, **"um dinossauro"** e
 **"um robô"**; A: "A gente joga isso fora toda semana" e lista de categorias mais curta (carro, castelo, dinossauro, robô).
 
-Arquivos em `saida/`: `A_9x16.mp4`, `A_4x5.mp4`, `B_9x16.mp4`, `B_4x5.mp4`, `C_9x16.mp4`, `C_4x5.mp4` + `*_thumb.jpg`.
+Arquivos em `saida/`: `M_9x16.mp4`, `M_4x5.mp4` (motion, `python motion.py`), `A_9x16.mp4`, `A_4x5.mp4`, `B_9x16.mp4`, `B_4x5.mp4`, `C_9x16.mp4`, `C_4x5.mp4` + `*_thumb.jpg`.
 Controle de qualidade em `saida/qa/` (contact sheets e `relatorio-qa.md` com ffprobe, loudness, transcrição e pHash).
 
 ## Para ficar melhor

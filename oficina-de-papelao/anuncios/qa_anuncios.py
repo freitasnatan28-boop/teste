@@ -49,6 +49,8 @@ def conferir_fala(video):
     import re, difflib, unicodedata, numpy as np
     import narracao as N, anuncios as A
     nome = os.path.basename(video)[0]
+    if nome not in A.FALA:  # anúncio sem narração (ex.: M, motion graphics)
+        return "(sem narração)", 1.0
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", video, "-ac", "1", "-ar", "16000", "-f", "f32le", "-"], capture_output=True).stdout
     texto = N.transcrever(np.frombuffer(raw, np.float32), 16000)
     norm = lambda s: re.sub(r"[^a-z0-9 ]", " ", unicodedata.normalize("NFKD", s.lower()).encode("ascii", "ignore").decode()).split()
