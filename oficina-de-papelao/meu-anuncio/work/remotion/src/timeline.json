@@ -1,0 +1,651 @@
+{
+ "fps": 30,
+ "dur": 795,
+ "cores": {
+  "verde": "#237A35",
+  "kraft": "#8A6440",
+  "kraft_claro": "#C89B6D",
+  "creme": "#FFF8EE",
+  "amarelo": "#FAB005",
+  "vermelho": "#C92A2A",
+  "texto": "#2B2A33"
+ },
+ "segmentos": [
+  {
+   "id": "hook",
+   "tipo": "bruto",
+   "de": 0.0,
+   "ate": 4.47,
+   "entrada": "punch-hook",
+   "audio_ate": 4.47,
+   "inicio": 0,
+   "dur": 134,
+   "t_saida": 0.0
+  },
+  {
+   "id": "problema",
+   "tipo": "bruto",
+   "de": 4.47,
+   "ate": 7.43,
+   "entrada": "whip",
+   "audio_ate": 7.43,
+   "inicio": 134,
+   "dur": 89,
+   "t_saida": 4.47
+  },
+  {
+   "id": "juntos",
+   "tipo": "bruto",
+   "de": 7.43,
+   "ate": 10.6,
+   "entrada": "punch",
+   "audio_ate": 10.6,
+   "inicio": 223,
+   "dur": 95,
+   "t_saida": 7.43
+  },
+  {
+   "id": "close",
+   "tipo": "bruto",
+   "de": 10.6,
+   "ate": 12.93,
+   "entrada": "zoom",
+   "audio_ate": 12.93,
+   "inicio": 318,
+   "dur": 70,
+   "t_saida": 10.6
+  },
+  {
+   "id": "insercao",
+   "tipo": "insercao",
+   "inicio": 388,
+   "dur": 180
+  },
+  {
+   "id": "preco",
+   "tipo": "bruto",
+   "de": 12.93,
+   "ate": 18.5,
+   "entrada": "whip",
+   "audio_ate": 18.85,
+   "inicio": 568,
+   "dur": 167,
+   "t_saida": 18.93
+  },
+  {
+   "id": "cartao",
+   "tipo": "cartao",
+   "inicio": 735,
+   "dur": 60
+  }
+ ],
+ "blocos": [
+  {
+   "ini": 77,
+   "fim": 96,
+   "linhas": [
+    [
+     {
+      "t": "OLHA",
+      "ini": 77,
+      "fim": 84,
+      "cor": "branco",
+      "pont": "a"
+     },
+     {
+      "t": "O",
+      "ini": 84,
+      "fim": 86,
+      "cor": "branco",
+      "pont": "o"
+     },
+     {
+      "t": "QUE",
+      "ini": 86,
+      "fim": 91,
+      "cor": "branco",
+      "pont": "e"
+     },
+     {
+      "t": "ELA",
+      "ini": 91,
+      "fim": 96,
+      "cor": "branco",
+      "pont": "a"
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 96,
+   "fim": 134,
+   "linhas": [
+    [
+     {
+      "t": "VIRA",
+      "ini": 96,
+      "fim": 108,
+      "cor": "verde",
+      "pont": "a"
+     },
+     {
+      "t": "EM",
+      "ini": 108,
+      "fim": 113,
+      "cor": "branco",
+      "pont": "m"
+     },
+     {
+      "t": "MEIA",
+      "ini": 113,
+      "fim": 122,
+      "cor": "verde",
+      "pont": "a"
+     },
+     {
+      "t": "HORA.",
+      "ini": 122,
+      "fim": 134,
+      "cor": "verde",
+      "pont": "."
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 134,
+   "fim": 173,
+   "linhas": [
+    [
+     {
+      "t": "CRIANÇA",
+      "ini": 134,
+      "fim": 146,
+      "cor": "branco",
+      "pont": "a"
+     },
+     {
+      "t": "PEDINDO",
+      "ini": 146,
+      "fim": 156,
+      "cor": "branco",
+      "pont": "o"
+     },
+     {
+      "t": "O",
+      "ini": 156,
+      "fim": 158,
+      "cor": "branco",
+      "pont": "o"
+     }
+    ],
+    [
+     {
+      "t": "CELULAR",
+      "ini": 158,
+      "fim": 173,
+      "cor": "vermelho",
+      "pont": "r"
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 173,
+   "fim": 187,
+   "linhas": [
+    [
+     {
+      "t": "DE",
+      "ini": 173,
+      "fim": 175,
+      "cor": "branco",
+      "pont": "e"
+     },
+     {
+      "t": "NOVO.",
+      "ini": 175,
+      "fim": 187,
+      "cor": "branco",
+      "pont": "."
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 187,
+   "fim": 216,
+   "linhas": [
+    [
+     {
+      "t": "TROCA",
+      "ini": 187,
+      "fim": 199,
+      "cor": "branco",
+      "pont": "a"
+     },
+     {
+      "t": "A",
+      "ini": 199,
+      "fim": 202,
+      "cor": "branco",
+      "pont": "a"
+     },
+     {
+      "t": "TELA",
+      "ini": 202,
+      "fim": 211,
+      "cor": "vermelho",
+      "pont": "a"
+     },
+     {
+      "t": "POR",
+      "ini": 211,
+      "fim": 216,
+      "cor": "branco",
+      "pont": "r"
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 216,
+   "fim": 226,
+   "linhas": [
+    [
+     {
+      "t": "ISSO.",
+      "ini": 216,
+      "fim": 223,
+      "cor": "branco",
+      "pont": "."
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 226,
+   "fim": 247,
+   "linhas": [
+    [
+     {
+      "t": "ELE",
+      "ini": 226,
+      "fim": 233,
+      "cor": "branco",
+      "pont": "e"
+     },
+     {
+      "t": "PINTA,",
+      "ini": 233,
+      "fim": 247,
+      "cor": "branco",
+      "pont": ","
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 247,
+   "fim": 283,
+   "linhas": [
+    [
+     {
+      "t": "COLA",
+      "ini": 247,
+      "fim": 259,
+      "cor": "branco",
+      "pont": "a"
+     },
+     {
+      "t": "E",
+      "ini": 259,
+      "fim": 264,
+      "cor": "branco",
+      "pont": "e"
+     },
+     {
+      "t": "DECORA.",
+      "ini": 264,
+      "fim": 283,
+      "cor": "branco",
+      "pont": "."
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 283,
+   "fim": 322,
+   "linhas": [
+    [
+     {
+      "t": "30",
+      "ini": 283,
+      "fim": 295,
+      "cor": "verde",
+      "pont": "0"
+     },
+     {
+      "t": "MINUTOS",
+      "ini": 295,
+      "fim": 307,
+      "cor": "verde",
+      "pont": "s"
+     },
+     {
+      "t": "JUNTOS,",
+      "ini": 307,
+      "fim": 318,
+      "cor": "verde",
+      "pont": ","
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 322,
+   "fim": 360,
+   "linhas": [
+    [
+     {
+      "t": "CONVERSANDO,",
+      "ini": 322,
+      "fim": 343,
+      "cor": "branco",
+      "pont": ","
+     }
+    ],
+    [
+     {
+      "t": "RINDO,",
+      "ini": 343,
+      "fim": 360,
+      "cor": "branco",
+      "pont": ","
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 360,
+   "fim": 388,
+   "linhas": [
+    [
+     {
+      "t": "SEM",
+      "ini": 360,
+      "fim": 365,
+      "cor": "verde",
+      "pont": "m"
+     },
+     {
+      "t": "TELA",
+      "ini": 365,
+      "fim": 374,
+      "cor": "verde",
+      "pont": "a"
+     },
+     {
+      "t": "NENHUMA.",
+      "ini": 374,
+      "fim": 388,
+      "cor": "verde",
+      "pont": "."
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 569,
+   "fim": 617,
+   "linhas": [
+    [
+     {
+      "t": "TUDO",
+      "ini": 569,
+      "fim": 578,
+      "cor": "branco",
+      "pont": "o"
+     },
+     {
+      "t": "ISSO",
+      "ini": 578,
+      "fim": 586,
+      "cor": "branco",
+      "pont": "o"
+     },
+     {
+      "t": "POR",
+      "ini": 586,
+      "fim": 590,
+      "cor": "branco",
+      "pont": "r"
+     }
+    ],
+    [
+     {
+      "t": "R$ 9,90,",
+      "ini": 590,
+      "fim": 617,
+      "cor": "verde",
+      "pont": ","
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 624,
+   "fim": 662,
+   "linhas": [
+    [
+     {
+      "t": "COM",
+      "ini": 624,
+      "fim": 631,
+      "cor": "branco",
+      "pont": "m"
+     },
+     {
+      "t": "ACESSO",
+      "ini": 631,
+      "fim": 643,
+      "cor": "branco",
+      "pont": "o"
+     },
+     {
+      "t": "NA",
+      "ini": 643,
+      "fim": 650,
+      "cor": "branco",
+      "pont": "a"
+     },
+     {
+      "t": "HORA",
+      "ini": 650,
+      "fim": 662,
+      "cor": "verde",
+      "pont": "a"
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 662,
+   "fim": 691,
+   "linhas": [
+    [
+     {
+      "t": "E",
+      "ini": 662,
+      "fim": 667,
+      "cor": "branco",
+      "pont": "e"
+     },
+     {
+      "t": "7",
+      "ini": 667,
+      "fim": 679,
+      "cor": "verde",
+      "pont": "7"
+     },
+     {
+      "t": "DIAS",
+      "ini": 679,
+      "fim": 686,
+      "cor": "verde",
+      "pont": "s"
+     },
+     {
+      "t": "DE",
+      "ini": 686,
+      "fim": 691,
+      "cor": "branco",
+      "pont": "e"
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 691,
+   "fim": 708,
+   "linhas": [
+    [
+     {
+      "t": "GARANTIA.",
+      "ini": 691,
+      "fim": 708,
+      "cor": "verde",
+      "pont": "."
+     }
+    ]
+   ]
+  },
+  {
+   "ini": 708,
+   "fim": 745,
+   "linhas": [
+    [
+     {
+      "t": "TOQUE",
+      "ini": 708,
+      "fim": 714,
+      "cor": "branco",
+      "pont": "e"
+     },
+     {
+      "t": "EM",
+      "ini": 714,
+      "fim": 725,
+      "cor": "branco",
+      "pont": "m"
+     },
+     {
+      "t": "SAIBA",
+      "ini": 725,
+      "fim": 737,
+      "cor": "verde",
+      "pont": "a"
+     }
+    ],
+    [
+     {
+      "t": "MAIS.",
+      "ini": 737,
+      "fim": 745,
+      "cor": "verde",
+      "pont": "."
+     }
+    ]
+   ]
+  }
+ ],
+ "elementos": {
+  "circulo_carro": {
+   "de_no_bruto": 2.55,
+   "ate_no_bruto": 4.4,
+   "x": 0.6,
+   "y": 0.555,
+   "rx": 0.3,
+   "ry": 0.1,
+   "ini": 76,
+   "fim": 132
+  },
+  "proibido": {
+   "de_no_bruto": 5.1,
+   "ate_no_bruto": 6.4,
+   "x": 0.255,
+   "y": 0.495,
+   "raio": 0.14,
+   "ini": 153,
+   "fim": 192
+  },
+  "selo_juntos": {
+   "de_no_bruto": 7.6,
+   "ate_no_bruto": 10.55,
+   "texto": "A criança pinta, o adulto corta",
+   "ini": 228,
+   "fim": 316
+  },
+  "preco": {
+   "de_no_bruto": 13.68,
+   "texto": "R$ 9,90",
+   "ini": 590
+  },
+  "seta_cta": {
+   "de_no_bruto": 17.45,
+   "texto": "TOQUE EM SAIBA MAIS",
+   "ini": 704
+  },
+  "aviso": "cena ilustrativa"
+ },
+ "emojis": [
+  {
+   "emoji": "🚗",
+   "ini": 93
+  },
+  {
+   "emoji": "🎨",
+   "ini": 234
+  },
+  {
+   "emoji": "😄",
+   "ini": 345
+  },
+  {
+   "emoji": "🛡️",
+   "ini": 687
+  }
+ ],
+ "hook": {
+  "titulo": [
+   "ANTES DE JOGAR",
+   "ESSA CAIXA FORA…"
+  ],
+  "ate_no_bruto": 2.4
+ },
+ "insercao": {
+  "contador_ate": 120,
+  "rotulo": "PROJETOS",
+  "subtitulo": "em 12 categorias",
+  "paginas": [
+   "pagina-001-carro.png",
+   "pagina-011-foguete.png",
+   "pagina-041-castelo.png",
+   "pagina-081-robo.png",
+   "pagina-091-fogao.png",
+   "pagina-101-labirinto.png"
+  ],
+  "selos": [
+   "Passo a passo simples",
+   "De 3 a 10 anos",
+   "Material que tem em casa"
+  ]
+ },
+ "cartao": {
+  "imagem": "produto-sol-1080.png",
+  "linha1": "Toca em Saiba mais",
+  "linha2": "e baixa agora por R$ 9,90",
+  "rodape": "Acesso imediato · 7 dias de garantia"
+ }
+}

@@ -1,0 +1,9 @@
+brutos/
+saida/
+work/analise/
+work/remotion/node_modules/
+work/remotion/public/
+work/remotion/out/
+work/*.wav
+work/*.mp4
+work/remotion/package-lock.json

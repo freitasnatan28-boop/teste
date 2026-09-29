@@ -1,0 +1,292 @@
+{
+ "modelo": "nemo-parakeet-tdt-0.6b-v3 (sherpa-onnx)",
+ "idioma": "pt",
+ "texto_bruto": "Para tudo! Antes de jogar essa caixa fora, olha o que ela vira em meia hora. Criança pedindo o celular de novo. Troca a tela por isso. Ele pinta, cola e decora. 30 minutos juntos, conversando, rindo, sem tela nenhuma. Tudo isso por R$ 9,90, com acesso na hora e 7 dias de garantia. Toquem saiba mais.",
+ "palavras": [
+  {
+   "palavra": "Para",
+   "inicio": 0.16,
+   "fim": 0.48
+  },
+  {
+   "palavra": "tudo!",
+   "inicio": 0.48,
+   "fim": 1.04
+  },
+  {
+   "palavra": "Antes",
+   "inicio": 1.04,
+   "fim": 1.28
+  },
+  {
+   "palavra": "de",
+   "inicio": 1.28,
+   "fim": 1.36
+  },
+  {
+   "palavra": "jogar",
+   "inicio": 1.36,
+   "fim": 1.68
+  },
+  {
+   "palavra": "essa",
+   "inicio": 1.68,
+   "fim": 1.92
+  },
+  {
+   "palavra": "caixa",
+   "inicio": 1.92,
+   "fim": 2.24
+  },
+  {
+   "palavra": "fora,",
+   "inicio": 2.24,
+   "fim": 2.56
+  },
+  {
+   "palavra": "olha",
+   "inicio": 2.56,
+   "fim": 2.8
+  },
+  {
+   "palavra": "o",
+   "inicio": 2.8,
+   "fim": 2.88
+  },
+  {
+   "palavra": "que",
+   "inicio": 2.88,
+   "fim": 3.04
+  },
+  {
+   "palavra": "ela",
+   "inicio": 3.04,
+   "fim": 3.2
+  },
+  {
+   "palavra": "vira",
+   "inicio": 3.2,
+   "fim": 3.6
+  },
+  {
+   "palavra": "em",
+   "inicio": 3.6,
+   "fim": 3.76
+  },
+  {
+   "palavra": "meia",
+   "inicio": 3.76,
+   "fim": 4.08
+  },
+  {
+   "palavra": "hora.",
+   "inicio": 4.08,
+   "fim": 4.48
+  },
+  {
+   "palavra": "Criança",
+   "inicio": 4.48,
+   "fim": 4.88
+  },
+  {
+   "palavra": "pedindo",
+   "inicio": 4.88,
+   "fim": 5.2
+  },
+  {
+   "palavra": "o",
+   "inicio": 5.2,
+   "fim": 5.28
+  },
+  {
+   "palavra": "celular",
+   "inicio": 5.28,
+   "fim": 5.76
+  },
+  {
+   "palavra": "de",
+   "inicio": 5.76,
+   "fim": 5.84
+  },
+  {
+   "palavra": "novo.",
+   "inicio": 5.84,
+   "fim": 6.24
+  },
+  {
+   "palavra": "Troca",
+   "inicio": 6.24,
+   "fim": 6.64
+  },
+  {
+   "palavra": "a",
+   "inicio": 6.64,
+   "fim": 6.72
+  },
+  {
+   "palavra": "tela",
+   "inicio": 6.72,
+   "fim": 7.04
+  },
+  {
+   "palavra": "por",
+   "inicio": 7.04,
+   "fim": 7.2
+  },
+  {
+   "palavra": "isso.",
+   "inicio": 7.2,
+   "fim": 7.52
+  },
+  {
+   "palavra": "Ele",
+   "inicio": 7.52,
+   "fim": 7.76
+  },
+  {
+   "palavra": "pinta,",
+   "inicio": 7.76,
+   "fim": 8.24
+  },
+  {
+   "palavra": "cola",
+   "inicio": 8.24,
+   "fim": 8.64
+  },
+  {
+   "palavra": "e",
+   "inicio": 8.64,
+   "fim": 8.8
+  },
+  {
+   "palavra": "decora.",
+   "inicio": 8.8,
+   "fim": 9.44
+  },
+  {
+   "palavra": "30",
+   "inicio": 9.44,
+   "fim": 9.84
+  },
+  {
+   "palavra": "minutos",
+   "inicio": 9.84,
+   "fim": 10.24
+  },
+  {
+   "palavra": "juntos,",
+   "inicio": 10.24,
+   "fim": 10.72
+  },
+  {
+   "palavra": "conversando,",
+   "inicio": 10.72,
+   "fim": 11.44
+  },
+  {
+   "palavra": "rindo,",
+   "inicio": 11.44,
+   "fim": 12.0
+  },
+  {
+   "palavra": "sem",
+   "inicio": 12.0,
+   "fim": 12.16
+  },
+  {
+   "palavra": "tela",
+   "inicio": 12.16,
+   "fim": 12.48
+  },
+  {
+   "palavra": "nenhuma.",
+   "inicio": 12.48,
+   "fim": 12.96
+  },
+  {
+   "palavra": "Tudo",
+   "inicio": 12.96,
+   "fim": 13.28
+  },
+  {
+   "palavra": "isso",
+   "inicio": 13.28,
+   "fim": 13.52
+  },
+  {
+   "palavra": "por",
+   "inicio": 13.52,
+   "fim": 13.68
+  },
+  {
+   "palavra": "R$ 9,90,",
+   "inicio": 13.68,
+   "fim": 14.58
+  },
+  {
+   "palavra": "com",
+   "inicio": 14.8,
+   "fim": 15.04
+  },
+  {
+   "palavra": "acesso",
+   "inicio": 15.04,
+   "fim": 15.44
+  },
+  {
+   "palavra": "na",
+   "inicio": 15.44,
+   "fim": 15.68
+  },
+  {
+   "palavra": "hora",
+   "inicio": 15.68,
+   "fim": 16.08
+  },
+  {
+   "palavra": "e",
+   "inicio": 16.08,
+   "fim": 16.24
+  },
+  {
+   "palavra": "7",
+   "inicio": 16.24,
+   "fim": 16.64
+  },
+  {
+   "palavra": "dias",
+   "inicio": 16.64,
+   "fim": 16.88
+  },
+  {
+   "palavra": "de",
+   "inicio": 16.88,
+   "fim": 17.04
+  },
+  {
+   "palavra": "garantia.",
+   "inicio": 17.04,
+   "fim": 17.6
+  },
+  {
+   "palavra": "Toque",
+   "inicio": 17.6,
+   "fim": 17.8
+  },
+  {
+   "palavra": "em",
+   "inicio": 17.8,
+   "fim": 18.16
+  },
+  {
+   "palavra": "Saiba",
+   "inicio": 18.16,
+   "fim": 18.56
+  },
+  {
+   "palavra": "mais.",
+   "inicio": 18.56,
+   "fim": 18.95
+  }
+ ]
+}

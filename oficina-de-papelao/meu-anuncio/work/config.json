@@ -1,0 +1,177 @@
+{
+  "_leia": "Tempos 'no_bruto' são em segundos do vídeo original. 'audio_ate' deixa a fala continuar por cima do bloco seguinte. Depois de mudar, rode: bash work/render.sh",
+  "fps": 30,
+  "bruto": "brutos/apresentadora.mp4",
+  "cores": {
+    "verde": "#237A35",
+    "kraft": "#8A6440",
+    "kraft_claro": "#C89B6D",
+    "creme": "#FFF8EE",
+    "amarelo": "#FAB005",
+    "vermelho": "#C92A2A",
+    "texto": "#2B2A33"
+  },
+  "correcao_cor": {
+    "contraste": 1.1,
+    "saturacao": 1.1
+  },
+  "trechos": [
+    {
+      "id": "hook",
+      "de": 0.0,
+      "ate": 4.47,
+      "entrada": "punch-hook"
+    },
+    {
+      "id": "problema",
+      "de": 4.47,
+      "ate": 7.43,
+      "entrada": "whip"
+    },
+    {
+      "id": "juntos",
+      "de": 7.43,
+      "ate": 10.6,
+      "entrada": "punch"
+    },
+    {
+      "id": "close",
+      "de": 10.6,
+      "ate": 12.93,
+      "entrada": "zoom"
+    },
+    {
+      "id": "insercao",
+      "tipo": "insercao",
+      "duracao": 6.0
+    },
+    {
+      "id": "preco",
+      "de": 12.93,
+      "ate": 18.5,
+      "entrada": "whip",
+      "audio_ate": 18.85
+    },
+    {
+      "id": "cartao",
+      "tipo": "cartao",
+      "duracao": 2.0
+    }
+  ],
+  "hook": {
+    "titulo": [
+      "ANTES DE JOGAR",
+      "ESSA CAIXA FORA…"
+    ],
+    "ate_no_bruto": 2.4
+  },
+  "legenda": {
+    "maiusculas": true,
+    "max_caracteres_linha": 18,
+    "max_palavras_bloco": 4,
+    "palavras_chave": {
+      "celular": "vermelho",
+      "tela": "vermelho",
+      "caixa": "verde",
+      "vira": "verde",
+      "meia": "verde",
+      "hora.": "verde",
+      "30": "verde",
+      "minutos": "verde",
+      "juntos,": "verde",
+      "sem": "verde",
+      "r$ 9,90,": "verde",
+      "7": "verde",
+      "dias": "verde",
+      "garantia.": "verde",
+      "saiba": "verde",
+      "mais.": "verde"
+    },
+    "palavras_chave_por_trecho": {
+      "close": {
+        "tela": "verde",
+        "nenhuma": "verde"
+      }
+    }
+  },
+  "emojis": [
+    {
+      "no_bruto": 3.1,
+      "emoji": "🚗"
+    },
+    {
+      "no_bruto": 7.8,
+      "emoji": "🎨"
+    },
+    {
+      "no_bruto": 11.5,
+      "emoji": "😄"
+    },
+    {
+      "no_bruto": 16.9,
+      "emoji": "🛡️"
+    }
+  ],
+  "elementos": {
+    "circulo_carro": {
+      "de_no_bruto": 2.55,
+      "ate_no_bruto": 4.4,
+      "x": 0.6,
+      "y": 0.555,
+      "rx": 0.3,
+      "ry": 0.1
+    },
+    "proibido": {
+      "de_no_bruto": 5.1,
+      "ate_no_bruto": 6.4,
+      "x": 0.255,
+      "y": 0.495,
+      "raio": 0.14
+    },
+    "selo_juntos": {
+      "de_no_bruto": 7.6,
+      "ate_no_bruto": 10.55,
+      "texto": "A criança pinta, o adulto corta"
+    },
+    "preco": {
+      "de_no_bruto": 13.68,
+      "texto": "R$ 9,90"
+    },
+    "seta_cta": {
+      "de_no_bruto": 17.45,
+      "texto": "TOQUE EM SAIBA MAIS"
+    },
+    "aviso": "cena ilustrativa"
+  },
+  "insercao": {
+    "contador_ate": 120,
+    "rotulo": "PROJETOS",
+    "subtitulo": "em 12 categorias",
+    "paginas": [
+      "pagina-001-carro.png",
+      "pagina-011-foguete.png",
+      "pagina-041-castelo.png",
+      "pagina-081-robo.png",
+      "pagina-091-fogao.png",
+      "pagina-101-labirinto.png"
+    ],
+    "selos": [
+      "Passo a passo simples",
+      "De 3 a 10 anos",
+      "Material que tem em casa"
+    ]
+  },
+  "cartao": {
+    "imagem": "produto-sol-1080.png",
+    "linha1": "Toca em Saiba mais",
+    "linha2": "e baixa agora por R$ 9,90",
+    "rodape": "Acesso imediato · 7 dias de garantia"
+  },
+  "audio": {
+    "musica": true,
+    "musica_sob_voz_db": -18,
+    "musica_sem_voz_db": -10,
+    "loudness_lufs": -14,
+    "true_peak_db": -1.0
+  }
+}
