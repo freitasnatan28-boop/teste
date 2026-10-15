@@ -1,0 +1,9 @@
+# fonte baixada automaticamente do Google Fonts na primeira execução
+fonts/
+# arquivos gerados
+*_trabalho/
+*.mp4
+*.mov
+*.wav
+*.ass
+*.srt

@@ -1,0 +1,22 @@
+# Glossário do legendar.py — aplicado automaticamente em toda transcrição.
+#
+# Formato:
+#   errado => certo     troca a palavra/expressão (ignora maiúsc./minúsc.)
+#   Termo               só vocabulário: ajuda o Whisper a reconhecer o termo
+#
+# Tudo depois de # é comentário. Sempre que corrigir algo na revisão que o
+# Whisper vai errar de novo (nome próprio, gíria, termo do nicho), anote aqui.
+
+# Redes e apps
+instagram => Instagram
+reels => Reels
+whatsapp => WhatsApp
+whats app => WhatsApp
+pix => Pix
+mercado livre => Mercado Livre
+tik tok => TikTok
+
+# Termos do seu nicho (exemplos — troque pelos seus)
+# tarô => Tarô
+# taro => Tarô
+# Tia Fifi
