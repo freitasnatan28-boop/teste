@@ -526,16 +526,23 @@ Na primeira vez, acesse o painel pelo endereço do servidor, vá em **WhatsApp**
 
 ## 12. Landing page de venda (`/oferta`)
 
-Página pública (não pede login) de venda com **pagamento na entrega**, feita primeiro para o celular:
-faixa de avisos, oferta com preço e botão logo na primeira tela, benefícios, antes × depois arrastável,
-como funciona o pagamento, como aplicar, prints de clientes, dúvidas frequentes e chamada final.
-Ao rolar, aparece uma barra de compra fixa no rodapé.
+Base genérica de página de venda com **pagamento na entrega**, feita primeiro para o celular.
+Fica num arquivo só, `landing/oferta.html`, que o painel serve em `/oferta` (sem login).
+O mesmo arquivo pode ser publicado em qualquer hospedagem.
 
-Tudo se edita em `src/app/oferta/config.ts`:
+Ordem da página: faixa de avisos → título → galeria → escolha do kit (1, 2 ou 3 unidades) → preço e botão →
+benefícios → antes × depois arrastável → como funciona o pagamento na entrega → comparativo →
+prints de clientes → garantia de 7 dias → perguntas frequentes → chamada final → rodapé.
+No celular, uma barra com o preço e o botão "Comprar agora" fica fixa no rodapé sempre que o botão principal não está na tela.
 
-- **`linkPedido`**: link do checkout/formulário. Vazio = o botão "Quero o meu" abre o WhatsApp.
-- **`whatsapp`**: número com DDI + DDD, só dígitos (ex.: `5511912345678`). Também liga o botão flutuante.
-- **Preços e textos**: `precoDe`, `precoPor`, `kit`, perguntas, passos etc.
-- **Fotos**: coloque os arquivos em `public/lp/` e informe o caminho em `fotos` (ex.: `/lp/antes.jpg`).
-  Sem fotos, a página usa as ilustrações que já vêm prontas.
-- **`provas`**: prints reais de clientes (ex.: `["/lp/prova1.jpg"]`). Use só conversas verdadeiras e autorizadas.
+O que trocar em `landing/oferta.html` para cada produto:
+
+- **Textos**: "Nome do Produto", promessa, benefícios, perguntas e "SuaMarca" (busque no arquivo).
+- **Kits e preços**: nos `<input name="kit">`, campos `data-nome`, `data-de`, `data-por` e `data-link`
+  (link do checkout daquele kit). O total, a economia e o selo de desconto são calculados sozinhos.
+- **WhatsApp**: no `CONFIG`, no fim do arquivo, coloque o número com DDI + DDD, só dígitos (ex.: `5511912345678`).
+  Sem link de checkout, o botão de compra abre o WhatsApp com o kit escolhido já escrito na mensagem.
+- **Fotos**: coloque os arquivos em `public/lp/` e troque cada ilustração `<svg>` por `<img src="/lp/foto.jpg" alt="...">`
+  (galeria 1:1, antes e depois 4:3, prints do WhatsApp 9:16). Use só prints reais e autorizados.
+- **Cor da marca**: mude `--marca` e `--marca-escura` no começo do `<style>`.
+- **Rodapé**: CNPJ, e-mail e links de políticas.

@@ -1,0 +1,997 @@
+<title>Nome do Produto | SuaMarca</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Nome do Produto com frete grátis e pagamento na entrega. Escolha o seu kit e pague só quando receber.">
+<meta name="theme-color" content="#101b2d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: coluna única no celular (zona do polegar, barra de compra fixa);
+   no computador vira vitrine de produto em 2 colunas (galeria + caixa de compra) e seções em container de 1120px.
+   Para trocar a cor da marca, mude só --marca e --marca-escura. */
+:root {
+  --tinta: #101b2d;
+  --tinta-2: #4a566c;
+  --tinta-3: #8792a6;
+  --sobre-tinta: #f4f6fa;
+  --sobre-tinta-2: #a9b3c5;
+  --papel: #ffffff;
+  --nevoa: #eff2f6;
+  --linha: #dfe4eb;
+  --linha-forte: #c3cbd6;
+  --marca: #0f9d58;
+  --marca-escura: #0a7a43;
+  --marca-suave: #e4f5ec;
+  --sobre-marca: #ffffff;
+  --destaque: #ffbf2f;
+  --wa: #25d366;
+  --wa-texto: #0f7a3d;
+  --wa-topo: #0b5f54;
+  --wa-fundo: #ece5dc;
+  --wa-enviada: #d8f8cf;
+
+  --f-titulo: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-texto: "Figtree", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+
+  --raio: 18px;
+  --raio-p: 12px;
+  --sombra: 0 1px 2px rgba(16, 27, 45, .06), 0 12px 32px -12px rgba(16, 27, 45, .18);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font: 400 16px/1.6 var(--f-texto);
+  -webkit-font-smoothing: antialiased;
+}
+body.com-barra { padding-bottom: 84px; }
+h1, h2, h3 { margin: 0; font-family: var(--f-titulo); font-weight: 750; line-height: 1.06; letter-spacing: -.025em; text-wrap: balance; }
+h2 { font-size: clamp(1.75rem, 1.2rem + 2.4vw, 2.6rem); }
+h3 { font-size: 1.125rem; letter-spacing: -.01em; line-height: 1.25; }
+p { margin: 0; }
+a { color: inherit; }
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--destaque); outline-offset: 3px; border-radius: 6px; }
+
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.i { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+
+.wrap {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.secao { padding-block: clamp(56px, 8vw, 104px); }
+.olho {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--marca-escura);
+}
+.cabeca { display: grid; gap: 12px; max-width: 40rem; margin-bottom: clamp(28px, 4vw, 48px); }
+.cabeca p { color: var(--tinta-2); font-size: 1.0625rem; }
+
+/* ---------- Faixa de avisos ---------- */
+.faixa { overflow: hidden; background: var(--tinta); color: var(--sobre-tinta); font-size: .8125rem; font-weight: 600; }
+.faixa-trilho { display: flex; width: max-content; animation: rolar 26s linear infinite; }
+.faixa-grupo { display: flex; }
+.faixa-grupo span { display: inline-flex; align-items: center; gap: 8px; padding: 9px 22px; white-space: nowrap; }
+.faixa-grupo .i { width: 16px; height: 16px; color: var(--destaque); }
+@keyframes rolar { to { transform: translateX(-50%); } }
+@media (min-width: 900px) {
+  .faixa-trilho { width: auto; justify-content: center; animation: none; }
+  .faixa-grupo[aria-hidden] { display: none; }
+}
+
+/* ---------- Topo ---------- */
+.topo { border-bottom: 1px solid var(--linha); }
+.topo .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--f-titulo); font-weight: 800; font-size: 1.25rem; letter-spacing: -.03em; }
+.logo-marca { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--tinta); color: var(--destaque); }
+.logo-marca .i { width: 18px; height: 18px; stroke-width: 2.4; }
+.menu { display: none; gap: 28px; font-size: .9375rem; font-weight: 600; color: var(--tinta-2); }
+.menu a { text-decoration: none; }
+.menu a:hover { color: var(--tinta); }
+.atendimento { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: var(--nevoa); font-size: .875rem; font-weight: 600; text-decoration: none; }
+.atendimento .i { width: 18px; height: 18px; color: var(--wa-texto); }
+@media (min-width: 900px) { .menu { display: flex; } }
+
+/* ---------- Vitrine (galeria + compra) ---------- */
+.vitrine { padding-block: 20px 56px; }
+.vitrine-grade { display: grid; gap: 20px; }
+/* No celular o título vem antes da foto; no computador ele fica dentro da caixa de compra */
+@media (max-width: 899px) {
+  .vitrine-grade > .compra { display: contents; }
+  .titulo-bloco { order: -1; }
+}
+@media (min-width: 900px) {
+  .vitrine { padding-block: 40px 96px; }
+  .vitrine-grade { grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+  .galeria { position: sticky; top: 24px; }
+}
+
+.foto-principal {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: var(--raio);
+  background: radial-gradient(120% 90% at 50% 30%, var(--papel) 0%, var(--nevoa) 62%, #e2e7ee 100%);
+}
+.foto-principal svg, .foto-principal img { width: 100%; height: 100%; object-fit: cover; }
+.selo-desconto {
+  position: absolute; top: 14px; left: 14px;
+  padding: 6px 12px; border-radius: 999px;
+  background: var(--destaque); color: var(--tinta);
+  font-family: var(--f-titulo); font-weight: 800; font-size: .9375rem; font-variant-numeric: tabular-nums;
+}
+.foto-legenda {
+  position: absolute; left: 14px; bottom: 14px;
+  padding: 5px 10px; border-radius: 999px;
+  background: rgba(16, 27, 45, .72); color: var(--sobre-tinta);
+  font-size: .75rem; font-weight: 600;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.miniaturas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
+.miniatura {
+  padding: 0; border: 2px solid transparent; border-radius: var(--raio-p);
+  background: var(--nevoa); cursor: pointer; overflow: hidden; aspect-ratio: 1;
+  transition: border-color .15s;
+}
+.miniatura svg, .miniatura img { width: 100%; height: 100%; object-fit: cover; }
+.miniatura[aria-pressed="true"] { border-color: var(--tinta); }
+
+.compra { display: grid; gap: 20px; min-width: 0; }
+.prova { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: .875rem; color: var(--tinta-2); }
+.estrelas { display: inline-flex; color: var(--destaque); }
+.estrelas .i { width: 17px; height: 17px; }
+.prova b { color: var(--tinta); }
+.compra h1 { font-size: clamp(2.1rem, 1.5rem + 3vw, 3.25rem); }
+.promessa { margin-top: 12px; font-size: 1.125rem; color: var(--tinta-2); max-width: 34rem; }
+.vantagens { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.vantagens li { display: flex; gap: 10px; align-items: flex-start; font-weight: 500; }
+.vantagens .i { width: 20px; height: 20px; margin-top: 2px; padding: 3px; border-radius: 50%; background: var(--marca-suave); color: var(--marca-escura); stroke-width: 3; }
+
+.kits { display: grid; gap: 12px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.kits legend { margin-bottom: 12px; padding: 0; font-weight: 700; }
+.kit {
+  position: relative;
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px;
+  padding: 16px; border: 1.5px solid var(--linha); border-radius: 14px;
+  background: var(--papel); cursor: pointer;
+  transition: border-color .15s, box-shadow .15s, background-color .15s;
+}
+.kit:hover { border-color: var(--linha-forte); }
+.kit:has(input:checked) { border-color: var(--marca); background: var(--marca-suave); box-shadow: 0 0 0 1px var(--marca); }
+.kit input {
+  appearance: none; -webkit-appearance: none; margin: 0;
+  display: grid; place-content: center;
+  width: 22px; height: 22px; border: 2px solid var(--linha-forte); border-radius: 50%; background: var(--papel);
+}
+.kit input::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--marca); transform: scale(0); transition: transform .15s; }
+.kit input:checked { border-color: var(--marca); }
+.kit input:checked::after { transform: scale(1); }
+.kit input:focus-visible { outline: 3px solid var(--destaque); outline-offset: 2px; }
+.kit-info { display: grid; line-height: 1.3; }
+.kit-info b { font-size: 1.0625rem; }
+.kit-info small { color: var(--tinta-2); font-size: .8125rem; }
+.kit-preco { display: grid; justify-items: end; line-height: 1.25; font-variant-numeric: tabular-nums; }
+.kit-preco s { color: var(--tinta-3); font-size: .8125rem; }
+.kit-preco b { font-size: 1.125rem; }
+.kit-etiqueta {
+  position: absolute; top: -11px; right: 14px;
+  padding: 3px 10px; border-radius: 999px;
+  background: var(--tinta); color: var(--sobre-tinta);
+  font-size: .6875rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.kit-etiqueta.ouro { background: var(--destaque); color: var(--tinta); }
+
+.total { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 4px 12px; padding-top: 4px; }
+.total-rotulo { font-weight: 600; color: var(--tinta-2); }
+.total-rotulo s { margin-left: 6px; color: var(--tinta-3); font-variant-numeric: tabular-nums; }
+.total-por { grid-row: span 2; font-family: var(--f-titulo); font-size: clamp(2.2rem, 1.8rem + 1.6vw, 2.75rem); font-weight: 800; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.economia { justify-self: start; padding: 3px 10px; border-radius: 999px; background: var(--marca-suave); color: var(--marca-escura); font-size: .8125rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.botoes { display: grid; gap: 10px; }
+.btn {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 56px; padding: 12px 20px; border-radius: 14px; border: 0;
+  text-decoration: none; text-align: center; cursor: pointer;
+  font-weight: 700; -webkit-tap-highlight-color: transparent;
+  transition: transform .12s ease, background-color .15s, box-shadow .15s;
+}
+.btn:active { transform: translateY(1px) scale(.995); }
+.btn-comprar {
+  flex-direction: column; gap: 0; min-height: 64px;
+  background: var(--marca); color: var(--sobre-marca);
+  box-shadow: 0 14px 28px -14px var(--marca), inset 0 -3px 0 rgba(0, 0, 0, .14);
+}
+.btn-comprar:hover { background: var(--marca-escura); }
+.btn-comprar .linha1 { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-titulo); font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.2; }
+.btn-comprar .linha2 { font-size: .8125rem; font-weight: 500; opacity: .9; }
+.btn-comprar .i { width: 20px; height: 20px; stroke-width: 2.4; }
+.btn-comprar::after {
+  content: ""; position: absolute; inset: 0 auto 0 -60%; width: 40%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .28), transparent);
+  transform: skewX(-18deg); animation: brilho 5s ease-in-out 1.5s infinite;
+}
+@keyframes brilho { 0%, 70% { left: -60%; } 100% { left: 130%; } }
+.btn-whats { background: var(--papel); color: var(--wa-texto); border: 1.5px solid var(--wa); font-size: 1rem; }
+.btn-whats:hover { background: var(--marca-suave); }
+.btn-whats .i { fill: currentColor; stroke: none; }
+.btn-claro { background: var(--sobre-tinta); color: var(--tinta); }
+.btn-claro:hover { background: var(--papel); }
+
+.garantias { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
+.garantias li { display: grid; justify-items: center; gap: 6px; padding: 4px 6px; text-align: center; font-size: .75rem; font-weight: 600; line-height: 1.3; color: var(--tinta-2); }
+.garantias li + li { border-left: 1px solid var(--linha); }
+.garantias .i { color: var(--tinta); }
+.entrega { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: var(--raio-p); background: var(--nevoa); font-size: .9375rem; }
+.entrega .i { color: var(--marca-escura); margin-top: 1px; }
+@media (min-width: 900px) {
+  .compra { padding: 32px; border: 1px solid var(--linha); border-radius: 24px; box-shadow: var(--sombra); }
+}
+
+/* ---------- Benefícios ---------- */
+.beneficios { background: var(--nevoa); }
+.beneficios-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; }
+.beneficio { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.beneficio-icone { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px; background: var(--papel); color: var(--marca-escura); box-shadow: var(--sombra); }
+.beneficio-icone .i { width: 26px; height: 26px; }
+.beneficio p { color: var(--tinta-2); font-size: .9375rem; }
+@media (min-width: 900px) { .beneficios-grade { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; } }
+
+/* ---------- Antes e depois ---------- */
+.resultado-grade { display: grid; gap: 32px; align-items: center; }
+@media (min-width: 900px) { .resultado-grade { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 64px; } .resultado-grade .cabeca { margin-bottom: 0; } }
+.lista-check { display: grid; gap: 10px; margin: 8px 0 0; padding: 0; list-style: none; }
+.lista-check li { display: flex; gap: 10px; align-items: center; font-weight: 500; color: var(--tinta); }
+.lista-check .i { width: 20px; height: 20px; color: var(--marca); stroke-width: 2.6; }
+.comparar { --pos: 50%; position: relative; aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; border-radius: var(--raio); user-select: none; -webkit-user-select: none; touch-action: pan-y; box-shadow: var(--sombra); }
+.camada { position: absolute; inset: 0; }
+.camada svg, .camada img { width: 100%; height: 100%; object-fit: cover; }
+.camada.antes svg { filter: grayscale(.9) contrast(.78) brightness(.9); }
+.camada.antes::after { content: ""; position: absolute; inset: 0; background: radial-gradient(rgba(70, 60, 50, .22) 1px, transparent 1.4px) 0 0 / 7px 7px; mix-blend-mode: multiply; }
+.camada.depois { clip-path: inset(0 0 0 var(--pos)); }
+.divisor { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: var(--papel); box-shadow: 0 0 12px rgba(0, 0, 0, .35); pointer-events: none; }
+.alca { position: absolute; top: 50%; left: 50%; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; transform: translate(-50%, -50%); background: var(--papel); color: var(--tinta); box-shadow: 0 6px 18px rgba(0, 0, 0, .3); }
+.alca .i { width: 22px; height: 22px; stroke-width: 2.4; }
+.comparar input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.comparar:has(input:focus-visible) { outline: 3px solid var(--destaque); outline-offset: 3px; }
+.rotulo { position: absolute; top: 14px; padding: 5px 12px; border-radius: 999px; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; pointer-events: none; }
+.rotulo.antes { left: 14px; background: rgba(16, 27, 45, .72); color: var(--sobre-tinta); }
+.rotulo.depois { right: 14px; background: var(--destaque); color: var(--tinta); }
+.dica { margin-top: 12px; color: var(--tinta-3); font-size: .875rem; text-align: center; }
+
+/* ---------- Pagamento na entrega ---------- */
+.escura { background: var(--tinta); color: var(--sobre-tinta); }
+.escura .olho { color: var(--destaque); }
+.escura .cabeca p { color: var(--sobre-tinta-2); }
+.passos { display: grid; gap: 28px; margin: 0; padding: 0; list-style: none; counter-reset: passo; }
+.passo { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 18px; }
+.passo-num {
+  grid-row: span 2;
+  display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, .22); color: var(--destaque);
+  font-family: var(--f-titulo); font-weight: 800; font-size: 1.25rem;
+}
+.passo p { color: var(--sobre-tinta-2); }
+@media (max-width: 899px) {
+  .passo:not(:last-child)::before { content: ""; position: absolute; left: 24px; top: 56px; bottom: -22px; width: 1.5px; background: rgba(255, 255, 255, .14); }
+}
+@media (min-width: 900px) {
+  .passos { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+  .passo { grid-template-columns: 1fr; gap: 12px; }
+  .passo-num { grid-row: auto; }
+  .passo:not(:last-child)::before { content: ""; position: absolute; top: 24px; left: 64px; right: -28px; height: 1.5px; background: rgba(255, 255, 255, .14); }
+}
+.selo-tranquilo { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; margin-top: clamp(32px, 5vw, 56px); padding: 20px 22px; border-radius: var(--raio); background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .1); }
+.selo-tranquilo p { display: flex; gap: 12px; align-items: center; font-weight: 600; }
+.selo-tranquilo .i { color: var(--destaque); }
+
+/* ---------- Comparativo ---------- */
+.tabela-rolagem { overflow-x: auto; border: 1px solid var(--linha); border-radius: var(--raio); }
+.tabela { width: 100%; border-collapse: collapse; font-size: .9375rem; }
+.tabela th, .tabela td { padding: 14px 12px; text-align: left; border-bottom: 1px solid var(--linha); }
+.tabela th:first-child, .tabela td:first-child { padding-left: 16px; }
+@media (min-width: 700px) { .tabela th, .tabela td { padding: 16px 18px; } }
+@media (max-width: 699px) { .tabela thead th { font-size: .6875rem; letter-spacing: .04em; } .tabela { font-size: .875rem; } }
+.tabela tr:last-child td { border-bottom: 0; }
+.tabela thead th { font-size: .8125rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--tinta-2); background: var(--nevoa); }
+.tabela .nosso { background: var(--marca-suave); color: var(--marca-escura); text-align: center; }
+.tabela thead .nosso { color: var(--marca-escura); }
+.tabela td.nosso, .tabela td.outro, .tabela th.outro { text-align: center; width: 26%; }
+.tabela td .i { display: inline-block; vertical-align: middle; width: 22px; height: 22px; stroke-width: 2.6; }
+.tabela td.outro { color: var(--tinta-3); }
+
+/* ---------- Depoimentos (prints do WhatsApp) ---------- */
+.depoimentos { background: var(--nevoa); }
+.prints {
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 64%); gap: 16px;
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding: 4px max(16px, env(safe-area-inset-left, 0px)) 12px;
+  overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+}
+.prints::-webkit-scrollbar { display: none; }
+@media (min-width: 900px) { .prints { grid-auto-flow: row; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-inline: 0; padding-inline: 0; overflow: visible; } }
+.print { margin: 0; display: grid; gap: 10px; scroll-snap-align: center; }
+.print-tela { overflow: hidden; aspect-ratio: 9 / 16; max-width: 100%; border-radius: 22px; border: 6px solid var(--tinta); background: var(--wa-fundo); box-shadow: var(--sombra); display: flex; flex-direction: column; }
+.print-tela img { width: 100%; height: 100%; object-fit: cover; }
+.print-topo { display: flex; align-items: center; gap: 8px; padding: 12px 12px 10px; background: var(--wa-topo); }
+.print-topo .avatar { width: 26px; height: 26px; border-radius: 50%; background: rgba(255, 255, 255, .35); }
+.print-topo .nome { width: 42%; height: 8px; border-radius: 4px; background: rgba(255, 255, 255, .55); }
+.chat { display: flex; flex-direction: column; gap: 8px; padding: 12px; }
+.bolha { display: grid; gap: 5px; max-width: 78%; padding: 9px 10px; border-radius: 10px; background: var(--papel); box-shadow: 0 1px 1px rgba(0, 0, 0, .08); }
+.bolha.eu { align-self: flex-end; background: var(--wa-enviada); }
+.bolha i { display: block; height: 6px; border-radius: 3px; background: rgba(16, 27, 45, .14); }
+.bolha .foto { height: 70px; border-radius: 6px; background: linear-gradient(135deg, #cfd6df, #e9edf2); }
+.print figcaption { font-size: .8125rem; color: var(--tinta-2); text-align: center; }
+
+/* ---------- Garantia ---------- */
+.garantia { display: grid; gap: 24px; align-items: center; padding: clamp(24px, 4vw, 48px); border-radius: 28px; background: var(--marca-suave); }
+.garantia p { color: var(--tinta-2); max-width: 38rem; margin-top: 10px; }
+.garantia-selo { width: 132px; height: 132px; color: var(--marca-escura); }
+@media (min-width: 700px) { .garantia { grid-template-columns: auto minmax(0, 1fr); gap: 40px; } .garantia-selo { width: 168px; height: 168px; } }
+
+/* ---------- Dúvidas ---------- */
+.duvidas-grade { display: grid; gap: 32px; }
+@media (min-width: 900px) { .duvidas-grade { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 64px; align-items: start; } .duvidas-grade .cabeca { position: sticky; top: 24px; } }
+.ajuda { display: grid; gap: 12px; margin-top: 8px; padding: 20px; border-radius: var(--raio); background: var(--nevoa); }
+.ajuda b { font-size: 1.0625rem; }
+.faq { border-top: 1px solid var(--linha); }
+.faq details { border-bottom: 1px solid var(--linha); }
+.faq summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; padding-block: 14px; cursor: pointer; list-style: none; font-weight: 600; font-size: 1.0625rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary .i { width: 20px; height: 20px; color: var(--tinta-2); transition: transform .2s; }
+.faq details[open] summary .i { transform: rotate(45deg); }
+.faq details p { padding-bottom: 20px; color: var(--tinta-2); max-width: 40rem; }
+
+/* ---------- Chamada final ---------- */
+.final { padding-block: 0 clamp(56px, 8vw, 104px); }
+.final-cartao { display: grid; gap: 28px; align-items: center; overflow: hidden; padding: clamp(28px, 5vw, 56px); border-radius: 28px; background: var(--tinta); color: var(--sobre-tinta); }
+.final-cartao .olho { color: var(--destaque); }
+.final-cartao p { color: var(--sobre-tinta-2); margin-top: 12px; }
+.final-resumo { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-top: 20px; font-variant-numeric: tabular-nums; }
+.final-resumo b { font-family: var(--f-titulo); font-size: 2rem; letter-spacing: -.03em; color: var(--sobre-tinta); }
+.final-resumo a { color: var(--destaque); font-weight: 600; font-size: .875rem; }
+.final-arte { width: 100%; max-width: min(240px, 100%); justify-self: center; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 50% 45%, rgba(255, 255, 255, .16), rgba(255, 255, 255, 0) 70%); }
+.final-arte svg { width: 100%; height: 100%; }
+@media (min-width: 900px) { .final-cartao { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); } .final-arte { max-width: 320px; } .final-cartao .botoes { max-width: 420px; } }
+
+/* ---------- Rodapé ---------- */
+.rodape { padding-block: 40px calc(40px + env(safe-area-inset-bottom, 0px)); background: var(--nevoa); color: var(--tinta-2); font-size: .875rem; }
+.rodape-grade { display: grid; gap: 20px; }
+.rodape nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.rodape nav a { text-decoration: none; font-weight: 600; color: var(--tinta); }
+.rodape small { display: block; font-size: .8125rem; color: var(--tinta-3); }
+@media (min-width: 900px) { .rodape-grade { grid-template-columns: 1fr auto; align-items: center; } }
+
+/* ---------- Fixos na tela ---------- */
+.barra {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+  display: flex; align-items: center; gap: 14px;
+  padding: 10px max(14px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px));
+  background: rgba(255, 255, 255, .94); border-top: 1px solid var(--linha);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 -10px 30px -12px rgba(16, 27, 45, .25);
+  transform: translateY(110%); transition: transform .28s ease; visibility: hidden;
+}
+.barra.visivel { transform: none; visibility: visible; }
+.barra-info { display: grid; line-height: 1.2; min-width: 0; }
+.barra-info span { font-size: .75rem; color: var(--tinta-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.barra-info b { font-family: var(--f-titulo); font-size: 1.375rem; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.barra .btn { flex: 1; min-height: 52px; }
+.barra .btn-comprar .linha1 { font-size: 1.0625rem; }
+@media (min-width: 900px) { .barra { display: none; } body.com-barra { padding-bottom: 0; } }
+
+.flutuante {
+  position: fixed; z-index: 29;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%;
+  background: var(--wa); color: var(--papel); box-shadow: 0 10px 24px -8px rgba(0, 0, 0, .45);
+  transition: bottom .28s ease;
+}
+.flutuante .i { width: 30px; height: 30px; fill: currentColor; stroke: none; }
+@media (max-width: 899px) { body.com-barra .flutuante { bottom: calc(90px + env(safe-area-inset-bottom, 0px)); } }
+
+.aviso-toast {
+  position: fixed; z-index: 40; left: 50%; bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+  width: max-content; max-width: calc(100% - 32px); transform: translateX(-50%);
+  padding: 12px 16px; border-radius: 12px; background: var(--tinta); color: var(--sobre-tinta);
+  font-size: .875rem; font-weight: 500; box-shadow: var(--sombra);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+<!-- /head -->
+
+<!-- Ícones e ilustrações reaproveitados na página. Troque as ilustrações por fotos reais quando tiver. -->
+<svg class="sprite" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-podio" x1="0" x2="1">
+      <stop offset="0" stop-color="#d5dce5" />
+      <stop offset=".5" stop-color="#eef2f6" />
+      <stop offset="1" stop-color="#cbd3de" />
+    </linearGradient>
+    <linearGradient id="g-ceu" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fd3ff" />
+      <stop offset="1" stop-color="#eaf6ff" />
+    </linearGradient>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17" /></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></symbol>
+    <symbol id="i-estrela" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 2.8l2.8 5.8 6.4.8-4.7 4.4 1.2 6.4L12 17.1l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" /></symbol>
+    <symbol id="i-caminhao" viewBox="0 0 24 24"><path d="M2 6.5h12v9.5H2zM14 9.5h4.2L21.5 13v3H14" /><circle cx="6.5" cy="17.5" r="1.9" /><circle cx="17" cy="17.5" r="1.9" /></symbol>
+    <symbol id="i-dinheiro" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2" /><circle cx="12" cy="12" r="2.6" /><path d="M6 9.5v5M18 9.5v5" /></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l7.5 2.8v6c0 4.4-3.2 8-7.5 9.2-4.3-1.2-7.5-4.8-7.5-9.2v-6z" /><path d="M8.8 12l2.3 2.3 4.3-4.6" /></symbol>
+    <symbol id="i-brilho" viewBox="0 0 24 24"><path d="M12 3l1.9 5.4L19.5 10l-5.6 1.7L12 17l-1.9-5.3L4.5 10l5.6-1.6z" /><path d="M18.5 15.5l.8 2 2 .8-2 .7-.8 2-.7-2-2-.7 2-.8z" /></symbol>
+    <symbol id="i-medalha" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.8" /><path d="M8.7 13.8L7.5 21l4.5-2.6 4.5 2.6-1.2-7.2" /></symbol>
+    <symbol id="i-mao" viewBox="0 0 24 24"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10m0-.5V4a1.5 1.5 0 0 1 3 0v6m0-4.5a1.5 1.5 0 0 1 3 0V11m0-3.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-1a7 7 0 0 1-5.6-2.8L3.6 14.6a1.6 1.6 0 0 1 2.4-2L7 13.5" /></symbol>
+    <symbol id="i-carteira" viewBox="0 0 24 24"><path d="M4 7.5h14.5a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5V8.5" /><path d="M3 8.5a2.5 2.5 0 0 1 2.5-2.5H16V7.5" /><path d="M16.5 13.75h1" /></symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" /><path d="M3.5 10h17M8 3v4M16 3v4" /></symbol>
+    <symbol id="i-cadeado" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10.5" rx="2.5" /><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" /></symbol>
+    <symbol id="i-sacola" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12.5H6.2z" /><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5" /></symbol>
+    <symbol id="i-setas" viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5" /></symbol>
+    <symbol id="i-whats" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z" /></symbol>
+
+    <!-- Produto genérico (caixa) sobre um pódio -->
+    <symbol id="podio" viewBox="0 0 400 400">
+      <path d="M60 318v30a140 30 0 0 0 280 0v-30z" fill="url(#g-podio)" />
+      <ellipse cx="200" cy="318" rx="140" ry="30" fill="#f7f9fb" />
+      <ellipse cx="200" cy="318" rx="140" ry="30" fill="none" stroke="#d5dce5" />
+    </symbol>
+    <symbol id="caixa" viewBox="0 0 400 400" overflow="visible">
+      <ellipse cx="214" cy="320" rx="96" ry="13" fill="#101b2d" opacity=".16" />
+      <path d="M128 142l120 20v164l-120-16z" style="fill: var(--tinta)" />
+      <path d="M248 162l44-24v162l-44 26z" style="fill: var(--tinta)" />
+      <path d="M248 162l44-24v162l-44 26z" fill="#000" opacity=".32" />
+      <path d="M128 142l44-24 120 20-44 24z" style="fill: var(--tinta)" />
+      <path d="M128 142l44-24 120 20-44 24z" fill="#fff" opacity=".14" />
+      <path d="M128 202l120 20v40l-120-20z" style="fill: var(--marca)" />
+      <path d="M248 222l44-24v40l-44 24z" style="fill: var(--marca)" />
+      <path d="M248 222l44-24v40l-44 24z" fill="#000" opacity=".22" />
+      <path d="M131 146v162" stroke="#fff" stroke-width="3" opacity=".14" />
+      <circle cx="146" cy="174" r="6" style="fill: var(--destaque)" />
+      <text transform="translate(158 179) skewY(9.46)" font-family="Figtree, sans-serif" font-size="9.5" font-weight="700" letter-spacing="2.4" fill="#fff" opacity=".85">SUAMARCA</text>
+      <text transform="translate(138 229) skewY(9.46)" font-family="Bricolage Grotesque, sans-serif" font-size="15" font-weight="800" fill="#fff" textLength="100" lengthAdjust="spacingAndGlyphs">SEU PRODUTO</text>
+      <text transform="translate(138 294) skewY(9.46)" font-family="Figtree, sans-serif" font-size="8" font-weight="600" letter-spacing="1.6" fill="#fff" opacity=".55">CONTEÚDO · 1 UN</text>
+    </symbol>
+    <symbol id="brilhos" viewBox="0 0 400 400">
+      <g style="fill: var(--destaque)">
+        <path d="M92 150l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" />
+        <path d="M322 96l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" />
+        <path d="M334 214l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z" opacity=".7" />
+      </g>
+    </symbol>
+
+    <!-- Cena de exemplo para o antes e depois -->
+    <symbol id="cena" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+      <rect width="400" height="300" fill="url(#g-ceu)" />
+      <circle cx="306" cy="78" r="32" fill="#ffd166" />
+      <path d="M0 206c80-58 160-40 230-18s130-28 170-14v126H0z" fill="#7cc6a4" />
+      <path d="M0 240c100-40 200-12 280-22s100-10 120 6v76H0z" fill="#2f9a6b" />
+      <path d="M0 270c120-18 260-10 400 0v30H0z" fill="#237a55" />
+    </symbol>
+  </defs>
+</svg>
+
+<div class="faixa">
+  <div class="faixa-trilho">
+    <div class="faixa-grupo">
+      <span><svg class="i"><use href="#i-caminhao" /></svg>Frete grátis para todo o Brasil</span>
+      <span><svg class="i"><use href="#i-dinheiro" /></svg>Pague só quando receber</span>
+      <span><svg class="i"><use href="#i-escudo" /></svg>Garantia de 7 dias</span>
+    </div>
+    <div class="faixa-grupo" aria-hidden="true">
+      <span><svg class="i"><use href="#i-caminhao" /></svg>Frete grátis para todo o Brasil</span>
+      <span><svg class="i"><use href="#i-dinheiro" /></svg>Pague só quando receber</span>
+      <span><svg class="i"><use href="#i-escudo" /></svg>Garantia de 7 dias</span>
+    </div>
+  </div>
+</div>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="logo" href="#compra" aria-label="SuaMarca, início">
+      <span class="logo-marca"><svg class="i"><use href="#i-brilho" /></svg></span>SuaMarca
+    </a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#beneficios">Benefícios</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="atendimento js-whats" href="#duvidas"><svg class="i"><use href="#i-whats" /></svg>Atendimento</a>
+  </div>
+</header>
+
+<main>
+  <!-- Vitrine: o essencial (foto, promessa, preço e botão) cabe na primeira tela do celular -->
+  <section class="vitrine" id="compra">
+    <div class="wrap vitrine-grade">
+      <div class="galeria">
+        <div class="foto-principal">
+          <div id="foto-arte" style="display:contents">
+            <svg viewBox="0 0 400 400" role="img" aria-label="Kit com 2 unidades do produto">
+              <use href="#podio" /><g transform="translate(-30 50) scale(.8)"><use href="#caixa" /></g><g transform="translate(90 64) scale(.8)"><use href="#caixa" /></g><use href="#brilhos" />
+            </svg>
+          </div>
+          <span class="selo-desconto" id="selo-desconto">-43%</span>
+          <span class="foto-legenda" id="foto-legenda">Kit com 2 unidades</span>
+        </div>
+        <!-- Cada miniatura pode virar uma foto real: troque o <svg> por <img src="..." alt="..."> -->
+        <div class="miniaturas">
+          <button class="miniatura" type="button" aria-pressed="false" data-legenda="Foto principal" aria-label="Ver foto principal">
+            <svg viewBox="0 0 400 400" role="img" aria-label="Produto de frente"><use href="#podio" /><use href="#caixa" /><use href="#brilhos" /></svg>
+          </button>
+          <button class="miniatura" type="button" aria-pressed="false" data-legenda="Detalhe do rótulo" aria-label="Ver detalhe">
+            <svg viewBox="0 0 400 400" role="img" aria-label="Detalhe do rótulo do produto"><g transform="translate(-161 -246) scale(1.9)"><use href="#podio" /><use href="#caixa" /></g></svg>
+          </button>
+          <button class="miniatura" type="button" aria-pressed="true" data-legenda="Kit com 2 unidades" aria-label="Ver kit com 2 unidades">
+            <svg viewBox="0 0 400 400" role="img" aria-label="Kit com 2 unidades do produto"><use href="#podio" /><g transform="translate(-30 50) scale(.8)"><use href="#caixa" /></g><g transform="translate(90 64) scale(.8)"><use href="#caixa" /></g><use href="#brilhos" /></svg>
+          </button>
+          <button class="miniatura" type="button" aria-pressed="false" data-legenda="Kit com 3 unidades" aria-label="Ver kit com 3 unidades">
+            <svg viewBox="0 0 400 400" role="img" aria-label="Kit com 3 unidades do produto"><use href="#podio" /><g transform="translate(66 85) scale(.66)"><use href="#caixa" /></g><g transform="translate(-10 103) scale(.66)"><use href="#caixa" /></g><g transform="translate(128 98) scale(.66)"><use href="#caixa" /></g><use href="#brilhos" /></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="compra">
+        <div class="titulo-bloco">
+          <p class="prova">
+            <span class="estrelas" aria-hidden="true"><svg class="i"><use href="#i-estrela" /></svg><svg class="i"><use href="#i-estrela" /></svg><svg class="i"><use href="#i-estrela" /></svg><svg class="i"><use href="#i-estrela" /></svg><svg class="i"><use href="#i-estrela" /></svg></span>
+            <b>+10 mil clientes</b> · Pagamento na entrega
+          </p>
+          <h1 style="margin-top:12px">Nome do Produto</h1>
+          <p class="promessa">A promessa principal do seu produto em uma frase: o resultado que o cliente quer, do jeito mais simples.</p>
+        </div>
+
+        <ul class="vantagens">
+          <li><svg class="i"><use href="#i-check" /></svg>Primeiro benefício que o cliente sente</li>
+          <li><svg class="i"><use href="#i-check" /></svg>Segundo benefício, curto e direto</li>
+          <li><svg class="i"><use href="#i-check" /></svg>Terceiro benefício que tira uma objeção</li>
+        </ul>
+
+        <!-- Kits: troque nomes e preços aqui. data-link = link do checkout daquele kit (vazio = abre o WhatsApp). -->
+        <fieldset class="kits">
+          <legend>Escolha o seu kit</legend>
+          <label class="kit">
+            <input type="radio" name="kit" id="kit-1" data-nome="Kit com 1 unidade" data-de="129,90" data-por="97,00" data-vista="0" data-link="">
+            <span class="kit-info"><b>1 unidade</b><small>Para experimentar</small></span>
+            <span class="kit-preco"><s>R$ 129,90</s><b>R$ 97,00</b></span>
+          </label>
+          <label class="kit">
+            <span class="kit-etiqueta">Mais vendido</span>
+            <input type="radio" name="kit" id="kit-2" data-nome="Kit com 2 unidades" data-de="259,80" data-por="147,00" data-vista="2" data-link="" checked>
+            <span class="kit-info"><b>2 unidades</b><small>R$ 73,50 cada</small></span>
+            <span class="kit-preco"><s>R$ 259,80</s><b>R$ 147,00</b></span>
+          </label>
+          <label class="kit">
+            <span class="kit-etiqueta ouro">Melhor preço</span>
+            <input type="radio" name="kit" id="kit-3" data-nome="Kit com 3 unidades" data-de="389,70" data-por="187,00" data-vista="3" data-link="">
+            <span class="kit-info"><b>3 unidades</b><small>R$ 62,33 cada</small></span>
+            <span class="kit-preco"><s>R$ 389,70</s><b>R$ 187,00</b></span>
+          </label>
+        </fieldset>
+
+        <div class="total" aria-live="polite">
+          <span class="total-rotulo">Total <s id="total-de">R$ 259,80</s></span>
+          <strong class="total-por js-preco">R$ 147,00</strong>
+          <span class="economia">Você economiza <span id="total-economia">R$ 112,80</span></span>
+        </div>
+
+        <div class="botoes">
+          <a class="btn btn-comprar js-comprar" id="btn-principal" href="#compra">
+            <span class="linha1"><svg class="i"><use href="#i-sacola" /></svg>Comprar agora</span>
+            <span class="linha2">Frete grátis · pague só na entrega</span>
+          </a>
+          <a class="btn btn-whats js-whats" href="#duvidas"><svg class="i"><use href="#i-whats" /></svg>Tirar dúvida no WhatsApp</a>
+        </div>
+
+        <ul class="garantias">
+          <li><svg class="i"><use href="#i-cadeado" /></svg>Compra<br>segura</li>
+          <li><svg class="i"><use href="#i-caminhao" /></svg>Frete<br>grátis</li>
+          <li><svg class="i"><use href="#i-escudo" /></svg>Garantia<br>de 7 dias</li>
+        </ul>
+
+        <p class="entrega"><svg class="i"><use href="#i-calendario" /></svg><span>Você escolhe o dia da entrega e <b>paga direto ao entregador</b>, sem cartão e sem pagamento antecipado.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao beneficios" id="beneficios">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="olho">Benefícios</span>
+        <h2>Por que escolher o Nome do Produto</h2>
+        <p>Resultado que aparece, uso sem complicação e a segurança de pagar só quando o pedido chega.</p>
+      </div>
+      <div class="beneficios-grade">
+        <div class="beneficio">
+          <span class="beneficio-icone"><svg class="i"><use href="#i-brilho" /></svg></span>
+          <h3>Resultado visível</h3>
+          <p>Você percebe a diferença logo nos primeiros usos.</p>
+        </div>
+        <div class="beneficio">
+          <span class="beneficio-icone"><svg class="i"><use href="#i-medalha" /></svg></span>
+          <h3>Qualidade de verdade</h3>
+          <p>Material resistente, feito para durar no dia a dia.</p>
+        </div>
+        <div class="beneficio">
+          <span class="beneficio-icone"><svg class="i"><use href="#i-mao" /></svg></span>
+          <h3>Fácil de usar</h3>
+          <p>Sem ferramentas e sem complicação. Chegou, usou.</p>
+        </div>
+        <div class="beneficio">
+          <span class="beneficio-icone"><svg class="i"><use href="#i-carteira" /></svg></span>
+          <h3>Mais economia</h3>
+          <p>Preço menor no kit e frete grátis para todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap resultado-grade">
+      <div class="cabeca">
+        <span class="olho">Resultado</span>
+        <h2>Veja a diferença com os próprios olhos</h2>
+        <p>Arraste a linha sobre a imagem para comparar o antes e o depois.</p>
+        <ul class="lista-check">
+          <li><svg class="i"><use href="#i-check" /></svg>Diferença clara desde o primeiro uso</li>
+          <li><svg class="i"><use href="#i-check" /></svg>Resultado que dura</li>
+        </ul>
+      </div>
+      <div>
+        <!-- Troque cada <svg> por <img src="..." alt="..."> com as fotos reais (formato 4:3) -->
+        <div class="comparar" id="comparar">
+          <div class="camada antes"><svg viewBox="0 0 400 300" role="img" aria-label="Foto de antes"><use href="#cena" /></svg></div>
+          <div class="camada depois"><svg viewBox="0 0 400 300" role="img" aria-label="Foto de depois"><use href="#cena" /><use href="#brilhos" x="-60" y="20" width="400" height="400" /></svg></div>
+          <span class="rotulo antes">Antes</span>
+          <span class="rotulo depois">Depois</span>
+          <div class="divisor"><span class="alca"><svg class="i"><use href="#i-setas" /></svg></span></div>
+          <input type="range" id="comparar-controle" min="0" max="100" value="50" aria-label="Arraste para comparar antes e depois">
+        </div>
+        <p class="dica">Arraste para os lados</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao escura" id="como-funciona">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="olho">Pagamento na entrega</span>
+        <h2>Você só paga quando o produto chegar</h2>
+        <p>Nada de cartão ou pagamento antecipado. O risco é todo nosso.</p>
+      </div>
+      <ol class="passos">
+        <li class="passo">
+          <span class="passo-num">1</span>
+          <h3>Faça o pedido</h3>
+          <p>Escolha o kit e informe nome e endereço. Leva menos de um minuto.</p>
+        </li>
+        <li class="passo">
+          <span class="passo-num">2</span>
+          <h3>Escolha o dia</h3>
+          <p>Selecione o melhor dia de entrega disponível para a sua região.</p>
+        </li>
+        <li class="passo">
+          <span class="passo-num">3</span>
+          <h3>Receba e pague</h3>
+          <p>Confira o produto e pague direto ao entregador, na porta de casa.</p>
+        </li>
+      </ol>
+      <div class="selo-tranquilo">
+        <p><svg class="i"><use href="#i-escudo" /></svg>Sem pagar nada antes de receber</p>
+        <a class="btn btn-claro" href="#compra">Escolher meu kit</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="olho">Comparativo</span>
+        <h2>Por que vale mais a pena</h2>
+      </div>
+      <div class="tabela-rolagem">
+        <table class="tabela">
+          <thead>
+            <tr><th scope="col">O que você recebe</th><th scope="col" class="nosso">Nome do Produto</th><th scope="col" class="outro">Opções comuns</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Resultado visível desde o primeiro uso</td><td class="nosso"><svg class="i" aria-label="Sim"><use href="#i-check" /></svg></td><td class="outro"><svg class="i" aria-label="Não"><use href="#i-x" /></svg></td></tr>
+            <tr><td>Pagamento só na entrega</td><td class="nosso"><svg class="i" aria-label="Sim"><use href="#i-check" /></svg></td><td class="outro"><svg class="i" aria-label="Não"><use href="#i-x" /></svg></td></tr>
+            <tr><td>Frete grátis</td><td class="nosso"><svg class="i" aria-label="Sim"><use href="#i-check" /></svg></td><td class="outro">Às vezes</td></tr>
+            <tr><td>Garantia de 7 dias</td><td class="nosso"><svg class="i" aria-label="Sim"><use href="#i-check" /></svg></td><td class="outro">Às vezes</td></tr>
+            <tr><td>Atendimento pelo WhatsApp</td><td class="nosso"><svg class="i" aria-label="Sim"><use href="#i-check" /></svg></td><td class="outro"><svg class="i" aria-label="Não"><use href="#i-x" /></svg></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao depoimentos">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="olho">Clientes</span>
+        <h2>Quem comprou, aprovou</h2>
+        <p>Mensagens reais de clientes no WhatsApp.</p>
+      </div>
+      <!-- Troque o conteúdo de cada .print-tela por <img src="..." alt="Mensagem de cliente"> com prints reais e autorizados -->
+      <div class="prints">
+        <figure class="print">
+          <div class="print-tela">
+            <div class="print-topo"><span class="avatar"></span><span class="nome"></span></div>
+            <div class="chat">
+              <span class="bolha" style="width:72%"><i></i><i style="width:60%"></i></span>
+              <span class="bolha"><span class="foto" style="width:150px"></span><i style="width:70%"></i></span>
+              <span class="bolha eu" style="width:56%"><i></i></span>
+              <span class="bolha" style="width:66%"><i></i><i style="width:40%"></i></span>
+            </div>
+          </div>
+          <figcaption>Print do cliente 1</figcaption>
+        </figure>
+        <figure class="print">
+          <div class="print-tela">
+            <div class="print-topo"><span class="avatar"></span><span class="nome" style="width:34%"></span></div>
+            <div class="chat">
+              <span class="bolha eu" style="width:50%"><i></i></span>
+              <span class="bolha" style="width:76%"><i></i><i></i><i style="width:50%"></i></span>
+              <span class="bolha" style="width:44%"><i></i></span>
+              <span class="bolha eu" style="width:62%"><i></i><i style="width:70%"></i></span>
+            </div>
+          </div>
+          <figcaption>Print do cliente 2</figcaption>
+        </figure>
+        <figure class="print">
+          <div class="print-tela">
+            <div class="print-topo"><span class="avatar"></span><span class="nome" style="width:50%"></span></div>
+            <div class="chat">
+              <span class="bolha" style="width:62%"><i></i></span>
+              <span class="bolha"><span class="foto" style="width:150px;height:96px"></span></span>
+              <span class="bolha" style="width:70%"><i></i><i style="width:55%"></i></span>
+            </div>
+          </div>
+          <figcaption>Print do cliente 3</figcaption>
+        </figure>
+        <figure class="print">
+          <div class="print-tela">
+            <div class="print-topo"><span class="avatar"></span><span class="nome" style="width:38%"></span></div>
+            <div class="chat">
+              <span class="bolha" style="width:74%"><i></i><i style="width:80%"></i></span>
+              <span class="bolha eu" style="width:46%"><i></i></span>
+              <span class="bolha" style="width:58%"><i></i><i style="width:45%"></i></span>
+              <span class="bolha" style="width:40%"><i></i></span>
+            </div>
+          </div>
+          <figcaption>Print do cliente 4</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap">
+      <div class="garantia">
+        <svg class="garantia-selo" viewBox="0 0 200 200" role="img" aria-label="Selo de garantia de 7 dias">
+          <defs><path id="selo-circulo" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0" /></defs>
+          <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="2" />
+          <circle cx="100" cy="100" r="56" fill="currentColor" />
+          <text font-family="Figtree, sans-serif" font-size="13" font-weight="700" letter-spacing="3.2" fill="currentColor"><textPath href="#selo-circulo">GARANTIA · SATISFAÇÃO · DEVOLUÇÃO FÁCIL ·</textPath></text>
+          <text x="100" y="108" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="44" font-weight="800" fill="#fff">7</text>
+          <text x="100" y="128" text-anchor="middle" font-family="Figtree, sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#fff">DIAS</text>
+        </svg>
+        <div>
+          <span class="olho">Compra sem risco</span>
+          <h2>Garantia de 7 dias</h2>
+          <p>Se não gostar, você pode devolver em até 7 dias depois de receber, como garante o Código de Defesa do Consumidor (art. 49). É só chamar nosso atendimento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="duvidas" style="padding-top:0">
+    <div class="wrap duvidas-grade">
+      <div class="cabeca">
+        <span class="olho">Dúvidas</span>
+        <h2>Perguntas frequentes</h2>
+        <div class="ajuda">
+          <b>Ainda ficou com alguma dúvida?</b>
+          <span>Nossa equipe responde pelo WhatsApp.</span>
+          <a class="btn btn-whats js-whats" href="#duvidas"><svg class="i"><use href="#i-whats" /></svg>Falar no WhatsApp</a>
+        </div>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>Preciso pagar alguma coisa agora?<svg class="i"><use href="#i-mais" /></svg></summary>
+          <p>Não. Você faz o pedido sem cartão e só paga quando o produto chegar, direto ao entregador.</p>
+        </details>
+        <details>
+          <summary>O frete é grátis?<svg class="i"><use href="#i-mais" /></svg></summary>
+          <p>Sim. O frete é grátis e você paga apenas o valor do kit escolhido na hora da entrega.</p>
+        </details>
+        <details>
+          <summary>Como escolho o dia da entrega?<svg class="i"><use href="#i-mais" /></svg></summary>
+          <p>Depois de preencher seus dados, é só escolher um dos dias disponíveis para a sua região.</p>
+        </details>
+        <details>
+          <summary>E se eu não estiver em casa?<svg class="i"><use href="#i-mais" /></svg></summary>
+          <p>Escolha um dia em que você ou alguém de confiança possa receber e pagar. Se precisar mudar, fale com a gente pelo WhatsApp.</p>
+        </details>
+        <details>
+          <summary>Posso devolver se não gostar?<svg class="i"><use href="#i-mais" /></svg></summary>
+          <p>Pode. Você tem 7 dias depois do recebimento para pedir a devolução.</p>
+        </details>
+        <details>
+          <summary>Qual kit vale mais a pena?<svg class="i"><use href="#i-mais" /></svg></summary>
+          <p>O kit com 3 unidades tem o menor preço por unidade. O de 2 unidades é o mais escolhido pelos clientes.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <div class="final-cartao">
+        <div>
+          <span class="olho">Oferta com frete grátis</span>
+          <h2>Garanta o seu hoje e pague só quando receber</h2>
+          <p>Você escolhe o dia da entrega. Sem cartão, sem pagamento antecipado.</p>
+          <div class="final-resumo"><span class="js-kit-nome">Kit com 2 unidades</span><b class="js-preco">R$ 147,00</b><a href="#compra">Trocar kit</a></div>
+          <div class="botoes" style="margin-top:24px">
+            <a class="btn btn-comprar js-comprar" href="#compra">
+              <span class="linha1"><svg class="i"><use href="#i-sacola" /></svg>Comprar agora</span>
+              <span class="linha2">Frete grátis · pague só na entrega</span>
+            </a>
+          </div>
+        </div>
+        <div class="final-arte">
+          <svg viewBox="0 0 400 400" aria-hidden="true"><use href="#podio" /><g transform="translate(66 85) scale(.66)"><use href="#caixa" /></g><g transform="translate(-10 103) scale(.66)"><use href="#caixa" /></g><g transform="translate(128 98) scale(.66)"><use href="#caixa" /></g><use href="#brilhos" /></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap rodape-grade">
+    <div>
+      <a class="logo" href="#compra"><span class="logo-marca"><svg class="i"><use href="#i-brilho" /></svg></span>SuaMarca</a>
+      <small style="margin-top:12px">© <span id="ano">2026</span> SuaMarca · CNPJ 00.000.000/0001-00 · contato@suamarca.com.br</small>
+      <small>Este site não é afiliado ao Facebook ou à Meta.</small>
+    </div>
+    <nav aria-label="Informações">
+      <a href="#duvidas">Trocas e devoluções</a>
+      <a href="#duvidas">Política de privacidade</a>
+      <a href="#duvidas">Termos de uso</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="barra" id="barra" aria-hidden="true">
+  <div class="barra-info"><span class="js-kit-nome">Kit com 2 unidades</span><b class="js-preco">R$ 147,00</b></div>
+  <a class="btn btn-comprar js-comprar" href="#compra" tabindex="-1"><span class="linha1">Comprar agora</span></a>
+</div>
+
+<a class="flutuante js-whats" href="#duvidas" aria-label="Falar no WhatsApp"><svg class="i"><use href="#i-whats" /></svg></a>
+<div class="aviso-toast" id="aviso" role="status" hidden></div>
+
+<script>
+// ===== Configuração =====
+const CONFIG = {
+  // Número do WhatsApp com DDI + DDD, só dígitos. Ex.: "5511912345678"
+  whatsapp: "",
+  // Mensagem que já aparece escrita quando o cliente abre o WhatsApp
+  mensagem: "Olá! Tenho uma dúvida sobre o Nome do Produto.",
+  produto: "Nome do Produto",
+};
+
+(() => {
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => [...document.querySelectorAll(s)];
+  const brl = (n) => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  const numero = (t) => Number(String(t).replace(/\./g, "").replace(",", "."));
+  const linkWhats = (msg) =>
+    CONFIG.whatsapp ? `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}` : "";
+
+  const aviso = $("#aviso");
+  let avisoTimer;
+  function avisar(msg) {
+    aviso.textContent = msg;
+    aviso.hidden = false;
+    clearTimeout(avisoTimer);
+    avisoTimer = setTimeout(() => (aviso.hidden = true), 3500);
+  }
+
+  function abrirFora(a, href) {
+    a.href = href;
+    a.target = "_blank";
+    a.rel = "noopener";
+  }
+
+  // Galeria: a foto grande mostra o que estiver na miniatura escolhida
+  const miniaturas = $$(".miniatura");
+  function mostrarVista(i) {
+    const m = miniaturas[i];
+    if (!m) return;
+    miniaturas.forEach((b) => b.setAttribute("aria-pressed", String(b === m)));
+    $("#foto-arte").innerHTML = m.innerHTML;
+    $("#foto-legenda").textContent = m.dataset.legenda;
+  }
+  miniaturas.forEach((b, i) => b.addEventListener("click", () => mostrarVista(i)));
+
+  // Kits: atualiza preço, economia, selo de desconto e o link do botão de compra
+  const kits = $$('input[name="kit"]');
+  function atualizarKit() {
+    const kit = kits.find((k) => k.checked) || kits[0];
+    const { nome, de, por, vista, link } = kit.dataset;
+    const vDe = numero(de), vPor = numero(por);
+    $("#total-de").textContent = brl(vDe);
+    $("#total-economia").textContent = brl(vDe - vPor);
+    $("#selo-desconto").textContent = `-${Math.round((1 - vPor / vDe) * 100)}%`;
+    $$(".js-preco").forEach((el) => (el.textContent = brl(vPor)));
+    $$(".js-kit-nome").forEach((el) => (el.textContent = nome));
+    const destino = link || linkWhats(`Olá! Quero o ${nome} do ${CONFIG.produto} (${brl(vPor)}) com pagamento na entrega.`);
+    $$(".js-comprar").forEach((a) => {
+      if (destino) abrirFora(a, destino);
+      a.dataset.semLink = destino ? "" : "1";
+    });
+    if (vista) mostrarVista(Number(vista));
+  }
+  kits.forEach((k) => k.addEventListener("change", atualizarKit));
+  atualizarKit();
+
+  // WhatsApp
+  const whats = linkWhats(CONFIG.mensagem);
+  $$(".js-whats").forEach((a) => whats && abrirFora(a, whats));
+
+  document.addEventListener("click", (e) => {
+    const comprar = e.target.closest(".js-comprar");
+    if (comprar && comprar.dataset.semLink === "1") {
+      e.preventDefault();
+      avisar("Falta configurar o link do checkout (data-link do kit) ou o número do WhatsApp.");
+    }
+    const w = e.target.closest(".js-whats");
+    if (w && !whats) {
+      e.preventDefault();
+      avisar("Falta configurar o número do WhatsApp no CONFIG.");
+    }
+  });
+
+  // Antes e depois
+  const comparar = $("#comparar");
+  const controle = $("#comparar-controle");
+  controle.addEventListener("input", () => comparar.style.setProperty("--pos", controle.value + "%"));
+
+  // Barra de compra fixa (celular): visível sempre que o botão principal não está na tela,
+  // assim o preço e o "Comprar" aparecem já na primeira tela
+  const barra = $("#barra");
+  const botaoBarra = barra.querySelector("a");
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([e]) => {
+      const mostrar = !e.isIntersecting;
+      barra.classList.toggle("visivel", mostrar);
+      barra.setAttribute("aria-hidden", String(!mostrar));
+      botaoBarra.tabIndex = mostrar ? 0 : -1;
+      document.body.classList.toggle("com-barra", mostrar);
+    }).observe($("#btn-principal"));
+  }
+
+  $("#ano").textContent = new Date().getFullYear();
+})();
+</script>
