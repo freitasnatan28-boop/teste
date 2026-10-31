@@ -59,3 +59,70 @@ export const ThumbLagosta: React.FC<{ pasta: string }> = ({ pasta }) => (
     </svg>
   </AbsoluteFill>
 );
+
+// ---------- Versão em inglês: Behind the Map (canal para o público dos EUA) ----------
+
+// Logo com o nome no anel: alfinete de mapa sobre o globo, "BEHIND THE MAP" em cima e um mapa-múndi estilizado.
+export const LogoEN: React.FC<{ tamanho?: number }> = ({ tamanho = 800 }) => (
+  <svg width={tamanho} height={tamanho} viewBox="-400 -400 800 800">
+    <defs>
+      <path id="arco-topo" d="M -300 0 A 300 300 0 0 1 300 0" />
+      <path id="arco-base" d="M -318 0 A 318 318 0 0 0 318 0" />
+      <radialGradient id="globo" cx="40%" cy="35%">
+        <stop offset="0" stopColor="#1d4a78" />
+        <stop offset="1" stopColor={COR.fundo} />
+      </radialGradient>
+    </defs>
+    <circle r={392} fill={COR.fundo} />
+    <circle r={380} fill="none" stroke={COR.amarelo} strokeWidth={14} />
+    <circle r={250} fill="url(#globo)" stroke={COR.amarelo} strokeWidth={8} />
+    <g stroke="#3b6489" strokeWidth={4} fill="none" opacity={0.9}>
+      <ellipse rx={110} ry={246} />
+      <ellipse rx={200} ry={246} />
+      <line x1={-246} x2={246} />
+      <path d="M-226 -100 Q0 -140 226 -100" />
+      <path d="M-226 100 Q0 140 226 100" />
+      <line y1={-246} y2={246} />
+    </g>
+    <text fontFamily="Anton" fontSize={92} fill={COR.texto} letterSpacing={6} textAnchor="middle">
+      <textPath href="#arco-topo" startOffset="50%">BEHIND THE MAP</textPath>
+    </text>
+    {[-1, 1].map((s) => <circle key={s} cx={s * 318} cy={14} r={9} fill={COR.amarelo} />)}
+    <g transform="translate(0 -10) scale(2.9)">
+      <path d="M0 70 C -30 30, -48 10, -48 -14 A48 48 0 0 1 48 -14 C 48 10, 30 30, 0 70 Z" fill={COR.amarelo} stroke="#000" strokeWidth={4} />
+      <circle cy={-16} r={22} fill={COR.fundo} />
+      <circle cy={-16} r={11} fill={COR.vermelho} />
+    </g>
+    <text fontFamily="Oswald" fontWeight={700} fontSize={44} fill={COR.amarelo} letterSpacing={10} textAnchor="middle">
+      <textPath href="#arco-base" startOffset="50%" dominantBaseline="hanging">MONEY · POWER · BORDERS</textPath>
+    </text>
+  </svg>
+);
+
+export const AvatarEN: React.FC = () => (
+  <AbsoluteFill style={{ background: COR.fundo, justifyContent: "center", alignItems: "center" }}>
+    <LogoEN tamanho={800} />
+  </AbsoluteFill>
+);
+
+// Banner 2560x1440 com satélite (NASA Blue Marble, domínio público). Tudo que importa fica na faixa central 1546x423.
+export const BannerEN: React.FC = () => (
+  <AbsoluteFill style={{ background: COR.fundo, overflow: "hidden" }}>
+    <Img src={staticFile("identidade/mundo-banner.jpg")} style={{ position: "absolute", width: 2560, height: 1440, filter: "saturate(1.1) brightness(.75)" }} />
+    <AbsoluteFill style={{ background: "radial-gradient(ellipse 60% 45% at center, rgba(7,17,28,.88) 0%, rgba(7,17,28,.55) 55%, rgba(7,17,28,.2) 100%)" }} />
+    <svg width={2560} height={1440} style={{ position: "absolute", opacity: 0.22 }}>
+      {Array.from({ length: 33 }, (_, i) => <line key={`v${i}`} x1={i * 80} y1={0} x2={i * 80} y2={1440} stroke="#9cc3e6" strokeWidth={1} />)}
+      {Array.from({ length: 19 }, (_, i) => <line key={`h${i}`} x1={0} y1={i * 80} x2={2560} y2={i * 80} stroke="#9cc3e6" strokeWidth={1} />)}
+    </svg>
+    <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", flexDirection: "row", gap: 40 }}>
+      <LogoCanal tamanho={270} />
+      <div>
+        <div style={{ fontFamily: FONTE_TITULO, fontSize: 168, color: COR.texto, lineHeight: 1, letterSpacing: 2, textShadow: CONTORNO_PRETO }}>BEHIND THE MAP</div>
+        <div style={{ fontFamily: FONTE_TEXTO, fontWeight: 700, fontSize: 44, color: "#000", background: COR.amarelo, display: "inline-block", padding: "4px 24px", marginTop: 16, letterSpacing: 3 }}>
+          MONEY, POWER &amp; BORDERS — EXPLAINED WITH MAPS
+        </div>
+        <div style={{ fontFamily: FONTE_TEXTO, fontWeight: 500, fontSize: 38, color: COR.texto, marginTop: 18, letterSpacing: 6, textShadow: CONTORNO_PRETO }}>NEW VIDEOS EVERY WEEK</div>
+      </div>
+    </AbsoluteFill>
+  </AbsoluteFill>
+);

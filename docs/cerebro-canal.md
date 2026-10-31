@@ -36,7 +36,10 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
   O vídeo 001 em PT-BR fica como teste do motor de edição.
 - **Visual:** mapas animados gerados em código + imagens do Wikimedia Commons (com crédito) + Pexels só pra ambiente.
 - **Fatos:** todo roteiro passa pelo setor de Pesquisa e lista as fontes na descrição.
-- **Nome:** **Por Trás do Mapa** (versão PT). Nome em inglês: **pendente**. Arquivos em `canal/identidade/` (foto de perfil 800x800, banner 2560x1440).
+- **Nome:** **Por Trás do Mapa** (versão PT). Em inglês: **Behind the Map** (@ a confirmar pelo dono). Logo 800x800 e
+  banner 2560x1440 em `canal/identidade/en/` (`Avatar-EN`/`Banner-EN` no Remotion; slogan "Money, power & borders — explained with maps").
+- **Ritmo de trabalho (pedido do dono):** uma etapa por vez, entregar e esperar o ok antes da próxima, pra não gastar à toa
+  (créditos da ElevenLabs e tempo de render). Não adiantar roteiro/voz/render sem ele pedir. Arquivos em `canal/identidade/` (foto de perfil 800x800, banner 2560x1440).
 - **Voz:** ElevenLabs "Nassif - Documentary, History & Thriller" (`acdKA5HckGxoxxvy40dA`), `eleven_multilingual_v2`,
   stability 0.45, similarity 0.8, style 0.2, seed 1963. Nomes estrangeiros têm grafia fonética em `scripts/roteiro.ts`.
 - **Estilo de edição (ATUAL): "modelo de mapa"**, igual ao vídeo de referência que o dono mandou (Reel estilo GeoAnalyst
@@ -59,7 +62,7 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 
 ## Decisões pendentes
 
-- [ ] Nome do canal em inglês e @ (ideias: Behind the Map, Map Untold, The Map Room).
+- [ ] Confirmar o @ do Behind the Map (reservas: Map Untold, Hidden Atlas).
 - [ ] Canal NOVO pro inglês (recomendado: os 120 inscritos são brasileiros e confundem o algoritmo) ou o antigo.
 - [ ] Voz em inglês na ElevenLabs (narrador de documentário americano).
 - [ ] Manter o canal em PT em paralelo ou parar.

@@ -2,7 +2,7 @@
 // Uso:
 //   npm run render -- video 001-guerra-da-lagosta            (vídeo inteiro)
 //   npm run render -- video 001-guerra-da-lagosta 0 600      (só os frames 0 a 600, para conferir)
-//   npm run render -- imagens                                (avatar, banner e thumbnails)
+//   npm run render -- imagens [Id1,Id2]                      (avatar, banner e thumbnails)
 //   npm run render -- quadros 001-guerra-da-lagosta 300,900  (só alguns quadros em PNG, para conferir)
 import { bundle } from "@remotion/bundler";
 import { renderMedia, renderStill, selectComposition } from "@remotion/renderer";
@@ -24,7 +24,9 @@ async function main() {
   const comum = { serveUrl, browserExecutable: CHROME };
 
   if (modo === "imagens") {
-    for (const id of ["Avatar", "Banner", "Thumb-001"]) {
+    // Opcional: só algumas (ex.: npm run render -- imagens Avatar-EN,Banner-EN)
+    const ids = video ? video.split(",") : ["Avatar", "Banner", "Thumb-001", "Avatar-EN", "Banner-EN"];
+    for (const id of ids) {
       const composition = await selectComposition({ ...comum, id, inputProps: {} });
       await renderStill({ ...comum, composition, output: join(SAIDA, `${id}.png`), inputProps: {} });
       console.log(`${id}.png ok`);
