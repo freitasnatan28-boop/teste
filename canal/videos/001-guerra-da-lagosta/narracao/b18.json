@@ -1,0 +1,208 @@
+{
+ "id": "b18",
+ "capitulo": "O Brasil se prepara pra guerra",
+ "visual": "Mapa com Fernando de Noronha. Um ícone de avião detecta um navio no radar.",
+ "texto": "Mesmo assim, a caçada começou. No dia 26 de fevereiro, um avião de patrulha da FAB detectou no radar um navio grande rumando pra Fernando de Noronha. No dia seguinte, um B-17 de reconhecimento fotografou o navio. Era o Tartu.",
+ "palavras": [
+  {
+   "texto": "Mesmo",
+   "inicio": 0,
+   "fim": 0.406
+  },
+  {
+   "texto": "assim,",
+   "inicio": 0.43,
+   "fim": 0.824
+  },
+  {
+   "texto": "a",
+   "inicio": 0.906,
+   "fim": 0.964
+  },
+  {
+   "texto": "caçada",
+   "inicio": 1.022,
+   "fim": 1.44
+  },
+  {
+   "texto": "começou.",
+   "inicio": 1.486,
+   "fim": 2.055
+  },
+  {
+   "texto": "No",
+   "inicio": 2.566,
+   "fim": 2.694
+  },
+  {
+   "texto": "dia",
+   "inicio": 2.74,
+   "fim": 2.914
+  },
+  {
+   "texto": "26",
+   "inicio": 2.972,
+   "fim": 3.599
+  },
+  {
+   "texto": "de",
+   "inicio": 3.68,
+   "fim": 3.738
+  },
+  {
+   "texto": "fevereiro,",
+   "inicio": 3.808,
+   "fim": 4.505
+  },
+  {
+   "texto": "um",
+   "inicio": 4.632,
+   "fim": 4.714
+  },
+  {
+   "texto": "avião",
+   "inicio": 4.783,
+   "fim": 5.108
+  },
+  {
+   "texto": "de",
+   "inicio": 5.155,
+   "fim": 5.224
+  },
+  {
+   "texto": "patrulha",
+   "inicio": 5.283,
+   "fim": 5.77
+  },
+  {
+   "texto": "da",
+   "inicio": 5.817,
+   "fim": 5.909
+  },
+  {
+   "texto": "fáb",
+   "inicio": 5.979,
+   "fim": 6.246
+  },
+  {
+   "texto": "detectou",
+   "inicio": 6.362,
+   "fim": 6.838
+  },
+  {
+   "texto": "no",
+   "inicio": 6.885,
+   "fim": 6.954
+  },
+  {
+   "texto": "radar",
+   "inicio": 7.001,
+   "fim": 7.384
+  },
+  {
+   "texto": "um",
+   "inicio": 7.663,
+   "fim": 7.767
+  },
+  {
+   "texto": "navio",
+   "inicio": 7.802,
+   "fim": 8.092
+  },
+  {
+   "texto": "grande",
+   "inicio": 8.15,
+   "fim": 8.499
+  },
+  {
+   "texto": "rumando",
+   "inicio": 8.557,
+   "fim": 8.986
+  },
+  {
+   "texto": "pra",
+   "inicio": 9.033,
+   "fim": 9.16
+  },
+  {
+   "texto": "Fernando",
+   "inicio": 9.218,
+   "fim": 9.706
+  },
+  {
+   "texto": "de",
+   "inicio": 9.752,
+   "fim": 9.81
+  },
+  {
+   "texto": "Noronha.",
+   "inicio": 9.857,
+   "fim": 10.403
+  },
+  {
+   "texto": "No",
+   "inicio": 10.844,
+   "fim": 10.971
+  },
+  {
+   "texto": "dia",
+   "inicio": 11.018,
+   "fim": 11.146
+  },
+  {
+   "texto": "seguinte,",
+   "inicio": 11.18,
+   "fim": 11.749
+  },
+  {
+   "texto": "um",
+   "inicio": 11.9,
+   "fim": 12.005
+  },
+  {
+   "texto": "B-dezessete",
+   "inicio": 12.063,
+   "fim": 12.957
+  },
+  {
+   "texto": "de",
+   "inicio": 13.003,
+   "fim": 13.073
+  },
+  {
+   "texto": "reconhecimento",
+   "inicio": 13.131,
+   "fim": 14.025
+  },
+  {
+   "texto": "fotografou",
+   "inicio": 14.141,
+   "fim": 14.756
+  },
+  {
+   "texto": "o",
+   "inicio": 14.779,
+   "fim": 14.803
+  },
+  {
+   "texto": "navio.",
+   "inicio": 14.838,
+   "fim": 15.302
+  },
+  {
+   "texto": "Era",
+   "inicio": 15.685,
+   "fim": 16.033
+  },
+  {
+   "texto": "o",
+   "inicio": 16.115,
+   "fim": 16.231
+  },
+  {
+   "texto": "Tartu.",
+   "inicio": 16.324,
+   "fim": 17.322
+  }
+ ]
+}

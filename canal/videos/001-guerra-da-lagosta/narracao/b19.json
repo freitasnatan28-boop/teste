@@ -1,0 +1,353 @@
+{
+ "id": "b19",
+ "capitulo": "O Brasil se prepara pra guerra",
+ "visual": "Animação noturna: dois aviões em voo baixo, luzes acendendo de repente sobre o navio.",
+ "texto": "E aí veio uma das cenas mais incríveis desse episódio. Numa das visitas à noite, dois B-17 se aproximaram voando baixo, com todas as luzes apagadas e o rádio em silêncio. Quando chegaram a cerca de 30 metros de altura, praticamente em cima do navio, acenderam tudo de uma vez. Do alto, dava pra ver os marinheiros franceses correndo pelo convés, como se estivessem indo pros postos de combate.",
+ "palavras": [
+  {
+   "texto": "E",
+   "inicio": 0,
+   "fim": 0.163
+  },
+  {
+   "texto": "aí",
+   "inicio": 0.221,
+   "fim": 0.464
+  },
+  {
+   "texto": "veio",
+   "inicio": 0.789,
+   "fim": 1.022
+  },
+  {
+   "texto": "uma",
+   "inicio": 1.057,
+   "fim": 1.207
+  },
+  {
+   "texto": "das",
+   "inicio": 1.242,
+   "fim": 1.393
+  },
+  {
+   "texto": "cenas",
+   "inicio": 1.416,
+   "fim": 1.73
+  },
+  {
+   "texto": "mais",
+   "inicio": 1.846,
+   "fim": 2.101
+  },
+  {
+   "texto": "incríveis",
+   "inicio": 2.148,
+   "fim": 2.624
+  },
+  {
+   "texto": "desse",
+   "inicio": 2.67,
+   "fim": 2.879
+  },
+  {
+   "texto": "episódio.",
+   "inicio": 2.902,
+   "fim": 3.75
+  },
+  {
+   "texto": "Numa",
+   "inicio": 4.261,
+   "fim": 4.598
+  },
+  {
+   "texto": "das",
+   "inicio": 4.644,
+   "fim": 4.772
+  },
+  {
+   "texto": "visitas",
+   "inicio": 4.818,
+   "fim": 5.294
+  },
+  {
+   "texto": "à",
+   "inicio": 5.352,
+   "fim": 5.375
+  },
+  {
+   "texto": "noite,",
+   "inicio": 5.422,
+   "fim": 5.968
+  },
+  {
+   "texto": "dois",
+   "inicio": 6.118,
+   "fim": 6.513
+  },
+  {
+   "texto": "B-dezessete",
+   "inicio": 6.606,
+   "fim": 7.488
+  },
+  {
+   "texto": "se",
+   "inicio": 7.535,
+   "fim": 7.605
+  },
+  {
+   "texto": "aproximaram",
+   "inicio": 7.639,
+   "fim": 8.359
+  },
+  {
+   "texto": "voando",
+   "inicio": 8.429,
+   "fim": 8.847
+  },
+  {
+   "texto": "baixo,",
+   "inicio": 8.905,
+   "fim": 9.451
+  },
+  {
+   "texto": "com",
+   "inicio": 9.52,
+   "fim": 9.718
+  },
+  {
+   "texto": "todas",
+   "inicio": 9.845,
+   "fim": 10.205
+  },
+  {
+   "texto": "as",
+   "inicio": 10.275,
+   "fim": 10.344
+  },
+  {
+   "texto": "luzes",
+   "inicio": 10.414,
+   "fim": 10.728
+  },
+  {
+   "texto": "apagadas",
+   "inicio": 10.786,
+   "fim": 11.447
+  },
+  {
+   "texto": "e",
+   "inicio": 11.656,
+   "fim": 11.773
+  },
+  {
+   "texto": "o",
+   "inicio": 11.819,
+   "fim": 11.854
+  },
+  {
+   "texto": "rádio",
+   "inicio": 11.912,
+   "fim": 12.202
+  },
+  {
+   "texto": "em",
+   "inicio": 12.225,
+   "fim": 12.272
+  },
+  {
+   "texto": "silêncio.",
+   "inicio": 12.33,
+   "fim": 12.992
+  },
+  {
+   "texto": "Quando",
+   "inicio": 13.595,
+   "fim": 13.897
+  },
+  {
+   "texto": "chegaram",
+   "inicio": 13.944,
+   "fim": 14.42
+  },
+  {
+   "texto": "a",
+   "inicio": 14.512,
+   "fim": 14.547
+  },
+  {
+   "texto": "cerca",
+   "inicio": 14.605,
+   "fim": 14.976
+  },
+  {
+   "texto": "de",
+   "inicio": 15.023,
+   "fim": 15.081
+  },
+  {
+   "texto": "30",
+   "inicio": 15.232,
+   "fim": 15.499
+  },
+  {
+   "texto": "metros",
+   "inicio": 15.615,
+   "fim": 15.975
+  },
+  {
+   "texto": "de",
+   "inicio": 15.998,
+   "fim": 16.045
+  },
+  {
+   "texto": "altura,",
+   "inicio": 16.079,
+   "fim": 16.648
+  },
+  {
+   "texto": "praticamente",
+   "inicio": 16.857,
+   "fim": 17.74
+  },
+  {
+   "texto": "em",
+   "inicio": 17.774,
+   "fim": 17.821
+  },
+  {
+   "texto": "cima",
+   "inicio": 17.902,
+   "fim": 18.239
+  },
+  {
+   "texto": "do",
+   "inicio": 18.274,
+   "fim": 18.332
+  },
+  {
+   "texto": "navio,",
+   "inicio": 18.39,
+   "fim": 18.866
+  },
+  {
+   "texto": "acenderam",
+   "inicio": 19.017,
+   "fim": 19.678
+  },
+  {
+   "texto": "tudo",
+   "inicio": 19.829,
+   "fim": 20.212
+  },
+  {
+   "texto": "de",
+   "inicio": 20.271,
+   "fim": 20.329
+  },
+  {
+   "texto": "uma",
+   "inicio": 20.352,
+   "fim": 20.503
+  },
+  {
+   "texto": "vez.",
+   "inicio": 20.549,
+   "fim": 21.037
+  },
+  {
+   "texto": "Do",
+   "inicio": 21.548,
+   "fim": 21.757
+  },
+  {
+   "texto": "alto,",
+   "inicio": 21.815,
+   "fim": 22.233
+  },
+  {
+   "texto": "dava",
+   "inicio": 22.349,
+   "fim": 22.685
+  },
+  {
+   "texto": "pra",
+   "inicio": 22.732,
+   "fim": 22.871
+  },
+  {
+   "texto": "ver",
+   "inicio": 22.941,
+   "fim": 23.138
+  },
+  {
+   "texto": "os",
+   "inicio": 23.185,
+   "fim": 23.243
+  },
+  {
+   "texto": "marinheiros",
+   "inicio": 23.312,
+   "fim": 23.823
+  },
+  {
+   "texto": "franceses",
+   "inicio": 23.881,
+   "fim": 24.636
+  },
+  {
+   "texto": "correndo",
+   "inicio": 24.81,
+   "fim": 25.309
+  },
+  {
+   "texto": "pelo",
+   "inicio": 25.344,
+   "fim": 25.518
+  },
+  {
+   "texto": "convés,",
+   "inicio": 25.565,
+   "fim": 26.168
+  },
+  {
+   "texto": "como",
+   "inicio": 26.319,
+   "fim": 26.528
+  },
+  {
+   "texto": "se",
+   "inicio": 26.586,
+   "fim": 26.656
+  },
+  {
+   "texto": "estivessem",
+   "inicio": 26.679,
+   "fim": 27.283
+  },
+  {
+   "texto": "indo",
+   "inicio": 27.399,
+   "fim": 27.713
+  },
+  {
+   "texto": "pros",
+   "inicio": 27.771,
+   "fim": 27.98
+  },
+  {
+   "texto": "postos",
+   "inicio": 28.096,
+   "fim": 28.514
+  },
+  {
+   "texto": "de",
+   "inicio": 28.537,
+   "fim": 28.595
+  },
+  {
+   "texto": "combate.",
+   "inicio": 28.641,
+   "fim": 29.628
+  }
+ ]
+}

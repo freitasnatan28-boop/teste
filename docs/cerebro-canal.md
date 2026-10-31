@@ -10,7 +10,8 @@ Canal no YouTube 100% automatizado, organizado como uma "empresa com setores":
 1. **Pesquisa**: escolhe o tema e levanta fatos na web.
 2. **Roteiro**: escreve o roteiro por capítulos, com gancho nos primeiros 30 s, mais título e descrição.
 3. **Narração**: transforma o roteiro em áudio (TTS).
-4. **Edição**: troca de cena a cada 5 a 8 s (vídeos de banco), música, legendas e capítulos. Renderiza com FFmpeg.
+4. **Edição**: corte a cada ~3 s (mapas animados, fotos com punch-in, textos de impacto), destaques de palavras,
+   trilha, efeitos sonoros, cartelas de capítulo. Feito em Remotion (React) em `canal/estudio`.
 5. **Thumbnail**: modelo automático (foto + texto grande).
 6. **Publicação**: sobe no YouTube com capítulos e links na descrição.
 7. **Análise**: CTR da thumbnail, tempo médio assistido, retenção por minuto, views.
@@ -30,21 +31,43 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 - **Idioma:** português (PT-BR).
 - **Visual:** mapas animados gerados em código + imagens do Wikimedia Commons (com crédito) + Pexels só pra ambiente.
 - **Fatos:** todo roteiro passa pelo setor de Pesquisa e lista as fontes na descrição.
+- **Nome:** **Por Trás do Mapa**. Arquivos em `canal/identidade/` (foto de perfil 800x800, banner 2560x1440).
+- **Voz:** ElevenLabs "Nassif - Documentary, History & Thriller" (`acdKA5HckGxoxxvy40dA`), `eleven_multilingual_v2`,
+  stability 0.45, similarity 0.8, style 0.2, seed 1963. Nomes estrangeiros têm grafia fonética em `scripts/roteiro.ts`.
+- **Estilo de edição:** referência pedida pelo dono: https://www.youtube.com/watch?v=SAbgY8uPMa0 (canal Top Militar LHB,
+  mesmo tema). O nosso é mais rápido: corte a cada ~3 s, texto amarelo com contorno preto, mapas animados, granulado.
+- **Código do canal:** neste repositório, em `canal/` (separado do painel da Tia Fifi).
 
 ## Roteiros
 
-- `canal/roteiros/001-guerra-da-lagosta.md`: primeiro vídeo (cerca de 9 min). Status: aguardando aprovação.
+- `canal/roteiros/001-guerra-da-lagosta.md`: primeiro vídeo (9,4 min). Status: roteiro aprovado, narração pronta,
+  edição montada. Thumbnail em `canal/videos/001-guerra-da-lagosta/thumbnail.png`.
   Formato do arquivo serve de modelo pros próximos: títulos A/B, thumbnail, descrição com capítulos e fontes,
   roteiro em blocos com **[VISUAL]** + narração.
 
 ## Decisões pendentes
 
-- [ ] Nome do canal. Nome de trabalho: **"Por Trás do Mapa"** (não achei canal com esse nome em out/2026).
-- [ ] Voz da narração. Candidatas da biblioteca ElevenLabs (PT-BR): "Nassif - Documentary, History & Thriller"
-  (`acdKA5HckGxoxxvy40dA`), grave, estilo History Channel; "Johnes Bittar - Gentle, Warm" (`sJfod1k0iiI5CA9IP0R2`),
-  calmo e analítico. Modelo: `eleven_multilingual_v2`.
-- [ ] Onde fica o código: neste repositório (painel da Tia Fifi) ou num repositório separado.
-- [ ] Voz: ElevenLabs (paga, mais natural, permite clonar a voz do dono) ou Kokoro TTS (grátis, local).
+- [ ] E-mail e @ do canal (sugestões: portrasdomapa@gmail.com, @portrasdomapa). O dono cria a conta.
+
+## Como produzir um vídeo (estúdio em `canal/estudio`)
+
+Pasta do vídeo: `canal/videos/NNN-slug/` com `imagens.json`, `storyboard.json`, `narracao/`, `imagens/`, `timeline.json`.
+
+```
+npm run narrar -- ../roteiros/NNN-slug.md ../videos/NNN-slug   # voz (não regera o que já existe)
+npm run imagens -- ../videos/NNN-slug                           # baixa do Commons + creditos.md
+npm run montar -- NNN-slug                                      # storyboard + narração = timeline.json
+npm run render -- video NNN-slug [de] [ate]                     # MP4 em out/ (trecho opcional, em frames)
+npm run render -- imagens                                       # avatar, banner, thumbs
+npm run sons                                                    # efeitos e trilha (uma vez só)
+```
+
+- Na nuvem do Claude, rodar com `NODE_USE_ENV_PROXY=1` (o fetch do Node só usa o proxy assim).
+- Storyboard: cada beat (= cada **[VISUAL]** do roteiro) tem `cenas` com `em` (palavra que dispara o corte),
+  `destaques` (palavras que pulam na tela) e `apoio` (fotos que entram quando um gráfico passa do tempo).
+- Render: ~5 quadros/s numa máquina de 4 núcleos (vídeo de 9 min leva ~1 h). Não usar `gl: "swangle"` (4x mais lento).
+- Wikimedia Commons às vezes devolve 429 por muito tempo (IP compartilhado). O script tenta de novo e o
+  `montar` troca fotos faltantes por outras do beat.
 
 ## Fatos e números (conferidos em out/2026, são estimativas)
 
@@ -61,7 +84,7 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 
 | Serviço | Status | Variável no .env |
 |---|---|---|
-| ElevenLabs | ✅ conectado (plano Starter, 40 mil caracteres/mês, cerca de 4 vídeos de 10 min) | `ELEVENLABS_API_KEY` |
+| ElevenLabs | ✅ conectado (Starter, 40 mil créditos/mês; o vídeo 001 + efeitos + trilha gastaram ~3 mil) | `ELEVENLABS_API_KEY` |
 | Descript | ✅ conectado nas sessões do Claude | — |
 | TinyFish (web) | ✅ conectado nas sessões do Claude | — |
 | Anthropic | já existe no projeto da Tia Fifi | `ANTHROPIC_API_KEY` |
@@ -73,8 +96,8 @@ Redirect do YouTube: `{APP_URL}/api/youtube/oauth/callback`.
 
 ## Próximos passos
 
-1. O dono aprova o roteiro 001 e escolhe nome e voz.
-2. O dono cria o canal e as chaves (Pexels, Google Cloud) e pede a auditoria da API do YouTube.
-3. Claude monta a tela "Conectar YouTube" + o status das conexões.
-4. Claude monta os setores 1 a 6 e gera o primeiro vídeo de teste.
+1. Terminar o download das fotos do vídeo 001 e renderizar a versão final.
+2. O dono cria o canal (e-mail, @, foto, banner) e as chaves do Google Cloud; pede a auditoria da API do YouTube.
+3. Claude monta a tela "Conectar YouTube" + o status das conexões, e o setor de Publicação.
+4. Automatizar Roteiro → storyboard com a API do Claude (hoje o storyboard do 001 foi escrito à mão).
 5. Depois de 10 a 20 vídeos publicados, ligar os setores 7 e 8 (análise e estratégia).

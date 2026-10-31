@@ -1,0 +1,178 @@
+{
+ "id": "b09",
+ "capitulo": "A lagosta anda ou nada?",
+ "visual": "Plataforma continental pintada de verde e amarelo.",
+ "texto": "O argumento do Brasil era simples: a lagosta vive no fundo do mar, em cima da plataforma continental brasileira. Então ela é um recurso do Brasil, assim como o petróleo que está debaixo dela.",
+ "palavras": [
+  {
+   "texto": "O",
+   "inicio": 0,
+   "fim": 0.116
+  },
+  {
+   "texto": "argumento",
+   "inicio": 0.197,
+   "fim": 0.789
+  },
+  {
+   "texto": "do",
+   "inicio": 0.824,
+   "fim": 0.882
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 0.929,
+   "fim": 1.358
+  },
+  {
+   "texto": "era",
+   "inicio": 1.44,
+   "fim": 1.637
+  },
+  {
+   "texto": "simples:",
+   "inicio": 1.707,
+   "fim": 2.426
+  },
+  {
+   "texto": "a",
+   "inicio": 2.705,
+   "fim": 2.763
+  },
+  {
+   "texto": "lagosta",
+   "inicio": 2.844,
+   "fim": 3.355
+  },
+  {
+   "texto": "vive",
+   "inicio": 3.425,
+   "fim": 3.669
+  },
+  {
+   "texto": "no",
+   "inicio": 3.704,
+   "fim": 3.796
+  },
+  {
+   "texto": "fundo",
+   "inicio": 3.878,
+   "fim": 4.191
+  },
+  {
+   "texto": "do",
+   "inicio": 4.226,
+   "fim": 4.296
+  },
+  {
+   "texto": "mar,",
+   "inicio": 4.354,
+   "fim": 4.656
+  },
+  {
+   "texto": "em",
+   "inicio": 4.783,
+   "fim": 4.923
+  },
+  {
+   "texto": "cima",
+   "inicio": 5.004,
+   "fim": 5.283
+  },
+  {
+   "texto": "da",
+   "inicio": 5.317,
+   "fim": 5.399
+  },
+  {
+   "texto": "plataforma",
+   "inicio": 5.468,
+   "fim": 6.246
+  },
+  {
+   "texto": "continental",
+   "inicio": 6.327,
+   "fim": 7.117
+  },
+  {
+   "texto": "brasileira.",
+   "inicio": 7.152,
+   "fim": 7.883
+  },
+  {
+   "texto": "Então",
+   "inicio": 8.266,
+   "fim": 8.789
+  },
+  {
+   "texto": "ela",
+   "inicio": 8.963,
+   "fim": 9.276
+  },
+  {
+   "texto": "é",
+   "inicio": 9.346,
+   "fim": 9.404
+  },
+  {
+   "texto": "um",
+   "inicio": 9.451,
+   "fim": 9.497
+  },
+  {
+   "texto": "recurso",
+   "inicio": 9.555,
+   "fim": 10.077
+  },
+  {
+   "texto": "do",
+   "inicio": 10.112,
+   "fim": 10.182
+  },
+  {
+   "texto": "Brasil,",
+   "inicio": 10.217,
+   "fim": 10.82
+  },
+  {
+   "texto": "assim",
+   "inicio": 10.995,
+   "fim": 11.343
+  },
+  {
+   "texto": "como",
+   "inicio": 11.401,
+   "fim": 11.575
+  },
+  {
+   "texto": "o",
+   "inicio": 11.598,
+   "fim": 11.622
+  },
+  {
+   "texto": "petróleo",
+   "inicio": 11.68,
+   "fim": 12.272
+  },
+  {
+   "texto": "que",
+   "inicio": 12.318,
+   "fim": 12.399
+  },
+  {
+   "texto": "está",
+   "inicio": 12.423,
+   "fim": 12.62
+  },
+  {
+   "texto": "debaixo",
+   "inicio": 12.678,
+   "fim": 13.096
+  },
+  {
+   "texto": "dela.",
+   "inicio": 13.142,
+   "fim": 14.118
+  }
+ ]
+}

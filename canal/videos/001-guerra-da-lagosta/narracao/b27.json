@@ -1,0 +1,143 @@
+{
+ "id": "b27",
+ "capitulo": "\"O Brasil não é um país sério\"",
+ "visual": "Foto de De Gaulle com a frase em francês: \"Le Brésil n'est pas un pays sérieux\".",
+ "texto": "E a frase? Até hoje, muita gente jura que foi Charles de Gaulle quem disse, irritado com o Brasil, que \"o Brasil não é um país sério\".",
+ "palavras": [
+  {
+   "texto": "E",
+   "inicio": 0,
+   "fim": 0.128
+  },
+  {
+   "texto": "a",
+   "inicio": 0.221,
+   "fim": 0.244
+  },
+  {
+   "texto": "frase?",
+   "inicio": 0.325,
+   "fim": 0.987
+  },
+  {
+   "texto": "Até",
+   "inicio": 1.265,
+   "fim": 1.556
+  },
+  {
+   "texto": "hoje,",
+   "inicio": 1.625,
+   "fim": 2.09
+  },
+  {
+   "texto": "muita",
+   "inicio": 2.264,
+   "fim": 2.728
+  },
+  {
+   "texto": "gente",
+   "inicio": 2.775,
+   "fim": 3.042
+  },
+  {
+   "texto": "jura",
+   "inicio": 3.135,
+   "fim": 3.437
+  },
+  {
+   "texto": "que",
+   "inicio": 3.483,
+   "fim": 3.564
+  },
+  {
+   "texto": "foi",
+   "inicio": 3.622,
+   "fim": 3.808
+  },
+  {
+   "texto": "Charles",
+   "inicio": 3.855,
+   "fim": 4.226
+  },
+  {
+   "texto": "de",
+   "inicio": 4.272,
+   "fim": 4.331
+  },
+  {
+   "texto": "Gaulle",
+   "inicio": 4.4,
+   "fim": 4.772
+  },
+  {
+   "texto": "quem",
+   "inicio": 4.946,
+   "fim": 5.143
+  },
+  {
+   "texto": "disse,",
+   "inicio": 5.201,
+   "fim": 5.666
+  },
+  {
+   "texto": "irritado",
+   "inicio": 5.759,
+   "fim": 6.362
+  },
+  {
+   "texto": "com",
+   "inicio": 6.409,
+   "fim": 6.548
+  },
+  {
+   "texto": "o",
+   "inicio": 6.571,
+   "fim": 6.594
+  },
+  {
+   "texto": "Brasil,",
+   "inicio": 6.618,
+   "fim": 7.129
+  },
+  {
+   "texto": "que",
+   "inicio": 7.303,
+   "fim": 7.546
+  },
+  {
+   "texto": "\"o",
+   "inicio": 7.663,
+   "fim": 7.93
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 7.988,
+   "fim": 8.452
+  },
+  {
+   "texto": "não",
+   "inicio": 8.522,
+   "fim": 8.673
+  },
+  {
+   "texto": "é",
+   "inicio": 8.719,
+   "fim": 8.766
+  },
+  {
+   "texto": "um",
+   "inicio": 8.8,
+   "fim": 8.847
+  },
+  {
+   "texto": "país",
+   "inicio": 8.916,
+   "fim": 9.334
+  },
+  {
+   "texto": "sério\".",
+   "inicio": 9.381,
+   "fim": 10.495
+  }
+ ]
+}

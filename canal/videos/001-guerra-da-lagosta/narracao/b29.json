@@ -1,0 +1,128 @@
+{
+ "id": "b29",
+ "capitulo": "\"O Brasil não é um país sério\"",
+ "visual": "Foto de Jacques Chirac. Recorte de jornal de 1997.",
+ "texto": "Em 1997, o presidente francês Jacques Chirac, em visita a São Paulo, fez questão de dizer oficialmente que De Gaulle nunca tinha dito aquilo.",
+ "palavras": [
+  {
+   "texto": "Em",
+   "inicio": 0,
+   "fim": 0.232
+  },
+  {
+   "texto": "1997,",
+   "inicio": 0.325,
+   "fim": 2.125
+  },
+  {
+   "texto": "o",
+   "inicio": 2.276,
+   "fim": 2.368
+  },
+  {
+   "texto": "presidente",
+   "inicio": 2.438,
+   "fim": 2.972
+  },
+  {
+   "texto": "francês",
+   "inicio": 3.042,
+   "fim": 3.634
+  },
+  {
+   "texto": "Jacques",
+   "inicio": 3.878,
+   "fim": 4.331
+  },
+  {
+   "texto": "Xirác,",
+   "inicio": 4.354,
+   "fim": 4.934
+  },
+  {
+   "texto": "em",
+   "inicio": 4.981,
+   "fim": 5.108
+  },
+  {
+   "texto": "visita",
+   "inicio": 5.178,
+   "fim": 5.538
+  },
+  {
+   "texto": "a",
+   "inicio": 5.561,
+   "fim": 5.584
+  },
+  {
+   "texto": "São",
+   "inicio": 5.631,
+   "fim": 5.805
+  },
+  {
+   "texto": "Paulo,",
+   "inicio": 5.851,
+   "fim": 6.339
+  },
+  {
+   "texto": "fez",
+   "inicio": 6.513,
+   "fim": 6.734
+  },
+  {
+   "texto": "questão",
+   "inicio": 6.803,
+   "fim": 7.21
+  },
+  {
+   "texto": "de",
+   "inicio": 7.245,
+   "fim": 7.314
+  },
+  {
+   "texto": "dizer",
+   "inicio": 7.372,
+   "fim": 7.686
+  },
+  {
+   "texto": "oficialmente",
+   "inicio": 7.837,
+   "fim": 8.928
+  },
+  {
+   "texto": "que",
+   "inicio": 9.044,
+   "fim": 9.16
+  },
+  {
+   "texto": "De",
+   "inicio": 9.218,
+   "fim": 9.288
+  },
+  {
+   "texto": "Gól",
+   "inicio": 9.346,
+   "fim": 9.567
+  },
+  {
+   "texto": "nunca",
+   "inicio": 9.683,
+   "fim": 10.054
+  },
+  {
+   "texto": "tinha",
+   "inicio": 10.089,
+   "fim": 10.31
+  },
+  {
+   "texto": "dito",
+   "inicio": 10.356,
+   "fim": 10.542
+  },
+  {
+   "texto": "aquilo.",
+   "inicio": 10.565,
+   "fim": 11.61
+  }
+ ]
+}

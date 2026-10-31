@@ -1,0 +1,193 @@
+{
+ "id": "b22",
+ "capitulo": "Frente a frente em alto-mar",
+ "visual": "Foto real dos navios brasileiros da época (Wikimedia). Distância \"13 km\" na tela.",
+ "texto": "A 13 quilômetros de distância, a tripulação do Paraná avistou o navio francês. Ao lado dele, seis barcos pesqueiros parados. E o Paraná não estava sozinho: vinha acompanhado de mais quatro contratorpedeiros, uma corveta e um submarino.",
+ "palavras": [
+  {
+   "texto": "A",
+   "inicio": 0,
+   "fim": 0.116
+  },
+  {
+   "texto": "13",
+   "inicio": 0.232,
+   "fim": 0.627
+  },
+  {
+   "texto": "quilômetros",
+   "inicio": 0.801,
+   "fim": 1.451
+  },
+  {
+   "texto": "de",
+   "inicio": 1.486,
+   "fim": 1.544
+  },
+  {
+   "texto": "distância,",
+   "inicio": 1.602,
+   "fim": 2.322
+  },
+  {
+   "texto": "a",
+   "inicio": 2.496,
+   "fim": 2.543
+  },
+  {
+   "texto": "tripulação",
+   "inicio": 2.624,
+   "fim": 3.239
+  },
+  {
+   "texto": "do",
+   "inicio": 3.262,
+   "fim": 3.32
+  },
+  {
+   "texto": "Paraná",
+   "inicio": 3.379,
+   "fim": 3.843
+  },
+  {
+   "texto": "avistou",
+   "inicio": 4.017,
+   "fim": 4.54
+  },
+  {
+   "texto": "o",
+   "inicio": 4.563,
+   "fim": 4.586
+  },
+  {
+   "texto": "navio",
+   "inicio": 4.632,
+   "fim": 4.934
+  },
+  {
+   "texto": "francês.",
+   "inicio": 4.969,
+   "fim": 5.631
+  },
+  {
+   "texto": "Ao",
+   "inicio": 5.956,
+   "fim": 6.13
+  },
+  {
+   "texto": "lado",
+   "inicio": 6.165,
+   "fim": 6.385
+  },
+  {
+   "texto": "dele,",
+   "inicio": 6.432,
+   "fim": 6.803
+  },
+  {
+   "texto": "seis",
+   "inicio": 7.012,
+   "fim": 7.279
+  },
+  {
+   "texto": "barcos",
+   "inicio": 7.349,
+   "fim": 7.767
+  },
+  {
+   "texto": "pesqueiros",
+   "inicio": 7.837,
+   "fim": 8.336
+  },
+  {
+   "texto": "parados.",
+   "inicio": 8.394,
+   "fim": 9.079
+  },
+  {
+   "texto": "E",
+   "inicio": 9.462,
+   "fim": 9.555
+  },
+  {
+   "texto": "o",
+   "inicio": 9.613,
+   "fim": 9.636
+  },
+  {
+   "texto": "Paraná",
+   "inicio": 9.683,
+   "fim": 10.136
+  },
+  {
+   "texto": "não",
+   "inicio": 10.286,
+   "fim": 10.461
+  },
+  {
+   "texto": "estava",
+   "inicio": 10.495,
+   "fim": 10.786
+  },
+  {
+   "texto": "sozinho:",
+   "inicio": 10.832,
+   "fim": 11.413
+  },
+  {
+   "texto": "vinha",
+   "inicio": 11.691,
+   "fim": 11.993
+  },
+  {
+   "texto": "acompanhado",
+   "inicio": 12.028,
+   "fim": 12.678
+  },
+  {
+   "texto": "de",
+   "inicio": 12.725,
+   "fim": 12.771
+  },
+  {
+   "texto": "mais",
+   "inicio": 12.829,
+   "fim": 12.991
+  },
+  {
+   "texto": "quatro",
+   "inicio": 13.084,
+   "fim": 13.467
+  },
+  {
+   "texto": "contratorpedeiros,",
+   "inicio": 13.502,
+   "fim": 14.721
+  },
+  {
+   "texto": "uma",
+   "inicio": 14.895,
+   "fim": 15.069
+  },
+  {
+   "texto": "corveta",
+   "inicio": 15.116,
+   "fim": 15.696
+  },
+  {
+   "texto": "e",
+   "inicio": 15.871,
+   "fim": 15.987
+  },
+  {
+   "texto": "um",
+   "inicio": 16.045,
+   "fim": 16.103
+  },
+  {
+   "texto": "submarino.",
+   "inicio": 16.172,
+   "fim": 17.415
+  }
+ ]
+}

@@ -1,0 +1,203 @@
+{
+ "id": "b20",
+ "capitulo": "Frente a frente em alto-mar",
+ "visual": "Mapa: força-tarefa saindo do Rio, chegando ao Recife, seguindo pro alto-mar.",
+ "texto": "Enquanto isso, uma força-tarefa da Marinha saiu do Rio de Janeiro rumo ao Recife, se juntou com reforços de outras partes do país e partiu pro alto-mar. A imprensa e a população acompanhavam tudo, esperando o encontro dos navios.",
+ "palavras": [
+  {
+   "texto": "Enquanto",
+   "inicio": 0,
+   "fim": 0.522
+  },
+  {
+   "texto": "isso,",
+   "inicio": 0.592,
+   "fim": 0.975
+  },
+  {
+   "texto": "uma",
+   "inicio": 1.149,
+   "fim": 1.37
+  },
+  {
+   "texto": "força-tarefa",
+   "inicio": 1.44,
+   "fim": 2.287
+  },
+  {
+   "texto": "da",
+   "inicio": 2.322,
+   "fim": 2.392
+  },
+  {
+   "texto": "Marinha",
+   "inicio": 2.45,
+   "fim": 2.902
+  },
+  {
+   "texto": "saiu",
+   "inicio": 3.077,
+   "fim": 3.483
+  },
+  {
+   "texto": "do",
+   "inicio": 3.529,
+   "fim": 3.599
+  },
+  {
+   "texto": "Rio",
+   "inicio": 3.669,
+   "fim": 3.785
+  },
+  {
+   "texto": "de",
+   "inicio": 3.82,
+   "fim": 3.878
+  },
+  {
+   "texto": "Janeiro",
+   "inicio": 3.913,
+   "fim": 4.319
+  },
+  {
+   "texto": "rumo",
+   "inicio": 4.365,
+   "fim": 4.632
+  },
+  {
+   "texto": "ao",
+   "inicio": 4.656,
+   "fim": 4.714
+  },
+  {
+   "texto": "Recife,",
+   "inicio": 4.76,
+   "fim": 5.445
+  },
+  {
+   "texto": "se",
+   "inicio": 5.724,
+   "fim": 5.886
+  },
+  {
+   "texto": "juntou",
+   "inicio": 5.956,
+   "fim": 6.467
+  },
+  {
+   "texto": "com",
+   "inicio": 6.676,
+   "fim": 6.838
+  },
+  {
+   "texto": "reforços",
+   "inicio": 6.885,
+   "fim": 7.477
+  },
+  {
+   "texto": "de",
+   "inicio": 7.512,
+   "fim": 7.57
+  },
+  {
+   "texto": "outras",
+   "inicio": 7.628,
+   "fim": 7.953
+  },
+  {
+   "texto": "partes",
+   "inicio": 8.034,
+   "fim": 8.382
+  },
+  {
+   "texto": "do",
+   "inicio": 8.406,
+   "fim": 8.475
+  },
+  {
+   "texto": "país",
+   "inicio": 8.522,
+   "fim": 8.975
+  },
+  {
+   "texto": "e",
+   "inicio": 9.253,
+   "fim": 9.404
+  },
+  {
+   "texto": "partiu",
+   "inicio": 9.474,
+   "fim": 9.857
+  },
+  {
+   "texto": "pro",
+   "inicio": 9.915,
+   "fim": 10.031
+  },
+  {
+   "texto": "alto-mar.",
+   "inicio": 10.054,
+   "fim": 10.623
+  },
+  {
+   "texto": "A",
+   "inicio": 11.134,
+   "fim": 11.227
+  },
+  {
+   "texto": "imprensa",
+   "inicio": 11.32,
+   "fim": 11.889
+  },
+  {
+   "texto": "e",
+   "inicio": 11.97,
+   "fim": 12.005
+  },
+  {
+   "texto": "a",
+   "inicio": 12.051,
+   "fim": 12.074
+  },
+  {
+   "texto": "população",
+   "inicio": 12.132,
+   "fim": 12.957
+  },
+  {
+   "texto": "acompanhavam",
+   "inicio": 13.131,
+   "fim": 13.851
+  },
+  {
+   "texto": "tudo,",
+   "inicio": 13.921,
+   "fim": 14.408
+  },
+  {
+   "texto": "esperando",
+   "inicio": 14.559,
+   "fim": 15.105
+  },
+  {
+   "texto": "o",
+   "inicio": 15.128,
+   "fim": 15.151
+  },
+  {
+   "texto": "encontro",
+   "inicio": 15.198,
+   "fim": 15.685
+  },
+  {
+   "texto": "dos",
+   "inicio": 15.732,
+   "fim": 15.859
+  },
+  {
+   "texto": "navios.",
+   "inicio": 15.918,
+   "fim": 16.951
+  }
+ ]
+}
