@@ -9,3 +9,4 @@ Imagens:
 - U.S. long range bomber B-17E, Office of War Information, Library of Congress (domínio público) https://tile.loc.gov/storage-services/service/pnp/cph/3c00000/3c03000/3c03700/3c03751v.jpg
 - Sunset silhouette of flying fortress, Langley Field, 1939, Library of Congress (sem restrições conhecidas) https://tile.loc.gov/storage-services/service/pnp/fsac/1a35000/1a35000/1a35090v.jpg
 - United Nations Headquarters, 1954, Anthony Angel Collection, Library of Congress (sem restrições conhecidas) https://tile.loc.gov/storage-services/service/pnp/ppmsca/69800/69844v.jpg
+- conves: ilustração gerada por IA
