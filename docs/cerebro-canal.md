@@ -68,8 +68,13 @@ npm run sons                                                    # efeitos e tril
 - Storyboard: cada beat (= cada **[VISUAL]** do roteiro) tem `cenas` com `em` (palavra que dispara o corte),
   `destaques` (palavras que pulam na tela) e `apoio` (fotos que entram quando um gráfico passa do tempo).
 - Render: ~5 quadros/s numa máquina de 4 núcleos (vídeo de 9 min leva ~1 h). Não usar `gl: "swangle"` (4x mais lento).
-- Wikimedia Commons às vezes devolve 429 por muito tempo (IP compartilhado). O script tenta de novo e o
-  `montar` troca fotos faltantes por outras do beat.
+- Wikimedia Commons bloqueia (429) o IP da nuvem por horas. NÃO tentar contornar (proxy de imagem é bloqueado).
+  Alternativa que funciona: Library of Congress (tile.loc.gov), só itens "No known restrictions"/OWI.
+  `imagens.json` aceita `{ "url", "credito" }`. Foto faltando vira cartão de texto (nunca repete outra foto).
+- Feedback do dono sobre a edição (out/2026): NÃO repetir a mesma foto em cortes seguidos (parece bug);
+  NÃO tocar o mesmo whoosh em toda transição. Regras atuais no `montar`: foto com movimento contínuo,
+  apoio não repete foto em 25 s, som por tipo de cena girando opções, mesmo som só depois de 8 s,
+  nenhum som colado em outro (1,2 s), transição varia por tipo (zoom, deslize, escurecer, flash no impacto).
 
 ## Fatos e números (conferidos em out/2026, são estimativas)
 
