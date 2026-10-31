@@ -92,7 +92,7 @@ function main() {
 
   const estilo = sb.estilo ?? "documentario";
   const tl: Timeline = { pasta, estilo, trilha: sb.trilha ?? (estilo === "mapa" ? "trilha-mapa" : "trilha-tensao"), fps: FPS, duracao: 0, largura: LARGURA, altura: ALTURA, beats: [], cenas: [], destaques: [], capitulos: [], sons: [] };
-  const aparicoes: { t: number; ator: Ator }[] = []; // quando cada balão/retrato/ícone entra (ganha som)
+  const aparicoes: { t: number; ator: Ator; som?: string }[] = []; // quando cada balão/retrato/ícone entra (ganha som)
   const avisos: string[] = [];
   let cursor = 0.4; // segundos
   let capituloAtual = "";
@@ -146,9 +146,12 @@ function main() {
         cena.atores = cena.atores?.map((a) => {
           const aos = quando(a.em, a.tipo);
           aparicoes.push({ t: cursor + t + (aos ?? 0) / FPS, ator: a });
-          return { ...a, aos, ateAos: quando(a.ate, `${a.tipo} até`) };
+          const extra = a.tipo === "unidade" ? { moverAos: quando(a.mover, "unidade anda") } : {};
+          if (a.tipo === "unidade" && a.para) aparicoes.push({ t: cursor + t + ((extra.moverAos ?? (aos ?? 0) + 15) / FPS), ator: { ...a, tipo: "rotulo", texto: "" } as Ator, som: "whoosh-3" });
+          return { ...a, aos, ateAos: quando(a.ate, `${a.tipo} até`), ...extra };
         });
         cena.paises = cena.paises?.map((p) => ({ ...p, aos: quando(p.em, p.iso) }));
+        cena.zonas = cena.zonas?.map((z) => ({ ...z, aos: quando(z.em, "zona") }));
       }
       if (cena.tipo === "lista") {
         let d = 0;
@@ -255,10 +258,10 @@ function main() {
   });
   // Cada elemento que entra no mapa tem seu som (pops alternados, digitação no balão, canhão na explosão).
   let pops = 0;
-  for (const { t, ator } of aparicoes) {
+  for (const { t, ator, som: forcado } of aparicoes) {
     if (tocados.some((x) => Math.abs(x.t - t) < 0.12)) continue;
-    const som =
-      ator.tipo === "foto" ? "obturador" : ator.tipo === "icone" && ator.icone === "explosao" ? "canhao" : ator.tipo === "rotulo" ? null : estilo === "mapa" ? (pops++ % 2 ? "balao-pop-2" : "balao-pop") : "pop";
+    const som = forcado ??
+      (ator.tipo === "foto" ? "obturador" : ator.tipo === "lupa" ? "camera-zoom-2" : ator.tipo === "icone" && ator.icone === "explosao" ? "canhao" : ator.tipo === "rotulo" ? null : estilo === "mapa" ? (pops++ % 2 ? "balao-pop-2" : "balao-pop") : "pop");
     if (!som) continue;
     tl.sons.push({ inicio: Math.round(t * FPS), som, volume: som === "canhao" ? 0.45 : 0.32 });
     tocados.push({ t, som });

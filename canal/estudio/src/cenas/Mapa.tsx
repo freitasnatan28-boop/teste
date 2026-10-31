@@ -1,13 +1,13 @@
 // Mapa no estilo dos vídeos de geopolítica: fundo de satélite (NASA), câmera que passeia sem parar,
 // países pintados com a bandeira, rotas, pontos e "atores" (balões, retratos, ícones) presos ao mapa.
 // Projeção equirretangular: o recorte de satélite se encaixa direto, sem reprojetar a imagem.
-import { geoBounds, geoDistance, geoEquirectangular, geoGraticule10, geoInterpolate, geoPath } from "d3-geo";
+import { geoArea, geoBounds, geoDistance, geoEquirectangular, geoGraticule10, geoInterpolate, geoPath } from "d3-geo";
 import React, { useEffect, useState } from "react";
 import { AbsoluteFill, continueRender, delayRender, Easing, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { COR, FONTE_TEXTO } from "../estilo";
 import { Aviao, Bandeira, Lagosta, Navio } from "../icones";
 import type { Cena, LonLat, Vista } from "../tipos";
-import { AnoNoTopo, AtorNoMapa } from "./Atores";
+import { AnoNoTopo, AtorNoMapa, NavioComBandeira } from "./Atores";
 import type { PropsCena } from "./tipos-cena";
 
 type Feature = { properties: { iso: string; nome: string }; geometry: any; type: "Feature" };
@@ -65,6 +65,16 @@ function partePrincipal(f: Feature): Feature {
   return { ...f, geometry: { type: "MultiPolygon", coordinates: perto.map((p: Feature) => p.geometry.coordinates) } };
 }
 
+// Polígono de zona: o d3 preenche o "lado de fora" se o anel estiver no sentido errado; corrige aqui.
+function poligono(pontos: LonLat[]) {
+  const anel = [...pontos, pontos[0]];
+  const g = { type: "Polygon" as const, coordinates: [anel] };
+  return geoArea(g) > 2 * Math.PI ? { ...g, coordinates: [[...anel].reverse()] } : g;
+}
+
+// Listras da zona com as cores da bandeira de quem controla a área.
+const LISTRAS: Record<string, string[]> = { BRA: ["#009c3b", "#ffdf00"], FRA: ["#0055a4", "#ffffff", "#ef4135"], USA: ["#b22234", "#ffffff"] };
+
 const ANTIGO = { mar: "#b9cfc4", terra: "#e6d3a8", borda: "#8a6d45", papel: "#efe2c2" };
 
 export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cena, offset, duracaoCena, pasta }) => {
@@ -116,6 +126,15 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
               </pattern>
             );
           })}
+          {cena.zonas?.map((z, i) => {
+            const cores = z.bandeira ? LISTRAS[z.bandeira] : [z.cor ?? COR.amarelo, "transparent"];
+            const lado = 18;
+            return (
+              <pattern key={`z${i}`} id={`zona-${i}`} patternUnits="userSpaceOnUse" width={lado * cores.length} height={lado * cores.length} patternTransform="rotate(45)">
+                {cores.map((c, k) => <rect key={k} x={k * lado} width={lado} height={lado * cores.length} fill={c} />)}
+              </pattern>
+            );
+          })}
           <filter id="brilho" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="6" result="b" />
             <feMerge>
@@ -151,6 +170,10 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
             />
           );
         })}
+        {cena.zonas?.map((z, i) => {
+          const o = aparece(z.aos);
+          return <path key={`zona${i}`} d={path(poligono(z.pontos)) ?? ""} fill={`url(#zona-${i})`} fillOpacity={0.55 * o} stroke="#fff" strokeWidth={3} strokeOpacity={0.9 * o} strokeDasharray="10 8" />;
+        })}
         {cena.destaques?.map((d) => {
           const alvo = paises.features.filter((p) => p.properties.iso === d.iso);
           const o = prog(d.em);
@@ -178,7 +201,8 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
                 <g transform={`translate(${ponta[0]} ${ponta[1]})`}>
                   <circle r={36} fill="#fff" stroke={cor} strokeWidth={4} />
                   <g transform={`rotate(${r.icone === "aviao" ? ang + 90 : 0}) translate(-26 -${r.icone === "navio" ? 13 : 26})`}>
-                    {r.icone === "navio" && <foreignObject width={52} height={26}><Navio tamanho={52} cor={cor} /></foreignObject>}
+                    {r.icone === "navio" && r.pais && <foreignObject x={-14} y={-36} width={80} height={70}><NavioComBandeira pais={r.pais} tamanho={80} /></foreignObject>}
+                    {r.icone === "navio" && !r.pais && <foreignObject width={52} height={26}><Navio tamanho={52} cor={cor} /></foreignObject>}
                     {r.icone === "aviao" && <foreignObject width={52} height={52}><Aviao tamanho={52} cor={cor} /></foreignObject>}
                     {r.icone === "lagosta" && <foreignObject width={52} height={52}><Lagosta tamanho={52} /></foreignObject>}
                   </g>
@@ -208,7 +232,14 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
       </svg>
       {antigo && <AbsoluteFill style={{ background: `radial-gradient(ellipse at center, transparent 50%, ${ANTIGO.borda}66 100%)`, mixBlendMode: "multiply" }} />}
       {cena.atores?.map((a, i) => {
-        const xy = proj(a.lonlat);
+        // Unidades com "para" andam até o destino (começam a andar na palavra "mover").
+        let lonlat = a.lonlat;
+        if (a.tipo === "unidade" && a.para) {
+          const ini = a.moverAos ?? (a.aos ?? 0) + 15;
+          const p = interpolate(f, [ini, ini + 45], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
+          lonlat = [a.lonlat[0] + (a.para[0] - a.lonlat[0]) * p, a.lonlat[1] + (a.para[1] - a.lonlat[1]) * p];
+        }
+        const xy = proj(lonlat);
         return xy ? <AtorNoMapa key={i} ator={a} x={xy[0]} y={xy[1]} frame={f} pasta={pasta} /> : null;
       })}
       {cena.ano && offset === 0 && <AnoNoTopo ano={cena.ano} />}

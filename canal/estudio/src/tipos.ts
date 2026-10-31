@@ -25,9 +25,10 @@ export type Cena =
       ano?: string; // número grande no topo (ex.: "1963")
       paises?: { iso: string; bandeira?: Pais; cor?: string; em?: string; aos?: number }[]; // território pintado
       atores?: Ator[]; // balões, retratos, ícones etc. presos ao mapa
+      zonas?: { pontos: LonLat[]; bandeira?: Pais; cor?: string; em?: string; aos?: number; rotulo?: string }[]; // área listrada (controle/zona)
       fundo?: { img: string; oeste: number; leste: number; norte: number; sul: number }; // calculado
       destaques?: { iso: string; cor?: string; em?: number }[]; // em: 0-1 dentro da cena
-      rotas?: { pontos: LonLat[]; cor?: string; icone?: "navio" | "aviao" | "lagosta"; inicio?: number; fim?: number; tracejada?: boolean }[];
+      rotas?: { pontos: LonLat[]; cor?: string; icone?: "navio" | "aviao" | "lagosta"; pais?: Pais; inicio?: number; fim?: number; tracejada?: boolean }[];
       pontos?: { lonlat: LonLat; rotulo?: string; cor?: string; em?: number; icone?: "navio" | "lagosta" | "alvo" }[];
       titulo?: string;
     }
@@ -54,6 +55,10 @@ export type Ator = { lonlat: LonLat; em?: string; ate?: string; aos?: number; at
   | { tipo: "bandeira"; pais: Pais }
   | { tipo: "foto"; img: string; rotulo?: string }
   | { tipo: "rotulo"; texto: string; cor?: string }
+  // Ficha militar (hexágono com bandeira) ou navio com bandeirinha; "para" + "mover" fazem ela andar no mapa.
+  | { tipo: "unidade"; pais: Pais; forma?: "hex" | "navio"; para?: LonLat; mover?: string; moverAos?: number }
+  | { tipo: "reacao"; emoji: string; dx?: number; dy?: number } // balão com emoji (😠 😟 😏 😮)
+  | { tipo: "lupa"; img: string; raio?: number; rotulo?: string } // círculo que aproxima um detalhe
 );
 
 export type CenaStoryboard = Cena & { em?: string; som?: string }; // em: palavra que dispara o corte; som: efeito em public/sons

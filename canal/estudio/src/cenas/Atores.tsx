@@ -4,7 +4,7 @@ import React from "react";
 import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { FONTE_TEXTO, FONTE_TITULO } from "../estilo";
 import { Aviao, Bandeira, Lagosta, Navio } from "../icones";
-import type { Ator, Icone } from "../tipos";
+import type { Ator, Icone, Pais } from "../tipos";
 
 type Props = { ator: Ator; x: number; y: number; frame: number; pasta: string };
 
@@ -74,12 +74,71 @@ export const AtorNoMapa: React.FC<Props> = ({ ator, x, y, frame, pasta }) => {
       </div>
     );
 
+  if (ator.tipo === "unidade")
+    return (
+      <div style={base}>
+        {ator.forma === "navio" ? <NavioComBandeira pais={ator.pais} /> : <Ficha pais={ator.pais} />}
+      </div>
+    );
+
+  if (ator.tipo === "reacao")
+    return (
+      <div style={{ ...base, transform: `translate(${ator.dx ?? 50}px, ${ator.dy ?? -80}px) scale(${s})`, transformOrigin: "0% 100%" }}>
+        <div style={{ position: "relative", background: "#fff", borderRadius: 16, padding: "6px 14px", fontSize: 54, lineHeight: 1.1, fontFamily: "Noto Color Emoji", boxShadow: "0 8px 20px rgba(0,0,0,.5)" }}>
+          {ator.emoji}
+          <div style={{ position: "absolute", left: 14, bottom: -16, width: 0, height: 0, borderLeft: "12px solid transparent", borderRight: "12px solid transparent", borderTop: "18px solid #fff" }} />
+        </div>
+      </div>
+    );
+
+  if (ator.tipo === "lupa") {
+    const r = ator.raio ?? 170;
+    return (
+      <div style={{ ...base, width: r * 2, height: r * 2 }}>
+        <div style={{ width: "100%", height: "100%", borderRadius: "50%", overflow: "hidden", border: "8px solid rgba(255,255,255,.9)", boxShadow: "0 0 0 3px rgba(0,0,0,.4), 0 16px 40px rgba(0,0,0,.6)" }}>
+          <Img src={staticFile(`${pasta}/imagens/${ator.img}.jpg`)} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${1.05 + 0.1 * interpolate(frame - (ator.aos ?? 0), [0, 90], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})` }} />
+        </div>
+        {ator.rotulo && <div style={{ position: "absolute", left: "50%", top: r * 2 - 10, transform: "translateX(-50%)", whiteSpace: "nowrap", fontFamily: FONTE_TITULO, fontSize: 40, color: "#fff", textShadow: "0 0 3px #000, 0 3px 0 #000" }}>{ator.rotulo}</div>}
+      </div>
+    );
+  }
+
   return (
     <div style={{ ...base, whiteSpace: "nowrap", fontFamily: FONTE_TITULO, fontSize: 54, color: ator.cor ?? "#fff", textTransform: "uppercase", textShadow: "0 0 3px #000, 0 3px 0 #000, 0 0 16px rgba(0,0,0,.9)" }}>
       {ator.texto}
     </div>
   );
 };
+
+// Ficha militar: hexágono branco com a bandeira dentro (como as tropas nos vídeos de mapa).
+export const Ficha: React.FC<{ pais: Pais; tamanho?: number }> = ({ pais, tamanho = 120 }) => {
+  const id = `ficha-${pais}`;
+  return (
+    <svg width={tamanho} height={tamanho} viewBox="-50 -50 100 100" style={{ filter: "drop-shadow(0 4px 6px rgba(0,0,0,.6))", overflow: "visible" }}>
+      <defs>
+        <clipPath id={id}>
+          <polygon points="0,-40 35,-20 35,20 0,40 -35,20 -35,-20" />
+        </clipPath>
+      </defs>
+      <polygon points="0,-48 42,-24 42,24 0,48 -42,24 -42,-24" fill="#fff" />
+      <g clipPath={`url(#${id})`}>
+        <Bandeira pais={pais} largura={90} altura={80} esticar x={-45} y={-40} />
+      </g>
+    </svg>
+  );
+};
+
+// Navio de guerra visto de lado com uma bandeirinha redonda em cima (quem é quem no mar).
+export const NavioComBandeira: React.FC<{ pais: Pais; tamanho?: number }> = ({ pais, tamanho = 150 }) => (
+  <div style={{ position: "relative", width: tamanho, height: tamanho * 0.78 }}>
+    <div style={{ position: "absolute", left: "50%", top: 0, transform: "translateX(-50%)", width: tamanho * 0.42, height: tamanho * 0.42, borderRadius: "50%", overflow: "hidden", border: "3px solid #fff", boxShadow: "0 2px 6px rgba(0,0,0,.6)", lineHeight: 0 }}>
+      <Bandeira pais={pais} largura={tamanho * 0.42} altura={tamanho * 0.42} esticar />
+    </div>
+    <div style={{ position: "absolute", bottom: 0, left: 0, filter: "drop-shadow(0 3px 4px rgba(0,0,0,.7))" }}>
+      <Navio tamanho={tamanho} cor="#4a5560" />
+    </div>
+  </div>
+);
 
 // Ícone dentro de um hexágono branco (como os "selos" dos vídeos de mapa).
 export const Hexagono: React.FC<{ icone: Icone; cor?: string; tamanho?: number }> = ({ icone, cor = "#1d3557", tamanho = 120 }) => (
