@@ -240,7 +240,14 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
           lonlat = [a.lonlat[0] + (a.para[0] - a.lonlat[0]) * p, a.lonlat[1] + (a.para[1] - a.lonlat[1]) * p];
         }
         const xy = proj(lonlat);
-        return xy ? <AtorNoMapa key={i} ator={a} x={xy[0]} y={xy[1]} frame={f} pasta={pasta} /> : null;
+        // Balão/emoji encostam no topo de quem está naquele ponto (retrato é mais alto que ícone).
+        let elevacao = 30;
+        if (a.tipo === "fala" || a.tipo === "reacao") {
+          const vizinhos = (cena.atores ?? []).filter((o) => o !== a && Math.hypot(o.lonlat[0] - a.lonlat[0], o.lonlat[1] - a.lonlat[1]) * ppg < 40);
+          if (vizinhos.some((o) => o.tipo === "retrato")) elevacao = 130;
+          else if (vizinhos.some((o) => o.tipo === "icone" || o.tipo === "unidade" || o.tipo === "bandeira")) elevacao = 80;
+        }
+        return xy ? <AtorNoMapa key={i} ator={a} x={xy[0]} y={xy[1]} frame={f} pasta={pasta} elevacao={elevacao} /> : null;
       })}
       {cena.ano && offset === 0 && <AnoNoTopo ano={cena.ano} />}
       {cena.titulo && (

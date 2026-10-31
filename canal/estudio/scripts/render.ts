@@ -6,7 +6,8 @@
 //   npm run render -- quadros 001-guerra-da-lagosta 300,900  (só alguns quadros em PNG, para conferir)
 import { bundle } from "@remotion/bundler";
 import { renderMedia, renderStill, selectComposition } from "@remotion/renderer";
-import { mkdirSync, readFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { mkdirSync, readFileSync, renameSync } from "node:fs";
 import { join } from "node:path";
 import type { Timeline } from "../src/tipos";
 
@@ -61,6 +62,11 @@ async function main() {
       ultimo = p;
     },
   });
+  // Masterização: áudio final em -14 LUFS (padrão do YouTube), vídeo copiado sem recomprimir.
+  const bruto = join(SAIDA, nome);
+  const temp = join(SAIDA, `.${nome}`);
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", bruto, "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", temp]);
+  renameSync(temp, bruto);
   console.log(`pronto: out/${nome}`);
 }
 

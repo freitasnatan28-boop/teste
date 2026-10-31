@@ -6,7 +6,48 @@ import { FONTE_TEXTO, FONTE_TITULO } from "../estilo";
 import { Aviao, Bandeira, Lagosta, Navio } from "../icones";
 import type { Ator, Icone, Pais } from "../tipos";
 
-type Props = { ator: Ator; x: number; y: number; frame: number; pasta: string };
+// elevacao: altura (px) do topo de quem fala acima do ponto (retrato, ícone...), para a ponta do balão encostar nele.
+type Props = { ator: Ator; x: number; y: number; frame: number; pasta: string; elevacao?: number };
+
+// Balão colado em quem fala: a ponta toca o topo do ícone/retrato e ele vira de lado perto das bordas.
+const Balao: React.FC<{ x: number; y: number; elevacao: number; s: number; children: React.ReactNode; emoji?: boolean }> = ({ x: x0, y: y0, elevacao, s, children, emoji }) => {
+  const { width: W, height: H } = useVideoConfig();
+  // Quem fala pode estar fora do quadro (ex.: Paris no alto): o balão fica na beirada, dentro da tela.
+  const x = Math.min(Math.max(x0, 60), W - 60);
+  const y = Math.min(Math.max(y0, 60), H - 60);
+  const paraEsquerda = x > W - (emoji ? 260 : 560);
+  const embaixo = y - elevacao < (emoji ? 160 : 300);
+  const pontaY = embaixo ? y + elevacao : y - elevacao;
+  const cauda = 22;
+  return (
+    <div
+      style={{
+        position: "absolute",
+        [paraEsquerda ? "right" : "left"]: paraEsquerda ? W - x - 34 : x - 34,
+        [embaixo ? "top" : "bottom"]: embaixo ? pontaY + cauda : H - pontaY + cauda,
+        transform: `scale(${s})`,
+        transformOrigin: `${paraEsquerda ? "100%" : "0%"} ${embaixo ? "0%" : "100%"}`,
+        opacity: Math.min(1, s * 1.5),
+      }}
+    >
+      <div style={{ position: "relative", background: "#fff", color: "#000", borderRadius: 18, boxShadow: "0 8px 20px rgba(0,0,0,.5)", ...(emoji ? { padding: "6px 14px", fontSize: 58, lineHeight: 1.1, fontFamily: "Noto Color Emoji" } : { padding: "14px 24px", fontFamily: FONTE_TEXTO, fontWeight: 700, fontSize: 46, lineHeight: 1.1, maxWidth: 620, minWidth: 60, textTransform: "uppercase" }) }}>
+        {children}
+        <div
+          style={{
+            position: "absolute",
+            [paraEsquerda ? "right" : "left"]: 20,
+            [embaixo ? "top" : "bottom"]: -cauda + 2,
+            width: 0,
+            height: 0,
+            borderLeft: "14px solid transparent",
+            borderRight: "14px solid transparent",
+            [embaixo ? "borderBottom" : "borderTop"]: `${cauda}px solid #fff`,
+          }}
+        />
+      </div>
+    </div>
+  );
+};
 
 function entrada(frame: number, fps: number, aos = 0, ateAos?: number) {
   const s = spring({ frame: frame - aos, fps, config: { damping: 11, stiffness: 190 } });
@@ -14,7 +55,7 @@ function entrada(frame: number, fps: number, aos = 0, ateAos?: number) {
   return Math.min(s, sai);
 }
 
-export const AtorNoMapa: React.FC<Props> = ({ ator, x, y, frame, pasta }) => {
+export const AtorNoMapa: React.FC<Props> = ({ ator, x, y, frame, pasta, elevacao = 30 }) => {
   const { fps } = useVideoConfig();
   const s = entrada(frame, fps, ator.aos, ator.ateAos);
   if (s <= 0.01) return null;
@@ -35,15 +76,12 @@ export const AtorNoMapa: React.FC<Props> = ({ ator, x, y, frame, pasta }) => {
   if (ator.tipo === "fala") {
     // Texto "digitado" logo depois do balão aparecer.
     const letras = Math.floor(interpolate(frame - (ator.aos ?? 0), [3, 3 + ator.texto.length * 0.9], [0, ator.texto.length], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
-    const dx = ator.dx ?? 40;
-    const dy = ator.dy ?? -90;
     return (
-      <div style={{ ...base, transform: `translate(${dx}px, ${dy}px) scale(${s})`, transformOrigin: "0% 100%" }}>
-        <div style={{ position: "relative", background: "#fff", color: "#000", fontFamily: FONTE_TEXTO, fontWeight: 700, fontSize: 46, lineHeight: 1.1, padding: "14px 24px", borderRadius: 18, maxWidth: 620, minWidth: 60, textTransform: "uppercase", boxShadow: "0 8px 20px rgba(0,0,0,.5)" }}>
-          {ator.texto.slice(0, letras) || " "}
-          <div style={{ position: "absolute", left: 16, bottom: -18, width: 0, height: 0, borderLeft: "14px solid transparent", borderRight: "14px solid transparent", borderTop: "22px solid #fff" }} />
-        </div>
-      </div>
+      <Balao x={x} y={y} elevacao={elevacao} s={s}>
+        {/* O resto do texto fica invisível ocupando lugar: as palavras não pulam de linha enquanto digita. */}
+        {ator.texto.slice(0, letras)}
+        <span style={{ opacity: 0 }}>{ator.texto.slice(letras)}</span>
+      </Balao>
     );
   }
 
@@ -83,12 +121,9 @@ export const AtorNoMapa: React.FC<Props> = ({ ator, x, y, frame, pasta }) => {
 
   if (ator.tipo === "reacao")
     return (
-      <div style={{ ...base, transform: `translate(${ator.dx ?? 50}px, ${ator.dy ?? -80}px) scale(${s})`, transformOrigin: "0% 100%" }}>
-        <div style={{ position: "relative", background: "#fff", borderRadius: 16, padding: "6px 14px", fontSize: 54, lineHeight: 1.1, fontFamily: "Noto Color Emoji", boxShadow: "0 8px 20px rgba(0,0,0,.5)" }}>
-          {ator.emoji}
-          <div style={{ position: "absolute", left: 14, bottom: -16, width: 0, height: 0, borderLeft: "12px solid transparent", borderRight: "12px solid transparent", borderTop: "18px solid #fff" }} />
-        </div>
-      </div>
+      <Balao x={x} y={y} elevacao={elevacao} s={s} emoji>
+        {ator.emoji}
+      </Balao>
     );
 
   if (ator.tipo === "lupa") {

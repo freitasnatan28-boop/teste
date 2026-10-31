@@ -50,7 +50,7 @@ export type Icone = "documento" | "navio" | "aviao" | "lagosta" | "ancora" | "ex
 // Elementos presos a um ponto do mapa. "em"/"ate" são palavras da narração (o montar converte em frames).
 export type Ator = { lonlat: LonLat; em?: string; ate?: string; aos?: number; ateAos?: number } & (
   | { tipo: "retrato"; img: string; nome: string }
-  | { tipo: "fala"; texto: string; dx?: number; dy?: number }
+  | { tipo: "fala"; texto: string; dx?: number; dy?: number } // dx/dy: ignorados no modelo de mapa (balão se posiciona sozinho)
   | { tipo: "icone"; icone: Icone; rotulo?: string; cor?: string }
   | { tipo: "bandeira"; pais: Pais }
   | { tipo: "foto"; img: string; rotulo?: string }

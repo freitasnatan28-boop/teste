@@ -3,8 +3,8 @@
 // DIFERENTE (nunca a mesma foto de novo em seguida), para a tela não ficar parada.
 // Uso: npm run montar -- 001-guerra-da-lagosta
 import { execFileSync } from "node:child_process";
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
 import type { Palavra } from "./narrar";
 import { paraFala } from "./roteiro";
 import type { Ator, Storyboard, TCena, Timeline, Transicao, Vista } from "../src/tipos";
@@ -79,6 +79,13 @@ function transicaoPara(cena: TCena["cena"], som: string | undefined, i: number, 
   return "zoom";
 }
 
+// Voz no volume certo: -16 LUFS (a ElevenLabs entrega bem baixo, ~-30). A mixagem final vai a -14 no render.
+function normalizarVoz(origem: string, destino: string) {
+  if (existsSync(destino)) return;
+  mkdirSync(dirname(destino), { recursive: true });
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", origem, "-af", "loudnorm=I=-16:TP=-1.5:LRA=7", "-ar", "44100", "-b:a", "192k", destino]);
+}
+
 function duracaoMp3(arquivo: string): number {
   return Number(execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", arquivo]).toString());
 }
@@ -117,7 +124,8 @@ function main() {
       if (numero > 0) tl.sons.push({ inicio: Math.round(cursor * FPS), som: estilo === "mapa" ? "luz-flash" : "whoosh-grave", volume: 0.5 });
     }
 
-    tl.beats.push({ id, inicio: Math.round(cursor * FPS), audio: `${pasta}/narracao/${id}.mp3`, duracao: Math.ceil(dur * FPS) + 2 });
+    tl.beats.push({ id, inicio: Math.round(cursor * FPS), audio: `${pasta}/narracao-mix/${id}.mp3`, duracao: Math.ceil(dur * FPS) + 2 });
+    normalizarVoz(join(pastaDisco, "narracao", `${id}.mp3`), join(pastaDisco, "narracao-mix", `${id}.mp3`));
 
     let desde = 0;
     roteiro.cenas.forEach((c, k) => {
@@ -145,11 +153,26 @@ function main() {
         };
         cena.atores = cena.atores?.map((a) => {
           const aos = quando(a.em, a.tipo);
-          aparicoes.push({ t: cursor + t + (aos ?? 0) / FPS, ator: a });
+          const adianta = a.tipo === "fala" || a.tipo === "reacao" ? 6 : a.tipo === "bandeira" ? 9 : 0; // mesmo adiantamento dos balões
+          aparicoes.push({ t: cursor + t + Math.max(0, (aos ?? 0) - adianta) / FPS, ator: a });
           const extra = a.tipo === "unidade" ? { moverAos: quando(a.mover, "unidade anda") } : {};
           if (a.tipo === "unidade" && a.para) aparicoes.push({ t: cursor + t + ((extra.moverAos ?? (aos ?? 0) + 15) / FPS), ator: { ...a, tipo: "rotulo", texto: "" } as Ator, som: "whoosh-3" });
           return { ...a, aos, ateAos: quando(a.ate, `${a.tipo} até`), ...extra };
         });
+        // Balões: entram 0,2 s antes da palavra (a digitação termina junto com a fala) e saem quando o próximo
+        // balão da cena entra (ou depois de 4 s). Emojis duram ~2,5 s.
+        const ADIANTA = 6;
+        // A bandeira de quem fala aparece um instante antes do balão dela.
+        for (const a of cena.atores ?? []) if (a.tipo === "bandeira" && a.aos) a.aos = Math.max(0, a.aos - ADIANTA - 3);
+        for (const tipo of ["fala", "reacao"] as const) {
+          const lista = (cena.atores ?? []).filter((a) => a.tipo === tipo).sort((a, b) => (a.aos ?? 0) - (b.aos ?? 0));
+          lista.forEach((a, k) => {
+            a.aos = Math.max(0, (a.aos ?? 0) - ADIANTA);
+            if (a.ateAos !== undefined) return;
+            const prox = lista.slice(k + 1).find((b) => (b.aos ?? 0) - ADIANTA > (a.aos ?? 0) + 6);
+            a.ateAos = prox ? Math.max(0, (prox.aos ?? 0) - ADIANTA) : (a.aos ?? 0) + (tipo === "fala" ? 120 : 75);
+          });
+        }
         cena.paises = cena.paises?.map((p) => ({ ...p, aos: quando(p.em, p.iso) }));
         cena.zonas = cena.zonas?.map((z) => ({ ...z, aos: quando(z.em, "zona") }));
       }
@@ -265,7 +288,7 @@ function main() {
     if (!som) continue;
     tl.sons.push({ inicio: Math.round(t * FPS), som, volume: som === "canhao" ? 0.45 : 0.32 });
     tocados.push({ t, som });
-    if (ator.tipo === "fala") tl.sons.push({ inicio: Math.round((t + 0.1) * FPS), som: "teclado", volume: 0.14 });
+    if (ator.tipo === "fala") tl.sons.push({ inicio: Math.round((t + 0.1) * FPS), som: "teclado", volume: 0.3 });
   }
 
   tl.capitulos = tl.capitulos.filter((c) => c.numero > 0);
