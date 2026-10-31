@@ -3,6 +3,7 @@
 //   npm run render -- video 001-guerra-da-lagosta            (vídeo inteiro)
 //   npm run render -- video 001-guerra-da-lagosta 0 600      (só os frames 0 a 600, para conferir)
 //   npm run render -- imagens                                (avatar, banner e thumbnails)
+//   npm run render -- quadros 001-guerra-da-lagosta 300,900  (só alguns quadros em PNG, para conferir)
 import { bundle } from "@remotion/bundler";
 import { renderMedia, renderStill, selectComposition } from "@remotion/renderer";
 import { mkdirSync, readFileSync } from "node:fs";
@@ -30,10 +31,18 @@ async function main() {
     return;
   }
 
-  if (modo !== "video" || !video) throw new Error("Uso: npm run render -- video <pasta> [de] [ate] | imagens");
+  if ((modo !== "video" && modo !== "quadros") || !video) throw new Error("Uso: npm run render -- video <pasta> [de] [ate] | quadros <pasta> <f1,f2> | imagens");
   const timeline = JSON.parse(readFileSync(join(RAIZ, "..", "videos", video, "timeline.json"), "utf8")) as Timeline;
   const inputProps = { timeline, video };
   const composition = await selectComposition({ ...comum, id: "Video", inputProps });
+
+  if (modo === "quadros") {
+    for (const q of (de ?? "0").split(",").map(Number)) {
+      await renderStill({ ...comum, composition, inputProps, frame: q, output: join(SAIDA, `quadro-${q}.png`) });
+      console.log(`quadro-${q}.png ok`);
+    }
+    return;
+  }
   const trecho = de ? ([Number(de), Number(ate ?? composition.durationInFrames - 1)] as [number, number]) : undefined;
   const nome = trecho ? `${video}_${trecho[0]}-${trecho[1]}.mp4` : `${video}.mp4`;
   let ultimo = -1;

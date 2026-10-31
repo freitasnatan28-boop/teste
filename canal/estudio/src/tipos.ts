@@ -19,8 +19,13 @@ export type Cena =
     }
   | {
       tipo: "mapa";
-      de?: Vista;
+      de?: Vista; // se faltar, a câmera continua de onde o mapa anterior parou
       para: Vista;
+      estilo?: "satelite" | "antigo";
+      ano?: string; // número grande no topo (ex.: "1963")
+      paises?: { iso: string; bandeira?: Pais; cor?: string; em?: string; aos?: number }[]; // território pintado
+      atores?: Ator[]; // balões, retratos, ícones etc. presos ao mapa
+      fundo?: { img: string; oeste: number; leste: number; norte: number; sul: number }; // calculado
       destaques?: { iso: string; cor?: string; em?: number }[]; // em: 0-1 dentro da cena
       rotas?: { pontos: LonLat[]; cor?: string; icone?: "navio" | "aviao" | "lagosta"; inicio?: number; fim?: number; tracejada?: boolean }[];
       pontos?: { lonlat: LonLat; rotulo?: string; cor?: string; em?: number; icone?: "navio" | "lagosta" | "alvo" }[];
@@ -30,17 +35,33 @@ export type Cena =
   | { tipo: "data"; texto: string; sub?: string }
   | { tipo: "lista"; titulo?: string; marca?: "x" | "numero"; itens: { texto: string; em?: string; aos?: number }[] } // aos: frame calculado a partir de "em"
   | { tipo: "citacao"; texto: string; autor: string; img?: string }
-  | { tipo: "versus"; esquerda: "BRA" | "FRA" | "USA"; direita: "BRA" | "FRA" | "USA"; titulo?: string }
+  | { tipo: "versus"; esquerda: Pais; direita: Pais; titulo?: string }
   | { tipo: "radar"; rotulo?: string }
   | { tipo: "contador"; ate: number; unidade: string; sub?: string; prefixo?: string }
   | { tipo: "plataforma"; destaque?: "plataforma" | "mar"; lagostaPula?: boolean; bandeira?: "BRA" | "FRA" }
   | { tipo: "linhaTempo"; itens: { data: string; texto: string }[] }
   | { tipo: "final" };
 
+export type Pais = "BRA" | "FRA" | "USA";
+
+export type Icone = "documento" | "navio" | "aviao" | "lagosta" | "ancora" | "explosao" | "alerta" | "interrogacao" | "acordo" | "radar" | "tropa" | "dinheiro";
+
+// Elementos presos a um ponto do mapa. "em"/"ate" são palavras da narração (o montar converte em frames).
+export type Ator = { lonlat: LonLat; em?: string; ate?: string; aos?: number; ateAos?: number } & (
+  | { tipo: "retrato"; img: string; nome: string }
+  | { tipo: "fala"; texto: string; dx?: number; dy?: number }
+  | { tipo: "icone"; icone: Icone; rotulo?: string; cor?: string }
+  | { tipo: "bandeira"; pais: Pais }
+  | { tipo: "foto"; img: string; rotulo?: string }
+  | { tipo: "rotulo"; texto: string; cor?: string }
+);
+
 export type CenaStoryboard = Cena & { em?: string; som?: string }; // em: palavra que dispara o corte; som: efeito em public/sons
 
 export type Storyboard = {
   titulo: string;
+  estilo?: "documentario" | "mapa"; // "mapa": modelo dos vídeos de geopolítica (sem granulado, sons de balão)
+  trilha?: string; // arquivo em public/sons, sem extensão
   beats: Record<
     string,
     {
@@ -65,15 +86,19 @@ export type TCena = {
   transicao: Transicao;
 };
 
-export type Transicao = "zoom" | "deslize-esq" | "deslize-dir" | "escurecer" | "flash" | "suave";
+export type Transicao = "zoom" | "deslize-esq" | "deslize-dir" | "escurecer" | "flash" | "suave" | "luz" | "nenhuma";
 
 export type Timeline = {
   pasta: string; // ex.: videos/001-guerra-da-lagosta
+  estilo: "documentario" | "mapa";
+  trilha: string;
   fps: number;
   duracao: number;
   beats: { id: string; inicio: number; audio: string; duracao: number }[];
   cenas: TCena[];
   destaques: { inicio: number; duracao: number; texto: string }[];
+  largura: number;
+  altura: number;
   capitulos: { inicio: number; numero: number; titulo: string }[];
   sons: { inicio: number; som: string; volume: number }[];
 };

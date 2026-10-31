@@ -7,9 +7,10 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Palavra } from "./narrar";
 import { paraFala } from "./roteiro";
-import type { Storyboard, TCena, Timeline, Transicao } from "../src/tipos";
+import type { Ator, Storyboard, TCena, Timeline, Transicao, Vista } from "../src/tipos";
 
 const FPS = 30;
+const [LARGURA, ALTURA] = process.env.FORMATO === "vertical" ? [1080, 1920] : [1920, 1080];
 const PAUSA_BEAT = 0.2;
 const PAUSA_CAPITULO = 0.6;
 // Cenas que passam desse tempo (s) são encurtadas e o resto vira uma foto de apoio do beat.
@@ -32,7 +33,7 @@ function acharPalavra(palavras: Palavra[], alvo: string, desde: number): { indic
   return null;
 }
 
-type Bloco = { inicio: number; fim: number; cena: TCena["cena"]; som?: string; apoio?: string[] };
+type Bloco = { inicio: number; fim: number; cena: TCena["cena"]; som?: string; apoio?: string[]; continua?: boolean };
 
 const imgDe = (c: TCena["cena"]) => (c.tipo === "foto" ? c.img : c.tipo === "texto" || c.tipo === "citacao" ? c.img : undefined);
 
@@ -63,8 +64,15 @@ const SONS_FOTO = ["whoosh-3", "obturador", "whoosh-2", "whoosh"];
 const SEM_REPETIR_SOM = 8; // s: o mesmo arquivo não toca de novo antes disso
 const RESPIRO_SOM = 1.2; // s: nada de dois efeitos colados
 
+function moveuBastante(de: Vista | undefined, para: Vista): boolean {
+  if (!de) return false;
+  const zoom = Math.abs(Math.log(para.zoom / de.zoom));
+  const dist = Math.hypot(para.centro[0] - de.centro[0], para.centro[1] - de.centro[1]) * (para.zoom / 2);
+  return zoom > 0.35 || dist > 40;
+}
+
 function transicaoPara(cena: TCena["cena"], som: string | undefined, i: number, inicioCapitulo: boolean): Transicao {
-  if (inicioCapitulo) return "escurecer";
+  if (inicioCapitulo) return "luz";
   if (som === "impacto" || som === "flash") return "flash";
   if (cena.tipo === "mapa") return "suave";
   if (cena.tipo === "foto") return (["zoom", "deslize-esq", "suave", "deslize-dir"] as const)[i % 4];
@@ -82,7 +90,9 @@ function main() {
   const pasta = `videos/${video}`;
   const sb = JSON.parse(readFileSync(join(pastaDisco, "storyboard.json"), "utf8")) as Storyboard;
 
-  const tl: Timeline = { pasta, fps: FPS, duracao: 0, beats: [], cenas: [], destaques: [], capitulos: [], sons: [] };
+  const estilo = sb.estilo ?? "documentario";
+  const tl: Timeline = { pasta, estilo, trilha: sb.trilha ?? (estilo === "mapa" ? "trilha-mapa" : "trilha-tensao"), fps: FPS, duracao: 0, largura: LARGURA, altura: ALTURA, beats: [], cenas: [], destaques: [], capitulos: [], sons: [] };
+  const aparicoes: { t: number; ator: Ator }[] = []; // quando cada balão/retrato/ícone entra (ganha som)
   const avisos: string[] = [];
   let cursor = 0.4; // segundos
   let capituloAtual = "";
@@ -104,7 +114,7 @@ function main() {
       } else if (numero === 0) {
         tl.capitulos.push({ inicio: -1000, numero: 0, titulo: "" }); // gancho não tem cartela
       }
-      if (numero > 0) tl.sons.push({ inicio: Math.round(cursor * FPS), som: "whoosh-grave", volume: 0.55 });
+      if (numero > 0) tl.sons.push({ inicio: Math.round(cursor * FPS), som: estilo === "mapa" ? "luz-flash" : "whoosh-grave", volume: 0.5 });
     }
 
     tl.beats.push({ id, inicio: Math.round(cursor * FPS), audio: `${pasta}/narracao/${id}.mp3`, duracao: Math.ceil(dur * FPS) + 2 });
@@ -112,6 +122,7 @@ function main() {
     let desde = 0;
     roteiro.cenas.forEach((c, k) => {
       let t = 0;
+      let indiceCena = 0;
       if (k > 0) {
         const achado = c.em ? acharPalavra(beat.palavras, c.em, desde) : null;
         if (!achado) {
@@ -120,9 +131,25 @@ function main() {
         } else {
           t = achado.tempo;
           desde = achado.indice + 1;
+          indiceCena = achado.indice;
         }
       }
       const { em, ...cena } = c;
+      if (cena.tipo === "mapa") {
+        // Balões, retratos e países entram quando a palavra "em" é falada (frames contados do início da cena).
+        const quando = (palavra: string | undefined, o_que: string) => {
+          if (!palavra) return undefined;
+          const a = acharPalavra(beat.palavras, palavra, indiceCena);
+          if (!a) avisos.push(`${id}: "${palavra}" (${o_que}) não encontrada`);
+          return a ? Math.max(0, Math.round((a.tempo - t) * FPS)) : undefined;
+        };
+        cena.atores = cena.atores?.map((a) => {
+          const aos = quando(a.em, a.tipo);
+          aparicoes.push({ t: cursor + t + (aos ?? 0) / FPS, ator: a });
+          return { ...a, aos, ateAos: quando(a.ate, `${a.tipo} até`) };
+        });
+        cena.paises = cena.paises?.map((p) => ({ ...p, aos: quando(p.em, p.iso) }));
+      }
       if (cena.tipo === "lista") {
         let d = 0;
         cena.itens = cena.itens.map((it) => {
@@ -187,6 +214,16 @@ function main() {
     c.fim = c.inicio + limite;
   }
 
+  // Mapas seguidos viram uma câmera contínua: o próximo começa onde o anterior parou, sem corte.
+  todas.forEach((c, i) => {
+    const antes = todas[i - 1]?.cena;
+    if (c.cena.tipo !== "mapa" || c.cena.de) return;
+    if (antes?.tipo === "mapa" && (antes.estilo ?? "satelite") === (c.cena.estilo ?? "satelite")) {
+      c.cena = { ...c.cena, de: antes.para };
+      c.continua = true;
+    }
+  });
+
   // Efeitos sonoros variados e espaçados: nem todo corte tem som, e o mesmo som não se repete em seguida.
   const tocados: { t: number; som: string }[] = tl.sons.map((x) => ({ t: x.inicio / FPS, som: x.som }));
   const livre = (som: string, t: number) =>
@@ -200,7 +237,11 @@ function main() {
     if (duracaoCena <= 0) return;
     const inicioCapitulo = [...capitulos].some((x) => Math.abs(x - inicio) < FPS);
     let som = c.som;
-    if (!som && !inicioCapitulo) {
+    if (estilo === "mapa" && c.cena.tipo === "mapa" && !som && !inicioCapitulo) {
+      // No modelo de mapa, o som acompanha a câmera: whoosh quando ela anda bastante, "ding" no ano.
+      if (c.cena.ano) som = "ding";
+      else if (moveuBastante(c.cena.de, c.cena.para)) som = ["camera-zoom", "camera-zoom-2"].find((o) => livre(o, c.inicio));
+    } else if (!som && !inicioCapitulo && !c.continua) {
       const lista = c.cena.tipo === "foto" ? (fotos++ % 3 === 0 ? SONS_FOTO : []) : SOM_POR_TIPO[c.cena.tipo] ?? [];
       const k = (vez[c.cena.tipo] = (vez[c.cena.tipo] ?? -1) + 1);
       const opcoes = [...lista.slice(k % (lista.length || 1)), ...lista.slice(0, k % (lista.length || 1))];
@@ -210,12 +251,25 @@ function main() {
       tl.sons.push({ inicio, som, volume: c.som ? 0.6 : som === "impacto" ? 0.45 : 0.3 });
       tocados.push({ t: c.inicio, som });
     }
-    tl.cenas.push({ inicio, duracao: duracaoCena, cena: c.cena, parte: 0, partes: 1, offset: 0, duracaoCena, corte: true, transicao: transicaoPara(c.cena, c.som, i, inicioCapitulo) });
+    tl.cenas.push({ inicio, duracao: duracaoCena, cena: c.cena, parte: 0, partes: 1, offset: 0, duracaoCena, corte: true, transicao: c.continua && !inicioCapitulo ? "nenhuma" : transicaoPara(c.cena, c.som, i, inicioCapitulo) });
   });
+  // Cada elemento que entra no mapa tem seu som (pops alternados, digitação no balão, canhão na explosão).
+  let pops = 0;
+  for (const { t, ator } of aparicoes) {
+    if (tocados.some((x) => Math.abs(x.t - t) < 0.12)) continue;
+    const som =
+      ator.tipo === "foto" ? "obturador" : ator.tipo === "icone" && ator.icone === "explosao" ? "canhao" : ator.tipo === "rotulo" ? null : estilo === "mapa" ? (pops++ % 2 ? "balao-pop-2" : "balao-pop") : "pop";
+    if (!som) continue;
+    tl.sons.push({ inicio: Math.round(t * FPS), som, volume: som === "canhao" ? 0.45 : 0.32 });
+    tocados.push({ t, som });
+    if (ator.tipo === "fala") tl.sons.push({ inicio: Math.round((t + 0.1) * FPS), som: "teclado", volume: 0.14 });
+  }
 
   tl.capitulos = tl.capitulos.filter((c) => c.numero > 0);
   tl.duracao = Math.round(cursor * FPS);
   writeFileSync(join(pastaDisco, "timeline.json"), JSON.stringify(tl));
+  // Recorta o fundo de satélite de cada mapa (NASA Blue Marble).
+  execFileSync("python3", [join(import.meta.dirname, "preparar_mapas.py"), pastaDisco], { stdio: "inherit" });
 
   const cortes = tl.cenas.length;
   console.log(`${video}: ${(cursor / 60).toFixed(1)} min, ${cortes} cortes (1 a cada ${(cursor / cortes).toFixed(1)} s)`);

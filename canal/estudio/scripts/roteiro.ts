@@ -56,3 +56,4 @@ const PRONUNCIA: [RegExp, string][] = [
 export function paraFala(texto: string): string {
   return PRONUNCIA.reduce((t, [de, para]) => t.replace(de, para), texto);
 }
+

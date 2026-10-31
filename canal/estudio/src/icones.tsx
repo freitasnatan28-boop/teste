@@ -52,11 +52,13 @@ export const Aviao: React.FC<{ tamanho?: number; cor?: string }> = ({ tamanho = 
   </svg>
 );
 
-export const Bandeira: React.FC<{ pais: "BRA" | "FRA" | "USA"; largura?: number }> = ({ pais, largura = 180 }) => {
-  const a = largura * (2 / 3);
+// "esticar": preenche a caixa toda (usado para pintar o território do país com a bandeira).
+export const Bandeira: React.FC<{ pais: "BRA" | "FRA" | "USA"; largura?: number; altura?: number; esticar?: boolean; x?: number; y?: number }> = ({ pais, largura = 180, altura, esticar, x, y }) => {
+  const a = altura ?? largura * (2 / 3);
+  const extra = { x, y, preserveAspectRatio: esticar ? "none" : undefined };
   if (pais === "FRA")
     return (
-      <svg width={largura} height={a} viewBox="0 0 3 2">
+      <svg width={largura} height={a} viewBox="0 0 3 2" {...extra}>
         <rect width={1} height={2} fill="#0055a4" />
         <rect x={1} width={1} height={2} fill="#fff" />
         <rect x={2} width={1} height={2} fill="#ef4135" />
@@ -64,7 +66,7 @@ export const Bandeira: React.FC<{ pais: "BRA" | "FRA" | "USA"; largura?: number 
     );
   if (pais === "USA")
     return (
-      <svg width={largura} height={a} viewBox="0 0 190 100" preserveAspectRatio="none">
+      <svg width={largura} height={a} viewBox="0 0 190 100" {...extra} preserveAspectRatio="none">
         {Array.from({ length: 13 }, (_, i) => (
           <rect key={i} y={(i * 100) / 13} width={190} height={100 / 13} fill={i % 2 ? "#fff" : "#b22234"} />
         ))}
@@ -72,7 +74,7 @@ export const Bandeira: React.FC<{ pais: "BRA" | "FRA" | "USA"; largura?: number 
       </svg>
     );
   return (
-    <svg width={largura} height={a} viewBox="0 0 300 200">
+    <svg width={largura} height={a} viewBox="0 0 300 200" {...extra}>
       <rect width={300} height={200} fill="#009c3b" />
       <path d="M150 20 L280 100 L150 180 L20 100 Z" fill="#ffdf00" />
       <circle cx={150} cy={100} r={50} fill="#002776" />

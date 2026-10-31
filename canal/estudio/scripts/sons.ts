@@ -24,15 +24,34 @@ const EFEITOS: Record<string, { texto: string; segundos: number }> = {
   papel: { texto: "paper sheet sliding on a desk, short", segundos: 0.8 },
   tique: { texto: "fast mechanical counter ticking, numbers rolling", segundos: 1.2 },
   mapa: { texto: "soft digital map zoom swoosh with subtle electronic shimmer", segundos: 1.2 },
+  // Estilo dos vídeos de mapa (referência do dono): pops de balão, digitação, câmera e flash de luz.
+  "balao-pop": { texto: "cute cartoon bubble pop, short, bright and clean, UI notification", segundos: 0.5 },
+  "balao-pop-2": { texto: "soft plop pop sound, speech bubble appearing, short", segundos: 0.5 },
+  teclado: { texto: "fast laptop keyboard typing, light clicky keys, short burst", segundos: 1.2 },
+  "camera-zoom": { texto: "smooth cinematic zoom whoosh, airy and soft, rising", segundos: 1.4 },
+  "camera-zoom-2": { texto: "fast swoosh pass, light wind whoosh, short", segundos: 0.9 },
+  ding: { texto: "bright single ding chime, clean bell, short", segundos: 1 },
+  "luz-flash": { texto: "magical shimmer swoosh with soft reverse cymbal, light flash transition", segundos: 1.4 },
+  canhao: { texto: "distant naval cannon shot boom with short echo", segundos: 1.6 },
 };
 
-const TRILHA = {
-  nome: "trilha-tensao",
-  prompt:
-    "Instrumental dark documentary underscore for a history and geopolitics video. Tense but steady, " +
-    "low strings ostinato, soft taiko drums, subtle synth pads, no vocals, loopable, 95 bpm.",
-  ms: 90_000,
-};
+const TRILHAS = [
+  {
+    nome: "trilha-tensao",
+    prompt:
+      "Instrumental dark documentary underscore for a history and geopolitics video. Tense but steady, " +
+      "low strings ostinato, soft taiko drums, subtle synth pads, no vocals, loopable, 95 bpm.",
+    ms: 90_000,
+  },
+  {
+    // Trilha leve e curiosa, no estilo dos vídeos de mapa/geopolítica (referência do dono).
+    nome: "trilha-mapa",
+    prompt:
+      "Instrumental soft and curious background music for an educational geopolitics map video. Light pizzicato strings, " +
+      "soft marimba, warm pads, gentle pulse, calm but engaging, minimal, no vocals, loopable, 100 bpm.",
+    ms: 120_000,
+  },
+];
 
 async function post(url: string, corpo: unknown): Promise<Buffer> {
   const res = await fetch(url, {
@@ -60,17 +79,11 @@ async function main() {
     console.log(`${nome} ok`);
   }
 
-  const trilha = join(DIR, `${TRILHA.nome}.mp3`);
-  if (!existsSync(trilha)) {
-    writeFileSync(
-      trilha,
-      await post("https://api.elevenlabs.io/v1/music", {
-        prompt: TRILHA.prompt,
-        music_length_ms: TRILHA.ms,
-        force_instrumental: true,
-      }),
-    );
-    console.log(`${TRILHA.nome} ok`);
+  for (const t of TRILHAS) {
+    const trilha = join(DIR, `${t.nome}.mp3`);
+    if (existsSync(trilha)) continue;
+    writeFileSync(trilha, await post("https://api.elevenlabs.io/v1/music", { prompt: t.prompt, music_length_ms: t.ms, force_instrumental: true }));
+    console.log(`${t.nome} ok`);
   }
 }
 

@@ -37,12 +37,17 @@ const Corte: React.FC<{ c: TCena; pasta: string }> = ({ c, pasta }) => {
   if (c.transicao === "deslize-dir") transform = `translateX(${sai(-width * 0.12, 0, 8)}px)`;
   if (c.transicao === "escurecer") opacidade = sai(0, 1, 10);
   if (c.transicao === "flash") branco = interpolate(f, [0, 4], [0.7, 0], { extrapolateRight: "clamp" });
+  // "luz": clarão branco-rosado que varre a tela (troca de época/capítulo no modelo de mapa).
+  const luz = c.transicao === "luz" ? interpolate(f, [0, 3, 14], [0, 1, 0], { extrapolateRight: "clamp" }) : 0;
   return (
     <AbsoluteFill style={{ background: "#000" }}>
       <AbsoluteFill style={{ transform, opacity: opacidade }}>
         <C cena={c.cena} parte={c.parte} partes={c.partes} duracao={c.duracao} offset={c.offset} duracaoCena={c.duracaoCena} pasta={pasta} />
       </AbsoluteFill>
       {branco > 0 && <AbsoluteFill style={{ background: "#fff", opacity: branco }} />}
+      {luz > 0 && (
+        <AbsoluteFill style={{ opacity: luz, background: "radial-gradient(ellipse at 20% 30%, #fff 0%, #ffd6f2 35%, #f08ad8 60%, rgba(160,90,255,.6) 85%)", transform: `translateX(${interpolate(f, [0, 14], [-15, 15])}%)` }} />
+      )}
     </AbsoluteFill>
   );
 };
@@ -71,13 +76,13 @@ const Capitulo: React.FC<{ numero: number; titulo: string }> = ({ numero, titulo
   );
 };
 
-// Granulado de filme (texturas prontas, bem mais leve que gerar ruído por frame) + vinheta + marca d'água.
-const Acabamento: React.FC = () => {
+// Documentário: granulado de filme + vinheta. Modelo de mapa: imagem limpa, só a marca d'água.
+const Acabamento: React.FC<{ limpo: boolean }> = ({ limpo }) => {
   const f = useCurrentFrame();
   return (
     <AbsoluteFill style={{ pointerEvents: "none" }}>
-      <Img src={staticFile(`texturas/grao-${f % 6}.png`)} style={{ position: "absolute", width: "100%", height: "100%", opacity: 0.06, mixBlendMode: "overlay", imageRendering: "pixelated" }} />
-      <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%)" }} />
+      {!limpo && <Img src={staticFile(`texturas/grao-${f % 6}.png`)} style={{ position: "absolute", width: "100%", height: "100%", opacity: 0.06, mixBlendMode: "overlay", imageRendering: "pixelated" }} />}
+      {!limpo && <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%)" }} />}
       <div style={{ position: "absolute", right: 40, top: 34, opacity: 0.55, display: "flex", alignItems: "center", gap: 12 }}>
         <LogoCanal tamanho={54} />
         <span style={{ fontFamily: FONTE_TITULO, fontSize: 30, color: COR.texto, letterSpacing: 1 }}>POR TRÁS DO MAPA</span>
@@ -94,6 +99,7 @@ const Escurecer: React.FC<{ duracao: number }> = ({ duracao }) => {
 export const Video: React.FC<{ timeline: Timeline | null; video: string }> = ({ timeline }) => {
   if (!timeline) return <AbsoluteFill style={{ background: COR.fundo }} />;
   const { pasta, duracao, fps } = timeline;
+  const mapa = timeline.estilo === "mapa";
   return (
     <AbsoluteFill style={{ background: "#000" }}>
       {timeline.cenas.map((c, i) => (
@@ -106,12 +112,12 @@ export const Video: React.FC<{ timeline: Timeline | null; video: string }> = ({ 
           <Destaque texto={d.texto} />
         </Sequence>
       ))}
-      {timeline.capitulos.map((c) => (
+      {!mapa && timeline.capitulos.map((c) => (
         <Sequence key={`c${c.numero}`} from={c.inicio} durationInFrames={90}>
           <Capitulo numero={c.numero} titulo={c.titulo} />
         </Sequence>
       ))}
-      <Acabamento />
+      <Acabamento limpo={mapa} />
 
       {timeline.beats.map((b) => (
         <Sequence key={b.id} from={b.inicio} durationInFrames={b.duracao} layout="none">
@@ -123,10 +129,10 @@ export const Video: React.FC<{ timeline: Timeline | null; video: string }> = ({ 
           <Audio src={staticFile(`sons/${s.som}.mp3`)} volume={s.volume} />
         </Sequence>
       ))}
-      <Loop durationInFrames={fps * 90}>
+      <Loop durationInFrames={fps * (mapa ? 120 : 90)}>
         <Audio
-          src={staticFile("sons/trilha-tensao.mp3")}
-          volume={(f) => 0.13 * interpolate(f, [0, fps * 2], [0, 1], { extrapolateRight: "clamp" })}
+          src={staticFile(`sons/${timeline.trilha ?? "trilha-tensao"}.mp3`)}
+          volume={(f) => (mapa ? 0.1 : 0.13) * interpolate(f, [0, fps * 2], [0, 1], { extrapolateRight: "clamp" })}
         />
       </Loop>
       <Sequence from={duracao - fps} layout="none">

@@ -34,8 +34,15 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 - **Nome:** **Por Trás do Mapa**. Arquivos em `canal/identidade/` (foto de perfil 800x800, banner 2560x1440).
 - **Voz:** ElevenLabs "Nassif - Documentary, History & Thriller" (`acdKA5HckGxoxxvy40dA`), `eleven_multilingual_v2`,
   stability 0.45, similarity 0.8, style 0.2, seed 1963. Nomes estrangeiros têm grafia fonética em `scripts/roteiro.ts`.
-- **Estilo de edição:** referência pedida pelo dono: https://www.youtube.com/watch?v=SAbgY8uPMa0 (canal Top Militar LHB,
-  mesmo tema). O nosso é mais rápido: corte a cada ~3 s, texto amarelo com contorno preto, mapas animados, granulado.
+- **Estilo de edição (ATUAL): "modelo de mapa"**, igual ao vídeo de referência que o dono mandou (Reel estilo GeoAnalyst
+  sobre Guantánamo): satélite (NASA Blue Marble), câmera que passeia sem parar, países pintados com a bandeira,
+  balões de fala digitados, retratos redondos com faixa de nome, ícones em hexágono, foto em moldura sobre o mapa,
+  ano grande no topo, flash de luz rosado na troca de capítulo. **SEM legenda** (o dono pediu).
+  Som igual ao da referência: trilha leve (`trilha-mapa`), pop a cada elemento que entra, digitação nos balões,
+  whoosh quando a câmera anda, ding no ano, flash de luz no capítulo. Storyboard com `"estilo": "mapa"`.
+  A referência tem narração rápida (~205 palavras/min); a nossa está em ~135. Dá pra acelerar se o dono pedir.
+- Estilo antigo ("documentario": fotos em tela cheia, granulado, cortes a cada ~3 s) continua disponível;
+  o storyboard desse jeito do vídeo 001 está em `storyboard-documentario.json`.
 - **Código do canal:** neste repositório, em `canal/` (separado do painel da Tia Fifi).
 
 ## Roteiros
@@ -63,6 +70,8 @@ npm run render -- video NNN-slug [de] [ate]                     # MP4 em out/ (t
 npm run render -- imagens                                       # avatar, banner, thumbs
 npm run sons                                                    # efeitos e trilha (uma vez só)
 npm run gerar-imagens -- ../videos/NNN-slug                     # imagens por IA das que faltam (imagens-ia.json)
+npm run render -- quadros NNN-slug 300,900                      # alguns quadros em PNG para conferir
+bash scripts/baixar_nasa.sh B1 B2 C1                            # satélite NASA (cache/, fora do git)
 ```
 
 - Na nuvem do Claude, rodar com `NODE_USE_ENV_PROXY=1` (o fetch do Node só usa o proxy assim).
@@ -72,6 +81,9 @@ npm run gerar-imagens -- ../videos/NNN-slug                     # imagens por IA
 - Wikimedia Commons bloqueia (429) o IP da nuvem por horas. NÃO tentar contornar (proxy de imagem é bloqueado).
   Alternativa que funciona: Library of Congress (tile.loc.gov), só itens "No known restrictions"/OWI.
   `imagens.json` aceita `{ "url", "credito" }`. Foto faltando vira cartão de texto (nunca repete outra foto).
+- Satélite: `montar` chama `scripts/preparar_mapas.py`, que recorta o pedaço de cada cena (mundo 60 px/grau,
+  blocos 240 px/grau) em `videos/NNN/mapas/` (fora do git). Projeção equirretangular. Zoom: 1 = mundo inteiro
+  na largura; ~2,7 Atlântico Brasil-França; ~14 Nordeste; ~25-35 litoral. Bandeira em país só quando ele aparece inteiro.
 - Imagens por IA: o dono autorizou ("se for preciso"). Só pra cenas sem foto livre, estilo ilustração (não
   imita foto de época), nunca pessoas reais, selo "ILUSTRAÇÃO (IA)" na tela e marcar "conteúdo alterado ou
   sintético" no upload do YouTube. Precisa de GEMINI_API_KEY ou OPENAI_API_KEY nos segredos do ambiente

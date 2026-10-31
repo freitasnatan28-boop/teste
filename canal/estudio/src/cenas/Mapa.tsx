@@ -1,12 +1,17 @@
-import { geoDistance, geoGraticule10, geoInterpolate, geoMercator, geoPath } from "d3-geo";
+// Mapa no estilo dos vídeos de geopolítica: fundo de satélite (NASA), câmera que passeia sem parar,
+// países pintados com a bandeira, rotas, pontos e "atores" (balões, retratos, ícones) presos ao mapa.
+// Projeção equirretangular: o recorte de satélite se encaixa direto, sem reprojetar a imagem.
+import { geoBounds, geoDistance, geoEquirectangular, geoGraticule10, geoInterpolate, geoPath } from "d3-geo";
 import React, { useEffect, useState } from "react";
-import { AbsoluteFill, continueRender, delayRender, Easing, interpolate, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, continueRender, delayRender, Easing, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { COR, FONTE_TEXTO } from "../estilo";
-import { Aviao, Lagosta, Navio } from "../icones";
+import { Aviao, Bandeira, Lagosta, Navio } from "../icones";
 import type { Cena, LonLat, Vista } from "../tipos";
+import { AnoNoTopo, AtorNoMapa } from "./Atores";
 import type { PropsCena } from "./tipos-cena";
 
-type Paises = { features: { properties: { iso: string; nome: string }; geometry: any; type: "Feature" }[] };
+type Feature = { properties: { iso: string; nome: string }; geometry: any; type: "Feature" };
+type Paises = { features: Feature[] };
 
 let cache: Paises | null = null;
 let pedido: Promise<Paises> | null = null;
@@ -26,10 +31,6 @@ function usePaises(): Paises | null {
   return dados;
 }
 
-const W = 1920;
-const H = 1080;
-const ESCALA_MUNDO = W / (2 * Math.PI);
-
 function camera(de: Vista, para: Vista, t: number): Vista {
   const zoom = Math.exp(interpolate(t, [0, 1], [Math.log(de.zoom), Math.log(para.zoom)]));
   return { centro: [interpolate(t, [0, 1], [de.centro[0], para.centro[0]]), interpolate(t, [0, 1], [de.centro[1], para.centro[1]])], zoom };
@@ -47,40 +48,114 @@ function aoLongo(pontos: LonLat[], t: number): LonLat {
   return pontos[pontos.length - 1];
 }
 
-export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cena, offset, duracaoCena }) => {
+// Só a parte "principal" do país (ex.: a França sem a Guiana Francesa), para a bandeira não esticar errado.
+function partePrincipal(f: Feature): Feature {
+  if (f.geometry.type !== "MultiPolygon") return f;
+  const polis = f.geometry.coordinates.map((c: unknown) => ({ type: "Feature", properties: f.properties, geometry: { type: "Polygon", coordinates: c } }) as Feature);
+  const area = (p: Feature) => {
+    const [[o, s], [l, n]] = geoBounds(p as any);
+    return (l - o) * (n - s);
+  };
+  const maior = polis.reduce((a: Feature, b: Feature) => (area(b) > area(a) ? b : a));
+  const [[o, s], [l, n]] = geoBounds(maior as any);
+  const perto = polis.filter((p: Feature) => {
+    const [[po, ps], [pl, pn]] = geoBounds(p as any);
+    return Math.abs((po + pl) / 2 - (o + l) / 2) < 15 && Math.abs((ps + pn) / 2 - (s + n) / 2) < 15;
+  });
+  return { ...f, geometry: { type: "MultiPolygon", coordinates: perto.map((p: Feature) => p.geometry.coordinates) } };
+}
+
+const ANTIGO = { mar: "#b9cfc4", terra: "#e6d3a8", borda: "#8a6d45", papel: "#efe2c2" };
+
+export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cena, offset, duracaoCena, pasta }) => {
   const f = useCurrentFrame() + offset;
+  const { width: W, height: H } = useVideoConfig();
   const paises = usePaises();
   if (!paises) return <AbsoluteFill style={{ background: COR.oceano }} />;
 
-  const t = interpolate(f, [0, Math.min(duracaoCena, 75)], [0, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
-  // Depois do movimento principal, a câmera continua aproximando bem devagar (nunca fica parada).
-  const deriva = 1 + interpolate(f, [0, duracaoCena], [0, 0.06]);
+  const antigo = cena.estilo === "antigo";
+  const t = interpolate(f, [0, Math.min(duracaoCena, 60)], [0, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
+  // Depois do movimento principal, a câmera continua aproximando devagar (nunca fica parada).
+  const deriva = 1 + interpolate(f, [0, duracaoCena], [0, 0.05]);
   const cam = camera(cena.de ?? cena.para, cena.para, t);
-  const proj = geoMercator().center(cam.centro).scale(ESCALA_MUNDO * cam.zoom * deriva).translate([W / 2, H / 2]);
+  const ppg = (W / 360) * cam.zoom * deriva; // pixels por grau
+  const proj = geoEquirectangular()
+    .scale((ppg * 180) / Math.PI)
+    .center(cam.centro)
+    .translate([W / 2, H / 2]);
   const path = geoPath(proj);
+  const [cx, cy] = cam.centro;
   const prog = (em = 0) => interpolate(f / duracaoCena, [em, em + 0.08], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const aparece = (aos = 0) => interpolate(f, [aos, aos + 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   return (
-    <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 45%, #10263b 0%, ${COR.oceano} 55%, ${COR.fundo} 100%)` }}>
-      <svg width={W} height={H}>
+    <AbsoluteFill style={{ background: antigo ? ANTIGO.mar : "#0b2a45", overflow: "hidden" }}>
+      {!antigo && cena.fundo && (
+        <Img
+          src={staticFile(cena.fundo.img)}
+          style={{
+            position: "absolute",
+            left: W / 2 + (cena.fundo.oeste - cx) * ppg,
+            top: H / 2 - (cena.fundo.norte - cy) * ppg,
+            width: (cena.fundo.leste - cena.fundo.oeste) * ppg,
+            height: (cena.fundo.norte - cena.fundo.sul) * ppg,
+            maxWidth: "none",
+            filter: "saturate(1.15) contrast(1.05) brightness(.95)",
+          }}
+        />
+      )}
+      <svg width={W} height={H} style={{ position: "absolute" }}>
         <defs>
+          {cena.paises?.filter((p) => p.bandeira).map((p) => {
+            const alvo = paises.features.find((x) => x.properties.iso === p.iso);
+            if (!alvo) return null;
+            const [[x0, y0], [x1, y1]] = path.bounds(partePrincipal(alvo) as any);
+            return (
+              <pattern key={p.iso} id={`bandeira-${p.iso}`} patternUnits="userSpaceOnUse" x={x0} y={y0} width={x1 - x0} height={y1 - y0}>
+                <Bandeira pais={p.bandeira!} largura={x1 - x0} altura={y1 - y0} esticar />
+              </pattern>
+            );
+          })}
           <filter id="brilho" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="8" result="b" />
+            <feGaussianBlur stdDeviation="6" result="b" />
             <feMerge>
               <feMergeNode in="b" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
-        <path d={path(geoGraticule10()) ?? ""} stroke="rgba(120,160,200,.12)" strokeWidth={1} fill="none" />
+        {antigo && <path d={path(geoGraticule10()) ?? ""} stroke={ANTIGO.borda} strokeOpacity={0.25} strokeWidth={1} fill="none" />}
         {paises.features.map((p) => (
-          <path key={p.properties.iso + p.properties.nome} d={path(p) ?? ""} fill={COR.terra} stroke={COR.borda} strokeOpacity={0.6} strokeWidth={1.2} />
+          <path
+            key={p.properties.iso + p.properties.nome}
+            d={path(p) ?? ""}
+            fill={antigo ? ANTIGO.terra : "none"}
+            stroke={antigo ? ANTIGO.borda : "#fff"}
+            strokeOpacity={antigo ? 0.8 : 0.45}
+            strokeWidth={antigo ? 1.5 : 1.3}
+          />
         ))}
+        {cena.paises?.map((p) => {
+          const alvo = paises.features.find((x) => x.properties.iso === p.iso);
+          if (!alvo) return null;
+          const o = aparece(p.aos);
+          return (
+            <path
+              key={`p-${p.iso}`}
+              d={path(partePrincipal(alvo)) ?? ""}
+              fill={p.bandeira ? `url(#bandeira-${p.iso})` : p.cor ?? COR.amarelo}
+              fillOpacity={0.78 * o}
+              stroke="#fff"
+              strokeWidth={3}
+              strokeOpacity={o}
+            />
+          );
+        })}
         {cena.destaques?.map((d) => {
           const alvo = paises.features.filter((p) => p.properties.iso === d.iso);
           const o = prog(d.em);
           return alvo.map((p, i) => (
-            <path key={d.iso + i} d={path(p) ?? ""} fill={d.cor ?? COR.amarelo} fillOpacity={0.85 * o} stroke={d.cor ?? COR.amarelo} strokeWidth={3} strokeOpacity={o} filter="url(#brilho)" />
+            <path key={d.iso + i} d={path(p) ?? ""} fill={d.cor ?? COR.amarelo} fillOpacity={0.7 * o} stroke="#fff" strokeWidth={3} strokeOpacity={o} />
           ));
         })}
         {cena.rotas?.map((r, i) => {
@@ -97,14 +172,15 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
           const ang = ponta && antes ? (Math.atan2(ponta[1] - antes[1], ponta[0] - antes[0]) * 180) / Math.PI : 0;
           return (
             <g key={i}>
-              <path d={d} stroke={cor} strokeWidth={6} fill="none" strokeLinecap="round" strokeDasharray={r.tracejada ? "14 12" : undefined} filter="url(#brilho)" />
+              <path d={d} stroke="#000" strokeOpacity={0.35} strokeWidth={10} fill="none" strokeLinecap="round" />
+              <path d={d} stroke={cor} strokeWidth={6} fill="none" strokeLinecap="round" strokeDasharray={r.tracejada ? "14 12" : undefined} />
               {ponta && r.icone && (
                 <g transform={`translate(${ponta[0]} ${ponta[1]})`}>
-                  <circle r={34} fill={cor} opacity={0.25} />
-                  <g transform={`rotate(${r.icone === "aviao" ? ang + 90 : 0}) translate(-30 -${r.icone === "navio" ? 15 : 30})`}>
-                    {r.icone === "navio" && <foreignObject width={60} height={30}><Navio tamanho={60} /></foreignObject>}
-                    {r.icone === "aviao" && <foreignObject width={60} height={60}><Aviao tamanho={60} /></foreignObject>}
-                    {r.icone === "lagosta" && <foreignObject width={60} height={60}><Lagosta tamanho={60} /></foreignObject>}
+                  <circle r={36} fill="#fff" stroke={cor} strokeWidth={4} />
+                  <g transform={`rotate(${r.icone === "aviao" ? ang + 90 : 0}) translate(-26 -${r.icone === "navio" ? 13 : 26})`}>
+                    {r.icone === "navio" && <foreignObject width={52} height={26}><Navio tamanho={52} cor={cor} /></foreignObject>}
+                    {r.icone === "aviao" && <foreignObject width={52} height={52}><Aviao tamanho={52} cor={cor} /></foreignObject>}
+                    {r.icone === "lagosta" && <foreignObject width={52} height={52}><Lagosta tamanho={52} /></foreignObject>}
                   </g>
                 </g>
               )}
@@ -120,29 +196,25 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
           return (
             <g key={i} transform={`translate(${xy[0]} ${xy[1]})`} opacity={o}>
               <circle r={10 + pulso * 40} fill="none" stroke={cor} strokeWidth={3} opacity={1 - pulso} />
-              {pt.icone === "lagosta" ? (
-                <foreignObject x={-45} y={-45} width={90} height={90}>
-                  <Lagosta tamanho={90} />
-                </foreignObject>
-              ) : pt.icone === "navio" ? (
-                <foreignObject x={-35} y={-18} width={70} height={36}>
-                  <Navio tamanho={70} cor={cor} />
-                </foreignObject>
-              ) : (
-                <circle r={11} fill={cor} stroke="#000" strokeWidth={3} />
-              )}
+              <circle r={11} fill={cor} stroke="#000" strokeWidth={3} />
               {pt.rotulo && (
-                <foreignObject x={28} y={-34} width={700} height={70}>
-                  <div style={{ display: "inline-block", fontFamily: FONTE_TEXTO, fontWeight: 700, fontSize: 36, color: "#000", background: cor, padding: "2px 14px", textTransform: "uppercase", whiteSpace: "nowrap" }}>{pt.rotulo}</div>
+                <foreignObject x={24} y={-30} width={700} height={64}>
+                  <div style={{ display: "inline-block", fontFamily: FONTE_TEXTO, fontWeight: 700, fontSize: 32, color: "#000", background: "#fff", padding: "2px 12px", textTransform: "uppercase", whiteSpace: "nowrap", boxShadow: "0 3px 8px rgba(0,0,0,.5)" }}>{pt.rotulo}</div>
                 </foreignObject>
               )}
             </g>
           );
         })}
       </svg>
+      {antigo && <AbsoluteFill style={{ background: `radial-gradient(ellipse at center, transparent 50%, ${ANTIGO.borda}66 100%)`, mixBlendMode: "multiply" }} />}
+      {cena.atores?.map((a, i) => {
+        const xy = proj(a.lonlat);
+        return xy ? <AtorNoMapa key={i} ator={a} x={xy[0]} y={xy[1]} frame={f} pasta={pasta} /> : null;
+      })}
+      {cena.ano && offset === 0 && <AnoNoTopo ano={cena.ano} />}
       {cena.titulo && (
-        <div style={{ position: "absolute", top: 70, width: "100%", textAlign: "center" }}>
-          <span style={{ fontFamily: FONTE_TEXTO, fontWeight: 700, fontSize: 46, color: COR.texto, background: "rgba(7,17,28,.85)", border: `3px solid ${COR.amarelo}`, padding: "8px 28px", textTransform: "uppercase", letterSpacing: 2 }}>{cena.titulo}</span>
+        <div style={{ position: "absolute", top: cena.ano ? 190 : 50, width: "100%", textAlign: "center", fontFamily: "Anton", fontSize: 64, lineHeight: 1.05, color: "#fff", textTransform: "uppercase", whiteSpace: "pre-line", textShadow: "0 0 4px #000, 0 5px 0 rgba(0,0,0,.7), 0 0 24px rgba(0,0,0,.8)" }}>
+          {cena.titulo}
         </div>
       )}
     </AbsoluteFill>
