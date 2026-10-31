@@ -27,7 +27,8 @@
   --destaque: #f2b632;
   --wa: #25d366;
   --wa-texto: #0f7a3d;
-  --wa-claro: #effaf3;
+  --wa-escuro: #073d1f;
+  --wa-hover: #1fbe5b;
   --wa-topo: #0b5f54;
   --wa-fundo: #ece5dc;
   --wa-enviada: #d8f8cf;
@@ -168,37 +169,21 @@ button { font: inherit; color: inherit; }
 .escolha { display: grid; gap: 12px; margin: 0; padding: 0; border: 0; min-width: 0; }
 .escolha legend { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; width: 100%; margin-bottom: 12px; padding: 0; font-weight: 700; }
 .escolha legend small { font-weight: 600; font-size: .8125rem; color: var(--tinta-2); }
-.kit {
-  position: relative;
-  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px;
-  padding: 16px; border: 1.5px solid var(--linha); border-radius: 14px;
-  background: var(--papel); cursor: pointer;
-  transition: border-color .15s, box-shadow .15s, background-color .15s;
-}
-.kit:hover { border-color: var(--linha-forte); }
-.kit:has(input:checked) { border-color: var(--marca); background: var(--marca-suave); box-shadow: 0 0 0 1px var(--marca); }
-.kit input {
-  appearance: none; -webkit-appearance: none; margin: 0;
-  display: grid; place-content: center;
-  width: 22px; height: 22px; border: 2px solid var(--linha-forte); border-radius: 50%; background: var(--papel);
-}
-.kit input::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--marca); transform: scale(0); transition: transform .15s; }
-.kit input:checked { border-color: var(--marca); }
-.kit input:checked::after { transform: scale(1); }
-.kit input:focus-visible { outline: 3px solid var(--destaque); outline-offset: 2px; }
-.kit-info { display: grid; line-height: 1.3; }
-.kit-info b { font-size: 1.0625rem; }
-.kit-info small { color: var(--tinta-2); font-size: .8125rem; }
-.kit-preco { display: grid; justify-items: end; line-height: 1.25; font-variant-numeric: tabular-nums; }
-.kit-preco s { color: var(--tinta-3); font-size: .8125rem; }
-.kit-preco b { font-size: 1.125rem; }
 .kit-etiqueta {
   position: absolute; top: -11px; right: 14px;
   padding: 3px 10px; border-radius: 999px;
   background: var(--tinta); color: var(--sobre-tinta);
   font-size: .6875rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
 }
-.kit-etiqueta.ouro { background: var(--destaque); color: var(--tinta); }
+.oferta {
+  position: relative;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 4px 16px;
+  padding: 20px 18px; border: 1.5px solid var(--marca); border-radius: 16px;
+  background: var(--marca-suave); box-shadow: 0 0 0 1px var(--marca);
+}
+.oferta-info { display: grid; gap: 2px; line-height: 1.3; }
+.oferta-info b { font-size: 1.0625rem; }
+.oferta-info small { color: var(--tinta-2); font-size: .8125rem; }
 
 .tamanhos-opcoes { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
 .tamanho { position: relative; }
@@ -219,12 +204,6 @@ button { font: inherit; color: inherit; }
 .guia summary::-webkit-details-marker { display: none; }
 .guia summary .i { width: 18px; height: 18px; }
 .guia ol { display: grid; gap: 6px; margin: 10px 0 0; padding-left: 20px; }
-
-.total { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 4px 12px; padding-top: 4px; }
-.total-rotulo { font-weight: 600; color: var(--tinta-2); }
-.total-rotulo s { margin-left: 6px; color: var(--tinta-3); font-variant-numeric: tabular-nums; }
-.total-por { grid-row: span 2; font-family: var(--f-titulo); font-size: clamp(2.2rem, 1.8rem + 1.6vw, 2.75rem); font-weight: 800; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
-.economia { justify-self: start; padding: 3px 10px; border-radius: 999px; background: var(--marca-suave); color: var(--marca-escura); font-size: .8125rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 
 .botoes { display: grid; gap: 10px; }
 .btn {
@@ -251,9 +230,17 @@ button { font: inherit; color: inherit; }
   transform: skewX(-18deg); animation: brilho 5s ease-in-out 1.5s infinite;
 }
 @keyframes brilho { 0%, 70% { left: -60%; } 100% { left: 130%; } }
-.btn-whats { background: var(--papel); color: var(--wa-texto); border: 1.5px solid var(--wa); font-size: 1rem; }
-.btn-whats:hover { background: var(--wa-claro); }
-.btn-whats .i { fill: currentColor; stroke: none; }
+.preco { font-family: var(--f-titulo); font-size: clamp(2rem, 1.7rem + 1.4vw, 2.5rem); font-weight: 800; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+/* WhatsApp em destaque: a venda também é fechada no X1 */
+.btn-whats {
+  flex-direction: column; gap: 0; min-height: 64px;
+  background: var(--wa); color: var(--wa-escuro);
+  box-shadow: 0 14px 28px -14px var(--wa), inset 0 -3px 0 rgba(0, 0, 0, .12);
+}
+.btn-whats:hover { background: var(--wa-hover); }
+.btn-whats .linha1 { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-titulo); font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.2; }
+.btn-whats .linha2 { font-size: .8125rem; font-weight: 600; opacity: .85; }
+.btn-whats .i { width: 22px; height: 22px; fill: currentColor; stroke: none; }
 .btn-claro { background: var(--sobre-tinta); color: var(--tinta); }
 .btn-claro:hover { background: var(--papel); }
 
@@ -322,20 +309,6 @@ button { font: inherit; color: inherit; }
 .selo-tranquilo p { display: flex; gap: 12px; align-items: center; font-weight: 600; }
 .selo-tranquilo .i { color: var(--destaque); }
 
-/* ---------- Comparativo ---------- */
-.tabela-rolagem { overflow-x: auto; border: 1px solid var(--linha); border-radius: var(--raio); }
-.tabela { width: 100%; border-collapse: collapse; font-size: .9375rem; }
-.tabela th, .tabela td { padding: 14px 12px; text-align: left; border-bottom: 1px solid var(--linha); }
-.tabela th:first-child, .tabela td:first-child { padding-left: 16px; }
-@media (min-width: 700px) { .tabela th, .tabela td { padding: 16px 18px; } }
-@media (max-width: 699px) { .tabela thead th { font-size: .6875rem; letter-spacing: .04em; } .tabela { font-size: .875rem; } }
-.tabela tr:last-child td { border-bottom: 0; }
-.tabela thead th { font-size: .8125rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--tinta-2); background: var(--nevoa); }
-.tabela .nosso { background: var(--marca-suave); color: var(--marca); text-align: center; }
-.tabela td.nosso, .tabela td.outro, .tabela th.outro { text-align: center; width: 26%; }
-.tabela td .i { display: inline-block; vertical-align: middle; width: 22px; height: 22px; stroke-width: 2.6; }
-.tabela td.outro { color: var(--tinta-3); }
-
 /* ---------- Depoimentos (prints do WhatsApp) ---------- */
 .depoimentos { background: var(--nevoa); }
 .prints {
@@ -365,19 +338,6 @@ button { font: inherit; color: inherit; }
 .garantia-selo { width: 132px; height: 132px; color: var(--marca); }
 @media (min-width: 700px) { .garantia { grid-template-columns: auto minmax(0, 1fr); gap: 40px; } .garantia-selo { width: 168px; height: 168px; } }
 
-/* ---------- Dúvidas ---------- */
-.duvidas-grade { display: grid; gap: 32px; }
-@media (min-width: 900px) { .duvidas-grade { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 64px; align-items: start; } .duvidas-grade .cabeca { position: sticky; top: 24px; } }
-.ajuda { display: grid; gap: 12px; margin-top: 8px; padding: 20px; border-radius: var(--raio); background: var(--nevoa); }
-.ajuda b { font-size: 1.0625rem; }
-.faq { border-top: 1px solid var(--linha); }
-.faq details { border-bottom: 1px solid var(--linha); }
-.faq summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; padding-block: 14px; cursor: pointer; list-style: none; font-weight: 600; font-size: 1.0625rem; }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary .i { width: 20px; height: 20px; color: var(--tinta-2); transition: transform .2s; }
-.faq details[open] summary .i { transform: rotate(45deg); }
-.faq details p { padding-bottom: 20px; color: var(--tinta-2); max-width: 40rem; }
-
 /* ---------- Chamada final ---------- */
 .final { padding-block: 0 clamp(56px, 8vw, 104px); }
 .final-cartao { display: grid; gap: 28px; align-items: center; overflow: hidden; padding: clamp(28px, 5vw, 56px); border-radius: 28px; background: var(--tinta); color: var(--sobre-tinta); }
@@ -386,17 +346,10 @@ button { font: inherit; color: inherit; }
 .final-resumo { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-top: 20px; font-variant-numeric: tabular-nums; }
 .final-resumo b { font-family: var(--f-titulo); font-size: 2rem; letter-spacing: -.03em; color: var(--sobre-tinta); }
 .final-resumo a { color: var(--destaque); font-weight: 600; font-size: .875rem; }
+.final { padding-block: 0 clamp(40px, 6vw, 72px); }
 .final-foto { width: 100%; max-width: min(260px, 100%); justify-self: center; aspect-ratio: 1; overflow: hidden; border-radius: 24px; background: var(--foto-fundo); }
 .final-foto img { width: 100%; height: 100%; object-fit: cover; }
 @media (min-width: 900px) { .final-cartao { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); } .final-cartao .botoes { max-width: 420px; } .final-foto { max-width: 340px; } }
-
-/* ---------- Rodapé ---------- */
-.rodape { padding-block: 40px calc(40px + env(safe-area-inset-bottom, 0px)); background: var(--nevoa); color: var(--tinta-2); font-size: .875rem; }
-.rodape-grade { display: grid; gap: 20px; }
-.rodape nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-.rodape nav a { text-decoration: none; font-weight: 600; color: var(--tinta); }
-.rodape small { display: block; font-size: .8125rem; color: var(--tinta-3); }
-@media (min-width: 900px) { .rodape-grade { grid-template-columns: 1fr auto; align-items: center; } }
 
 /* ---------- Fixos na tela ---------- */
 .barra {
@@ -409,11 +362,10 @@ button { font: inherit; color: inherit; }
   transform: translateY(110%); transition: transform .28s ease; visibility: hidden;
 }
 .barra.visivel { transform: none; visibility: visible; }
-.barra-info { display: grid; line-height: 1.2; min-width: 0; }
-.barra-info span { font-size: .75rem; color: var(--tinta-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.barra-info b { font-family: var(--f-titulo); font-size: 1.375rem; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
-.barra .btn { flex: 1; min-height: 52px; }
-.barra .btn-comprar .linha1 { font-size: 1.0625rem; }
+.barra { gap: 10px; }
+.barra .btn { flex: 1; min-height: 54px; padding-inline: 10px; }
+.barra .linha1 { font-size: 1rem; }
+.barra .i { width: 20px; height: 20px; }
 @media (min-width: 900px) { .barra { display: none; } body.com-barra { padding-bottom: 0; } }
 
 .flutuante {
@@ -425,7 +377,8 @@ button { font: inherit; color: inherit; }
   transition: bottom .28s ease;
 }
 .flutuante .i { width: 30px; height: 30px; fill: currentColor; stroke: none; }
-@media (max-width: 899px) { body.com-barra .flutuante { bottom: calc(90px + env(safe-area-inset-bottom, 0px)); } }
+/* No celular o WhatsApp já está nos botões e na barra fixa; o flutuante fica só no computador */
+@media (max-width: 899px) { .flutuante { display: none; } }
 
 .aviso-toast {
   position: fixed; z-index: 40; left: 50%; top: calc(16px + env(safe-area-inset-top, 0px));
@@ -433,6 +386,8 @@ button { font: inherit; color: inherit; }
   padding: 12px 16px; border-radius: 12px; background: var(--tinta); color: var(--sobre-tinta);
   font-size: .875rem; font-weight: 500; box-shadow: var(--sombra);
 }
+
+main { padding-bottom: env(safe-area-inset-bottom, 0px); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -489,9 +444,8 @@ button { font: inherit; color: inherit; }
       <a href="#video">Vídeo</a>
       <a href="#antes-depois">Antes e depois</a>
       <a href="#como-funciona">Como funciona</a>
-      <a href="#duvidas">Dúvidas</a>
     </nav>
-    <a class="atendimento js-whats" href="#duvidas"><svg class="i"><use href="#i-whats" /></svg>Atendimento</a>
+    <a class="atendimento js-whats" href="#compra"><svg class="i"><use href="#i-whats" /></svg>Atendimento</a>
   </div>
 </header>
 
@@ -527,27 +481,12 @@ button { font: inherit; color: inherit; }
           <li><svg class="i"><use href="#i-check" /></svg>Alças que seguram a cinta e ajudam na postura</li>
         </ul>
 
-        <!-- Ofertas: data-por = preço, data-de = preço riscado (vazio = sem), data-link = link do checkout da Logzz daquela oferta -->
-        <fieldset class="escolha">
-          <legend>Escolha sua oferta</legend>
-          <label class="kit">
-            <span class="kit-etiqueta">Black Friday</span>
-            <input type="radio" name="kit" id="kit-1" data-nome="1 Cinta Colete Modeladora" data-de="" data-por="129,99" data-link="" checked>
-            <span class="kit-info"><b>1 cinta</b><small>Frete grátis</small></span>
-            <span class="kit-preco"><b>R$ 129,99</b></span>
-          </label>
-          <label class="kit">
-            <input type="radio" name="kit" id="kit-2" data-nome="Kit com 2 cintas" data-de="259,98" data-por="199,99" data-link="">
-            <span class="kit-info"><b>2 cintas</b><small>R$ 100,00 cada</small></span>
-            <span class="kit-preco"><s>R$ 259,98</s><b>R$ 199,99</b></span>
-          </label>
-          <label class="kit">
-            <span class="kit-etiqueta ouro">Menor preço por cinta</span>
-            <input type="radio" name="kit" id="kit-3" data-nome="Kit com 3 cintas" data-de="389,97" data-por="259,99" data-link="">
-            <span class="kit-info"><b>3 cintas</b><small>R$ 86,66 cada</small></span>
-            <span class="kit-preco"><s>R$ 389,97</s><b>R$ 259,99</b></span>
-          </label>
-        </fieldset>
+        <!-- Oferta: data-por = preço, data-link = checkout da Logzz -->
+        <div class="oferta" id="oferta" data-nome="Cinta Colete Modeladora" data-por="129,90" data-link="https://entrega.logzz.com.br/pay/mem8xxyqk/jzsmo-1-unidade">
+          <span class="kit-etiqueta">Black Friday</span>
+          <span class="oferta-info"><b>1 Cinta Colete Modeladora</b><small>Frete grátis · pague só na entrega</small></span>
+          <strong class="preco">R$ 129,90</strong>
+        </div>
 
         <fieldset class="escolha" id="tamanhos">
           <legend>Escolha seu tamanho <small id="tamanho-status">Obrigatório</small></legend>
@@ -569,18 +508,15 @@ button { font: inherit; color: inherit; }
           </details>
         </fieldset>
 
-        <div class="total" aria-live="polite">
-          <span class="total-rotulo">Total <s id="total-de" hidden></s></span>
-          <strong class="total-por js-preco">R$ 129,99</strong>
-          <span class="economia" id="economia" hidden>Você economiza <span id="total-economia"></span></span>
-        </div>
-
         <div class="botoes">
           <a class="btn btn-comprar js-comprar" id="btn-principal" href="#tamanhos">
             <span class="linha1"><svg class="i"><use href="#i-sacola" /></svg>Comprar agora</span>
-            <span class="linha2">Frete grátis · pague só na entrega</span>
+            <span class="linha2">Agende a entrega e pague ao receber</span>
           </a>
-          <a class="btn btn-whats js-whats" href="#duvidas"><svg class="i"><use href="#i-whats" /></svg>Tirar dúvida no WhatsApp</a>
+          <a class="btn btn-whats js-whats" href="#compra">
+            <span class="linha1"><svg class="i"><use href="#i-whats" /></svg>Pedir pelo WhatsApp</span>
+            <span class="linha2">Fale direto com a gente e tire suas dúvidas</span>
+          </a>
         </div>
 
         <p class="lembrete"><svg class="i"><use href="#i-nota" /></svg><span><b>Importante:</b> ao agendar a entrega, escreva o seu tamanho (<b class="js-tamanho">ex.: M</b>) no campo <b>Complemento</b> do endereço.</span></p>
@@ -681,7 +617,7 @@ button { font: inherit; color: inherit; }
         <li class="passo">
           <span class="passo-num">1</span>
           <h3>Faça o pedido</h3>
-          <p>Escolha a oferta e o tamanho e informe nome e endereço. <b>Escreva o tamanho no campo Complemento.</b></p>
+          <p>Escolha o tamanho e informe nome e endereço. <b>Escreva o tamanho no campo Complemento.</b></p>
         </li>
         <li class="passo">
           <span class="passo-num">2</span>
@@ -696,30 +632,7 @@ button { font: inherit; color: inherit; }
       </ol>
       <div class="selo-tranquilo">
         <p><svg class="i"><use href="#i-escudo" /></svg>Sem pagar nada antes de receber</p>
-        <a class="btn btn-claro" href="#compra">Escolher minha oferta</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="secao">
-    <div class="wrap">
-      <div class="cabeca">
-        <span class="olho">Comparativo</span>
-        <h2>Por que o modelo colete vale mais a pena</h2>
-      </div>
-      <div class="tabela-rolagem">
-        <table class="tabela">
-          <thead>
-            <tr><th scope="col">O que você recebe</th><th scope="col" class="nosso">Cinta Colete</th><th scope="col" class="outro">Cintas comuns</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Alças que seguram a cinta no lugar</td><td class="nosso"><svg class="i" aria-label="Sim"><use href="#i-check" /></svg></td><td class="outro"><svg class="i" aria-label="Não"><use href="#i-x" /></svg></td></tr>
-            <tr><td>Colchetes para ajustar a compressão</td><td class="nosso"><svg class="i" aria-label="Sim"><use href="#i-check" /></svg></td><td class="outro">Às vezes</td></tr>
-            <tr><td>Pagamento só na entrega</td><td class="nosso"><svg class="i" aria-label="Sim"><use href="#i-check" /></svg></td><td class="outro"><svg class="i" aria-label="Não"><use href="#i-x" /></svg></td></tr>
-            <tr><td>Frete grátis</td><td class="nosso"><svg class="i" aria-label="Sim"><use href="#i-check" /></svg></td><td class="outro">Às vezes</td></tr>
-            <tr><td>Garantia de 7 dias</td><td class="nosso"><svg class="i" aria-label="Sim"><use href="#i-check" /></svg></td><td class="outro">Às vezes</td></tr>
-          </tbody>
-        </table>
+        <a class="btn btn-claro" href="#tamanhos">Escolher meu tamanho</a>
       </div>
     </div>
   </section>
@@ -798,52 +711,8 @@ button { font: inherit; color: inherit; }
         <div>
           <span class="olho">Compra sem risco</span>
           <h2>Garantia de 7 dias</h2>
-          <p>Se não gostar, você pode devolver em até 7 dias depois de receber, como garante o Código de Defesa do Consumidor (art. 49). É só chamar nosso atendimento.</p>
+          <p>Se não gostar, você pode devolver em até 7 dias depois de receber, como garante o Código de Defesa do Consumidor (art. 49). É só chamar a gente no WhatsApp.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="secao" id="duvidas" style="padding-top:0">
-    <div class="wrap duvidas-grade">
-      <div class="cabeca">
-        <span class="olho">Dúvidas</span>
-        <h2>Perguntas frequentes</h2>
-        <div class="ajuda">
-          <b>Ficou em dúvida no tamanho?</b>
-          <span>Mande a sua medida de cintura que a gente ajuda.</span>
-          <a class="btn btn-whats js-whats" href="#duvidas"><svg class="i"><use href="#i-whats" /></svg>Falar no WhatsApp</a>
-        </div>
-      </div>
-      <div class="faq">
-        <details open>
-          <summary>Preciso pagar alguma coisa agora?<svg class="i"><use href="#i-mais" /></svg></summary>
-          <p>Não. Você faz o pedido sem cartão e só paga quando a cinta chegar, direto ao entregador.</p>
-        </details>
-        <details>
-          <summary>Onde informo o meu tamanho?<svg class="i"><use href="#i-mais" /></svg></summary>
-          <p>Na hora de agendar a entrega, escreva o tamanho no campo Complemento do endereço (por exemplo: "Tamanho M"). Se pedir pelo WhatsApp, o tamanho escolhido aqui já vai na mensagem.</p>
-        </details>
-        <details>
-          <summary>Como escolho o tamanho certo?<svg class="i"><use href="#i-mais" /></svg></summary>
-          <p>Meça a cintura na parte mais fina, com fita métrica e sem apertar, e compare com a tabela de tamanhos. Se ficar entre dois tamanhos, chame a gente no WhatsApp antes de pedir.</p>
-        </details>
-        <details>
-          <summary>Dá para usar por baixo da roupa?<svg class="i"><use href="#i-mais" /></svg></summary>
-          <p>Sim. Ela fica discreta por baixo de blusas, vestidos e calças.</p>
-        </details>
-        <details>
-          <summary>Por quanto tempo posso usar por dia?<svg class="i"><use href="#i-mais" /></svg></summary>
-          <p>Comece com poucas horas e aumente aos poucos, sempre no seu conforto. Se sentir dor, formigamento ou falta de ar, tire a cinta. Para uso depois de parto ou cirurgia, siga a orientação do seu médico.</p>
-        </details>
-        <details>
-          <summary>E se eu não estiver em casa?<svg class="i"><use href="#i-mais" /></svg></summary>
-          <p>Escolha um dia em que você ou alguém de confiança possa receber e pagar. Se precisar mudar, fale com a gente pelo WhatsApp.</p>
-        </details>
-        <details>
-          <summary>E se não servir ou eu não gostar?<svg class="i"><use href="#i-mais" /></svg></summary>
-          <p>Você tem 7 dias depois de receber para pedir a devolução. É só chamar nosso atendimento.</p>
-        </details>
       </div>
     </div>
   </section>
@@ -855,11 +724,14 @@ button { font: inherit; color: inherit; }
           <span class="olho">Oferta de Black Friday</span>
           <h2>Garanta sua cinta e pague só quando receber</h2>
           <p>Frete grátis e entrega no dia que você escolher. Sem cartão, sem pagamento antecipado.</p>
-          <div class="final-resumo"><span class="js-kit-nome">1 Cinta Colete Modeladora</span><b class="js-preco">R$ 129,99</b><a href="#compra">Trocar oferta ou tamanho</a></div>
+          <div class="final-resumo"><span>1 Cinta Colete Modeladora</span><b>R$ 129,90</b><a href="#tamanhos">Escolher tamanho</a></div>
           <div class="botoes" style="margin-top:24px">
             <a class="btn btn-comprar js-comprar" href="#tamanhos">
               <span class="linha1"><svg class="i"><use href="#i-sacola" /></svg>Comprar agora</span>
               <span class="linha2">Frete grátis · pague só na entrega</span>
+            </a>
+            <a class="btn btn-whats js-whats" href="#compra">
+              <span class="linha1"><svg class="i"><use href="#i-whats" /></svg>Pedir pelo WhatsApp</span>
             </a>
           </div>
         </div>
@@ -869,27 +741,12 @@ button { font: inherit; color: inherit; }
   </section>
 </main>
 
-<footer class="rodape">
-  <div class="wrap rodape-grade">
-    <div>
-      <a class="logo" href="#compra"><span class="logo-marca"><svg class="i"><use href="#i-silhueta" /></svg></span>SuaMarca</a>
-      <small style="margin-top:12px">© <span id="ano">2026</span> SuaMarca · CNPJ 00.000.000/0001-00 · contato@suamarca.com.br</small>
-      <small>Este site não é afiliado ao Facebook ou à Meta.</small>
-    </div>
-    <nav aria-label="Informações">
-      <a href="#duvidas">Trocas e devoluções</a>
-      <a href="#duvidas">Política de privacidade</a>
-      <a href="#duvidas">Termos de uso</a>
-    </nav>
-  </div>
-</footer>
-
 <div class="barra" id="barra" aria-hidden="true">
-  <div class="barra-info"><span class="js-kit-nome">1 Cinta Colete Modeladora</span><b class="js-preco">R$ 129,99</b></div>
-  <a class="btn btn-comprar js-comprar" href="#tamanhos" tabindex="-1"><span class="linha1">Comprar agora</span></a>
+  <a class="btn btn-whats js-whats" href="#compra" tabindex="-1"><span class="linha1"><svg class="i"><use href="#i-whats" /></svg>WhatsApp</span></a>
+  <a class="btn btn-comprar js-comprar" href="#tamanhos" tabindex="-1"><span class="linha1">Comprar · R$ 129,90</span></a>
 </div>
 
-<a class="flutuante js-whats" href="#duvidas" aria-label="Falar no WhatsApp"><svg class="i"><use href="#i-whats" /></svg></a>
+<a class="flutuante js-whats" href="#compra" aria-label="Falar no WhatsApp"><svg class="i"><use href="#i-whats" /></svg></a>
 <div class="aviso-toast" id="aviso" role="status" hidden></div>
 
 <script>
@@ -918,39 +775,34 @@ const CONFIG = {
     avisoTimer = setTimeout(() => (aviso.hidden = true), 3500);
   }
 
-  const kits = $$('input[name="kit"]');
+  const oferta = $("#oferta").dataset;
+  const preco = brl(numero(oferta.por));
   const tamanhos = $$('input[name="tamanho"]');
-  const kitAtual = () => kits.find((k) => k.checked) || kits[0];
   const tamanhoAtual = () => (tamanhos.find((t) => t.checked) || {}).value || "";
 
-  // Atualiza preço, economia e o destino dos botões de compra
-  function atualizar() {
-    const { nome, de, por, link } = kitAtual().dataset;
-    const vPor = numero(por);
-    const vDe = de ? numero(de) : 0;
+  // WhatsApp (X1): a mensagem já leva o tamanho, quando escolhido
+  function mensagemWhats() {
     const tamanho = tamanhoAtual();
+    return tamanho
+      ? `Olá! Quero a ${oferta.nome} no tamanho ${tamanho} (${preco}), com pagamento na entrega.`
+      : CONFIG.mensagem;
+  }
 
-    $("#total-de").hidden = !vDe;
-    $("#economia").hidden = !vDe;
-    if (vDe) {
-      $("#total-de").textContent = brl(vDe);
-      $("#total-economia").textContent = brl(vDe - vPor);
-    }
-    $$(".js-preco").forEach((el) => (el.textContent = brl(vPor)));
-    $$(".js-kit-nome").forEach((el) => (el.textContent = nome));
+  // Atualiza o tamanho escolhido e o destino dos botões
+  function atualizar() {
+    const tamanho = tamanhoAtual();
     $$(".js-tamanho").forEach((el) => (el.textContent = tamanho ? `Tamanho ${tamanho}` : "ex.: M"));
     $("#tamanho-status").textContent = tamanho ? `Tamanho ${tamanho}` : "Obrigatório";
-
-    const destino =
-      link || linkWhats(`Olá! Quero ${nome} no tamanho ${tamanho} (${brl(vPor)}), com pagamento na entrega.`);
     $$(".js-comprar").forEach((a) => {
-      const pronto = destino && tamanho;
-      a.href = pronto ? destino : "#tamanhos";
+      const pronto = oferta.link && tamanho;
+      a.href = pronto ? oferta.link : "#tamanhos";
       if (pronto) { a.target = "_blank"; a.rel = "noopener"; } else { a.removeAttribute("target"); }
-      a.dataset.destino = destino;
+    });
+    const whats = linkWhats(mensagemWhats());
+    $$(".js-whats").forEach((a) => {
+      if (whats) { a.href = whats; a.target = "_blank"; a.rel = "noopener"; }
     });
   }
-  kits.forEach((k) => k.addEventListener("change", atualizar));
   tamanhos.forEach((t) =>
     t.addEventListener("change", () => {
       $("#tamanhos").classList.remove("erro");
@@ -959,27 +811,14 @@ const CONFIG = {
   );
   atualizar();
 
-  // WhatsApp de dúvidas
-  const whats = linkWhats(CONFIG.mensagem);
-  $$(".js-whats").forEach((a) => {
-    if (whats) { a.href = whats; a.target = "_blank"; a.rel = "noopener"; }
-  });
-
   document.addEventListener("click", (e) => {
-    const comprar = e.target.closest(".js-comprar");
-    if (comprar) {
-      if (!tamanhoAtual()) {
-        e.preventDefault();
-        $("#tamanhos").classList.add("erro");
-        $("#tamanhos").scrollIntoView({ behavior: "smooth", block: "center" });
-        avisar("Escolha o seu tamanho para continuar.");
-      } else if (!comprar.dataset.destino) {
-        e.preventDefault();
-        avisar("Falta configurar o link do checkout (data-link da oferta) ou o número do WhatsApp.");
-      }
+    if (e.target.closest(".js-comprar") && !tamanhoAtual()) {
+      e.preventDefault();
+      $("#tamanhos").classList.add("erro");
+      $("#tamanhos").scrollIntoView({ behavior: "smooth", block: "center" });
+      avisar("Escolha o seu tamanho para continuar.");
     }
-    const w = e.target.closest(".js-whats");
-    if (w && !whats) {
+    if (e.target.closest(".js-whats") && !CONFIG.whatsapp) {
       e.preventDefault();
       avisar("Falta configurar o número do WhatsApp no CONFIG.");
     }
@@ -997,17 +836,16 @@ const CONFIG = {
 
   // Barra de compra fixa (celular): visível sempre que o botão principal não está na tela
   const barra = $("#barra");
-  const botaoBarra = barra.querySelector("a");
+  const botoesBarra = barra.querySelectorAll("a");
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(([e]) => {
       const mostrar = !e.isIntersecting;
       barra.classList.toggle("visivel", mostrar);
       barra.setAttribute("aria-hidden", String(!mostrar));
-      botaoBarra.tabIndex = mostrar ? 0 : -1;
+      botoesBarra.forEach((a) => (a.tabIndex = mostrar ? 0 : -1));
       document.body.classList.toggle("com-barra", mostrar);
     }).observe($("#btn-principal"));
   }
 
-  $("#ano").textContent = new Date().getFullYear();
 })();
 </script>

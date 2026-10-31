@@ -534,17 +534,16 @@ Página de venda com **pagamento na entrega**, feita primeiro para o celular. S�
 Cada um é um arquivo só (HTML, CSS e JS juntos) e pode ser publicado em qualquer hospedagem,
 junto com a pasta de imagens. As fotos e o vídeo da cinta ficam em `public/lp/`.
 
-Ordem da página da cinta: faixa de avisos → título → foto → escolha da oferta (1, 2 ou 3 cintas) →
-escolha do tamanho (obrigatória) → preço e botão → vídeo → antes e depois → benefícios →
-como funciona o pagamento na entrega → comparativo → prints de clientes → garantia de 7 dias →
-perguntas frequentes → chamada final → rodapé. No celular, uma barra com o preço e o botão
-"Comprar agora" fica fixa no rodapé sempre que o botão principal não está na tela.
+Ordem da página da cinta: faixa de avisos → título → foto → oferta única (1 cinta, R$ 129,90) →
+escolha do tamanho → botões "Comprar agora" (checkout da Logzz) e "Pedir pelo WhatsApp" (venda no X1) →
+vídeo → antes e depois → benefícios → como funciona o pagamento na entrega → prints de clientes →
+garantia de 7 dias → chamada final. No celular, uma barra com WhatsApp e "Comprar" fica fixa no rodapé
+sempre que os botões principais não estão na tela.
 
 O que trocar em `landing/oferta.html`:
 
-- **Ofertas e preços**: nos `<input name="kit">`, campos `data-nome`, `data-de` (preço riscado; vazio = sem),
-  `data-por` e `data-link` (link do checkout da Logzz daquela oferta). O total e a economia são calculados sozinhos.
-  Atualize também os preços escritos ao lado de cada oferta.
+- **Oferta**: no `<div id="oferta">`, campos `data-por` (preço) e `data-link` (checkout da Logzz).
+  Atualize também o preço escrito na página (busque por "129,90").
 - **Tamanhos**: os `<input name="tamanho">`. A produtora pede o tamanho no campo **Complemento** do agendamento;
   a página lembra a cliente disso e, quando o pedido vai pelo WhatsApp, já manda o tamanho na mensagem.
 - **WhatsApp**: no `CONFIG`, no fim do arquivo, coloque o número com DDI + DDD, só dígitos (ex.: `5511912345678`).
