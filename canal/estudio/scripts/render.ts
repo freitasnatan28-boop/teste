@@ -25,7 +25,7 @@ async function main() {
 
   if (modo === "imagens") {
     // Opcional: só algumas (ex.: npm run render -- imagens Avatar-EN,Banner-EN)
-    const ids = video ? video.split(",") : ["Avatar", "Banner", "Thumb-001", "Avatar-EN", "Banner-EN"];
+    const ids = video ? video.split(",") : ["Avatar", "Banner", "Thumb-001", "Avatar-EN", "Banner-EN", "MarcaDagua-EN"];
     for (const id of ids) {
       const composition = await selectComposition({ ...comum, id, inputProps: {} });
       await renderStill({ ...comum, composition, output: join(SAIDA, `${id}.png`), inputProps: {} });

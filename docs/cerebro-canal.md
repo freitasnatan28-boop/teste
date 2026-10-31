@@ -37,7 +37,7 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 - **Visual:** mapas animados gerados em código + imagens do Wikimedia Commons (com crédito) + Pexels só pra ambiente.
 - **Fatos:** todo roteiro passa pelo setor de Pesquisa e lista as fontes na descrição.
 - **Nome:** **Por Trás do Mapa** (versão PT). Em inglês: **Behind the Map** (@ a confirmar pelo dono). Logo 800x800 e
-  banner 2560x1440 em `canal/identidade/en/` (`Avatar-EN`/`Banner-EN` no Remotion; slogan "Money, power & borders — explained with maps").
+  banner 2560x1440 e marca d'água 150x150 (PNG transparente) em `canal/identidade/en/` (`Avatar-EN`/`Banner-EN`/`MarcaDagua-EN` no Remotion; slogan "Money, power & borders — explained with maps").
 - **Ritmo de trabalho (pedido do dono):** uma etapa por vez, entregar e esperar o ok antes da próxima, pra não gastar à toa
   (créditos da ElevenLabs e tempo de render). Não adiantar roteiro/voz/render sem ele pedir. Arquivos em `canal/identidade/` (foto de perfil 800x800, banner 2560x1440).
 - **Voz:** ElevenLabs "Nassif - Documentary, History & Thriller" (`acdKA5HckGxoxxvy40dA`), `eleven_multilingual_v2`,

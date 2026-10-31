@@ -126,3 +126,10 @@ export const BannerEN: React.FC = () => (
     </AbsoluteFill>
   </AbsoluteFill>
 );
+
+// Marca d'água do YouTube (150x150, fundo transparente): só o símbolo, que é o que se lê em tamanho pequeno.
+export const MarcaDaguaEN: React.FC = () => (
+  <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
+    <LogoCanal tamanho={150} />
+  </AbsoluteFill>
+);

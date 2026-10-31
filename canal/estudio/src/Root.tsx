@@ -1,6 +1,6 @@
 import React from "react";
 import { CalculateMetadataFunction, Composition, staticFile, Still } from "remotion";
-import { Avatar, AvatarEN, Banner, BannerEN, ThumbLagosta } from "./Identidade";
+import { Avatar, AvatarEN, Banner, BannerEN, MarcaDaguaEN, ThumbLagosta } from "./Identidade";
 import type { Timeline } from "./tipos";
 import { Video } from "./Video";
 
@@ -28,6 +28,7 @@ export const Root: React.FC = () => (
     <Still id="Banner" component={Banner} width={2560} height={1440} />
     <Still id="Avatar-EN" component={AvatarEN} width={800} height={800} />
     <Still id="Banner-EN" component={BannerEN} width={2560} height={1440} />
+    <Still id="MarcaDagua-EN" component={MarcaDaguaEN} width={150} height={150} />
     <Still id="Thumb-001" component={ThumbLagosta} width={1280} height={720} defaultProps={{ pasta: "videos/001-guerra-da-lagosta" }} />
   </>
 );
