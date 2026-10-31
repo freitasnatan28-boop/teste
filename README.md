@@ -526,23 +526,29 @@ Na primeira vez, acesse o painel pelo endereço do servidor, vá em **WhatsApp**
 
 ## 12. Landing page de venda (`/oferta`)
 
-Base genérica de página de venda com **pagamento na entrega**, feita primeiro para o celular.
-Fica num arquivo só, `landing/oferta.html`, que o painel serve em `/oferta` (sem login).
-O mesmo arquivo pode ser publicado em qualquer hospedagem.
+Página de venda com **pagamento na entrega**, feita primeiro para o celular. São dois arquivos:
 
-Ordem da página: faixa de avisos → título → galeria → escolha do kit (1, 2 ou 3 unidades) → preço e botão →
-benefícios → antes × depois arrastável → como funciona o pagamento na entrega → comparativo →
-prints de clientes → garantia de 7 dias → perguntas frequentes → chamada final → rodapé.
-No celular, uma barra com o preço e o botão "Comprar agora" fica fixa no rodapé sempre que o botão principal não está na tela.
+- `landing/oferta.html`: a página da **Cinta Colete Modeladora**, que o painel serve em `/oferta` (sem login).
+- `landing/base.html`: a mesma página sem produto específico, para copiar quando for vender outro produto.
 
-O que trocar em `landing/oferta.html` para cada produto:
+Cada um é um arquivo só (HTML, CSS e JS juntos) e pode ser publicado em qualquer hospedagem,
+junto com a pasta de imagens. As fotos e o vídeo da cinta ficam em `public/lp/`.
 
-- **Textos**: "Nome do Produto", promessa, benefícios, perguntas e "SuaMarca" (busque no arquivo).
-- **Kits e preços**: nos `<input name="kit">`, campos `data-nome`, `data-de`, `data-por` e `data-link`
-  (link do checkout daquele kit). O total, a economia e o selo de desconto são calculados sozinhos.
+Ordem da página da cinta: faixa de avisos → título → foto → escolha da oferta (1, 2 ou 3 cintas) →
+escolha do tamanho (obrigatória) → preço e botão → vídeo → antes e depois → benefícios →
+como funciona o pagamento na entrega → comparativo → prints de clientes → garantia de 7 dias →
+perguntas frequentes → chamada final → rodapé. No celular, uma barra com o preço e o botão
+"Comprar agora" fica fixa no rodapé sempre que o botão principal não está na tela.
+
+O que trocar em `landing/oferta.html`:
+
+- **Ofertas e preços**: nos `<input name="kit">`, campos `data-nome`, `data-de` (preço riscado; vazio = sem),
+  `data-por` e `data-link` (link do checkout da Logzz daquela oferta). O total e a economia são calculados sozinhos.
+  Atualize também os preços escritos ao lado de cada oferta.
+- **Tamanhos**: os `<input name="tamanho">`. A produtora pede o tamanho no campo **Complemento** do agendamento;
+  a página lembra a cliente disso e, quando o pedido vai pelo WhatsApp, já manda o tamanho na mensagem.
 - **WhatsApp**: no `CONFIG`, no fim do arquivo, coloque o número com DDI + DDD, só dígitos (ex.: `5511912345678`).
-  Sem link de checkout, o botão de compra abre o WhatsApp com o kit escolhido já escrito na mensagem.
-- **Fotos**: coloque os arquivos em `public/lp/` e troque cada ilustração `<svg>` por `<img src="/lp/foto.jpg" alt="...">`
-  (galeria 1:1, antes e depois 4:3, prints do WhatsApp 9:16). Use só prints reais e autorizados.
-- **Cor da marca**: mude `--marca` e `--marca-escura` no começo do `<style>`.
-- **Rodapé**: CNPJ, e-mail e links de políticas.
+  Sem link de checkout, o botão de compra abre o WhatsApp com a oferta e o tamanho já escritos.
+- **Prints de clientes**: troque cada `.print-tela` por `<img src="lp/print-1.jpg" alt="...">`. Use só prints reais e autorizados.
+- **Marca e rodapé**: "SuaMarca", CNPJ, e-mail e links de políticas.
+- **Cor dos botões**: `--marca` e `--marca-escura` no começo do `<style>`.
