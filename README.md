@@ -534,7 +534,7 @@ Página de venda com **pagamento na entrega**, feita primeiro para o celular. S�
 Cada um é um arquivo só (HTML, CSS e JS juntos) e pode ser publicado em qualquer hospedagem,
 junto com a pasta de imagens. As fotos e o vídeo da cinta ficam em `public/lp/`.
 
-Ordem da página da cinta: faixa de avisos → título → foto → oferta única (1 cinta, R$ 129,90) →
+Ordem da página da cinta (sem cabeçalho nem rodapé): faixa de avisos → título → foto → oferta única (1 cinta, R$ 129,90) →
 escolha do tamanho → botões "Comprar agora" (checkout da Logzz) e "Pedir pelo WhatsApp" (venda no X1) →
 vídeo → antes e depois → benefícios → como funciona o pagamento na entrega → prints de clientes →
 garantia de 7 dias → chamada final. No celular, uma barra com WhatsApp e "Comprar" fica fixa no rodapé
@@ -549,5 +549,4 @@ O que trocar em `landing/oferta.html`:
 - **WhatsApp**: no `CONFIG`, no fim do arquivo, coloque o número com DDI + DDD, só dígitos (ex.: `5511912345678`).
   Sem link de checkout, o botão de compra abre o WhatsApp com a oferta e o tamanho já escritos.
 - **Prints de clientes**: troque cada `.print-tela` por `<img src="lp/print-1.jpg" alt="...">`. Use só prints reais e autorizados.
-- **Marca e rodapé**: "SuaMarca", CNPJ, e-mail e links de políticas.
 - **Cor dos botões**: `--marca` e `--marca-escura` no começo do `<style>`.

@@ -1,4 +1,4 @@
-<title>Cinta Colete Modeladora | SuaMarca</title>
+<title>Cinta Colete Modeladora</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Cinta Colete Modeladora: cintura marcada e barriga disfarçada na hora. Frete grátis, garantia de 7 dias e pagamento só na entrega.">
 <meta name="theme-color" content="#1d1418">
@@ -99,19 +99,6 @@ button { font: inherit; color: inherit; }
   .faixa-trilho { width: auto; justify-content: center; animation: none; }
   .faixa-grupo[aria-hidden] { display: none; }
 }
-
-/* ---------- Topo ---------- */
-.topo { border-bottom: 1px solid var(--linha); }
-.topo .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
-.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--f-titulo); font-weight: 800; font-size: 1.25rem; letter-spacing: -.03em; }
-.logo-marca { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--tinta); color: var(--destaque); }
-.logo-marca .i { width: 18px; height: 18px; stroke-width: 2.2; }
-.menu { display: none; gap: 28px; font-size: .9375rem; font-weight: 600; color: var(--tinta-2); }
-.menu a { text-decoration: none; }
-.menu a:hover { color: var(--tinta); }
-.atendimento { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: var(--nevoa); font-size: .875rem; font-weight: 600; text-decoration: none; }
-.atendimento .i { width: 18px; height: 18px; color: var(--wa-texto); }
-@media (min-width: 900px) { .menu { display: flex; } }
 
 /* ---------- Vitrine (foto + compra) ---------- */
 .vitrine { padding-block: 20px 56px; }
@@ -266,7 +253,7 @@ button { font: inherit; color: inherit; }
 @media (min-width: 760px) { .pares { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; } }
 .par { margin: 0; display: grid; gap: 10px; }
 .par-fotos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; overflow: hidden; border-radius: var(--raio); }
-.par-foto { position: relative; aspect-ratio: 288 / 420; max-width: 100%; background: var(--nevoa); }
+.par-foto { position: relative; aspect-ratio: 4 / 5; max-width: 100%; background: var(--nevoa); }
 .par-foto img { width: 100%; height: 100%; object-fit: cover; }
 .rotulo { position: absolute; top: 12px; left: 12px; padding: 5px 12px; border-radius: 999px; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .rotulo.antes { background: rgba(29, 20, 24, .72); color: var(--sobre-tinta); }
@@ -435,32 +422,18 @@ main { padding-bottom: env(safe-area-inset-bottom, 0px); }
   </div>
 </div>
 
-<header class="topo">
-  <div class="wrap">
-    <a class="logo" href="#compra" aria-label="SuaMarca, início">
-      <span class="logo-marca"><svg class="i"><use href="#i-silhueta" /></svg></span>SuaMarca
-    </a>
-    <nav class="menu" aria-label="Seções">
-      <a href="#video">Vídeo</a>
-      <a href="#antes-depois">Antes e depois</a>
-      <a href="#como-funciona">Como funciona</a>
-    </nav>
-    <a class="atendimento js-whats" href="#compra"><svg class="i"><use href="#i-whats" /></svg>Atendimento</a>
-  </div>
-</header>
-
 <main>
   <!-- Vitrine: título, foto, preço e botão na primeira tela do celular -->
   <section class="vitrine" id="compra">
     <div class="wrap vitrine-grade">
       <div class="galeria">
         <div class="foto-principal">
-          <img src="lp/cinta-produto.jpg" alt="Modelo vestindo a Cinta Colete Modeladora preta, com alças e fecho de colchetes na frente" width="660" height="660">
+          <img src="lp/cinta-produto.jpg" alt="Modelo vestindo a Cinta Colete Modeladora preta, com alças, zíper nas laterais e colchetes na frente" width="706" height="706">
           <span class="selo-oferta"><b>Black</b> Friday</span>
         </div>
         <div class="mini-provas">
-          <a href="#antes-depois"><img src="lp/cinta-depois-1.jpg" alt="Cinta vestida com calça jeans" loading="lazy"><span>Depois</span></a>
-          <a href="#antes-depois"><img src="lp/cinta-depois-2.jpg" alt="Cinta vestida com legging" loading="lazy"><span>Depois</span></a>
+          <a href="#antes-depois"><img src="lp/cinta-depois-1.jpg" alt="Cinta vestida, cintura marcada" loading="lazy"><span>Depois</span></a>
+          <a href="#antes-depois"><img src="lp/cinta-depois-2.jpg" alt="Cinta por baixo da blusa" loading="lazy"><span>Depois</span></a>
           <a href="#video"><img src="lp/cinta-video-capa.jpg" alt="Capa do vídeo da cinta" loading="lazy"><span><svg class="i"><use href="#i-play" /></svg>Vídeo</span></a>
         </div>
       </div>
@@ -539,11 +512,11 @@ main { padding-bottom: env(safe-area-inset-bottom, 0px); }
         <ul class="lista-check">
           <li><svg class="i"><use href="#i-check" /></svg>Dá para vestir sozinha</li>
           <li><svg class="i"><use href="#i-check" /></svg>Fica discreta por baixo da roupa</li>
-          <li><svg class="i"><use href="#i-check" /></svg>Combina com jeans, legging e vestido</li>
+          <li><svg class="i"><use href="#i-check" /></svg>Cintura marcada assim que fecha</li>
         </ul>
       </div>
       <div class="video-moldura">
-        <video id="video-cinta" src="lp/cinta-video.mp4" poster="lp/cinta-video-capa.jpg" muted loop playsinline controls preload="none" aria-label="Vídeo de mulheres vestindo a Cinta Colete Modeladora"></video>
+        <video id="video-cinta" src="lp/cinta-video.mp4" poster="lp/cinta-video-capa.jpg" muted loop playsinline controls preload="none" aria-label="Vídeo de uma moça vestindo a cinta e fechando os colchetes"></video>
       </div>
     </div>
   </section>
@@ -553,22 +526,22 @@ main { padding-bottom: env(safe-area-inset-bottom, 0px); }
       <div class="cabeca">
         <span class="olho">Antes e depois</span>
         <h2>A diferença aparece na hora</h2>
-        <p>Mesma pessoa, antes e depois de fechar a cinta. Imagens tiradas do vídeo acima.</p>
+        <p>Mesma pessoa, antes e depois de vestir a cinta.</p>
       </div>
       <div class="pares">
         <figure class="par">
           <div class="par-fotos">
-            <div class="par-foto"><img src="lp/cinta-antes-1.jpg" alt="Antes: barriga sem a cinta" loading="lazy"><span class="rotulo antes">Antes</span></div>
+            <div class="par-foto"><img src="lp/cinta-antes-1.jpg" alt="Antes: barriga à mostra, sem a cinta" loading="lazy"><span class="rotulo antes">Antes</span></div>
             <div class="par-foto"><img src="lp/cinta-depois-1.jpg" alt="Depois: cintura modelada com a cinta preta" loading="lazy"><span class="rotulo depois">Depois</span></div>
           </div>
-          <figcaption>Cinta preta usada com calça jeans.</figcaption>
+          <figcaption>Mesma posição, antes e depois de fechar a cinta. Imagens do vídeo acima.</figcaption>
         </figure>
         <figure class="par">
           <div class="par-fotos">
-            <div class="par-foto"><img src="lp/cinta-antes-2.jpg" alt="Antes: começando a fechar a cinta" loading="lazy"><span class="rotulo antes">Antes</span></div>
-            <div class="par-foto"><img src="lp/cinta-depois-2.jpg" alt="Depois: cinta fechada e cintura marcada" loading="lazy"><span class="rotulo depois">Depois</span></div>
+            <div class="par-foto"><img src="lp/cinta-antes-2.jpg" alt="Antes: blusa justa sem a cinta" loading="lazy"><span class="rotulo antes">Antes</span></div>
+            <div class="par-foto"><img src="lp/cinta-depois-2.jpg" alt="Depois: cinta por baixo da blusa e cintura marcada" loading="lazy"><span class="rotulo depois">Depois</span></div>
           </div>
-          <figcaption>Cinta preta usada com legging.</figcaption>
+          <figcaption>Com a cinta por baixo da blusa: ninguém vê, mas a cintura aparece.</figcaption>
         </figure>
       </div>
     </div>
