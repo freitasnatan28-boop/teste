@@ -122,7 +122,7 @@ Redirect do YouTube: `{APP_URL}/api/youtube/oauth/callback`.
 
 ## Próximos passos
 
-1. Terminar o download das fotos do vídeo 001 e renderizar a versão final.
+1. Vídeo 001 pronto no modelo de mapa com confronto (out/2026). Aguardando o dono assistir e aprovar pra publicar.
 2. O dono cria o canal (e-mail, @, foto, banner) e as chaves do Google Cloud; pede a auditoria da API do YouTube.
 3. Claude monta a tela "Conectar YouTube" + o status das conexões, e o setor de Publicação.
 4. Automatizar Roteiro → storyboard com a API do Claude (hoje o storyboard do 001 foi escrito à mão).
