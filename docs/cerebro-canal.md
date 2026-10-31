@@ -47,7 +47,9 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 
 ## Decisões pendentes
 
-- [ ] E-mail e @ do canal (sugestões: portrasdomapa@gmail.com, @portrasdomapa). O dono cria a conta.
+- [x] Canal criado no YouTube (out/2026). Recursos padrão e intermediários ✅ (vídeos > 15 min, miniaturas
+  personalizadas). Recursos avançados: **pendente** (precisa verificação por vídeo/documento ou histórico do canal).
+- [ ] Ativar recursos avançados (links clicáveis na descrição, limite maior de envios; ajuda no pedido de monetização).
 
 ## Como produzir um vídeo (estúdio em `canal/estudio`)
 
