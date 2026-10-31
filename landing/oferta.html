@@ -258,9 +258,6 @@ button { font: inherit; color: inherit; }
 .video-som.ligado { animation: none; padding: 10px; }
 .video-som.ligado span { display: none; }
 @keyframes chamar { 50% { transform: scale(1.06); } }
-.video-pausa { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
-.video-pausa span { display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: rgba(29, 20, 24, .7); color: var(--sobre-tinta); }
-.video-pausa .i { width: 30px; height: 30px; margin-left: 4px; }
 @media (min-width: 900px) { .video-grade { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; } .video-grade .cabeca { margin-bottom: 0; } }
 
 /* ---------- Antes e depois ---------- */
@@ -511,7 +508,6 @@ main { padding-bottom: env(safe-area-inset-bottom, 0px); }
       </div>
       <div class="video-moldura">
         <video id="video-cinta" src="lp/cinta-video.mp4" poster="lp/cinta-video-capa.jpg" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload noplaybackrate noremoteplayback nofullscreen" aria-label="Vídeo de uma moça vestindo a cinta e fechando os colchetes"></video>
-        <span class="video-pausa" id="video-pausa"><span><svg class="i"><use href="#i-play" /></svg></span></span>
         <button type="button" class="video-som" id="video-som" aria-label="Ligar o som"><svg class="i"><use href="#i-som-off" /></svg><span>Toque para ouvir</span></button>
       </div>
     </div>
@@ -737,7 +733,6 @@ const CONFIG = {
   // que a pessoa toca na página, então o som liga no primeiro toque (em qualquer lugar).
   const video = $("#video-cinta");
   const botaoSom = $("#video-som");
-  const iconePausa = $("#video-pausa");
   let querSom = false;
 
   function mostrarSom() {
@@ -774,15 +769,8 @@ const CONFIG = {
     if (video.muted) ligarSom();
     else { querSom = false; video.muted = true; mostrarSom(); }
   });
-  // Tocar no vídeo: se estiver mudo, liga o som; senão pausa ou continua
-  video.addEventListener("click", () => {
-    if (video.muted) ligarSom();
-    else if (video.paused) tocar();
-    else video.pause();
-  });
-  const atualizarPausa = () => (iconePausa.hidden = !video.paused);
-  video.addEventListener("play", atualizarPausa);
-  video.addEventListener("pause", atualizarPausa);
+  // Tocar no vídeo liga ou desliga o som; o vídeo segue tocando
+  video.addEventListener("click", () => botaoSom.click());
 
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(([e]) => {
