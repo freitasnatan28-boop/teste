@@ -16,7 +16,7 @@
         {"em": "primeira", "tipo": "texto", "linhas": ["PELA PRIMEIRA VEZ EM", "QUASE 100 ANOS"]},
         {"em": "guerra contra", "tipo": "versus", "esquerda": "BRA", "direita": "FRA"}
       ],
-      "apoio": ["tartu-b17", "b17"]
+      "apoio": ["tartu-b17", "b17-noite"]
     },
     "b03": {
       "cenas": [
@@ -172,11 +172,11 @@
     "b19": {
       "cenas": [
         {"tipo": "texto", "linhas": ["A CENA MAIS", "INCRÍVEL"]},
-        {"em": "noite", "tipo": "foto", "img": "b17", "efeito": "noite", "som": "aviao"},
+        {"em": "noite", "tipo": "foto", "img": "b17-noite", "som": "aviao", "focos": [[0.5, 0.45], [0.6, 0.5]]},
         {"em": "luzes", "tipo": "foto", "img": "tartu-b17", "efeito": "noite", "focos": [[0.5, 0.6], [0.3, 0.3]]},
         {"em": "30", "tipo": "contador", "ate": 30, "unidade": "METROS", "sub": "de altura"},
         {"em": "acenderam", "tipo": "foto", "img": "tartu-b17", "efeito": "flash", "som": "flash", "focos": [[0.5, 0.6]]},
-        {"em": "marinheiros", "tipo": "foto", "img": "tartu-b17", "pb": true, "focos": [[0.55, 0.62], [0.4, 0.62]]},
+        {"em": "marinheiros", "tipo": "texto", "linhas": ["MARINHEIROS CORRENDO", "PELO CONVÉS"]},
         {"em": "postos", "tipo": "texto", "linhas": ["POSTOS DE", "COMBATE"], "cor": "#e63946", "tremer": true}
       ],
       "destaques": [{"palavra": "apagadas", "texto": "Luzes apagadas"}, {"palavra": "silêncio", "texto": "Rádio em silêncio"}],
@@ -248,7 +248,7 @@
       "cenas": [
         {"tipo": "texto", "linhas": ["E A", "FRASE?"]},
         {"em": "Charles", "tipo": "foto", "img": "de-gaulle", "rotulo": "Charles de Gaulle", "pb": true, "focos": [[0.5, 0.25], [0.5, 0.3]]},
-        {"em": "não é um", "tipo": "citacao", "texto": "Le Brésil n'est pas un pays sérieux.", "autor": "Foi mesmo De Gaulle?", "img": "de-gaulle"}
+        {"em": "não é um", "tipo": "citacao", "texto": "Le Brésil n'est pas un pays sérieux.", "autor": "Foi mesmo De Gaulle?"}
       ],
       "apoio": ["de-gaulle"]
     },

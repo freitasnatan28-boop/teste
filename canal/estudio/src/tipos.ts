@@ -60,8 +60,11 @@ export type TCena = {
   partes: number;
   offset: number; // frames desde o começo da cena (para animações contínuas)
   duracaoCena: number;
-  corte: boolean; // true no primeiro subcorte de cada cena (toca whoosh)
+  corte: boolean;
+  transicao: Transicao;
 };
+
+export type Transicao = "zoom" | "deslize-esq" | "deslize-dir" | "escurecer" | "flash" | "suave";
 
 export type Timeline = {
   pasta: string; // ex.: videos/001-guerra-da-lagosta

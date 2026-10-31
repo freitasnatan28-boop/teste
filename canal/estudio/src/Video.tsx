@@ -22,17 +22,26 @@ const COMPONENTES: Record<string, React.FC<PropsCena<any>>> = {
   final: Final,
 };
 
-// Entrada de cada corte: um "soco" de zoom + desfoque rápido nos primeiros frames.
+// Entrada de cada corte. Cada tipo de cena tem a sua (definida no montar), para não ficar repetitivo.
 const Corte: React.FC<{ c: TCena; pasta: string }> = ({ c, pasta }) => {
   const f = useCurrentFrame();
+  const { width } = useVideoConfig();
   const C = COMPONENTES[c.cena.tipo];
-  const forte = c.corte ? 1 : 0.5;
-  const escala = interpolate(f, [0, 6], [1 + 0.1 * forte, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
-  const blur = interpolate(f, [0, 5], [10 * forte, 0], { extrapolateRight: "clamp" });
-  const branco = c.corte ? interpolate(f, [0, 3], [0.35, 0], { extrapolateRight: "clamp" }) : 0;
+  const sai = (de: number, ate: number, n: number) => interpolate(f, [0, n], [de, ate], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+  let transform = "";
+  let opacidade = 1;
+  let branco = 0;
+  if (c.transicao === "zoom") transform = `scale(${sai(1.07, 1, 7)})`;
+  if (c.transicao === "suave") transform = `scale(${sai(1.12, 1, 14)})`;
+  if (c.transicao === "deslize-esq") transform = `translateX(${sai(width * 0.12, 0, 8)}px)`;
+  if (c.transicao === "deslize-dir") transform = `translateX(${sai(-width * 0.12, 0, 8)}px)`;
+  if (c.transicao === "escurecer") opacidade = sai(0, 1, 10);
+  if (c.transicao === "flash") branco = interpolate(f, [0, 4], [0.7, 0], { extrapolateRight: "clamp" });
   return (
-    <AbsoluteFill style={{ transform: `scale(${escala})`, filter: blur > 0.2 ? `blur(${blur}px)` : undefined }}>
-      <C cena={c.cena} parte={c.parte} partes={c.partes} duracao={c.duracao} offset={c.offset} duracaoCena={c.duracaoCena} pasta={pasta} />
+    <AbsoluteFill style={{ background: "#000" }}>
+      <AbsoluteFill style={{ transform, opacity: opacidade }}>
+        <C cena={c.cena} parte={c.parte} partes={c.partes} duracao={c.duracao} offset={c.offset} duracaoCena={c.duracaoCena} pasta={pasta} />
+      </AbsoluteFill>
       {branco > 0 && <AbsoluteFill style={{ background: "#fff", opacity: branco }} />}
     </AbsoluteFill>
   );

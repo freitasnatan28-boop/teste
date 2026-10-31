@@ -1,0 +1,11 @@
+Imagens:
+- Brazilian Boeing B-17 flies over the French destroyer Tartu (D636) during the 1963 Lobster War.jpg: Marine brésilienne (Public domain) https://commons.wikimedia.org/wiki/File:Brazilian_Boeing_B-17_flies_over_the_French_destroyer_Tartu_(D636)_during_the_1963_Lobster_War.jpg
+- Brazilian cruiser Tamandaré (C12) underway with destroyers during the 1961 Lobster War.jpg: Brazilian Navy (Public domain) https://commons.wikimedia.org/wiki/File:Brazilian_cruiser_Tamandar%C3%A9_(C12)_underway_with_destroyers_during_the_1961_Lobster_War.jpg
+- De Gaulle-OWI (cropped)-(c).jpg: Office of War Information, Overseas Picture Division. [1] The image prefix (LC-USW3) at the Library of Congress image page matches that of pictures from the OWI collection (see prefix list here. (Public domain) https://commons.wikimedia.org/wiki/File:De_Gaulle-OWI_(cropped)-(c).jpg
+- MO 63.2240.2 - Photograph of João Goulart President of the Republic of Brazil (cropped).jpg: Brazilian Government. Donated to the United States Government. (Public domain) https://commons.wikimedia.org/wiki/File:MO_63.2240.2_-_Photograph_of_Jo%C3%A3o_Goulart_President_of_the_Republic_of_Brazil_(cropped).jpg
+- FS Clemenceau (R98) side view.jpg: desconhecido (CC BY-SA 3.0) https://commons.wikimedia.org/wiki/File:FS_Clemenceau_(R98)_side_view.jpg
+- Caribbean spiny lobster.jpg: NOAA (Public domain) https://commons.wikimedia.org/wiki/File:Caribbean_spiny_lobster.jpg
+- Jumping kangaroo (2671853668).jpg: Francesco from Parma, Italy (CC BY 2.0) https://commons.wikimedia.org/wiki/File:Jumping_kangaroo_(2671853668).jpg
+- U.S. long range bomber B-17E, Office of War Information, Library of Congress (domínio público) https://tile.loc.gov/storage-services/service/pnp/cph/3c00000/3c03000/3c03700/3c03751v.jpg
+- Sunset silhouette of flying fortress, Langley Field, 1939, Library of Congress (sem restrições conhecidas) https://tile.loc.gov/storage-services/service/pnp/fsac/1a35000/1a35000/1a35090v.jpg
+- United Nations Headquarters, 1954, Anthony Angel Collection, Library of Congress (sem restrições conhecidas) https://tile.loc.gov/storage-services/service/pnp/ppmsca/69800/69844v.jpg

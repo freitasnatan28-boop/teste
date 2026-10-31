@@ -1,24 +1,23 @@
 // Setor de Edição (parte 1): junta narração + storyboard e calcula a linha do tempo em frames.
-// Cada cena começa quando a palavra "em" é falada; fotos longas viram vários subcortes (punch-ins)
-// para a tela nunca ficar parada mais de ~3 segundos.
+// Cada cena começa quando a palavra "em" é falada. Cenas que passam do tempo ganham uma foto de apoio
+// DIFERENTE (nunca a mesma foto de novo em seguida), para a tela não ficar parada.
 // Uso: npm run montar -- 001-guerra-da-lagosta
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Palavra } from "./narrar";
 import { paraFala } from "./roteiro";
-import type { Storyboard, TCena, Timeline } from "../src/tipos";
+import type { Storyboard, TCena, Timeline, Transicao } from "../src/tipos";
 
 const FPS = 30;
 const PAUSA_BEAT = 0.2;
 const PAUSA_CAPITULO = 0.6;
-const MAX_FOTO = 2.8; // segundos antes de virar subcortes
-const ALVO_SUBCORTE = 2.2;
-// Gráficos que passam desse tempo são encurtados e o resto vira fotos de apoio do beat.
-const LIMITE_GRAFICO: Partial<Record<string, number>> = { data: 2.4, texto: 2.6, contador: 2.8, versus: 3, radar: 3.4, mapa: 6, citacao: 6 };
+// Cenas que passam desse tempo (s) são encurtadas e o resto vira uma foto de apoio do beat.
+const LIMITE: Partial<Record<string, number>> = { data: 2.4, texto: 2.6, contador: 2.8, versus: 3, radar: 3.4, foto: 4.5, mapa: 6, citacao: 6 };
+const SOBRA_MINIMA = 1.5; // não cria apoio menor que isso
+const JANELA_REPETICAO = 25; // a mesma foto não volta antes de 25 s
 const DURACAO_DESTAQUE = 1.2;
 const CAUDA_FINAL = 4;
-const RESERVA = ["tartu-b17", "frota-brasileira", "lagosta"];
 const FOCOS_APOIO: [number, number][] = [[0.6, 0.45], [0.35, 0.55], [0.5, 0.35]];
 
 const norm = (s: string) =>
@@ -33,16 +32,43 @@ function acharPalavra(palavras: Palavra[], alvo: string, desde: number): { indic
   return null;
 }
 
-// Se uma foto ainda não foi baixada, troca por outra do beat (ou por um cartão de texto, no retrato).
-function substituirFaltantes(cena: TCena["cena"], apoio: string[], temImg: (n: string) => boolean, avisos: string[]): TCena["cena"] {
+type Bloco = { inicio: number; fim: number; cena: TCena["cena"]; som?: string; apoio?: string[] };
+
+const imgDe = (c: TCena["cena"]) => (c.tipo === "foto" ? c.img : c.tipo === "texto" || c.tipo === "citacao" ? c.img : undefined);
+
+// Foto que ainda não foi baixada vira cartão de texto (nunca repete outra foto no lugar).
+function substituirFaltante(cena: TCena["cena"], temImg: (n: string) => boolean, avisos: string[]): TCena["cena"] {
+  if ((cena.tipo === "texto" || cena.tipo === "citacao") && cena.img && !temImg(cena.img)) return { ...cena, img: undefined };
   if (cena.tipo !== "foto" || temImg(cena.img)) return cena;
-  if (cena.modo === "retrato") {
-    avisos.push(`foto "${cena.img}" faltando: virou cartão de texto`);
-    return { tipo: "texto", linhas: [(cena.cargo ?? "").toUpperCase(), (cena.nome ?? "").toUpperCase()] };
-  }
-  const troca = [...apoio, ...RESERVA].find(temImg);
-  avisos.push(`foto "${cena.img}" faltando: usando "${troca}"`);
-  return { ...cena, img: troca ?? cena.img, rotulo: undefined };
+  avisos.push(`foto "${cena.img}" faltando: virou cartão de texto`);
+  const linhas = cena.modo === "retrato" ? [cena.cargo ?? "", cena.nome ?? ""] : (cena.rotulo ?? "").split(" · ");
+  return { tipo: "texto", linhas: linhas.filter(Boolean).map((l) => l.toUpperCase()) };
+}
+
+// Som de entrada de cada tipo de cena (null = cena entra em silêncio).
+const SOM_POR_TIPO: Partial<Record<string, string[]>> = {
+  texto: ["hit", "whoosh-3", "whoosh-2"],
+  data: ["digitar"],
+  contador: ["tique"],
+  lista: ["papel"],
+  citacao: ["papel"],
+  mapa: ["mapa"],
+  versus: ["impacto"],
+  radar: ["radar"],
+  plataforma: ["whoosh-2"],
+  linhaTempo: ["whoosh-2"],
+  final: ["whoosh-grave"],
+};
+const SONS_FOTO = ["whoosh-3", "obturador", "whoosh-2", "whoosh"];
+const SEM_REPETIR_SOM = 8; // s: o mesmo arquivo não toca de novo antes disso
+const RESPIRO_SOM = 1.2; // s: nada de dois efeitos colados
+
+function transicaoPara(cena: TCena["cena"], som: string | undefined, i: number, inicioCapitulo: boolean): Transicao {
+  if (inicioCapitulo) return "escurecer";
+  if (som === "impacto" || som === "flash") return "flash";
+  if (cena.tipo === "mapa") return "suave";
+  if (cena.tipo === "foto") return (["zoom", "deslize-esq", "suave", "deslize-dir"] as const)[i % 4];
+  return "zoom";
 }
 
 function duracaoMp3(arquivo: string): number {
@@ -62,7 +88,7 @@ function main() {
   let capituloAtual = "";
 
   const ids = Object.keys(sb.beats).sort();
-  const todas: { inicio: number; fim: number; cena: TCena["cena"]; som?: string; apoio?: string[] }[] = [];
+  const todas: Bloco[] = [];
 
   ids.forEach((id, n) => {
     const beat = JSON.parse(readFileSync(join(pastaDisco, "narracao", `${id}.json`), "utf8")) as { capitulo: string; palavras: Palavra[] };
@@ -120,44 +146,61 @@ function main() {
       }
       d = a.indice + 1;
       tl.destaques.push({ inicio: Math.round((cursor + a.tempo) * FPS), duracao: Math.round(DURACAO_DESTAQUE * FPS), texto: texto.toUpperCase() });
-      tl.sons.push({ inicio: Math.round((cursor + a.tempo) * FPS), som: "pop", volume: 0.3 });
+      tl.sons.push({ inicio: Math.round((cursor + a.tempo) * FPS), som: "pop", volume: 0.18 });
     }
 
     cursor += dur + (n < ids.length - 1 ? PAUSA_BEAT : CAUDA_FINAL);
   });
 
-  // Cada cena vai até o começo da próxima; gráficos longos ganham fotos de apoio depois deles.
+  // Cada cena vai até o começo da próxima.
   todas.forEach((c, i) => (c.fim = i < todas.length - 1 ? todas[i + 1].inicio : cursor));
-  let girar = 0;
-  for (const c of [...todas]) {
-    const limite = LIMITE_GRAFICO[c.cena.tipo];
-    if (!limite || !c.apoio?.length || c.fim - c.inicio <= limite + 1.2) continue;
-    const img = c.apoio[girar++ % c.apoio.length];
-    todas.splice(todas.indexOf(c) + 1, 0, { inicio: c.inicio + limite, fim: c.fim, cena: { tipo: "foto", img, focos: FOCOS_APOIO }, apoio: c.apoio });
+  const temImg = (n: string) => existsSync(join(pastaDisco, "imagens", `${n}.jpg`));
+  for (const c of todas) c.cena = substituirFaltante(c.cena, temImg, avisos);
+
+  // Cenas longas ganham uma foto de apoio que não apareceu perto dali.
+  const recente = (img: string, t: number) => todas.some((o) => imgDe(o.cena) === img && Math.abs(o.inicio - t) < JANELA_REPETICAO);
+  for (let i = 0; i < todas.length; i++) {
+    const c = todas[i];
+    const limite = c.cena.tipo === "foto" && c.cena.modo === "retrato" ? 5 : LIMITE[c.cena.tipo];
+    if (!limite || c.fim - c.inicio < limite + SOBRA_MINIMA) continue;
+    const img = (c.apoio ?? []).filter(temImg).find((a) => !recente(a, c.inicio + limite));
+    if (!img) continue;
+    todas.splice(i + 1, 0, { inicio: c.inicio + limite, fim: c.fim, cena: { tipo: "foto", img, focos: FOCOS_APOIO }, apoio: c.apoio });
     c.fim = c.inicio + limite;
   }
-  const temImg = (n: string) => existsSync(join(pastaDisco, "imagens", `${n}.jpg`));
-  for (const c of todas) {
-    c.cena = substituirFaltantes(c.cena, (c.apoio ?? []).filter(temImg), temImg, avisos);
+
+  // Efeitos sonoros variados e espaçados: nem todo corte tem som, e o mesmo som não se repete em seguida.
+  const tocados: { t: number; som: string }[] = tl.sons.map((x) => ({ t: x.inicio / FPS, som: x.som }));
+  const livre = (som: string, t: number) =>
+    !tocados.some((x) => Math.abs(x.t - t) < RESPIRO_SOM) && !tocados.some((x) => x.som === som && Math.abs(x.t - t) < SEM_REPETIR_SOM);
+  const capitulos = new Set(tl.capitulos.map((c) => c.inicio));
+  let fotos = 0;
+  const vez: Record<string, number> = {}; // gira as opções de som de cada tipo
+  todas.forEach((c, i) => {
     const inicio = Math.round(c.inicio * FPS);
     const duracaoCena = Math.round(c.fim * FPS) - inicio;
-    if (duracaoCena <= 0) continue;
-    const segundos = duracaoCena / FPS;
-    const partes = c.cena.tipo === "foto" && c.cena.modo !== "retrato" && segundos > MAX_FOTO ? Math.round(segundos / ALVO_SUBCORTE) : 1;
-    for (let p = 0; p < partes; p++) {
-      const a = Math.round((duracaoCena * p) / partes);
-      const b = Math.round((duracaoCena * (p + 1)) / partes);
-      tl.cenas.push({ inicio: inicio + a, duracao: b - a, cena: c.cena, parte: p, partes, offset: a, duracaoCena, corte: p === 0 });
+    if (duracaoCena <= 0) return;
+    const inicioCapitulo = [...capitulos].some((x) => Math.abs(x - inicio) < FPS);
+    let som = c.som;
+    if (!som && !inicioCapitulo) {
+      const lista = c.cena.tipo === "foto" ? (fotos++ % 3 === 0 ? SONS_FOTO : []) : SOM_POR_TIPO[c.cena.tipo] ?? [];
+      const k = (vez[c.cena.tipo] = (vez[c.cena.tipo] ?? -1) + 1);
+      const opcoes = [...lista.slice(k % (lista.length || 1)), ...lista.slice(0, k % (lista.length || 1))];
+      som = opcoes.find((o) => livre(o, c.inicio));
     }
-    tl.sons.push({ inicio, som: c.som ?? (c.cena.tipo === "data" ? "digitar" : "whoosh"), volume: c.som ? 0.6 : 0.28 });
-  }
+    if (som && (c.som || livre(som, c.inicio))) {
+      tl.sons.push({ inicio, som, volume: c.som ? 0.6 : som === "impacto" ? 0.45 : 0.3 });
+      tocados.push({ t: c.inicio, som });
+    }
+    tl.cenas.push({ inicio, duracao: duracaoCena, cena: c.cena, parte: 0, partes: 1, offset: 0, duracaoCena, corte: true, transicao: transicaoPara(c.cena, c.som, i, inicioCapitulo) });
+  });
 
   tl.capitulos = tl.capitulos.filter((c) => c.numero > 0);
   tl.duracao = Math.round(cursor * FPS);
   writeFileSync(join(pastaDisco, "timeline.json"), JSON.stringify(tl));
 
   const cortes = tl.cenas.length;
-  console.log(`${video}: ${(cursor / 60).toFixed(1)} min, ${todas.length} cenas, ${cortes} cortes (1 corte a cada ${(cursor / cortes).toFixed(1)} s)`);
+  console.log(`${video}: ${(cursor / 60).toFixed(1)} min, ${cortes} cortes (1 a cada ${(cursor / cortes).toFixed(1)} s)`);
   for (const a of avisos) console.warn(`AVISO ${a}`);
 }
 

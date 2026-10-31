@@ -4,16 +4,13 @@ import { COR, FONTE_TEXTO, FONTE_TITULO } from "../estilo";
 import type { Cena } from "../tipos";
 import type { PropsCena } from "./tipos-cena";
 
-// Pontos de foco padrão para os punch-ins quando o storyboard não define.
+// Caminho padrão do movimento quando o storyboard não define focos.
 const FOCOS: [number, number][] = [
-  [0.5, 0.5],
-  [0.35, 0.4],
-  [0.65, 0.55],
-  [0.45, 0.65],
-  [0.6, 0.35],
+  [0.4, 0.45],
+  [0.6, 0.55],
 ];
 
-export const Foto: React.FC<PropsCena<Extract<Cena, { tipo: "foto" }>>> = ({ cena, parte, duracao, pasta }) => {
+export const Foto: React.FC<PropsCena<Extract<Cena, { tipo: "foto" }>>> = ({ cena, duracao, pasta }) => {
   const f = useCurrentFrame();
   const src = staticFile(`${pasta}/imagens/${cena.img}.jpg`);
   const filtro = `${cena.pb ? "grayscale(1) " : ""}contrast(1.12) saturate(1.05)${cena.efeito === "noite" ? " brightness(.45) hue-rotate(190deg)" : ""}`;
@@ -39,12 +36,15 @@ export const Foto: React.FC<PropsCena<Extract<Cena, { tipo: "foto" }>>> = ({ cen
     );
   }
 
+  // Movimento contínuo (Ken Burns): aproxima devagar e passeia do primeiro foco para o segundo.
   const focos = cena.focos ?? FOCOS;
-  const [fx, fy] = focos[parte % focos.length];
-  // Cada subcorte começa um pouco mais perto (punch-in) e continua aproximando devagar.
-  const base = 1.05 + (parte % 3) * 0.12;
-  const zoom = interpolate(f, [0, duracao], [base, base + 0.08]);
-  const flash = cena.efeito === "flash" ? interpolate(f, [duracao * 0.45, duracao * 0.5, duracao * 0.7], [0, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 0;
+  const p = interpolate(f, [0, duracao], [0, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.sin) });
+  const [ax, ay] = focos[0];
+  const [bx, by] = focos[1] ?? focos[0];
+  const fx = ax + (bx - ax) * p;
+  const fy = ay + (by - ay) * p;
+  const zoom = 1.04 + 0.14 * p;
+  const flash = cena.efeito === "flash" ? interpolate(f, [duracao * 0.3, duracao * 0.36, duracao * 0.6], [0, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 0;
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000", overflow: "hidden" }}>

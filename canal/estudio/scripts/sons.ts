@@ -17,6 +17,13 @@ const EFEITOS: Record<string, { texto: string; segundos: number }> = {
   flash: { texto: "old camera flash pop with click", segundos: 1 },
   digitar: { texto: "old typewriter typing a short word quickly", segundos: 1.5 },
   pop: { texto: "short soft UI pop for text appearing", segundos: 0.5 },
+  "whoosh-2": { texto: "soft airy swoosh transition, gentle", segundos: 0.8 },
+  "whoosh-3": { texto: "quick light swipe whoosh, short and crisp", segundos: 0.6 },
+  hit: { texto: "soft cinematic hit, deep short thud for title text", segundos: 1 },
+  obturador: { texto: "vintage film camera shutter click", segundos: 0.6 },
+  papel: { texto: "paper sheet sliding on a desk, short", segundos: 0.8 },
+  tique: { texto: "fast mechanical counter ticking, numbers rolling", segundos: 1.2 },
+  mapa: { texto: "soft digital map zoom swoosh with subtle electronic shimmer", segundos: 1.2 },
 };
 
 const TRILHA = {

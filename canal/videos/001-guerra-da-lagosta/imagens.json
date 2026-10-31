@@ -13,12 +13,22 @@
   "camaret": "File:Port de Camaret-sur-Mer (1).jpg",
   "langoustier": "File:Langoustier bateau camaret.JPG",
   "toulon": "File:Toulon Naval base - panoramio.jpg",
-  "onu": "File:Headquarters of the United Nations, New York City, 20231001 1103 1006.jpg",
   "dacar": "File:DakarHarbourAerial.JPG",
   "neptune": "File:P2V-5F Neptune VP-8 in flight c1958.jpg",
-  "b17": "File:Boeing B-17G Flying Fortress 124485 DF-A Duxford Flying Evening 2024 01.jpg",
   "contratorpedeiros": "File:Fletcher-class destroyers underway on 13 November 1945 (80-G-K-6583).jpg",
   "radar": "File:SG Radar Console 1945.jpg",
   "jornal-do-brasil": "File:Jornal do Brasil no dia do Golpe de 1964.tif",
-  "recife": "File:Bairro de Recife Antigo com Marco Zero.jpg"
+  "recife": "File:Bairro de Recife Antigo com Marco Zero.jpg",
+  "b17": {
+    "url": "https://tile.loc.gov/storage-services/service/pnp/cph/3c00000/3c03000/3c03700/3c03751v.jpg",
+    "credito": "U.S. long range bomber B-17E, Office of War Information, Library of Congress (domínio público)"
+  },
+  "b17-noite": {
+    "url": "https://tile.loc.gov/storage-services/service/pnp/fsac/1a35000/1a35000/1a35090v.jpg",
+    "credito": "Sunset silhouette of flying fortress, Langley Field, 1939, Library of Congress (sem restrições conhecidas)"
+  },
+  "onu": {
+    "url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/69800/69844v.jpg",
+    "credito": "United Nations Headquarters, 1954, Anthony Angel Collection, Library of Congress (sem restrições conhecidas)"
+  }
 }
