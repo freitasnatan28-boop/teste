@@ -549,3 +549,14 @@ O que trocar em `landing/oferta.html`:
 - **WhatsApp**: no `CONFIG`, no fim do arquivo, coloque o número com DDI + DDD, só dígitos (ex.: `5511912345678`).
   Sem link de checkout, o botão de compra abre o WhatsApp com a oferta e o tamanho já escritos.
 - **Cor dos botões**: `--marca` e `--marca-escura` no começo do `<style>`.
+
+### Colocar a landing page na Hostinger
+
+1. Gere o pacote: `npm run landing:exportar`. Ele cria `hostinger/site/` com `index.html`, `.htaccess` e a pasta `lp/` (fotos e vídeo).
+2. Na Hostinger, abra **Sites → Gerenciador de Arquivos** do seu domínio e entre em `public_html`.
+3. Envie o **conteúdo** de `hostinger/site/` para dentro de `public_html` (o `index.html` fica direto em `public_html`, não numa subpasta).
+   Se preferir, compacte o conteúdo em `.zip`, envie e use "Extrair" no próprio gerenciador.
+4. Em **Segurança → SSL**, ative o SSL gratuito para o site abrir com `https://`.
+
+Sempre que mudar a página, rode `npm run landing:exportar` de novo e substitua os arquivos no `public_html`.
+
