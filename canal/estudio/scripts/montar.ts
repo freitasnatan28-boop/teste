@@ -156,6 +156,14 @@ function main() {
   todas.forEach((c, i) => (c.fim = i < todas.length - 1 ? todas[i + 1].inicio : cursor));
   const temImg = (n: string) => existsSync(join(pastaDisco, "imagens", `${n}.jpg`));
   for (const c of todas) c.cena = substituirFaltante(c.cena, temImg, avisos);
+  // Imagens feitas por IA (listadas em imagens-ia.json e não em imagens.json) ganham selo na tela.
+  const arqIa = join(pastaDisco, "imagens-ia.json");
+  const reais = JSON.parse(readFileSync(join(pastaDisco, "imagens.json"), "utf8")) as Record<string, unknown>;
+  const ia = new Set(existsSync(arqIa) ? Object.keys(JSON.parse(readFileSync(arqIa, "utf8"))).filter((n) => !(n in reais) || !temImg(n)) : []);
+  const marcarIa = (c: Bloco) => {
+    if (c.cena.tipo === "foto" && ia.has(c.cena.img)) c.cena = { ...c.cena, ia: true };
+  };
+  todas.forEach(marcarIa);
 
   // Cenas longas ganham uma foto de apoio que não apareceu perto dali.
   const recente = (img: string, t: number) => todas.some((o) => imgDe(o.cena) === img && Math.abs(o.inicio - t) < JANELA_REPETICAO);
@@ -165,7 +173,9 @@ function main() {
     if (!limite || c.fim - c.inicio < limite + SOBRA_MINIMA) continue;
     const img = (c.apoio ?? []).filter(temImg).find((a) => !recente(a, c.inicio + limite));
     if (!img) continue;
-    todas.splice(i + 1, 0, { inicio: c.inicio + limite, fim: c.fim, cena: { tipo: "foto", img, focos: FOCOS_APOIO }, apoio: c.apoio });
+    const apoio: Bloco = { inicio: c.inicio + limite, fim: c.fim, cena: { tipo: "foto", img, focos: FOCOS_APOIO }, apoio: c.apoio };
+    marcarIa(apoio);
+    todas.splice(i + 1, 0, apoio);
     c.fim = c.inicio + limite;
   }
 

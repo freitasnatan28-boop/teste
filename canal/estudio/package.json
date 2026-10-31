@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "imagens": "tsx scripts/imagens.ts",
     "sons": "tsx scripts/sons.ts",
-    "montar": "tsx scripts/montar.ts"
+    "montar": "tsx scripts/montar.ts",
+    "gerar-imagens": "tsx scripts/gerar-imagens.ts"
   },
   "dependencies": {
     "@remotion/bundler": "^4.0.533",

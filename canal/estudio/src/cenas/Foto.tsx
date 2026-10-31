@@ -51,6 +51,11 @@ export const Foto: React.FC<PropsCena<Extract<Cena, { tipo: "foto" }>>> = ({ cen
       <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover", transformOrigin: `${fx * 100}% ${fy * 100}%`, transform: `scale(${zoom})`, filter: filtro }} />
       {flash > 0 && <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 55%, rgba(255,250,220,${flash}) 0%, rgba(255,250,220,${flash * 0.5}) 35%, transparent 70%)` }} />}
       {cena.rotulo && <Rotulo texto={cena.rotulo} />}
+      {cena.ia && (
+        <div style={{ position: "absolute", left: 40, top: 40, fontFamily: FONTE_TEXTO, fontWeight: 500, fontSize: 26, color: COR.texto, background: "rgba(0,0,0,.55)", padding: "4px 12px", letterSpacing: 1 }}>
+          ILUSTRAÇÃO (IA)
+        </div>
+      )}
     </AbsoluteFill>
   );
 };

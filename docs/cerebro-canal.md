@@ -62,6 +62,7 @@ npm run montar -- NNN-slug                                      # storyboard + n
 npm run render -- video NNN-slug [de] [ate]                     # MP4 em out/ (trecho opcional, em frames)
 npm run render -- imagens                                       # avatar, banner, thumbs
 npm run sons                                                    # efeitos e trilha (uma vez só)
+npm run gerar-imagens -- ../videos/NNN-slug                     # imagens por IA das que faltam (imagens-ia.json)
 ```
 
 - Na nuvem do Claude, rodar com `NODE_USE_ENV_PROXY=1` (o fetch do Node só usa o proxy assim).
@@ -71,6 +72,10 @@ npm run sons                                                    # efeitos e tril
 - Wikimedia Commons bloqueia (429) o IP da nuvem por horas. NÃO tentar contornar (proxy de imagem é bloqueado).
   Alternativa que funciona: Library of Congress (tile.loc.gov), só itens "No known restrictions"/OWI.
   `imagens.json` aceita `{ "url", "credito" }`. Foto faltando vira cartão de texto (nunca repete outra foto).
+- Imagens por IA: o dono autorizou ("se for preciso"). Só pra cenas sem foto livre, estilo ilustração (não
+  imita foto de época), nunca pessoas reais, selo "ILUSTRAÇÃO (IA)" na tela e marcar "conteúdo alterado ou
+  sintético" no upload do YouTube. Precisa de GEMINI_API_KEY ou OPENAI_API_KEY nos segredos do ambiente
+  (ainda não configurada em out/2026; o serviço grátis Pollinations pede pagamento).
 - Feedback do dono sobre a edição (out/2026): NÃO repetir a mesma foto em cortes seguidos (parece bug);
   NÃO tocar o mesmo whoosh em toda transição. Regras atuais no `montar`: foto com movimento contínuo,
   apoio não repete foto em 25 s, som por tipo de cena girando opções, mesmo som só depois de 8 s,

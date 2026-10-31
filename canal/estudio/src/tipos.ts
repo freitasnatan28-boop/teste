@@ -15,6 +15,7 @@ export type Cena =
       focos?: [number, number][]; // pontos (0-1) para os punch-ins de cada subcorte
       pb?: boolean; // preto e branco
       efeito?: "flash" | "noite";
+      ia?: boolean; // ilustração gerada por IA: mostra o selo "Ilustração (IA)"
     }
   | {
       tipo: "mapa";

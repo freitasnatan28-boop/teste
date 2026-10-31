@@ -176,7 +176,7 @@
         {"em": "luzes", "tipo": "foto", "img": "tartu-b17", "efeito": "noite", "focos": [[0.5, 0.6], [0.3, 0.3]]},
         {"em": "30", "tipo": "contador", "ate": 30, "unidade": "METROS", "sub": "de altura"},
         {"em": "acenderam", "tipo": "foto", "img": "tartu-b17", "efeito": "flash", "som": "flash", "focos": [[0.5, 0.6]]},
-        {"em": "marinheiros", "tipo": "texto", "linhas": ["MARINHEIROS CORRENDO", "PELO CONVÉS"]},
+        {"em": "marinheiros", "tipo": "foto", "img": "conves", "rotulo": "Correria no convés"},
         {"em": "postos", "tipo": "texto", "linhas": ["POSTOS DE", "COMBATE"], "cor": "#e63946", "tremer": true}
       ],
       "destaques": [{"palavra": "apagadas", "texto": "Luzes apagadas"}, {"palavra": "silêncio", "texto": "Rádio em silêncio"}],
