@@ -521,3 +521,21 @@ O `ecosystem.config.cjs` já inclui o robô (`whatsapp`). Depois do `pm2 start e
 ficam ligados 24h: painel, robô e atualização de preços.
 
 Na primeira vez, acesse o painel pelo endereço do servidor, vá em **WhatsApp** e escaneie o QR.
+
+---
+
+## 12. Landing page de venda (`/oferta`)
+
+Página pública (não pede login) de venda com **pagamento na entrega**, feita primeiro para o celular:
+faixa de avisos, oferta com preço e botão logo na primeira tela, benefícios, antes × depois arrastável,
+como funciona o pagamento, como aplicar, prints de clientes, dúvidas frequentes e chamada final.
+Ao rolar, aparece uma barra de compra fixa no rodapé.
+
+Tudo se edita em `src/app/oferta/config.ts`:
+
+- **`linkPedido`**: link do checkout/formulário. Vazio = o botão "Quero o meu" abre o WhatsApp.
+- **`whatsapp`**: número com DDI + DDD, só dígitos (ex.: `5511912345678`). Também liga o botão flutuante.
+- **Preços e textos**: `precoDe`, `precoPor`, `kit`, perguntas, passos etc.
+- **Fotos**: coloque os arquivos em `public/lp/` e informe o caminho em `fotos` (ex.: `/lp/antes.jpg`).
+  Sem fotos, a página usa as ilustrações que já vêm prontas.
+- **`provas`**: prints reais de clientes (ex.: `["/lp/prova1.jpg"]`). Use só conversas verdadeiras e autorizadas.

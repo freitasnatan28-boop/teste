@@ -3,13 +3,13 @@ import { NextResponse, type NextRequest } from "next/server";
 import { SESSION_COOKIE, verifySessionToken } from "@/lib/session";
 
 // Rotas públicas (não pedem senha)
-const PUBLICAS = ["/login"];
+const PUBLICAS = ["/login", "/oferta"];
 
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
   if (PUBLICAS.some((p) => pathname === p || pathname.startsWith(`${p}/`))) return NextResponse.next();
-  // Imagens da pasta public/ (ex.: foto da Tia Fifi na tela de login)
-  if (/^\/[\w-]+\.(webp|png|jpe?g|svg|ico)$/.test(pathname)) return NextResponse.next();
+  // Imagens da pasta public/ (ex.: foto da Tia Fifi na tela de login) e fotos da landing em public/lp/
+  if (/^\/(lp\/)?[\w-]+\.(webp|png|jpe?g|svg|ico)$/.test(pathname)) return NextResponse.next();
 
   const ok = await verifySessionToken(req.cookies.get(SESSION_COOKIE)?.value, process.env.SESSION_SECRET ?? "");
   if (ok) return NextResponse.next();

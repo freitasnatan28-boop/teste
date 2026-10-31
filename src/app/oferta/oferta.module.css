@@ -1,0 +1,629 @@
+/* Landing page /oferta — feita primeiro para o celular (coluna única de até 480px).
+   No computador a mesma coluna fica centralizada, como nas páginas de venda que mais convertem. */
+.pagina {
+  --preto: #0b0d10;
+  --grafite: #171a20;
+  --ouro: #f5b301;
+  --verde: #12a150;
+  --verde-escuro: #0b7f3e;
+  --whats: #25d366;
+  --texto: #14171c;
+  --cinza: #5d6470;
+  --linha: #e6e8ec;
+  --fundo: #f4f5f7;
+  --raio: 16px;
+  color-scheme: light;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: radial-gradient(circle at 50% 0, #23272f, #0b0d10 70%);
+  color: var(--texto);
+  font-family: var(--fonte-corpo-pilha);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.pagina h1,
+.pagina h2 {
+  font-family: var(--fonte-corpo-pilha);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.pagina p {
+  margin: 0;
+}
+.pagina img,
+.pagina svg {
+  display: block;
+  max-width: 100%;
+}
+
+.coluna {
+  max-width: 480px;
+  margin: 0 auto;
+  background: #fff;
+  overflow-x: clip;
+  padding-bottom: calc(84px + env(safe-area-inset-bottom));
+}
+@media (min-width: 520px) {
+  .coluna {
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* ---------- Faixa de avisos ---------- */
+.faixa {
+  overflow: hidden;
+  background: var(--ouro);
+  color: #111;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.faixaTrilho {
+  display: flex;
+  width: max-content;
+  animation: rolar 22s linear infinite;
+}
+.faixaTrilho span {
+  padding: 8px 18px;
+}
+@keyframes rolar {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faixaTrilho {
+    animation: none;
+  }
+}
+
+/* ---------- Topo ---------- */
+.hero {
+  padding: 16px 16px 26px;
+  background: linear-gradient(180deg, var(--preto), var(--grafite));
+  color: #fff;
+  text-align: center;
+}
+.prova {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+}
+.estrelas {
+  color: var(--ouro);
+  letter-spacing: 1px;
+}
+.hero h1 {
+  margin: 12px 0 6px;
+  font-size: clamp(1.75rem, 8vw, 2.3rem);
+  line-height: 1.05;
+}
+.hero h1 span {
+  display: block;
+  color: var(--ouro);
+}
+.subtitulo {
+  font-size: 1rem;
+  color: #d5d9e0;
+}
+.foto {
+  position: relative;
+  margin: 12px auto 0;
+  max-width: 250px;
+  aspect-ratio: 32 / 26;
+}
+.foto img,
+.foto svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--raio);
+}
+.fitaKit {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: var(--ouro);
+  color: #111;
+  font-weight: 900;
+  font-size: 0.9rem;
+  transform: rotate(6deg);
+}
+
+/* ---------- Cartão da oferta ---------- */
+.cartaoOferta {
+  position: relative;
+  margin: -14px 12px 0;
+  padding: 20px 16px 16px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(11, 13, 16, 0.18);
+  border: 1px solid var(--linha);
+  text-align: center;
+}
+.nomeKit {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+.preco {
+  display: grid;
+  gap: 2px;
+  justify-items: center;
+}
+.precoDe {
+  color: var(--cinza);
+  font-size: 0.9rem;
+}
+.precoPor {
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--verde-escuro);
+  letter-spacing: -0.03em;
+}
+.precoPor small {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cinza);
+  letter-spacing: 0;
+}
+.precoGrande .precoPor {
+  font-size: 3rem;
+}
+.parcelas {
+  font-size: 0.9rem;
+  color: var(--cinza);
+}
+.selo {
+  margin-top: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #e8f7ee;
+  color: var(--verde-escuro);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ---------- Botões (alvo de toque grande, zona do polegar) ---------- */
+.botoes {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+.botaoComprar,
+.botaoWhats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 58px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+.botaoComprar {
+  background: linear-gradient(180deg, #19b85d, var(--verde));
+  color: #fff;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 0 var(--verde-escuro), 0 10px 22px rgba(18, 161, 80, 0.35);
+  animation: pulsar 2.4s ease-in-out infinite;
+}
+.botaoWhats {
+  background: #fff;
+  color: #128c4a;
+  border: 2px solid var(--whats);
+  font-size: 0.98rem;
+}
+.botaoComprar:active,
+.botaoWhats:active {
+  transform: translateY(3px);
+}
+.botaoComprar:hover,
+.botaoWhats:hover {
+  filter: brightness(1.05);
+}
+.botaoComprar:focus-visible,
+.botaoWhats:focus-visible,
+.flutuante:focus-visible {
+  outline: 3px solid var(--ouro);
+  outline-offset: 3px;
+}
+@keyframes pulsar {
+  50% {
+    transform: scale(1.025);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .botaoComprar {
+    animation: none;
+  }
+}
+
+.confianca {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8rem;
+  color: var(--cinza);
+  font-weight: 600;
+}
+
+/* ---------- Seções ---------- */
+.secao {
+  padding: 40px 16px;
+}
+.secao > h2 {
+  margin: 0 0 18px;
+  font-size: 1.6rem;
+  line-height: 1.15;
+}
+.sobre {
+  margin-bottom: 6px !important;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #b07f00;
+}
+.subsecao {
+  margin: -10px 0 16px !important;
+  color: var(--cinza);
+}
+.clara {
+  background: var(--fundo);
+}
+.escura {
+  background: var(--preto);
+  color: #fff;
+}
+.escura .sobre {
+  color: var(--ouro);
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.beneficio {
+  padding: 16px 14px;
+  border-radius: var(--raio);
+  background: var(--fundo);
+  border: 1px solid var(--linha);
+}
+.beneficio strong {
+  display: block;
+  margin: 8px 0 2px;
+  font-size: 1rem;
+}
+.beneficio p {
+  font-size: 0.88rem;
+  color: var(--cinza);
+  line-height: 1.4;
+}
+.icone {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #fff4cc;
+  font-size: 1.3rem;
+}
+
+/* ---------- Antes x depois ---------- */
+.comparador {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--raio);
+  overflow: hidden;
+  user-select: none;
+  touch-action: pan-y;
+}
+.camada {
+  position: absolute;
+  inset: 0;
+}
+.camada img,
+.camada svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.linha {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  margin-left: -1.5px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+.pega {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+  font-weight: 900;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+.controle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+.controle:focus-visible + * {
+  outline: none;
+}
+.comparador:focus-within {
+  outline: 3px solid var(--ouro);
+  outline-offset: 3px;
+}
+.etiqueta {
+  position: absolute;
+  top: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+.etiquetaAntes {
+  left: 10px;
+}
+.etiquetaDepois {
+  right: 10px;
+  background: var(--ouro);
+  color: #111;
+}
+.dica {
+  margin-top: 12px !important;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aab1bc;
+}
+
+/* ---------- Passos ---------- */
+.passos {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.passos li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.passos strong {
+  display: block;
+  font-size: 1.05rem;
+}
+.passos p {
+  color: var(--cinza);
+  font-size: 0.95rem;
+}
+.numero {
+  flex: 0 0 36px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--preto);
+  color: var(--ouro);
+  font-weight: 900;
+}
+.garantia {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: var(--raio);
+  background: #e8f7ee;
+  border: 1px dashed #8fd3aa;
+  font-size: 0.95rem;
+}
+.garantia span {
+  font-size: 1.8rem;
+}
+
+/* ---------- Provas sociais ---------- */
+.provas {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 60%;
+  gap: 12px;
+  margin: 0 -16px;
+  padding: 0 16px 6px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.provas::-webkit-scrollbar {
+  display: none;
+}
+.print {
+  scroll-snap-align: center;
+  width: 100%;
+  aspect-ratio: 3 / 5;
+  object-fit: cover;
+  border-radius: var(--raio);
+  border: 1px solid var(--linha);
+  background: #e5ddd5;
+}
+.printVazio {
+  aspect-ratio: 3 / 4;
+  display: grid;
+  place-content: center;
+  gap: 4px;
+  padding: 16px;
+  text-align: center;
+  color: #54656f;
+  font-weight: 700;
+  border: 2px dashed #b9c3ca;
+}
+.printVazio small {
+  font-weight: 500;
+}
+
+/* ---------- FAQ ---------- */
+.faq {
+  display: grid;
+  gap: 8px;
+}
+.faq details {
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--linha);
+}
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 12px 16px;
+  font-weight: 700;
+  color: var(--texto);
+  cursor: pointer;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+.faq summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--verde);
+  transition: transform 0.2s;
+}
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+.faq details p {
+  padding: 0 16px 14px;
+  color: var(--cinza);
+}
+
+/* ---------- Chamada final + rodapé ---------- */
+.final {
+  text-align: center;
+  background: linear-gradient(180deg, #fff, #fff8e1);
+}
+.final > h2 {
+  margin-bottom: 10px;
+}
+.rodape {
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #8a919c;
+  background: var(--preto);
+}
+.rodape strong {
+  color: #fff;
+}
+
+/* ---------- Elementos presos na tela ---------- */
+.barraFixa {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 480px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--linha);
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.12);
+  transform: translate(-50%, 110%);
+  transition: transform 0.25s ease;
+}
+.barraVisivel {
+  transform: translate(-50%, 0);
+}
+.barraPreco {
+  display: grid;
+  line-height: 1.15;
+}
+.barraPreco small {
+  font-size: 0.72rem;
+  color: var(--cinza);
+  font-weight: 600;
+}
+.barraPreco strong {
+  font-size: 1.25rem;
+  color: var(--verde-escuro);
+  font-weight: 900;
+}
+.barraFixa .botaoComprar {
+  flex: 1;
+  min-height: 52px;
+  font-size: 1.05rem;
+  animation: none;
+  box-shadow: 0 4px 0 var(--verde-escuro);
+}
+.flutuante {
+  position: fixed;
+  right: max(16px, calc(50% - 240px + 16px));
+  bottom: calc(92px + env(safe-area-inset-bottom));
+  z-index: 29;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--whats);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.flutuante svg {
+  width: 30px;
+  height: 30px;
+}
