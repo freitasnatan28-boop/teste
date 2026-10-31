@@ -26,7 +26,10 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 
 ## Decisões pendentes
 
-- [ ] Nicho. Sugestão: reviews e comparativos de produtos (casa com afiliados).
+- [ ] Nicho. O dono quer guerras, história de países e notícias. Recomendação do Claude:
+  **"geopolítica e história explicada"**, evergreen, em PT-BR, com gancho em notícias quando houver.
+  Notícia pura é ruim: anúncio limitado em guerra atual, YouTube prioriza fontes oficiais e o risco de erro é alto.
+  Visual precisa de mapas gerados em código + imagens do Wikimedia Commons (o Pexels sozinho não serve).
 - [ ] Idioma: PT-BR (afiliado Mercado Livre) ou inglês para os EUA (afiliado Amazon Associates, RPM maior).
 - [ ] Onde fica o código: neste repositório (painel da Tia Fifi) ou num repositório separado.
 - [ ] Voz: ElevenLabs (paga, mais natural, permite clonar a voz do dono) ou Kokoro TTS (grátis, local).
