@@ -113,6 +113,7 @@ bash scripts/baixar_nasa.sh B1 B2 C1                            # satélite NASA
 | Descript | ✅ conectado nas sessões do Claude | — |
 | TinyFish (web) | ✅ conectado nas sessões do Claude | — |
 | Anthropic | já existe no projeto da Tia Fifi | `ANTHROPIC_API_KEY` |
+| OpenAI (imagens) | ✅ conectada como Network secret em api.openai.com (out/2026). Modelo `gpt-image-2`, ~30 s por imagem, só funciona em streaming (o proxy corta após ~30 s parado) | `IMAGENS_IA=openai` |
 | Pexels | ❌ falta criar a chave (grátis) | `PEXELS_API_KEY` |
 | YouTube (Google Cloud) | ❌ falta: projeto, YouTube Data API v3, YouTube Analytics API, cliente OAuth Web | `YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET`, `YOUTUBE_REDIRECT_URI` |
 | VPS com HTTPS + FFmpeg | ❌ falta (mínimo 4 GB de RAM pra render) | — |

@@ -29,15 +29,29 @@ async function gemini(prompt: string): Promise<Buffer> {
   return Buffer.from(parte.inlineData.data, "base64");
 }
 
+// Em modo streaming: a imagem chega aos poucos e a conexão não fica parada (o proxy corta após ~30 s sem dados).
 async function openai(prompt: string): Promise<Buffer> {
   const res = await fetch("https://api.openai.com/v1/images/generations", {
     method: "POST",
     headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY ?? "sk-injetada-pelo-proxy"}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ model: process.env.OPENAI_MODELO ?? "gpt-image-1", prompt, size: "1536x1024", quality: "medium" }),
+    body: JSON.stringify({
+      model: process.env.OPENAI_MODELO ?? "gpt-image-2",
+      prompt,
+      size: "1536x1024",
+      quality: process.env.OPENAI_QUALIDADE ?? "medium",
+      stream: true,
+      partial_images: 2,
+    }),
   });
   if (!res.ok) throw new Error(`OpenAI ${res.status}: ${await res.text()}`);
-  const dados = (await res.json()) as { data: { b64_json: string }[] };
-  return Buffer.from(dados.data[0].b64_json, "base64");
+  const texto = await res.text();
+  const final = texto
+    .split("\n")
+    .filter((l) => l.startsWith("data: "))
+    .map((l) => JSON.parse(l.slice(6)) as { type: string; b64_json?: string })
+    .find((e) => e.type === "image_generation.completed");
+  if (!final?.b64_json) throw new Error("OpenAI não devolveu a imagem final");
+  return Buffer.from(final.b64_json, "base64");
 }
 
 async function main() {
@@ -48,7 +62,9 @@ async function main() {
   if (!gerar) throw new Error("Defina IMAGENS_IA=openai|gemini (Network secret) ou GEMINI_API_KEY/OPENAI_API_KEY.");
 
   const lista = JSON.parse(readFileSync(join(pasta, "imagens-ia.json"), "utf8")) as Record<string, string>;
+  const so = process.env.IMAGENS_SO?.split(","); // gera só estas (ex.: IMAGENS_SO=conves)
   for (const [nome, descricao] of Object.entries(lista)) {
+    if (so && !so.includes(nome)) continue;
     const arquivo = join(pasta, "imagens", `${nome}.jpg`);
     if (existsSync(arquivo)) continue; // foto real (ou IA já gerada) tem prioridade
     const bruto = join(pasta, "imagens", `.${nome}.ia`);
