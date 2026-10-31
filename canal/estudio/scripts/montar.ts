@@ -156,6 +156,14 @@ function main() {
   todas.forEach((c, i) => (c.fim = i < todas.length - 1 ? todas[i + 1].inicio : cursor));
   const temImg = (n: string) => existsSync(join(pastaDisco, "imagens", `${n}.jpg`));
   for (const c of todas) c.cena = substituirFaltante(c.cena, temImg, avisos);
+  // Cartão de texto vazio (foto faltando sem legenda) sai, e a cena anterior se estende no lugar dele.
+  for (let i = todas.length - 1; i > 0; i--) {
+    const c = todas[i].cena;
+    if (c.tipo === "texto" && c.linhas.length === 0) {
+      todas[i - 1].fim = todas[i].fim;
+      todas.splice(i, 1);
+    }
+  }
   // Imagens feitas por IA (listadas em imagens-ia.json e não em imagens.json) ganham selo na tela.
   const arqIa = join(pastaDisco, "imagens-ia.json");
   const reais = JSON.parse(readFileSync(join(pastaDisco, "imagens.json"), "utf8")) as Record<string, unknown>;

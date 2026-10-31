@@ -210,7 +210,7 @@
     },
     "b23": {
       "cenas": [
-        {"tipo": "mapa", "de": {"centro": [-34, -6], "zoom": 18}, "para": {"centro": [-33.8, -6.6], "zoom": 26}, "titulo": "Vigilância o tempo todo", "pontos": [{"lonlat": [-33.6, -6.4], "icone": "lagosta", "em": 0.0}, {"lonlat": [-33.3, -6.9], "icone": "navio", "cor": "#e63946", "rotulo": "Tartu", "em": 0.05}, {"lonlat": [-33.9, -6.7], "icone": "navio", "cor": "#1fa45b", "rotulo": "Perto", "em": 0.25}, {"lonlat": [-34.3, -7.3], "icone": "navio", "cor": "#1fa45b", "rotulo": "À distância", "em": 0.45}]},
+        {"tipo": "mapa", "de": {"centro": [-34, -6], "zoom": 18}, "para": {"centro": [-33.8, -6.8], "zoom": 70}, "titulo": "Vigilância o tempo todo", "pontos": [{"lonlat": [-33.6, -6.4], "icone": "lagosta", "em": 0.0}, {"lonlat": [-33.3, -6.9], "icone": "navio", "cor": "#e63946", "rotulo": "Tartu", "em": 0.05}, {"lonlat": [-33.9, -6.7], "icone": "navio", "cor": "#1fa45b", "rotulo": "Perto", "em": 0.25}, {"lonlat": [-34.3, -7.3], "icone": "navio", "cor": "#1fa45b", "rotulo": "À distância", "em": 0.45}]},
         {"em": "respondeu", "tipo": "mapa", "de": {"centro": [-22, 6], "zoom": 3.8}, "para": {"centro": [-28, 0], "zoom": 4.6}, "titulo": "Chega o Paul Gaufeny", "rotas": [{"pontos": [[-17.4, 14.7], [-33.3, -6.9]], "cor": "#e63946", "icone": "navio", "inicio": 0.0, "fim": 0.9}]},
         {"em": "Agora", "tipo": "versus", "esquerda": "BRA", "direita": "FRA", "titulo": "Marinha do Brasil × 2 navios de guerra + 6 pesqueiros"},
         {"em": "Bastava", "tipo": "texto", "linhas": ["BASTAVA", "UM TIRO"], "cor": "#e63946", "tremer": true, "som": "riser"}
