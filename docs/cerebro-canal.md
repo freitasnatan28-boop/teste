@@ -63,6 +63,11 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 - [ ] Canal NOVO pro inglês (recomendado: os 120 inscritos são brasileiros e confundem o algoritmo) ou o antigo.
 - [ ] Voz em inglês na ElevenLabs (narrador de documentário americano).
 - [ ] Manter o canal em PT em paralelo ou parar.
+- [ ] Nicho pros EUA. Recomendação do Claude (out/2026): **geoeconomia com mapas** ("money & power explained"):
+  dinheiro e poder entre países (EUA x China, petróleo, chips, terras raras, por que um país é rico ou pobre),
+  temas sobre os próprios EUA (estados, fronteiras) e "a guerra explicada" de forma analítica. RPM estimado de
+  história/geopolítica nos EUA: US$ 6 a 14 (blogs de terceiros, sem dado oficial). O tema de dinheiro puxa anunciante
+  de finanças. Finanças pessoais paga mais, mas é saturado, exige autoridade e não usa o nosso motor de mapas.
 
 - [x] Canal: usar o canal ANTIGO do dono (120 inscritos, poucos vídeos de Minecraft → deixar privados e renomear). Recursos padrão e intermediários ✅ (vídeos > 15 min, miniaturas
   personalizadas). Recursos avançados: **pendente** (precisa verificação por vídeo/documento ou histórico do canal).
