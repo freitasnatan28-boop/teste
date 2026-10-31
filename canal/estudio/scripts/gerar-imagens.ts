@@ -1,5 +1,6 @@
 // Gera com IA as imagens listadas em <pasta>/imagens-ia.json ({ nome: descrição }) que ainda não existem
-// em <pasta>/imagens. Usa a chave que estiver no ambiente: GEMINI_API_KEY (Google) ou OPENAI_API_KEY.
+// em <pasta>/imagens. Usa GEMINI_API_KEY (Google) ou OPENAI_API_KEY. Na nuvem do Claude a chave pode estar
+// guardada como "Network secret" (o proxy injeta sozinho): aí rode com IMAGENS_IA=openai ou IMAGENS_IA=gemini.
 // Estilo de ilustração (não fotográfico) para não passar por foto real de época; nada de pessoas reais.
 // Uso: npm run gerar-imagens -- ../videos/001-guerra-da-lagosta
 import { execFileSync } from "node:child_process";
@@ -31,7 +32,7 @@ async function gemini(prompt: string): Promise<Buffer> {
 async function openai(prompt: string): Promise<Buffer> {
   const res = await fetch("https://api.openai.com/v1/images/generations", {
     method: "POST",
-    headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY ?? ""}`, "Content-Type": "application/json" },
+    headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY ?? "sk-injetada-pelo-proxy"}`, "Content-Type": "application/json" },
     body: JSON.stringify({ model: process.env.OPENAI_MODELO ?? "gpt-image-1", prompt, size: "1536x1024", quality: "medium" }),
   });
   if (!res.ok) throw new Error(`OpenAI ${res.status}: ${await res.text()}`);
@@ -42,8 +43,9 @@ async function openai(prompt: string): Promise<Buffer> {
 async function main() {
   const pasta = process.argv[2];
   if (!pasta) throw new Error("Uso: npm run gerar-imagens -- <pasta-do-video>");
-  const gerar = process.env.GEMINI_API_KEY ? gemini : process.env.OPENAI_API_KEY ? openai : null;
-  if (!gerar) throw new Error("Nenhuma chave de IA de imagem no ambiente (GEMINI_API_KEY ou OPENAI_API_KEY).");
+  const escolha = process.env.IMAGENS_IA ?? (process.env.GEMINI_API_KEY ? "gemini" : process.env.OPENAI_API_KEY ? "openai" : "");
+  const gerar = escolha === "gemini" ? gemini : escolha === "openai" ? openai : null;
+  if (!gerar) throw new Error("Defina IMAGENS_IA=openai|gemini (Network secret) ou GEMINI_API_KEY/OPENAI_API_KEY.");
 
   const lista = JSON.parse(readFileSync(join(pasta, "imagens-ia.json"), "utf8")) as Record<string, string>;
   for (const [nome, descricao] of Object.entries(lista)) {
