@@ -55,6 +55,8 @@ h3 { font-size: 1.125rem; letter-spacing: -.01em; line-height: 1.25; }
 p { margin: 0; }
 a { color: inherit; }
 img, svg, video { display: block; max-width: 100%; }
+/* Dificulta salvar fotos e vídeo (arrastar, segurar o dedo no celular) */
+img, video { -webkit-user-drag: none; -webkit-touch-callout: none; user-select: none; -webkit-user-select: none; }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: 3px solid var(--destaque); outline-offset: 3px; border-radius: 6px; }
 
@@ -241,8 +243,24 @@ button { font: inherit; color: inherit; }
 /* ---------- Vídeo ---------- */
 .video-secao { background: var(--nevoa); }
 .video-grade { display: grid; gap: 32px; align-items: center; }
-.video-moldura { position: relative; width: 100%; max-width: 400px; justify-self: center; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 26px; background: var(--tinta); box-shadow: var(--sombra); }
-.video-moldura video { width: 100%; height: 100%; object-fit: cover; }
+.video-moldura { position: relative; width: 100%; max-width: 360px; justify-self: center; aspect-ratio: 9 / 16; overflow: hidden; border-radius: 26px; background: var(--tinta); box-shadow: var(--sombra); }
+.video-moldura video { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
+.video-som {
+  position: absolute; left: 12px; bottom: 12px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 14px; border: 0; border-radius: 999px; cursor: pointer;
+  background: rgba(29, 20, 24, .78); color: var(--sobre-tinta);
+  font-weight: 700; font-size: .875rem;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  animation: chamar 1.8s ease-in-out infinite;
+}
+.video-som .i { width: 20px; height: 20px; }
+.video-som.ligado { animation: none; padding: 10px; }
+.video-som.ligado span { display: none; }
+@keyframes chamar { 50% { transform: scale(1.06); } }
+.video-pausa { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.video-pausa span { display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: rgba(29, 20, 24, .7); color: var(--sobre-tinta); }
+.video-pausa .i { width: 30px; height: 30px; margin-left: 4px; }
 @media (min-width: 900px) { .video-grade { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; } .video-grade .cabeca { margin-bottom: 0; } }
 
 /* ---------- Antes e depois ---------- */
@@ -362,6 +380,8 @@ main { padding-bottom: env(safe-area-inset-bottom, 0px); }
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17" /></symbol>
     <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></symbol>
+    <symbol id="i-som-off" viewBox="0 0 24 24"><path d="M11 5L6 9H3v6h3l5 4z" /><path d="M16 9.5l5 5M21 9.5l-5 5" /></symbol>
+    <symbol id="i-som-on" viewBox="0 0 24 24"><path d="M11 5L6 9H3v6h3l5 4z" /><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" /></symbol>
     <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M7 4.5v15l12.5-7.5z" /></symbol>
     <symbol id="i-estrela" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 2.8l2.8 5.8 6.4.8-4.7 4.4 1.2 6.4L12 17.1l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" /></symbol>
     <symbol id="i-caminhao" viewBox="0 0 24 24"><path d="M2 6.5h12v9.5H2zM14 9.5h4.2L21.5 13v3H14" /><circle cx="6.5" cy="17.5" r="1.9" /><circle cx="17" cy="17.5" r="1.9" /></symbol>
@@ -490,7 +510,9 @@ main { padding-bottom: env(safe-area-inset-bottom, 0px); }
         </ul>
       </div>
       <div class="video-moldura">
-        <video id="video-cinta" src="lp/cinta-video.mp4" poster="lp/cinta-video-capa.jpg" muted loop playsinline controls preload="none" aria-label="Vídeo de uma moça vestindo a cinta e fechando os colchetes"></video>
+        <video id="video-cinta" src="lp/cinta-video.mp4" poster="lp/cinta-video-capa.jpg" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload noplaybackrate noremoteplayback nofullscreen" aria-label="Vídeo de uma moça vestindo a cinta e fechando os colchetes"></video>
+        <span class="video-pausa" id="video-pausa"><span><svg class="i"><use href="#i-play" /></svg></span></span>
+        <button type="button" class="video-som" id="video-som" aria-label="Ligar o som"><svg class="i"><use href="#i-som-off" /></svg><span>Toque para ouvir</span></button>
       </div>
     </div>
   </section>
@@ -711,15 +733,71 @@ const CONFIG = {
     }
   });
 
-  // Vídeo: toca sem som quando aparece na tela e pausa quando sai
+  // Vídeo: começa sozinho quando aparece na tela. O navegador só deixa tocar com som depois
+  // que a pessoa toca na página, então o som liga no primeiro toque (em qualquer lugar).
   const video = $("#video-cinta");
-  const semMovimento = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if ("IntersectionObserver" in window && !semMovimento) {
+  const botaoSom = $("#video-som");
+  const iconePausa = $("#video-pausa");
+  let querSom = false;
+
+  function mostrarSom() {
+    botaoSom.classList.toggle("ligado", !video.muted);
+    botaoSom.querySelector("use").setAttribute("href", video.muted ? "#i-som-off" : "#i-som-on");
+    botaoSom.setAttribute("aria-label", video.muted ? "Ligar o som" : "Desligar o som");
+  }
+  async function tocar() {
+    video.muted = !querSom;
+    try {
+      await video.play();
+    } catch {
+      video.muted = true;
+      video.play().catch(() => {});
+    }
+    mostrarSom();
+  }
+  function ligarSom() {
+    querSom = true;
+    video.muted = false;
+    if (video.paused) tocar();
+    mostrarSom();
+  }
+
+  // Primeiro toque na página (fora do vídeo) já libera o som
+  const liberar = (e) => {
+    if (e.target.closest("#video-som, #video-cinta")) return;
+    querSom = true;
+    if (!video.paused) { video.muted = false; mostrarSom(); }
+  };
+  ["pointerdown", "keydown"].forEach((ev) => document.addEventListener(ev, liberar, { once: true, capture: true }));
+
+  botaoSom.addEventListener("click", () => {
+    if (video.muted) ligarSom();
+    else { querSom = false; video.muted = true; mostrarSom(); }
+  });
+  // Tocar no vídeo: se estiver mudo, liga o som; senão pausa ou continua
+  video.addEventListener("click", () => {
+    if (video.muted) ligarSom();
+    else if (video.paused) tocar();
+    else video.pause();
+  });
+  const atualizarPausa = () => (iconePausa.hidden = !video.paused);
+  video.addEventListener("play", atualizarPausa);
+  video.addEventListener("pause", atualizarPausa);
+
+  if ("IntersectionObserver" in window) {
     new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) video.play().catch(() => {});
+      if (e.isIntersecting) tocar();
       else video.pause();
     }, { threshold: 0.4 }).observe(video);
   }
+
+  // Dificulta salvar fotos e vídeo: sem menu do botão direito e sem arrastar
+  document.addEventListener("contextmenu", (e) => {
+    if (e.target.closest("img, video")) e.preventDefault();
+  });
+  document.addEventListener("dragstart", (e) => {
+    if (e.target.closest("img, video")) e.preventDefault();
+  });
 
   // Barra de compra fixa (celular): visível sempre que o botão principal não está na tela
   const barra = $("#barra");
