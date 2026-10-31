@@ -28,10 +28,15 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
   (anúncio limitado em guerra atual, YouTube prioriza fontes oficiais, risco de erro).
   Ângulos: (1) "por que o país X é assim?", (3) "a guerra explicada em 10 min" como base; (2) "países e lugares
   que ninguém conhece" pra viralizar. Contar guerras de forma analítica, sem imagens violentas.
-- **Idioma:** português (PT-BR).
+- **Público e idioma (MUDOU em out/2026):** canal dark (sem rosto) **para o público dos EUA, em inglês (EN-US)**.
+  Motivo: o anúncio paga bem mais por view americano. Sem proxy/VPN: o que conta é onde o público está, e vídeo
+  em inglês já chega nele. O país do canal e o AdSense continuam no Brasil, com os dados reais do dono.
+  Views dos EUA têm 30% de imposto retido (Brasil sem tratado). O inglês é o mercado mais visado pela regra de
+  "conteúdo inautêntico", então a revisão humana, a pesquisa de verdade e o formato variado ficam obrigatórios.
+  O vídeo 001 em PT-BR fica como teste do motor de edição.
 - **Visual:** mapas animados gerados em código + imagens do Wikimedia Commons (com crédito) + Pexels só pra ambiente.
 - **Fatos:** todo roteiro passa pelo setor de Pesquisa e lista as fontes na descrição.
-- **Nome:** **Por Trás do Mapa**. Arquivos em `canal/identidade/` (foto de perfil 800x800, banner 2560x1440).
+- **Nome:** **Por Trás do Mapa** (versão PT). Nome em inglês: **pendente**. Arquivos em `canal/identidade/` (foto de perfil 800x800, banner 2560x1440).
 - **Voz:** ElevenLabs "Nassif - Documentary, History & Thriller" (`acdKA5HckGxoxxvy40dA`), `eleven_multilingual_v2`,
   stability 0.45, similarity 0.8, style 0.2, seed 1963. Nomes estrangeiros têm grafia fonética em `scripts/roteiro.ts`.
 - **Estilo de edição (ATUAL): "modelo de mapa"**, igual ao vídeo de referência que o dono mandou (Reel estilo GeoAnalyst
@@ -53,6 +58,11 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
   roteiro em blocos com **[VISUAL]** + narração.
 
 ## Decisões pendentes
+
+- [ ] Nome do canal em inglês e @ (ideias: Behind the Map, Map Untold, The Map Room).
+- [ ] Canal NOVO pro inglês (recomendado: os 120 inscritos são brasileiros e confundem o algoritmo) ou o antigo.
+- [ ] Voz em inglês na ElevenLabs (narrador de documentário americano).
+- [ ] Manter o canal em PT em paralelo ou parar.
 
 - [x] Canal: usar o canal ANTIGO do dono (120 inscritos, poucos vídeos de Minecraft → deixar privados e renomear). Recursos padrão e intermediários ✅ (vídeos > 15 min, miniaturas
   personalizadas). Recursos avançados: **pendente** (precisa verificação por vídeo/documento ou histórico do canal).
@@ -127,7 +137,8 @@ Redirect do YouTube: `{APP_URL}/api/youtube/oauth/callback`.
 
 ## Próximos passos
 
-1. Vídeo 001 pronto no modelo de mapa com confronto (out/2026). Aguardando o dono assistir e aprovar pra publicar.
+1. Vídeo 001 (PT) pronto no modelo de mapa (v4: balões sincronizados, áudio em -14 LUFS). Com a mudança pros EUA,
+   proposta: refazer o 001 em inglês ("The Lobster War") reaproveitando mapas e storyboard, só trocando textos e voz.
 2. O dono cria o canal (e-mail, @, foto, banner) e as chaves do Google Cloud; pede a auditoria da API do YouTube.
 3. Claude monta a tela "Conectar YouTube" + o status das conexões, e o setor de Publicação.
 4. Automatizar Roteiro → storyboard com a API do Claude (hoje o storyboard do 001 foi escrito à mão).
