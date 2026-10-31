@@ -84,6 +84,11 @@ bash scripts/baixar_nasa.sh B1 B2 C1                            # satélite NASA
 - Satélite: `montar` chama `scripts/preparar_mapas.py`, que recorta o pedaço de cada cena (mundo 60 px/grau,
   blocos 240 px/grau) em `videos/NNN/mapas/` (fora do git). Projeção equirretangular. Zoom: 1 = mundo inteiro
   na largura; ~2,7 Atlântico Brasil-França; ~14 Nordeste; ~25-35 litoral. Bandeira em país só quando ele aparece inteiro.
+- Balões/emojis (feedback do dono: "fora de sincronia"): entram 0,2 s antes da palavra, saem quando o próximo
+  entra (fala ~4 s, emoji ~2,5 s), se posicionam sozinhos encostados em quem fala (dx/dy ignorados) e todo balão
+  precisa de um "dono" no mapa (retrato, navio, ícone ou bandeira do país no mesmo ponto).
+- Áudio (feedback: "aumenta a voz"): narração normalizada em -16 LUFS (`narracao-mix/`, gerada pelo montar;
+  a ElevenLabs entrega ~-30) e o render masteriza a mixagem em -14 LUFS. Trilha 0,1; pops ~0,3; teclado 0,3.
 - Imagens por IA: o dono autorizou ("se for preciso"). Só pra cenas sem foto livre, estilo ilustração (não
   imita foto de época), nunca pessoas reais, selo "ILUSTRAÇÃO (IA)" na tela e marcar "conteúdo alterado ou
   sintético" no upload do YouTube. Precisa de GEMINI_API_KEY ou OPENAI_API_KEY nos segredos do ambiente
