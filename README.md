@@ -536,7 +536,7 @@ junto com a pasta de imagens. As fotos e o vídeo da cinta ficam em `public/lp/`
 
 Ordem da página da cinta (sem cabeçalho nem rodapé): faixa de avisos → título → foto → oferta única (1 cinta, R$ 129,90) →
 escolha do tamanho → botões "Comprar agora" (checkout da Logzz) e "Pedir pelo WhatsApp" (venda no X1) →
-vídeo → antes e depois → benefícios → como funciona o pagamento na entrega → prints de clientes →
+vídeo → antes e depois → benefícios → como funciona o pagamento na entrega →
 garantia de 7 dias → chamada final. No celular, uma barra com WhatsApp e "Comprar" fica fixa no rodapé
 sempre que os botões principais não estão na tela.
 
@@ -548,5 +548,4 @@ O que trocar em `landing/oferta.html`:
   a página lembra a cliente disso e, quando o pedido vai pelo WhatsApp, já manda o tamanho na mensagem.
 - **WhatsApp**: no `CONFIG`, no fim do arquivo, coloque o número com DDI + DDD, só dígitos (ex.: `5511912345678`).
   Sem link de checkout, o botão de compra abre o WhatsApp com a oferta e o tamanho já escritos.
-- **Prints de clientes**: troque cada `.print-tela` por `<img src="lp/print-1.jpg" alt="...">`. Use só prints reais e autorizados.
 - **Cor dos botões**: `--marca` e `--marca-escura` no começo do `<style>`.
