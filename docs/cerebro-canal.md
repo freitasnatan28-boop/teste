@@ -23,14 +23,26 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 - **Formato:** vídeos LONGOS (não Shorts), base de **8 a 12 min**.
 - **Revisão humana:** o robô deixa tudo pronto e o dono aprova com 1 clique antes de publicar (protege contra a regra de "conteúdo inautêntico").
 - **Proxy dos EUA:** NÃO usar. Não muda o ganho (o que conta é onde o público está) e arrisca a conta e o AdSense.
+- **Nicho:** geopolítica e história explicada (evergreen). Notícia só como gancho, nunca notícia pura
+  (anúncio limitado em guerra atual, YouTube prioriza fontes oficiais, risco de erro).
+  Ângulos: (1) "por que o país X é assim?", (3) "a guerra explicada em 10 min" como base; (2) "países e lugares
+  que ninguém conhece" pra viralizar. Contar guerras de forma analítica, sem imagens violentas.
+- **Idioma:** português (PT-BR).
+- **Visual:** mapas animados gerados em código + imagens do Wikimedia Commons (com crédito) + Pexels só pra ambiente.
+- **Fatos:** todo roteiro passa pelo setor de Pesquisa e lista as fontes na descrição.
+
+## Roteiros
+
+- `canal/roteiros/001-guerra-da-lagosta.md`: primeiro vídeo (cerca de 9 min). Status: aguardando aprovação.
+  Formato do arquivo serve de modelo pros próximos: títulos A/B, thumbnail, descrição com capítulos e fontes,
+  roteiro em blocos com **[VISUAL]** + narração.
 
 ## Decisões pendentes
 
-- [ ] Nicho. O dono quer guerras, história de países e notícias. Recomendação do Claude:
-  **"geopolítica e história explicada"**, evergreen, em PT-BR, com gancho em notícias quando houver.
-  Notícia pura é ruim: anúncio limitado em guerra atual, YouTube prioriza fontes oficiais e o risco de erro é alto.
-  Visual precisa de mapas gerados em código + imagens do Wikimedia Commons (o Pexels sozinho não serve).
-- [ ] Idioma: PT-BR (afiliado Mercado Livre) ou inglês para os EUA (afiliado Amazon Associates, RPM maior).
+- [ ] Nome do canal. Nome de trabalho: **"Por Trás do Mapa"** (não achei canal com esse nome em out/2026).
+- [ ] Voz da narração. Candidatas da biblioteca ElevenLabs (PT-BR): "Nassif - Documentary, History & Thriller"
+  (`acdKA5HckGxoxxvy40dA`), grave, estilo History Channel; "Johnes Bittar - Gentle, Warm" (`sJfod1k0iiI5CA9IP0R2`),
+  calmo e analítico. Modelo: `eleven_multilingual_v2`.
 - [ ] Onde fica o código: neste repositório (painel da Tia Fifi) ou num repositório separado.
 - [ ] Voz: ElevenLabs (paga, mais natural, permite clonar a voz do dono) ou Kokoro TTS (grátis, local).
 
@@ -61,7 +73,7 @@ Redirect do YouTube: `{APP_URL}/api/youtube/oauth/callback`.
 
 ## Próximos passos
 
-1. O dono fecha as decisões pendentes (nicho e idioma primeiro).
+1. O dono aprova o roteiro 001 e escolhe nome e voz.
 2. O dono cria o canal e as chaves (Pexels, Google Cloud) e pede a auditoria da API do YouTube.
 3. Claude monta a tela "Conectar YouTube" + o status das conexões.
 4. Claude monta os setores 1 a 6 e gera o primeiro vídeo de teste.
