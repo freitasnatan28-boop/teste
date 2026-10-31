@@ -47,7 +47,7 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 
 ## Decisões pendentes
 
-- [x] Canal criado no YouTube (out/2026). Recursos padrão e intermediários ✅ (vídeos > 15 min, miniaturas
+- [x] Canal: usar o canal ANTIGO do dono (120 inscritos, poucos vídeos de Minecraft → deixar privados e renomear). Recursos padrão e intermediários ✅ (vídeos > 15 min, miniaturas
   personalizadas). Recursos avançados: **pendente** (precisa verificação por vídeo/documento ou histórico do canal).
 - [ ] Ativar recursos avançados (links clicáveis na descrição, limite maior de envios; ajuda no pedido de monetização).
 
