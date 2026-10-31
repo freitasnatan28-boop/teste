@@ -55,6 +55,11 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 
 ## Roteiros
 
+- **002 (EN, proposta, aguardando ok do dono):** "Why America Keeps Trying to Buy Greenland" / B: "America Didn't Conquer Its Land. It Bought It."
+  Gancho: Groenlândia (2019, 2025) → Louisiana 1803 (US$ 15 mi), Flórida 1819, México 1848 (US$ 15 mi após a guerra),
+  Gadsden 1853 (US$ 10 mi), Alasca 1867 (US$ 7,2 mi), Ilhas Virgens 1917 (US$ 25 mi em ouro), oferta secreta de 1946
+  (US$ 100 mi em ouro, revelada em 1991), base de Pituffik, terras raras, gelo do Ártico. Fatos já pesquisados (out/2026).
+
 - `canal/roteiros/001-guerra-da-lagosta.md`: primeiro vídeo (9,4 min). Status: roteiro aprovado, narração pronta,
   edição montada. Thumbnail em `canal/videos/001-guerra-da-lagosta/thumbnail.png`.
   Formato do arquivo serve de modelo pros próximos: títulos A/B, thumbnail, descrição com capítulos e fontes,
@@ -137,6 +142,7 @@ bash scripts/baixar_nasa.sh B1 B2 C1                            # satélite NASA
 | TinyFish (web) | ✅ conectado nas sessões do Claude | — |
 | Anthropic | já existe no projeto da Tia Fifi | `ANTHROPIC_API_KEY` |
 | OpenAI (imagens) | ✅ conectada como Network secret em api.openai.com (out/2026). Modelo `gpt-image-2`, ~30 s por imagem, só funciona em streaming (o proxy corta após ~30 s parado) | `IMAGENS_IA=openai` |
+| Adobe (Express/Firefly/vídeo) | ✅ conectado nas sessões do Claude (out/2026). Usar como apoio na edição: recorte de fundo de retratos, ajuste de imagens, efeitos, melhorar áudio. O motor principal continua o Remotion. Chamar `adobe_mandatory_init` antes de qualquer ferramenta | — |
 | Pexels | ❌ falta criar a chave (grátis) | `PEXELS_API_KEY` |
 | YouTube (Google Cloud) | ❌ falta: projeto, YouTube Data API v3, YouTube Analytics API, cliente OAuth Web | `YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET`, `YOUTUBE_REDIRECT_URI` |
 | VPS com HTTPS + FFmpeg | ❌ falta (mínimo 4 GB de RAM pra render) | — |
