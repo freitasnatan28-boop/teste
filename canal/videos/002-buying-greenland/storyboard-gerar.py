@@ -126,7 +126,7 @@ beats["b13"] = {"cenas": [
 ]}
 beats["b14"] = {"cenas": [
   {"tipo":"texto","linhas":["PURCHASE?","OR CONQUEST?"],"som":"hit"},
-  {"em":"Nine","tipo":"mapa","para":V(-120.5,38.3,16),"zonas":[Z(MEXC,bandeira="USA")],"atores":[
+  {"em":"Historians","tipo":"mapa","para":V(-120.5,38.3,16),"zonas":[Z(MEXC,bandeira="USA")],"atores":[
      A("rotulo",(-120.5,41.2),texto="9 DAYS BEFORE THE TREATY",em="Nine"),
      A("icone",(-120.89,38.8),icone="ouro",rotulo="GOLD!",em="gold"),
      A("reacao",(-120.89,38.8),emoji="🤑",em="Within")]},
@@ -259,7 +259,7 @@ beats["b30"] = {"cenas": [
      A("reacao",(-152,64),emoji="😨",em="afraid"),
      A("bandeira",STT,pais="DNK",em="Denmark"),
      A("reacao",STT,emoji="😰",em="Germany")]},
-  {"em":"Every","tipo":"texto","linhas":["EVERY TIME,","THE SELLER WAS IN TROUBLE"],"som":"hit"},
+  {"em":"Every time","tipo":"texto","linhas":["EVERY TIME,","THE SELLER WAS IN TROUBLE"],"som":"hit"},
 ]}
 beats["b31"] = {"cenas": [
   {"tipo":"mapa","para":V(-25,60,3.3),"paises":[{"iso":"GRL","bandeira":"GRL","em":"Greenland"},{"iso":"DNK","bandeira":"DNK"}],"atores":[
@@ -274,6 +274,7 @@ beats["b32"] = {"cenas": [
      A("icone",(-42,72),icone="interrogacao",rotulo="NOT FOR SALE?",em="belong")]},
   {"em":"subscribe","tipo":"final"},
 ]}
-sb = {"titulo":"Why America Keeps Trying to Buy Greenland","idioma":"en","estilo":"mapa","trilha":"trilha-mapa","beats":beats}
+CHAVES = ["Greenland","Louisiana","Florida","Mexico","Alaska","Napoleon","Jefferson","Seward","Truman","Tsar","gold","secret","folly","icebox","oil","rare","Arctic","China","Denmark","Russia","Haiti","railroad","sale","bought","buy","trouble","independence"]
+sb = {"titulo":"Why America Keeps Trying to Buy Greenland","idioma":"en","estilo":"mapa","trilha":"trilha-mapa","chaves":CHAVES,"beats":beats}
 json.dump(sb, open(sys.argv[1],"w"), ensure_ascii=False, indent=1)
 print(len(beats), "beats", sum(len(b["cenas"]) for b in beats.values()), "cenas")

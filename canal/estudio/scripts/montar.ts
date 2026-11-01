@@ -90,6 +90,84 @@ function duracaoMp3(arquivo: string): number {
   return Number(execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", arquivo]).toString());
 }
 
+
+// ---------- Legenda (estilo dos vídeos curtos: 2 a 4 palavras, a palavra acende quando é falada) ----------
+const NUMEROS = new Set("two three four five six seven eight nine ten eleven twelve fifteen twenty thirty forty fifty sixty seventy eighty ninety hundred thousand million billion percent dois tres quatro cinco seis sete oito nove dez vinte trinta cem cento mil milhao milhoes bilhao bilhoes".split(" "));
+const MAX_PALAVRAS = 4;
+const LIGACAO = new Set("the a an of to in on for and from at by with its his her their o a os as de do da dos das em no na e um uma".split(" "));
+const MAX_LETRAS = 24;
+
+function blocosDeLegenda(palavras: Palavra[], cursor: number, chaves: Set<string>): NonNullable<Timeline["legendas"]> {
+  const blocos: NonNullable<Timeline["legendas"]> = [];
+  let atual: Palavra[] = [];
+  const fechar = () => {
+    if (!atual.length) return;
+    const inicio = Math.round((cursor + atual[0].inicio) * FPS) - 2;
+    const marcas = atual.map((w) => /\d/.test(w.texto) || NUMEROS.has(norm(w.texto)));
+    // Sem número no bloco: a primeira palavra-chave fica amarela.
+    if (!marcas.some(Boolean)) {
+      const k = atual.findIndex((w) => chaves.has(norm(w.texto)) || chaves.has(norm(w.texto).replace(/s$/, "")));
+      if (k >= 0) marcas[k] = true;
+    }
+    blocos.push({
+      inicio,
+      fim: Math.round((cursor + atual[atual.length - 1].fim + 0.6) * FPS),
+      palavras: atual.map((w, i) => ({ t: w.texto, aos: Math.max(0, Math.round((cursor + w.inicio) * FPS) - inicio), chave: marcas[i] || undefined })),
+    });
+    atual = [];
+  };
+  palavras.forEach((w, i) => {
+    const antes = palavras[i - 1];
+    const letras = [...atual, w].map((x) => x.texto).join(" ").length;
+    // Não deixa "the", "of"... no fim do bloco nem uma palavra sozinha que fecha a frase ("we are not for | sale.").
+    const solta = atual.length > 0 && (LIGACAO.has(norm(atual[atual.length - 1].texto)) || /[.,!?;:]$/.test(w.texto));
+    const cheio = atual.length >= MAX_PALAVRAS || letras > MAX_LETRAS;
+    if (atual.length && ((cheio && !(solta && atual.length < 5 && letras <= 30)) || (antes && w.inicio - antes.fim > 0.3))) fechar();
+    atual.push(w);
+    if (/[.,!?;:]$/.test(w.texto)) fechar();
+  });
+  fechar();
+  return blocos;
+}
+
+// ---------- Câmera viva: reenquadra o mapa quando a cena passa ~3 s sem nada novo ----------
+const PARADO = 3.2 * FPS;
+function pulsosDaCena(cena: Extract<TCena["cena"], { tipo: "mapa" }>, duracao: number): { aos: number; vista: Vista }[] {
+  const eventos = [0, cena.de ? 60 : 0];
+  for (const a of cena.atores ?? []) eventos.push(a.aos ?? 0);
+  for (const p of cena.paises ?? []) eventos.push(p.aos ?? 0);
+  for (const z of cena.zonas ?? []) eventos.push(z.aos ?? 0);
+  for (const r of cena.rotas ?? []) eventos.push(Math.round((r.inicio ?? 0) * duracao), Math.round((r.fim ?? 1) * duracao));
+  const ordem = [...new Set(eventos)].filter((e) => e < duracao).sort((a, b) => a - b);
+  const pulsos: { aos: number; vista: Vista }[] = [];
+  let vista = cena.para;
+  let n = 0;
+  let ultimo = ordem[0] ?? 0;
+  const proximo = (t: number) => ordem.find((e) => e > t) ?? duracao;
+  while (true) {
+    const prox = proximo(ultimo);
+    if (prox - ultimo <= PARADO || duracao - ultimo < 2.2 * FPS) {
+      if (prox >= duracao) break;
+      ultimo = prox;
+      continue;
+    }
+    const aos = ultimo + Math.round(2 * FPS);
+    // Quem entrou por último no mapa (ou o centro da cena).
+    const recentes = (cena.atores ?? []).filter((a) => (a.aos ?? 0) <= aos && (a.ateAos === undefined || a.ateAos > aos)).sort((a, b) => (b.aos ?? 0) - (a.aos ?? 0));
+    const foco = recentes[0]?.lonlat ?? cena.para.centro;
+    const aproxima = n % 2 === 0;
+    const zoom = vista.zoom * (aproxima ? 1.16 : 0.9);
+    const puxa = aproxima ? 0.3 : -0.12;
+    let lat = vista.centro[1] + (foco[1] - vista.centro[1]) * puxa;
+    lat = Math.min(lat, 88 - 101 / zoom); // o topo da tela não passa do polo
+    vista = { centro: [vista.centro[0] + (foco[0] - vista.centro[0]) * puxa, lat], zoom };
+    pulsos.push({ aos, vista });
+    n++;
+    ultimo = aos;
+  }
+  return pulsos;
+}
+
 function main() {
   const video = process.argv[2];
   if (!video) throw new Error("Uso: npm run montar -- <pasta do vídeo em canal/videos>");
@@ -101,6 +179,8 @@ function main() {
   const tl: Timeline = { pasta, idioma: sb.idioma ?? "pt", estilo, trilha: sb.trilha ?? (estilo === "mapa" ? "trilha-mapa" : "trilha-tensao"), fps: FPS, duracao: 0, largura: LARGURA, altura: ALTURA, beats: [], cenas: [], destaques: [], capitulos: [], sons: [] };
   const aparicoes: { t: number; ator: Ator; som?: string }[] = []; // quando cada balão/retrato/ícone entra (ganha som)
   const avisos: string[] = [];
+  const legendas: NonNullable<Timeline["legendas"]> = [];
+  const chaves = new Set((sb.chaves ?? []).map(norm));
   let cursor = 0.4; // segundos
   let capituloAtual = "";
 
@@ -126,6 +206,8 @@ function main() {
 
     tl.beats.push({ id, inicio: Math.round(cursor * FPS), audio: `${pasta}/narracao-mix/${id}.mp3`, duracao: Math.ceil(dur * FPS) + 2 });
     normalizarVoz(join(pastaDisco, "narracao", `${id}.mp3`), join(pastaDisco, "narracao-mix", `${id}.mp3`));
+
+    if (sb.legenda !== false) legendas.push(...blocosDeLegenda(beat.palavras, cursor, chaves));
 
     let desde = 0;
     roteiro.cenas.forEach((c, k) => {
@@ -248,12 +330,16 @@ function main() {
     c.fim = c.inicio + limite;
   }
 
+  // Mapa parado muito tempo sem nada novo: a câmera se reenquadra sozinha (aproxima de quem acabou de entrar,
+  // depois abre um pouco), para a tela nunca ficar estática.
+  for (const c of todas) if (c.cena.tipo === "mapa") c.cena = { ...c.cena, pulsos: pulsosDaCena(c.cena, Math.round((c.fim - c.inicio) * FPS)) };
+
   // Mapas seguidos viram uma câmera contínua: o próximo começa onde o anterior parou, sem corte.
   todas.forEach((c, i) => {
     const antes = todas[i - 1]?.cena;
     if (c.cena.tipo !== "mapa" || c.cena.de) return;
     if (antes?.tipo === "mapa" && (antes.estilo ?? "satelite") === (c.cena.estilo ?? "satelite")) {
-      c.cena = { ...c.cena, de: antes.para };
+      c.cena = { ...c.cena, de: antes.pulsos?.at(-1)?.vista ?? antes.para };
       c.continua = true;
     }
   });
@@ -306,6 +392,12 @@ function main() {
   }
 
   tl.capitulos = tl.capitulos.filter((c) => c.numero > 0);
+  // Legenda: cada bloco fica até o próximo começar (no máximo 0,6 s depois da última palavra).
+  legendas.forEach((l, i) => {
+    const prox = legendas[i + 1];
+    l.fim = Math.min(prox && prox.inicio > l.inicio ? prox.inicio : Infinity, l.fim);
+  });
+  if (legendas.length) tl.legendas = legendas;
   tl.duracao = Math.round(cursor * FPS);
   writeFileSync(join(pastaDisco, "timeline.json"), JSON.stringify(tl));
   // Recorta o fundo de satélite de cada mapa (NASA Blue Marble).

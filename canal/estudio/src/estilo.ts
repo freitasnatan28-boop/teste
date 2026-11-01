@@ -19,6 +19,7 @@ function carregarFonte(familia: string, arquivo: string, peso: string) {
 
 export const FONTE_TITULO = carregarFonte("Anton", "Anton-Regular.ttf", "400");
 export const FONTE_TEXTO = carregarFonte("Oswald", "Oswald.ttf", "200 700");
+export const FONTE_LEGENDA = carregarFonte("Inter", "Inter.ttf", "100 900");
 
 export const COR = {
   fundo: "#07111c",

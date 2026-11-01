@@ -45,7 +45,11 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 - **Estilo de edição (ATUAL): "modelo de mapa"**, igual ao vídeo de referência que o dono mandou (Reel estilo GeoAnalyst
   sobre Guantánamo): satélite (NASA Blue Marble), câmera que passeia sem parar, países pintados com a bandeira,
   balões de fala digitados, retratos redondos com faixa de nome, ícones em hexágono, foto em moldura sobre o mapa,
-  ano grande no topo, flash de luz rosado na troca de capítulo. **SEM legenda** (o dono pediu).
+  ano grande no topo, flash de luz rosado na troca de capítulo.
+- **Legenda (MUDOU em nov/2026, pedido do dono com vídeo de referência "Fifty Million Problems"):** COM legenda,
+  2 a 4 palavras por vez, fonte Inter 800, embaixo no centro; a palavra acende (cinza → branco) quando é falada;
+  números e palavras-chave (`chaves` no storyboard) ficam **amarelos** com um pulinho. `legenda: false` desliga.
+  Atores do mapa não descem na faixa da legenda (retratos ficam 330 px acima do pé da tela).
   Som igual ao da referência: trilha leve (`trilha-mapa`), pop a cada elemento que entra, digitação nos balões,
   whoosh quando a câmera anda, ding no ano, flash de luz no capítulo. Storyboard com `"estilo": "mapa"`.
   A referência tem narração rápida (~205 palavras/min); a nossa está em ~135. Dá pra acelerar se o dono pedir.
@@ -55,7 +59,7 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 
 ## Roteiros
 
-- **002 (EN, aprovado; vídeo renderizado em nov/2026 (9:12, -14 LUFS), entregue, aguardando o dono assistir):** `canal/roteiros/002-buying-greenland.md`, 9,2 min,
+- **002 (EN, aprovado; v1 entregue; v2 com legenda amarela, proporção certa e câmera viva renderizando (nov/2026)):** `canal/roteiros/002-buying-greenland.md`, 9,2 min,
   voz David - Documentary (`ppLqTilh7rH7fbUVlXsf`). Storyboard gerado por `videos/002-buying-greenland/storyboard-gerar.py`.
   Títulos "Why America Keeps Trying to Buy Greenland" / B: "America Didn't Conquer Its Land. It Bought It."
   Gancho: Groenlândia (2019, 2025) → Louisiana 1803 (US$ 15 mi), Flórida 1819, México 1848 (US$ 15 mi após a guerra),
@@ -127,6 +131,14 @@ bash scripts/baixar_nasa.sh B1 B2 C1                            # satélite NASA
   Bandeiras: BRA FRA USA ESP MEX RUS DNK GRL GBR CHN URS. Ícones novos: ouro, petroleo, minerio.
   `idioma: "en"` no storyboard troca marca d'água, "subscribe" e selo de IA. Retratos: recortar no rosto (480x480).
   Library of Congress também limita (429) a busca: esperar 20-60 s entre buscas; tile.loc.gov baixa normal.
+- Feedback do vídeo 002 (nov/2026): "fica muito tempo parado", "imagem saindo da proporção", "bandeiras também".
+  Correções no motor: (1) mapa com proporção certa: a longitude encolhe pelo cosseno da latitude do centro
+  (`fatorX` no Mapa.tsx = `fator_x` no preparar_mapas.py); (2) projeção girada até o centro (Aleutas/Chukotka não
+  viram retângulo) e satélite repetido além da linha de data; (3) bandeira nunca estica: cobre e corta as sobras,
+  com a proporção oficial (EUA 1,9; Dinamarca 37:28; Reino Unido 2:1); (4) câmera viva: se a cena passa 3,2 s
+  sem nada novo, o `montar` cria `pulsos` (aproxima 16% de quem entrou por último, depois abre 10%).
+  Cuidado no storyboard: `em` acha a PRIMEIRA ocorrência da palavra no beat ("Every" pegou "every deal"
+  e o cartão cobriu 18 s); use duas palavras ("Every time") quando a palavra se repete.
 - Feedback do dono sobre a edição (out/2026): NÃO repetir a mesma foto em cortes seguidos (parece bug);
   NÃO tocar o mesmo whoosh em toda transição. Regras atuais no `montar`: foto com movimento contínuo,
   apoio não repete foto em 25 s, som por tipo de cena girando opções, mesmo som só depois de 8 s,

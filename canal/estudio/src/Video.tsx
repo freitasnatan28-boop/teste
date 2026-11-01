@@ -4,7 +4,7 @@ import { Foto } from "./cenas/Foto";
 import { Citacao, Contador, Data, Final, LinhaTempo, Lista, LogoCanal, Plataforma, Radar, Texto, Versus } from "./cenas/Graficos";
 import { Mapa } from "./cenas/Mapa";
 import type { PropsCena } from "./cenas/tipos-cena";
-import { CONTORNO_PRETO, COR, FONTE_TEXTO, FONTE_TITULO } from "./estilo";
+import { CONTORNO_PRETO, COR, FONTE_LEGENDA, FONTE_TEXTO, FONTE_TITULO } from "./estilo";
 import type { TCena, Timeline } from "./tipos";
 import { IdiomaContexto, useTextos } from "./idioma";
 
@@ -77,6 +77,41 @@ const Capitulo: React.FC<{ numero: number; titulo: string }> = ({ numero, titulo
   );
 };
 
+// Legenda no estilo dos vídeos curtos: poucas palavras, a palavra acende (cinza → branco) quando é falada,
+// números e palavras-chave em amarelo com um pulinho.
+const Legenda: React.FC<{ palavras: { t: string; aos: number; chave?: boolean }[] }> = ({ palavras }) => {
+  const f = useCurrentFrame();
+  const entra = interpolate(f, [0, 4], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+  return (
+    <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 92, pointerEvents: "none" }}>
+      <div style={{ display: "flex", gap: "0 16px", flexWrap: "wrap", justifyContent: "center", maxWidth: 1300, opacity: entra, transform: `translateY(${(1 - entra) * 14}px)` }}>
+        {palavras.map((p, i) => {
+          const k = interpolate(f, [p.aos - 1, p.aos + 3], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+          const pulo = p.chave ? interpolate(f, [p.aos, p.aos + 4, p.aos + 9], [1, 1.12, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1;
+          return (
+            <span
+              key={i}
+              style={{
+                fontFamily: FONTE_LEGENDA,
+                fontWeight: 800,
+                fontSize: 64,
+                letterSpacing: -0.5,
+                color: k < 0.5 ? "rgba(255,255,255,.38)" : p.chave ? COR.amarelo : "#fff",
+                opacity: 0.55 + 0.45 * k,
+                display: "inline-block",
+                transform: `scale(${pulo})`,
+                textShadow: "0 0 3px rgba(0,0,0,.95), 0 3px 10px rgba(0,0,0,.85), 0 0 28px rgba(0,0,0,.55)",
+              }}
+            >
+              {p.t}
+            </span>
+          );
+        })}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 // Documentário: granulado de filme + vinheta. Modelo de mapa: imagem limpa, só a marca d'água.
 const Acabamento: React.FC<{ limpo: boolean }> = ({ limpo }) => {
   const f = useCurrentFrame();
@@ -121,6 +156,11 @@ export const Video: React.FC<{ timeline: Timeline | null; video: string }> = ({ 
         </Sequence>
       ))}
       <Acabamento limpo={mapa} />
+      {(timeline.legendas ?? []).map((l, i) => (
+        <Sequence key={`l${i}`} from={l.inicio} durationInFrames={Math.max(1, l.fim - l.inicio)} layout="none">
+          <Legenda palavras={l.palavras} />
+        </Sequence>
+      ))}
 
       {timeline.beats.map((b) => (
         <Sequence key={b.id} from={b.inicio} durationInFrames={b.duracao} layout="none">

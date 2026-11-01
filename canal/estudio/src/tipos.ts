@@ -31,6 +31,7 @@ export type Cena =
       rotas?: { pontos: LonLat[]; cor?: string; icone?: "navio" | "aviao" | "lagosta" | "dinheiro"; pais?: Pais; inicio?: number; fim?: number; tracejada?: boolean }[];
       pontos?: { lonlat: LonLat; rotulo?: string; cor?: string; em?: number; icone?: "navio" | "lagosta" | "alvo" }[];
       titulo?: string;
+      pulsos?: { aos: number; vista: Vista }[]; // calculado: a câmera se reenquadra quando a cena fica muito tempo sem novidade
     }
   | { tipo: "texto"; linhas: string[]; cor?: string; img?: string; tremer?: boolean }
   | { tipo: "data"; texto: string; sub?: string }
@@ -70,6 +71,8 @@ export type Storyboard = {
   idioma?: "pt" | "en"; // textos fixos da tela (marca, inscreva-se...). Padrão: pt
   estilo?: "documentario" | "mapa"; // "mapa": modelo dos vídeos de geopolítica (sem granulado, sons de balão)
   trilha?: string; // arquivo em public/sons, sem extensão
+  legenda?: boolean; // legenda palavra a palavra (padrão: sim)
+  chaves?: string[]; // palavras que ficam amarelas na legenda (além dos números)
   beats: Record<
     string,
     {
@@ -110,4 +113,6 @@ export type Timeline = {
   altura: number;
   capitulos: { inicio: number; numero: number; titulo: string }[];
   sons: { inicio: number; som: string; volume: number }[];
+  // Legenda em blocos de poucas palavras; cada palavra acende quando é falada (aos: frames desde o início do bloco).
+  legendas?: { inicio: number; fim: number; palavras: { t: string; aos: number; chave?: boolean }[] }[];
 };

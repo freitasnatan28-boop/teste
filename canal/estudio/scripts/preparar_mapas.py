@@ -32,10 +32,23 @@ MAX_LADO = 5000  # px: acima disso o Chrome fica pesado no render
 MARGEM = 0.08
 
 
+def fator_x(lat, zoom):
+    """Igual a fatorX no Mapa.tsx: longitude encolhida pelo cosseno da latitude (proporção certa)."""
+    return min(1.0, max(math.cos(math.radians(lat)), 1 / max(zoom, 1)))
+
+
 def area_vista(vista, largura, altura, deriva=1.0):
     ppg = largura / 360 * vista["zoom"] * deriva
     cx, cy = vista["centro"]
-    return cx - largura / 2 / ppg, cx + largura / 2 / ppg, cy + altura / 2 / ppg, cy - altura / 2 / ppg, ppg
+    ppgx = ppg * fator_x(cy, vista["zoom"])
+    return cx - largura / 2 / ppgx, cx + largura / 2 / ppgx, cy + altura / 2 / ppg, cy - altura / 2 / ppg, ppg
+
+
+def meio(de, para, t):
+    """Vista no meio do movimento da câmera (centro linear, zoom logarítmico, como no Mapa.tsx)."""
+    z = math.exp(math.log(de["zoom"]) + (math.log(para["zoom"]) - math.log(de["zoom"])) * t)
+    c = [de["centro"][k] + (para["centro"][k] - de["centro"][k]) * t for k in (0, 1)]
+    return {"centro": c, "zoom": z}
 
 
 def recortar(fonte, oeste, leste, norte, sul, ppg_saida):
@@ -69,11 +82,13 @@ def montar_fundo(oeste, leste, norte, sul, ppg):
     canvas = Image.new("RGB", (round((leste - oeste) * ppg_saida), round((norte - sul) * ppg_saida)), (8, 24, 40))
     # O mundo inteiro vai por baixo; os blocos de alta resolução (se baixados) entram por cima.
     fontes = [MUNDO] + (list(BLOCOS.values()) if usar_blocos else [])
-    for fonte in fontes:
-        r = recortar(fonte, oeste, leste, norte, sul, ppg_saida)
-        if r:
-            pedaco, o, n = r
-            canvas.paste(pedaco, (round((o - oeste) * ppg_saida), round((norte - n) * ppg_saida)))
+    # A vista pode passar da linha de data (ex.: Alasca + Rússia): repete o mundo deslocado 360 graus.
+    for desloc in (-360, 0, 360):
+        for arquivo, f_o, f_l, f_n, f_s, f_ppg in fontes:
+            r = recortar((arquivo, f_o + desloc, f_l + desloc, f_n, f_s, f_ppg), oeste, leste, norte, sul, ppg_saida)
+            if r:
+                pedaco, o, n = r
+                canvas.paste(pedaco, (round((o - oeste) * ppg_saida), round((norte - n) * ppg_saida)))
     return canvas
 
 
@@ -88,14 +103,22 @@ def main():
         cena = c["cena"]
         if cena["tipo"] != "mapa" or cena.get("estilo") == "antigo":
             continue
-        vistas = [cena.get("de") or cena["para"], cena["para"]]
+        de = cena.get("de") or cena["para"]
+        vistas = [meio(de, cena["para"], t) for t in (0, 0.25, 0.5, 0.75, 1)]
+        anterior = cena["para"]
+        for p in cena.get("pulsos") or []:
+            vistas += [meio(anterior, p["vista"], 0.5), p["vista"]]
+            anterior = p["vista"]
         areas = [area_vista(v, largura, altura) for v in vistas]
         oeste = min(a[0] for a in areas)
         leste = max(a[1] for a in areas)
         norte = max(a[2] for a in areas)
         sul = min(a[3] for a in areas)
         mx, my = (leste - oeste) * MARGEM, (norte - sul) * MARGEM
-        oeste, leste = max(-180, oeste - mx), min(180, leste + mx)
+        oeste, leste = oeste - mx, leste + mx
+        if leste - oeste > 360:  # não precisa de mais que uma volta ao mundo
+            meio_lon = (oeste + leste) / 2
+            oeste, leste = meio_lon - 180, meio_lon + 180
         norte, sul = min(90, norte + my), max(-90, sul - my)
         ppg = max(a[4] for a in areas) * 1.08
         chave = hashlib.md5(json.dumps([round(oeste, 2), round(leste, 2), round(norte, 2), round(sul, 2), round(ppg, 1)]).encode()).hexdigest()[:12]

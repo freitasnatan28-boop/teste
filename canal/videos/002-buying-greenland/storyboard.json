@@ -3,6 +3,35 @@
  "idioma": "en",
  "estilo": "mapa",
  "trilha": "trilha-mapa",
+ "chaves": [
+  "Greenland",
+  "Louisiana",
+  "Florida",
+  "Mexico",
+  "Alaska",
+  "Napoleon",
+  "Jefferson",
+  "Seward",
+  "Truman",
+  "Tsar",
+  "gold",
+  "secret",
+  "folly",
+  "icebox",
+  "oil",
+  "rare",
+  "Arctic",
+  "China",
+  "Denmark",
+  "Russia",
+  "Haiti",
+  "railroad",
+  "sale",
+  "bought",
+  "buy",
+  "trouble",
+  "independence"
+ ],
  "beats": {
   "b01": {
    "cenas": [
@@ -3095,7 +3124,7 @@
      "som": "hit"
     },
     {
-     "em": "Nine",
+     "em": "Historians",
      "tipo": "mapa",
      "para": {
       "centro": [
@@ -4888,7 +4917,7 @@
      ]
     },
     {
-     "em": "Every",
+     "em": "Every time",
      "tipo": "texto",
      "linhas": [
       "EVERY TIME,",

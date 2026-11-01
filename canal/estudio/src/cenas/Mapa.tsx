@@ -1,7 +1,7 @@
 // Mapa no estilo dos vídeos de geopolítica: fundo de satélite (NASA), câmera que passeia sem parar,
 // países pintados com a bandeira, rotas, pontos e "atores" (balões, retratos, ícones) presos ao mapa.
 // Projeção equirretangular: o recorte de satélite se encaixa direto, sem reprojetar a imagem.
-import { geoArea, geoBounds, geoDistance, geoEquirectangular, geoGraticule10, geoInterpolate, geoPath, geoContains } from "d3-geo";
+import { geoArea, geoBounds, geoDistance, geoGraticule10, geoInterpolate, geoPath, geoContains, geoProjection } from "d3-geo";
 import React, { useEffect, useState } from "react";
 import { AbsoluteFill, continueRender, delayRender, Easing, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { COR, FONTE_TEXTO } from "../estilo";
@@ -29,6 +29,11 @@ function usePaises(): Paises | null {
     });
   }, [handle]);
   return dados;
+}
+
+// Encolhe a longitude pelo cosseno da latitude do centro (como num mapa local), sem passar de 360 graus na tela.
+export function fatorX(lat: number, zoom: number) {
+  return Math.min(1, Math.max(Math.cos((lat * Math.PI) / 180), 1 / Math.max(zoom, 1)));
 }
 
 function camera(de: Vista, para: Vista, t: number): Vista {
@@ -96,6 +101,8 @@ const LISTRAS: Record<string, string[]> = {
   GBR: ["#012169", "#ffffff", "#c8102e"], CHN: ["#ee1c25", "#ffde00"], URS: ["#cc0000", "#ffde00"],
 };
 
+const LIVRE_LEGENDA = 215; // px reservados embaixo para a legenda
+
 const ANTIGO = { mar: "#b9cfc4", terra: "#e6d3a8", borda: "#8a6d45", papel: "#efe2c2" };
 
 export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cena, offset, duracaoCena, pasta }) => {
@@ -108,11 +115,26 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
   const t = interpolate(f, [0, Math.min(duracaoCena, 60)], [0, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
   // Depois do movimento principal, a câmera continua aproximando devagar (nunca fica parada).
   const deriva = 1 + interpolate(f, [0, duracaoCena], [0, 0.05]);
-  const cam = camera(cena.de ?? cena.para, cena.para, t);
-  const ppg = (W / 360) * cam.zoom * deriva; // pixels por grau
-  const proj = geoEquirectangular()
+  let cam = camera(cena.de ?? cena.para, cena.para, t);
+  // Reenquadramentos automáticos (calculados no montar) quando a cena fica tempo demais sem novidade.
+  let vistaAtual = cena.para;
+  for (const p of cena.pulsos ?? []) {
+    if (f < p.aos) break;
+    cam = camera(vistaAtual, p.vista, interpolate(f, [p.aos, p.aos + 36], [0, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) }));
+    vistaAtual = p.vista;
+  }
+  const ppg = (W / 360) * cam.zoom * deriva; // pixels por grau (na vertical)
+  // Proporção certa: perto dos polos o grau de longitude é mais curto. Sem isso a Groenlândia e o Alasca
+  // ficavam até 3x mais largos do que são. Mesma conta em preparar_mapas.py.
+  const kx = fatorX(cam.centro[1], cam.zoom);
+  const bruta = (l: number, p: number) => [l * kx, p] as [number, number];
+  (bruta as any).invert = (x: number, y: number) => [x / kx, y];
+  // Gira o globo até o centro da câmera (em vez de só deslocar): o corte da linha de data fica do outro lado
+  // do mundo e as ilhas Aleutas/Chukotka não viram retângulos esticados na tela.
+  const proj = geoProjection(bruta as any)
+    .rotate([-cam.centro[0], 0])
     .scale((ppg * 180) / Math.PI)
-    .center(cam.centro)
+    .center([0, cam.centro[1]])
     .translate([W / 2, H / 2]);
   const path = geoPath(proj);
   const [cx, cy] = cam.centro;
@@ -126,9 +148,9 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
           src={staticFile(cena.fundo.img)}
           style={{
             position: "absolute",
-            left: W / 2 + (cena.fundo.oeste - cx) * ppg,
+            left: W / 2 + (cena.fundo.oeste - cx) * ppg * kx,
             top: H / 2 - (cena.fundo.norte - cy) * ppg,
-            width: (cena.fundo.leste - cena.fundo.oeste) * ppg,
+            width: (cena.fundo.leste - cena.fundo.oeste) * ppg * kx,
             height: (cena.fundo.norte - cena.fundo.sul) * ppg,
             maxWidth: "none",
             filter: "saturate(1.15) contrast(1.05) brightness(.95)",
@@ -296,7 +318,10 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
         }
         // Balão/emoji sem o dono visível na tela não aparece (era o "emoji saindo do nada").
         if (xy && (a.tipo === "fala" || a.tipo === "reacao") && (xy[0] < 20 || xy[0] > W - 20 || xy[1] < 20 || xy[1] > H - 20)) return null;
-        return xy ? <AtorNoMapa key={i} ator={a} x={xy[0]} y={xy[1]} frame={f} pasta={pasta} elevacao={elevacao} /> : null;
+        // A faixa de baixo é da legenda: quem cairia em cima dela sobe um pouco.
+        const livre = a.tipo === "retrato" || a.tipo === "foto" ? 330 : LIVRE_LEGENDA;
+        const y = xy && xy[1] > H - livre && xy[1] < H + 60 ? H - livre : xy?.[1];
+        return xy ? <AtorNoMapa key={i} ator={a} x={xy[0]} y={y!} frame={f} pasta={pasta} elevacao={elevacao} /> : null;
       })}
       {cena.ano && offset === 0 && <AnoNoTopo ano={cena.ano} />}
       {cena.titulo && (
