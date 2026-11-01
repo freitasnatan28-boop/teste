@@ -1,0 +1,193 @@
+{
+ "id": "b21",
+ "capitulo": "Islands for Gold",
+ "visual": "\"1917\". Caribbean. Danish West Indies with Denmark's flag. Panama Canal route.",
+ "texto": "In 1917, during World War One, America bought land from Denmark for the first time. Washington feared Germany could grab the Danish West Indies, islands sitting right on the shipping lanes to the brand new Panama Canal.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0,
+   "fim": 0.209
+  },
+  {
+   "texto": "1917,",
+   "inicio": 0.244,
+   "fim": 1.347
+  },
+  {
+   "texto": "during",
+   "inicio": 1.382,
+   "fim": 1.683
+  },
+  {
+   "texto": "World",
+   "inicio": 1.741,
+   "fim": 1.997
+  },
+  {
+   "texto": "War",
+   "inicio": 2.055,
+   "fim": 2.264
+  },
+  {
+   "texto": "One,",
+   "inicio": 2.368,
+   "fim": 2.798
+  },
+  {
+   "texto": "America",
+   "inicio": 3.065,
+   "fim": 3.599
+  },
+  {
+   "texto": "bought",
+   "inicio": 3.657,
+   "fim": 3.901
+  },
+  {
+   "texto": "land",
+   "inicio": 3.971,
+   "fim": 4.272
+  },
+  {
+   "texto": "from",
+   "inicio": 4.342,
+   "fim": 4.505
+  },
+  {
+   "texto": "Denmark",
+   "inicio": 4.598,
+   "fim": 5.085
+  },
+  {
+   "texto": "for",
+   "inicio": 5.155,
+   "fim": 5.271
+  },
+  {
+   "texto": "the",
+   "inicio": 5.317,
+   "fim": 5.387
+  },
+  {
+   "texto": "first",
+   "inicio": 5.457,
+   "fim": 5.735
+  },
+  {
+   "texto": "time.",
+   "inicio": 5.782,
+   "fim": 6.351
+  },
+  {
+   "texto": "Washington",
+   "inicio": 6.85,
+   "fim": 7.558
+  },
+  {
+   "texto": "feared",
+   "inicio": 7.663,
+   "fim": 8.046
+  },
+  {
+   "texto": "Germany",
+   "inicio": 8.104,
+   "fim": 8.58
+  },
+  {
+   "texto": "could",
+   "inicio": 8.649,
+   "fim": 8.824
+  },
+  {
+   "texto": "grab",
+   "inicio": 8.87,
+   "fim": 9.172
+  },
+  {
+   "texto": "the",
+   "inicio": 9.253,
+   "fim": 9.323
+  },
+  {
+   "texto": "Danish",
+   "inicio": 9.392,
+   "fim": 9.799
+  },
+  {
+   "texto": "West",
+   "inicio": 9.857,
+   "fim": 10.136
+  },
+  {
+   "texto": "Indies,",
+   "inicio": 10.205,
+   "fim": 10.774
+  },
+  {
+   "texto": "islands",
+   "inicio": 11.146,
+   "fim": 11.668
+  },
+  {
+   "texto": "sitting",
+   "inicio": 11.796,
+   "fim": 12.144
+  },
+  {
+   "texto": "right",
+   "inicio": 12.225,
+   "fim": 12.446
+  },
+  {
+   "texto": "on",
+   "inicio": 12.492,
+   "fim": 12.574
+  },
+  {
+   "texto": "the",
+   "inicio": 12.608,
+   "fim": 12.678
+  },
+  {
+   "texto": "shipping",
+   "inicio": 12.725,
+   "fim": 13.061
+  },
+  {
+   "texto": "lanes",
+   "inicio": 13.131,
+   "fim": 13.514
+  },
+  {
+   "texto": "to",
+   "inicio": 13.746,
+   "fim": 13.862
+  },
+  {
+   "texto": "the",
+   "inicio": 13.944,
+   "fim": 14.013
+  },
+  {
+   "texto": "brand",
+   "inicio": 14.06,
+   "fim": 14.408
+  },
+  {
+   "texto": "new",
+   "inicio": 14.524,
+   "fim": 14.745
+  },
+  {
+   "texto": "Panama",
+   "inicio": 14.838,
+   "fim": 15.372
+  },
+  {
+   "texto": "Canal.",
+   "inicio": 15.43,
+   "fim": 16.625
+  }
+ ]
+}

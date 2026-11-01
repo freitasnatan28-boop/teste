@@ -1,0 +1,178 @@
+{
+ "id": "b24",
+ "capitulo": "Como acabou",
+ "visual": "Prédio da ONU. Bandeiras dos EUA, do Brasil e da França.",
+ "texto": "Mas o tiro nunca veio. Enquanto os navios se vigiavam no mar, a diplomacia trabalhava em terra. Os Estados Unidos e a ONU pressionaram pra que a crise não virasse uma guerra de verdade.",
+ "palavras": [
+  {
+   "texto": "Mas",
+   "inicio": 0,
+   "fim": 0.255
+  },
+  {
+   "texto": "o",
+   "inicio": 0.325,
+   "fim": 0.348
+  },
+  {
+   "texto": "tiro",
+   "inicio": 0.395,
+   "fim": 0.65
+  },
+  {
+   "texto": "nunca",
+   "inicio": 0.708,
+   "fim": 1.01
+  },
+  {
+   "texto": "veio.",
+   "inicio": 1.068,
+   "fim": 1.637
+  },
+  {
+   "texto": "Enquanto",
+   "inicio": 2.241,
+   "fim": 2.705
+  },
+  {
+   "texto": "os",
+   "inicio": 2.728,
+   "fim": 2.775
+  },
+  {
+   "texto": "navios",
+   "inicio": 2.821,
+   "fim": 3.158
+  },
+  {
+   "texto": "se",
+   "inicio": 3.181,
+   "fim": 3.262
+  },
+  {
+   "texto": "vigiavam",
+   "inicio": 3.32,
+   "fim": 3.855
+  },
+  {
+   "texto": "no",
+   "inicio": 3.901,
+   "fim": 3.982
+  },
+  {
+   "texto": "mar,",
+   "inicio": 4.04,
+   "fim": 4.354
+  },
+  {
+   "texto": "a",
+   "inicio": 4.47,
+   "fim": 4.54
+  },
+  {
+   "texto": "diplomacia",
+   "inicio": 4.598,
+   "fim": 5.236
+  },
+  {
+   "texto": "trabalhava",
+   "inicio": 5.283,
+   "fim": 5.735
+  },
+  {
+   "texto": "em",
+   "inicio": 5.759,
+   "fim": 5.805
+  },
+  {
+   "texto": "terra.",
+   "inicio": 5.851,
+   "fim": 6.339
+  },
+  {
+   "texto": "Os",
+   "inicio": 6.85,
+   "fim": 7.024
+  },
+  {
+   "texto": "Estados",
+   "inicio": 7.094,
+   "fim": 7.442
+  },
+  {
+   "texto": "Unidos",
+   "inicio": 7.523,
+   "fim": 7.872
+  },
+  {
+   "texto": "e",
+   "inicio": 7.906,
+   "fim": 7.941
+  },
+  {
+   "texto": "a",
+   "inicio": 7.976,
+   "fim": 8.011
+  },
+  {
+   "texto": "ONU",
+   "inicio": 8.081,
+   "fim": 8.336
+  },
+  {
+   "texto": "pressionaram",
+   "inicio": 8.417,
+   "fim": 9.218
+  },
+  {
+   "texto": "pra",
+   "inicio": 9.369,
+   "fim": 9.555
+  },
+  {
+   "texto": "que",
+   "inicio": 9.613,
+   "fim": 9.683
+  },
+  {
+   "texto": "a",
+   "inicio": 9.706,
+   "fim": 9.729
+  },
+  {
+   "texto": "crise",
+   "inicio": 9.776,
+   "fim": 10.077
+  },
+  {
+   "texto": "não",
+   "inicio": 10.124,
+   "fim": 10.228
+  },
+  {
+   "texto": "virasse",
+   "inicio": 10.263,
+   "fim": 10.646
+  },
+  {
+   "texto": "uma",
+   "inicio": 10.67,
+   "fim": 10.797
+  },
+  {
+   "texto": "guerra",
+   "inicio": 10.867,
+   "fim": 11.134
+  },
+  {
+   "texto": "de",
+   "inicio": 11.18,
+   "fim": 11.238
+  },
+  {
+   "texto": "verdade.",
+   "inicio": 11.285,
+   "fim": 12.91
+  }
+ ]
+}

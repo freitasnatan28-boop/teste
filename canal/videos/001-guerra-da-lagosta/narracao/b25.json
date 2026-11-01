@@ -1,0 +1,128 @@
+{
+ "id": "b25",
+ "capitulo": "Como acabou",
+ "visual": "Navios franceses fazendo a volta no mapa e indo embora.",
+ "texto": "Em março de 1963, os navios franceses foram embora. E o Paraná ainda se despediu do Paul Gaufeny com uma mensagem irônica: \"boa viagem\".",
+ "palavras": [
+  {
+   "texto": "Em",
+   "inicio": 0,
+   "fim": 0.197
+  },
+  {
+   "texto": "março",
+   "inicio": 0.232,
+   "fim": 0.65
+  },
+  {
+   "texto": "de",
+   "inicio": 0.697,
+   "fim": 0.766
+  },
+  {
+   "texto": "1963,",
+   "inicio": 0.882,
+   "fim": 2.961
+  },
+  {
+   "texto": "os",
+   "inicio": 3.088,
+   "fim": 3.239
+  },
+  {
+   "texto": "navios",
+   "inicio": 3.286,
+   "fim": 3.564
+  },
+  {
+   "texto": "franceses",
+   "inicio": 3.611,
+   "fim": 4.214
+  },
+  {
+   "texto": "foram",
+   "inicio": 4.272,
+   "fim": 4.516
+  },
+  {
+   "texto": "embora.",
+   "inicio": 4.54,
+   "fim": 5.085
+  },
+  {
+   "texto": "E",
+   "inicio": 5.468,
+   "fim": 5.55
+  },
+  {
+   "texto": "o",
+   "inicio": 5.631,
+   "fim": 5.654
+  },
+  {
+   "texto": "Paraná",
+   "inicio": 5.712,
+   "fim": 6.177
+  },
+  {
+   "texto": "ainda",
+   "inicio": 6.327,
+   "fim": 6.699
+  },
+  {
+   "texto": "se",
+   "inicio": 6.745,
+   "fim": 6.838
+  },
+  {
+   "texto": "despediu",
+   "inicio": 6.896,
+   "fim": 7.326
+  },
+  {
+   "texto": "do",
+   "inicio": 7.384,
+   "fim": 7.465
+  },
+  {
+   "texto": "Paul",
+   "inicio": 7.581,
+   "fim": 7.883
+  },
+  {
+   "texto": "Gofení",
+   "inicio": 7.953,
+   "fim": 8.499
+  },
+  {
+   "texto": "com",
+   "inicio": 8.824,
+   "fim": 9.033
+  },
+  {
+   "texto": "uma",
+   "inicio": 9.056,
+   "fim": 9.207
+  },
+  {
+   "texto": "mensagem",
+   "inicio": 9.242,
+   "fim": 9.845
+  },
+  {
+   "texto": "irônica:",
+   "inicio": 9.903,
+   "fim": 10.588
+  },
+  {
+   "texto": "\"boa",
+   "inicio": 10.832,
+   "fim": 11.413
+  },
+  {
+   "texto": "viagem\".",
+   "inicio": 11.459,
+   "fim": 12.957
+  }
+ ]
+}

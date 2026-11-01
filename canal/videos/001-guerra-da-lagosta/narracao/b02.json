@@ -1,0 +1,223 @@
+{
+ "id": "b02",
+ "capitulo": "Um navio de guerra no Carnaval",
+ "visual": "Foto real do contratorpedeiro Tartu (Wikimedia).",
+ "texto": "Em poucas horas, a Marinha do Brasil convoca marinheiros no meio da madrugada. Aviões da Força Aérea decolam com as luzes apagadas. E, pela primeira vez em quase cem anos, o Brasil se prepara de verdade pra uma guerra contra um país europeu.",
+ "palavras": [
+  {
+   "texto": "Em",
+   "inicio": 0,
+   "fim": 0.209
+  },
+  {
+   "texto": "poucas",
+   "inicio": 0.29,
+   "fim": 0.685
+  },
+  {
+   "texto": "horas,",
+   "inicio": 0.743,
+   "fim": 1.219
+  },
+  {
+   "texto": "a",
+   "inicio": 1.335,
+   "fim": 1.393
+  },
+  {
+   "texto": "Marinha",
+   "inicio": 1.463,
+   "fim": 1.765
+  },
+  {
+   "texto": "do",
+   "inicio": 1.811,
+   "fim": 1.869
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 1.904,
+   "fim": 2.368
+  },
+  {
+   "texto": "convoca",
+   "inicio": 2.496,
+   "fim": 3.1
+  },
+  {
+   "texto": "marinheiros",
+   "inicio": 3.158,
+   "fim": 3.669
+  },
+  {
+   "texto": "no",
+   "inicio": 3.715,
+   "fim": 3.796
+  },
+  {
+   "texto": "meio",
+   "inicio": 3.889,
+   "fim": 4.122
+  },
+  {
+   "texto": "da",
+   "inicio": 4.156,
+   "fim": 4.226
+  },
+  {
+   "texto": "madrugada.",
+   "inicio": 4.272,
+   "fim": 5.016
+  },
+  {
+   "texto": "Aviões",
+   "inicio": 5.619,
+   "fim": 6.095
+  },
+  {
+   "texto": "da",
+   "inicio": 6.13,
+   "fim": 6.2
+  },
+  {
+   "texto": "Força",
+   "inicio": 6.281,
+   "fim": 6.594
+  },
+  {
+   "texto": "Aérea",
+   "inicio": 6.629,
+   "fim": 6.989
+  },
+  {
+   "texto": "decolam",
+   "inicio": 7.163,
+   "fim": 7.732
+  },
+  {
+   "texto": "com",
+   "inicio": 7.802,
+   "fim": 7.906
+  },
+  {
+   "texto": "as",
+   "inicio": 7.953,
+   "fim": 8.034
+  },
+  {
+   "texto": "luzes",
+   "inicio": 8.104,
+   "fim": 8.371
+  },
+  {
+   "texto": "apagadas.",
+   "inicio": 8.429,
+   "fim": 9.242
+  },
+  {
+   "texto": "E,",
+   "inicio": 9.845,
+   "fim": 10.008
+  },
+  {
+   "texto": "pela",
+   "inicio": 10.031,
+   "fim": 10.275
+  },
+  {
+   "texto": "primeira",
+   "inicio": 10.321,
+   "fim": 10.728
+  },
+  {
+   "texto": "vez",
+   "inicio": 10.797,
+   "fim": 11.064
+  },
+  {
+   "texto": "em",
+   "inicio": 11.192,
+   "fim": 11.32
+  },
+  {
+   "texto": "quase",
+   "inicio": 11.401,
+   "fim": 11.738
+  },
+  {
+   "texto": "cem",
+   "inicio": 11.796,
+   "fim": 12.005
+  },
+  {
+   "texto": "anos,",
+   "inicio": 12.086,
+   "fim": 12.504
+  },
+  {
+   "texto": "o",
+   "inicio": 12.655,
+   "fim": 12.713
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 12.771,
+   "fim": 13.142
+  },
+  {
+   "texto": "se",
+   "inicio": 13.189,
+   "fim": 13.27
+  },
+  {
+   "texto": "prepara",
+   "inicio": 13.316,
+   "fim": 13.734
+  },
+  {
+   "texto": "de",
+   "inicio": 13.781,
+   "fim": 13.839
+  },
+  {
+   "texto": "verdade",
+   "inicio": 13.885,
+   "fim": 14.466
+  },
+  {
+   "texto": "pra",
+   "inicio": 14.64,
+   "fim": 14.826
+  },
+  {
+   "texto": "uma",
+   "inicio": 14.872,
+   "fim": 15.012
+  },
+  {
+   "texto": "guerra",
+   "inicio": 15.081,
+   "fim": 15.395
+  },
+  {
+   "texto": "contra",
+   "inicio": 15.488,
+   "fim": 15.813
+  },
+  {
+   "texto": "um",
+   "inicio": 15.836,
+   "fim": 15.882
+  },
+  {
+   "texto": "país",
+   "inicio": 15.94,
+   "fim": 16.242
+  },
+  {
+   "texto": "europeu.",
+   "inicio": 16.277,
+   "fim": 17.136
+  }
+ ]
+}

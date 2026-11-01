@@ -1,0 +1,88 @@
+{
+ "id": "b19",
+ "capitulo": "Seward's Icebox",
+ "visual": "Critics' bubbles: \"SEWARD'S FOLLY!\", \"AN ICEBOX!\"",
+ "texto": "Critics mocked it. They called it Seward's Folly. Seward's Icebox. Why pay for a frozen wasteland?",
+ "palavras": [
+  {
+   "texto": "Critics",
+   "inicio": 0,
+   "fim": 0.488
+  },
+  {
+   "texto": "mocked",
+   "inicio": 0.569,
+   "fim": 0.894
+  },
+  {
+   "texto": "it.",
+   "inicio": 0.952,
+   "fim": 1.265
+  },
+  {
+   "texto": "They",
+   "inicio": 1.416,
+   "fim": 1.591
+  },
+  {
+   "texto": "called",
+   "inicio": 1.649,
+   "fim": 1.95
+  },
+  {
+   "texto": "it",
+   "inicio": 1.997,
+   "fim": 2.113
+  },
+  {
+   "texto": "Seward's",
+   "inicio": 2.357,
+   "fim": 2.926
+  },
+  {
+   "texto": "Folly.",
+   "inicio": 2.984,
+   "fim": 3.657
+  },
+  {
+   "texto": "Seward's",
+   "inicio": 3.866,
+   "fim": 4.423
+  },
+  {
+   "texto": "Icebox.",
+   "inicio": 4.493,
+   "fim": 5.375
+  },
+  {
+   "texto": "Why",
+   "inicio": 5.526,
+   "fim": 5.921
+  },
+  {
+   "texto": "pay",
+   "inicio": 6.072,
+   "fim": 6.455
+  },
+  {
+   "texto": "for",
+   "inicio": 6.571,
+   "fim": 6.745
+  },
+  {
+   "texto": "a",
+   "inicio": 6.815,
+   "fim": 6.838
+  },
+  {
+   "texto": "frozen",
+   "inicio": 6.954,
+   "fim": 7.442
+  },
+  {
+   "texto": "wasteland?",
+   "inicio": 7.523,
+   "fim": 8.638
+  }
+ ]
+}

@@ -1,0 +1,323 @@
+{
+ "id": "b23",
+ "capitulo": "Frente a frente em alto-mar",
+ "visual": "Dois ícones de navio lado a lado, um de cada bandeira.",
+ "texto": "A partir dali, a Marinha montou uma escala: sempre um navio brasileiro perto dos pesqueiros e outro à distância, pronto pra agir. A França respondeu mandando um segundo navio de guerra, o Paul Gaufeny. Agora eram dois navios de guerra franceses, seis barcos de pesca e a Marinha brasileira inteira de olho. Bastava um erro, um tiro disparado por nervosismo, pra tudo mudar.",
+ "palavras": [
+  {
+   "texto": "A",
+   "inicio": 0,
+   "fim": 0.093
+  },
+  {
+   "texto": "partir",
+   "inicio": 0.186,
+   "fim": 0.511
+  },
+  {
+   "texto": "dali,",
+   "inicio": 0.58,
+   "fim": 1.022
+  },
+  {
+   "texto": "a",
+   "inicio": 1.138,
+   "fim": 1.196
+  },
+  {
+   "texto": "Marinha",
+   "inicio": 1.265,
+   "fim": 1.602
+  },
+  {
+   "texto": "montou",
+   "inicio": 1.637,
+   "fim": 1.985
+  },
+  {
+   "texto": "uma",
+   "inicio": 2.009,
+   "fim": 2.125
+  },
+  {
+   "texto": "escala:",
+   "inicio": 2.148,
+   "fim": 2.728
+  },
+  {
+   "texto": "sempre",
+   "inicio": 3.053,
+   "fim": 3.46
+  },
+  {
+   "texto": "um",
+   "inicio": 3.483,
+   "fim": 3.529
+  },
+  {
+   "texto": "navio",
+   "inicio": 3.553,
+   "fim": 3.808
+  },
+  {
+   "texto": "brasileiro",
+   "inicio": 3.843,
+   "fim": 4.365
+  },
+  {
+   "texto": "perto",
+   "inicio": 4.435,
+   "fim": 4.748
+  },
+  {
+   "texto": "dos",
+   "inicio": 4.795,
+   "fim": 4.899
+  },
+  {
+   "texto": "pesqueiros",
+   "inicio": 4.957,
+   "fim": 5.573
+  },
+  {
+   "texto": "e",
+   "inicio": 5.747,
+   "fim": 5.898
+  },
+  {
+   "texto": "outro",
+   "inicio": 5.956,
+   "fim": 6.235
+  },
+  {
+   "texto": "à",
+   "inicio": 6.269,
+   "fim": 6.304
+  },
+  {
+   "texto": "distância,",
+   "inicio": 6.339,
+   "fim": 7.105
+  },
+  {
+   "texto": "pronto",
+   "inicio": 7.384,
+   "fim": 7.755
+  },
+  {
+   "texto": "pra",
+   "inicio": 7.814,
+   "fim": 7.953
+  },
+  {
+   "texto": "agir.",
+   "inicio": 7.976,
+   "fim": 8.429
+  },
+  {
+   "texto": "A",
+   "inicio": 8.87,
+   "fim": 8.951
+  },
+  {
+   "texto": "França",
+   "inicio": 9.067,
+   "fim": 9.392
+  },
+  {
+   "texto": "respondeu",
+   "inicio": 9.439,
+   "fim": 9.915
+  },
+  {
+   "texto": "mandando",
+   "inicio": 9.95,
+   "fim": 10.321
+  },
+  {
+   "texto": "um",
+   "inicio": 10.344,
+   "fim": 10.391
+  },
+  {
+   "texto": "segundo",
+   "inicio": 10.472,
+   "fim": 10.96
+  },
+  {
+   "texto": "navio",
+   "inicio": 11.006,
+   "fim": 11.262
+  },
+  {
+   "texto": "de",
+   "inicio": 11.297,
+   "fim": 11.355
+  },
+  {
+   "texto": "guerra,",
+   "inicio": 11.401,
+   "fim": 11.923
+  },
+  {
+   "texto": "o",
+   "inicio": 12.167,
+   "fim": 12.26
+  },
+  {
+   "texto": "Paul",
+   "inicio": 12.376,
+   "fim": 12.69
+  },
+  {
+   "texto": "Gofení.",
+   "inicio": 12.934,
+   "fim": 13.572
+  },
+  {
+   "texto": "Agora",
+   "inicio": 13.955,
+   "fim": 14.443
+  },
+  {
+   "texto": "eram",
+   "inicio": 14.524,
+   "fim": 14.768
+  },
+  {
+   "texto": "dois",
+   "inicio": 14.826,
+   "fim": 15.024
+  },
+  {
+   "texto": "navios",
+   "inicio": 15.07,
+   "fim": 15.36
+  },
+  {
+   "texto": "de",
+   "inicio": 15.395,
+   "fim": 15.453
+  },
+  {
+   "texto": "guerra",
+   "inicio": 15.5,
+   "fim": 15.709
+  },
+  {
+   "texto": "franceses,",
+   "inicio": 15.767,
+   "fim": 16.602
+  },
+  {
+   "texto": "seis",
+   "inicio": 16.73,
+   "fim": 17.02
+  },
+  {
+   "texto": "barcos",
+   "inicio": 17.102,
+   "fim": 17.496
+  },
+  {
+   "texto": "de",
+   "inicio": 17.531,
+   "fim": 17.601
+  },
+  {
+   "texto": "pesca",
+   "inicio": 17.682,
+   "fim": 18.158
+  },
+  {
+   "texto": "e",
+   "inicio": 18.251,
+   "fim": 18.367
+  },
+  {
+   "texto": "a",
+   "inicio": 18.425,
+   "fim": 18.448
+  },
+  {
+   "texto": "Marinha",
+   "inicio": 18.518,
+   "fim": 18.843
+  },
+  {
+   "texto": "brasileira",
+   "inicio": 18.89,
+   "fim": 19.342
+  },
+  {
+   "texto": "inteira",
+   "inicio": 19.366,
+   "fim": 19.749
+  },
+  {
+   "texto": "de",
+   "inicio": 19.795,
+   "fim": 19.865
+  },
+  {
+   "texto": "olho.",
+   "inicio": 19.923,
+   "fim": 20.318
+  },
+  {
+   "texto": "Bastava",
+   "inicio": 20.829,
+   "fim": 21.351
+  },
+  {
+   "texto": "um",
+   "inicio": 21.467,
+   "fim": 21.641
+  },
+  {
+   "texto": "erro,",
+   "inicio": 21.757,
+   "fim": 22.187
+  },
+  {
+   "texto": "um",
+   "inicio": 22.396,
+   "fim": 22.524
+  },
+  {
+   "texto": "tiro",
+   "inicio": 22.593,
+   "fim": 22.883
+  },
+  {
+   "texto": "disparado",
+   "inicio": 22.93,
+   "fim": 23.522
+  },
+  {
+   "texto": "por",
+   "inicio": 23.568,
+   "fim": 23.685
+  },
+  {
+   "texto": "nervosismo,",
+   "inicio": 23.743,
+   "fim": 24.567
+  },
+  {
+   "texto": "pra",
+   "inicio": 24.695,
+   "fim": 24.892
+  },
+  {
+   "texto": "tudo",
+   "inicio": 24.962,
+   "fim": 25.171
+  },
+  {
+   "texto": "mudar.",
+   "inicio": 25.217,
+   "fim": 26.099
+  }
+ ]
+}

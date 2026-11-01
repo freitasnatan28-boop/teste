@@ -1,0 +1,30 @@
+{
+  "trump": {
+    "url": "https://tile.loc.gov/storage-services/service/pnp/ppbd/00600/00608r.jpg",
+    "credito": "Official portrait of President Donald J. Trump (2017), Shealah Craighead, Library of Congress, no known restrictions"
+  },
+  "napoleao": {
+    "url": "https://tile.loc.gov/storage-services/service/pnp/pga/02900/02908v.jpg",
+    "credito": "Napoleon Bonaparte, print, Library of Congress, no known restrictions"
+  },
+  "jefferson": {
+    "url": "https://tile.loc.gov/storage-services/service/pnp/det/4a30000/4a31000/4a31300/4a31336v.jpg",
+    "credito": "Thomas Jefferson, head-and-shoulders portrait, Detroit Publishing Co., Library of Congress, no known restrictions"
+  },
+  "alexandre": {
+    "url": "https://tile.loc.gov/storage-services/service/pnp/ppmsc/01300/01375r.jpg",
+    "credito": "Alexander II, Emperor of Russia (1870-1886), Library of Congress, public domain"
+  },
+  "truman": {
+    "url": "https://tile.loc.gov/storage-services/service/pnp/cph/3b00000/3b01000/3b01100/3b01173r.jpg",
+    "credito": "Harry S. Truman (c. 1945), Library of Congress, no known restrictions"
+  },
+  "chilkoot": {
+    "url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/12600/12624r.jpg",
+    "credito": "Summit of Chilkoot Pass (c. 1897), Library of Congress, no known restrictions"
+  },
+  "seward": {
+    "url": "https://tile.loc.gov/storage-services/service/pnp/cwpb/04900/04948v.jpg",
+    "credito": "Secretary of State William H. Seward, Brady National Photographic Art Gallery, Library of Congress, no known restrictions"
+  }
+}

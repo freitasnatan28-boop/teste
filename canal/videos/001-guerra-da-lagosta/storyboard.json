@@ -1,0 +1,187 @@
+{
+  "titulo": "A Guerra da Lagosta",
+  "estilo": "mapa",
+  "trilha": "trilha-mapa",
+  "beats": {
+    "b01": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-30, 12], "zoom": 1.3}, "para": {"centro": [-24, 6], "zoom": 2.8}, "ano": "1963", "paises": [{"iso": "BRA", "bandeira": "BRA", "em": "Brasil"}], "rotas": [{"pontos": [[-17.4, 14.7], [-34.2, -7.5]], "cor": "#e63946", "icone": "navio", "inicio": 0.5, "fim": 0.98, "pais": "FRA"}], "atores": [{"tipo": "bandeira", "pais": "BRA", "lonlat": [-43.2, -21.5], "em": "Carnaval"}, {"tipo": "fala", "texto": "É CARNAVAL!", "lonlat": [-43.2, -21.5], "em": "Carnaval"}, {"tipo": "bandeira", "pais": "FRA", "lonlat": [-14.5, 16.5], "em": "francês"}]},
+        {"em": "litoral", "tipo": "mapa", "para": {"centro": [-35.5, -7], "zoom": 14}, "pontos": [{"lonlat": [-34.88, -8.05], "rotulo": "Pernambuco", "em": 0.2}], "atores": [{"tipo": "fala", "texto": "O QUE É AQUILO?", "lonlat": [-35.4, -8.6], "em": "Pernambuco", "dx": -330, "dy": -60}, {"tipo": "reacao", "emoji": "😮", "lonlat": [-34.9, -8.05], "em": "Pernambuco", "dx": 40, "dy": -200}]}
+      ]
+    },
+    "b02": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-36.5, -8.5], "zoom": 11}, "atores": [{"tipo": "icone", "icone": "tropa", "lonlat": [-34.9, -8.05], "em": "Marinha", "rotulo": "MARINHA"}, {"tipo": "icone", "icone": "aviao", "lonlat": [-37.4, -10.6], "em": "Aviões", "rotulo": "FAB"}, {"tipo": "foto", "img": "frota-brasileira", "lonlat": [-42.8, -4.6], "em": "luzes", "rotulo": "Marinha do Brasil"}, {"tipo": "unidade", "pais": "BRA", "forma": "hex", "lonlat": [-35.6, -7.0], "em": "marinheiros"}, {"tipo": "unidade", "pais": "BRA", "forma": "hex", "lonlat": [-36.2, -8.9], "em": "madrugada"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-30.5, -5.2], "em": "Aviões", "para": [-32.6, -6.6], "mover": "apagadas"}]},
+        {"em": "primeira", "tipo": "mapa", "para": {"centro": [-20, 18], "zoom": 2.7}, "titulo": "PRIMEIRA VEZ EM\nQUASE 100 ANOS", "paises": [{"iso": "BRA", "bandeira": "BRA"}, {"iso": "FRA", "bandeira": "FRA", "em": "europeu"}], "atores": [{"tipo": "icone", "icone": "alerta", "lonlat": [-20, 12], "em": "guerra", "rotulo": "GUERRA?"}, {"tipo": "unidade", "pais": "BRA", "forma": "hex", "lonlat": [-46, -10], "em": "Brasil"}, {"tipo": "unidade", "pais": "FRA", "forma": "hex", "lonlat": [2.5, 46.5], "em": "europeu"}, {"tipo": "reacao", "emoji": "😠", "lonlat": [-46, -10], "em": "guerra", "dx": 40, "dy": -150}]}
+      ]
+    },
+    "b03": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-20, 16], "zoom": 2.8}, "paises": [{"iso": "BRA", "bandeira": "BRA"}, {"iso": "FRA", "bandeira": "FRA"}], "atores": [{"tipo": "icone", "icone": "interrogacao", "lonlat": [-20, 12], "em": "motivo", "ate": "Lagostas"}, {"tipo": "icone", "icone": "lagosta", "lonlat": [-20, 12], "em": "Lagostas", "rotulo": "LAGOSTAS!", "ate": "Essa"}]},
+        {"em": "Essa", "tipo": "mapa", "para": {"centro": [-20, 14], "zoom": 3.0}, "titulo": "GUERRA DA LAGOSTA\n(1961-1963)", "paises": [{"iso": "BRA", "bandeira": "BRA"}, {"iso": "FRA", "bandeira": "FRA"}], "atores": [{"tipo": "icone", "icone": "lagosta", "lonlat": [-34, -6], "em": "Lagosta"}, {"tipo": "bandeira", "pais": "FRA", "lonlat": [2.35, 48.86], "em": "Brasil não"}, {"tipo": "fala", "texto": "O BRASIL NÃO É UM PAÍS SÉRIO.", "lonlat": [2.35, 48.86], "em": "Brasil não", "dx": -200, "dy": -10}, {"tipo": "icone", "icone": "interrogacao", "lonlat": [-22, 22], "em": "Spoiler", "rotulo": "QUEM DISSE?"}]}
+      ]
+    },
+    "b04": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [2, 10], "zoom": 2.1}, "ano": "1960", "paises": [{"iso": "FRA", "bandeira": "FRA"}], "destaques": [{"iso": "DZA", "cor": "#3a6fe0", "em": 0.18}, {"iso": "MRT", "cor": "#3a6fe0", "em": 0.21}, {"iso": "SEN", "cor": "#3a6fe0", "em": 0.24}, {"iso": "MLI", "cor": "#3a6fe0", "em": 0.27}, {"iso": "GIN", "cor": "#3a6fe0", "em": 0.3}, {"iso": "CIV", "cor": "#3a6fe0", "em": 0.33}, {"iso": "BFA", "cor": "#3a6fe0", "em": 0.36}, {"iso": "NER", "cor": "#3a6fe0", "em": 0.39}, {"iso": "TCD", "cor": "#3a6fe0", "em": 0.42}, {"iso": "CMR", "cor": "#3a6fe0", "em": 0.45}, {"iso": "CAF", "cor": "#3a6fe0", "em": 0.48}, {"iso": "GAB", "cor": "#3a6fe0", "em": 0.51}, {"iso": "COG", "cor": "#3a6fe0", "em": 0.54}, {"iso": "BEN", "cor": "#3a6fe0", "em": 0.57}, {"iso": "TGO", "cor": "#3a6fe0", "em": 0.6}, {"iso": "MDG", "cor": "#3a6fe0", "em": 0.63}], "atores": [{"tipo": "bandeira", "pais": "FRA", "lonlat": [2.5, 47], "em": "perdendo"}, {"tipo": "fala", "texto": "ESTOU PERDENDO TUDO!", "lonlat": [2.5, 47], "em": "perdendo", "dx": 30, "dy": -110}, {"tipo": "reacao", "emoji": "😟", "lonlat": [2.5, 47], "em": "gerações", "dx": 40, "dy": -230}]},
+        {"em": "mares", "tipo": "mapa", "para": {"centro": [-14, 18], "zoom": 8}, "atores": [{"tipo": "icone", "icone": "navio", "lonlat": [-18.5, 20], "em": "pescadores", "rotulo": "PESCADORES\nFRANCESES"}]}
+      ]
+    },
+    "b05": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-15, 20], "zoom": 14}, "destaques": [{"iso": "MRT", "cor": "#e63946", "em": 0.05}], "atores": [{"tipo": "icone", "icone": "lagosta", "lonlat": [-17.6, 20.2], "em": "lagostas", "rotulo": "MAURITÂNIA"}]},
+        {"em": "Bretanha", "tipo": "mapa", "para": {"centro": [-3.2, 48], "zoom": 40}, "atores": [{"tipo": "icone", "icone": "navio", "lonlat": [-4.6, 48.28], "em": "Camaret", "rotulo": "CAMARET"}, {"tipo": "fala", "texto": "PRECISAMOS DE OUTRO MAR!", "lonlat": [-4.6, 48.28], "em": "precisavam"}]}
+      ]
+    },
+    "b06": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-20, 20], "zoom": 2.7}, "paises": [{"iso": "BRA", "bandeira": "BRA", "em": "Brasil"}], "rotas": [{"pontos": [[-4.6, 48.28], [-20, 20], [-36, -5]], "cor": "#3a6fe0", "icone": "navio", "inicio": 0.0, "fim": 0.35, "pais": "FRA"}], "atores": [{"tipo": "icone", "icone": "lagosta", "lonlat": [-38, -4], "em": "abundância", "rotulo": "MUITA LAGOSTA"}, {"tipo": "bandeira", "pais": "FRA", "lonlat": [2.5, 47], "em": "pediram"}, {"tipo": "fala", "texto": "PODEMOS PESQUISAR?", "lonlat": [2.5, 47], "em": "pediram", "dx": -330, "dy": -40}, {"tipo": "icone", "icone": "documento", "lonlat": [-46, -12], "em": "aceitou", "rotulo": "AUTORIZAÇÃO"}]},
+        {"em": "condições", "tipo": "mapa", "para": {"centro": [-35.2, -6.4], "zoom": 22}, "atores": [{"tipo": "rotulo", "texto": "SÓ 3 BARCOS", "lonlat": [-33.4, -4.9], "em": "três", "cor": "#ffd400"}, {"tipo": "icone", "icone": "documento", "lonlat": [-36.6, -6.4], "em": "180", "rotulo": "180 DIAS"}, {"tipo": "icone", "icone": "tropa", "lonlat": [-34.4, -7.6], "em": "fiscais", "rotulo": "FISCAIS A BORDO"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-34.0, -5.6], "em": "três"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-33.2, -5.9], "em": "três"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-33.7, -6.5], "em": "três"}]}
+      ]
+    },
+    "b07": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-34.6, -6.6], "zoom": 30}, "atores": [{"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-34.0, -6.0], "em": "Primeiro"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-33.4, -6.5], "em": "Primeiro"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-34.1, -7.1], "em": "três"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-33.3, -7.4], "em": "quatro"}, {"tipo": "rotulo", "texto": "UM 4º BARCO!", "lonlat": [-33.3, -7.8500000000000005], "em": "quatro", "cor": "#e63946"}, {"tipo": "bandeira", "pais": "BRA", "lonlat": [-35.5, -7.6], "em": "quatro"}, {"tipo": "fala", "texto": "ERAM QUATRO!", "lonlat": [-35.5, -7.6], "em": "quatro", "dx": -40, "dy": -100}, {"tipo": "reacao", "emoji": "😠", "lonlat": [-35.5, -7.6], "em": "ninguém", "dx": -40, "dy": -240}]},
+        {"em": "segundo", "tipo": "mapa", "para": {"centro": [-34.3, -6.6], "zoom": 26}, "atores": [{"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-34.0, -6.0]}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-33.4, -6.5]}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-34.1, -7.1]}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-33.3, -7.4]}, {"tipo": "fala", "texto": "SÓ PESQUISANDO...", "lonlat": [-34.0, -6.0], "em": "ninguém"}, {"tipo": "icone", "icone": "alerta", "lonlat": [-36.6, -5.2], "em": "pescando", "rotulo": "PESCA SEM\nCONTROLE"}, {"tipo": "bandeira", "pais": "BRA", "lonlat": [-36.4, -7.4], "em": "controle"}, {"tipo": "reacao", "emoji": "😠", "lonlat": [-36.4, -7.4], "em": "controle", "dx": -40, "dy": -60}], "zonas": [{"pontos": [[-35.3, -5.3], [-32.8, -5.3], [-32.8, -7.9], [-35.3, -7.9]], "bandeira": "FRA", "em": "pescando"}]},
+        {"em": "levando", "tipo": "mapa", "para": {"centro": [-18, 22], "zoom": 2.5}, "rotas": [{"pontos": [[-36, -5], [-20, 20], [-4.6, 48.28]], "cor": "#e63946", "icone": "navio", "inicio": 0.05, "fim": 0.85, "pais": "FRA"}], "atores": [{"tipo": "rotulo", "texto": "EUROPA", "lonlat": [8, 50], "em": "Europa"}]}
+      ]
+    },
+    "b08": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-45, -12], "zoom": 5.5}, "ano": "1961", "paises": [{"iso": "BRA", "bandeira": "BRA"}], "atores": [{"tipo": "retrato", "img": "goulart", "nome": "João Goulart", "lonlat": [-47.9, -15.8], "em": "Goulart"}, {"tipo": "fala", "texto": "DE NOVO?", "lonlat": [-47.9, -15.8], "em": "pediu", "dx": 90, "dy": -170}]},
+        {"em": "expulsar", "tipo": "mapa", "para": {"centro": [-35, -6.6], "zoom": 26}, "atores": [{"tipo": "fala", "texto": "FORA DAQUI!", "lonlat": [-35.6, -7.3], "em": "expulsar", "dx": -60, "dy": -110}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-34.1, -6.2], "em": "expulsar"}, {"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-35.7, -7.5], "em": "expulsar", "para": [-34.6, -6.5], "mover": "apreender"}]},
+        {"em": "1962", "tipo": "mapa", "para": {"centro": [-34.8, -6.6], "zoom": 34}, "ano": "1962", "atores": [{"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-35.3, -6.9], "em": "corveta"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-34.2, -6.4], "em": "Cassiopée"}, {"tipo": "rotulo", "texto": "A 10 MILHAS DA COSTA", "lonlat": [-34.8, -5.6], "em": "dez milhas", "cor": "#ffd400"}, {"tipo": "rotulo", "texto": "CORVETA IPIRANGA", "lonlat": [-35.3, -7.45], "em": "corveta", "cor": "#1fa45b"}, {"tipo": "rotulo", "texto": "CASSIOPÉE", "lonlat": [-34.2, -6.95], "em": "Cassiopée", "cor": "#e63946"}]},
+        {"em": "discussão", "tipo": "mapa", "para": {"centro": [-20, 18], "zoom": 2.7}, "paises": [{"iso": "BRA", "bandeira": "BRA"}, {"iso": "FRA", "bandeira": "FRA"}], "atores": [{"tipo": "icone", "icone": "documento", "lonlat": [-20, 14], "em": "jurídica", "rotulo": "BRIGA JURÍDICA"}]}
+      ]
+    },
+    "b09": {
+      "cenas": [
+        {"tipo": "plataforma", "destaque": "plataforma", "bandeira": "BRA"}
+      ]
+    },
+    "b10": {
+      "cenas": [
+        {"tipo": "plataforma", "destaque": "mar", "lagostaPula": true, "bandeira": "FRA"}
+      ]
+    },
+    "b11": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-40, -15], "zoom": 5}, "para": {"centro": [-41, -19], "zoom": 9}, "paises": [{"iso": "BRA", "bandeira": "BRA"}], "atores": [{"tipo": "icone", "icone": "ancora", "lonlat": [-43.2, -22.9], "em": "oficial", "rotulo": "PAULO MOREIRA\nDA SILVA"}, {"tipo": "fala", "texto": "SE A LAGOSTA É PEIXE PORQUE DÁ SALTOS...", "lonlat": [-43.2, -22.9], "em": "Por analogia", "ate": "canguru", "dx": 60, "dy": -200}, {"tipo": "fala", "texto": "...ENTÃO O CANGURU É UMA AVE!", "lonlat": [-43.2, -22.9], "em": "canguru", "dx": 60, "dy": -200}, {"tipo": "foto", "img": "canguru", "lonlat": [-34.5, -15], "em": "ave"}]}
+      ]
+    },
+    "b12": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-10, 35], "zoom": 3.1}, "para": {"centro": [0.5, 46.6], "zoom": 15}, "paises": [{"iso": "FRA", "bandeira": "FRA"}], "atores": [{"tipo": "bandeira", "pais": "FRA", "lonlat": [-4.4, 48.3], "em": "ajuda"}, {"tipo": "fala", "texto": "SOCORRO, GOVERNO!", "lonlat": [-4.4, 48.3], "em": "ajuda", "dx": -120, "dy": -120}, {"tipo": "retrato", "img": "de-gaulle", "nome": "De Gaulle", "lonlat": [2.35, 48.6], "em": "Charles"}, {"tipo": "fala", "texto": "EU NÃO RECUO.", "lonlat": [2.35, 48.6], "em": "recuar", "dx": 100, "dy": -170}]}
+      ]
+    },
+    "b13": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [6, 43.2], "zoom": 34}, "ano": "1963", "atores": [{"tipo": "foto", "img": "clemenceau", "lonlat": [8.6, 44.1], "em": "porta-aviões", "rotulo": "Porta-aviões Clemenceau"}, {"tipo": "icone", "icone": "navio", "lonlat": [5.93, 43.12], "em": "Toulon", "rotulo": "TOULON"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [5.5, 42.5], "em": "Toulon"}]},
+        {"em": "Eram", "tipo": "mapa", "para": {"centro": [6, 42.6], "zoom": 30}, "atores": [{"tipo": "bandeira", "pais": "FRA", "lonlat": [5.93, 43.4]}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [3.6, 42.6], "em": "contratorpedeiros"}, {"tipo": "rotulo", "texto": "CONTRATORPEDEIROS", "lonlat": [3.6, 42.050000000000004], "em": "contratorpedeiros"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [8.4, 42.8], "em": "fragatas"}, {"tipo": "rotulo", "texto": "FRAGATAS", "lonlat": [8.4, 42.25], "em": "fragatas"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [4.6, 41.2], "em": "cruzador"}, {"tipo": "rotulo", "texto": "CRUZADOR", "lonlat": [4.6, 40.650000000000006], "em": "cruzador"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [7.6, 41.0], "em": "navio-tanque"}, {"tipo": "rotulo", "texto": "NAVIO-TANQUE", "lonlat": [7.6, 40.45], "em": "navio-tanque"}, {"tipo": "fala", "texto": "SÓ UMA MISSÃO DE ROTINA...", "lonlat": [5.93, 43.4], "em": "rotina", "dx": -150, "dy": -150}]}
+      ]
+    },
+    "b14": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-6, 30], "zoom": 3.6}, "rotas": [{"pontos": [[5.93, 43.12], [-5.6, 36.0], [-13, 28], [-17.4, 14.7]], "cor": "#3a6fe0", "icone": "navio", "inicio": 0.0, "fim": 0.85, "pais": "FRA"}], "pontos": [{"lonlat": [-17.44, 14.69], "rotulo": "Dacar", "em": 0.75}]},
+        {"em": "Mas", "tipo": "mapa", "para": {"centro": [-26, 3], "zoom": 3.3}, "rotas": [{"pontos": [[-17.4, 14.7], [-34.2, -7.5]], "cor": "#e63946", "icone": "navio", "inicio": 0.0, "fim": 0.9, "pais": "FRA"}], "atores": [{"tipo": "foto", "img": "tartu-b17", "lonlat": [-14, -6], "em": "contratorpedeiro", "rotulo": "O Tartu"}]}
+      ]
+    },
+    "b15": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-41, -15], "zoom": 6.5}, "titulo": "22 DE FEVEREIRO\nVÉSPERA DE CARNAVAL", "paises": [{"iso": "BRA", "bandeira": "BRA"}], "atores": [{"tipo": "icone", "icone": "tropa", "lonlat": [-43.2, -22.9], "em": "Marinha", "rotulo": "MARINHA"}, {"tipo": "icone", "icone": "aviao", "lonlat": [-38.5, -12.5], "em": "Aérea", "rotulo": "FAB"}, {"tipo": "fala", "texto": "MAS É CARNAVAL!", "lonlat": [-43.2, -22.9], "em": "feriado", "dx": -360, "dy": -60}, {"tipo": "icone", "icone": "alerta", "lonlat": [-34.9, -8.05], "em": "convocados", "rotulo": "CONVOCADOS\nNA MADRUGADA"}, {"tipo": "unidade", "pais": "BRA", "forma": "hex", "lonlat": [-38.5, -13.0], "em": "mobilizou"}, {"tipo": "unidade", "pais": "BRA", "forma": "hex", "lonlat": [-35.5, -9.5], "em": "mobilizou"}, {"tipo": "reacao", "emoji": "😩", "lonlat": [-34.9, -8.05], "em": "madrugada", "dx": 40, "dy": -230}]}
+      ]
+    },
+    "b16": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-35.6, -8.3], "zoom": 22}, "atores": [{"tipo": "icone", "icone": "alerta", "lonlat": [-34.9, -8.05], "em": "munição", "rotulo": "POUCA MUNIÇÃO"}, {"tipo": "icone", "icone": "alerta", "lonlat": [-37.0, -8.9], "em": "combustível", "rotulo": "POUCO COMBUSTÍVEL"}, {"tipo": "icone", "icone": "ancora", "lonlat": [-34.4, -9.4], "em": "reparos", "rotulo": "NAVIOS EM REPARO"}, {"tipo": "reacao", "emoji": "😬", "lonlat": [-34.9, -8.05], "em": "crítica", "dx": -90, "dy": -250}]},
+        {"em": "situação", "tipo": "contador", "ate": 30, "unidade": "MIN", "sub": "de combate, no máximo", "som": "riser"}
+      ]
+    },
+    "b17": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-50, 5], "zoom": 1.9}, "para": {"centro": [-62, 10], "zoom": 2.0}, "paises": [{"iso": "USA", "bandeira": "USA"}, {"iso": "BRA", "bandeira": "BRA"}], "atores": [{"tipo": "bandeira", "pais": "USA", "lonlat": [-77, 38.9], "em": "lembraram"}, {"tipo": "fala", "texto": "ESSES AVIÕES SÃO NOSSOS!", "lonlat": [-77, 38.9], "em": "lembraram", "ate": "regras"}, {"tipo": "foto", "img": "b17", "lonlat": [-44, 24], "em": "aviões", "rotulo": "Bombardeiro B-17"}, {"tipo": "fala", "texto": "NÃO PODE USAR EM GUERRA!", "lonlat": [-77, 38.9], "em": "regras"}, {"tipo": "bandeira", "pais": "BRA", "lonlat": [-47.9, -15.8], "em": "incômodo"}, {"tipo": "reacao", "emoji": "😐", "lonlat": [-47.9, -15.8], "em": "incômodo", "dx": 40, "dy": -90}]}
+      ]
+    },
+    "b18": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-36, -6], "zoom": 10}, "para": {"centro": [-33.4, -4.6], "zoom": 22}, "titulo": "26 DE FEVEREIRO", "rotas": [{"pontos": [[-29.2, -1.6], [-32.2, -3.5]], "cor": "#e63946", "icone": "navio", "inicio": 0.35, "fim": 0.9, "pais": "FRA"}], "pontos": [{"lonlat": [-32.42, -3.85], "rotulo": "Fernando de Noronha", "em": 0.25}], "atores": [{"tipo": "icone", "icone": "aviao", "lonlat": [-34.8, -5.4], "em": "avião", "rotulo": "PATRULHA DA FAB"}, {"tipo": "icone", "icone": "radar", "lonlat": [-33.8, -6.0], "em": "radar"}]},
+        {"em": "seguinte", "tipo": "mapa", "para": {"centro": [-32.8, -4.0], "zoom": 26}, "atores": [{"tipo": "foto", "img": "tartu-b17", "lonlat": [-31.8, -4.7], "em": "fotografou", "rotulo": "Foto real da FAB, 1963"}, {"tipo": "rotulo", "texto": "ERA O TARTU!", "lonlat": [-33.6, -3.0], "em": "Era", "cor": "#e63946"}]}
+      ]
+    },
+    "b19": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-32.8, -4.0], "zoom": 26}, "para": {"centro": [-32.6, -3.7], "zoom": 60}, "estilo": "satelite", "atores": [{"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-32.45, -3.62], "em": "cenas"}, {"tipo": "icone", "icone": "aviao", "lonlat": [-32.9, -3.9], "em": "dois", "rotulo": "B-17"}, {"tipo": "icone", "icone": "aviao", "lonlat": [-32.8, -3.45], "em": "dois"}, {"tipo": "rotulo", "texto": "LUZES APAGADAS", "lonlat": [-33.4, -4.4], "em": "apagadas", "cor": "#ffd400"}, {"tipo": "rotulo", "texto": "A 30 METROS!", "lonlat": [-32.0, -3.15], "em": "30", "cor": "#ffd400"}]},
+        {"em": "acenderam", "tipo": "foto", "img": "tartu-b17", "efeito": "flash", "som": "flash", "focos": [[0.5, 0.6], [0.55, 0.62]]},
+        {"em": "marinheiros", "tipo": "mapa", "de": {"centro": [-32.6, -3.7], "zoom": 60}, "para": {"centro": [-32.5, -3.65], "zoom": 75}, "atores": [{"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-32.45, -3.62]}, {"tipo": "fala", "texto": "TODOS AOS POSTOS DE COMBATE!", "lonlat": [-32.45, -3.62], "em": "correndo", "dx": 40, "dy": -170}, {"tipo": "lupa", "img": "conves", "lonlat": [-32.85, -3.95], "em": "marinheiros", "raio": 230, "rotulo": "ILUSTRAÇÃO (IA)"}]}
+      ]
+    },
+    "b20": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-43, -20], "zoom": 8}, "para": {"centro": [-38, -13], "zoom": 6}, "rotas": [{"pontos": [[-43.2, -22.9], [-38.5, -18], [-34.9, -8.05], [-33.5, -6.5]], "cor": "#1fa45b", "icone": "navio", "inicio": 0.0, "fim": 0.7, "pais": "BRA"}], "pontos": [{"lonlat": [-43.2, -22.9], "rotulo": "Rio de Janeiro", "cor": "#1fa45b"}, {"lonlat": [-34.9, -8.05], "rotulo": "Recife", "cor": "#1fa45b", "em": 0.35}], "atores": [{"tipo": "icone", "icone": "documento", "lonlat": [-46.6, -20.5], "em": "imprensa", "rotulo": "IMPRENSA"}, {"tipo": "bandeira", "pais": "BRA", "lonlat": [-47.9, -15.8], "em": "população"}, {"tipo": "fala", "texto": "VAI TER GUERRA?", "lonlat": [-47.9, -15.8], "em": "população", "dx": -150, "dy": -120}, {"tipo": "unidade", "pais": "BRA", "forma": "hex", "lonlat": [-35.4, -8.6], "em": "reforços"}]}
+      ]
+    },
+    "b21": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-36, -9], "zoom": 10}, "para": {"centro": [-34, -6.8], "zoom": 30}, "titulo": "10 DA MANHÃ", "atores": [{"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-34.4, -7.1], "em": "Paraná"}, {"tipo": "rotulo", "texto": "PARANÁ", "lonlat": [-34.4, -7.55], "cor": "#1fa45b"}]},
+        {"em": "radar", "tipo": "radar", "rotulo": "ALVO DETECTADO", "som": "radar"},
+        {"em": "Tinha de", "tipo": "mapa", "de": {"centro": [-34, -6.8], "zoom": 30}, "para": {"centro": [-33.8, -6.8], "zoom": 40}, "atores": [{"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-34.4, -7.1]}, {"tipo": "rotulo", "texto": "PARANÁ", "lonlat": [-34.4, -7.55], "cor": "#1fa45b"}, {"tipo": "fala", "texto": "É O TARTU!", "lonlat": [-34.4, -7.1], "em": "ser", "dx": 40, "dy": -170}]}
+      ]
+    },
+    "b22": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-33.8, -6.8], "zoom": 34}, "atores": [{"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-33.2, -6.5]}, {"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-34.4, -7.1]}, {"tipo": "rotulo", "texto": "13 KM", "lonlat": [-33.8, -6.8], "em": "13", "cor": "#ffd400"}, {"tipo": "rotulo", "texto": "+ 6 PESQUEIROS", "lonlat": [-32.7, -5.9], "em": "seis", "cor": "#fff"}, {"tipo": "rotulo", "texto": "TARTU", "lonlat": [-33.2, -6.95], "cor": "#e63946"}, {"tipo": "rotulo", "texto": "PARANÁ", "lonlat": [-34.4, -7.55], "cor": "#1fa45b"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-32.7, -6.3], "em": "seis"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-32.9, -5.6], "em": "seis"}]},
+        {"em": "sozinho", "tipo": "mapa", "para": {"centro": [-34.3, -7.0], "zoom": 24}, "atores": [{"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-33.2, -6.5]}, {"tipo": "rotulo", "texto": "TARTU", "lonlat": [-33.2, -6.95], "cor": "#e63946"}, {"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-35.0, -6.3], "em": "quatro"}, {"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-35.3, -7.5], "em": "quatro"}, {"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-34.5, -8.2], "em": "quatro"}, {"tipo": "rotulo", "texto": "4 CONTRATORPEDEIROS", "lonlat": [-34.5, -8.7], "em": "quatro", "cor": "#1fa45b"}, {"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-36.1, -6.9], "em": "corveta"}, {"tipo": "rotulo", "texto": "CORVETA", "lonlat": [-36.1, -7.4], "em": "corveta", "cor": "#1fa45b"}, {"tipo": "rotulo", "texto": "+ SUBMARINO", "lonlat": [-33.0, -9.0], "em": "submarino", "cor": "#ffd400"}]}
+      ]
+    },
+    "b23": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-34.2, -7.0], "zoom": 24}, "atores": [{"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-33.2, -6.5]}, {"tipo": "rotulo", "texto": "TARTU", "lonlat": [-33.2, -6.95], "cor": "#e63946"}, {"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-34.6, -7.6], "em": "perto", "para": [-33.9, -7.1], "mover": "perto"}, {"tipo": "rotulo", "texto": "PERTO", "lonlat": [-33.9, -7.55], "em": "perto", "cor": "#1fa45b"}, {"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-35.5, -7.9], "em": "distância"}, {"tipo": "rotulo", "texto": "À DISTÂNCIA", "lonlat": [-35.5, -8.35], "em": "distância", "cor": "#1fa45b"}]},
+        {"em": "respondeu", "tipo": "mapa", "para": {"centro": [-26, 3], "zoom": 3.3}, "rotas": [{"pontos": [[-17.4, 14.7], [-33.5, -6.8]], "cor": "#e63946", "icone": "navio", "inicio": 0.0, "fim": 0.8, "pais": "FRA"}], "atores": [{"tipo": "rotulo", "texto": "PAUL GAUFENY", "lonlat": [-20, 12], "em": "Gaufeny", "cor": "#e63946"}]},
+        {"em": "Agora", "tipo": "mapa", "para": {"centro": [-34.0, -6.8], "zoom": 22}, "atores": [{"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-33.0, -6.2], "em": "dois"}, {"tipo": "unidade", "pais": "FRA", "forma": "navio", "lonlat": [-32.5, -7.2], "em": "dois"}, {"tipo": "rotulo", "texto": "2 NAVIOS DE GUERRA", "lonlat": [-32.75, -7.75], "em": "dois", "cor": "#e63946"}, {"tipo": "rotulo", "texto": "6 PESQUEIROS", "lonlat": [-31.4, -6.0], "em": "seis"}, {"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-35.6, -6.0], "em": "Marinha", "para": [-34.4, -6.2], "mover": "olho"}, {"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-35.8, -7.3], "em": "Marinha", "para": [-34.5, -7.0], "mover": "olho"}, {"tipo": "unidade", "pais": "BRA", "forma": "navio", "lonlat": [-35.3, -8.3], "em": "Marinha", "para": [-34.2, -7.8], "mover": "olho"}, {"tipo": "icone", "icone": "alerta", "lonlat": [-34.8, -4.4], "em": "erro", "rotulo": "UM ERRO..."}, {"tipo": "bandeira", "pais": "BRA", "lonlat": [-34.3, -7.0], "em": "nervosismo"}, {"tipo": "reacao", "emoji": "😬", "lonlat": [-34.3, -7.0], "em": "nervosismo", "dx": 40, "dy": -130}]}
+      ]
+    },
+    "b24": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-33.9, -6.9], "zoom": 40}, "para": {"centro": [-35, 18], "zoom": 1.4}, "titulo": "MAS O TIRO\nNUNCA VEIO", "paises": [{"iso": "BRA", "bandeira": "BRA"}, {"iso": "FRA", "bandeira": "FRA"}, {"iso": "USA", "bandeira": "USA", "em": "Estados"}], "atores": [{"tipo": "foto", "img": "onu", "lonlat": [-38, 8], "em": "ONU", "rotulo": "ONU"}, {"tipo": "bandeira", "pais": "USA", "lonlat": [-77, 38.9], "em": "pressionaram"}, {"tipo": "fala", "texto": "CALMA, PESSOAL!", "lonlat": [-77, 38.9], "em": "pressionaram", "dx": -60, "dy": -140}]}
+      ]
+    },
+    "b25": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-18, 20], "zoom": 2.7}, "titulo": "MARÇO DE 1963", "rotas": [{"pontos": [[-33.5, -6.8], [-17.4, 14.7], [5.93, 43.12]], "cor": "#3a6fe0", "icone": "navio", "inicio": 0.05, "fim": 0.75, "pais": "FRA"}], "atores": [{"tipo": "bandeira", "pais": "BRA", "lonlat": [-35, -7], "em": "boa"}, {"tipo": "fala", "texto": "BOA VIAGEM!", "lonlat": [-35, -7], "em": "boa", "dx": -300, "dy": -50}, {"tipo": "reacao", "emoji": "😏", "lonlat": [-35, -7], "em": "irônica", "dx": -300, "dy": -160}]}
+      ]
+    },
+    "b26": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-18, 20], "zoom": 2.8}, "paises": [{"iso": "BRA", "bandeira": "BRA"}, {"iso": "FRA", "bandeira": "FRA"}]},
+        {"em": "dezembro", "tipo": "mapa", "para": {"centro": [-18, 18], "zoom": 3.0}, "ano": "1964", "paises": [{"iso": "BRA", "bandeira": "BRA"}, {"iso": "FRA", "bandeira": "FRA"}], "atores": [{"tipo": "icone", "icone": "documento", "lonlat": [-24, 14], "em": "acordo", "rotulo": "ACORDO"}, {"tipo": "icone", "icone": "lagosta", "lonlat": [-12, 14], "em": "limitados", "rotulo": "PESCA LIMITADA"}, {"tipo": "icone", "icone": "dinheiro", "lonlat": [-18, 2], "em": "dividindo", "rotulo": "LUCROS DIVIDIDOS"}]},
+        {"em": "Resultado", "tipo": "mapa", "para": {"centro": [-18, 17], "zoom": 2.8}, "paises": [{"iso": "BRA", "bandeira": "BRA"}, {"iso": "FRA", "bandeira": "FRA"}], "atores": [{"tipo": "rotulo", "texto": "0 TIROS · 0 MORTOS", "lonlat": [-18, 12], "em": "nenhum", "cor": "#1fa45b"}]},
+        {"em": "hoje", "tipo": "mapa", "para": {"centro": [-40, -12], "zoom": 5}, "paises": [{"iso": "BRA", "bandeira": "BRA"}], "atores": [{"tipo": "rotulo", "texto": "200 MILHAS", "lonlat": [-29, -9], "em": "200", "cor": "#ffd400"}, {"tipo": "icone", "icone": "ancora", "lonlat": [-30, -16], "em": "decide", "rotulo": "SÓ O BRASIL\nDECIDE"}], "zonas": [{"em": "zona", "pontos": [[-51, 5.5], [-46, 2.5], [-38, -0.3], [-31, -1.8], [-29.3, -4], [-31.4, -10], [-34.3, -17], [-36.3, -22], [-41.8, -27.6], [-48, -33], [-53, -35.2], [-53.4, -33.7], [-48.6, -28.2], [-48.5, -26], [-44.8, -23.4], [-41, -22], [-39, -17.5], [-39, -13], [-37.1, -11], [-35, -9], [-35.1, -5.5], [-37.3, -4.7], [-41, -2.9], [-44.3, -2.5], [-48, -1], [-50, 0.5], [-51.2, 4]], "bandeira": "BRA"}]}
+      ]
+    },
+    "b27": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-40, -12], "zoom": 5}, "para": {"centro": [-15, 30], "zoom": 2.5}, "titulo": "E A FRASE?", "paises": [{"iso": "BRA", "bandeira": "BRA"}, {"iso": "FRA", "bandeira": "FRA"}], "atores": [{"tipo": "retrato", "img": "de-gaulle", "nome": "De Gaulle", "lonlat": [2.35, 47.5], "em": "Charles"}, {"tipo": "fala", "texto": "O BRASIL NÃO É UM PAÍS SÉRIO.", "lonlat": [2.35, 47.5], "em": "não é um", "dx": -560, "dy": -60}]}
+      ]
+    },
+    "b28": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [2.35, 48.3], "zoom": 24}, "atores": [{"tipo": "rotulo", "texto": "NÃO FOI ELE!", "lonlat": [2.35, 50.2], "cor": "#e63946"}, {"tipo": "bandeira", "pais": "BRA", "lonlat": [2.35, 48.86], "em": "brasileiro"}, {"tipo": "rotulo", "texto": "CARLOS ALVES DE SOUZA FILHO", "lonlat": [2.35, 47.75], "em": "diplomata", "cor": "#ffd400"}, {"tipo": "rotulo", "texto": "EMBAIXADOR DO BRASIL EM PARIS", "lonlat": [2.35, 47.3], "em": "embaixador"}, {"tipo": "fala", "texto": "EDGAR, O BRASIL NÃO É UM PAÍS SÉRIO.", "lonlat": [2.35, 48.86], "em": "jornalista", "dx": 50, "dy": -140}, {"tipo": "icone", "icone": "documento", "lonlat": [5.6, 47.9], "em": "1979", "rotulo": "LIVRO DE 1979"}, {"tipo": "reacao", "emoji": "😮", "lonlat": [2.35, 48.86], "em": "brasileiro", "dx": -140, "dy": -120}]}
+      ]
+    },
+    "b29": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [2.35, 48.3], "zoom": 24}, "para": {"centro": [-44, -18], "zoom": 7}, "ano": "1997", "paises": [{"iso": "BRA", "bandeira": "BRA"}], "atores": [{"tipo": "rotulo", "texto": "JACQUES CHIRAC", "lonlat": [-46.6, -21.5], "em": "Chirac", "cor": "#ffd400"}, {"tipo": "bandeira", "pais": "FRA", "lonlat": [-46.6, -23.5], "em": "Chirac"}, {"tipo": "fala", "texto": "DE GAULLE NUNCA DISSE ISSO!", "lonlat": [-46.6, -23.5], "em": "nunca", "dx": 50, "dy": -150}]}
+      ]
+    },
+    "b30": {
+      "cenas": [
+        {"tipo": "mapa", "para": {"centro": [-20, 18], "zoom": 2.7}, "titulo": "DITA POR UM BRASILEIRO", "paises": [{"iso": "BRA", "bandeira": "BRA"}, {"iso": "FRA", "bandeira": "FRA"}], "atores": [{"tipo": "icone", "icone": "lagosta", "lonlat": [-20, 10], "em": "lagostas", "rotulo": "POR CAUSA DE LAGOSTAS!"}]}
+      ]
+    },
+    "b31": {
+      "cenas": [
+        {"tipo": "final"}
+      ]
+    }
+  }
+}

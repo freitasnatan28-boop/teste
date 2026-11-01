@@ -1,0 +1,263 @@
+{
+ "id": "b15",
+ "capitulo": "Florida, Mexico and a Desert",
+ "visual": "\"1853\". Gadsden strip lights up. Railroad line to the Pacific.",
+ "texto": "Five years later, America came back for one more strip of desert. Ten million dollars for southern Arizona and New Mexico. Why? A railroad. Engineers wanted the flattest route to the Pacific, and it ran through Mexico. But the strangest deal of all was still to come, in the frozen north.",
+ "palavras": [
+  {
+   "texto": "Five",
+   "inicio": 0,
+   "fim": 0.36
+  },
+  {
+   "texto": "years",
+   "inicio": 0.395,
+   "fim": 0.65
+  },
+  {
+   "texto": "later,",
+   "inicio": 0.731,
+   "fim": 1.277
+  },
+  {
+   "texto": "America",
+   "inicio": 1.486,
+   "fim": 2.02
+  },
+  {
+   "texto": "came",
+   "inicio": 2.09,
+   "fim": 2.322
+  },
+  {
+   "texto": "back",
+   "inicio": 2.357,
+   "fim": 2.566
+  },
+  {
+   "texto": "for",
+   "inicio": 2.635,
+   "fim": 2.833
+  },
+  {
+   "texto": "one",
+   "inicio": 2.949,
+   "fim": 3.274
+  },
+  {
+   "texto": "more",
+   "inicio": 3.332,
+   "fim": 3.553
+  },
+  {
+   "texto": "strip",
+   "inicio": 3.599,
+   "fim": 3.889
+  },
+  {
+   "texto": "of",
+   "inicio": 3.947,
+   "fim": 4.005
+  },
+  {
+   "texto": "desert.",
+   "inicio": 4.075,
+   "fim": 4.644
+  },
+  {
+   "texto": "Ten",
+   "inicio": 5.027,
+   "fim": 5.364
+  },
+  {
+   "texto": "million",
+   "inicio": 5.445,
+   "fim": 5.793
+  },
+  {
+   "texto": "dollars",
+   "inicio": 5.851,
+   "fim": 6.316
+  },
+  {
+   "texto": "for",
+   "inicio": 6.641,
+   "fim": 6.815
+  },
+  {
+   "texto": "southern",
+   "inicio": 6.873,
+   "fim": 7.221
+  },
+  {
+   "texto": "Arizona",
+   "inicio": 7.268,
+   "fim": 7.883
+  },
+  {
+   "texto": "and",
+   "inicio": 7.964,
+   "fim": 8.115
+  },
+  {
+   "texto": "New",
+   "inicio": 8.173,
+   "fim": 8.29
+  },
+  {
+   "texto": "Mexico.",
+   "inicio": 8.348,
+   "fim": 9.102
+  },
+  {
+   "texto": "Why?",
+   "inicio": 9.195,
+   "fim": 9.764
+  },
+  {
+   "texto": "A",
+   "inicio": 9.915,
+   "fim": 10.008
+  },
+  {
+   "texto": "railroad.",
+   "inicio": 10.124,
+   "fim": 10.937
+  },
+  {
+   "texto": "Engineers",
+   "inicio": 11.447,
+   "fim": 12.225
+  },
+  {
+   "texto": "wanted",
+   "inicio": 12.341,
+   "fim": 12.666
+  },
+  {
+   "texto": "the",
+   "inicio": 12.701,
+   "fim": 12.783
+  },
+  {
+   "texto": "flattest",
+   "inicio": 12.852,
+   "fim": 13.328
+  },
+  {
+   "texto": "route",
+   "inicio": 13.398,
+   "fim": 13.63
+  },
+  {
+   "texto": "to",
+   "inicio": 13.665,
+   "fim": 13.723
+  },
+  {
+   "texto": "the",
+   "inicio": 13.793,
+   "fim": 13.862
+  },
+  {
+   "texto": "Pacific,",
+   "inicio": 13.92,
+   "fim": 14.582
+  },
+  {
+   "texto": "and",
+   "inicio": 14.826,
+   "fim": 14.988
+  },
+  {
+   "texto": "it",
+   "inicio": 15.058,
+   "fim": 15.128
+  },
+  {
+   "texto": "ran",
+   "inicio": 15.186,
+   "fim": 15.406
+  },
+  {
+   "texto": "through",
+   "inicio": 15.464,
+   "fim": 15.72
+  },
+  {
+   "texto": "Mexico.",
+   "inicio": 15.766,
+   "fim": 16.602
+  },
+  {
+   "texto": "But",
+   "inicio": 17.043,
+   "fim": 17.241
+  },
+  {
+   "texto": "the",
+   "inicio": 17.276,
+   "fim": 17.357
+  },
+  {
+   "texto": "strangest",
+   "inicio": 17.403,
+   "fim": 17.984
+  },
+  {
+   "texto": "deal",
+   "inicio": 18.042,
+   "fim": 18.274
+  },
+  {
+   "texto": "of",
+   "inicio": 18.332,
+   "fim": 18.379
+  },
+  {
+   "texto": "all",
+   "inicio": 18.46,
+   "fim": 18.715
+  },
+  {
+   "texto": "was",
+   "inicio": 18.796,
+   "fim": 18.936
+  },
+  {
+   "texto": "still",
+   "inicio": 18.982,
+   "fim": 19.261
+  },
+  {
+   "texto": "to",
+   "inicio": 19.319,
+   "fim": 19.389
+  },
+  {
+   "texto": "come,",
+   "inicio": 19.47,
+   "fim": 19.818
+  },
+  {
+   "texto": "in",
+   "inicio": 19.853,
+   "fim": 19.934
+  },
+  {
+   "texto": "the",
+   "inicio": 19.992,
+   "fim": 20.062
+  },
+  {
+   "texto": "frozen",
+   "inicio": 20.108,
+   "fim": 20.561
+  },
+  {
+   "texto": "north.",
+   "inicio": 20.631,
+   "fim": 21.641
+  }
+ ]
+}
