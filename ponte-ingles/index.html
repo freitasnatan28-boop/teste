@@ -195,20 +195,36 @@ textarea:focus,input[type=text]:focus{outline:none;border-color:var(--accent)}
 /* Mobile bottom nav */
 @media (max-width:700px){
   .tabs{position:fixed;left:0;right:0;bottom:0;max-width:none;background:var(--surface);border-top:1px solid var(--line);justify-content:space-around;gap:0;padding-bottom:env(safe-area-inset-bottom,0px);z-index:30}
-  .tab{flex-direction:column;gap:3px;font-size:.68rem;padding:9px 4px 10px;border-bottom:0;border-top:3px solid transparent;flex:1;position:relative}
+  .tab{flex-direction:column;gap:3px;font-size:.64rem;padding:9px 2px 10px;border-bottom:0;border-top:3px solid transparent;flex:1;position:relative}
   .tab[aria-selected="true"]{border-top-color:var(--accent)}
   .tab .dot{position:absolute;top:4px;right:calc(50% - 22px)}
   .brand small{display:none}
   .chat{height:calc(100vh - 210px)}
 }
+.said{display:flex;flex-wrap:wrap;gap:6px}
+.w{padding:4px 8px;border-radius:7px;font-weight:600}
+.w.hit{background:var(--ok-soft);color:var(--ink)} .w.miss{background:var(--bad-soft);color:var(--ink);text-decoration:underline wavy var(--bad)}
+.sounds{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.sound{display:grid;gap:8px;padding:14px;border-radius:12px;background:var(--surface-2);align-content:start}
+.sound b{font-family:var(--f-display);font-size:1.05rem}
+.pairs{display:flex;flex-wrap:wrap;gap:6px}
+.pair{border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:6px 10px;font-weight:600;display:inline-flex;gap:6px;align-items:center}
+.pair svg{width:14px;height:14px;color:var(--accent)}
+.timer{font:800 2.4rem/1 var(--f-mono);color:var(--accent)}
+.hint{display:flex;gap:10px;align-items:flex-start;padding:12px;border-radius:12px;background:var(--accent-soft);font-size:.92rem}
+.hint svg{width:20px;height:20px;flex:none;color:var(--accent);margin-top:2px}
+.ai-out{padding:14px;border-radius:12px;background:var(--surface-2);line-height:1.6}
+.toggles{display:flex;gap:14px;flex-wrap:wrap;font-size:.86rem;color:var(--muted)}
+.toggles label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.msg .reveal{border:1px dashed var(--line);background:var(--surface-2);border-radius:9px;padding:8px 12px;font-weight:600;width:100%}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
 <header class="top">
   <div class="top-in">
     <div class="brand">
-      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="var(--accent)"/><path d="M6 23c3-8 19-8 22 0" stroke="var(--sun)" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M10 23v-4M17 23v-6M24 23v-4" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M5 25h24" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
-      <div><b>Ponte</b><small>Inglês fluente em 26 semanas</small></div>
+      <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2F6BFF"/><stop offset="1" stop-color="#1340C8"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#lg)"/><path d="M12 19a8 8 0 0 1 8-8h24a8 8 0 0 1 8 8v15a8 8 0 0 1-8 8H31l-9 8v-8h-2a8 8 0 0 1-8-8Z" fill="#fff"/><path d="M19 33c3.8-10 22.2-10 26 0" fill="none" stroke="#FFB300" stroke-width="3.8" stroke-linecap="round"/><path d="M24 33v-4M32 33v-6.8M40 33v-4" stroke="#1E58F0" stroke-width="2.8" stroke-linecap="round"/><path d="M17 34.6h30" stroke="#1E58F0" stroke-width="3" stroke-linecap="round"/></svg>
+      <div><b>Ponte<span style="color:var(--sun)">.</span></b><small>Inglês fluente em 26 semanas</small></div>
     </div>
     <span class="stat streak" title="Dias seguidos estudando"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 4 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-4-1-6 1-9.5Z"/></svg><span id="hStreak">0</span></span>
     <span class="stat" title="Pontos de experiência"><span class="label" style="font-size:.6rem">XP</span><span id="hXp">0</span></span>
@@ -217,6 +233,7 @@ textarea:focus,input[type=text]:focus{outline:none;border-color:var(--accent)}
     <button class="tab" role="tab" data-view="hoje" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 4l9 7v9H3z"/></svg>Hoje</button>
     <button class="tab" role="tab" data-view="plano"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Plano</button>
     <button class="tab" role="tab" data-view="professor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>Professor</button>
+    <button class="tab" role="tab" data-view="falar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Falar</button>
     <button class="tab" role="tab" data-view="revisao"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="6" width="14" height="14" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v11"/></svg>Revisão<span class="dot" id="dueDot" hidden>0</span></button>
     <button class="tab" role="tab" data-view="perfil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Nível</button>
   </nav>
@@ -226,6 +243,7 @@ textarea:focus,input[type=text]:focus{outline:none;border-color:var(--accent)}
   <section class="view" id="view-hoje"></section>
   <section class="view" id="view-plano" hidden></section>
   <section class="view" id="view-professor" hidden></section>
+  <section class="view" id="view-falar" hidden></section>
   <section class="view" id="view-revisao" hidden></section>
   <section class="view" id="view-perfil" hidden></section>
 </main>
@@ -242,7 +260,7 @@ const ICON = {
   send:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg>',
   spark:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7z"/></svg>',
 };
-const OLIVER = '<svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="24" r="14" fill="#F2C9A0"/><path d="M8 20c1-10 9-14 15-13 7 0 13 5 13 12-3-4-8-6-14-5-6 0-10 2-14 6Z" fill="#3B2A20"/><circle cx="16.5" cy="24" r="4.2" fill="none" stroke="#131C33" stroke-width="1.8"/><circle cx="27.5" cy="24" r="4.2" fill="none" stroke="#131C33" stroke-width="1.8"/><path d="M20.7 24h2.6" stroke="#131C33" stroke-width="1.8"/><path d="M18 31c2.5 2 5.5 2 8 0" stroke="#131C33" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M14 38c2 3 14 3 16 0" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/></svg>';
+const NATAN = '<svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="24" r="14" fill="#F2C9A0"/><path d="M8 20c1-10 9-14 15-13 7 0 13 5 13 12-3-4-8-6-14-5-6 0-10 2-14 6Z" fill="#3B2A20"/><circle cx="16.5" cy="24" r="4.2" fill="none" stroke="#131C33" stroke-width="1.8"/><circle cx="27.5" cy="24" r="4.2" fill="none" stroke="#131C33" stroke-width="1.8"/><path d="M20.7 24h2.6" stroke="#131C33" stroke-width="1.8"/><path d="M18 31c2.5 2 5.5 2 8 0" stroke="#131C33" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M14 38c2 3 14 3 16 0" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/></svg>';
 
 /* ============ DADOS ============ */
 const CEFR = ['A1','A2','B1','B2','C1','C2'];
@@ -385,11 +403,11 @@ const TIPS = [
 /* ============ ESTADO ============ */
 const KEY = 'ponte-v1';
 const today = () => new Date().toISOString().slice(0,10);
-const defaults = () => ({level:null, start:today(), week:0, xp:0, streak:0, lastDay:null, minutes:20, accent:'us', cards:{}, done:{}, daily:{}, gen:{}, chat:[], mode:'livre'});
+const defaults = () => ({voice:false, listen:false, level:null, start:today(), week:0, xp:0, streak:0, lastDay:null, minutes:20, accent:'us', cards:{}, done:{}, daily:{}, gen:{}, chat:[], mode:'livre'});
 let S = defaults();
 try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(defaults(), JSON.parse(raw)); } catch(e) {}
 function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e) {} }
-function day(){ const d = today(); S.daily[d] ||= {xp:0, lesson:false, review:0, chat:0}; return S.daily[d]; }
+function day(){ const d = today(); S.daily[d] ||= {xp:0, lesson:false, review:0, chat:0, speak:0}; return S.daily[d]; }
 
 function addXp(n){
   S.xp += n; day().xp += n;
@@ -430,10 +448,10 @@ function speak(text, rate=0.95){
 function sayBtns(text){ const t = esc(text); return `<button class="icon-btn" data-say="${t}" aria-label="Ouvir">${ICON.play}</button><button class="icon-btn" data-say="${t}" data-rate="0.65" aria-label="Ouvir devagar">${ICON.slow}</button>`; }
 document.addEventListener('click', e => { const b = e.target.closest('[data-say]'); if (b){ e.stopPropagation(); speak(b.dataset.say, +(b.dataset.rate || 0.95)); } });
 
-/* ============ CLAUDE (Prof. Oliver) ============ */
+/* ============ CLAUDE (Prof. Natan) ============ */
 let sample = null;
 (async () => { await null; try { if (window.claude) sample = await window.claude.use('sample'); } catch(e){} renderProfessor(); })();
-const ERR = {not_granted:'Você não autorizou o Prof. Oliver nesta página. Recarregue para autorizar.', rate_limited:'Muitas mensagens seguidas. Espere um pouco e tente de novo.', session_expired:'Sua sessão expirou. Entre de novo no Claude.', sampling_disabled:'O professor com IA não está disponível nesta conta.', refused:'O professor não pôde responder isso. Tente reformular.'};
+const ERR = {not_granted:'Você não autorizou o Prof. Natan nesta página. Recarregue para autorizar.', rate_limited:'Muitas mensagens seguidas. Espere um pouco e tente de novo.', session_expired:'Sua sessão expirou. Entre de novo no Claude.', sampling_disabled:'O professor com IA não está disponível nesta conta.', refused:'O professor não pôde responder isso. Tente reformular.'};
 const errMsg = e => ERR[e?.code] || 'A conexão com o professor falhou. Tente de novo.';
 
 /* ============ HEADER / NAV ============ */
@@ -447,7 +465,7 @@ function go(v){
   current = v;
   document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.view === v));
   document.querySelectorAll('.view').forEach(s => s.hidden = s.id !== 'view-' + v);
-  ({hoje:renderHoje, plano:renderPlano, professor:renderProfessor, revisao:renderRevisao, perfil:renderPerfil})[v]();
+  ({hoje:renderHoje, plano:renderPlano, falar:renderFalar, professor:renderProfessor, revisao:renderRevisao, perfil:renderPerfil})[v]();
   window.scrollTo(0,0);
 }
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => go(t.dataset.view));
@@ -463,7 +481,8 @@ function renderHoje(){
   const tasks = [
     {done:d.lesson, t:'Aula da semana', s: finished ? 'Plano concluído! Continue com aulas extras.' : themeFor(w)},
     {done:due===0 && Object.keys(S.cards).length>0 || d.review>=10, t:'Revisão espaçada', s: due ? `${due} cartões esperando por você` : 'Nada pendente agora'},
-    {done:d.chat>=6, t:'Conversa com o Prof. Oliver', s:`${Math.min(d.chat,6)} de 6 mensagens hoje`},
+    {done:d.chat>=6, t:'Conversa com o Prof. Natan', s:`${Math.min(d.chat,6)} de 6 mensagens hoje`},
+    {done:(d.speak||0)>=3, t:'Treino de fala', s:`${Math.min(d.speak||0,3)} de 3 desafios de pronúncia`},
   ];
   el.innerHTML = `
   <div class="pass pop">
@@ -482,12 +501,12 @@ function renderHoje(){
     <div class="card mission">
       <div class="row" style="justify-content:space-between"><h2>Missão de hoje</h2><span class="label">${S.minutes} min/dia</span></div>
       ${tasks.map((k,i) => `<div class="task ${k.done?'done':''}"><span class="check">${k.done?ICON.check:''}</span><div><b>${k.t}</b><small>${esc(k.s)}</small></div>
-        <button class="btn sm ghost" data-goto="${['lesson','revisao','professor'][i]}">Ir</button></div>`).join('')}
+        <button class="btn sm ghost" data-goto="${['lesson','revisao','professor','falar'][i]}">Ir</button></div>`).join('')}
     </div>
     <div class="card" style="display:grid;gap:16px;align-content:start">
       <div class="row"><div class="ring" style="--p:${pct}"><div><b>${d.xp}</b><span class="label">/ ${goalXp()} XP</span></div></div>
         <div style="display:grid;gap:4px"><h3>Meta diária</h3><p class="muted">${pct>=100?'Meta batida. Amanhã tem mais!':'Complete a missão para bater a meta.'}</p></div></div>
-      <div class="teacher"><div class="avatar">${OLIVER}</div><div><span class="label">Dica do Prof. Oliver</span><p class="quote">${tip}</p></div></div>
+      <div class="teacher"><div class="avatar">${NATAN}</div><div><span class="label">Dica do Prof. Natan</span><p class="quote">${tip}</p></div></div>
     </div>
   </div>`;
   $('#startLesson').onclick = () => openLesson(w);
@@ -498,8 +517,8 @@ function renderHoje(){
 let pickLv = null, pickMin = 20;
 function onboardingHTML(){
   return `<div class="card pop" style="display:grid;gap:20px">
-    <div class="teacher"><div class="avatar">${OLIVER}</div><div style="display:grid;gap:6px">
-      <span class="label">Prof. Oliver Hart</span>
+    <div class="teacher"><div class="avatar">${NATAN}</div><div style="display:grid;gap:6px">
+      <span class="label">Prof. Natan</span>
       <h1>Hello! Em 26 semanas, vamos te levar ao inglês fluente.</h1>
       <p class="muted">Sou o seu professor. Meu método junta aula curta, revisão espaçada, shadowing e conversa real com correção. Primeiro, me diga onde você está.</p>
     </div></div>
@@ -529,7 +548,7 @@ function startPlacement(onDone){
     if (i >= PLACEMENT.length){
       const lv = score<=3?0:score<=5?1:score<=8?2:score<=10?3:4;
       P.innerHTML = `${playerTop(1)}<div class="card pop" style="display:grid;gap:14px;text-align:center;justify-items:center">
-        <div class="avatar">${OLIVER}</div><span class="label">Resultado</span><h1>${CEFR[lv]} · ${LEVELS[lv].name}</h1>
+        <div class="avatar">${NATAN}</div><span class="label">Resultado</span><h1>${CEFR[lv]} · ${LEVELS[lv].name}</h1>
         <p class="muted">Você acertou ${score} de ${PLACEMENT.length}. Montei seu ponto de partida com base nisso.</p>
         <button class="btn" id="ok">Usar este nível</button></div>`;
       $('#ok').onclick = () => { closePlayer(); onDone(lv); };
@@ -560,7 +579,7 @@ async function openLesson(w){
   let lesson = S.gen[key];
   if (!lesson && sample){
     P.innerHTML = `${playerTop(0)}<div class="card" style="display:grid;gap:14px">
-      <div class="teacher"><div class="avatar">${OLIVER}</div><div style="display:grid;gap:6px"><span class="label">Semana ${w+1} · ${CEFR[cefrIdx(w)]}</span><h2>${esc(theme)}</h2>
+      <div class="teacher"><div class="avatar">${NATAN}</div><div style="display:grid;gap:6px"><span class="label">Semana ${w+1} · ${CEFR[cefrIdx(w)]}</span><h2>${esc(theme)}</h2>
       <p class="muted">Posso preparar uma aula nova sob medida para o seu nível, ou você pode usar a aula pronta da biblioteca.</p></div></div>
       <div class="row"><button class="btn" id="genL">${ICON.spark}Criar aula personalizada</button><button class="btn ghost" id="libL">Usar aula pronta</button></div>
       <div id="genMsg"></div></div>`;
@@ -568,7 +587,7 @@ async function openLesson(w){
     $('#libL').onclick = () => runLesson(fallbackLesson(w), w);
     $('#genL').onclick = async () => {
       $('#genL').disabled = true; $('#libL').disabled = true;
-      $('#genMsg').innerHTML = '<div class="loading"><span class="spin"></span>O Prof. Oliver está preparando sua aula...</div>';
+      $('#genMsg').innerHTML = '<div class="loading"><span class="spin"></span>O Prof. Natan está preparando sua aula...</div>';
       try {
         const g = await sample.json(lessonPrompt(theme, CEFR[cefrIdx(w)]), {modelTier:'default'});
         const L = normalizeLesson(g, theme, cefrIdx(w));
@@ -584,7 +603,7 @@ async function openLesson(w){
 }
 
 function lessonPrompt(theme, cefr){
-  return `You are Prof. Oliver Hart, an outstanding English teacher for Brazilian Portuguese speakers. Create one complete micro-lesson.
+  return `You are Prof. Natan, an outstanding English teacher for Brazilian Portuguese speakers. Create one complete micro-lesson.
 Theme: "${theme}". Student CEFR level: ${cefr}. Make vocabulary, grammar and sentences exactly right for ${cefr} (simple for A1, sophisticated for C1/C2).
 Reply with ONLY one JSON object in this exact shape:
 {"title":"short title in Portuguese","tip":"explanation in Brazilian Portuguese, 3-5 sentences, mark key English forms with **double asterisks**, include 2 short English examples",
@@ -612,7 +631,7 @@ function runLesson(L, w){
     const st = steps[s], prog = s/(steps.length-1);
     if (st.k === 'tip'){
       P.innerHTML = `${playerTop(prog)}<div class="card pop" style="display:grid;gap:16px">
-        <div class="teacher"><div class="avatar">${OLIVER}</div><div><span class="label">Prof. Oliver explica</span><h2>${esc(L.title)}</h2></div></div>
+        <div class="teacher"><div class="avatar">${NATAN}</div><div><span class="label">Prof. Natan explica</span><h2>${esc(L.title)}</h2></div></div>
         <p class="tip">${md(L.tip)}</p><button class="btn" id="nx">Entendi, vamos às palavras</button></div>`;
     } else if (st.k === 'card'){
       const v = L.vocab[st.i];
@@ -634,6 +653,7 @@ function runLesson(L, w){
         <span class="label">Shadowing · fale junto</span><h2>Ouça e repita em voz alta, no mesmo ritmo</h2>
         <p class="muted">Repita cada frase 3 vezes: devagar, normal, e sem ouvir. Isso treina sua pronúncia e a velocidade da fala.</p>
         ${L.shadow.map(t=>`<div class="shadow-line"><div class="row" style="flex-wrap:nowrap">${sayBtns(t)}</div><b style="min-width:0">${esc(t)}</b></div>`).join('')}
+        <p class="hint">Quer saber se sua pronúncia está boa? Depois da aula, use a aba <b>Falar</b>: o celular escreve o que entendeu da sua voz e o Prof. Natan corrige.</p>
         <button class="btn" id="nx">Repeti todas</button></div>`;
     } else {
       const pct = Math.round(right/total*100);
@@ -643,10 +663,10 @@ function runLesson(L, w){
       if (advanced) S.week++;
       L.done = true; S.done[L.id] = pct; save(); addXp(first ? 50 : 20);
       P.innerHTML = `${playerTop(1)}<div class="card pop" style="display:grid;gap:14px;justify-items:center;text-align:center">
-        <div class="avatar">${OLIVER}</div><span class="label">Aula concluída · +${first?50:20} XP</span>
+        <div class="avatar">${NATAN}</div><span class="label">Aula concluída · +${first?50:20} XP</span>
         <h1>${pct>=80?'Excellent work!':pct>=60?'Good job!':'Keep going!'}</h1>
         <p class="muted">Você acertou ${right} de ${total} exercícios (${pct}%). ${advanced ? 'Semana concluída! Você avançou no plano.' : pct<60 ? 'Faça a aula de novo para liberar a próxima semana (mínimo 60%).' : ''}</p>
-        <p>As palavras novas já estão na sua revisão. Agora, pratique o tema conversando com o Prof. Oliver.</p>
+        <p>As palavras novas já estão na sua revisão. Agora, pratique o tema conversando com o Prof. Natan.</p>
         <div class="row" style="justify-content:center"><button class="btn" id="toChat">Conversar sobre "${esc(L.title)}"</button><button class="btn ghost" id="fin">Voltar ao início</button></div></div>`;
       $('#fin').onclick = closePlayer;
       $('#toChat').onclick = () => { S.mode = 'aula'; S.chatTopic = L.title; S.chat = []; save(); $('#player').hidden = true; document.body.style.overflow=''; go('professor'); };
@@ -717,7 +737,7 @@ function renderPlano(){
     <p class="muted">Cada semana tem um tema. Ao concluir a aula com 60% ou mais, você avança. O nível das aulas sobe com você.</p>
     <div class="progress" style="margin-top:8px"><i style="width:${Math.round(S.week/26*100)}%"></i></div>
     <p class="mono muted" style="font-size:.85rem">${S.week} de 26 semanas concluídas</p></div>
-  <div class="card" style="display:grid;gap:14px"><h2>O método do Prof. Oliver</h2>
+  <div class="card" style="display:grid;gap:14px"><h2>O método do Prof. Natan</h2>
     <div class="pillars">
       <div class="pillar"><span class="label">1 · Entender</span><b>Aula curta e focada</b><p class="muted">Uma regra por vez, explicada em português, com exemplos reais.</p></div>
       <div class="pillar"><span class="label">2 · Memorizar</span><b>Revisão espaçada</b><p class="muted">Cada palavra volta no momento exato em que você ia esquecer.</p></div>
@@ -729,6 +749,7 @@ function renderPlano(){
 
 /* ============ PROFESSOR (chat) ============ */
 const MODES = {
+  duvidas:{n:'Tirar dúvidas', s:'Q&A mode: the student asks anything about English (grammar, vocabulary, pronunciation, how to say something, culture).'},
   livre:{n:'Conversa livre', s:'Have a friendly, natural conversation about the student\'s life, interests and plans.'},
   entrevista:{n:'Entrevista de emprego', s:'Role-play: you are a hiring manager interviewing the student for a job in their field. Ask one interview question at a time.'},
   restaurante:{n:'Restaurante', s:'Role-play: you are a waiter at a busy restaurant in New York. The student is the customer.'},
@@ -737,11 +758,18 @@ const MODES = {
   corrigir:{n:'Corrigir meu texto', s:'The student will send texts (emails, messages, paragraphs). Rewrite them in natural English, then explain the main changes.'},
   aula:{n:'Praticar a aula', s:'Practice the topic of the lesson the student just finished, making them use its vocabulary and grammar.'},
 };
-const opener = m => ({livre:'Hi there! I\'m Oliver, your English teacher. How was your day today?', entrevista:'Good morning, thanks for coming in today. Let\'s start: could you tell me a little about yourself?', restaurante:'Hi, welcome! Table for one? Here\'s the menu. Can I get you something to drink?', aeroporto:'Good afternoon! Can I see your passport, please? Where are you flying to today?', reuniao:'Okay, let\'s get started. So, how is your part of the project going? Are we still on track for Friday?', corrigir:'Send me any text in English, an email, a message, anything, and I\'ll make it sound natural.', aula:`Great job on the lesson! Let\'s practice "${S.chatTopic||'the lesson'}". Tell me something using what you just learned.`})[m];
+const opener = m => ({duvidas:'Oi! Pode me perguntar qualquer coisa sobre inglês: gramática, pronúncia, como dizer algo, diferença entre palavras. Escreva em português mesmo.\n\nExemplos: "Quando uso do e does?", "Como pronuncio *thought*?", "Como digo *estou com saudade*?"', livre:'Hi there! I\'m Natan, your English teacher. How was your day today?', entrevista:'Good morning, thanks for coming in today. Let\'s start: could you tell me a little about yourself?', restaurante:'Hi, welcome! Table for one? Here\'s the menu. Can I get you something to drink?', aeroporto:'Good afternoon! Can I see your passport, please? Where are you flying to today?', reuniao:'Okay, let\'s get started. So, how is your part of the project going? Are we still on track for Friday?', corrigir:'Send me any text in English, an email, a message, anything, and I\'ll make it sound natural.', aula:`Great job on the lesson! Let\'s practice "${S.chatTopic||'the lesson'}". Tell me something using what you just learned.`})[m];
 
 function rules(){
   const lv = CEFR[cefrIdx(Math.min(S.week,25))];
-  return `You are Prof. Oliver Hart, a warm, charismatic and very effective English teacher for a Brazilian Portuguese speaker who wants to become fluent in 6 months. Student level: ${lv} (CEFR).
+  if (S.mode === 'duvidas') return `You are Prof. Natan, a warm and brilliant English teacher for a Brazilian Portuguese speaker (CEFR ${lv}) who wants to become fluent in 6 months. The student is asking questions about English.
+Rules:
+- Answer in Brazilian Portuguese, clear and practical, like a great teacher would explain it in person. Keep it short (up to ~150 words) unless the question needs more.
+- Always give 2-3 short English examples, with **bold** on the key part.
+- For pronunciation, give a Portuguese-friendly respelling (e.g. thought ≈ "thót", língua entre os dentes) and mark the stressed syllable in CAPS.
+- If the student wrote something in English with mistakes, add a line with only "---" and then "Correções:" listing ✗ wrong → ✓ right.
+- End by inviting them to try using it in a sentence. Never use markdown headings.`;
+  return `You are Prof. Natan, a warm, charismatic and very effective English teacher for a Brazilian Portuguese speaker who wants to become fluent in 6 months. Student level: ${lv} (CEFR).
 Scenario: ${MODES[S.mode].s}${S.mode==='aula'?' Lesson topic: '+(S.chatTopic||''):''}
 Rules:
 - Reply in English adapted to ${lv}: ${['A1','A2'].includes(lv)?'very short and simple sentences, common words':'natural, varied English'}. 2 to 5 sentences. Stay in character and always end with one question that keeps the conversation going.
@@ -752,28 +780,33 @@ Rules:
 function bubble(m){
   if (m.role === 'user') return `<div class="msg me">${esc(m.content)}</div>`;
   const [main, fix] = m.content.split(/\n\s*---\s*\n?/);
-  return `<div class="msg bot">${md(main.trim())}${fix ? `<div class="fix"><span class="label">Correções</span>${md(fix.replace(/^\s*Corre[çc][õo]es:\s*/i,'').trim())}</div>` : ''}
+  const hide = S.listen && S.mode !== 'duvidas';
+  return `<div class="msg bot">${hide ? `<button class="reveal" onclick="this.outerHTML=botText(decodeURIComponent('${encodeURIComponent(main).replace(/'/g,'%27')}'))">Treino de escuta: ouça e toque para ver o texto</button>` : md(main.trim())}${fix ? `<div class="fix"><span class="label">Correções</span>${md(fix.replace(/^\s*Corre[çc][õo]es:\s*/i,'').trim())}</div>` : ''}
     <div class="tools">${sayBtns(main.trim())}</div></div>`;
 }
 let chatCtl = null;
+function botText(main){ return md(main.trim()); }
 function renderProfessor(){
   const el = $('#view-professor'); if (!el || current !== 'professor' && el.hidden) return;
   if (!S.chat.length) S.chat = [{role:'assistant', content:opener(S.mode)}];
   el.innerHTML = `
   <div class="card chat">
     <div class="chat-head">
-      <div class="teacher" style="align-items:center"><div class="avatar">${OLIVER}</div><div><h3>Prof. Oliver Hart</h3><p class="muted" style="font-size:.88rem">${sample ? 'Professor de conversação · corrige cada mensagem' : 'Professor de conversação'}</p></div></div>
+      <div class="teacher" style="align-items:center"><div class="avatar">${NATAN}</div><div><h3>Prof. Natan</h3><p class="muted" style="font-size:.88rem">${sample ? 'Professor de conversação · corrige cada mensagem' : 'Professor de conversação'}</p></div></div>
+      <div class="toggles"><label><input type="checkbox" id="tVoice" ${S.voice?'checked':''}> Ler respostas em voz alta</label><label><input type="checkbox" id="tListen" ${S.listen?'checked':''}> Treino de escuta (esconde o texto)</label></div>
       <div class="modes">${Object.entries(MODES).filter(([k])=>k!=='aula'||S.mode==='aula').map(([k,v])=>`<button class="chip" data-mode="${k}" aria-pressed="${S.mode===k}">${v.n}</button>`).join('')}</div>
     </div>
-    <div class="msgs" id="msgs">${S.chat.map(bubble).join('')}${sample ? '' : '<div class="msg sys">O Prof. Oliver com IA funciona quando você abre o Ponte pelo Claude. Aqui você ainda pode ouvir as falas e usar as aulas e revisões.</div>'}</div>
+    <div class="msgs" id="msgs">${S.chat.map(bubble).join('')}${sample ? '' : '<div class="msg sys">O Prof. Natan com IA funciona quando você abre o Ponte pelo Claude. Aqui você ainda pode ouvir as falas e usar as aulas e revisões.</div>'}</div>
     <form class="composer" id="cf">
       <div class="quick">${['Não entendi, explique em português','Me dê um exemplo','Como eu digo isso em inglês?','Fale mais simples'].map(q=>`<button type="button" class="chip" data-q="${q}">${q}</button>`).join('')}</div>
-      <textarea id="ci" rows="2" placeholder="Escreva em inglês (ou em português, se travar)" ${sample?'':'disabled'}></textarea>
+      <textarea id="ci" rows="2" placeholder="${S.mode==='duvidas'?'Pergunte qualquer coisa sobre inglês':'Escreva ou toque no microfone do teclado para falar'}" ${sample?'':'disabled'}></textarea>
       <button class="btn" id="cs" aria-label="Enviar" ${sample?'':'disabled'}>${ICON.send}</button>
     </form>
   </div>`;
   const msgs = $('#msgs'); msgs.scrollTop = msgs.scrollHeight;
   el.querySelectorAll('[data-mode]').forEach(b => b.onclick = () => { S.mode = b.dataset.mode; S.chat = []; save(); renderProfessor(); });
+  $('#tVoice').onchange = e => { S.voice = e.target.checked; save(); };
+  $('#tListen').onchange = e => { S.listen = e.target.checked; save(); renderProfessor(); };
   el.querySelectorAll('[data-q]').forEach(b => b.onclick = () => { $('#ci').value = b.dataset.q; send(); });
   $('#cf').onsubmit = e => { e.preventDefault(); send(); };
   $('#ci').onkeydown = e => { if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); send(); } };
@@ -783,22 +816,129 @@ async function send(){
   ci.value = '';
   S.chat.push({role:'user', content:text}); save();
   const msgs = $('#msgs');
-  msgs.insertAdjacentHTML('beforeend', bubble({role:'user',content:text}) + '<div class="msg bot" id="live"><div class="loading"><span class="spin"></span>Prof. Oliver está digitando...</div></div>');
+  msgs.insertAdjacentHTML('beforeend', bubble({role:'user',content:text}) + '<div class="msg bot" id="live"><div class="loading"><span class="spin"></span>Prof. Natan está digitando...</div></div>');
   msgs.scrollTop = msgs.scrollHeight;
   const live = $('#live'); chatCtl = new AbortController(); $('#cs').disabled = true;
   const turns = S.chat.slice(-16); if (turns[0].role !== 'user') turns.unshift({role:'user', content:'(início da conversa)'});
   try {
     const {text: reply} = await sample([{role:'user', content:rules()}, ...turns], {cache:false, modelTier:'default', signal:chatCtl.signal,
-      onText: ({text}) => { live.innerHTML = md(text.split(/\n\s*---/)[0]); msgs.scrollTop = msgs.scrollHeight; }});
+      onText: ({text}) => { live.innerHTML = (S.listen && S.mode !== 'duvidas') ? '<div class="loading"><span class="spin"></span>Ouça a resposta...</div>' : md(text.split(/\n\s*---/)[0]); msgs.scrollTop = msgs.scrollHeight; }});
     S.chat.push({role:'assistant', content:reply}); S.chat = S.chat.slice(-40);
     day().chat++; addXp(3); save();
     live.outerHTML = bubble({role:'assistant', content:reply});
+    if ((S.voice || S.listen) && S.mode !== 'duvidas') speak(reply.split(/\n\s*---/)[0]);
     msgs.scrollTop = msgs.scrollHeight;
   } catch(e){
     live.className = 'msg sys'; live.textContent = errMsg(e);
     S.chat.pop(); save();
   } finally { chatCtl = null; const b = $('#cs'); if (b) b.disabled = false; }
 }
+
+
+/* ============ FALAR ============ */
+const SOUNDS = [
+  {t:'TH', d:'Ponta da língua entre os dentes e sopre. Não vira "f", "s", "t" nem "d".', w:['think','sink','three','tree','thank','tank','they','day','mother','brother']},
+  {t:'Vogal curta x longa', d:'O "i" curto é rápido e relaxado (ship). O "ee" longo é esticado, sorrindo (sheep). Mudar isso muda a palavra.', w:['ship','sheep','live','leave','sit','seat','full','fool']},
+  {t:'Final -ED', d:'Só vira sílaba extra depois de T ou D (wan-ted, nee-ded). Nos outros casos soa "t" ou "d": walked = "uókt", played = "plêid".', w:['walked','played','wanted','needed','watched','loved']},
+  {t:'Sem "i" no final', d:'Brasileiro costuma falar "búki", "dógui". Termine na consoante e feche o som.', w:['book','big','dog','job','like','Facebook']},
+  {t:'H soprado e R', d:'O H é só um sopro leve (hello, house). O R inglês: enrole a língua para trás sem tocar o céu da boca.', w:['hello','house','happy','red','right','car','world']},
+  {t:'W x V', d:'W: lábios em bico, sem encostar nos dentes. V: dentes de cima no lábio de baixo.', w:['west','vest','wine','vine','wet','vet']},
+  {t:'M e N no final', d:'Feche os lábios no M e não acrescente vogal: "time" não é "táimi".', w:['time','team','him','sun','phone','come']},
+  {t:'Sílaba tônica', d:'A força muda de lugar: PHOtograph, phoTOgraphy, photoGRAphic. Errar a tônica atrapalha mais que errar o sotaque.', w:['photograph','photography','comfortable','develop','vegetable','hotel']},
+];
+const TALKS = [
+  ['Talk about your daily routine.','Fale sobre sua rotina diária.'],['Describe your family.','Descreva sua família.'],['What is your favourite food and why?','Qual sua comida favorita e por quê?'],['Describe your home.','Descreva sua casa.'],
+  ['Tell me about the best trip you have ever taken.','Conte a melhor viagem que você já fez.'],['Talk about your job and what you like about it.','Fale do seu trabalho e do que gosta nele.'],['Is remote work better than working in an office?','Trabalho remoto é melhor que no escritório?'],['Tell me about a problem you solved.','Conte um problema que você resolveu.'],
+  ['Will AI create more jobs than it destroys? Defend your view.','A IA vai criar mais empregos do que destruir? Defenda.'],['Pitch a project to investors in one minute.','Apresente um projeto para investidores.'],['Explain something from your field to a child.','Explique algo da sua área para uma criança.'],['Tell a funny story with lots of details.','Conte uma história engraçada, com detalhes.'],
+];
+const CONTR = {"i'm":'i am',"you're":'you are',"we're":'we are',"they're":'they are',"he's":'he is',"she's":'she is',"it's":'it is',"that's":'that is',"what's":'what is',"isn't":'is not',"aren't":'are not',"don't":'do not',"doesn't":'does not',"didn't":'did not',"can't":'can not',"cannot":'can not',"won't":'will not',"i'd":'i would',"you'd":'you would',"we'd":'we would',"i've":'i have',"we've":'we have',"haven't":'have not',"hasn't":'has not',"i'll":'i will',"you'll":'you will',"we'll":'we will',"let's":'let us',"wouldn't":'would not',"wasn't":'was not',"weren't":'were not'};
+const toks = t => norm(t.replace(/[’‘]/g,"'")).split(' ').filter(Boolean).flatMap(w => (CONTR[w] || w).split(' '));
+function matchWords(target, said){
+  const a = toks(target), b = toks(said), n = a.length, m = b.length;
+  const L = Array.from({length:n+1}, () => new Array(m+1).fill(0));
+  for (let i=n-1;i>=0;i--) for (let j=m-1;j>=0;j--) L[i][j] = a[i]===b[j] ? L[i+1][j+1]+1 : Math.max(L[i+1][j], L[i][j+1]);
+  const hit = new Array(n).fill(false); let i=0, j=0;
+  while (i<n && j<m){ if (a[i]===b[j]){ hit[i]=true; i++; j++; } else if (L[i+1][j] >= L[i][j+1]) i++; else j++; }
+  return {words:a, hit, score: n ? Math.round(hit.filter(Boolean).length / n * 100) : 0};
+}
+function speakPool(){
+  const lv = Math.min(4, cefrIdx(Math.min(S.week,25)));
+  const lib = LIB.filter(l => Math.abs(l.lv - lv) <= 1).flatMap(l => l.shadow);
+  const gen = Object.values(S.gen).flatMap(l => l.shadow || []);
+  return [...new Set([...gen, ...lib])];
+}
+let fz = {i:0, talk:null, timer:null, left:60};
+function renderFalar(){
+  const el = $('#view-falar');
+  const pool = speakPool(); const target = pool[fz.i % pool.length];
+  const lv = Math.min(4, cefrIdx(Math.min(S.week,25)));
+  if (!fz.talk) fz.talk = TALKS[(lv<=1?0:lv<=3?4:8) + Math.floor(Math.random()*4)];
+  const mic = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
+  el.innerHTML = `
+  <div class="card" style="display:grid;gap:14px">
+    <div class="row" style="justify-content:space-between"><div><span class="label">Desafio de pronúncia</span><h2>Fale a frase e veja o que o celular entendeu</h2></div><span class="label">${day().speak||0} hoje</span></div>
+    <div class="hint">${mic}<span><b>Como falar:</b> toque na caixa abaixo e use o <b>microfone do teclado</b> do celular (no Gboard e no iPhone fica no próprio teclado). No computador: <b>Windows + H</b> ou, no Mac, aperte <b>Fn</b> duas vezes. Se o teclado escrever certo, sua pronúncia foi entendida.</span></div>
+    <div class="shadow-line" style="background:var(--surface-2)"><div class="row" style="flex-wrap:nowrap">${sayBtns(target)}</div><b class="big-q" style="min-width:0;font-size:1.15rem">${esc(target)}</b></div>
+    <textarea id="said" rows="2" placeholder="Toque aqui e fale a frase pelo microfone do teclado"></textarea>
+    <div class="row"><button class="btn" id="chkSay">Verificar minha fala</button><button class="btn ghost" id="nextSay">Outra frase</button></div>
+    <div id="sayOut"></div>
+  </div>
+  <div class="card" style="display:grid;gap:14px">
+    <div><span class="label">Speaking de 1 minuto</span><h2>${esc(fz.talk[0])}</h2><p class="muted">${esc(fz.talk[1])}</p></div>
+    <p class="muted" style="font-size:.92rem">Fale sem parar por 1 minuto, em voz alta. Pode errar: o objetivo é não travar. Use o microfone do teclado para registrar o que você falou e peça feedback ao Prof. Natan.</p>
+    <div class="row"><span class="timer" id="tm">${fz.left}s</span><button class="btn" id="tmGo">${fz.timer?'Parar':'Começar 1 minuto'}</button><button class="btn ghost sm" id="newTalk">Outro tema</button></div>
+    <textarea id="talkTxt" rows="4" placeholder="O que você falou aparece aqui (microfone do teclado)"></textarea>
+    <button class="btn line" id="talkFb" style="justify-self:start" ${sample?'':'disabled'}>${ICON.spark}Pedir feedback ao Prof. Natan</button>
+    <div id="talkOut"></div>
+  </div>
+  <div class="card" style="display:grid;gap:14px">
+    <div><span class="label">Treino de sons</span><h2>Os 8 sons que brasileiros mais erram</h2><p class="muted">Toque em cada palavra para ouvir. Repita em voz alta, exagerando o movimento da boca.</p></div>
+    <div class="sounds">${SOUNDS.map(x=>`<div class="sound"><b>${x.t}</b><p class="muted" style="font-size:.9rem">${esc(x.d)}</p><div class="pairs">${x.w.map(w=>`<button class="pair" data-say="${w}" data-rate="0.8">${ICON.slow}${w}</button>`).join('')}</div></div>`).join('')}</div>
+  </div>`;
+  $('#nextSay').onclick = () => { fz.i++; renderFalar(); };
+  $('#chkSay').onclick = async () => {
+    const said = $('#said').value.trim();
+    if (!said){ toast('Fale (ou escreva) a frase na caixa primeiro.'); return; }
+    const r = matchWords(target, said);
+    const missed = r.words.filter((w,i)=>!r.hit[i]);
+    day().speak = (day().speak||0) + 1; addXp(r.score >= 80 ? 8 : 4);
+    $('#sayOut').innerHTML = `<div class="feedback ${r.score>=80?'ok':'no'} pop" style="display:grid;gap:10px"><b>${r.score>=95?'Perfect pronunciation!':r.score>=80?'Very good!':r.score>=50?'Quase lá!':'Vamos treinar mais'} · ${r.score}%</b>
+      <div class="said">${r.words.map((w,i)=>`<span class="w ${r.hit[i]?'hit':'miss'}">${esc(w)}</span>`).join('')}</div>
+      ${missed.length ? `<span>As palavras sublinhadas não foram entendidas. Ouça devagar e tente de novo.</span>` : ''}
+      ${missed.length && sample ? `<button class="btn sm" id="howSay" style="justify-self:start">${ICON.spark}Como pronunciar essas palavras?</button>` : ''}<div id="howOut"></div></div>`;
+    const hb = $('#howSay'); if (hb) hb.onclick = async () => {
+      hb.disabled = true; $('#howOut').innerHTML = '<div class="loading"><span class="spin"></span>O Prof. Natan está analisando...</div>';
+      try {
+        const {text} = await sample(`You are Prof. Natan, an English pronunciation coach for Brazilian Portuguese speakers (CEFR ${CEFR[lv]}). The student tried to say: "${target}". Phone dictation heard: "${said}". Words not recognised: ${missed.join(', ')}.
+In Brazilian Portuguese, for each missed word (max 4), give: a Portuguese-friendly respelling with the stressed syllable in CAPS, what Brazilians usually do wrong, and how to fix it (mouth/tongue position). Max 2 short lines per word, start each with the word in **bold**. Finish with one line suggesting how to practise. No headings.`, {modelTier:'quick'});
+        $('#howOut').innerHTML = `<div class="ai-out pop">${md(text)}</div>`;
+      } catch(e){ $('#howOut').innerHTML = `<p>${esc(errMsg(e))}</p>`; hb.disabled = false; }
+    };
+  };
+  $('#newTalk').onclick = () => { fz.talk = null; renderFalar(); };
+  $('#tmGo').onclick = () => {
+    if (fz.timer){ clearInterval(fz.timer); fz.timer = null; fz.left = 60; renderFalarKeep(); return; }
+    fz.left = 60; $('#tmGo').textContent = 'Parar'; $('#talkTxt').focus();
+    fz.timer = setInterval(() => {
+      fz.left--; const t = $('#tm'); if (t) t.textContent = fz.left + 's';
+      if (fz.left <= 0){ clearInterval(fz.timer); fz.timer = null; fz.left = 60; toast('Tempo! Agora peça feedback ao professor.'); day().speak = (day().speak||0)+1; addXp(10); const b = $('#tmGo'); if (b) b.textContent = 'Começar 1 minuto'; }
+    }, 1000);
+  };
+  $('#talkFb').onclick = async () => {
+    const txt = $('#talkTxt').value.trim(); if (!txt){ toast('Fale ou escreva o que você disse na caixa primeiro.'); return; }
+    const b = $('#talkFb'); b.disabled = true; $('#talkOut').innerHTML = '<div class="loading"><span class="spin"></span>O Prof. Natan está ouvindo sua fala...</div>';
+    try {
+      const {text} = await sample(`You are Prof. Natan, a warm and demanding English speaking coach for a Brazilian Portuguese speaker (CEFR ${CEFR[lv]}) aiming for fluency in 6 months.
+The student spoke for about one minute about: "${fz.talk[0]}". Keyboard dictation transcribed it as:
+"""${txt.slice(0,3000)}"""
+Dictation mistakes can reveal pronunciation problems: if a word looks wrongly transcribed, say which word they probably meant and how to pronounce it.
+Reply in Brazilian Portuguese with these parts, each starting with a **bold label**: **Nota de fluência** (0-10 and one line why), **O que ficou bom**, **Correções** (✗ wrong → ✓ right, max 5), **Versão mais natural** (a short improved version in English), **Pronúncia** (only if relevant), **Próximo passo** (one concrete exercise). Be concise.`, {modelTier:'default'});
+      $('#talkOut').innerHTML = `<div class="ai-out pop">${md(text)}</div>`; addXp(10);
+    } catch(e){ $('#talkOut').innerHTML = `<p>${esc(errMsg(e))}</p>`; }
+    b.disabled = false;
+  };
+}
+function renderFalarKeep(){ const a = $('#said')?.value, b = $('#talkTxt')?.value; renderFalar(); if (a) $('#said').value = a; if (b) $('#talkTxt').value = b; }
 
 /* ============ REVISÃO (Leitner) ============ */
 const INTERVAL = [0, 1, 3, 7, 16, 35]; // dias por caixa
@@ -815,7 +955,7 @@ function renderRevisao(){
     <div class="boxes">${['Nova','1 dia','3 dias','1 sem','Dominada'].map((n,i)=>`<div class="box"><b>${counts[i]}</b><span class="label" style="font-size:.58rem">${n}</span></div>`).join('')}</div></div>`;
   if (!revQueue.length){
     const next = Math.min(...all.map(c=>c.due));
-    el.innerHTML = head + `<div class="card pop" style="display:grid;gap:8px;text-align:center;justify-items:center"><div class="avatar">${OLIVER}</div><h2>Tudo revisado!</h2><p class="muted">Próxima revisão ${new Date(next).toLocaleDateString('pt-BR',{weekday:'long', day:'numeric'})}. Aproveite para conversar com o professor.</p></div>`;
+    el.innerHTML = head + `<div class="card pop" style="display:grid;gap:8px;text-align:center;justify-items:center"><div class="avatar">${NATAN}</div><h2>Tudo revisado!</h2><p class="muted">Próxima revisão ${new Date(next).toLocaleDateString('pt-BR',{weekday:'long', day:'numeric'})}. Aproveite para conversar com o professor.</p></div>`;
     return;
   }
   const id = revQueue[revIdx], c = S.cards[id];
