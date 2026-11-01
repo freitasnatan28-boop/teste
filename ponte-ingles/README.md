@@ -12,3 +12,9 @@ App de uma página (`index.html`) para aprender inglês com o **Prof. Natan**.
 
 O professor com IA e as aulas personalizadas funcionam quando o app é aberto como Artifact no Claude.
 Fora dele, a biblioteca de aulas prontas, a revisão e o áudio continuam funcionando.
+
+## Hospedar como site
+
+Rode `./build-site.sh`. Ele gera a pasta `site/` (página, ícones e manifest para instalar no celular).
+Publique essa pasta em qualquer hospedagem estática (Netlify Drop, Vercel, GitHub Pages).
+Fora do Claude, o professor com IA fica desligado; aulas, revisão, treino de sons e áudio funcionam.
