@@ -449,15 +449,44 @@ function toast(t){ const el = document.createElement('div'); el.className='toast
 let voices = [];
 function loadVoices(){ try { voices = speechSynthesis.getVoices().filter(v => v.lang && v.lang.startsWith('en')); } catch(e){} }
 try { loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; } catch(e){}
+// Áudios gravados (voz natural) para todas as frases fixas do app; a voz do sistema fica de reserva.
+const AUDIO_KEYS = new Set('00c7248e,02520fcd,027bf224,0391d612,045a066b,047458e1,0736e3e1,07953c43,07cc25f4,07f017af,0b95dd15,0bd2c6d5,0be7cf36,0c285a89,0cfb455b,0f7cb84a,0fc2739c,0fea38fe,1149afb1,11d259d2,11e6cebe,120a8b83,1233177f,1306b6fd,1314ef74,1337cb02,1457cc0a,1616a2d1,165985e3,1660eb12,1672ee98,169e7e97,1720caf1,184e0ba5,1b9bd0f5,1bae2217,1d31d982,1da77fc1,20c4b217,21d9d8e7,220b8d20,2334faf9,235feaef,23d8f62f,23e3d71a,242ad65a,2451943b,26b40d7d,27572f11,27f49995,2829154c,2a91ad28,2bcec172,2c132ef5,2c13bf6a,2c2925e8,2c37d6fb,30217e34,308639f5,3140a83d,350dc134,35bc1205,3641595a,371654a6,37a3e893,3839ff28,39163af8,406f3c5f,40f480dc,424bf2ef,4299e5a2,45508061,46ca5055,46d864ac,473c0cb5,484d8862,4a742934,4b0ae2a3,4babd89d,4c6e6f5a,4e085a03,4f9f2cab,4fb6b34c,51431636,51783703,53cacdb9,5473c0c0,559f4095,56584a12,58a44af9,5c001930,5d3b17e6,5d3c9be4,5e65ab64,5ee725f8,5ff32273,6113e85f,632f5137,63fe3327,641c26cb,669c79a3,66c74168,67b1854b,69f79597,6c9e5e41,6d8b34d5,6e24080c,6ef6e45e,70309dad,70507c68,718b0473,72782922,756d9007,75c1b614,773611af,787a38ae,78e32de5,79b20198,7c305f10,7cc7ca5b,7cf451b4,7d8c66dd,7e210a4e,812e5d77,8167ffbe,81cd5032,81f062e4,8262230b,82d4a5c0,82ff5d1f,83ff679f,844ce0ae,8467c7f7,8492e083,85328634,85872650,8693c813,8781443d,87de7a96,8847da17,888603c3,8970dc2e,89a870f7,8a56ee12,8acc49a4,8af2e076,8d373a2d,8d39bde6,8f266c1b,8f6fdbfd,8f86d40b,8fa37bb2,90d55072,91a8e7a0,9208e7f8,93b6bbda,93c2a834,94aa07ed,95044073,955e5050,9674a629,99863551,9ae2e673,9afa1011,9bce325e,9bec0c0d,9cc8025d,9d690766,9d932d94,9ffacf02,a0f64b64,a2fd7d0c,a647778b,a88fd2c3,a942e91a,ab0cb37f,ac37c251,ac56f17f,acf38390,adab49dd,ae93d904,aecac959,b148de15,b33bad79,b4b8fd4b,b536a99d,b6327ecf,b660fd93,bb240c34,bb36edcc,bb999b8d,bbeaffa9,c030d9e5,c1948a38,c2fb1bfe,c38bc342,c3ef69d0,c5993e12,c62e71b9,c630015f,c6f0e7f0,c6f92bb3,cb423a1e,cba09f8d,cc78d910,cdbc383d,cfe3bdee,d106a282,d2510ec9,d3ad6a29,d3b10713,d822d4ff,d860ea32,d8761f1c,d8b9cf23,da01abcc,dcf6fb48,dd5f8dbc,ddd42fdc,de39c137,df65060d,e04e3f61,e1aedcb7,e44f21fd,e5973768,e5ff121d,e63776b3,e668bd09,e729e4f3,e8b28421,eae949ae,ec6430fb,ecc908c2,f459b329,f5c0e5c1,f6dc9f15,f769b433,fb04ef28,fb96d671,fb979e0d,fc055704,fd42bc61,fe65a507,ff0349e0,ff79b33c,ffdec4d0'.split(','));
+const cleanSpeech = t => String(t).replace(/\*\*/g,'').replace(/\s+/g,' ').trim();
+function hk(t){ let h = 0x811c9dc5; for (let i=0;i<t.length;i++){ h ^= t.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(16).padStart(8,'0'); }
+let curAudio = null, warned = false;
+function noSound(){ if (warned) return; warned = true; toast('Sem som? Tire o celular do modo silencioso e aumente o volume.'); }
 function speak(text, rate=0.95){
+  const t = cleanSpeech(text), h = hk(t);
+  try { if (window.speechSynthesis && (speechSynthesis.speaking || speechSynthesis.pending)) speechSynthesis.cancel(); } catch(e){}
+  if (curAudio){ try { curAudio.pause(); } catch(e){} curAudio = null; }
+  if (AUDIO_KEYS.has(h)){
+    const a = new Audio('audio/' + h + '.mp3');
+    a.playbackRate = rate < 0.8 ? 0.72 : 1;
+    curAudio = a;
+    const p = a.play();
+    if (p && p.catch) p.catch(err => { if (err && err.name === 'NotAllowedError') noSound(); else ttsSpeak(t, rate); });
+    return;
+  }
+  ttsSpeak(t, rate);
+}
+function ttsSpeak(t, rate){
+  const ss = window.speechSynthesis;
+  if (!ss || typeof SpeechSynthesisUtterance === 'undefined'){ toast('Este aparelho não tem voz para textos novos. As frases das aulas têm áudio gravado.'); return; }
   try {
-    speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text.replace(/\*\*/g,''));
+    const u = new SpeechSynthesisUtterance(t);
     const want = S.accent === 'uk' ? 'en-GB' : 'en-US';
+    if (!voices.length) loadVoices();
     u.lang = want;
-    u.voice = voices.find(v => v.lang.replace('_','-') === want && /natural|google|samantha|daniel|premium/i.test(v.name)) || voices.find(v => v.lang.replace('_','-') === want) || null;
-    u.rate = rate; speechSynthesis.speak(u);
-  } catch(e){ toast('Seu navegador não tem voz em inglês disponível.'); }
+    const v = voices.find(v => v.lang.replace('_','-') === want && /natural|google|samantha|daniel|premium|enhanced/i.test(v.name)) || voices.find(v => v.lang.replace('_','-') === want) || voices[0];
+    if (v) u.voice = v;
+    u.rate = rate;
+    let started = false;
+    u.onstart = () => { started = true; };
+    u.onerror = e => { if (!started && !['interrupted','canceled'].includes(e.error)) noSound(); };
+    ss.speak(u);
+    try { ss.resume(); } catch(e){}
+    setTimeout(() => { if (!started && !ss.speaking) noSound(); }, 2500);
+  } catch(e){ noSound(); }
 }
 function sayBtns(text){ const t = esc(text); return `<button class="icon-btn" data-say="${t}" aria-label="Ouvir">${ICON.play}</button><button class="icon-btn" data-say="${t}" data-rate="0.65" aria-label="Ouvir devagar">${ICON.slow}</button>`; }
 document.addEventListener('click', e => { const b = e.target.closest('[data-say]'); if (b){ e.stopPropagation(); speak(b.dataset.say, +(b.dataset.rate || 0.95)); } });

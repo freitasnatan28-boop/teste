@@ -16,6 +16,7 @@ mkdir -p site
   echo '</body></html>'
 } > site/index.html
 cp logo.svg site/logo.svg
+mkdir -p site/audio && cp audio/*.mp3 site/audio/
 cat > site/manifest.webmanifest <<'JSON'
 {"name":"Ponte · Inglês fluente","short_name":"Ponte","start_url":"./","display":"standalone","background_color":"#F2F4F9","theme_color":"#1E58F0","lang":"pt-BR",
  "icons":[{"src":"icon-192.png","sizes":"192x192","type":"image/png"},{"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}
