@@ -82,7 +82,7 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
   história/geopolítica nos EUA: US$ 6 a 14 (blogs de terceiros, sem dado oficial). O tema de dinheiro puxa anunciante
   de finanças. Finanças pessoais paga mais, mas é saturado, exige autoridade e não usa o nosso motor de mapas.
 
-- [x] Canal: o Behind the Map é um canal NOVO (começou com 0 inscritos, nov/2026). Vídeo 002 publicado: https://youtu.be/U3yJtBI16Eo (25 views no começo; aguardando o Analytics). Tela final fica pra quando houver o 2º vídeo público. Recursos padrão e intermediários ✅ (vídeos > 15 min, miniaturas
+- [x] Canal: o Behind the Map é um canal NOVO (começou com 0 inscritos, nov/2026). Vídeo 002 publicado: https://youtu.be/U3yJtBI16Eo (primeiras ~20 h: 35 views, 1,7 h assistidas, duração média 4:03 de 9:12 = 44%, 85,7% do tráfego vindo de "vídeos sugeridos"; falta ver impressões/CTR). Tela final fica pra quando houver o 2º vídeo público. Recursos padrão e intermediários ✅ (vídeos > 15 min, miniaturas
   personalizadas). Recursos avançados: **pendente** (precisa verificação por vídeo/documento ou histórico do canal).
 - [ ] Ativar recursos avançados (links clicáveis na descrição, limite maior de envios; ajuda no pedido de monetização).
 
