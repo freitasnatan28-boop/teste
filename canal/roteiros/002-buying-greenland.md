@@ -7,7 +7,8 @@
 
 ## Títulos (A/B)
 
-- A: Why America Keeps Trying to Buy Greenland
+- A: Why America Offered $100 Million in Gold for Greenland (escolhido na entrega)
+- A2: Why America Keeps Trying to Buy Greenland
 - B: America Didn't Conquer Its Land. It Bought It.
 
 ## Thumbnail
