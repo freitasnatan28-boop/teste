@@ -55,7 +55,7 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 
 ## Roteiros
 
-- **002 (EN, aprovado; vídeo renderizado em nov/2026, aguardando o dono assistir):** `canal/roteiros/002-buying-greenland.md`, 9,2 min,
+- **002 (EN, aprovado; vídeo renderizado em nov/2026 (9:12, -14 LUFS), entregue, aguardando o dono assistir):** `canal/roteiros/002-buying-greenland.md`, 9,2 min,
   voz David - Documentary (`ppLqTilh7rH7fbUVlXsf`). Storyboard gerado por `videos/002-buying-greenland/storyboard-gerar.py`.
   Títulos "Why America Keeps Trying to Buy Greenland" / B: "America Didn't Conquer Its Land. It Bought It."
   Gancho: Groenlândia (2019, 2025) → Louisiana 1803 (US$ 15 mi), Flórida 1819, México 1848 (US$ 15 mi após a guerra),

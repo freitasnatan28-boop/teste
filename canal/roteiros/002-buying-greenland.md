@@ -23,7 +23,13 @@ gold, here is every deal behind the map, and why Greenland breaks the pattern.
 
 Chapters:
 00:00 Not for sale
-(the other times are filled in after the edit)
+01:02 The deal of the century (Louisiana, 1803)
+02:52 Florida, Mexico and a desert
+04:24 Seward's Icebox (Alaska, 1867)
+05:47 Islands for gold (1917)
+06:17 The secret offer (1946)
+06:58 Why Greenland, why now
+08:15 The pattern
 
 Sources:
 - National Archives / AP (1991): 1946 offer of $100 million in gold for Greenland
