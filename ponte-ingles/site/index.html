@@ -31,7 +31,9 @@
   --accent:#7097FF; --accent-ink:#0C1222; --accent-soft:#1E2B52; --sun:#FFC845; --sun-soft:#3A3115;
   --ok:#3BCB96; --ok-soft:#123327; --bad:#FF7B70; --bad-soft:#3A1A1A; --shadow:0 1px 2px rgb(0 0 0 / .3); color-scheme:dark}
 
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 *{box-sizing:border-box}
+button,a,label,.flash{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 [hidden]{display:none!important}
 body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
@@ -139,7 +141,12 @@ main{max-width:880px;margin:0 auto;padding-block:22px 110px;padding-left:max(16p
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
 
 /* Chat */
-.chat{display:grid;grid-template-rows:auto 1fr auto;height:min(72vh,720px);padding:0;overflow:hidden}
+.chat{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:min(78vh,720px);height:min(calc(100dvh - 190px),720px);min-height:460px;padding:0;overflow:hidden}
+.chat-top{display:flex;gap:10px;align-items:center}
+.chat-top .avatar{width:42px;height:42px}.chat-top .avatar svg{width:36px;height:36px}
+.chat>*{min-width:0}
+.tg{display:inline-flex;gap:5px;align-items:center;flex:none}
+@media (max-width:380px){.tg span{display:none}.tg{padding:8px}}.tg svg{width:15px;height:15px}
 .chat-head{padding:14px 16px;border-bottom:1px solid var(--line);display:grid;gap:10px}
 .modes{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
 .chip{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:7px 12px;font-size:.86rem;font-weight:600;white-space:nowrap}
@@ -207,7 +214,12 @@ textarea:focus,input[type=text]:focus{outline:none;border-color:var(--accent)}
   .tab[aria-selected="true"]{border-top-color:var(--accent)}
   .tab .dot{position:absolute;top:4px;right:calc(50% - 22px)}
   .brand small{display:none}
-  .chat{height:calc(100vh - 210px)}
+  .chat{height:calc(100vh - 150px);height:calc(100dvh - 146px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));min-height:380px;border-radius:12px}
+  main{padding-block:12px 100px}
+  .chat-head{padding:10px 12px;gap:8px}.msgs{padding:12px}.composer{padding:10px}
+  .chat-top .sub{display:none}
+  .typing .tabs{display:none}
+  .typing main{padding-bottom:16px}
 }
 .said{display:flex;flex-wrap:wrap;gap:6px}
 .w{padding:4px 8px;border-radius:7px;font-weight:600}
@@ -225,6 +237,7 @@ textarea:focus,input[type=text]:focus{outline:none;border-color:var(--accent)}
 .toggles{display:flex;gap:14px;flex-wrap:wrap;font-size:.86rem;color:var(--muted)}
 .toggles label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
 .msg .reveal{border:1px dashed var(--line);background:var(--surface-2);border-radius:9px;padding:8px 12px;font-weight:600;width:100%}
+@media (max-height:500px){.top{position:static}.chat{height:auto;min-height:0}.msgs{min-height:220px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -266,6 +279,7 @@ const ICON = {
   check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12 5 5 9-10"/></svg>',
   close:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>',
   send:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg>',
+  ear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6 0 9.5 7 9.5 7a17 17 0 0 1-3 3.8M6.6 6.6A17 17 0 0 0 2.5 12S6 19 12 19a9.6 9.6 0 0 0 5.4-1.6"/></svg>',
   spark:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7z"/></svg>',
 };
 const NATAN = '<svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="24" r="14" fill="#F2C9A0"/><path d="M8 20c1-10 9-14 15-13 7 0 13 5 13 12-3-4-8-6-14-5-6 0-10 2-14 6Z" fill="#3B2A20"/><circle cx="16.5" cy="24" r="4.2" fill="none" stroke="#131C33" stroke-width="1.8"/><circle cx="27.5" cy="24" r="4.2" fill="none" stroke="#131C33" stroke-width="1.8"/><path d="M20.7 24h2.6" stroke="#131C33" stroke-width="1.8"/><path d="M18 31c2.5 2 5.5 2 8 0" stroke="#131C33" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M14 38c2 3 14 3 16 0" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/></svg>';
@@ -800,21 +814,22 @@ function renderProfessor(){
   el.innerHTML = `
   <div class="card chat">
     <div class="chat-head">
-      <div class="teacher" style="align-items:center"><div class="avatar">${NATAN}</div><div><h3>Prof. Natan</h3><p class="muted" style="font-size:.88rem">${sample ? 'Professor de conversação · corrige cada mensagem' : 'Professor de conversação'}</p></div></div>
-      <div class="toggles"><label><input type="checkbox" id="tVoice" ${S.voice?'checked':''}> Ler respostas em voz alta</label><label><input type="checkbox" id="tListen" ${S.listen?'checked':''}> Treino de escuta (esconde o texto)</label></div>
+      <div class="chat-top"><div class="avatar">${NATAN}</div><div style="flex:1;min-width:0"><h3>Prof. Natan</h3><p class="muted sub" style="font-size:.86rem">${sample ? 'Conversa e corrige cada mensagem' : 'Professor de conversação'}</p></div>
+        <button type="button" class="chip tg" id="tVoice" aria-pressed="${!!S.voice}" title="Ler respostas em voz alta">${ICON.slow}<span>Voz</span></button>
+        <button type="button" class="chip tg" id="tListen" aria-pressed="${!!S.listen}" title="Treino de escuta: esconde o texto">${ICON.ear}<span>Só ouvir</span></button></div>
       <div class="modes">${Object.entries(MODES).filter(([k])=>k!=='aula'||S.mode==='aula').map(([k,v])=>`<button class="chip" data-mode="${k}" aria-pressed="${S.mode===k}">${v.n}</button>`).join('')}</div>
     </div>
     <div class="msgs" id="msgs">${S.chat.map(bubble).join('')}${sample ? '' : '<div class="msg sys">O Prof. Natan com IA funciona quando você abre o Ponte pelo Claude. Aqui você ainda pode ouvir as falas e usar as aulas e revisões.</div>'}</div>
     <form class="composer" id="cf">
       <div class="quick">${['Não entendi, explique em português','Me dê um exemplo','Como eu digo isso em inglês?','Fale mais simples'].map(q=>`<button type="button" class="chip" data-q="${q}">${q}</button>`).join('')}</div>
-      <textarea id="ci" rows="2" placeholder="${S.mode==='duvidas'?'Pergunte qualquer coisa sobre inglês':'Escreva ou toque no microfone do teclado para falar'}" ${sample?'':'disabled'}></textarea>
+      <textarea id="ci" rows="1" style="min-height:48px;max-height:120px" placeholder="${S.mode==='duvidas'?'Pergunte qualquer coisa sobre inglês':'Escreva ou toque no microfone do teclado para falar'}" ${sample?'':'disabled'}></textarea>
       <button class="btn" id="cs" aria-label="Enviar" ${sample?'':'disabled'}>${ICON.send}</button>
     </form>
   </div>`;
   const msgs = $('#msgs'); msgs.scrollTop = msgs.scrollHeight;
   el.querySelectorAll('[data-mode]').forEach(b => b.onclick = () => { S.mode = b.dataset.mode; S.chat = []; save(); renderProfessor(); });
-  $('#tVoice').onchange = e => { S.voice = e.target.checked; save(); };
-  $('#tListen').onchange = e => { S.listen = e.target.checked; save(); renderProfessor(); };
+  $('#tVoice').onclick = () => { S.voice = !S.voice; save(); renderProfessor(); toast(S.voice ? 'O professor vai ler as respostas em voz alta' : 'Leitura em voz alta desligada'); };
+  $('#tListen').onclick = () => { S.listen = !S.listen; save(); renderProfessor(); toast(S.listen ? 'Treino de escuta: ouça antes de ler' : 'Treino de escuta desligado'); };
   el.querySelectorAll('[data-q]').forEach(b => b.onclick = () => { $('#ci').value = b.dataset.q; send(); });
   $('#cf').onsubmit = e => { e.preventDefault(); send(); };
   $('#ci').onkeydown = e => { if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); send(); } };
@@ -1010,6 +1025,8 @@ function renderPerfil(){
   $('#resetNo').onclick = () => $('#resetConf').hidden = true;
   $('#resetYes').onclick = () => { S = defaults(); pickLv = null; save(); renderHeader(); go('hoje'); };
 }
+document.addEventListener('focusin', e => { if (e.target.matches('textarea,input[type=text]')) document.body.classList.add('typing'); });
+document.addEventListener('focusout', () => setTimeout(() => { if (!document.activeElement?.matches('textarea,input[type=text]')) document.body.classList.remove('typing'); }, 50));
 renderHeader(); go('hoje');
 </script>
 </body></html>
