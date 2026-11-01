@@ -6,6 +6,7 @@ import { Mapa } from "./cenas/Mapa";
 import type { PropsCena } from "./cenas/tipos-cena";
 import { CONTORNO_PRETO, COR, FONTE_TEXTO, FONTE_TITULO } from "./estilo";
 import type { TCena, Timeline } from "./tipos";
+import { IdiomaContexto, useTextos } from "./idioma";
 
 const COMPONENTES: Record<string, React.FC<PropsCena<any>>> = {
   foto: Foto,
@@ -79,13 +80,14 @@ const Capitulo: React.FC<{ numero: number; titulo: string }> = ({ numero, titulo
 // Documentário: granulado de filme + vinheta. Modelo de mapa: imagem limpa, só a marca d'água.
 const Acabamento: React.FC<{ limpo: boolean }> = ({ limpo }) => {
   const f = useCurrentFrame();
+  const textos = useTextos();
   return (
     <AbsoluteFill style={{ pointerEvents: "none" }}>
       {!limpo && <Img src={staticFile(`texturas/grao-${f % 6}.png`)} style={{ position: "absolute", width: "100%", height: "100%", opacity: 0.06, mixBlendMode: "overlay", imageRendering: "pixelated" }} />}
       {!limpo && <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%)" }} />}
       <div style={{ position: "absolute", right: 40, top: 34, opacity: 0.55, display: "flex", alignItems: "center", gap: 12 }}>
         <LogoCanal tamanho={54} />
-        <span style={{ fontFamily: FONTE_TITULO, fontSize: 30, color: COR.texto, letterSpacing: 1 }}>POR TRÁS DO MAPA</span>
+        <span style={{ fontFamily: FONTE_TITULO, fontSize: 30, color: COR.texto, letterSpacing: 1 }}>{textos.marca}</span>
       </div>
     </AbsoluteFill>
   );
@@ -101,6 +103,7 @@ export const Video: React.FC<{ timeline: Timeline | null; video: string }> = ({ 
   const { pasta, duracao, fps } = timeline;
   const mapa = timeline.estilo === "mapa";
   return (
+    <IdiomaContexto.Provider value={timeline.idioma ?? "pt"}>
     <AbsoluteFill style={{ background: "#000" }}>
       {timeline.cenas.map((c, i) => (
         <Sequence key={i} from={c.inicio} durationInFrames={c.duracao} layout="none">
@@ -139,5 +142,6 @@ export const Video: React.FC<{ timeline: Timeline | null; video: string }> = ({ 
         <Escurecer duracao={fps} />
       </Sequence>
     </AbsoluteFill>
+    </IdiomaContexto.Provider>
   );
 };

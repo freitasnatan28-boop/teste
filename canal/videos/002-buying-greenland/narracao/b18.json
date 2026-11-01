@@ -1,0 +1,208 @@
+{
+ "id": "b18",
+ "capitulo": "Seward's Icebox",
+ "visual": "\"1867\". Seward portrait. Alaska turns into the US flag. Price tag $7,200,000.",
+ "texto": "In 1867, Secretary of State William Seward signed the deal. Seven point two million dollars. About two cents an acre, for a territory more than twice the size of Texas. The canceled check is still kept at the National Archives.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0,
+   "fim": 0.197
+  },
+  {
+   "texto": "1867,",
+   "inicio": 0.244,
+   "fim": 1.695
+  },
+  {
+   "texto": "Secretary",
+   "inicio": 1.869,
+   "fim": 2.566
+  },
+  {
+   "texto": "of",
+   "inicio": 2.624,
+   "fim": 2.682
+  },
+  {
+   "texto": "State",
+   "inicio": 2.752,
+   "fim": 3.053
+  },
+  {
+   "texto": "William",
+   "inicio": 3.1,
+   "fim": 3.495
+  },
+  {
+   "texto": "Seward",
+   "inicio": 3.611,
+   "fim": 4.04
+  },
+  {
+   "texto": "signed",
+   "inicio": 4.098,
+   "fim": 4.423
+  },
+  {
+   "texto": "the",
+   "inicio": 4.458,
+   "fim": 4.528
+  },
+  {
+   "texto": "deal.",
+   "inicio": 4.574,
+   "fim": 5.108
+  },
+  {
+   "texto": "Seven",
+   "inicio": 5.55,
+   "fim": 5.944
+  },
+  {
+   "texto": "point",
+   "inicio": 6.037,
+   "fim": 6.316
+  },
+  {
+   "texto": "two",
+   "inicio": 6.374,
+   "fim": 6.664
+  },
+  {
+   "texto": "million",
+   "inicio": 6.838,
+   "fim": 7.303
+  },
+  {
+   "texto": "dollars.",
+   "inicio": 7.372,
+   "fim": 8.104
+  },
+  {
+   "texto": "About",
+   "inicio": 8.545,
+   "fim": 8.87
+  },
+  {
+   "texto": "two",
+   "inicio": 8.893,
+   "fim": 9.056
+  },
+  {
+   "texto": "cents",
+   "inicio": 9.137,
+   "fim": 9.427
+  },
+  {
+   "texto": "an",
+   "inicio": 9.485,
+   "fim": 9.555
+  },
+  {
+   "texto": "acre,",
+   "inicio": 9.625,
+   "fim": 9.973
+  },
+  {
+   "texto": "for",
+   "inicio": 10.008,
+   "fim": 10.17
+  },
+  {
+   "texto": "a",
+   "inicio": 10.252,
+   "fim": 10.275
+  },
+  {
+   "texto": "territory",
+   "inicio": 10.344,
+   "fim": 11.041
+  },
+  {
+   "texto": "more",
+   "inicio": 11.366,
+   "fim": 11.598
+  },
+  {
+   "texto": "than",
+   "inicio": 11.633,
+   "fim": 11.773
+  },
+  {
+   "texto": "twice",
+   "inicio": 11.819,
+   "fim": 12.214
+  },
+  {
+   "texto": "the",
+   "inicio": 12.272,
+   "fim": 12.365
+  },
+  {
+   "texto": "size",
+   "inicio": 12.434,
+   "fim": 12.794
+  },
+  {
+   "texto": "of",
+   "inicio": 12.841,
+   "fim": 12.91
+  },
+  {
+   "texto": "Texas.",
+   "inicio": 12.98,
+   "fim": 13.735
+  },
+  {
+   "texto": "The",
+   "inicio": 14.245,
+   "fim": 14.362
+  },
+  {
+   "texto": "canceled",
+   "inicio": 14.42,
+   "fim": 14.93
+  },
+  {
+   "texto": "check",
+   "inicio": 14.953,
+   "fim": 15.232
+  },
+  {
+   "texto": "is",
+   "inicio": 15.313,
+   "fim": 15.395
+  },
+  {
+   "texto": "still",
+   "inicio": 15.429,
+   "fim": 15.685
+  },
+  {
+   "texto": "kept",
+   "inicio": 15.766,
+   "fim": 16.056
+  },
+  {
+   "texto": "at",
+   "inicio": 16.114,
+   "fim": 16.196
+  },
+  {
+   "texto": "the",
+   "inicio": 16.242,
+   "fim": 16.312
+  },
+  {
+   "texto": "National",
+   "inicio": 16.37,
+   "fim": 16.799
+  },
+  {
+   "texto": "Archives.",
+   "inicio": 16.857,
+   "fim": 18.111
+  }
+ ]
+}

@@ -1,0 +1,278 @@
+{
+ "id": "b08",
+ "capitulo": "The Deal of the Century",
+ "visual": "Camera to Haiti. Explosion icon. French army defeated.",
+ "texto": "But Napoleon had a problem of his own. His army had just been crushed in Haiti, where enslaved people had risen up and defeated one of the strongest armies in Europe. Without Haiti and its sugar, his American empire made no sense. And a new war with Britain was coming. He needed money. Fast.",
+ "palavras": [
+  {
+   "texto": "But",
+   "inicio": 0,
+   "fim": 0.221
+  },
+  {
+   "texto": "Napoleon",
+   "inicio": 0.267,
+   "fim": 0.848
+  },
+  {
+   "texto": "had",
+   "inicio": 0.906,
+   "fim": 1.022
+  },
+  {
+   "texto": "a",
+   "inicio": 1.068,
+   "fim": 1.103
+  },
+  {
+   "texto": "problem",
+   "inicio": 1.161,
+   "fim": 1.602
+  },
+  {
+   "texto": "of",
+   "inicio": 1.672,
+   "fim": 1.741
+  },
+  {
+   "texto": "his",
+   "inicio": 1.811,
+   "fim": 1.939
+  },
+  {
+   "texto": "own.",
+   "inicio": 2.009,
+   "fim": 2.554
+  },
+  {
+   "texto": "His",
+   "inicio": 2.995,
+   "fim": 3.204
+  },
+  {
+   "texto": "army",
+   "inicio": 3.262,
+   "fim": 3.587
+  },
+  {
+   "texto": "had",
+   "inicio": 3.669,
+   "fim": 3.773
+  },
+  {
+   "texto": "just",
+   "inicio": 3.82,
+   "fim": 4.029
+  },
+  {
+   "texto": "been",
+   "inicio": 4.087,
+   "fim": 4.249
+  },
+  {
+   "texto": "crushed",
+   "inicio": 4.319,
+   "fim": 4.748
+  },
+  {
+   "texto": "in",
+   "inicio": 4.807,
+   "fim": 4.899
+  },
+  {
+   "texto": "Haiti,",
+   "inicio": 4.992,
+   "fim": 5.584
+  },
+  {
+   "texto": "where",
+   "inicio": 5.909,
+   "fim": 6.165
+  },
+  {
+   "texto": "enslaved",
+   "inicio": 6.211,
+   "fim": 6.792
+  },
+  {
+   "texto": "people",
+   "inicio": 6.85,
+   "fim": 7.187
+  },
+  {
+   "texto": "had",
+   "inicio": 7.233,
+   "fim": 7.349
+  },
+  {
+   "texto": "risen",
+   "inicio": 7.43,
+   "fim": 7.755
+  },
+  {
+   "texto": "up",
+   "inicio": 7.814,
+   "fim": 7.964
+  },
+  {
+   "texto": "and",
+   "inicio": 8.173,
+   "fim": 8.429
+  },
+  {
+   "texto": "defeated",
+   "inicio": 8.487,
+   "fim": 8.928
+  },
+  {
+   "texto": "one",
+   "inicio": 8.986,
+   "fim": 9.114
+  },
+  {
+   "texto": "of",
+   "inicio": 9.149,
+   "fim": 9.195
+  },
+  {
+   "texto": "the",
+   "inicio": 9.242,
+   "fim": 9.311
+  },
+  {
+   "texto": "strongest",
+   "inicio": 9.358,
+   "fim": 9.961
+  },
+  {
+   "texto": "armies",
+   "inicio": 10.019,
+   "fim": 10.391
+  },
+  {
+   "texto": "in",
+   "inicio": 10.449,
+   "fim": 10.519
+  },
+  {
+   "texto": "Europe.",
+   "inicio": 10.6,
+   "fim": 11.227
+  },
+  {
+   "texto": "Without",
+   "inicio": 11.668,
+   "fim": 12.086
+  },
+  {
+   "texto": "Haiti",
+   "inicio": 12.132,
+   "fim": 12.446
+  },
+  {
+   "texto": "and",
+   "inicio": 12.504,
+   "fim": 12.655
+  },
+  {
+   "texto": "its",
+   "inicio": 12.725,
+   "fim": 12.852
+  },
+  {
+   "texto": "sugar,",
+   "inicio": 12.898,
+   "fim": 13.49
+  },
+  {
+   "texto": "his",
+   "inicio": 13.815,
+   "fim": 14.001
+  },
+  {
+   "texto": "American",
+   "inicio": 14.059,
+   "fim": 14.524
+  },
+  {
+   "texto": "empire",
+   "inicio": 14.582,
+   "fim": 15.058
+  },
+  {
+   "texto": "made",
+   "inicio": 15.104,
+   "fim": 15.313
+  },
+  {
+   "texto": "no",
+   "inicio": 15.371,
+   "fim": 15.511
+  },
+  {
+   "texto": "sense.",
+   "inicio": 15.627,
+   "fim": 16.3
+  },
+  {
+   "texto": "And",
+   "inicio": 16.741,
+   "fim": 16.927
+  },
+  {
+   "texto": "a",
+   "inicio": 16.997,
+   "fim": 17.02
+  },
+  {
+   "texto": "new",
+   "inicio": 17.089,
+   "fim": 17.275
+  },
+  {
+   "texto": "war",
+   "inicio": 17.333,
+   "fim": 17.577
+  },
+  {
+   "texto": "with",
+   "inicio": 17.658,
+   "fim": 17.833
+  },
+  {
+   "texto": "Britain",
+   "inicio": 17.891,
+   "fim": 18.274
+  },
+  {
+   "texto": "was",
+   "inicio": 18.332,
+   "fim": 18.471
+  },
+  {
+   "texto": "coming.",
+   "inicio": 18.541,
+   "fim": 19.028
+  },
+  {
+   "texto": "He",
+   "inicio": 19.272,
+   "fim": 19.423
+  },
+  {
+   "texto": "needed",
+   "inicio": 19.504,
+   "fim": 19.841
+  },
+  {
+   "texto": "money.",
+   "inicio": 19.911,
+   "fim": 20.41
+  },
+  {
+   "texto": "Fast.",
+   "inicio": 20.584,
+   "fim": 21.826
+  }
+ ]
+}

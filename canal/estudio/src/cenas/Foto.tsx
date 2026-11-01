@@ -3,6 +3,7 @@ import { AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame } f
 import { COR, FONTE_TEXTO, FONTE_TITULO } from "../estilo";
 import type { Cena } from "../tipos";
 import type { PropsCena } from "./tipos-cena";
+import { useTextos } from "../idioma";
 
 // Caminho padrão do movimento quando o storyboard não define focos.
 const FOCOS: [number, number][] = [
@@ -11,6 +12,7 @@ const FOCOS: [number, number][] = [
 ];
 
 export const Foto: React.FC<PropsCena<Extract<Cena, { tipo: "foto" }>>> = ({ cena, duracao, pasta }) => {
+  const textos = useTextos();
   const f = useCurrentFrame();
   const src = staticFile(`${pasta}/imagens/${cena.img}.jpg`);
   const filtro = `${cena.pb ? "grayscale(1) " : ""}contrast(1.12) saturate(1.05)${cena.efeito === "noite" ? " brightness(.45) hue-rotate(190deg)" : ""}`;
@@ -53,7 +55,7 @@ export const Foto: React.FC<PropsCena<Extract<Cena, { tipo: "foto" }>>> = ({ cen
       {cena.rotulo && <Rotulo texto={cena.rotulo} />}
       {cena.ia && (
         <div style={{ position: "absolute", left: 40, top: 40, fontFamily: FONTE_TEXTO, fontWeight: 500, fontSize: 26, color: COR.texto, background: "rgba(0,0,0,.55)", padding: "4px 12px", letterSpacing: 1 }}>
-          ILUSTRAÇÃO (IA)
+          {textos.ia}
         </div>
       )}
     </AbsoluteFill>

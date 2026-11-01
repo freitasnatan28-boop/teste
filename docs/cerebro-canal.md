@@ -55,7 +55,9 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
 
 ## Roteiros
 
-- **002 (EN, proposta, aguardando ok do dono):** "Why America Keeps Trying to Buy Greenland" / B: "America Didn't Conquer Its Land. It Bought It."
+- **002 (EN, aprovado; vídeo renderizado em nov/2026, aguardando o dono assistir):** `canal/roteiros/002-buying-greenland.md`, 9,2 min,
+  voz David - Documentary (`ppLqTilh7rH7fbUVlXsf`). Storyboard gerado por `videos/002-buying-greenland/storyboard-gerar.py`.
+  Títulos "Why America Keeps Trying to Buy Greenland" / B: "America Didn't Conquer Its Land. It Bought It."
   Gancho: Groenlândia (2019, 2025) → Louisiana 1803 (US$ 15 mi), Flórida 1819, México 1848 (US$ 15 mi após a guerra),
   Gadsden 1853 (US$ 10 mi), Alasca 1867 (US$ 7,2 mi), Ilhas Virgens 1917 (US$ 25 mi em ouro), oferta secreta de 1946
   (US$ 100 mi em ouro, revelada em 1991), base de Pituffik, terras raras, gelo do Ártico. Fatos já pesquisados (out/2026).
@@ -117,6 +119,14 @@ bash scripts/baixar_nasa.sh B1 B2 C1                            # satélite NASA
   sintético" no upload do YouTube. Precisa de GEMINI_API_KEY ou OPENAI_API_KEY nos segredos do ambiente
   (ou como Network secret no host api.openai.com: aí rodar com IMAGENS_IA=openai e NODE_USE_ENV_PROXY=1).
   O serviço grátis Pollinations pede pagamento.
+- Motor (nov/2026, pedido "bons VFX e SFX" + "emojis saem do nada"): balão/emoji só aparece se o dono está na tela,
+  nasce com um anel pulsando no dono, e some quando entra outro balão no mesmo ponto; o `montar` avisa balão sem dono.
+  Novos atores: `preco` (etiqueta com contador + sons contagem/caixa), `carimbo` (SECRET etc., som carimbo).
+  Países e zonas aparecem se espalhando do centro. `paises[].perto` escolhe a parte do país (ex.: Alasca).
+  Bandeira esticada só se o país cabe inteiro na tela; senão vira listras com as cores dela.
+  Bandeiras: BRA FRA USA ESP MEX RUS DNK GRL GBR CHN URS. Ícones novos: ouro, petroleo, minerio.
+  `idioma: "en"` no storyboard troca marca d'água, "subscribe" e selo de IA. Retratos: recortar no rosto (480x480).
+  Library of Congress também limita (429) a busca: esperar 20-60 s entre buscas; tile.loc.gov baixa normal.
 - Feedback do dono sobre a edição (out/2026): NÃO repetir a mesma foto em cortes seguidos (parece bug);
   NÃO tocar o mesmo whoosh em toda transição. Regras atuais no `montar`: foto com movimento contínuo,
   apoio não repete foto em 25 s, som por tipo de cena girando opções, mesmo som só depois de 8 s,

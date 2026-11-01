@@ -33,6 +33,12 @@ const EFEITOS: Record<string, { texto: string; segundos: number }> = {
   ding: { texto: "bright single ding chime, clean bell, short", segundos: 1 },
   "luz-flash": { texto: "magical shimmer swoosh with soft reverse cymbal, light flash transition", segundos: 1.4 },
   canhao: { texto: "distant naval cannon shot boom with short echo", segundos: 1.6 },
+  // Vídeos de dinheiro (canal em inglês): caixa registradora no preço, carimbo, gelo.
+  "caixa": { texto: "old cash register cha-ching with coins, short and satisfying", segundos: 1.2 },
+  "contagem": { texto: "fast digital number counter rolling up, slot machine ticks accelerating", segundos: 1.2 },
+  "carimbo": { texto: "heavy rubber stamp slammed hard on paper on a wooden desk", segundos: 0.8 },
+  "gelo": { texto: "glacier ice cracking with deep low rumble, short", segundos: 2 },
+  "moedas": { texto: "pile of gold coins pouring and clinking, short", segundos: 1.2 },
 };
 
 const TRILHAS = [

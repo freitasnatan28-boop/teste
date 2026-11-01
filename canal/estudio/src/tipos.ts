@@ -23,12 +23,12 @@ export type Cena =
       para: Vista;
       estilo?: "satelite" | "antigo";
       ano?: string; // número grande no topo (ex.: "1963")
-      paises?: { iso: string; bandeira?: Pais; cor?: string; em?: string; aos?: number }[]; // território pintado
+      paises?: { iso: string; bandeira?: Pais; cor?: string; em?: string; aos?: number; perto?: LonLat }[]; // território pintado (perto: escolhe a parte do país perto desse ponto, ex.: Alasca)
       atores?: Ator[]; // balões, retratos, ícones etc. presos ao mapa
       zonas?: { pontos: LonLat[]; bandeira?: Pais; cor?: string; em?: string; aos?: number; rotulo?: string }[]; // área listrada (controle/zona)
       fundo?: { img: string; oeste: number; leste: number; norte: number; sul: number }; // calculado
       destaques?: { iso: string; cor?: string; em?: number }[]; // em: 0-1 dentro da cena
-      rotas?: { pontos: LonLat[]; cor?: string; icone?: "navio" | "aviao" | "lagosta"; pais?: Pais; inicio?: number; fim?: number; tracejada?: boolean }[];
+      rotas?: { pontos: LonLat[]; cor?: string; icone?: "navio" | "aviao" | "lagosta" | "dinheiro"; pais?: Pais; inicio?: number; fim?: number; tracejada?: boolean }[];
       pontos?: { lonlat: LonLat; rotulo?: string; cor?: string; em?: number; icone?: "navio" | "lagosta" | "alvo" }[];
       titulo?: string;
     }
@@ -43,9 +43,9 @@ export type Cena =
   | { tipo: "linhaTempo"; itens: { data: string; texto: string }[] }
   | { tipo: "final" };
 
-export type Pais = "BRA" | "FRA" | "USA";
+export type Pais = "BRA" | "FRA" | "USA" | "ESP" | "MEX" | "RUS" | "DNK" | "GRL" | "GBR" | "CHN" | "URS";
 
-export type Icone = "documento" | "navio" | "aviao" | "lagosta" | "ancora" | "explosao" | "alerta" | "interrogacao" | "acordo" | "radar" | "tropa" | "dinheiro";
+export type Icone = "documento" | "navio" | "aviao" | "lagosta" | "ancora" | "explosao" | "alerta" | "interrogacao" | "acordo" | "radar" | "tropa" | "dinheiro" | "ouro" | "petroleo" | "minerio";
 
 // Elementos presos a um ponto do mapa. "em"/"ate" são palavras da narração (o montar converte em frames).
 export type Ator = { lonlat: LonLat; em?: string; ate?: string; aos?: number; ateAos?: number } & (
@@ -59,12 +59,15 @@ export type Ator = { lonlat: LonLat; em?: string; ate?: string; aos?: number; at
   | { tipo: "unidade"; pais: Pais; forma?: "hex" | "navio"; para?: LonLat; mover?: string; moverAos?: number }
   | { tipo: "reacao"; emoji: string; dx?: number; dy?: number } // balão com emoji (😠 😟 😏 😮)
   | { tipo: "lupa"; img: string; raio?: number; rotulo?: string } // círculo que aproxima um detalhe
+  | { tipo: "preco"; valor: number; rotulo?: string } // etiqueta de preço com o número subindo (som de caixa registradora)
+  | { tipo: "carimbo"; texto: string; cor?: string } // carimbo batendo na tela (ex.: SECRET)
 );
 
 export type CenaStoryboard = Cena & { em?: string; som?: string }; // em: palavra que dispara o corte; som: efeito em public/sons
 
 export type Storyboard = {
   titulo: string;
+  idioma?: "pt" | "en"; // textos fixos da tela (marca, inscreva-se...). Padrão: pt
   estilo?: "documentario" | "mapa"; // "mapa": modelo dos vídeos de geopolítica (sem granulado, sons de balão)
   trilha?: string; // arquivo em public/sons, sem extensão
   beats: Record<
@@ -95,6 +98,7 @@ export type Transicao = "zoom" | "deslize-esq" | "deslize-dir" | "escurecer" | "
 
 export type Timeline = {
   pasta: string; // ex.: videos/001-guerra-da-lagosta
+  idioma?: "pt" | "en";
   estilo: "documentario" | "mapa";
   trilha: string;
   fps: number;

@@ -1,7 +1,7 @@
 // Elementos que ficam presos a um ponto do mapa: balão de fala, retrato redondo, ícone em hexágono,
 // bandeirinha, foto em moldura e rótulo. Todos entram com um "pop" e somem se tiverem "ateAos".
 import React from "react";
-import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { FONTE_TEXTO, FONTE_TITULO } from "../estilo";
 import { Aviao, Bandeira, Lagosta, Navio } from "../icones";
 import type { Ator, Icone, Pais } from "../tipos";
@@ -73,15 +73,54 @@ export const AtorNoMapa: React.FC<Props> = ({ ator, x, y, frame, pasta, elevacao
       </div>
     );
 
+  // Anel que pulsa no topo de quem fala quando o balão nasce: o olho liga o balão ao dono.
+  const anel = (ator.tipo === "fala" || ator.tipo === "reacao") && frame - (ator.aos ?? 0) < 14 && frame >= (ator.aos ?? 0)
+    ? (() => {
+        const k = (frame - (ator.aos ?? 0)) / 14;
+        return <div style={{ position: "absolute", left: x, top: y - elevacao * 0.6, width: 30 + k * 120, height: 30 + k * 120, borderRadius: "50%", border: "5px solid #fff", transform: "translate(-50%, -50%)", opacity: 1 - k, boxShadow: "0 0 12px rgba(255,255,255,.6)" }} />;
+      })()
+    : null;
+
+  if (ator.tipo === "preco") {
+    // Etiqueta de preço: o número sobe rápido (contador) e trava com um "tranco".
+    const p = interpolate(frame - (ator.aos ?? 0), [4, 26], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+    const trava = spring({ frame: frame - (ator.aos ?? 0) - 26, fps, config: { damping: 8, stiffness: 260 } });
+    const valor = Math.round(ator.valor * p);
+    return (
+      <div style={{ ...base, transform: `${base.transform} rotate(-4deg) scale(${1 + 0.12 * Math.sin(trava * Math.PI)})` }}>
+        <div style={{ position: "relative", display: "flex", alignItems: "center", background: "#ffd400", color: "#000", padding: "10px 34px 10px 64px", clipPath: "polygon(36px 0, 100% 0, 100% 100%, 36px 100%, 0 50%)", boxShadow: "0 10px 26px rgba(0,0,0,.6)" }}>
+          <div style={{ position: "absolute", left: 30, top: "50%", width: 18, height: 18, borderRadius: 9, background: "#07111c", transform: "translateY(-50%)" }} />
+          <div style={{ fontFamily: FONTE_TITULO, fontSize: 84, lineHeight: 1, letterSpacing: 1 }}>${valor.toLocaleString("en-US")}</div>
+        </div>
+        {ator.rotulo && <div style={{ marginTop: 8, textAlign: "center", fontFamily: FONTE_TITULO, fontSize: 44, color: "#ffd400", textShadow: "0 0 3px #000, 0 3px 0 #000, 0 0 14px rgba(0,0,0,.8)", whiteSpace: "nowrap" }}>{ator.rotulo}</div>}
+      </div>
+    );
+  }
+
+  if (ator.tipo === "carimbo") {
+    // Carimbo: bate de cima (escala grande) e trava torto, com borda dupla.
+    const k = interpolate(frame - (ator.aos ?? 0), [0, 5], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.quad) });
+    const cor = ator.cor ?? "#e63946";
+    const sai = ator.ateAos === undefined ? 1 : interpolate(frame, [ator.ateAos, ator.ateAos + 6], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    return (
+      <div style={{ position: "absolute", left: x, top: y, transform: `translate(-50%, -50%) rotate(-12deg) scale(${interpolate(k, [0, 1], [2.6, 1])})`, opacity: k * sai, border: `10px solid ${cor}`, outline: `4px solid ${cor}`, outlineOffset: 6, padding: "6px 34px", fontFamily: FONTE_TITULO, fontSize: 120, color: cor, letterSpacing: 8, background: "rgba(255,255,255,.06)", textShadow: "0 0 2px rgba(0,0,0,.4)", whiteSpace: "nowrap", mixBlendMode: "normal" }}>
+        {ator.texto}
+      </div>
+    );
+  }
+
   if (ator.tipo === "fala") {
     // Texto "digitado" logo depois do balão aparecer.
     const letras = Math.floor(interpolate(frame - (ator.aos ?? 0), [3, 3 + ator.texto.length * 0.9], [0, ator.texto.length], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
     return (
+      <>
+      {anel}
       <Balao x={x} y={y} elevacao={elevacao} s={s}>
         {/* O resto do texto fica invisível ocupando lugar: as palavras não pulam de linha enquanto digita. */}
         {ator.texto.slice(0, letras)}
         <span style={{ opacity: 0 }}>{ator.texto.slice(letras)}</span>
       </Balao>
+      </>
     );
   }
 
@@ -121,9 +160,12 @@ export const AtorNoMapa: React.FC<Props> = ({ ator, x, y, frame, pasta, elevacao
 
   if (ator.tipo === "reacao")
     return (
-      <Balao x={x} y={y} elevacao={elevacao} s={s} emoji>
-        {ator.emoji}
-      </Balao>
+      <>
+        {anel}
+        <Balao x={x} y={y} elevacao={elevacao} s={s} emoji>
+          {ator.emoji}
+        </Balao>
+      </>
     );
 
   if (ator.tipo === "lupa") {
@@ -138,6 +180,7 @@ export const AtorNoMapa: React.FC<Props> = ({ ator, x, y, frame, pasta, elevacao
     );
   }
 
+  if (ator.tipo !== "rotulo") return null;
   return (
     <div style={{ ...base, whiteSpace: "nowrap", fontFamily: FONTE_TITULO, fontSize: 54, color: ator.cor ?? "#fff", textTransform: "uppercase", textShadow: "0 0 3px #000, 0 3px 0 #000, 0 0 16px rgba(0,0,0,.9)" }}>
       {ator.texto}
@@ -247,6 +290,31 @@ const Glifo: React.FC<{ icone: Icone; cor: string }> = ({ icone, cor }) => {
           <circle cy={-28} r={11} />
           <path d="M-18 -12 H18 L22 26 H8 L4 42 H-4 L-8 26 H-22 Z" />
           <rect x={14} y={-34} width={5} height={44} />
+        </g>
+      );
+    case "ouro":
+      return (
+        <g stroke="#7a5200" strokeWidth={3}>
+          <polygon points="-38,30 -28,10 -2,10 8,30" fill="#f2c230" />
+          <polygon points="-8,30 2,10 28,10 38,30" fill="#e0ad1c" />
+          <polygon points="-22,10 -12,-10 14,-10 24,10" fill="#ffd54a" />
+          <path d="M-6 -30 L-2 -20 M10 -34 L8 -22 M24 -26 L16 -16" stroke="#ffd54a" strokeWidth={4} strokeLinecap="round" />
+        </g>
+      );
+    case "petroleo":
+      return (
+        <g>
+          <path d="M0 -42 C 14 -18 30 0 30 16 A30 30 0 0 1 -30 16 C -30 0 -14 -18 0 -42 Z" fill="#111" stroke={cor} strokeWidth={4} />
+          <ellipse cx={-10} cy={8} rx={6} ry={11} fill="#666" />
+        </g>
+      );
+    case "minerio":
+      return (
+        <g stroke="#2b2d42" strokeWidth={3}>
+          <polygon points="-40,34 -30,4 -6,-6 12,8 36,0 42,34" fill="#6c757d" />
+          <polygon points="-14,0 -6,-38 4,0" fill="#9b5de5" />
+          <polygon points="4,4 16,-28 24,6" fill="#00bbf9" />
+          <polygon points="-30,8 -26,-18 -18,6" fill="#00f5d4" />
         </g>
       );
     case "dinheiro":

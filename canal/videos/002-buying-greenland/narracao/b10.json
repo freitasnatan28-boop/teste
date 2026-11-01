@@ -1,0 +1,188 @@
+{
+ "id": "b10",
+ "capitulo": "The Deal of the Century",
+ "visual": "Louisiana Purchase fills with the US flag. Price tag counts up to $15,000,000.",
+ "texto": "The price: fifteen million dollars, for about eight hundred and twenty-eight thousand square miles. Roughly three cents an acre. Overnight, the United States doubled in size. Today, that land is all or part of fifteen states.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0,
+   "fim": 0.163
+  },
+  {
+   "texto": "price:",
+   "inicio": 0.221,
+   "fim": 0.778
+  },
+  {
+   "texto": "fifteen",
+   "inicio": 0.929,
+   "fim": 1.486
+  },
+  {
+   "texto": "million",
+   "inicio": 1.567,
+   "fim": 1.916
+  },
+  {
+   "texto": "dollars,",
+   "inicio": 1.974,
+   "fim": 2.601
+  },
+  {
+   "texto": "for",
+   "inicio": 2.717,
+   "fim": 2.868
+  },
+  {
+   "texto": "about",
+   "inicio": 2.937,
+   "fim": 3.17
+  },
+  {
+   "texto": "eight",
+   "inicio": 3.216,
+   "fim": 3.379
+  },
+  {
+   "texto": "hundred",
+   "inicio": 3.413,
+   "fim": 3.692
+  },
+  {
+   "texto": "and",
+   "inicio": 3.727,
+   "fim": 3.796
+  },
+  {
+   "texto": "twenty-eight",
+   "inicio": 3.843,
+   "fim": 4.412
+  },
+  {
+   "texto": "thousand",
+   "inicio": 4.435,
+   "fim": 4.853
+  },
+  {
+   "texto": "square",
+   "inicio": 4.911,
+   "fim": 5.259
+  },
+  {
+   "texto": "miles.",
+   "inicio": 5.317,
+   "fim": 6.014
+  },
+  {
+   "texto": "Roughly",
+   "inicio": 6.397,
+   "fim": 6.838
+  },
+  {
+   "texto": "three",
+   "inicio": 6.931,
+   "fim": 7.221
+  },
+  {
+   "texto": "cents",
+   "inicio": 7.291,
+   "fim": 7.651
+  },
+  {
+   "texto": "an",
+   "inicio": 7.709,
+   "fim": 7.79
+  },
+  {
+   "texto": "acre.",
+   "inicio": 7.848,
+   "fim": 8.371
+  },
+  {
+   "texto": "Overnight,",
+   "inicio": 8.754,
+   "fim": 9.497
+  },
+  {
+   "texto": "the",
+   "inicio": 9.671,
+   "fim": 9.764
+  },
+  {
+   "texto": "United",
+   "inicio": 9.845,
+   "fim": 10.228
+  },
+  {
+   "texto": "States",
+   "inicio": 10.275,
+   "fim": 10.623
+  },
+  {
+   "texto": "doubled",
+   "inicio": 10.774,
+   "fim": 11.192
+  },
+  {
+   "texto": "in",
+   "inicio": 11.238,
+   "fim": 11.32
+  },
+  {
+   "texto": "size.",
+   "inicio": 11.413,
+   "fim": 12.202
+  },
+  {
+   "texto": "Today,",
+   "inicio": 12.527,
+   "fim": 13.096
+  },
+  {
+   "texto": "that",
+   "inicio": 13.142,
+   "fim": 13.363
+  },
+  {
+   "texto": "land",
+   "inicio": 13.444,
+   "fim": 13.758
+  },
+  {
+   "texto": "is",
+   "inicio": 13.828,
+   "fim": 13.944
+  },
+  {
+   "texto": "all",
+   "inicio": 14.025,
+   "fim": 14.455
+  },
+  {
+   "texto": "or",
+   "inicio": 14.548,
+   "fim": 14.675
+  },
+  {
+   "texto": "part",
+   "inicio": 14.768,
+   "fim": 15.14
+  },
+  {
+   "texto": "of",
+   "inicio": 15.186,
+   "fim": 15.256
+  },
+  {
+   "texto": "fifteen",
+   "inicio": 15.337,
+   "fim": 15.848
+  },
+  {
+   "texto": "states.",
+   "inicio": 15.918,
+   "fim": 16.765
+  }
+ ]
+}

@@ -98,7 +98,7 @@ function main() {
   const sb = JSON.parse(readFileSync(join(pastaDisco, "storyboard.json"), "utf8")) as Storyboard;
 
   const estilo = sb.estilo ?? "documentario";
-  const tl: Timeline = { pasta, estilo, trilha: sb.trilha ?? (estilo === "mapa" ? "trilha-mapa" : "trilha-tensao"), fps: FPS, duracao: 0, largura: LARGURA, altura: ALTURA, beats: [], cenas: [], destaques: [], capitulos: [], sons: [] };
+  const tl: Timeline = { pasta, idioma: sb.idioma ?? "pt", estilo, trilha: sb.trilha ?? (estilo === "mapa" ? "trilha-mapa" : "trilha-tensao"), fps: FPS, duracao: 0, largura: LARGURA, altura: ALTURA, beats: [], cenas: [], destaques: [], capitulos: [], sons: [] };
   const aparicoes: { t: number; ator: Ator; som?: string }[] = []; // quando cada balão/retrato/ícone entra (ganha som)
   const avisos: string[] = [];
   let cursor = 0.4; // segundos
@@ -164,14 +164,22 @@ function main() {
         const ADIANTA = 6;
         // A bandeira de quem fala aparece um instante antes do balão dela.
         for (const a of cena.atores ?? []) if (a.tipo === "bandeira" && a.aos) a.aos = Math.max(0, a.aos - ADIANTA - 3);
-        for (const tipo of ["fala", "reacao"] as const) {
-          const lista = (cena.atores ?? []).filter((a) => a.tipo === tipo).sort((a, b) => (a.aos ?? 0) - (b.aos ?? 0));
-          lista.forEach((a, k) => {
-            a.aos = Math.max(0, (a.aos ?? 0) - ADIANTA);
-            if (a.ateAos !== undefined) return;
-            const prox = lista.slice(k + 1).find((b) => (b.aos ?? 0) - ADIANTA > (a.aos ?? 0) + 6);
-            a.ateAos = prox ? Math.max(0, (prox.aos ?? 0) - ADIANTA) : (a.aos ?? 0) + (tipo === "fala" ? 120 : 75);
-          });
+        // Um balão sai quando entra o próximo do mesmo tipo OU qualquer balão no mesmo ponto (fala e emoji
+        // do mesmo dono nunca ficam um em cima do outro).
+        const baloes = (cena.atores ?? []).filter((a) => a.tipo === "fala" || a.tipo === "reacao").sort((a, b) => (a.aos ?? 0) - (b.aos ?? 0));
+        for (const a of baloes) a.aos = Math.max(0, (a.aos ?? 0) - ADIANTA);
+        const ppgCena = (LARGURA / 360) * cena.para.zoom;
+        baloes.forEach((a, k) => {
+          if (a.ateAos !== undefined) return;
+          const prox = baloes.slice(k + 1).find((b) => (b.aos ?? 0) > (a.aos ?? 0) + 6 && (b.tipo === a.tipo || Math.hypot(b.lonlat[0] - a.lonlat[0], b.lonlat[1] - a.lonlat[1]) * ppgCena < 45));
+          a.ateAos = prox ? prox.aos ?? 0 : (a.aos ?? 0) + (a.tipo === "fala" ? 120 : 75);
+        });
+        // Todo balão/emoji precisa de um dono visível no mesmo ponto (retrato, ícone, bandeira, navio...).
+        const ppg = (LARGURA / 360) * cena.para.zoom;
+        for (const a of cena.atores ?? []) {
+          if (a.tipo !== "fala" && a.tipo !== "reacao") continue;
+          const dono = (cena.atores ?? []).some((o) => o.tipo !== "fala" && o.tipo !== "reacao" && Math.hypot(o.lonlat[0] - a.lonlat[0], o.lonlat[1] - a.lonlat[1]) * ppg < 45 && (o.aos ?? 0) <= (a.aos ?? 0) + 3 && (o.ateAos === undefined || o.ateAos > (a.aos ?? 0)));
+          if (!dono) avisos.push(`${id}: balão "${a.tipo === "fala" ? a.texto : a.emoji}" sem dono visível no mesmo ponto`);
         }
         cena.paises = cena.paises?.map((p) => ({ ...p, aos: quando(p.em, p.iso) }));
         cena.zonas = cena.zonas?.map((z) => ({ ...z, aos: quando(z.em, "zona") }));
@@ -283,8 +291,14 @@ function main() {
   let pops = 0;
   for (const { t, ator, som: forcado } of aparicoes) {
     if (tocados.some((x) => Math.abs(x.t - t) < 0.12)) continue;
+    if (ator.tipo === "preco") {
+      // Preço: contador rolando e a caixa registradora quando o número trava.
+      tl.sons.push({ inicio: Math.round(t * FPS), som: "contagem", volume: 0.35 }, { inicio: Math.round((t + 0.85) * FPS), som: "caixa", volume: 0.45 });
+      tocados.push({ t, som: "contagem" }, { t: t + 0.85, som: "caixa" });
+      continue;
+    }
     const som = forcado ??
-      (ator.tipo === "foto" ? "obturador" : ator.tipo === "lupa" ? "camera-zoom-2" : ator.tipo === "icone" && ator.icone === "explosao" ? "canhao" : ator.tipo === "rotulo" ? null : estilo === "mapa" ? (pops++ % 2 ? "balao-pop-2" : "balao-pop") : "pop");
+      (ator.tipo === "carimbo" ? "carimbo" : ator.tipo === "foto" ? "obturador" : ator.tipo === "lupa" ? "camera-zoom-2" : ator.tipo === "icone" && ator.icone === "explosao" ? "canhao" : ator.tipo === "rotulo" ? null : estilo === "mapa" ? (pops++ % 2 ? "balao-pop-2" : "balao-pop") : "pop");
     if (!som) continue;
     tl.sons.push({ inicio: Math.round(t * FPS), som, volume: som === "canhao" ? 0.45 : 0.32 });
     tocados.push({ t, som });

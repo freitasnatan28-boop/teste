@@ -1,6 +1,7 @@
 // Ícones e bandeiras desenhados em SVG (sem depender de emoji ou imagem externa).
 import React from "react";
 import { COR } from "./estilo";
+import type { Pais } from "./tipos";
 
 export const Lagosta: React.FC<{ tamanho?: number; cor?: string }> = ({ tamanho = 120, cor = "#e4572e" }) => (
   <svg width={tamanho} height={tamanho} viewBox="-50 -60 100 120">
@@ -53,7 +54,7 @@ export const Aviao: React.FC<{ tamanho?: number; cor?: string }> = ({ tamanho = 
 );
 
 // "esticar": preenche a caixa toda (usado para pintar o território do país com a bandeira).
-export const Bandeira: React.FC<{ pais: "BRA" | "FRA" | "USA"; largura?: number; altura?: number; esticar?: boolean; x?: number; y?: number }> = ({ pais, largura = 180, altura, esticar, x, y }) => {
+export const Bandeira: React.FC<{ pais: Pais; largura?: number; altura?: number; esticar?: boolean; x?: number; y?: number }> = ({ pais, largura = 180, altura, esticar, x, y }) => {
   const a = altura ?? largura * (2 / 3);
   const extra = { x, y, preserveAspectRatio: esticar ? "none" : undefined };
   if (pais === "FRA")
@@ -71,6 +72,67 @@ export const Bandeira: React.FC<{ pais: "BRA" | "FRA" | "USA"; largura?: number;
           <rect key={i} y={(i * 100) / 13} width={190} height={100 / 13} fill={i % 2 ? "#fff" : "#b22234"} />
         ))}
         <rect width={76} height={(7 * 100) / 13} fill="#3c3b6e" />
+      </svg>
+    );
+  if (pais === "ESP")
+    return (
+      <svg width={largura} height={a} viewBox="0 0 3 2" {...extra}>
+        <rect width={3} height={2} fill="#aa151b" />
+        <rect y={0.5} width={3} height={1} fill="#f1bf00" />
+      </svg>
+    );
+  if (pais === "MEX")
+    return (
+      <svg width={largura} height={a} viewBox="0 0 3 2" {...extra}>
+        <rect width={1} height={2} fill="#006847" />
+        <rect x={1} width={1} height={2} fill="#fff" />
+        <rect x={2} width={1} height={2} fill="#ce1126" />
+        <circle cx={1.5} cy={1} r={0.28} fill="#8c5a2b" />
+        <path d="M1.28 1.2 Q1.5 1.42 1.72 1.2" stroke="#006847" strokeWidth={0.07} fill="none" />
+      </svg>
+    );
+  if (pais === "RUS")
+    return (
+      <svg width={largura} height={a} viewBox="0 0 3 2" {...extra}>
+        <rect width={3} height={2} fill="#fff" />
+        <rect y={0.667} width={3} height={0.667} fill="#0039a6" />
+        <rect y={1.333} width={3} height={0.667} fill="#d52b1e" />
+      </svg>
+    );
+  if (pais === "DNK")
+    return (
+      <svg width={largura} height={a} viewBox="0 0 37 28" {...extra}>
+        <rect width={37} height={28} fill="#c8102e" />
+        <rect x={12} width={4} height={28} fill="#fff" />
+        <rect y={12} width={37} height={4} fill="#fff" />
+      </svg>
+    );
+  if (pais === "GRL")
+    return (
+      <svg width={largura} height={a} viewBox="0 0 18 12" {...extra}>
+        <rect width={18} height={6} fill="#fff" />
+        <rect y={6} width={18} height={6} fill="#c8102e" />
+        <path d="M3 6 A4 4 0 0 1 11 6 Z" fill="#c8102e" />
+        <path d="M3 6 A4 4 0 0 0 11 6 Z" fill="#fff" />
+      </svg>
+    );
+  if (pais === "GBR")
+    return (
+      <svg width={largura} height={a} viewBox="0 0 60 30" {...extra} preserveAspectRatio="none">
+        <rect width={60} height={30} fill="#012169" />
+        <path d="M0 0 L60 30 M60 0 L0 30" stroke="#fff" strokeWidth={6} />
+        <path d="M0 0 L60 30 M60 0 L0 30" stroke="#c8102e" strokeWidth={2} />
+        <path d="M30 0 V30 M0 15 H60" stroke="#fff" strokeWidth={10} />
+        <path d="M30 0 V30 M0 15 H60" stroke="#c8102e" strokeWidth={6} />
+      </svg>
+    );
+  if (pais === "CHN" || pais === "URS")
+    return (
+      <svg width={largura} height={a} viewBox="0 0 30 20" {...extra}>
+        <rect width={30} height={20} fill={pais === "CHN" ? "#ee1c25" : "#cc0000"} />
+        <polygon points="5,2 6.2,5.6 10,5.6 6.9,7.8 8.1,11.4 5,9.2 1.9,11.4 3.1,7.8 0,5.6 3.8,5.6" fill="#ffde00" transform={pais === "URS" ? "translate(1.5 0.5) scale(.45)" : undefined} />
+        {pais === "CHN" && [[10, 2], [12, 4], [12, 7], [10, 9]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={0.8} fill="#ffde00" />)}
+        {pais === "URS" && <path d="M3 9 Q6 11 8 7 M4 7 L7.5 10.5" stroke="#ffde00" strokeWidth={0.9} fill="none" />}
       </svg>
     );
   return (

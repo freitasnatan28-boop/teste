@@ -1,0 +1,78 @@
+{
+ "id": "b02",
+ "capitulo": "Not For Sale",
+ "visual": "\"2025\" on top. Greenland pulses.",
+ "texto": "Then, in 2025, he brought it up again. And this time, nobody was laughing.",
+ "palavras": [
+  {
+   "texto": "Then,",
+   "inicio": 0,
+   "fim": 0.58
+  },
+  {
+   "texto": "in",
+   "inicio": 0.697,
+   "fim": 0.836
+  },
+  {
+   "texto": "2025,",
+   "inicio": 0.906,
+   "fim": 2.067
+  },
+  {
+   "texto": "he",
+   "inicio": 2.392,
+   "fim": 2.461
+  },
+  {
+   "texto": "brought",
+   "inicio": 2.519,
+   "fim": 2.763
+  },
+  {
+   "texto": "it",
+   "inicio": 2.798,
+   "fim": 2.868
+  },
+  {
+   "texto": "up",
+   "inicio": 2.914,
+   "fim": 3.019
+  },
+  {
+   "texto": "again.",
+   "inicio": 3.077,
+   "fim": 3.611
+  },
+  {
+   "texto": "And",
+   "inicio": 3.936,
+   "fim": 4.098
+  },
+  {
+   "texto": "this",
+   "inicio": 4.168,
+   "fim": 4.342
+  },
+  {
+   "texto": "time,",
+   "inicio": 4.412,
+   "fim": 4.981
+  },
+  {
+   "texto": "nobody",
+   "inicio": 5.155,
+   "fim": 5.642
+  },
+  {
+   "texto": "was",
+   "inicio": 5.724,
+   "fim": 5.875
+  },
+  {
+   "texto": "laughing.",
+   "inicio": 5.956,
+   "fim": 6.827
+  }
+ ]
+}

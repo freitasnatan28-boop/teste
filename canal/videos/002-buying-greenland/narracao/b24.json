@@ -1,0 +1,88 @@
+{
+ "id": "b24",
+ "capitulo": "The Secret Offer",
+ "visual": "Denmark bubble \"NO\". \"SECRET\" stamp. \"1991\" declassified.",
+ "texto": "Denmark said no. And the offer stayed hidden for decades, until declassified documents surfaced in 1991.",
+ "palavras": [
+  {
+   "texto": "Denmark",
+   "inicio": 0,
+   "fim": 0.65
+  },
+  {
+   "texto": "said",
+   "inicio": 0.801,
+   "fim": 1.08
+  },
+  {
+   "texto": "no.",
+   "inicio": 1.149,
+   "fim": 1.73
+  },
+  {
+   "texto": "And",
+   "inicio": 2.113,
+   "fim": 2.276
+  },
+  {
+   "texto": "the",
+   "inicio": 2.334,
+   "fim": 2.415
+  },
+  {
+   "texto": "offer",
+   "inicio": 2.485,
+   "fim": 2.775
+  },
+  {
+   "texto": "stayed",
+   "inicio": 2.833,
+   "fim": 3.146
+  },
+  {
+   "texto": "hidden",
+   "inicio": 3.204,
+   "fim": 3.495
+  },
+  {
+   "texto": "for",
+   "inicio": 3.576,
+   "fim": 3.727
+  },
+  {
+   "texto": "decades,",
+   "inicio": 3.796,
+   "fim": 4.609
+  },
+  {
+   "texto": "until",
+   "inicio": 4.934,
+   "fim": 5.294
+  },
+  {
+   "texto": "declassified",
+   "inicio": 5.387,
+   "fim": 6.269
+  },
+  {
+   "texto": "documents",
+   "inicio": 6.316,
+   "fim": 6.873
+  },
+  {
+   "texto": "surfaced",
+   "inicio": 6.908,
+   "fim": 7.419
+  },
+  {
+   "texto": "in",
+   "inicio": 7.663,
+   "fim": 7.837
+  },
+  {
+   "texto": "1991.",
+   "inicio": 7.883,
+   "fim": 9.892
+  }
+ ]
+}

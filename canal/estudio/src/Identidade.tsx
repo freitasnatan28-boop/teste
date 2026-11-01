@@ -133,3 +133,28 @@ export const MarcaDaguaEN: React.FC = () => (
     <LogoCanal tamanho={150} />
   </AbsoluteFill>
 );
+
+// Thumbnail do vídeo 002 (EN): Groenlândia no satélite com etiqueta de preço gigante.
+export const ThumbGreenland: React.FC<{ pasta: string }> = ({ pasta }) => (
+  <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
+    <Img src={staticFile(`${pasta}/imagens/thumb-fundo.jpg`)} style={{ position: "absolute", width: 1280, height: 720, filter: "saturate(1.2) brightness(.9)" }} />
+    <AbsoluteFill style={{ background: "linear-gradient(90deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.2) 45%, rgba(0,0,0,0) 70%)" }} />
+    <div style={{ position: "absolute", left: 40, top: 40, display: "flex", alignItems: "center", gap: 16 }}>
+      <div style={{ border: "4px solid #fff", lineHeight: 0, boxShadow: "0 6px 16px rgba(0,0,0,.6)" }}><Bandeira pais="USA" largura={130} /></div>
+      <span style={{ fontFamily: FONTE_TITULO, fontSize: 64, color: COR.texto, textShadow: CONTORNO_PRETO }}>➜</span>
+      <div style={{ border: "4px solid #fff", lineHeight: 0, boxShadow: "0 6px 16px rgba(0,0,0,.6)" }}><Bandeira pais="GRL" largura={130} /></div>
+    </div>
+    <div style={{ position: "absolute", left: 40, bottom: 40, lineHeight: 0.9 }}>
+      <div style={{ fontFamily: FONTE_TITULO, fontSize: 170, color: COR.texto, WebkitTextStroke: "6px #000", textShadow: "0 10px 0 #000, 0 0 40px rgba(0,0,0,.8)" }}>FOR</div>
+      <div style={{ fontFamily: FONTE_TITULO, fontSize: 170, color: COR.amarelo, WebkitTextStroke: "6px #000", textShadow: "0 10px 0 #000, 0 0 40px rgba(0,0,0,.8)" }}>SALE?</div>
+    </div>
+    <div style={{ position: "absolute", right: 30, top: 300, transform: "rotate(-8deg)", display: "flex", alignItems: "center", background: COR.amarelo, color: "#000", padding: "14px 40px 14px 84px", clipPath: "polygon(52px 0, 100% 0, 100% 100%, 52px 100%, 0 50%)", boxShadow: "0 16px 40px rgba(0,0,0,.7)" }}>
+      <div style={{ position: "absolute", left: 40, top: "50%", width: 26, height: 26, borderRadius: 13, background: "#07111c", transform: "translateY(-50%)" }} />
+      <div style={{ fontFamily: FONTE_TITULO, fontSize: 104, lineHeight: 1 }}>$100,000,000</div>
+    </div>
+    <svg width={1280} height={720} style={{ position: "absolute" }}>
+      <path d="M760 330 Q 700 250 640 200" stroke="#000" strokeWidth={22} fill="none" strokeLinecap="round" />
+      <path d="M760 330 Q 700 250 640 200" stroke="#fff" strokeWidth={10} fill="none" strokeLinecap="round" />
+    </svg>
+  </AbsoluteFill>
+);

@@ -6,6 +6,7 @@ import { CONTORNO_PRETO, COR, FONTE_TEXTO, FONTE_TITULO } from "../estilo";
 import { Bandeira, Lagosta } from "../icones";
 import type { Cena } from "../tipos";
 import type { PropsCena } from "./tipos-cena";
+import { useTextos } from "../idioma";
 
 type P<T extends Cena["tipo"]> = PropsCena<Extract<Cena, { tipo: T }>>;
 
@@ -103,8 +104,8 @@ export const Citacao: React.FC<P<"citacao">> = ({ cena, offset, duracaoCena, pas
   );
 };
 
-const NOME: Record<string, string> = { BRA: "BRASIL", FRA: "FRANÇA", USA: "EUA" };
-const CORPAIS: Record<string, string> = { BRA: COR.brasil, FRA: COR.franca, USA: "#b22234" };
+const NOME: Record<string, string> = { BRA: "BRASIL", FRA: "FRANÇA", USA: "EUA", ESP: "SPAIN", MEX: "MEXICO", RUS: "RUSSIA", DNK: "DENMARK", GRL: "GREENLAND", GBR: "BRITAIN", CHN: "CHINA", URS: "USSR" };
+const CORPAIS: Record<string, string> = { BRA: COR.brasil, FRA: COR.franca, USA: "#b22234", ESP: "#aa151b", MEX: "#006847", RUS: "#0039a6", DNK: "#c8102e", GRL: "#c8102e", GBR: "#012169", CHN: "#ee1c25", URS: "#cc0000" };
 
 export const Versus: React.FC<P<"versus">> = ({ cena, offset }) => {
   const f = useCurrentFrame() + offset;
@@ -130,6 +131,7 @@ export const Versus: React.FC<P<"versus">> = ({ cena, offset }) => {
 };
 
 export const Radar: React.FC<P<"radar">> = ({ cena, offset, duracaoCena }) => {
+  const textos = useTextos();
   const f = useCurrentFrame() + offset;
   const ang = (f * 6) % 360;
   const blip = interpolate(f, [duracaoCena * 0.35, duracaoCena * 0.4], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
@@ -161,7 +163,7 @@ export const Radar: React.FC<P<"radar">> = ({ cena, offset, duracaoCena }) => {
       </svg>
       {blip > 0 && (
         <div style={{ position: "absolute", top: 120, right: 200, fontFamily: FONTE_TEXTO, fontWeight: 700, fontSize: 60, color: verde, letterSpacing: 4, opacity: f % 20 < 14 ? 1 : 0.3 }}>
-          {cena.rotulo ?? "CONTATO"}
+          {cena.rotulo ?? textos.contato}
         </div>
       )}
     </AbsoluteFill>
@@ -242,6 +244,7 @@ export const LinhaTempo: React.FC<P<"linhaTempo">> = ({ cena, offset, duracaoCen
 };
 
 export const Final: React.FC<P<"final">> = ({ offset }) => {
+  const textos = useTextos();
   const f = useCurrentFrame() + offset;
   const { fps } = useVideoConfig();
   const s = spring({ frame: f, fps, config: { damping: 12 } });
@@ -252,8 +255,8 @@ export const Final: React.FC<P<"final">> = ({ offset }) => {
         <div style={{ transform: `scale(${s})` }}>
           <LogoCanal tamanho={300} />
         </div>
-        <div style={{ fontFamily: FONTE_TITULO, fontSize: 140, color: COR.texto, textShadow: CONTORNO_PRETO, opacity: s }}>POR TRÁS DO MAPA</div>
-        <div style={{ fontFamily: FONTE_TEXTO, fontWeight: 700, fontSize: 60, color: "#fff", background: COR.vermelho, padding: "12px 48px", borderRadius: 12, transform: `scale(${botao})` }}>INSCREVA-SE</div>
+        <div style={{ fontFamily: FONTE_TITULO, fontSize: 140, color: COR.texto, textShadow: CONTORNO_PRETO, opacity: s }}>{textos.marca}</div>
+        <div style={{ fontFamily: FONTE_TEXTO, fontWeight: 700, fontSize: 60, color: "#fff", background: COR.vermelho, padding: "12px 48px", borderRadius: 12, transform: `scale(${botao})` }}>{textos.inscreva}</div>
       </AbsoluteFill>
     </Fundo>
   );

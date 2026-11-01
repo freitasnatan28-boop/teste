@@ -1,10 +1,11 @@
 // Setor de Narração: gera um MP3 por beat com a ElevenLabs, mais o tempo de cada palavra.
 // Uso: npm run narrar -- ../roteiros/001-guerra-da-lagosta.md ../videos/001-guerra-da-lagosta
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { lerRoteiro, paraFala } from "./roteiro";
 
-const VOZ = process.env.ELEVENLABS_VOZ ?? "acdKA5HckGxoxxvy40dA"; // Nassif - Documentary, History & Thriller
+// Voz padrão: Nassif (PT-BR). O roteiro pode trocar com uma linha "- voz: <id>" (ex.: canal em inglês).
+const VOZ_PADRAO = process.env.ELEVENLABS_VOZ ?? "acdKA5HckGxoxxvy40dA"; // Nassif - Documentary, History & Thriller
 const MODELO = "eleven_multilingual_v2";
 const CHAVE = process.env.ELEVENLABS_API_KEY ?? "";
 
@@ -39,6 +40,11 @@ async function main() {
   if (!roteiro || !pasta) throw new Error("Uso: npm run narrar -- <roteiro.md> <pasta-do-video>");
 
   const beats = lerRoteiro(roteiro);
+  const md = readFileSync(roteiro, "utf8");
+  const VOZ = md.match(/^- voz:\s*(\w+)/m)?.[1] ?? VOZ_PADRAO;
+  // A grafia "fonética" é só para a voz em português.
+  const ingles = /^- idioma:\s*en/m.test(md);
+  const fala = (t: string) => (ingles ? t : paraFala(t));
   const dir = join(pasta, "narracao");
   mkdirSync(dir, { recursive: true });
 
@@ -50,11 +56,11 @@ async function main() {
       method: "POST",
       headers: { "xi-api-key": CHAVE, "Content-Type": "application/json" },
       body: JSON.stringify({
-        text: paraFala(beat.texto),
+        text: fala(beat.texto),
         model_id: MODELO,
         seed: 1963,
-        previous_text: beats[i - 1] ? paraFala(beats[i - 1].texto) : undefined,
-        next_text: beats[i + 1] ? paraFala(beats[i + 1].texto) : undefined,
+        previous_text: beats[i - 1] ? fala(beats[i - 1].texto) : undefined,
+        next_text: beats[i + 1] ? fala(beats[i + 1].texto) : undefined,
         voice_settings: { stability: 0.45, similarity_boost: 0.8, style: 0.2 },
       }),
     });
