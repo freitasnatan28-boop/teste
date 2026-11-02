@@ -1,0 +1,243 @@
+{
+ "id": "b06",
+ "capitulo": "The Shortcut",
+ "visual": "Zoom to the isthmus. Route through Panama. 5,000 MILES.",
+ "texto": "But in one place, the two oceans almost touch. A thin strip of jungle in Panama, about fifty miles wide. Cut through it, and the same trip drops to around five thousand miles. Whoever controlled that strip would control one of the most important shortcuts on Earth.",
+ "palavras": [
+  {
+   "texto": "But",
+   "inicio": 0,
+   "fim": 0.232
+  },
+  {
+   "texto": "in",
+   "inicio": 0.279,
+   "fim": 0.348
+  },
+  {
+   "texto": "one",
+   "inicio": 0.43,
+   "fim": 0.604
+  },
+  {
+   "texto": "place,",
+   "inicio": 0.65,
+   "fim": 1.045
+  },
+  {
+   "texto": "the",
+   "inicio": 1.08,
+   "fim": 1.173
+  },
+  {
+   "texto": "two",
+   "inicio": 1.219,
+   "fim": 1.37
+  },
+  {
+   "texto": "oceans",
+   "inicio": 1.463,
+   "fim": 1.858
+  },
+  {
+   "texto": "almost",
+   "inicio": 1.904,
+   "fim": 2.276
+  },
+  {
+   "texto": "touch.",
+   "inicio": 2.322,
+   "fim": 2.833
+  },
+  {
+   "texto": "A",
+   "inicio": 3.274,
+   "fim": 3.367
+  },
+  {
+   "texto": "thin",
+   "inicio": 3.448,
+   "fim": 3.669
+  },
+  {
+   "texto": "strip",
+   "inicio": 3.762,
+   "fim": 4.075
+  },
+  {
+   "texto": "of",
+   "inicio": 4.133,
+   "fim": 4.203
+  },
+  {
+   "texto": "jungle",
+   "inicio": 4.272,
+   "fim": 4.644
+  },
+  {
+   "texto": "in",
+   "inicio": 4.69,
+   "fim": 4.772
+  },
+  {
+   "texto": "Panama,",
+   "inicio": 4.841,
+   "fim": 5.619
+  },
+  {
+   "texto": "about",
+   "inicio": 5.828,
+   "fim": 6.118
+  },
+  {
+   "texto": "fifty",
+   "inicio": 6.165,
+   "fim": 6.467
+  },
+  {
+   "texto": "miles",
+   "inicio": 6.525,
+   "fim": 6.85
+  },
+  {
+   "texto": "wide.",
+   "inicio": 6.92,
+   "fim": 7.5
+  },
+  {
+   "texto": "Cut",
+   "inicio": 7.941,
+   "fim": 8.162
+  },
+  {
+   "texto": "through",
+   "inicio": 8.208,
+   "fim": 8.475
+  },
+  {
+   "texto": "it,",
+   "inicio": 8.522,
+   "fim": 8.858
+  },
+  {
+   "texto": "and",
+   "inicio": 8.975,
+   "fim": 9.137
+  },
+  {
+   "texto": "the",
+   "inicio": 9.183,
+   "fim": 9.253
+  },
+  {
+   "texto": "same",
+   "inicio": 9.311,
+   "fim": 9.578
+  },
+  {
+   "texto": "trip",
+   "inicio": 9.613,
+   "fim": 9.892
+  },
+  {
+   "texto": "drops",
+   "inicio": 9.961,
+   "fim": 10.344
+  },
+  {
+   "texto": "to",
+   "inicio": 10.403,
+   "fim": 10.507
+  },
+  {
+   "texto": "around",
+   "inicio": 10.6,
+   "fim": 10.913
+  },
+  {
+   "texto": "five",
+   "inicio": 10.995,
+   "fim": 11.296
+  },
+  {
+   "texto": "thousand",
+   "inicio": 11.343,
+   "fim": 11.784
+  },
+  {
+   "texto": "miles.",
+   "inicio": 11.854,
+   "fim": 12.539
+  },
+  {
+   "texto": "Whoever",
+   "inicio": 12.98,
+   "fim": 13.398
+  },
+  {
+   "texto": "controlled",
+   "inicio": 13.468,
+   "fim": 13.955
+  },
+  {
+   "texto": "that",
+   "inicio": 13.99,
+   "fim": 14.141
+  },
+  {
+   "texto": "strip",
+   "inicio": 14.211,
+   "fim": 14.548
+  },
+  {
+   "texto": "would",
+   "inicio": 14.931,
+   "fim": 15.163
+  },
+  {
+   "texto": "control",
+   "inicio": 15.198,
+   "fim": 15.639
+  },
+  {
+   "texto": "one",
+   "inicio": 15.72,
+   "fim": 15.86
+  },
+  {
+   "texto": "of",
+   "inicio": 15.894,
+   "fim": 15.952
+  },
+  {
+   "texto": "the",
+   "inicio": 15.999,
+   "fim": 16.069
+  },
+  {
+   "texto": "most",
+   "inicio": 16.127,
+   "fim": 16.37
+  },
+  {
+   "texto": "important",
+   "inicio": 16.417,
+   "fim": 17.044
+  },
+  {
+   "texto": "shortcuts",
+   "inicio": 17.102,
+   "fim": 17.694
+  },
+  {
+   "texto": "on",
+   "inicio": 17.752,
+   "fim": 17.868
+  },
+  {
+   "texto": "Earth.",
+   "inicio": 17.938,
+   "fim": 18.762
+  }
+ ]
+}

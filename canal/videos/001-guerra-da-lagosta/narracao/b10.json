@@ -1,0 +1,158 @@
+{
+ "id": "b10",
+ "capitulo": "A lagosta anda ou nada?",
+ "visual": "Animação de uma lagosta dando um \"pulo\" na água. Bandeira da França ao lado.",
+ "texto": "Já a França dizia outra coisa: a lagosta se desloca dando saltos na água. Então ela seria como um peixe, um animal do mar aberto, e qualquer um poderia pescar.",
+ "palavras": [
+  {
+   "texto": "Já",
+   "inicio": 0,
+   "fim": 0.279
+  },
+  {
+   "texto": "a",
+   "inicio": 0.302,
+   "fim": 0.325
+  },
+  {
+   "texto": "França",
+   "inicio": 0.441,
+   "fim": 0.871
+  },
+  {
+   "texto": "dizia",
+   "inicio": 0.929,
+   "fim": 1.312
+  },
+  {
+   "texto": "outra",
+   "inicio": 1.358,
+   "fim": 1.66
+  },
+  {
+   "texto": "coisa:",
+   "inicio": 1.718,
+   "fim": 2.276
+  },
+  {
+   "texto": "a",
+   "inicio": 2.601,
+   "fim": 2.659
+  },
+  {
+   "texto": "lagosta",
+   "inicio": 2.74,
+   "fim": 3.32
+  },
+  {
+   "texto": "se",
+   "inicio": 3.437,
+   "fim": 3.611
+  },
+  {
+   "texto": "desloca",
+   "inicio": 3.669,
+   "fim": 4.203
+  },
+  {
+   "texto": "dando",
+   "inicio": 4.249,
+   "fim": 4.47
+  },
+  {
+   "texto": "saltos",
+   "inicio": 4.54,
+   "fim": 4.981
+  },
+  {
+   "texto": "na",
+   "inicio": 5.027,
+   "fim": 5.097
+  },
+  {
+   "texto": "água.",
+   "inicio": 5.166,
+   "fim": 5.631
+  },
+  {
+   "texto": "Então",
+   "inicio": 6.072,
+   "fim": 6.594
+  },
+  {
+   "texto": "ela",
+   "inicio": 6.745,
+   "fim": 6.989
+  },
+  {
+   "texto": "seria",
+   "inicio": 7.047,
+   "fim": 7.361
+  },
+  {
+   "texto": "como",
+   "inicio": 7.407,
+   "fim": 7.593
+  },
+  {
+   "texto": "um",
+   "inicio": 7.616,
+   "fim": 7.663
+  },
+  {
+   "texto": "peixe,",
+   "inicio": 7.744,
+   "fim": 8.266
+  },
+  {
+   "texto": "um",
+   "inicio": 8.394,
+   "fim": 8.464
+  },
+  {
+   "texto": "animal",
+   "inicio": 8.51,
+   "fim": 8.975
+  },
+  {
+   "texto": "do",
+   "inicio": 9.218,
+   "fim": 9.334
+  },
+  {
+   "texto": "mar",
+   "inicio": 9.404,
+   "fim": 9.555
+  },
+  {
+   "texto": "aberto,",
+   "inicio": 9.601,
+   "fim": 10.228
+  },
+  {
+   "texto": "e",
+   "inicio": 10.553,
+   "fim": 10.67
+  },
+  {
+   "texto": "qualquer",
+   "inicio": 10.739,
+   "fim": 11.18
+  },
+  {
+   "texto": "um",
+   "inicio": 11.25,
+   "fim": 11.378
+  },
+  {
+   "texto": "poderia",
+   "inicio": 11.703,
+   "fim": 12.156
+  },
+  {
+   "texto": "pescar.",
+   "inicio": 12.202,
+   "fim": 13.375
+  }
+ ]
+}

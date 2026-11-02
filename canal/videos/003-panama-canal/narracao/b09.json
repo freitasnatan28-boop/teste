@@ -1,0 +1,173 @@
+{
+ "id": "b09",
+ "capitulo": "The French Disaster",
+ "visual": "Jungle. Mosquito icons everywhere. Skull counter 22,000.",
+ "texto": "The jungle had other plans. Mudslides buried the work again and again. And then came the mosquitoes. Yellow fever and malaria tore through the camps. By most estimates, around twenty-two thousand workers died.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0,
+   "fim": 0.174
+  },
+  {
+   "texto": "jungle",
+   "inicio": 0.255,
+   "fim": 0.65
+  },
+  {
+   "texto": "had",
+   "inicio": 0.708,
+   "fim": 0.871
+  },
+  {
+   "texto": "other",
+   "inicio": 0.929,
+   "fim": 1.138
+  },
+  {
+   "texto": "plans.",
+   "inicio": 1.207,
+   "fim": 2.078
+  },
+  {
+   "texto": "Mudslides",
+   "inicio": 2.322,
+   "fim": 3.123
+  },
+  {
+   "texto": "buried",
+   "inicio": 3.204,
+   "fim": 3.587
+  },
+  {
+   "texto": "the",
+   "inicio": 3.622,
+   "fim": 3.692
+  },
+  {
+   "texto": "work",
+   "inicio": 3.75,
+   "fim": 3.982
+  },
+  {
+   "texto": "again",
+   "inicio": 4.04,
+   "fim": 4.389
+  },
+  {
+   "texto": "and",
+   "inicio": 4.47,
+   "fim": 4.586
+  },
+  {
+   "texto": "again.",
+   "inicio": 4.656,
+   "fim": 5.433
+  },
+  {
+   "texto": "And",
+   "inicio": 5.584,
+   "fim": 5.759
+  },
+  {
+   "texto": "then",
+   "inicio": 5.828,
+   "fim": 6.142
+  },
+  {
+   "texto": "came",
+   "inicio": 6.42,
+   "fim": 6.711
+  },
+  {
+   "texto": "the",
+   "inicio": 6.757,
+   "fim": 6.827
+  },
+  {
+   "texto": "mosquitoes.",
+   "inicio": 6.873,
+   "fim": 7.802
+  },
+  {
+   "texto": "Yellow",
+   "inicio": 8.185,
+   "fim": 8.533
+  },
+  {
+   "texto": "fever",
+   "inicio": 8.615,
+   "fim": 8.998
+  },
+  {
+   "texto": "and",
+   "inicio": 9.067,
+   "fim": 9.183
+  },
+  {
+   "texto": "malaria",
+   "inicio": 9.253,
+   "fim": 9.915
+  },
+  {
+   "texto": "tore",
+   "inicio": 9.996,
+   "fim": 10.379
+  },
+  {
+   "texto": "through",
+   "inicio": 10.437,
+   "fim": 10.681
+  },
+  {
+   "texto": "the",
+   "inicio": 10.716,
+   "fim": 10.786
+  },
+  {
+   "texto": "camps.",
+   "inicio": 10.844,
+   "fim": 11.598
+  },
+  {
+   "texto": "By",
+   "inicio": 12.04,
+   "fim": 12.202
+  },
+  {
+   "texto": "most",
+   "inicio": 12.272,
+   "fim": 12.55
+  },
+  {
+   "texto": "estimates,",
+   "inicio": 12.62,
+   "fim": 13.398
+  },
+  {
+   "texto": "around",
+   "inicio": 13.502,
+   "fim": 13.839
+  },
+  {
+   "texto": "twenty-two",
+   "inicio": 13.886,
+   "fim": 14.454
+  },
+  {
+   "texto": "thousand",
+   "inicio": 14.536,
+   "fim": 15
+  },
+  {
+   "texto": "workers",
+   "inicio": 15.081,
+   "fim": 15.546
+  },
+  {
+   "texto": "died.",
+   "inicio": 15.615,
+   "fim": 16.811
+  }
+ ]
+}

@@ -1,0 +1,233 @@
+{
+ "id": "b20",
+ "capitulo": "Seward's Icebox",
+ "visual": "Gold rush photo. Oil icon at Prudhoe Bay. Bering Strait, Soviet flag a few miles away.",
+ "texto": "Then came gold. Then, in 1968, oil at Prudhoe Bay, the largest oil field ever found in North America. And during the Cold War, Alaska became America's front line, just a few miles from Soviet territory across the Bering Strait. Nobody calls it folly anymore.",
+ "palavras": [
+  {
+   "texto": "Then",
+   "inicio": 0,
+   "fim": 0.267
+  },
+  {
+   "texto": "came",
+   "inicio": 0.337,
+   "fim": 0.592
+  },
+  {
+   "texto": "gold.",
+   "inicio": 0.639,
+   "fim": 1.219
+  },
+  {
+   "texto": "Then,",
+   "inicio": 1.695,
+   "fim": 2.09
+  },
+  {
+   "texto": "in",
+   "inicio": 2.159,
+   "fim": 2.31
+  },
+  {
+   "texto": "1968,",
+   "inicio": 2.368,
+   "fim": 3.634
+  },
+  {
+   "texto": "oil",
+   "inicio": 3.831,
+   "fim": 4.145
+  },
+  {
+   "texto": "at",
+   "inicio": 4.226,
+   "fim": 4.296
+  },
+  {
+   "texto": "Prudhoe",
+   "inicio": 4.342,
+   "fim": 4.702
+  },
+  {
+   "texto": "Bay,",
+   "inicio": 4.737,
+   "fim": 5.271
+  },
+  {
+   "texto": "the",
+   "inicio": 5.433,
+   "fim": 5.526
+  },
+  {
+   "texto": "largest",
+   "inicio": 5.573,
+   "fim": 5.956
+  },
+  {
+   "texto": "oil",
+   "inicio": 6.014,
+   "fim": 6.2
+  },
+  {
+   "texto": "field",
+   "inicio": 6.269,
+   "fim": 6.536
+  },
+  {
+   "texto": "ever",
+   "inicio": 6.606,
+   "fim": 6.757
+  },
+  {
+   "texto": "found",
+   "inicio": 6.815,
+   "fim": 7.117
+  },
+  {
+   "texto": "in",
+   "inicio": 7.187,
+   "fim": 7.245
+  },
+  {
+   "texto": "North",
+   "inicio": 7.326,
+   "fim": 7.546
+  },
+  {
+   "texto": "America.",
+   "inicio": 7.593,
+   "fim": 8.266
+  },
+  {
+   "texto": "And",
+   "inicio": 8.742,
+   "fim": 8.893
+  },
+  {
+   "texto": "during",
+   "inicio": 8.951,
+   "fim": 9.218
+  },
+  {
+   "texto": "the",
+   "inicio": 9.265,
+   "fim": 9.334
+  },
+  {
+   "texto": "Cold",
+   "inicio": 9.392,
+   "fim": 9.683
+  },
+  {
+   "texto": "War,",
+   "inicio": 9.741,
+   "fim": 10.31
+  },
+  {
+   "texto": "Alaska",
+   "inicio": 10.472,
+   "fim": 11.018
+  },
+  {
+   "texto": "became",
+   "inicio": 11.076,
+   "fim": 11.447
+  },
+  {
+   "texto": "America's",
+   "inicio": 11.494,
+   "fim": 12.005
+  },
+  {
+   "texto": "front",
+   "inicio": 12.063,
+   "fim": 12.318
+  },
+  {
+   "texto": "line,",
+   "inicio": 12.399,
+   "fim": 13.003
+  },
+  {
+   "texto": "just",
+   "inicio": 13.224,
+   "fim": 13.456
+  },
+  {
+   "texto": "a",
+   "inicio": 13.502,
+   "fim": 13.526
+  },
+  {
+   "texto": "few",
+   "inicio": 13.584,
+   "fim": 13.758
+  },
+  {
+   "texto": "miles",
+   "inicio": 13.804,
+   "fim": 14.141
+  },
+  {
+   "texto": "from",
+   "inicio": 14.211,
+   "fim": 14.362
+  },
+  {
+   "texto": "Soviet",
+   "inicio": 14.455,
+   "fim": 14.861
+  },
+  {
+   "texto": "territory",
+   "inicio": 14.907,
+   "fim": 15.558
+  },
+  {
+   "texto": "across",
+   "inicio": 15.825,
+   "fim": 16.266
+  },
+  {
+   "texto": "the",
+   "inicio": 16.312,
+   "fim": 16.382
+  },
+  {
+   "texto": "Bering",
+   "inicio": 16.428,
+   "fim": 16.742
+  },
+  {
+   "texto": "Strait.",
+   "inicio": 16.812,
+   "fim": 17.299
+  },
+  {
+   "texto": "Nobody",
+   "inicio": 17.81,
+   "fim": 18.147
+  },
+  {
+   "texto": "calls",
+   "inicio": 18.205,
+   "fim": 18.472
+  },
+  {
+   "texto": "it",
+   "inicio": 18.518,
+   "fim": 18.599
+  },
+  {
+   "texto": "folly",
+   "inicio": 18.646,
+   "fim": 18.971
+  },
+  {
+   "texto": "anymore.",
+   "inicio": 19.041,
+   "fim": 20.155
+  }
+ ]
+}

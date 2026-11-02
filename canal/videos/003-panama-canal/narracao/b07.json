@@ -1,0 +1,168 @@
+{
+ "id": "b07",
+ "capitulo": "The Shortcut",
+ "visual": "\"1534\". Spain flag over the isthmus. Question mark icon.",
+ "texto": "The idea was not new. In 1534, the King of Spain ordered a survey to see if the isthmus could be cut. For almost four hundred years, nobody managed to do it.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0,
+   "fim": 0.174
+  },
+  {
+   "texto": "idea",
+   "inicio": 0.255,
+   "fim": 0.685
+  },
+  {
+   "texto": "was",
+   "inicio": 0.755,
+   "fim": 0.906
+  },
+  {
+   "texto": "not",
+   "inicio": 0.987,
+   "fim": 1.184
+  },
+  {
+   "texto": "new.",
+   "inicio": 1.254,
+   "fim": 1.8
+  },
+  {
+   "texto": "In",
+   "inicio": 2.241,
+   "fim": 2.392
+  },
+  {
+   "texto": "1534,",
+   "inicio": 2.461,
+   "fim": 3.913
+  },
+  {
+   "texto": "the",
+   "inicio": 4.087,
+   "fim": 4.18
+  },
+  {
+   "texto": "King",
+   "inicio": 4.238,
+   "fim": 4.412
+  },
+  {
+   "texto": "of",
+   "inicio": 4.458,
+   "fim": 4.516
+  },
+  {
+   "texto": "Spain",
+   "inicio": 4.574,
+   "fim": 4.981
+  },
+  {
+   "texto": "ordered",
+   "inicio": 5.097,
+   "fim": 5.468
+  },
+  {
+   "texto": "a",
+   "inicio": 5.503,
+   "fim": 5.538
+  },
+  {
+   "texto": "survey",
+   "inicio": 5.596,
+   "fim": 6.13
+  },
+  {
+   "texto": "to",
+   "inicio": 6.455,
+   "fim": 6.571
+  },
+  {
+   "texto": "see",
+   "inicio": 6.664,
+   "fim": 6.873
+  },
+  {
+   "texto": "if",
+   "inicio": 6.92,
+   "fim": 7.001
+  },
+  {
+   "texto": "the",
+   "inicio": 7.059,
+   "fim": 7.129
+  },
+  {
+   "texto": "isthmus",
+   "inicio": 7.221,
+   "fim": 7.628
+  },
+  {
+   "texto": "could",
+   "inicio": 7.674,
+   "fim": 7.848
+  },
+  {
+   "texto": "be",
+   "inicio": 7.883,
+   "fim": 7.964
+  },
+  {
+   "texto": "cut.",
+   "inicio": 8.011,
+   "fim": 8.522
+  },
+  {
+   "texto": "For",
+   "inicio": 8.905,
+   "fim": 9.091
+  },
+  {
+   "texto": "almost",
+   "inicio": 9.16,
+   "fim": 9.543
+  },
+  {
+   "texto": "four",
+   "inicio": 9.636,
+   "fim": 9.985
+  },
+  {
+   "texto": "hundred",
+   "inicio": 10.077,
+   "fim": 10.507
+  },
+  {
+   "texto": "years,",
+   "inicio": 10.588,
+   "fim": 11.355
+  },
+  {
+   "texto": "nobody",
+   "inicio": 11.633,
+   "fim": 12.144
+  },
+  {
+   "texto": "managed",
+   "inicio": 12.237,
+   "fim": 12.666
+  },
+  {
+   "texto": "to",
+   "inicio": 12.701,
+   "fim": 12.771
+  },
+  {
+   "texto": "do",
+   "inicio": 12.829,
+   "fim": 12.957
+  },
+  {
+   "texto": "it.",
+   "inicio": 13.038,
+   "fim": 13.886
+  }
+ ]
+}

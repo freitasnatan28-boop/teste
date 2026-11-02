@@ -1,0 +1,378 @@
+{
+ "id": "b28",
+ "capitulo": "Why Greenland, Why Now",
+ "visual": "Rare earths icon in southern Greenland. China flag, \"90%\".",
+ "texto": "Under that ground are some of the largest deposits of rare earth elements in the world. The metals inside your phone, your electric car, and a fighter jet. Right now, China processes around ninety percent of them. Greenland could be one way to break that grip. And America is not the only one looking. In 2018, a Chinese state-owned company bid to build airports in Greenland. Denmark stepped in and paid for them itself.",
+ "palavras": [
+  {
+   "texto": "Under",
+   "inicio": 0,
+   "fim": 0.337
+  },
+  {
+   "texto": "that",
+   "inicio": 0.395,
+   "fim": 0.58
+  },
+  {
+   "texto": "ground",
+   "inicio": 0.65,
+   "fim": 1.149
+  },
+  {
+   "texto": "are",
+   "inicio": 1.474,
+   "fim": 1.765
+  },
+  {
+   "texto": "some",
+   "inicio": 1.8,
+   "fim": 1.997
+  },
+  {
+   "texto": "of",
+   "inicio": 2.043,
+   "fim": 2.113
+  },
+  {
+   "texto": "the",
+   "inicio": 2.171,
+   "fim": 2.241
+  },
+  {
+   "texto": "largest",
+   "inicio": 2.334,
+   "fim": 2.891
+  },
+  {
+   "texto": "deposits",
+   "inicio": 2.961,
+   "fim": 3.611
+  },
+  {
+   "texto": "of",
+   "inicio": 3.657,
+   "fim": 3.727
+  },
+  {
+   "texto": "rare",
+   "inicio": 3.843,
+   "fim": 4.145
+  },
+  {
+   "texto": "earth",
+   "inicio": 4.191,
+   "fim": 4.4
+  },
+  {
+   "texto": "elements",
+   "inicio": 4.458,
+   "fim": 4.888
+  },
+  {
+   "texto": "in",
+   "inicio": 4.946,
+   "fim": 5.027
+  },
+  {
+   "texto": "the",
+   "inicio": 5.085,
+   "fim": 5.155
+  },
+  {
+   "texto": "world.",
+   "inicio": 5.213,
+   "fim": 5.875
+  },
+  {
+   "texto": "The",
+   "inicio": 6.316,
+   "fim": 6.432
+  },
+  {
+   "texto": "metals",
+   "inicio": 6.502,
+   "fim": 6.943
+  },
+  {
+   "texto": "inside",
+   "inicio": 7.059,
+   "fim": 7.57
+  },
+  {
+   "texto": "your",
+   "inicio": 7.605,
+   "fim": 7.755
+  },
+  {
+   "texto": "phone,",
+   "inicio": 7.825,
+   "fim": 8.557
+  },
+  {
+   "texto": "your",
+   "inicio": 8.766,
+   "fim": 8.928
+  },
+  {
+   "texto": "electric",
+   "inicio": 8.986,
+   "fim": 9.451
+  },
+  {
+   "texto": "car,",
+   "inicio": 9.509,
+   "fim": 10.159
+  },
+  {
+   "texto": "and",
+   "inicio": 10.31,
+   "fim": 10.635
+  },
+  {
+   "texto": "a",
+   "inicio": 10.728,
+   "fim": 10.797
+  },
+  {
+   "texto": "fighter",
+   "inicio": 10.89,
+   "fim": 11.25
+  },
+  {
+   "texto": "jet.",
+   "inicio": 11.32,
+   "fim": 11.796
+  },
+  {
+   "texto": "Right",
+   "inicio": 12.307,
+   "fim": 12.562
+  },
+  {
+   "texto": "now,",
+   "inicio": 12.632,
+   "fim": 13.212
+  },
+  {
+   "texto": "China",
+   "inicio": 13.421,
+   "fim": 13.862
+  },
+  {
+   "texto": "processes",
+   "inicio": 13.932,
+   "fim": 14.675
+  },
+  {
+   "texto": "around",
+   "inicio": 14.756,
+   "fim": 15.093
+  },
+  {
+   "texto": "ninety",
+   "inicio": 15.209,
+   "fim": 15.662
+  },
+  {
+   "texto": "percent",
+   "inicio": 15.743,
+   "fim": 16.173
+  },
+  {
+   "texto": "of",
+   "inicio": 16.231,
+   "fim": 16.3
+  },
+  {
+   "texto": "them.",
+   "inicio": 16.358,
+   "fim": 16.73
+  },
+  {
+   "texto": "Greenland",
+   "inicio": 17.241,
+   "fim": 17.879
+  },
+  {
+   "texto": "could",
+   "inicio": 17.961,
+   "fim": 18.146
+  },
+  {
+   "texto": "be",
+   "inicio": 18.193,
+   "fim": 18.344
+  },
+  {
+   "texto": "one",
+   "inicio": 18.425,
+   "fim": 18.738
+  },
+  {
+   "texto": "way",
+   "inicio": 18.797,
+   "fim": 19.017
+  },
+  {
+   "texto": "to",
+   "inicio": 19.087,
+   "fim": 19.18
+  },
+  {
+   "texto": "break",
+   "inicio": 19.261,
+   "fim": 19.551
+  },
+  {
+   "texto": "that",
+   "inicio": 19.609,
+   "fim": 19.795
+  },
+  {
+   "texto": "grip.",
+   "inicio": 19.865,
+   "fim": 20.341
+  },
+  {
+   "texto": "And",
+   "inicio": 20.724,
+   "fim": 20.933
+  },
+  {
+   "texto": "America",
+   "inicio": 21.002,
+   "fim": 21.525
+  },
+  {
+   "texto": "is",
+   "inicio": 21.85,
+   "fim": 22.071
+  },
+  {
+   "texto": "not",
+   "inicio": 22.152,
+   "fim": 22.338
+  },
+  {
+   "texto": "the",
+   "inicio": 22.384,
+   "fim": 22.465
+  },
+  {
+   "texto": "only",
+   "inicio": 22.535,
+   "fim": 22.825
+  },
+  {
+   "texto": "one",
+   "inicio": 22.906,
+   "fim": 23.092
+  },
+  {
+   "texto": "looking.",
+   "inicio": 23.139,
+   "fim": 23.766
+  },
+  {
+   "texto": "In",
+   "inicio": 24.358,
+   "fim": 24.555
+  },
+  {
+   "texto": "2018,",
+   "inicio": 24.636,
+   "fim": 26.018
+  },
+  {
+   "texto": "a",
+   "inicio": 26.262,
+   "fim": 26.343
+  },
+  {
+   "texto": "Chinese",
+   "inicio": 26.424,
+   "fim": 26.924
+  },
+  {
+   "texto": "state-owned",
+   "inicio": 26.97,
+   "fim": 27.492
+  },
+  {
+   "texto": "company",
+   "inicio": 27.55,
+   "fim": 28.026
+  },
+  {
+   "texto": "bid",
+   "inicio": 28.41,
+   "fim": 28.677
+  },
+  {
+   "texto": "to",
+   "inicio": 28.735,
+   "fim": 28.804
+  },
+  {
+   "texto": "build",
+   "inicio": 28.874,
+   "fim": 29.106
+  },
+  {
+   "texto": "airports",
+   "inicio": 29.153,
+   "fim": 29.675
+  },
+  {
+   "texto": "in",
+   "inicio": 29.722,
+   "fim": 29.803
+  },
+  {
+   "texto": "Greenland.",
+   "inicio": 29.861,
+   "fim": 30.569
+  },
+  {
+   "texto": "Denmark",
+   "inicio": 31.08,
+   "fim": 31.626
+  },
+  {
+   "texto": "stepped",
+   "inicio": 31.695,
+   "fim": 32.078
+  },
+  {
+   "texto": "in",
+   "inicio": 32.136,
+   "fim": 32.38
+  },
+  {
+   "texto": "and",
+   "inicio": 32.624,
+   "fim": 32.961
+  },
+  {
+   "texto": "paid",
+   "inicio": 33.054,
+   "fim": 33.297
+  },
+  {
+   "texto": "for",
+   "inicio": 33.355,
+   "fim": 33.495
+  },
+  {
+   "texto": "them",
+   "inicio": 33.553,
+   "fim": 33.715
+  },
+  {
+   "texto": "itself.",
+   "inicio": 33.773,
+   "fim": 35.016
+  }
+ ]
+}

@@ -1,0 +1,258 @@
+{
+ "id": "b28",
+ "capitulo": "\"O Brasil não é um país sério\"",
+ "visual": "Grande \"X\" vermelho sobre De Gaulle. Aparece a foto do embaixador Carlos Alves de Souza Filho.",
+ "texto": "Só que não foi ele. A frase foi dita por um brasileiro: o diplomata Carlos Alves de Souza Filho, embaixador do Brasil em Paris, numa conversa com o jornalista Luís Edgar de Andrade, correspondente do Jornal do Brasil. Em 1979, o próprio embaixador assumiu a autoria num livro de memórias.",
+ "palavras": [
+  {
+   "texto": "Só",
+   "inicio": 0,
+   "fim": 0.279
+  },
+  {
+   "texto": "que",
+   "inicio": 0.337,
+   "fim": 0.406
+  },
+  {
+   "texto": "não",
+   "inicio": 0.453,
+   "fim": 0.546
+  },
+  {
+   "texto": "foi",
+   "inicio": 0.604,
+   "fim": 0.813
+  },
+  {
+   "texto": "ele.",
+   "inicio": 0.848,
+   "fim": 1.207
+  },
+  {
+   "texto": "A",
+   "inicio": 1.486,
+   "fim": 1.567
+  },
+  {
+   "texto": "frase",
+   "inicio": 1.683,
+   "fim": 2.009
+  },
+  {
+   "texto": "foi",
+   "inicio": 2.067,
+   "fim": 2.218
+  },
+  {
+   "texto": "dita",
+   "inicio": 2.241,
+   "fim": 2.508
+  },
+  {
+   "texto": "por",
+   "inicio": 2.554,
+   "fim": 2.67
+  },
+  {
+   "texto": "um",
+   "inicio": 2.705,
+   "fim": 2.752
+  },
+  {
+   "texto": "brasileiro:",
+   "inicio": 2.775,
+   "fim": 3.483
+  },
+  {
+   "texto": "o",
+   "inicio": 3.808,
+   "fim": 3.878
+  },
+  {
+   "texto": "diplomata",
+   "inicio": 3.924,
+   "fim": 4.609
+  },
+  {
+   "texto": "Carlos",
+   "inicio": 4.702,
+   "fim": 5.178
+  },
+  {
+   "texto": "Alves",
+   "inicio": 5.294,
+   "fim": 5.561
+  },
+  {
+   "texto": "de",
+   "inicio": 5.596,
+   "fim": 5.666
+  },
+  {
+   "texto": "Souza",
+   "inicio": 5.747,
+   "fim": 6.072
+  },
+  {
+   "texto": "Filho,",
+   "inicio": 6.142,
+   "fim": 6.571
+  },
+  {
+   "texto": "embaixador",
+   "inicio": 6.722,
+   "fim": 7.419
+  },
+  {
+   "texto": "do",
+   "inicio": 7.488,
+   "fim": 7.558
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 7.605,
+   "fim": 7.941
+  },
+  {
+   "texto": "em",
+   "inicio": 7.976,
+   "fim": 8.034
+  },
+  {
+   "texto": "Paris,",
+   "inicio": 8.092,
+   "fim": 8.673
+  },
+  {
+   "texto": "numa",
+   "inicio": 8.847,
+   "fim": 9.067
+  },
+  {
+   "texto": "conversa",
+   "inicio": 9.114,
+   "fim": 9.659
+  },
+  {
+   "texto": "com",
+   "inicio": 9.706,
+   "fim": 9.822
+  },
+  {
+   "texto": "o",
+   "inicio": 9.857,
+   "fim": 9.88
+  },
+  {
+   "texto": "jornalista",
+   "inicio": 9.915,
+   "fim": 10.507
+  },
+  {
+   "texto": "Luís",
+   "inicio": 10.565,
+   "fim": 10.971
+  },
+  {
+   "texto": "Edgar",
+   "inicio": 11.029,
+   "fim": 11.401
+  },
+  {
+   "texto": "de",
+   "inicio": 11.459,
+   "fim": 11.517
+  },
+  {
+   "texto": "Andrade,",
+   "inicio": 11.552,
+   "fim": 12.144
+  },
+  {
+   "texto": "correspondente",
+   "inicio": 12.353,
+   "fim": 13.143
+  },
+  {
+   "texto": "do",
+   "inicio": 13.189,
+   "fim": 13.259
+  },
+  {
+   "texto": "Jornal",
+   "inicio": 13.305,
+   "fim": 13.63
+  },
+  {
+   "texto": "do",
+   "inicio": 13.665,
+   "fim": 13.723
+  },
+  {
+   "texto": "Brasil.",
+   "inicio": 13.769,
+   "fim": 14.257
+  },
+  {
+   "texto": "Em",
+   "inicio": 14.861,
+   "fim": 15.035
+  },
+  {
+   "texto": "1979,",
+   "inicio": 15.105,
+   "fim": 16.893
+  },
+  {
+   "texto": "o",
+   "inicio": 17.067,
+   "fim": 17.148
+  },
+  {
+   "texto": "próprio",
+   "inicio": 17.264,
+   "fim": 17.705
+  },
+  {
+   "texto": "embaixador",
+   "inicio": 17.728,
+   "fim": 18.355
+  },
+  {
+   "texto": "assumiu",
+   "inicio": 18.402,
+   "fim": 18.773
+  },
+  {
+   "texto": "a",
+   "inicio": 18.808,
+   "fim": 18.843
+  },
+  {
+   "texto": "autoria",
+   "inicio": 18.866,
+   "fim": 19.424
+  },
+  {
+   "texto": "num",
+   "inicio": 19.632,
+   "fim": 19.818
+  },
+  {
+   "texto": "livro",
+   "inicio": 19.876,
+   "fim": 20.155
+  },
+  {
+   "texto": "de",
+   "inicio": 20.201,
+   "fim": 20.259
+  },
+  {
+   "texto": "memórias.",
+   "inicio": 20.306,
+   "fim": 21.641
+  }
+ ]
+}

@@ -1,0 +1,213 @@
+{
+ "id": "b03",
+ "capitulo": "Um navio de guerra no Carnaval",
+ "visual": "Uma lagosta aparece no centro do mapa. Zoom.",
+ "texto": "O motivo? Lagostas. Essa é a história da Guerra da Lagosta. E, no final, eu vou te contar quem disse de verdade a frase mais famosa dessa briga: \"o Brasil não é um país sério\". Spoiler: não foi quem você imagina.",
+ "palavras": [
+  {
+   "texto": "O",
+   "inicio": 0,
+   "fim": 0.081
+  },
+  {
+   "texto": "motivo?",
+   "inicio": 0.151,
+   "fim": 0.824
+  },
+  {
+   "texto": "Lagostas.",
+   "inicio": 1.149,
+   "fim": 2.09
+  },
+  {
+   "texto": "Essa",
+   "inicio": 2.334,
+   "fim": 2.705
+  },
+  {
+   "texto": "é",
+   "inicio": 2.786,
+   "fim": 2.81
+  },
+  {
+   "texto": "a",
+   "inicio": 2.844,
+   "fim": 2.868
+  },
+  {
+   "texto": "história",
+   "inicio": 2.891,
+   "fim": 3.367
+  },
+  {
+   "texto": "da",
+   "inicio": 3.402,
+   "fim": 3.495
+  },
+  {
+   "texto": "Guerra",
+   "inicio": 3.564,
+   "fim": 3.796
+  },
+  {
+   "texto": "da",
+   "inicio": 3.843,
+   "fim": 3.913
+  },
+  {
+   "texto": "Lagosta.",
+   "inicio": 3.959,
+   "fim": 4.598
+  },
+  {
+   "texto": "E,",
+   "inicio": 4.981,
+   "fim": 5.143
+  },
+  {
+   "texto": "no",
+   "inicio": 5.166,
+   "fim": 5.248
+  },
+  {
+   "texto": "final,",
+   "inicio": 5.306,
+   "fim": 5.863
+  },
+  {
+   "texto": "eu",
+   "inicio": 5.991,
+   "fim": 6.142
+  },
+  {
+   "texto": "vou",
+   "inicio": 6.177,
+   "fim": 6.316
+  },
+  {
+   "texto": "te",
+   "inicio": 6.362,
+   "fim": 6.444
+  },
+  {
+   "texto": "contar",
+   "inicio": 6.49,
+   "fim": 6.815
+  },
+  {
+   "texto": "quem",
+   "inicio": 6.885,
+   "fim": 7.047
+  },
+  {
+   "texto": "disse",
+   "inicio": 7.129,
+   "fim": 7.396
+  },
+  {
+   "texto": "de",
+   "inicio": 7.454,
+   "fim": 7.512
+  },
+  {
+   "texto": "verdade",
+   "inicio": 7.581,
+   "fim": 8.185
+  },
+  {
+   "texto": "a",
+   "inicio": 8.359,
+   "fim": 8.452
+  },
+  {
+   "texto": "frase",
+   "inicio": 8.533,
+   "fim": 8.847
+  },
+  {
+   "texto": "mais",
+   "inicio": 8.905,
+   "fim": 9.102
+  },
+  {
+   "texto": "famosa",
+   "inicio": 9.172,
+   "fim": 9.625
+  },
+  {
+   "texto": "dessa",
+   "inicio": 9.671,
+   "fim": 9.892
+  },
+  {
+   "texto": "briga:",
+   "inicio": 9.938,
+   "fim": 10.414
+  },
+  {
+   "texto": "\"o",
+   "inicio": 10.925,
+   "fim": 11.192
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 11.238,
+   "fim": 11.726
+  },
+  {
+   "texto": "não",
+   "inicio": 11.97,
+   "fim": 12.202
+  },
+  {
+   "texto": "é",
+   "inicio": 12.237,
+   "fim": 12.283
+  },
+  {
+   "texto": "um",
+   "inicio": 12.318,
+   "fim": 12.365
+  },
+  {
+   "texto": "país",
+   "inicio": 12.434,
+   "fim": 12.725
+  },
+  {
+   "texto": "sério\".",
+   "inicio": 12.748,
+   "fim": 13.259
+  },
+  {
+   "texto": "Spoiler:",
+   "inicio": 13.584,
+   "fim": 14.315
+  },
+  {
+   "texto": "não",
+   "inicio": 14.64,
+   "fim": 14.838
+  },
+  {
+   "texto": "foi",
+   "inicio": 14.907,
+   "fim": 15.151
+  },
+  {
+   "texto": "quem",
+   "inicio": 15.232,
+   "fim": 15.418
+  },
+  {
+   "texto": "você",
+   "inicio": 15.476,
+   "fim": 15.732
+  },
+  {
+   "texto": "imagina.",
+   "inicio": 15.813,
+   "fim": 17.136
+  }
+ ]
+}

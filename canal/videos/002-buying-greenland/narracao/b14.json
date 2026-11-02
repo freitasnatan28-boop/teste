@@ -1,0 +1,303 @@
+{
+ "id": "b14",
+ "capitulo": "Florida, Mexico and a Desert",
+ "visual": "Zoom to California. Gold icon on Sutter's Mill.",
+ "texto": "Was it a purchase, or a price tag stapled to a conquest? Historians still argue. But one detail stands out. Nine days before the treaty was signed, a worker found gold in a California river. Neither government knew yet. Within a few years, a single year of California gold was worth more than the entire price of the deal.",
+ "palavras": [
+  {
+   "texto": "Was",
+   "inicio": 0,
+   "fim": 0.255
+  },
+  {
+   "texto": "it",
+   "inicio": 0.325,
+   "fim": 0.406
+  },
+  {
+   "texto": "a",
+   "inicio": 0.464,
+   "fim": 0.499
+  },
+  {
+   "texto": "purchase,",
+   "inicio": 0.557,
+   "fim": 1.265
+  },
+  {
+   "texto": "or",
+   "inicio": 1.44,
+   "fim": 1.602
+  },
+  {
+   "texto": "a",
+   "inicio": 1.672,
+   "fim": 1.695
+  },
+  {
+   "texto": "price",
+   "inicio": 1.753,
+   "fim": 2.078
+  },
+  {
+   "texto": "tag",
+   "inicio": 2.125,
+   "fim": 2.438
+  },
+  {
+   "texto": "stapled",
+   "inicio": 2.531,
+   "fim": 2.984
+  },
+  {
+   "texto": "to",
+   "inicio": 3.007,
+   "fim": 3.077
+  },
+  {
+   "texto": "a",
+   "inicio": 3.17,
+   "fim": 3.204
+  },
+  {
+   "texto": "conquest?",
+   "inicio": 3.262,
+   "fim": 4.11
+  },
+  {
+   "texto": "Historians",
+   "inicio": 4.319,
+   "fim": 5.097
+  },
+  {
+   "texto": "still",
+   "inicio": 5.143,
+   "fim": 5.422
+  },
+  {
+   "texto": "argue.",
+   "inicio": 5.492,
+   "fim": 6.084
+  },
+  {
+   "texto": "But",
+   "inicio": 6.235,
+   "fim": 6.42
+  },
+  {
+   "texto": "one",
+   "inicio": 6.478,
+   "fim": 6.722
+  },
+  {
+   "texto": "detail",
+   "inicio": 6.769,
+   "fim": 7.338
+  },
+  {
+   "texto": "stands",
+   "inicio": 7.454,
+   "fim": 7.906
+  },
+  {
+   "texto": "out.",
+   "inicio": 7.964,
+   "fim": 8.44
+  },
+  {
+   "texto": "Nine",
+   "inicio": 9.044,
+   "fim": 9.381
+  },
+  {
+   "texto": "days",
+   "inicio": 9.427,
+   "fim": 9.764
+  },
+  {
+   "texto": "before",
+   "inicio": 9.845,
+   "fim": 10.228
+  },
+  {
+   "texto": "the",
+   "inicio": 10.275,
+   "fim": 10.344
+  },
+  {
+   "texto": "treaty",
+   "inicio": 10.403,
+   "fim": 10.716
+  },
+  {
+   "texto": "was",
+   "inicio": 10.774,
+   "fim": 10.902
+  },
+  {
+   "texto": "signed,",
+   "inicio": 10.96,
+   "fim": 11.598
+  },
+  {
+   "texto": "a",
+   "inicio": 11.842,
+   "fim": 11.923
+  },
+  {
+   "texto": "worker",
+   "inicio": 12.005,
+   "fim": 12.341
+  },
+  {
+   "texto": "found",
+   "inicio": 12.423,
+   "fim": 12.701
+  },
+  {
+   "texto": "gold",
+   "inicio": 12.771,
+   "fim": 13.154
+  },
+  {
+   "texto": "in",
+   "inicio": 13.224,
+   "fim": 13.305
+  },
+  {
+   "texto": "a",
+   "inicio": 13.351,
+   "fim": 13.375
+  },
+  {
+   "texto": "California",
+   "inicio": 13.444,
+   "fim": 14.118
+  },
+  {
+   "texto": "river.",
+   "inicio": 14.176,
+   "fim": 14.722
+  },
+  {
+   "texto": "Neither",
+   "inicio": 15.163,
+   "fim": 15.488
+  },
+  {
+   "texto": "government",
+   "inicio": 15.546,
+   "fim": 15.987
+  },
+  {
+   "texto": "knew",
+   "inicio": 16.045,
+   "fim": 16.243
+  },
+  {
+   "texto": "yet.",
+   "inicio": 16.312,
+   "fim": 16.823
+  },
+  {
+   "texto": "Within",
+   "inicio": 17.148,
+   "fim": 17.45
+  },
+  {
+   "texto": "a",
+   "inicio": 17.497,
+   "fim": 17.52
+  },
+  {
+   "texto": "few",
+   "inicio": 17.566,
+   "fim": 17.764
+  },
+  {
+   "texto": "years,",
+   "inicio": 17.845,
+   "fim": 18.53
+  },
+  {
+   "texto": "a",
+   "inicio": 18.646,
+   "fim": 18.704
+  },
+  {
+   "texto": "single",
+   "inicio": 18.785,
+   "fim": 19.134
+  },
+  {
+   "texto": "year",
+   "inicio": 19.18,
+   "fim": 19.459
+  },
+  {
+   "texto": "of",
+   "inicio": 19.528,
+   "fim": 19.598
+  },
+  {
+   "texto": "California",
+   "inicio": 19.668,
+   "fim": 20.318
+  },
+  {
+   "texto": "gold",
+   "inicio": 20.376,
+   "fim": 20.771
+  },
+  {
+   "texto": "was",
+   "inicio": 21.096,
+   "fim": 21.281
+  },
+  {
+   "texto": "worth",
+   "inicio": 21.339,
+   "fim": 21.572
+  },
+  {
+   "texto": "more",
+   "inicio": 21.641,
+   "fim": 21.955
+  },
+  {
+   "texto": "than",
+   "inicio": 22.013,
+   "fim": 22.164
+  },
+  {
+   "texto": "the",
+   "inicio": 22.199,
+   "fim": 22.268
+  },
+  {
+   "texto": "entire",
+   "inicio": 22.338,
+   "fim": 22.825
+  },
+  {
+   "texto": "price",
+   "inicio": 22.895,
+   "fim": 23.36
+  },
+  {
+   "texto": "of",
+   "inicio": 23.418,
+   "fim": 23.499
+  },
+  {
+   "texto": "the",
+   "inicio": 23.545,
+   "fim": 23.615
+  },
+  {
+   "texto": "deal.",
+   "inicio": 23.673,
+   "fim": 24.706
+  }
+ ]
+}

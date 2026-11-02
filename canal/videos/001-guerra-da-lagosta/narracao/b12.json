@@ -1,0 +1,183 @@
+{
+ "id": "b12",
+ "capitulo": "De Gaulle manda a Marinha",
+ "visual": "Foto de Charles de Gaulle. Mapa com o porto de Toulon, na França.",
+ "texto": "Os pescadores franceses, em vez de parar, pediram ajuda ao próprio governo. E o presidente da França era ninguém menos que Charles de Gaulle, herói da Segunda Guerra e um líder conhecido por não recuar.",
+ "palavras": [
+  {
+   "texto": "Os",
+   "inicio": 0,
+   "fim": 0.209
+  },
+  {
+   "texto": "pescadores",
+   "inicio": 0.29,
+   "fim": 0.813
+  },
+  {
+   "texto": "franceses,",
+   "inicio": 0.859,
+   "fim": 1.614
+  },
+  {
+   "texto": "em",
+   "inicio": 1.649,
+   "fim": 1.8
+  },
+  {
+   "texto": "vez",
+   "inicio": 1.869,
+   "fim": 2.009
+  },
+  {
+   "texto": "de",
+   "inicio": 2.043,
+   "fim": 2.101
+  },
+  {
+   "texto": "parar,",
+   "inicio": 2.148,
+   "fim": 2.635
+  },
+  {
+   "texto": "pediram",
+   "inicio": 2.81,
+   "fim": 3.216
+  },
+  {
+   "texto": "ajuda",
+   "inicio": 3.286,
+   "fim": 3.669
+  },
+  {
+   "texto": "ao",
+   "inicio": 3.738,
+   "fim": 3.855
+  },
+  {
+   "texto": "próprio",
+   "inicio": 3.947,
+   "fim": 4.307
+  },
+  {
+   "texto": "governo.",
+   "inicio": 4.342,
+   "fim": 4.946
+  },
+  {
+   "texto": "E",
+   "inicio": 5.387,
+   "fim": 5.503
+  },
+  {
+   "texto": "o",
+   "inicio": 5.561,
+   "fim": 5.584
+  },
+  {
+   "texto": "presidente",
+   "inicio": 5.619,
+   "fim": 6.107
+  },
+  {
+   "texto": "da",
+   "inicio": 6.153,
+   "fim": 6.223
+  },
+  {
+   "texto": "França",
+   "inicio": 6.293,
+   "fim": 6.757
+  },
+  {
+   "texto": "era",
+   "inicio": 6.908,
+   "fim": 7.163
+  },
+  {
+   "texto": "ninguém",
+   "inicio": 7.21,
+   "fim": 7.5
+  },
+  {
+   "texto": "menos",
+   "inicio": 7.558,
+   "fim": 7.872
+  },
+  {
+   "texto": "que",
+   "inicio": 7.906,
+   "fim": 7.988
+  },
+  {
+   "texto": "Charles",
+   "inicio": 8.069,
+   "fim": 8.44
+  },
+  {
+   "texto": "de",
+   "inicio": 8.464,
+   "fim": 8.533
+  },
+  {
+   "texto": "Gaulle,",
+   "inicio": 8.615,
+   "fim": 9.137
+  },
+  {
+   "texto": "herói",
+   "inicio": 9.416,
+   "fim": 9.764
+  },
+  {
+   "texto": "da",
+   "inicio": 9.799,
+   "fim": 9.88
+  },
+  {
+   "texto": "Segunda",
+   "inicio": 9.938,
+   "fim": 10.31
+  },
+  {
+   "texto": "Guerra",
+   "inicio": 10.379,
+   "fim": 10.739
+  },
+  {
+   "texto": "e",
+   "inicio": 10.913,
+   "fim": 11.064
+  },
+  {
+   "texto": "um",
+   "inicio": 11.134,
+   "fim": 11.192
+  },
+  {
+   "texto": "líder",
+   "inicio": 11.25,
+   "fim": 11.517
+  },
+  {
+   "texto": "conhecido",
+   "inicio": 11.575,
+   "fim": 12.098
+  },
+  {
+   "texto": "por",
+   "inicio": 12.144,
+   "fim": 12.283
+  },
+  {
+   "texto": "não",
+   "inicio": 12.353,
+   "fim": 12.457
+  },
+  {
+   "texto": "recuar.",
+   "inicio": 12.504,
+   "fim": 13.746
+  }
+ ]
+}

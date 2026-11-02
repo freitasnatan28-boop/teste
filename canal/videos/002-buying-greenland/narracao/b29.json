@@ -1,0 +1,108 @@
+{
+ "id": "b29",
+ "capitulo": "Why Greenland, Why Now",
+ "visual": "Greenland: 56,000 people. Denmark's flag and money flowing in.",
+ "texto": "Greenland itself has only about fifty-six thousand people. And Denmark covers a big part of its budget every single year.",
+ "palavras": [
+  {
+   "texto": "Greenland",
+   "inicio": 0,
+   "fim": 0.627
+  },
+  {
+   "texto": "itself",
+   "inicio": 0.708,
+   "fim": 1.196
+  },
+  {
+   "texto": "has",
+   "inicio": 1.474,
+   "fim": 1.695
+  },
+  {
+   "texto": "only",
+   "inicio": 1.776,
+   "fim": 2.032
+  },
+  {
+   "texto": "about",
+   "inicio": 2.09,
+   "fim": 2.345
+  },
+  {
+   "texto": "fifty-six",
+   "inicio": 2.426,
+   "fim": 3.297
+  },
+  {
+   "texto": "thousand",
+   "inicio": 3.379,
+   "fim": 3.889
+  },
+  {
+   "texto": "people.",
+   "inicio": 3.971,
+   "fim": 4.528
+  },
+  {
+   "texto": "And",
+   "inicio": 5.039,
+   "fim": 5.224
+  },
+  {
+   "texto": "Denmark",
+   "inicio": 5.306,
+   "fim": 5.863
+  },
+  {
+   "texto": "covers",
+   "inicio": 5.979,
+   "fim": 6.374
+  },
+  {
+   "texto": "a",
+   "inicio": 6.444,
+   "fim": 6.478
+  },
+  {
+   "texto": "big",
+   "inicio": 6.594,
+   "fim": 6.827
+  },
+  {
+   "texto": "part",
+   "inicio": 6.908,
+   "fim": 7.198
+  },
+  {
+   "texto": "of",
+   "inicio": 7.245,
+   "fim": 7.303
+  },
+  {
+   "texto": "its",
+   "inicio": 7.361,
+   "fim": 7.488
+  },
+  {
+   "texto": "budget",
+   "inicio": 7.546,
+   "fim": 7.941
+  },
+  {
+   "texto": "every",
+   "inicio": 8.22,
+   "fim": 8.696
+  },
+  {
+   "texto": "single",
+   "inicio": 8.847,
+   "fim": 9.358
+  },
+  {
+   "texto": "year.",
+   "inicio": 9.427,
+   "fim": 10.588
+  }
+ ]
+}

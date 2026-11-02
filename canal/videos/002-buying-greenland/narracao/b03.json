@@ -1,0 +1,248 @@
+{
+ "id": "b03",
+ "capitulo": "Not For Sale",
+ "visual": "Map of the United States. Purchased territories light up one by one.",
+ "texto": "But here's what most people miss. This isn't a crazy new idea. Buying land is how America was built. Close to forty percent of the United States wasn't conquered. It was bought. With cash, with gold, and sometimes with a deal so lopsided it still doesn't feel real.",
+ "palavras": [
+  {
+   "texto": "But",
+   "inicio": 0,
+   "fim": 0.209
+  },
+  {
+   "texto": "here's",
+   "inicio": 0.267,
+   "fim": 0.511
+  },
+  {
+   "texto": "what",
+   "inicio": 0.557,
+   "fim": 0.72
+  },
+  {
+   "texto": "most",
+   "inicio": 0.778,
+   "fim": 1.01
+  },
+  {
+   "texto": "people",
+   "inicio": 1.08,
+   "fim": 1.416
+  },
+  {
+   "texto": "miss.",
+   "inicio": 1.474,
+   "fim": 2.009
+  },
+  {
+   "texto": "This",
+   "inicio": 2.368,
+   "fim": 2.624
+  },
+  {
+   "texto": "isn't",
+   "inicio": 2.705,
+   "fim": 2.972
+  },
+  {
+   "texto": "a",
+   "inicio": 3.019,
+   "fim": 3.053
+  },
+  {
+   "texto": "crazy",
+   "inicio": 3.111,
+   "fim": 3.518
+  },
+  {
+   "texto": "new",
+   "inicio": 3.599,
+   "fim": 3.75
+  },
+  {
+   "texto": "idea.",
+   "inicio": 3.831,
+   "fim": 4.574
+  },
+  {
+   "texto": "Buying",
+   "inicio": 4.934,
+   "fim": 5.341
+  },
+  {
+   "texto": "land",
+   "inicio": 5.387,
+   "fim": 5.817
+  },
+  {
+   "texto": "is",
+   "inicio": 6.037,
+   "fim": 6.235
+  },
+  {
+   "texto": "how",
+   "inicio": 6.281,
+   "fim": 6.444
+  },
+  {
+   "texto": "America",
+   "inicio": 6.525,
+   "fim": 7.012
+  },
+  {
+   "texto": "was",
+   "inicio": 7.07,
+   "fim": 7.198
+  },
+  {
+   "texto": "built.",
+   "inicio": 7.268,
+   "fim": 7.755
+  },
+  {
+   "texto": "Close",
+   "inicio": 8.173,
+   "fim": 8.533
+  },
+  {
+   "texto": "to",
+   "inicio": 8.58,
+   "fim": 8.696
+  },
+  {
+   "texto": "forty",
+   "inicio": 8.812,
+   "fim": 9.16
+  },
+  {
+   "texto": "percent",
+   "inicio": 9.253,
+   "fim": 9.718
+  },
+  {
+   "texto": "of",
+   "inicio": 9.776,
+   "fim": 9.834
+  },
+  {
+   "texto": "the",
+   "inicio": 9.88,
+   "fim": 9.95
+  },
+  {
+   "texto": "United",
+   "inicio": 10.031,
+   "fim": 10.403
+  },
+  {
+   "texto": "States",
+   "inicio": 10.449,
+   "fim": 10.855
+  },
+  {
+   "texto": "wasn't",
+   "inicio": 11.157,
+   "fim": 11.598
+  },
+  {
+   "texto": "conquered.",
+   "inicio": 11.68,
+   "fim": 12.353
+  },
+  {
+   "texto": "It",
+   "inicio": 12.713,
+   "fim": 12.875
+  },
+  {
+   "texto": "was",
+   "inicio": 12.922,
+   "fim": 13.05
+  },
+  {
+   "texto": "bought.",
+   "inicio": 13.119,
+   "fim": 13.642
+  },
+  {
+   "texto": "With",
+   "inicio": 13.955,
+   "fim": 14.141
+  },
+  {
+   "texto": "cash,",
+   "inicio": 14.199,
+   "fim": 14.884
+  },
+  {
+   "texto": "with",
+   "inicio": 15.023,
+   "fim": 15.197
+  },
+  {
+   "texto": "gold,",
+   "inicio": 15.255,
+   "fim": 15.871
+  },
+  {
+   "texto": "and",
+   "inicio": 16.068,
+   "fim": 16.242
+  },
+  {
+   "texto": "sometimes",
+   "inicio": 16.324,
+   "fim": 16.927
+  },
+  {
+   "texto": "with",
+   "inicio": 16.997,
+   "fim": 17.159
+  },
+  {
+   "texto": "a",
+   "inicio": 17.206,
+   "fim": 17.241
+  },
+  {
+   "texto": "deal",
+   "inicio": 17.31,
+   "fim": 17.601
+  },
+  {
+   "texto": "so",
+   "inicio": 17.717,
+   "fim": 17.961
+  },
+  {
+   "texto": "lopsided",
+   "inicio": 18.053,
+   "fim": 18.831
+  },
+  {
+   "texto": "it",
+   "inicio": 19.156,
+   "fim": 19.33
+  },
+  {
+   "texto": "still",
+   "inicio": 19.389,
+   "fim": 19.69
+  },
+  {
+   "texto": "doesn't",
+   "inicio": 19.748,
+   "fim": 20.05
+  },
+  {
+   "texto": "feel",
+   "inicio": 20.097,
+   "fim": 20.364
+  },
+  {
+   "texto": "real.",
+   "inicio": 20.457,
+   "fim": 21.594
+  }
+ ]
+}

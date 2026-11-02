@@ -1,0 +1,138 @@
+{
+ "id": "b01",
+ "capitulo": "Um navio de guerra no Carnaval",
+ "visual": "Mapa escuro do Atlântico. Um ponto vermelho sai da França e desce em direção ao Brasil.",
+ "texto": "Fevereiro de 1963. O Brasil inteiro se prepara pro Carnaval. E, enquanto isso, um navio de guerra francês navega sozinho em direção ao litoral de Pernambuco.",
+ "palavras": [
+  {
+   "texto": "Fevereiro",
+   "inicio": 0,
+   "fim": 0.662
+  },
+  {
+   "texto": "de",
+   "inicio": 0.72,
+   "fim": 0.789
+  },
+  {
+   "texto": "1963.",
+   "inicio": 0.94,
+   "fim": 3.32
+  },
+  {
+   "texto": "O",
+   "inicio": 3.564,
+   "fim": 3.646
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 3.762,
+   "fim": 4.168
+  },
+  {
+   "texto": "inteiro",
+   "inicio": 4.226,
+   "fim": 4.667
+  },
+  {
+   "texto": "se",
+   "inicio": 4.725,
+   "fim": 4.807
+  },
+  {
+   "texto": "prepara",
+   "inicio": 4.853,
+   "fim": 5.294
+  },
+  {
+   "texto": "pro",
+   "inicio": 5.341,
+   "fim": 5.445
+  },
+  {
+   "texto": "Carnaval.",
+   "inicio": 5.468,
+   "fim": 6.142
+  },
+  {
+   "texto": "E,",
+   "inicio": 6.583,
+   "fim": 6.687
+  },
+  {
+   "texto": "enquanto",
+   "inicio": 6.711,
+   "fim": 7.094
+  },
+  {
+   "texto": "isso,",
+   "inicio": 7.152,
+   "fim": 7.512
+  },
+  {
+   "texto": "um",
+   "inicio": 7.686,
+   "fim": 7.779
+  },
+  {
+   "texto": "navio",
+   "inicio": 7.814,
+   "fim": 8.15
+  },
+  {
+   "texto": "de",
+   "inicio": 8.197,
+   "fim": 8.278
+  },
+  {
+   "texto": "guerra",
+   "inicio": 8.336,
+   "fim": 8.568
+  },
+  {
+   "texto": "francês",
+   "inicio": 8.626,
+   "fim": 9.207
+  },
+  {
+   "texto": "navega",
+   "inicio": 9.451,
+   "fim": 9.903
+  },
+  {
+   "texto": "sozinho",
+   "inicio": 9.95,
+   "fim": 10.449
+  },
+  {
+   "texto": "em",
+   "inicio": 10.6,
+   "fim": 10.762
+  },
+  {
+   "texto": "direção",
+   "inicio": 10.82,
+   "fim": 11.424
+  },
+  {
+   "texto": "ao",
+   "inicio": 11.575,
+   "fim": 11.761
+  },
+  {
+   "texto": "litoral",
+   "inicio": 11.796,
+   "fim": 12.214
+  },
+  {
+   "texto": "de",
+   "inicio": 12.26,
+   "fim": 12.33
+  },
+  {
+   "texto": "Pernambuco.",
+   "inicio": 12.388,
+   "fim": 13.607
+  }
+ ]
+}

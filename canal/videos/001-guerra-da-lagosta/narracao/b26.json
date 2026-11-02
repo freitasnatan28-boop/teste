@@ -1,0 +1,413 @@
+{
+ "id": "b26",
+ "capitulo": "Como acabou",
+ "visual": "Linha do tempo: \"março de 1963\", \"golpe de 1964\", \"acordo em dezembro de 1964\".",
+ "texto": "A briga diplomática, porém, continuou. Só em dezembro de 1964, já durante o regime militar, os dois países assinaram um acordo: os barcos franceses poderiam pescar lagosta em quantidade e tempo limitados, dividindo os lucros. Resultado da Guerra da Lagosta: nenhum tiro disparado e nenhum morto. Mas o Brasil mostrou que estava disposto a defender o próprio mar. E hoje a regra internacional dá a cada país uma zona exclusiva de 200 milhas náuticas, onde só ele decide quem pode pescar.",
+ "palavras": [
+  {
+   "texto": "A",
+   "inicio": 0,
+   "fim": 0.104
+  },
+  {
+   "texto": "briga",
+   "inicio": 0.221,
+   "fim": 0.511
+  },
+  {
+   "texto": "diplomática,",
+   "inicio": 0.546,
+   "fim": 1.196
+  },
+  {
+   "texto": "porém,",
+   "inicio": 1.219,
+   "fim": 1.625
+  },
+  {
+   "texto": "continuou.",
+   "inicio": 1.753,
+   "fim": 2.624
+  },
+  {
+   "texto": "Só",
+   "inicio": 3.007,
+   "fim": 3.297
+  },
+  {
+   "texto": "em",
+   "inicio": 3.367,
+   "fim": 3.425
+  },
+  {
+   "texto": "dezembro",
+   "inicio": 3.471,
+   "fim": 3.924
+  },
+  {
+   "texto": "de",
+   "inicio": 3.959,
+   "fim": 4.029
+  },
+  {
+   "texto": "1964,",
+   "inicio": 4.122,
+   "fim": 6.095
+  },
+  {
+   "texto": "já",
+   "inicio": 6.304,
+   "fim": 6.432
+  },
+  {
+   "texto": "durante",
+   "inicio": 6.49,
+   "fim": 6.792
+  },
+  {
+   "texto": "o",
+   "inicio": 6.827,
+   "fim": 6.85
+  },
+  {
+   "texto": "regime",
+   "inicio": 6.885,
+   "fim": 7.175
+  },
+  {
+   "texto": "militar,",
+   "inicio": 7.21,
+   "fim": 7.848
+  },
+  {
+   "texto": "os",
+   "inicio": 8.057,
+   "fim": 8.185
+  },
+  {
+   "texto": "dois",
+   "inicio": 8.231,
+   "fim": 8.394
+  },
+  {
+   "texto": "países",
+   "inicio": 8.464,
+   "fim": 8.847
+  },
+  {
+   "texto": "assinaram",
+   "inicio": 8.916,
+   "fim": 9.381
+  },
+  {
+   "texto": "um",
+   "inicio": 9.427,
+   "fim": 9.497
+  },
+  {
+   "texto": "acordo:",
+   "inicio": 9.567,
+   "fim": 10.24
+  },
+  {
+   "texto": "os",
+   "inicio": 10.913,
+   "fim": 11.064
+  },
+  {
+   "texto": "barcos",
+   "inicio": 11.157,
+   "fim": 11.552
+  },
+  {
+   "texto": "franceses",
+   "inicio": 11.61,
+   "fim": 12.214
+  },
+  {
+   "texto": "poderiam",
+   "inicio": 12.272,
+   "fim": 12.643
+  },
+  {
+   "texto": "pescar",
+   "inicio": 12.701,
+   "fim": 13.05
+  },
+  {
+   "texto": "lagosta",
+   "inicio": 13.119,
+   "fim": 13.537
+  },
+  {
+   "texto": "em",
+   "inicio": 13.56,
+   "fim": 13.607
+  },
+  {
+   "texto": "quantidade",
+   "inicio": 13.665,
+   "fim": 14.385
+  },
+  {
+   "texto": "e",
+   "inicio": 14.559,
+   "fim": 14.687
+  },
+  {
+   "texto": "tempo",
+   "inicio": 14.745,
+   "fim": 15.023
+  },
+  {
+   "texto": "limitados,",
+   "inicio": 15.07,
+   "fim": 15.824
+  },
+  {
+   "texto": "dividindo",
+   "inicio": 15.941,
+   "fim": 16.417
+  },
+  {
+   "texto": "os",
+   "inicio": 16.44,
+   "fim": 16.486
+  },
+  {
+   "texto": "lucros.",
+   "inicio": 16.544,
+   "fim": 17.09
+  },
+  {
+   "texto": "Resultado",
+   "inicio": 17.369,
+   "fim": 17.972
+  },
+  {
+   "texto": "da",
+   "inicio": 18.019,
+   "fim": 18.1
+  },
+  {
+   "texto": "Guerra",
+   "inicio": 18.181,
+   "fim": 18.448
+  },
+  {
+   "texto": "da",
+   "inicio": 18.506,
+   "fim": 18.576
+  },
+  {
+   "texto": "Lagosta:",
+   "inicio": 18.634,
+   "fim": 19.366
+  },
+  {
+   "texto": "nenhum",
+   "inicio": 19.691,
+   "fim": 20.027
+  },
+  {
+   "texto": "tiro",
+   "inicio": 20.085,
+   "fim": 20.352
+  },
+  {
+   "texto": "disparado",
+   "inicio": 20.399,
+   "fim": 21.072
+  },
+  {
+   "texto": "e",
+   "inicio": 21.316,
+   "fim": 21.467
+  },
+  {
+   "texto": "nenhum",
+   "inicio": 21.525,
+   "fim": 21.827
+  },
+  {
+   "texto": "morto.",
+   "inicio": 21.85,
+   "fim": 22.373
+  },
+  {
+   "texto": "Mas",
+   "inicio": 22.814,
+   "fim": 22.976
+  },
+  {
+   "texto": "o",
+   "inicio": 23.046,
+   "fim": 23.069
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 23.104,
+   "fim": 23.441
+  },
+  {
+   "texto": "mostrou",
+   "inicio": 23.475,
+   "fim": 23.905
+  },
+  {
+   "texto": "que",
+   "inicio": 24.184,
+   "fim": 24.311
+  },
+  {
+   "texto": "estava",
+   "inicio": 24.335,
+   "fim": 24.636
+  },
+  {
+   "texto": "disposto",
+   "inicio": 24.683,
+   "fim": 25.124
+  },
+  {
+   "texto": "a",
+   "inicio": 25.147,
+   "fim": 25.171
+  },
+  {
+   "texto": "defender",
+   "inicio": 25.205,
+   "fim": 25.647
+  },
+  {
+   "texto": "o",
+   "inicio": 25.705,
+   "fim": 25.728
+  },
+  {
+   "texto": "próprio",
+   "inicio": 25.821,
+   "fim": 26.204
+  },
+  {
+   "texto": "mar.",
+   "inicio": 26.25,
+   "fim": 26.68
+  },
+  {
+   "texto": "E",
+   "inicio": 27.284,
+   "fim": 27.434
+  },
+  {
+   "texto": "hoje",
+   "inicio": 27.504,
+   "fim": 27.841
+  },
+  {
+   "texto": "a",
+   "inicio": 28.085,
+   "fim": 28.236
+  },
+  {
+   "texto": "regra",
+   "inicio": 28.305,
+   "fim": 28.572
+  },
+  {
+   "texto": "internacional",
+   "inicio": 28.595,
+   "fim": 29.408
+  },
+  {
+   "texto": "dá",
+   "inicio": 29.652,
+   "fim": 29.849
+  },
+  {
+   "texto": "a",
+   "inicio": 29.896,
+   "fim": 29.919
+  },
+  {
+   "texto": "cada",
+   "inicio": 29.977,
+   "fim": 30.244
+  },
+  {
+   "texto": "país",
+   "inicio": 30.291,
+   "fim": 30.708
+  },
+  {
+   "texto": "uma",
+   "inicio": 30.917,
+   "fim": 31.138
+  },
+  {
+   "texto": "zona",
+   "inicio": 31.196,
+   "fim": 31.429
+  },
+  {
+   "texto": "exclusiva",
+   "inicio": 31.452,
+   "fim": 32.044
+  },
+  {
+   "texto": "de",
+   "inicio": 32.09,
+   "fim": 32.16
+  },
+  {
+   "texto": "200",
+   "inicio": 32.288,
+   "fim": 32.764
+  },
+  {
+   "texto": "milhas",
+   "inicio": 32.88,
+   "fim": 33.135
+  },
+  {
+   "texto": "náuticas,",
+   "inicio": 33.182,
+   "fim": 33.832
+  },
+  {
+   "texto": "onde",
+   "inicio": 34.006,
+   "fim": 34.273
+  },
+  {
+   "texto": "só",
+   "inicio": 34.354,
+   "fim": 34.575
+  },
+  {
+   "texto": "ele",
+   "inicio": 34.633,
+   "fim": 34.819
+  },
+  {
+   "texto": "decide",
+   "inicio": 34.877,
+   "fim": 35.295
+  },
+  {
+   "texto": "quem",
+   "inicio": 35.376,
+   "fim": 35.55
+  },
+  {
+   "texto": "pode",
+   "inicio": 35.643,
+   "fim": 35.899
+  },
+  {
+   "texto": "pescar.",
+   "inicio": 35.945,
+   "fim": 37.013
+  }
+ ]
+}

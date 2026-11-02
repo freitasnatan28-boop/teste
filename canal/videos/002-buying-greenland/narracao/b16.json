@@ -1,0 +1,218 @@
+{
+ "id": "b16",
+ "capitulo": "Seward's Icebox",
+ "visual": "Camera flies north. Alaska painted with the Russian flag. Tsar portrait.",
+ "texto": "Now jump to the far north. In the 1860s, Alaska belonged to the Russian Empire. But Russia had a problem. It had just lost the Crimean War against Britain and France. Its treasury was strained, and Alaska was almost impossible to defend.",
+ "palavras": [
+  {
+   "texto": "Now",
+   "inicio": 0,
+   "fim": 0.372
+  },
+  {
+   "texto": "jump",
+   "inicio": 0.546,
+   "fim": 0.859
+  },
+  {
+   "texto": "to",
+   "inicio": 0.975,
+   "fim": 1.091
+  },
+  {
+   "texto": "the",
+   "inicio": 1.173,
+   "fim": 1.242
+  },
+  {
+   "texto": "far",
+   "inicio": 1.312,
+   "fim": 1.625
+  },
+  {
+   "texto": "north.",
+   "inicio": 1.718,
+   "fim": 2.345
+  },
+  {
+   "texto": "In",
+   "inicio": 2.786,
+   "fim": 2.949
+  },
+  {
+   "texto": "the",
+   "inicio": 2.995,
+   "fim": 3.065
+  },
+  {
+   "texto": "1860s,",
+   "inicio": 3.111,
+   "fim": 4.133
+  },
+  {
+   "texto": "Alaska",
+   "inicio": 4.18,
+   "fim": 4.667
+  },
+  {
+   "texto": "belonged",
+   "inicio": 4.714,
+   "fim": 5.108
+  },
+  {
+   "texto": "to",
+   "inicio": 5.132,
+   "fim": 5.19
+  },
+  {
+   "texto": "the",
+   "inicio": 5.248,
+   "fim": 5.317
+  },
+  {
+   "texto": "Russian",
+   "inicio": 5.375,
+   "fim": 5.712
+  },
+  {
+   "texto": "Empire.",
+   "inicio": 5.782,
+   "fim": 6.536
+  },
+  {
+   "texto": "But",
+   "inicio": 6.745,
+   "fim": 6.92
+  },
+  {
+   "texto": "Russia",
+   "inicio": 6.978,
+   "fim": 7.372
+  },
+  {
+   "texto": "had",
+   "inicio": 7.442,
+   "fim": 7.616
+  },
+  {
+   "texto": "a",
+   "inicio": 7.663,
+   "fim": 7.697
+  },
+  {
+   "texto": "problem.",
+   "inicio": 7.755,
+   "fim": 8.487
+  },
+  {
+   "texto": "It",
+   "inicio": 8.87,
+   "fim": 9.021
+  },
+  {
+   "texto": "had",
+   "inicio": 9.067,
+   "fim": 9.172
+  },
+  {
+   "texto": "just",
+   "inicio": 9.218,
+   "fim": 9.451
+  },
+  {
+   "texto": "lost",
+   "inicio": 9.532,
+   "fim": 9.857
+  },
+  {
+   "texto": "the",
+   "inicio": 9.915,
+   "fim": 9.985
+  },
+  {
+   "texto": "Crimean",
+   "inicio": 10.043,
+   "fim": 10.565
+  },
+  {
+   "texto": "War",
+   "inicio": 10.635,
+   "fim": 10.89
+  },
+  {
+   "texto": "against",
+   "inicio": 10.971,
+   "fim": 11.331
+  },
+  {
+   "texto": "Britain",
+   "inicio": 11.401,
+   "fim": 11.807
+  },
+  {
+   "texto": "and",
+   "inicio": 11.877,
+   "fim": 12.04
+  },
+  {
+   "texto": "France.",
+   "inicio": 12.121,
+   "fim": 12.864
+  },
+  {
+   "texto": "Its",
+   "inicio": 13.247,
+   "fim": 13.456
+  },
+  {
+   "texto": "treasury",
+   "inicio": 13.514,
+   "fim": 14.025
+  },
+  {
+   "texto": "was",
+   "inicio": 14.095,
+   "fim": 14.222
+  },
+  {
+   "texto": "strained,",
+   "inicio": 14.268,
+   "fim": 15
+  },
+  {
+   "texto": "and",
+   "inicio": 15.174,
+   "fim": 15.325
+  },
+  {
+   "texto": "Alaska",
+   "inicio": 15.406,
+   "fim": 15.905
+  },
+  {
+   "texto": "was",
+   "inicio": 15.963,
+   "fim": 16.091
+  },
+  {
+   "texto": "almost",
+   "inicio": 16.149,
+   "fim": 16.521
+  },
+  {
+   "texto": "impossible",
+   "inicio": 16.579,
+   "fim": 17.345
+  },
+  {
+   "texto": "to",
+   "inicio": 17.38,
+   "fim": 17.461
+  },
+  {
+   "texto": "defend.",
+   "inicio": 17.542,
+   "fim": 18.901
+  }
+ ]
+}
