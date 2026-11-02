@@ -130,7 +130,9 @@ echo "$CONF" | $SUDO tee /etc/nginx/sites-available/canal-dark >/dev/null
 $SUDO ln -sf /etc/nginx/sites-available/canal-dark /etc/nginx/sites-enabled/canal-dark
 if [ -z "$DOMINIO" ]; then $SUDO rm -f /etc/nginx/sites-enabled/default; fi
 $SUDO nginx -t
-$SUDO systemctl reload nginx
+$SUDO systemctl reload nginx 2>/dev/null || $SUDO service nginx reload 2>/dev/null || $SUDO nginx -s reload 2>/dev/null || true
+# Garante que o Nginx está rodando (em alguns servidores ele não sobe sozinho depois de instalado)
+pgrep -x nginx >/dev/null || $SUDO systemctl start nginx 2>/dev/null || $SUDO nginx
 
 if command -v ufw >/dev/null 2>&1 && $SUDO ufw status | grep -q "Status: active"; then
   $SUDO ufw allow OpenSSH >/dev/null; $SUDO ufw allow 'Nginx Full' >/dev/null
