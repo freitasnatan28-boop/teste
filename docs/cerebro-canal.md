@@ -149,6 +149,9 @@ bash scripts/baixar_nasa.sh B1 B2 C1                            # satélite NASA
   60% do vídeo, marca d'água com fundo escuro (legível na neve), `velocidade` no storyboard, rota presa a palavra
   (`em`, `dur`) com hodômetro (`contador: {ate, sufixo}`), etiqueta de número genérica (`preco` com `prefixo`, `sufixo`,
   `cor`; sem "$" trava com "hit"), ícone com qualquer emoji (`icone` + `emoji`), bandeiras PAN e COL.
+  Ícone (pedido do dono: "troca esse estilo de ícone, faz algo mais bonito"): o hexágono branco virou PINO DE MAPA
+  (círculo com degradê da cor do tipo, símbolo branco, borda branca, ponta encostando no ponto, onda no chão ao nascer,
+  flutuação leve, nome em etiqueta escura arredondada). Componente `Pino` em Atores.tsx; balão sobe 178 px acima dele.
   Legenda .srt pro YouTube: `python3 scripts/legenda_srt.py ../videos/NNN-slug saida.srt`.
   Entrega pro dono: o chat não baixa arquivo grande; subir em `entregas/NNN/` (MP4 via Git LFS) e mandar o link
   `https://github.com/freitasnatan28-boop/teste/raw/claude/confident-brown-5hacr0/entregas/...`.

@@ -2,7 +2,7 @@
 // bandeirinha, foto em moldura e rótulo. Todos entram com um "pop" e somem se tiverem "ateAos".
 import React from "react";
 import { Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { FONTE_TEXTO, FONTE_TITULO } from "../estilo";
+import { FONTE_LEGENDA, FONTE_TEXTO, FONTE_TITULO } from "../estilo";
 import { Aviao, Bandeira, Lagosta, Navio } from "../icones";
 import type { Ator, Icone, Pais } from "../tipos";
 
@@ -126,17 +126,7 @@ export const AtorNoMapa: React.FC<Props> = ({ ator, x, y, frame, pasta, elevacao
     );
   }
 
-  if (ator.tipo === "icone")
-    return (
-      <div style={{ ...base, display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <Hexagono icone={ator.icone ?? "alerta"} emoji={ator.emoji} cor={ator.cor} tamanho={150} />
-        {ator.rotulo && (
-          <div style={{ marginTop: 6, fontFamily: FONTE_TITULO, fontSize: 44, color: "#fff", textTransform: "uppercase", textAlign: "center", whiteSpace: "pre", textShadow: "0 0 3px #000, 0 3px 0 #000, 0 0 14px rgba(0,0,0,.8)" }}>
-            {ator.rotulo}
-          </div>
-        )}
-      </div>
-    );
+  if (ator.tipo === "icone") return <Pino ator={ator} x={x} y={y} frame={frame} s={s} />;
 
   if (ator.tipo === "bandeira")
     return (
@@ -242,6 +232,51 @@ export const Hexagono: React.FC<{ icone: Icone; emoji?: string; cor?: string; ta
   </div>
 );
 
+// Pino de mapa: círculo com degradê da cor do ícone, símbolo branco, borda branca e uma ponta que encosta
+// no lugar exato. Ao nascer: cai e quica, e uma onda se espalha no chão. Depois flutua de leve.
+const CORES_PINO: Record<string, [string, string]> = {
+  ancora: ["#3b8cff", "#1546a0"], documento: ["#9d8bff", "#5536c9"], explosao: ["#ff7a45", "#c81e1e"], alerta: ["#ffb52e", "#d26a00"],
+  interrogacao: ["#6f7cff", "#2f36b5"], acordo: ["#2cc7a8", "#0c7a66"], radar: ["#2bd18a", "#0b7a4b"], tropa: ["#7d8f43", "#3b4719"],
+  ouro: ["#3a3f5c", "#151827"], petroleo: ["#f4a261", "#b8571a"], minerio: ["#56607f", "#1f2337"], dinheiro: ["#2fd36b", "#11823d"],
+  navio: ["#3b8cff", "#1546a0"], aviao: ["#ff5d6c", "#a3122a"], lagosta: ["#ff7a45", "#c81e1e"],
+};
+const Pino: React.FC<{ ator: Extract<Ator, { tipo: "icone" }>; x: number; y: number; frame: number; s: number }> = ({ ator, x, y, frame, s }) => {
+  const T = 134;
+  const nome = ator.emoji ? "emoji" : ator.icone ?? "alerta";
+  const [c1, c2] = ator.cor ? [ator.cor, ator.cor] : CORES_PINO[nome] ?? ["#26364d", "#0b1320"];
+  const t = frame - (ator.aos ?? 0);
+  const bob = Math.sin(frame / 14) * 3;
+  const onda = interpolate(t, [0, 26], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+  const corGlifo = nome === "documento" ? c2 : nome === "alerta" ? "#6b3500" : "#fff";
+  return (
+    <>
+      {/* sombra no chão + onda */}
+      <div style={{ position: "absolute", left: x - 26, top: y - 7, width: 52, height: 14, borderRadius: "50%", background: "rgba(0,0,0,.45)", filter: "blur(3px)", opacity: s }} />
+      {onda < 1 && (
+        <div style={{ position: "absolute", left: x, top: y, width: 150, height: 52, marginLeft: -75, marginTop: -26, borderRadius: "50%", border: `4px solid ${c1}`, transform: `scale(${0.2 + onda * 1.4})`, opacity: (1 - onda) * 0.9 }} />
+      )}
+      <div style={{ position: "absolute", left: x, top: y, transform: `translate(-50%, -100%) translateY(${bob - (1 - s) * 40}px) scale(${s})`, transformOrigin: "50% 100%", opacity: Math.min(1, s * 1.5), display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div style={{ position: "relative", width: T, height: T, borderRadius: "50%", background: `linear-gradient(160deg, ${c1} 0%, ${c2} 100%)`, border: "5px solid #fff", boxShadow: "0 12px 26px rgba(0,0,0,.55)", overflow: "hidden" }}>
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 32% 22%, rgba(255,255,255,.45) 0%, rgba(255,255,255,0) 45%)" }} />
+          {ator.emoji ? (
+            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: T * 0.5, lineHeight: 1, filter: "drop-shadow(0 3px 3px rgba(0,0,0,.4))" }}>{ator.emoji}</div>
+          ) : (
+            <svg viewBox="-50 -50 100 100" style={{ position: "absolute", inset: T * 0.14, width: T * 0.72 - 10, height: T * 0.72 - 10, filter: "drop-shadow(0 3px 2px rgba(0,0,0,.35))" }}>
+              <g transform="scale(.82)"><Glifo icone={ator.icone ?? "alerta"} cor={corGlifo} /></g>
+            </svg>
+          )}
+        </div>
+        <div style={{ width: 0, height: 0, marginTop: -3, borderLeft: "15px solid transparent", borderRight: "15px solid transparent", borderTop: "20px solid #fff", filter: "drop-shadow(0 4px 3px rgba(0,0,0,.4))" }} />
+      </div>
+      {ator.rotulo && (
+        <div style={{ position: "absolute", left: x, top: y + 12, transform: `translateX(-50%) scale(${s})`, transformOrigin: "50% 0", opacity: Math.min(1, s * 1.5), background: "rgba(9,14,24,.88)", color: "#fff", fontFamily: FONTE_LEGENDA, fontWeight: 800, fontSize: 28, letterSpacing: 1.2, lineHeight: 1.15, textTransform: "uppercase", textAlign: "center", whiteSpace: "pre", padding: "7px 16px", borderRadius: 999, borderBottom: `4px solid ${c1}`, boxShadow: "0 6px 16px rgba(0,0,0,.5)" }}>
+          {ator.rotulo}
+        </div>
+      )}
+    </>
+  );
+};
+
 const Glifo: React.FC<{ icone: Icone; cor: string }> = ({ icone, cor }) => {
   switch (icone) {
     case "documento":
@@ -282,11 +317,11 @@ const Glifo: React.FC<{ icone: Icone; cor: string }> = ({ icone, cor }) => {
       );
     case "radar":
       return (
-        <g fill="none" stroke="#1fa45b" strokeWidth={5}>
+        <g fill="none" stroke={cor} strokeWidth={5}>
           <circle r={36} />
           <circle r={20} />
           <line x2={30} y2={-20} strokeWidth={6} />
-          <circle cx={14} cy={10} r={5} fill="#1fa45b" />
+          <circle cx={14} cy={10} r={5} fill={cor} />
         </g>
       );
     case "tropa":
@@ -323,7 +358,7 @@ const Glifo: React.FC<{ icone: Icone; cor: string }> = ({ icone, cor }) => {
         </g>
       );
     case "dinheiro":
-      return <text y={30} textAnchor="middle" fontSize={84} fontFamily={FONTE_TITULO} fill="#1fa45b">$</text>;
+      return <text y={30} textAnchor="middle" fontSize={84} fontFamily={FONTE_TITULO} fill={cor}>$</text>;
     default:
       return null;
   }

@@ -324,7 +324,8 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
         if (a.tipo === "fala" || a.tipo === "reacao") {
           const vizinhos = (cena.atores ?? []).filter((o) => o !== a && Math.hypot(o.lonlat[0] - a.lonlat[0], o.lonlat[1] - a.lonlat[1]) * ppg < 40);
           if (vizinhos.some((o) => o.tipo === "retrato")) elevacao = 130;
-          else if (vizinhos.some((o) => o.tipo === "icone" || o.tipo === "unidade" || o.tipo === "bandeira")) elevacao = 80;
+          else if (vizinhos.some((o) => o.tipo === "icone")) elevacao = 178; // pino de mapa: o balão sai do topo do pino
+          else if (vizinhos.some((o) => o.tipo === "unidade" || o.tipo === "bandeira")) elevacao = 80;
         }
         // Balão/emoji sem o dono visível na tela não aparece (era o "emoji saindo do nada").
         if (xy && (a.tipo === "fala" || a.tipo === "reacao") && (xy[0] < 20 || xy[0] > W - 20 || xy[1] < 20 || xy[1] > H - 20)) return null;

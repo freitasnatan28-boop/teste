@@ -210,7 +210,7 @@ beats["b22"] = {"cenas": [
      A("retrato",(-80,33.5),img="carter",nome="JIMMY CARTER",em="Jimmy"),
      A("bandeira",PTY,pais="PAN",em="Omar"),
      A("rotulo",(-79.5,6.0),texto="OMAR TORRIJOS",em="Torrijos"),
-     A("icone",(-70,24),icone="acordo",rotulo="2 TREATIES",em="treaties"),
+     A("icone",(-63,21),icone="acordo",rotulo="2 TREATIES",em="treaties"),
      A("fala",PTY,texto="FULL CONTROL BY 1999.",em="full")]},
 ]}
 beats["b23"] = {"cenas": [
