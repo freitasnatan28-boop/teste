@@ -99,6 +99,7 @@ const LISTRAS: Record<string, string[]> = {
   BRA: ["#009c3b", "#ffdf00"], FRA: ["#0055a4", "#ffffff", "#ef4135"], USA: ["#b22234", "#ffffff"], ESP: ["#aa151b", "#f1bf00"],
   MEX: ["#006847", "#ffffff", "#ce1126"], RUS: ["#ffffff", "#0039a6", "#d52b1e"], DNK: ["#c8102e", "#ffffff"], GRL: ["#ffffff", "#c8102e"],
   GBR: ["#012169", "#ffffff", "#c8102e"], CHN: ["#ee1c25", "#ffde00"], URS: ["#cc0000", "#ffde00"],
+  PAN: ["#ffffff", "#da121a", "#072357"], COL: ["#fcd116", "#003893", "#ce1126"],
 };
 
 const LIVRE_LEGENDA = 215; // px reservados embaixo para a legenda
@@ -252,7 +253,10 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
         {cena.rotas?.map((r, i) => {
           const ini = r.inicio ?? 0.05;
           const fim = r.fim ?? 0.75;
-          const p = interpolate(f / duracaoCena, [ini, fim], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.quad) });
+          // Rota presa a uma palavra ("em" → aos, em frames) ou a uma fração da cena (inicio/fim).
+          const p = r.aos !== undefined
+            ? interpolate(f, [r.aos, r.aos + (r.dur ?? 75)], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.quad) })
+            : interpolate(f / duracaoCena, [ini, fim], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.quad) });
           if (p <= 0) return null;
           const parcial: LonLat[] = [];
           for (let k = 0; k <= 60; k++) parcial.push(aoLongo(r.pontos, (k / 60) * p));
@@ -276,6 +280,12 @@ export const Mapa: React.FC<PropsCena<Extract<Cena, { tipo: "mapa" }>>> = ({ cen
                     {r.icone === "dinheiro" && <text x={26} y={46} textAnchor="middle" fontFamily="Anton" fontSize={50} fill="#1fa45b">$</text>}
                   </g>
                 </g>
+              )}
+              {ponta && r.contador && (
+                // Hodômetro: o número sobe junto com a ponta da rota.
+                <text x={ponta[0]} y={ponta[1] - (r.icone ? 52 : 22)} textAnchor="middle" fontFamily="Anton" fontSize={58} fill={COR.amarelo} stroke="#000" strokeWidth={7} paintOrder="stroke" letterSpacing={1}>
+                  {`${Math.round(r.contador.ate * p).toLocaleString("en-US")}${r.contador.sufixo ? " " + r.contador.sufixo : ""}`}
+                </text>
               )}
             </g>
           );

@@ -112,6 +112,78 @@ const Legenda: React.FC<{ palavras: { t: string; aos: number; chave?: boolean }[
   );
 };
 
+// Cartela de capítulo do modelo de mapa: etiqueta amarela "CHAPTER 3" + título, entra varrendo da esquerda.
+const CapituloMapa: React.FC<{ numero: number; titulo: string }> = ({ numero, titulo }) => {
+  const f = useCurrentFrame();
+  const textos = useTextos();
+  const barra = interpolate(f, [4, 16, 84, 96], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
+  const texto = interpolate(f, [10, 22, 80, 92], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+  return (
+    <div style={{ position: "absolute", left: 60, top: 54 }}>
+      <div style={{ display: "inline-block", background: COR.amarelo, color: "#000", fontFamily: FONTE_LEGENDA, fontWeight: 800, fontSize: 26, letterSpacing: 4, padding: "6px 14px", clipPath: `inset(0 ${100 - barra * 100}% 0 0)` }}>
+        {textos.capitulo} {numero}
+      </div>
+      <div style={{ marginTop: 6, fontFamily: FONTE_TITULO, fontSize: 70, lineHeight: 1.05, color: "#fff", textTransform: "uppercase", opacity: texto, transform: `translateX(${(1 - texto) * -40}px)`, textShadow: "0 0 4px #000, 0 4px 0 rgba(0,0,0,.7), 0 0 24px rgba(0,0,0,.8)", whiteSpace: "nowrap" }}>
+        {titulo}
+      </div>
+      <div style={{ marginTop: 10, height: 6, width: 260 * barra, background: COR.amarelo, boxShadow: "0 2px 8px rgba(0,0,0,.6)" }} />
+    </div>
+  );
+};
+
+// Lembrete de inscrição: botão vermelho + sino, um cursor entra e clica (vira "SUBSCRIBED" e o sino balança).
+const Inscrever: React.FC = () => {
+  const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const textos = useTextos();
+  const entra = spring({ frame: f, fps, config: { damping: 12, stiffness: 180 } });
+  const sai = interpolate(f, [125, 135], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const CLIQUE = 40;
+  const clicou = f >= CLIQUE;
+  const aperta = interpolate(f, [CLIQUE - 3, CLIQUE, CLIQUE + 4], [1, 0.9, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const cx = interpolate(f, [10, CLIQUE - 4], [520, 250], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
+  const cy = interpolate(f, [10, CLIQUE - 4], [190, 62], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
+  const sino = clicou ? Math.sin((f - CLIQUE) * 0.9) * interpolate(f, [CLIQUE, CLIQUE + 30], [22, 0], { extrapolateRight: "clamp" }) : 0;
+  return (
+    <div style={{ position: "absolute", left: 60, top: 60, opacity: Math.min(entra, sai), transform: `scale(${0.6 + 0.4 * entra})`, transformOrigin: "left center" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 14, background: "rgba(10,14,20,.82)", borderRadius: 60, padding: "10px 12px 10px 10px", boxShadow: "0 8px 24px rgba(0,0,0,.55)" }}>
+          <LogoCanal tamanho={64} />
+          <div style={{ fontFamily: FONTE_LEGENDA, fontWeight: 800, fontSize: 30, color: "#fff", marginRight: 6 }}>{textos.marca}</div>
+          <div style={{ transform: `scale(${aperta})`, background: clicou ? "#3a3f47" : "#ff0033", color: "#fff", fontFamily: FONTE_LEGENDA, fontWeight: 800, fontSize: 30, letterSpacing: 1, padding: "14px 30px", borderRadius: 40 }}>
+            {clicou ? `${textos.inscrito} ✓` : textos.inscreva}
+          </div>
+          <div style={{ fontSize: 40, transform: `rotate(${sino}deg)`, transformOrigin: "50% 10%", marginRight: 10 }}>🔔</div>
+        </div>
+      </div>
+      {f < CLIQUE + 30 && (
+        <svg width={44} height={56} viewBox="0 0 22 28" style={{ position: "absolute", left: cx + 300, top: cy, filter: "drop-shadow(0 3px 4px rgba(0,0,0,.6))", transform: `scale(${aperta})` }}>
+          <path d="M1 1 L1 22 L6.5 17 L10.5 26 L14 24.5 L10 15.8 L17.5 15.8 Z" fill="#fff" stroke="#000" strokeWidth={1.5} strokeLinejoin="round" />
+        </svg>
+      )}
+    </div>
+  );
+};
+
+// Barra de progresso fininha no topo, dividida pelos capítulos (o espectador vê quanto falta).
+const Progresso: React.FC<{ capitulos: number[]; duracao: number }> = ({ capitulos, duracao }) => {
+  const f = useCurrentFrame();
+  const marcos = [0, ...capitulos, duracao];
+  return (
+    <div style={{ position: "absolute", left: 0, right: 0, top: 0, height: 6, display: "flex", gap: 4 }}>
+      {marcos.slice(0, -1).map((ini, i) => {
+        const fim = marcos[i + 1];
+        const p = Math.min(1, Math.max(0, (f - ini) / (fim - ini)));
+        return (
+          <div key={i} style={{ flex: fim - ini, background: "rgba(255,255,255,.22)", position: "relative" }}>
+            <div style={{ position: "absolute", inset: 0, width: `${p * 100}%`, background: COR.amarelo }} />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 // Documentário: granulado de filme + vinheta. Modelo de mapa: imagem limpa, só a marca d'água.
 const Acabamento: React.FC<{ limpo: boolean }> = ({ limpo }) => {
   const f = useCurrentFrame();
@@ -120,7 +192,7 @@ const Acabamento: React.FC<{ limpo: boolean }> = ({ limpo }) => {
     <AbsoluteFill style={{ pointerEvents: "none" }}>
       {!limpo && <Img src={staticFile(`texturas/grao-${f % 6}.png`)} style={{ position: "absolute", width: "100%", height: "100%", opacity: 0.06, mixBlendMode: "overlay", imageRendering: "pixelated" }} />}
       {!limpo && <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%)" }} />}
-      <div style={{ position: "absolute", right: 40, top: 34, opacity: 0.55, display: "flex", alignItems: "center", gap: 12 }}>
+      <div style={{ position: "absolute", right: 40, top: 30, opacity: 0.8, display: "flex", alignItems: "center", gap: 12, background: "rgba(0,0,0,.38)", borderRadius: 40, padding: "6px 18px 6px 8px" }}>
         <LogoCanal tamanho={54} />
         <span style={{ fontFamily: FONTE_TITULO, fontSize: 30, color: COR.texto, letterSpacing: 1 }}>{textos.marca}</span>
       </div>
@@ -156,6 +228,17 @@ export const Video: React.FC<{ timeline: Timeline | null; video: string }> = ({ 
         </Sequence>
       ))}
       <Acabamento limpo={mapa} />
+      {mapa && timeline.capitulos.map((c) => (
+        <Sequence key={`cm${c.numero}`} from={c.inicio + 6} durationInFrames={100} layout="none">
+          <CapituloMapa numero={c.numero} titulo={c.titulo} />
+        </Sequence>
+      ))}
+      {(timeline.inscrever ?? []).map((ini, i) => (
+        <Sequence key={`ins${i}`} from={ini} durationInFrames={136} layout="none">
+          <Inscrever />
+        </Sequence>
+      ))}
+      {mapa && <Progresso capitulos={timeline.capitulos.map((c) => c.inicio)} duracao={duracao} />}
       {(timeline.legendas ?? []).map((l, i) => (
         <Sequence key={`l${i}`} from={l.inicio} durationInFrames={Math.max(1, l.fim - l.inicio)} layout="none">
           <Legenda palavras={l.palavras} />

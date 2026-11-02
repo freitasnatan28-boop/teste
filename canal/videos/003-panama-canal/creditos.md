@@ -1,0 +1,13 @@
+Imagens:
+- Official portrait of President Donald J. Trump (2017), Shealah Craighead, Library of Congress, no known restrictions https://tile.loc.gov/storage-services/service/pnp/ppbd/00600/00608r.jpg
+- Theodore Roosevelt portrait, facing front (c1904), Library of Congress, no known restrictions https://tile.loc.gov/storage-services/service/pnp/ppmsca/36000/36082v.jpg
+- Ferdinand de Lesseps, bust portrait (1897), Library of Congress, public domain (published 1897) https://tile.loc.gov/storage-services/service/pnp/cph/3a30000/3a34000/3a34600/3a34673r.jpg
+- William Crawford Gorgas, Surgeon General (1914), Harris & Ewing, Library of Congress, no known restrictions https://tile.loc.gov/storage-services/service/pnp/hec/03900/03937v.jpg
+- Culebra Cut showing Cucaracha land slide (1913), Keystone View Co., Library of Congress, no known restrictions https://tile.loc.gov/storage-services/service/pnp/stereo/1s30000/1s34000/1s34900/1s34971v.jpg
+- President Roosevelt running an American steam-shovel at Culebra Cut (1906), Underwood & Underwood, Library of Congress, no known restrictions https://tile.loc.gov/storage-services/service/pnp/stereo/1s00000/1s02000/1s02300/1s02355v.jpg
+- Culebra Cut, gang of 150 men shifting track by hand (1912), Harris & Ewing, Library of Congress https://tile.loc.gov/storage-services/service/pnp/hec/13500/13520v.jpg
+- South over Gatun Locks and Gatun Lake (c1913), Keystone View Co., Library of Congress https://tile.loc.gov/storage-services/service/pnp/cph/3c10000/3c17000/3c17400/3c17403v.jpg
+- Opening of the Panama Canal, S.S. Ancon in Culebra Cut, Aug. 15, 1914, Library of Congress https://tile.loc.gov/storage-services/service/pnp/cph/3c20000/3c23000/3c23600/3c23622v.jpg
+- Jimmy Carter, head-and-shoulders portrait next to an American flag (1977), Library of Congress, no known restrictions https://tile.loc.gov/storage-services/service/pnp/cph/3b50000/3b52000/3b52000/3b52090r.jpg
+- Ronald Reagan during his second formal press conference as President (1981), U.S. News & World Report Collection, Library of Congress, no known restrictions https://tile.loc.gov/storage-services/service/pnp/ppmsca/95100/95191v.jpg
+- Satellite imagery: NASA Blue Marble (public domain)

@@ -1,0 +1,228 @@
+{
+ "id": "b24",
+ "capitulo": "The Giveaway",
+ "visual": "Shield icon. Neutrality treaty. \"1989\" troops route.",
+ "texto": "But there was a catch. A second treaty said the canal must stay neutral, and it gave the United States the right to defend it. And Washington used its muscle. In 1989, twenty-seven thousand American troops invaded Panama to remove the dictator Manuel Noriega.",
+ "palavras": [
+  {
+   "texto": "But",
+   "inicio": 0,
+   "fim": 0.232
+  },
+  {
+   "texto": "there",
+   "inicio": 0.279,
+   "fim": 0.476
+  },
+  {
+   "texto": "was",
+   "inicio": 0.522,
+   "fim": 0.731
+  },
+  {
+   "texto": "a",
+   "inicio": 0.801,
+   "fim": 0.836
+  },
+  {
+   "texto": "catch.",
+   "inicio": 0.894,
+   "fim": 1.533
+  },
+  {
+   "texto": "A",
+   "inicio": 1.811,
+   "fim": 1.892
+  },
+  {
+   "texto": "second",
+   "inicio": 2.009,
+   "fim": 2.357
+  },
+  {
+   "texto": "treaty",
+   "inicio": 2.403,
+   "fim": 2.81
+  },
+  {
+   "texto": "said",
+   "inicio": 3.088,
+   "fim": 3.344
+  },
+  {
+   "texto": "the",
+   "inicio": 3.379,
+   "fim": 3.448
+  },
+  {
+   "texto": "canal",
+   "inicio": 3.506,
+   "fim": 3.982
+  },
+  {
+   "texto": "must",
+   "inicio": 4.075,
+   "fim": 4.354
+  },
+  {
+   "texto": "stay",
+   "inicio": 4.447,
+   "fim": 4.702
+  },
+  {
+   "texto": "neutral,",
+   "inicio": 4.772,
+   "fim": 5.41
+  },
+  {
+   "texto": "and",
+   "inicio": 5.793,
+   "fim": 5.968
+  },
+  {
+   "texto": "it",
+   "inicio": 6.049,
+   "fim": 6.118
+  },
+  {
+   "texto": "gave",
+   "inicio": 6.177,
+   "fim": 6.397
+  },
+  {
+   "texto": "the",
+   "inicio": 6.432,
+   "fim": 6.502
+  },
+  {
+   "texto": "United",
+   "inicio": 6.571,
+   "fim": 6.931
+  },
+  {
+   "texto": "States",
+   "inicio": 6.966,
+   "fim": 7.291
+  },
+  {
+   "texto": "the",
+   "inicio": 7.361,
+   "fim": 7.454
+  },
+  {
+   "texto": "right",
+   "inicio": 7.535,
+   "fim": 7.767
+  },
+  {
+   "texto": "to",
+   "inicio": 7.825,
+   "fim": 7.918
+  },
+  {
+   "texto": "defend",
+   "inicio": 7.999,
+   "fim": 8.394
+  },
+  {
+   "texto": "it.",
+   "inicio": 8.464,
+   "fim": 8.789
+  },
+  {
+   "texto": "And",
+   "inicio": 8.963,
+   "fim": 9.288
+  },
+  {
+   "texto": "Washington",
+   "inicio": 9.381,
+   "fim": 10.089
+  },
+  {
+   "texto": "used",
+   "inicio": 10.24,
+   "fim": 10.623
+  },
+  {
+   "texto": "its",
+   "inicio": 10.67,
+   "fim": 10.82
+  },
+  {
+   "texto": "muscle.",
+   "inicio": 10.879,
+   "fim": 11.459
+  },
+  {
+   "texto": "In",
+   "inicio": 11.633,
+   "fim": 11.796
+  },
+  {
+   "texto": "1989,",
+   "inicio": 11.854,
+   "fim": 13.154
+  },
+  {
+   "texto": "twenty-seven",
+   "inicio": 13.363,
+   "fim": 14.176
+  },
+  {
+   "texto": "thousand",
+   "inicio": 14.257,
+   "fim": 14.733
+  },
+  {
+   "texto": "American",
+   "inicio": 14.803,
+   "fim": 15.302
+  },
+  {
+   "texto": "troops",
+   "inicio": 15.349,
+   "fim": 15.79
+  },
+  {
+   "texto": "invaded",
+   "inicio": 16.115,
+   "fim": 16.684
+  },
+  {
+   "texto": "Panama",
+   "inicio": 16.765,
+   "fim": 17.381
+  },
+  {
+   "texto": "to",
+   "inicio": 17.439,
+   "fim": 17.543
+  },
+  {
+   "texto": "remove",
+   "inicio": 17.624,
+   "fim": 18.077
+  },
+  {
+   "texto": "the",
+   "inicio": 18.124,
+   "fim": 18.205
+  },
+  {
+   "texto": "dictator",
+   "inicio": 18.251,
+   "fim": 18.762
+  },
+  {
+   "texto": "Manuel",
+   "inicio": 18.832,
+   "fim": 19.331
+  },
+  {
+   "texto": "Noriega.",
+   "inicio": 19.412,
+   "fim": 20.759
+  }
+ ]
+}

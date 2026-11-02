@@ -54,7 +54,7 @@ export const Aviao: React.FC<{ tamanho?: number; cor?: string }> = ({ tamanho = 
 );
 
 // Largura / altura oficial de cada bandeira (as outras são 3:2).
-const RAZAO: Partial<Record<Pais, number>> = { USA: 1.9, DNK: 37 / 28, GBR: 2, };
+const RAZAO: Partial<Record<Pais, number>> = { USA: 1.9, DNK: 37 / 28, GBR: 2 };
 
 // "esticar": cobre a caixa toda sem deformar (corta as sobras), para pintar o território do país com a bandeira.
 export const Bandeira: React.FC<{ pais: Pais; largura?: number; altura?: number; esticar?: boolean; x?: number; y?: number }> = ({ pais, largura = 180, altura, esticar, x, y }) => {
@@ -127,6 +127,24 @@ export const Bandeira: React.FC<{ pais: Pais; largura?: number; altura?: number;
         <path d="M0 0 L60 30 M60 0 L0 30" stroke="#c8102e" strokeWidth={2} />
         <path d="M30 0 V30 M0 15 H60" stroke="#fff" strokeWidth={10} />
         <path d="M30 0 V30 M0 15 H60" stroke="#c8102e" strokeWidth={6} />
+      </svg>
+    );
+  if (pais === "PAN")
+    return (
+      <svg width={largura} height={a} viewBox="0 0 30 20" {...extra}>
+        <rect width={30} height={20} fill="#fff" />
+        <rect x={15} width={15} height={10} fill="#da121a" />
+        <rect y={10} width={15} height={10} fill="#072357" />
+        <polygon points="7.5,2.2 8.4,4.4 10.8,4.5 8.9,6 9.6,8.3 7.5,7 5.4,8.3 6.1,6 4.2,4.5 6.6,4.4" fill="#072357" />
+        <polygon points="22.5,12.2 23.4,14.4 25.8,14.5 23.9,16 24.6,18.3 22.5,17 20.4,18.3 21.1,16 19.2,14.5 21.6,14.4" fill="#da121a" />
+      </svg>
+    );
+  if (pais === "COL")
+    return (
+      <svg width={largura} height={a} viewBox="0 0 3 2" {...extra}>
+        <rect width={3} height={1} fill="#fcd116" />
+        <rect y={1} width={3} height={0.5} fill="#003893" />
+        <rect y={1.5} width={3} height={0.5} fill="#ce1126" />
       </svg>
     );
   if (pais === "CHN" || pais === "URS")

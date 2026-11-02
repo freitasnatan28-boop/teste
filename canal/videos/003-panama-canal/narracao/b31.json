@@ -1,0 +1,203 @@
+{
+ "id": "b31",
+ "capitulo": "The Pattern",
+ "visual": "Wide map: Panama, Greenland lit up. Chokepoint icons.",
+ "texto": "Look at the map again. Greenland in the north. Panama in the south. Both sit on the routes that move the world's trade and the world's navies. Control those points, and you control who can move, and how fast.",
+ "palavras": [
+  {
+   "texto": "Look",
+   "inicio": 0,
+   "fim": 0.221
+  },
+  {
+   "texto": "at",
+   "inicio": 0.255,
+   "fim": 0.313
+  },
+  {
+   "texto": "the",
+   "inicio": 0.348,
+   "fim": 0.418
+  },
+  {
+   "texto": "map",
+   "inicio": 0.464,
+   "fim": 0.685
+  },
+  {
+   "texto": "again.",
+   "inicio": 0.743,
+   "fim": 1.3
+  },
+  {
+   "texto": "Greenland",
+   "inicio": 1.544,
+   "fim": 2.183
+  },
+  {
+   "texto": "in",
+   "inicio": 2.252,
+   "fim": 2.334
+  },
+  {
+   "texto": "the",
+   "inicio": 2.38,
+   "fim": 2.45
+  },
+  {
+   "texto": "north.",
+   "inicio": 2.508,
+   "fim": 3.019
+  },
+  {
+   "texto": "Panama",
+   "inicio": 3.297,
+   "fim": 3.936
+  },
+  {
+   "texto": "in",
+   "inicio": 4.017,
+   "fim": 4.145
+  },
+  {
+   "texto": "the",
+   "inicio": 4.191,
+   "fim": 4.261
+  },
+  {
+   "texto": "south.",
+   "inicio": 4.331,
+   "fim": 4.923
+  },
+  {
+   "texto": "Both",
+   "inicio": 5.306,
+   "fim": 5.619
+  },
+  {
+   "texto": "sit",
+   "inicio": 5.712,
+   "fim": 5.979
+  },
+  {
+   "texto": "on",
+   "inicio": 6.037,
+   "fim": 6.107
+  },
+  {
+   "texto": "the",
+   "inicio": 6.153,
+   "fim": 6.223
+  },
+  {
+   "texto": "routes",
+   "inicio": 6.269,
+   "fim": 6.56
+  },
+  {
+   "texto": "that",
+   "inicio": 6.618,
+   "fim": 6.78
+  },
+  {
+   "texto": "move",
+   "inicio": 6.85,
+   "fim": 7.152
+  },
+  {
+   "texto": "the",
+   "inicio": 7.187,
+   "fim": 7.256
+  },
+  {
+   "texto": "world's",
+   "inicio": 7.314,
+   "fim": 7.709
+  },
+  {
+   "texto": "trade",
+   "inicio": 7.767,
+   "fim": 8.197
+  },
+  {
+   "texto": "and",
+   "inicio": 8.243,
+   "fim": 8.406
+  },
+  {
+   "texto": "the",
+   "inicio": 8.475,
+   "fim": 8.545
+  },
+  {
+   "texto": "world's",
+   "inicio": 8.591,
+   "fim": 8.963
+  },
+  {
+   "texto": "navies.",
+   "inicio": 9.021,
+   "fim": 9.694
+  },
+  {
+   "texto": "Control",
+   "inicio": 10.077,
+   "fim": 10.623
+  },
+  {
+   "texto": "those",
+   "inicio": 10.704,
+   "fim": 10.96
+  },
+  {
+   "texto": "points,",
+   "inicio": 11.018,
+   "fim": 11.656
+  },
+  {
+   "texto": "and",
+   "inicio": 11.807,
+   "fim": 11.97
+  },
+  {
+   "texto": "you",
+   "inicio": 12.028,
+   "fim": 12.121
+  },
+  {
+   "texto": "control",
+   "inicio": 12.202,
+   "fim": 12.69
+  },
+  {
+   "texto": "who",
+   "inicio": 12.759,
+   "fim": 12.91
+  },
+  {
+   "texto": "can",
+   "inicio": 12.968,
+   "fim": 13.119
+  },
+  {
+   "texto": "move,",
+   "inicio": 13.189,
+   "fim": 13.56
+  },
+  {
+   "texto": "and",
+   "inicio": 13.584,
+   "fim": 13.711
+  },
+  {
+   "texto": "how",
+   "inicio": 13.781,
+   "fim": 13.955
+  },
+  {
+   "texto": "fast.",
+   "inicio": 14.071,
+   "fim": 15.232
+  }
+ ]
+}

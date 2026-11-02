@@ -1,0 +1,133 @@
+{
+ "id": "b14",
+ "capitulo": "How to Buy a Country",
+ "visual": "Roosevelt bubble \"I TOOK THE ISTHMUS\". Colombia price tag $25,000,000 in 1921.",
+ "texto": "Roosevelt later bragged about it: I took the Isthmus. Years later, in 1921, the United States quietly paid Colombia twenty-five million dollars to make peace.",
+ "palavras": [
+  {
+   "texto": "Roosevelt",
+   "inicio": 0,
+   "fim": 0.685
+  },
+  {
+   "texto": "later",
+   "inicio": 0.755,
+   "fim": 1.045
+  },
+  {
+   "texto": "bragged",
+   "inicio": 1.103,
+   "fim": 1.451
+  },
+  {
+   "texto": "about",
+   "inicio": 1.486,
+   "fim": 1.776
+  },
+  {
+   "texto": "it:",
+   "inicio": 1.834,
+   "fim": 2.159
+  },
+  {
+   "texto": "I",
+   "inicio": 2.485,
+   "fim": 2.601
+  },
+  {
+   "texto": "took",
+   "inicio": 2.717,
+   "fim": 2.972
+  },
+  {
+   "texto": "the",
+   "inicio": 3.042,
+   "fim": 3.135
+  },
+  {
+   "texto": "Isthmus.",
+   "inicio": 3.204,
+   "fim": 4.005
+  },
+  {
+   "texto": "Years",
+   "inicio": 4.516,
+   "fim": 4.865
+  },
+  {
+   "texto": "later,",
+   "inicio": 4.946,
+   "fim": 5.294
+  },
+  {
+   "texto": "in",
+   "inicio": 5.329,
+   "fim": 5.399
+  },
+  {
+   "texto": "1921,",
+   "inicio": 5.457,
+   "fim": 6.757
+  },
+  {
+   "texto": "the",
+   "inicio": 7.001,
+   "fim": 7.094
+  },
+  {
+   "texto": "United",
+   "inicio": 7.152,
+   "fim": 7.5
+  },
+  {
+   "texto": "States",
+   "inicio": 7.535,
+   "fim": 7.848
+  },
+  {
+   "texto": "quietly",
+   "inicio": 7.918,
+   "fim": 8.475
+  },
+  {
+   "texto": "paid",
+   "inicio": 8.557,
+   "fim": 8.824
+  },
+  {
+   "texto": "Colombia",
+   "inicio": 8.893,
+   "fim": 9.532
+  },
+  {
+   "texto": "twenty-five",
+   "inicio": 9.857,
+   "fim": 10.635
+  },
+  {
+   "texto": "million",
+   "inicio": 10.693,
+   "fim": 11.053
+  },
+  {
+   "texto": "dollars",
+   "inicio": 11.111,
+   "fim": 11.622
+  },
+  {
+   "texto": "to",
+   "inicio": 11.947,
+   "fim": 12.074
+  },
+  {
+   "texto": "make",
+   "inicio": 12.144,
+   "fim": 12.33
+  },
+  {
+   "texto": "peace.",
+   "inicio": 12.388,
+   "fim": 13.514
+  }
+ ]
+}

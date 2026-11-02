@@ -1,0 +1,183 @@
+{
+ "id": "b03",
+ "capitulo": "We're Taking It Back",
+ "visual": "The canal lights up. Price tag \"$0\". \"1999\".",
+ "texto": "But here is the strange part. The United States built that canal. It ran it for eighty-five years. And then, in 1999, it handed the whole thing over. Panama did not pay a single cent.",
+ "palavras": [
+  {
+   "texto": "But",
+   "inicio": 0,
+   "fim": 0.197
+  },
+  {
+   "texto": "here",
+   "inicio": 0.255,
+   "fim": 0.522
+  },
+  {
+   "texto": "is",
+   "inicio": 0.592,
+   "fim": 0.731
+  },
+  {
+   "texto": "the",
+   "inicio": 0.824,
+   "fim": 0.906
+  },
+  {
+   "texto": "strange",
+   "inicio": 0.952,
+   "fim": 1.382
+  },
+  {
+   "texto": "part.",
+   "inicio": 1.44,
+   "fim": 1.927
+  },
+  {
+   "texto": "The",
+   "inicio": 2.31,
+   "fim": 2.426
+  },
+  {
+   "texto": "United",
+   "inicio": 2.519,
+   "fim": 2.961
+  },
+  {
+   "texto": "States",
+   "inicio": 3.007,
+   "fim": 3.39
+  },
+  {
+   "texto": "built",
+   "inicio": 3.471,
+   "fim": 3.773
+  },
+  {
+   "texto": "that",
+   "inicio": 3.831,
+   "fim": 4.04
+  },
+  {
+   "texto": "canal.",
+   "inicio": 4.122,
+   "fim": 4.957
+  },
+  {
+   "texto": "It",
+   "inicio": 5.341,
+   "fim": 5.492
+  },
+  {
+   "texto": "ran",
+   "inicio": 5.55,
+   "fim": 5.782
+  },
+  {
+   "texto": "it",
+   "inicio": 5.84,
+   "fim": 5.933
+  },
+  {
+   "texto": "for",
+   "inicio": 5.991,
+   "fim": 6.13
+  },
+  {
+   "texto": "eighty-five",
+   "inicio": 6.211,
+   "fim": 6.931
+  },
+  {
+   "texto": "years.",
+   "inicio": 6.989,
+   "fim": 7.697
+  },
+  {
+   "texto": "And",
+   "inicio": 7.848,
+   "fim": 8.022
+  },
+  {
+   "texto": "then,",
+   "inicio": 8.081,
+   "fim": 8.649
+  },
+  {
+   "texto": "in",
+   "inicio": 8.8,
+   "fim": 8.951
+  },
+  {
+   "texto": "1999,",
+   "inicio": 9.009,
+   "fim": 10.205
+  },
+  {
+   "texto": "it",
+   "inicio": 10.252,
+   "fim": 10.344
+  },
+  {
+   "texto": "handed",
+   "inicio": 10.403,
+   "fim": 10.704
+  },
+  {
+   "texto": "the",
+   "inicio": 10.739,
+   "fim": 10.82
+  },
+  {
+   "texto": "whole",
+   "inicio": 10.867,
+   "fim": 11.146
+  },
+  {
+   "texto": "thing",
+   "inicio": 11.192,
+   "fim": 11.459
+  },
+  {
+   "texto": "over.",
+   "inicio": 11.54,
+   "fim": 12.051
+  },
+  {
+   "texto": "Panama",
+   "inicio": 12.225,
+   "fim": 12.875
+  },
+  {
+   "texto": "did",
+   "inicio": 12.968,
+   "fim": 13.142
+  },
+  {
+   "texto": "not",
+   "inicio": 13.201,
+   "fim": 13.363
+  },
+  {
+   "texto": "pay",
+   "inicio": 13.433,
+   "fim": 13.723
+  },
+  {
+   "texto": "a",
+   "inicio": 13.804,
+   "fim": 13.851
+  },
+  {
+   "texto": "single",
+   "inicio": 14.002,
+   "fim": 14.536
+  },
+  {
+   "texto": "cent.",
+   "inicio": 14.594,
+   "fim": 15.743
+  }
+ ]
+}

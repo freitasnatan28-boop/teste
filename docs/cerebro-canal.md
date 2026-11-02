@@ -66,6 +66,12 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
   Gadsden 1853 (US$ 10 mi), Alasca 1867 (US$ 7,2 mi), Ilhas Virgens 1917 (US$ 25 mi em ouro), oferta secreta de 1946
   (US$ 100 mi em ouro, revelada em 1991), base de Pituffik, terras raras, gelo do Ártico. Fatos já pesquisados (out/2026).
 
+- **003 (EN, nov/2026, renderizado):** `canal/roteiros/003-panama-canal.md`, "Why America Gave Away the Panama Canal
+  (And Now Wants It Back)", 9,2 min, mesma voz David, `velocidade: 1.07` (voz acelerada no montar, sem regravar).
+  Storyboard em `videos/003-panama-canal/storyboard-gerar.py`. Fatos conferidos (nov/2026): francês ~22 mil mortos, 1903
+  (Colômbia, USS Nashville, Bunau-Varilla, US$ 10 mi), US$ 25 mi à Colômbia em 1921, US$ 375 mi e 5.609 mortos, 1914,
+  1964 (Dia dos Mártires), tratados 1977 (Senado 68-32), invasão 1989 (27 mil), entrega 31/12/1999, seca 2023, portos da
+  CK Hutchison (Hong Kong) desde 1997 e o acordo BlackRock de 2025 (ainda em disputa com Pequim). Kit de upload em `entregas/003/`.
 - `canal/roteiros/001-guerra-da-lagosta.md`: primeiro vídeo (9,4 min). Status: roteiro aprovado, narração pronta,
   edição montada. Thumbnail em `canal/videos/001-guerra-da-lagosta/thumbnail.png`.
   Formato do arquivo serve de modelo pros próximos: títulos A/B, thumbnail, descrição com capítulos e fontes,
@@ -138,6 +144,14 @@ bash scripts/baixar_nasa.sh B1 B2 C1                            # satélite NASA
   sem nada novo, o `montar` cria `pulsos` (aproxima 16% de quem entrou por último, depois abre 10%).
   Cuidado no storyboard: `em` acha a PRIMEIRA ocorrência da palavra no beat ("Every" pegou "every deal"
   e o cartão cobriu 18 s); use duas palavras ("Every time") quando a palavra se repete.
+- Motor (nov/2026, pedido "mais completinho" no 003): cartela de capítulo no modelo de mapa ("CHAPTER N" + título),
+  barra de progresso dividida por capítulos no topo, lembrete "SUBSCRIBE" animado (cursor clica, sino balança) em 22% e
+  60% do vídeo, marca d'água com fundo escuro (legível na neve), `velocidade` no storyboard, rota presa a palavra
+  (`em`, `dur`) com hodômetro (`contador: {ate, sufixo}`), etiqueta de número genérica (`preco` com `prefixo`, `sufixo`,
+  `cor`; sem "$" trava com "hit"), ícone com qualquer emoji (`icone` + `emoji`), bandeiras PAN e COL.
+  Legenda .srt pro YouTube: `python3 scripts/legenda_srt.py ../videos/NNN-slug saida.srt`.
+  Entrega pro dono: o chat não baixa arquivo grande; subir em `entregas/NNN/` (MP4 via Git LFS) e mandar o link
+  `https://github.com/freitasnatan28-boop/teste/raw/claude/confident-brown-5hacr0/entregas/...`.
 - Feedback do dono sobre a edição (out/2026): NÃO repetir a mesma foto em cortes seguidos (parece bug);
   NÃO tocar o mesmo whoosh em toda transição. Regras atuais no `montar`: foto com movimento contínuo,
   apoio não repete foto em 25 s, som por tipo de cena girando opções, mesmo som só depois de 8 s,

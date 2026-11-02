@@ -1,0 +1,163 @@
+{
+ "id": "b05",
+ "capitulo": "The Shortcut",
+ "visual": "Route New York to San Francisco around Cape Horn. Distance counter 13,000 MILES.",
+ "texto": "Before the canal, a ship going from New York to San Francisco had to sail all the way around South America, past the storms of Cape Horn. About thirteen thousand miles.",
+ "palavras": [
+  {
+   "texto": "Before",
+   "inicio": 0,
+   "fim": 0.418
+  },
+  {
+   "texto": "the",
+   "inicio": 0.464,
+   "fim": 0.546
+  },
+  {
+   "texto": "canal,",
+   "inicio": 0.604,
+   "fim": 1.347
+  },
+  {
+   "texto": "a",
+   "inicio": 1.521,
+   "fim": 1.591
+  },
+  {
+   "texto": "ship",
+   "inicio": 1.672,
+   "fim": 1.916
+  },
+  {
+   "texto": "going",
+   "inicio": 1.985,
+   "fim": 2.241
+  },
+  {
+   "texto": "from",
+   "inicio": 2.31,
+   "fim": 2.473
+  },
+  {
+   "texto": "New",
+   "inicio": 2.554,
+   "fim": 2.705
+  },
+  {
+   "texto": "York",
+   "inicio": 2.775,
+   "fim": 3.077
+  },
+  {
+   "texto": "to",
+   "inicio": 3.135,
+   "fim": 3.228
+  },
+  {
+   "texto": "San",
+   "inicio": 3.309,
+   "fim": 3.518
+  },
+  {
+   "texto": "Francisco",
+   "inicio": 3.587,
+   "fim": 4.331
+  },
+  {
+   "texto": "had",
+   "inicio": 4.656,
+   "fim": 4.841
+  },
+  {
+   "texto": "to",
+   "inicio": 4.888,
+   "fim": 4.957
+  },
+  {
+   "texto": "sail",
+   "inicio": 5.05,
+   "fim": 5.375
+  },
+  {
+   "texto": "all",
+   "inicio": 5.457,
+   "fim": 5.828
+  },
+  {
+   "texto": "the",
+   "inicio": 5.909,
+   "fim": 5.979
+  },
+  {
+   "texto": "way",
+   "inicio": 6.037,
+   "fim": 6.188
+  },
+  {
+   "texto": "around",
+   "inicio": 6.246,
+   "fim": 6.536
+  },
+  {
+   "texto": "South",
+   "inicio": 6.618,
+   "fim": 6.896
+  },
+  {
+   "texto": "America,",
+   "inicio": 6.943,
+   "fim": 7.697
+  },
+  {
+   "texto": "past",
+   "inicio": 8.022,
+   "fim": 8.44
+  },
+  {
+   "texto": "the",
+   "inicio": 8.51,
+   "fim": 8.603
+  },
+  {
+   "texto": "storms",
+   "inicio": 8.649,
+   "fim": 9.137
+  },
+  {
+   "texto": "of",
+   "inicio": 9.195,
+   "fim": 9.265
+  },
+  {
+   "texto": "Cape",
+   "inicio": 9.346,
+   "fim": 9.601
+  },
+  {
+   "texto": "Horn.",
+   "inicio": 9.648,
+   "fim": 10.298
+  },
+  {
+   "texto": "About",
+   "inicio": 10.681,
+   "fim": 11.018
+  },
+  {
+   "texto": "thirteen",
+   "inicio": 11.064,
+   "fim": 11.587
+  },
+  {
+   "texto": "thousand",
+   "inicio": 11.668,
+   "fim": 12.179
+  },
+  {
+   "texto": "miles.",
+   "inicio": 12.26,
+   "fim": 13.375
+  }
+ ]
+}

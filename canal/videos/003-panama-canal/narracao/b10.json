@@ -1,0 +1,158 @@
+{
+ "id": "b10",
+ "capitulo": "The French Disaster",
+ "visual": "\"1889\". Bankrupt stamp. Bubble from Paris.",
+ "texto": "In 1889, the French company went bankrupt, in one of the biggest financial scandals of the century. The great canal was left half-dug in the jungle, waiting for someone else.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0,
+   "fim": 0.163
+  },
+  {
+   "texto": "1889,",
+   "inicio": 0.209,
+   "fim": 1.498
+  },
+  {
+   "texto": "the",
+   "inicio": 1.672,
+   "fim": 1.776
+  },
+  {
+   "texto": "French",
+   "inicio": 1.823,
+   "fim": 2.113
+  },
+  {
+   "texto": "company",
+   "inicio": 2.171,
+   "fim": 2.589
+  },
+  {
+   "texto": "went",
+   "inicio": 2.659,
+   "fim": 2.868
+  },
+  {
+   "texto": "bankrupt,",
+   "inicio": 2.937,
+   "fim": 3.762
+  },
+  {
+   "texto": "in",
+   "inicio": 4.005,
+   "fim": 4.145
+  },
+  {
+   "texto": "one",
+   "inicio": 4.203,
+   "fim": 4.331
+  },
+  {
+   "texto": "of",
+   "inicio": 4.365,
+   "fim": 4.423
+  },
+  {
+   "texto": "the",
+   "inicio": 4.47,
+   "fim": 4.54
+  },
+  {
+   "texto": "biggest",
+   "inicio": 4.621,
+   "fim": 5.016
+  },
+  {
+   "texto": "financial",
+   "inicio": 5.097,
+   "fim": 5.724
+  },
+  {
+   "texto": "scandals",
+   "inicio": 5.793,
+   "fim": 6.42
+  },
+  {
+   "texto": "of",
+   "inicio": 6.513,
+   "fim": 6.641
+  },
+  {
+   "texto": "the",
+   "inicio": 6.699,
+   "fim": 6.769
+  },
+  {
+   "texto": "century.",
+   "inicio": 6.827,
+   "fim": 7.535
+  },
+  {
+   "texto": "The",
+   "inicio": 8.046,
+   "fim": 8.162
+  },
+  {
+   "texto": "great",
+   "inicio": 8.22,
+   "fim": 8.44
+  },
+  {
+   "texto": "canal",
+   "inicio": 8.51,
+   "fim": 9.021
+  },
+  {
+   "texto": "was",
+   "inicio": 9.114,
+   "fim": 9.288
+  },
+  {
+   "texto": "left",
+   "inicio": 9.369,
+   "fim": 9.59
+  },
+  {
+   "texto": "half-dug",
+   "inicio": 9.659,
+   "fim": 10.368
+  },
+  {
+   "texto": "in",
+   "inicio": 10.437,
+   "fim": 10.519
+  },
+  {
+   "texto": "the",
+   "inicio": 10.565,
+   "fim": 10.635
+  },
+  {
+   "texto": "jungle,",
+   "inicio": 10.693,
+   "fim": 11.32
+  },
+  {
+   "texto": "waiting",
+   "inicio": 11.598,
+   "fim": 11.993
+  },
+  {
+   "texto": "for",
+   "inicio": 12.086,
+   "fim": 12.225
+  },
+  {
+   "texto": "someone",
+   "inicio": 12.295,
+   "fim": 12.666
+  },
+  {
+   "texto": "else.",
+   "inicio": 12.713,
+   "fim": 13.653
+  }
+ ]
+}

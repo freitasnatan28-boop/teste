@@ -28,7 +28,7 @@ export type Cena =
       zonas?: { pontos: LonLat[]; bandeira?: Pais; cor?: string; em?: string; aos?: number; rotulo?: string }[]; // área listrada (controle/zona)
       fundo?: { img: string; oeste: number; leste: number; norte: number; sul: number }; // calculado
       destaques?: { iso: string; cor?: string; em?: number }[]; // em: 0-1 dentro da cena
-      rotas?: { pontos: LonLat[]; cor?: string; icone?: "navio" | "aviao" | "lagosta" | "dinheiro"; pais?: Pais; inicio?: number; fim?: number; tracejada?: boolean }[];
+      rotas?: { pontos: LonLat[]; cor?: string; icone?: "navio" | "aviao" | "lagosta" | "dinheiro"; pais?: Pais; inicio?: number; fim?: number; tracejada?: boolean; contador?: { ate: number; sufixo?: string }; em?: string; aos?: number; dur?: number }[]; // contador: número que sobe junto com a ponta da rota (ex.: milhas)
       pontos?: { lonlat: LonLat; rotulo?: string; cor?: string; em?: number; icone?: "navio" | "lagosta" | "alvo" }[];
       titulo?: string;
       pulsos?: { aos: number; vista: Vista }[]; // calculado: a câmera se reenquadra quando a cena fica muito tempo sem novidade
@@ -44,7 +44,7 @@ export type Cena =
   | { tipo: "linhaTempo"; itens: { data: string; texto: string }[] }
   | { tipo: "final" };
 
-export type Pais = "BRA" | "FRA" | "USA" | "ESP" | "MEX" | "RUS" | "DNK" | "GRL" | "GBR" | "CHN" | "URS";
+export type Pais = "BRA" | "FRA" | "USA" | "ESP" | "MEX" | "RUS" | "DNK" | "GRL" | "GBR" | "CHN" | "URS" | "PAN" | "COL";
 
 export type Icone = "documento" | "navio" | "aviao" | "lagosta" | "ancora" | "explosao" | "alerta" | "interrogacao" | "acordo" | "radar" | "tropa" | "dinheiro" | "ouro" | "petroleo" | "minerio";
 
@@ -52,7 +52,7 @@ export type Icone = "documento" | "navio" | "aviao" | "lagosta" | "ancora" | "ex
 export type Ator = { lonlat: LonLat; em?: string; ate?: string; aos?: number; ateAos?: number } & (
   | { tipo: "retrato"; img: string; nome: string }
   | { tipo: "fala"; texto: string; dx?: number; dy?: number } // dx/dy: ignorados no modelo de mapa (balão se posiciona sozinho)
-  | { tipo: "icone"; icone: Icone; rotulo?: string; cor?: string }
+  | { tipo: "icone"; icone?: Icone; emoji?: string; rotulo?: string; cor?: string } // emoji: qualquer emoji dentro do hexágono
   | { tipo: "bandeira"; pais: Pais }
   | { tipo: "foto"; img: string; rotulo?: string }
   | { tipo: "rotulo"; texto: string; cor?: string }
@@ -60,7 +60,7 @@ export type Ator = { lonlat: LonLat; em?: string; ate?: string; aos?: number; at
   | { tipo: "unidade"; pais: Pais; forma?: "hex" | "navio"; para?: LonLat; mover?: string; moverAos?: number }
   | { tipo: "reacao"; emoji: string; dx?: number; dy?: number } // balão com emoji (😠 😟 😏 😮)
   | { tipo: "lupa"; img: string; raio?: number; rotulo?: string } // círculo que aproxima um detalhe
-  | { tipo: "preco"; valor: number; rotulo?: string } // etiqueta de preço com o número subindo (som de caixa registradora)
+  | { tipo: "preco"; valor: number; rotulo?: string; prefixo?: string; sufixo?: string; cor?: string } // etiqueta com o número subindo (prefixo padrão "$": som de caixa registradora)
   | { tipo: "carimbo"; texto: string; cor?: string } // carimbo batendo na tela (ex.: SECRET)
 );
 
@@ -72,6 +72,8 @@ export type Storyboard = {
   estilo?: "documentario" | "mapa"; // "mapa": modelo dos vídeos de geopolítica (sem granulado, sons de balão)
   trilha?: string; // arquivo em public/sons, sem extensão
   legenda?: boolean; // legenda palavra a palavra (padrão: sim)
+  velocidade?: number; // acelera a narração sem regravar (ex.: 1.07); o montar ajusta os tempos das palavras
+  inscrever?: number[]; // onde aparece o lembrete "SUBSCRIBE" (fração do vídeo; padrão 0.22 e 0.6)
   chaves?: string[]; // palavras que ficam amarelas na legenda (além dos números)
   beats: Record<
     string,
@@ -115,4 +117,5 @@ export type Timeline = {
   sons: { inicio: number; som: string; volume: number }[];
   // Legenda em blocos de poucas palavras; cada palavra acende quando é falada (aos: frames desde o início do bloco).
   legendas?: { inicio: number; fim: number; palavras: { t: string; aos: number; chave?: boolean }[] }[];
+  inscrever?: number[]; // frames do lembrete de inscrição
 };

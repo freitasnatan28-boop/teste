@@ -80,10 +80,11 @@ function transicaoPara(cena: TCena["cena"], som: string | undefined, i: number, 
 }
 
 // Voz no volume certo: -16 LUFS (a ElevenLabs entrega bem baixo, ~-30). A mixagem final vai a -14 no render.
-function normalizarVoz(origem: string, destino: string) {
+function normalizarVoz(origem: string, destino: string, velocidade = 1) {
   if (existsSync(destino)) return;
   mkdirSync(dirname(destino), { recursive: true });
-  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", origem, "-af", "loudnorm=I=-16:TP=-1.5:LRA=7", "-ar", "44100", "-b:a", "192k", destino]);
+  const tempo = velocidade !== 1 ? `atempo=${velocidade},` : "";
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", origem, "-af", `${tempo}loudnorm=I=-16:TP=-1.5:LRA=7`, "-ar", "44100", "-b:a", "192k", destino]);
 }
 
 function duracaoMp3(arquivo: string): number {
@@ -137,7 +138,10 @@ function pulsosDaCena(cena: Extract<TCena["cena"], { tipo: "mapa" }>, duracao: n
   for (const a of cena.atores ?? []) eventos.push(a.aos ?? 0);
   for (const p of cena.paises ?? []) eventos.push(p.aos ?? 0);
   for (const z of cena.zonas ?? []) eventos.push(z.aos ?? 0);
-  for (const r of cena.rotas ?? []) eventos.push(Math.round((r.inicio ?? 0) * duracao), Math.round((r.fim ?? 1) * duracao));
+  for (const r of cena.rotas ?? []) {
+    if (r.aos !== undefined) eventos.push(r.aos, r.aos + (r.dur ?? 75));
+    else eventos.push(Math.round((r.inicio ?? 0.05) * duracao), Math.round((r.fim ?? 0.75) * duracao));
+  }
   const ordem = [...new Set(eventos)].filter((e) => e < duracao).sort((a, b) => a - b);
   const pulsos: { aos: number; vista: Vista }[] = [];
   let vista = cena.para;
@@ -189,7 +193,11 @@ function main() {
 
   ids.forEach((id, n) => {
     const beat = JSON.parse(readFileSync(join(pastaDisco, "narracao", `${id}.json`), "utf8")) as { capitulo: string; palavras: Palavra[] };
-    const dur = duracaoMp3(join(pastaDisco, "narracao", `${id}.mp3`));
+    // Voz acelerada sem regravar: o áudio passa por atempo e os tempos das palavras encolhem junto.
+    const vel = sb.velocidade ?? 1;
+    beat.palavras = beat.palavras.map((w) => ({ ...w, inicio: w.inicio / vel, fim: w.fim / vel }));
+    const dur = duracaoMp3(join(pastaDisco, "narracao", `${id}.mp3`)) / vel;
+    const mix = vel !== 1 ? `${id}-v${Math.round(vel * 100)}` : id;
     const roteiro = sb.beats[id];
 
     if (beat.capitulo !== capituloAtual) {
@@ -204,8 +212,8 @@ function main() {
       if (numero > 0) tl.sons.push({ inicio: Math.round(cursor * FPS), som: estilo === "mapa" ? "luz-flash" : "whoosh-grave", volume: 0.5 });
     }
 
-    tl.beats.push({ id, inicio: Math.round(cursor * FPS), audio: `${pasta}/narracao-mix/${id}.mp3`, duracao: Math.ceil(dur * FPS) + 2 });
-    normalizarVoz(join(pastaDisco, "narracao", `${id}.mp3`), join(pastaDisco, "narracao-mix", `${id}.mp3`));
+    tl.beats.push({ id, inicio: Math.round(cursor * FPS), audio: `${pasta}/narracao-mix/${mix}.mp3`, duracao: Math.ceil(dur * FPS) + 2 });
+    normalizarVoz(join(pastaDisco, "narracao", `${id}.mp3`), join(pastaDisco, "narracao-mix", `${mix}.mp3`), vel);
 
     if (sb.legenda !== false) legendas.push(...blocosDeLegenda(beat.palavras, cursor, chaves));
 
@@ -264,6 +272,12 @@ function main() {
           if (!dono) avisos.push(`${id}: balão "${a.tipo === "fala" ? a.texto : a.emoji}" sem dono visível no mesmo ponto`);
         }
         cena.paises = cena.paises?.map((p) => ({ ...p, aos: quando(p.em, p.iso) }));
+        // Rota presa a uma palavra: começa a andar quando ela é falada (com um whoosh leve).
+        cena.rotas = cena.rotas?.map((r) => {
+          const aos = quando(r.em, "rota");
+          if (aos !== undefined) aparicoes.push({ t: cursor + t + aos / FPS, ator: { tipo: "rotulo", texto: "", lonlat: r.pontos[0] } as Ator, som: r.icone === "dinheiro" ? "moedas" : "whoosh-3" });
+          return { ...r, aos };
+        });
         cena.zonas = cena.zonas?.map((z) => ({ ...z, aos: quando(z.em, "zona") }));
       }
       if (cena.tipo === "lista") {
@@ -378,9 +392,10 @@ function main() {
   for (const { t, ator, som: forcado } of aparicoes) {
     if (tocados.some((x) => Math.abs(x.t - t) < 0.12)) continue;
     if (ator.tipo === "preco") {
-      // Preço: contador rolando e a caixa registradora quando o número trava.
-      tl.sons.push({ inicio: Math.round(t * FPS), som: "contagem", volume: 0.35 }, { inicio: Math.round((t + 0.85) * FPS), som: "caixa", volume: 0.45 });
-      tocados.push({ t, som: "contagem" }, { t: t + 0.85, som: "caixa" });
+      // Preço: contador rolando e a caixa registradora quando o número trava (número que não é dinheiro trava com um "hit").
+      const trava = (ator.prefixo ?? "$") === "$" ? "caixa" : "hit";
+      tl.sons.push({ inicio: Math.round(t * FPS), som: "contagem", volume: 0.35 }, { inicio: Math.round((t + 0.85) * FPS), som: trava, volume: 0.45 });
+      tocados.push({ t, som: "contagem" }, { t: t + 0.85, som: trava });
       continue;
     }
     const som = forcado ??
@@ -398,6 +413,20 @@ function main() {
     l.fim = Math.min(prox && prox.inicio > l.inicio ? prox.inicio : Infinity, l.fim);
   });
   if (legendas.length) tl.legendas = legendas;
+  // Lembrete "SUBSCRIBE" (só no modelo de mapa): perto de 22% e 60% do vídeo, longe das cartelas de capítulo,
+  // começando junto com um bloco de legenda. Som: pop quando entra, clique quando o cursor aperta.
+  if (estilo === "mapa") {
+    const total = Math.round(cursor * FPS);
+    tl.inscrever = [];
+    for (const fr of sb.inscrever ?? [0.22, 0.6]) {
+      const alvo = total * fr;
+      const livres = legendas.filter((l) => !tl.capitulos.some((c) => Math.abs(c.inicio - l.inicio) < 8 * FPS));
+      const l = livres.reduce((a, b) => (Math.abs(b.inicio - alvo) < Math.abs(a.inicio - alvo) ? b : a), livres[0]);
+      if (!l) continue;
+      tl.inscrever.push(l.inicio);
+      tl.sons.push({ inicio: l.inicio, som: "balao-pop", volume: 0.3 }, { inicio: l.inicio + 40, som: "obturador", volume: 0.35 });
+    }
+  }
   tl.duracao = Math.round(cursor * FPS);
   writeFileSync(join(pastaDisco, "timeline.json"), JSON.stringify(tl));
   // Recorta o fundo de satélite de cada mapa (NASA Blue Marble).

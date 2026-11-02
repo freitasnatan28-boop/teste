@@ -1,0 +1,158 @@
+{
+ "id": "b15",
+ "capitulo": "The Big Ditch",
+ "visual": "\"1904\". Construction photo. Mosquito icons disappear one by one.",
+ "texto": "This time, America started with the mosquitoes. Army doctor William Gorgas drained swamps, fumigated houses and covered water barrels. Within a few years, yellow fever was gone from the zone.",
+ "palavras": [
+  {
+   "texto": "This",
+   "inicio": 0,
+   "fim": 0.255
+  },
+  {
+   "texto": "time,",
+   "inicio": 0.337,
+   "fim": 0.94
+  },
+  {
+   "texto": "America",
+   "inicio": 1.115,
+   "fim": 1.695
+  },
+  {
+   "texto": "started",
+   "inicio": 1.753,
+   "fim": 2.183
+  },
+  {
+   "texto": "with",
+   "inicio": 2.241,
+   "fim": 2.403
+  },
+  {
+   "texto": "the",
+   "inicio": 2.45,
+   "fim": 2.519
+  },
+  {
+   "texto": "mosquitoes.",
+   "inicio": 2.566,
+   "fim": 3.495
+  },
+  {
+   "texto": "Army",
+   "inicio": 3.936,
+   "fim": 4.261
+  },
+  {
+   "texto": "doctor",
+   "inicio": 4.319,
+   "fim": 4.714
+  },
+  {
+   "texto": "William",
+   "inicio": 4.795,
+   "fim": 5.178
+  },
+  {
+   "texto": "Gorgas",
+   "inicio": 5.259,
+   "fim": 5.77
+  },
+  {
+   "texto": "drained",
+   "inicio": 5.886,
+   "fim": 6.316
+  },
+  {
+   "texto": "swamps,",
+   "inicio": 6.385,
+   "fim": 7.21
+  },
+  {
+   "texto": "fumigated",
+   "inicio": 7.384,
+   "fim": 8.081
+  },
+  {
+   "texto": "houses",
+   "inicio": 8.127,
+   "fim": 8.649
+  },
+  {
+   "texto": "and",
+   "inicio": 8.893,
+   "fim": 9.102
+  },
+  {
+   "texto": "covered",
+   "inicio": 9.183,
+   "fim": 9.555
+  },
+  {
+   "texto": "water",
+   "inicio": 9.601,
+   "fim": 9.903
+  },
+  {
+   "texto": "barrels.",
+   "inicio": 9.961,
+   "fim": 10.704
+  },
+  {
+   "texto": "Within",
+   "inicio": 11.146,
+   "fim": 11.482
+  },
+  {
+   "texto": "a",
+   "inicio": 11.529,
+   "fim": 11.552
+  },
+  {
+   "texto": "few",
+   "inicio": 11.61,
+   "fim": 11.842
+  },
+  {
+   "texto": "years,",
+   "inicio": 11.923,
+   "fim": 12.62
+  },
+  {
+   "texto": "yellow",
+   "inicio": 12.864,
+   "fim": 13.201
+  },
+  {
+   "texto": "fever",
+   "inicio": 13.293,
+   "fim": 13.653
+  },
+  {
+   "texto": "was",
+   "inicio": 13.723,
+   "fim": 13.874
+  },
+  {
+   "texto": "gone",
+   "inicio": 13.944,
+   "fim": 14.257
+  },
+  {
+   "texto": "from",
+   "inicio": 14.315,
+   "fim": 14.501
+  },
+  {
+   "texto": "the",
+   "inicio": 14.559,
+   "fim": 14.629
+  },
+  {
+   "texto": "zone.",
+   "inicio": 14.687,
+   "fim": 15.65
+  }
+ ]
+}

@@ -4,8 +4,8 @@ import { createContext, useContext } from "react";
 export type Idioma = "pt" | "en";
 
 const TEXTOS = {
-  pt: { marca: "POR TRÁS DO MAPA", inscreva: "INSCREVA-SE", ia: "ILUSTRAÇÃO (IA)", contato: "CONTATO" },
-  en: { marca: "BEHIND THE MAP", inscreva: "SUBSCRIBE", ia: "AI ILLUSTRATION", contato: "CONTACT" },
+  pt: { marca: "POR TRÁS DO MAPA", inscreva: "INSCREVA-SE", ia: "ILUSTRAÇÃO (IA)", contato: "CONTATO", capitulo: "CAPÍTULO", inscrito: "INSCRITO" },
+  en: { marca: "BEHIND THE MAP", inscreva: "SUBSCRIBE", ia: "AI ILLUSTRATION", contato: "CONTACT", capitulo: "CHAPTER", inscrito: "SUBSCRIBED" },
 };
 
 export const IdiomaContexto = createContext<Idioma>("pt");

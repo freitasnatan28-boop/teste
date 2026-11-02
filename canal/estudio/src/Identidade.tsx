@@ -135,6 +135,50 @@ export const MarcaDaguaEN: React.FC = () => (
 );
 
 // Thumbnail do vídeo 002 (EN): Groenlândia no satélite com etiqueta de preço gigante.
+// Thumbnail do 003: canal brilhando dentro de um círculo vermelho, "$0" gigante, "GIVEN AWAY" e Trump pedindo de volta.
+const CANAL_THUMB = "610,295 609,328 620,346 645,361 668,366 678,382 691,395 699,410 709,433";
+export const ThumbPanama: React.FC<{ pasta: string }> = ({ pasta }) => (
+  <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
+    <Img src={staticFile(`${pasta}/imagens/thumb-fundo.jpg`)} style={{ position: "absolute", width: 1280, height: 720 }} />
+    <AbsoluteFill style={{ background: "radial-gradient(ellipse at 52% 52%, rgba(0,0,0,0) 22%, rgba(0,0,0,.55) 75%)" }} />
+    <AbsoluteFill style={{ background: "linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.15) 40%, rgba(0,0,0,0) 60%)" }} />
+    <svg width={1280} height={720} style={{ position: "absolute" }}>
+      <defs>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9" /></filter>
+      </defs>
+      <polyline points={CANAL_THUMB} stroke="#ffd400" strokeWidth={30} fill="none" strokeLinecap="round" strokeLinejoin="round" filter="url(#glow)" opacity={0.95} />
+      <polyline points={CANAL_THUMB} stroke="#fff6b0" strokeWidth={10} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <ellipse cx={660} cy={365} rx={128} ry={118} stroke="#000" strokeWidth={20} fill="none" opacity={0.5} />
+      <ellipse cx={660} cy={365} rx={128} ry={118} stroke="#ff2a2a" strokeWidth={11} fill="none" />
+      <path d="M905 300 Q 840 300 795 335" stroke="#000" strokeWidth={24} fill="none" strokeLinecap="round" />
+      <path d="M905 300 Q 840 300 795 335" stroke="#fff" strokeWidth={11} fill="none" strokeLinecap="round" />
+      <path d="M778 320 L 800 352 L 812 318 Z" fill="#fff" stroke="#000" strokeWidth={4} />
+    </svg>
+    <div style={{ position: "absolute", left: 40, top: 26, lineHeight: 0.88 }}>
+      <div style={{ fontFamily: FONTE_TITULO, fontSize: 158, color: COR.texto, WebkitTextStroke: "6px #000", textShadow: "0 10px 0 #000, 0 0 40px rgba(0,0,0,.8)" }}>GIVEN</div>
+      <div style={{ fontFamily: FONTE_TITULO, fontSize: 176, color: COR.amarelo, WebkitTextStroke: "6px #000", textShadow: "0 10px 0 #000, 0 0 40px rgba(0,0,0,.8)" }}>AWAY</div>
+    </div>
+    <div style={{ position: "absolute", left: 905, top: 205, transform: "rotate(-8deg)", display: "flex", alignItems: "center", background: COR.amarelo, color: "#000", padding: "6px 46px 6px 96px", clipPath: "polygon(60px 0, 100% 0, 100% 100%, 60px 100%, 0 50%)", boxShadow: "0 16px 40px rgba(0,0,0,.7)" }}>
+      <div style={{ position: "absolute", left: 44, top: "50%", width: 30, height: 30, borderRadius: 15, background: "#07111c", transform: "translateY(-50%)" }} />
+      <div style={{ fontFamily: FONTE_TITULO, fontSize: 200, lineHeight: 1 }}>$0</div>
+    </div>
+    <div style={{ position: "absolute", right: 36, top: 36, display: "flex", alignItems: "center", gap: 12 }}>
+      <div style={{ border: "4px solid #fff", lineHeight: 0, boxShadow: "0 6px 16px rgba(0,0,0,.6)" }}><Bandeira pais="USA" largura={110} /></div>
+      <span style={{ fontFamily: FONTE_TITULO, fontSize: 56, color: COR.texto, textShadow: CONTORNO_PRETO }}>➜</span>
+      <div style={{ border: "4px solid #fff", lineHeight: 0, boxShadow: "0 6px 16px rgba(0,0,0,.6)" }}><Bandeira pais="PAN" largura={110} /></div>
+    </div>
+    <div style={{ position: "absolute", left: 40, bottom: 34, display: "flex", alignItems: "center", gap: 18 }}>
+      <div style={{ width: 210, height: 210, borderRadius: 105, overflow: "hidden", border: "7px solid #fff", boxShadow: "0 10px 30px rgba(0,0,0,.7)" }}>
+        <Img src={staticFile(`${pasta}/imagens/trump.jpg`)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 20%" }} />
+      </div>
+      <div style={{ position: "relative", background: "#fff", color: "#000", fontFamily: FONTE_TITULO, fontSize: 64, lineHeight: 1, padding: "16px 26px", borderRadius: 18, boxShadow: "0 10px 30px rgba(0,0,0,.6)", whiteSpace: "nowrap" }}>
+        WE WANT IT <span style={{ color: "#e00" }}>BACK!</span>
+        <div style={{ position: "absolute", left: -22, top: "50%", transform: "translateY(-50%)", width: 0, height: 0, borderTop: "16px solid transparent", borderBottom: "16px solid transparent", borderRight: "24px solid #fff" }} />
+      </div>
+    </div>
+  </AbsoluteFill>
+);
+
 export const ThumbGreenland: React.FC<{ pasta: string }> = ({ pasta }) => (
   <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
     <Img src={staticFile(`${pasta}/imagens/thumb-fundo.jpg`)} style={{ position: "absolute", width: 1280, height: 720, filter: "saturate(1.2) brightness(.9)" }} />

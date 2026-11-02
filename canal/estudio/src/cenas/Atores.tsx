@@ -86,13 +86,15 @@ export const AtorNoMapa: React.FC<Props> = ({ ator, x, y, frame, pasta, elevacao
     const p = interpolate(frame - (ator.aos ?? 0), [4, 26], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
     const trava = spring({ frame: frame - (ator.aos ?? 0) - 26, fps, config: { damping: 8, stiffness: 260 } });
     const valor = Math.round(ator.valor * p);
+    const fundo = ator.cor ?? "#ffd400";
+    const escuro = fundo === "#ffd400" || fundo === "#fff" || fundo === "#ffffff";
     return (
       <div style={{ ...base, transform: `${base.transform} rotate(-4deg) scale(${1 + 0.12 * Math.sin(trava * Math.PI)})` }}>
-        <div style={{ position: "relative", display: "flex", alignItems: "center", background: "#ffd400", color: "#000", padding: "10px 34px 10px 64px", clipPath: "polygon(36px 0, 100% 0, 100% 100%, 36px 100%, 0 50%)", boxShadow: "0 10px 26px rgba(0,0,0,.6)" }}>
+        <div style={{ position: "relative", display: "flex", alignItems: "center", background: fundo, color: escuro ? "#000" : "#fff", padding: "10px 34px 10px 64px", clipPath: "polygon(36px 0, 100% 0, 100% 100%, 36px 100%, 0 50%)", boxShadow: "0 10px 26px rgba(0,0,0,.6)" }}>
           <div style={{ position: "absolute", left: 30, top: "50%", width: 18, height: 18, borderRadius: 9, background: "#07111c", transform: "translateY(-50%)" }} />
-          <div style={{ fontFamily: FONTE_TITULO, fontSize: 84, lineHeight: 1, letterSpacing: 1 }}>${valor.toLocaleString("en-US")}</div>
+          <div style={{ fontFamily: FONTE_TITULO, fontSize: 84, lineHeight: 1, letterSpacing: 1 }}>{ator.prefixo ?? "$"}{valor.toLocaleString("en-US")}{ator.sufixo ? ` ${ator.sufixo}` : ""}</div>
         </div>
-        {ator.rotulo && <div style={{ marginTop: 8, textAlign: "center", fontFamily: FONTE_TITULO, fontSize: 44, color: "#ffd400", textShadow: "0 0 3px #000, 0 3px 0 #000, 0 0 14px rgba(0,0,0,.8)", whiteSpace: "nowrap" }}>{ator.rotulo}</div>}
+        {ator.rotulo && <div style={{ marginTop: 8, textAlign: "center", fontFamily: FONTE_TITULO, fontSize: 44, color: fundo, textShadow: "0 0 3px #000, 0 3px 0 #000, 0 0 14px rgba(0,0,0,.8)", whiteSpace: "nowrap" }}>{ator.rotulo}</div>}
       </div>
     );
   }
@@ -127,7 +129,7 @@ export const AtorNoMapa: React.FC<Props> = ({ ator, x, y, frame, pasta, elevacao
   if (ator.tipo === "icone")
     return (
       <div style={{ ...base, display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <Hexagono icone={ator.icone} cor={ator.cor} tamanho={150} />
+        <Hexagono icone={ator.icone ?? "alerta"} emoji={ator.emoji} cor={ator.cor} tamanho={150} />
         {ator.rotulo && (
           <div style={{ marginTop: 6, fontFamily: FONTE_TITULO, fontSize: 44, color: "#fff", textTransform: "uppercase", textAlign: "center", whiteSpace: "pre", textShadow: "0 0 3px #000, 0 3px 0 #000, 0 0 14px rgba(0,0,0,.8)" }}>
             {ator.rotulo}
@@ -219,15 +221,18 @@ export const NavioComBandeira: React.FC<{ pais: Pais; tamanho?: number }> = ({ p
 );
 
 // Ícone dentro de um hexágono branco (como os "selos" dos vídeos de mapa).
-export const Hexagono: React.FC<{ icone: Icone; cor?: string; tamanho?: number }> = ({ icone, cor = "#1d3557", tamanho = 120 }) => (
+export const Hexagono: React.FC<{ icone: Icone; emoji?: string; cor?: string; tamanho?: number }> = ({ icone, emoji, cor = "#1d3557", tamanho = 120 }) => (
   <div style={{ position: "relative", width: tamanho, height: tamanho }}>
     <svg width={tamanho} height={tamanho} viewBox="-50 -50 100 100" style={{ position: "absolute", filter: "drop-shadow(0 6px 10px rgba(0,0,0,.6))" }}>
       <polygon points="0,-48 42,-24 42,24 0,48 -42,24 -42,-24" fill="#fff" stroke={cor} strokeWidth={5} />
-      <g transform="scale(.62)">
-        <Glifo icone={icone} cor={cor} />
-      </g>
+      {!emoji && (
+        <g transform="scale(.62)">
+          <Glifo icone={icone} cor={cor} />
+        </g>
+      )}
     </svg>
-    {(icone === "navio" || icone === "aviao" || icone === "lagosta") && (
+    {emoji && <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: tamanho * 0.46, lineHeight: 1 }}>{emoji}</div>}
+    {!emoji && (icone === "navio" || icone === "aviao" || icone === "lagosta") && (
       <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
         {icone === "navio" && <Navio tamanho={tamanho * 0.62} cor={cor} />}
         {icone === "aviao" && <Aviao tamanho={tamanho * 0.55} cor={cor} />}
