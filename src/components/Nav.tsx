@@ -1,10 +1,11 @@
 import Link from "next/link";
 
-const ITENS = [
+const ITENS: { href: string; rotulo: string; curto?: string; icone: string }[] = [
   { href: "/ofertas", rotulo: "Ofertas", icone: "🏷️" },
   { href: "/adicionar", rotulo: "Adicionar", icone: "➕" },
   { href: "/whatsapp", rotulo: "WhatsApp", icone: "💬" },
   { href: "/piloto", rotulo: "Piloto", icone: "🤖" },
+  { href: "/estudio", rotulo: "Canal Dark", curto: "Dark", icone: "🌑" },
   { href: "/configuracoes", rotulo: "Config.", icone: "⚙️" },
 ];
 
@@ -30,7 +31,7 @@ export function Nav() {
         {ITENS.map((i) => (
           <Link key={i.href} href={i.href} className="aba">
             <span aria-hidden>{i.icone}</span>
-            <span>{i.rotulo}</span>
+            <span>{i.curto ?? i.rotulo}</span>
           </Link>
         ))}
       </nav>

@@ -20,6 +20,14 @@ const schema = z.object({
   SHOPEE_APP_ID: z.string().optional().default(""),
   SHOPEE_SECRET: z.string().optional().default(""),
   SHOPEE_API_URL: z.string().optional().default("https://open-api.affiliate.shopee.com.br/graphql"),
+  // ---- Estúdio Canal Dark ----
+  ANTHROPIC_API_KEY: z.string().trim().optional().default(""),
+  OPENAI_API_KEY: z.string().trim().optional().default(""),
+  ELEVENLABS_API_KEY: z.string().trim().optional().default(""),
+  // Pasta onde ficam avatares, imagens, narrações e vídeos (fora do Git)
+  ESTUDIO_DIR: z.string().trim().optional().default("storage/estudio"),
+  // Caminho do ffmpeg (vazio = usa o que vem com o pacote ffmpeg-static)
+  FFMPEG_PATH: z.string().trim().optional().default(""),
 });
 
 export type Env = z.infer<typeof schema>;

@@ -27,6 +27,7 @@ guarda seus links de afiliado e, nas próximas fases, gera mensagens com IA, dis
 9. [Segurança e cuidados](#9-segurança-e-cuidados)
 10. [Comandos úteis](#10-comandos-úteis)
 11. [WhatsApp e piloto automático](#11-whatsapp-e-piloto-automático)
+12. [Estúdio Canal Dark (IG/EUA)](#12-estúdio-canal-dark-igeua)
 
 ---
 
@@ -61,10 +62,13 @@ guarda seus links de afiliado e, nas próximas fases, gera mensagens com IA, dis
 │   │   ├── mercadolivre/      ← adapter do Mercado Livre (API oficial + OAuth)
 │   │   └── shopee/            ← esqueleto da Shopee (desligado até a Fase 5)
 │   ├── services/ofertas.ts    ← regras: salvar oferta, histórico, score, tags, link
+│   ├── estudio/               ← Estúdio Canal Dark: chat (Claude/GPT), imagens, narração, montagem de vídeo
 │   ├── lib/                   ← score, desconto suspeito, tags, login, formatação
 │   ├── components/            ← pedaços de tela (card de oferta, botões, gráfico)
 │   ├── app/                   ← telas do painel (Ofertas, Adicionar, Configurações, Login)
 │   └── proxy.ts               ← exige login em todas as páginas
+├── assets/fontes/             ← fonte das legendas dos vídeos (Anton, licença OFL)
+├── storage/estudio/           ← avatares, imagens, áudios e vídeos gerados (fora do GitHub)
 ├── tests/                     ← testes automáticos (npm test)
 ├── ecosystem.config.cjs       ← configuração do PM2 (servidor)
 └── .env.example               ← modelo das configurações/chaves (copie para .env)
@@ -389,6 +393,9 @@ Cole este conteúdo, trocando o domínio:
 ```nginx
 server {
     server_name painel.seudominio.com.br;
+    # Estúdio Canal Dark: envio de fotos/avatares (até 20 MB) e chat que pode levar minutos
+    client_max_body_size 25m;
+    proxy_read_timeout 900s;
     location / {
         proxy_pass http://127.0.0.1:3000;
         proxy_set_header Host $host;
@@ -425,6 +432,10 @@ pm2 restart all
 Todo o banco está no arquivo `prisma/dados.db`. Faça uma cópia de vez em quando:
 ```bash
 cp ~/tia-fifi/prisma/dados.db ~/backup-$(date +%F).db
+```
+Os avatares, imagens, narrações e vídeos do Estúdio Canal Dark ficam na pasta `storage/estudio`:
+```bash
+tar czf ~/backup-estudio-$(date +%F).tgz -C ~/tia-fifi storage/estudio
 ```
 
 ### 8.8 Ver se está tudo rodando
@@ -521,3 +532,52 @@ O `ecosystem.config.cjs` já inclui o robô (`whatsapp`). Depois do `pm2 start e
 ficam ligados 24h: painel, robô e atualização de preços.
 
 Na primeira vez, acesse o painel pelo endereço do servidor, vá em **WhatsApp** e escaneie o QR.
+
+---
+
+## 12. Estúdio Canal Dark (IG/EUA)
+
+Menu **Canal Dark** (🌑). É o chat do projeto *CANAL DARK IG/EUA* dentro do seu próprio site: você conversa, gera e
+baixa tudo por aqui, no computador ou no celular.
+
+| Tela | Para que serve |
+|---|---|
+| **💬 Chat** | Conversa com a IA do canal. Ela escreve roteiros, captions e hashtags **e gera de verdade**: imagens, narração e o vídeo montado. Toque em 📎 para mandar uma foto/avatar e pedir “transforma isso em…”. |
+| **✨ Gerar** | Sem chat: gera imagem (com ou sem referência), narração (escolhendo a voz) ou monta um vídeo escolhendo as cenas na ordem. |
+| **📁 Biblioteca** | Tudo o que você enviou e gerou, com **Baixar** e **Baixar todos**. Marque ⭐ para salvar uma imagem como **avatar** e reaproveitar sempre. |
+| **⚙️ Config** | **Instruções do canal** (cole aqui o texto do seu projeto CANAL DARK IG/EUA), IA do chat, voz do narrador, formato e qualidade. |
+
+### O que cada serviço faz
+
+| Serviço | Uso | Chave no `.env` |
+|---|---|---|
+| Claude (`claude-opus-5-5`) **ou** GPT (`gpt-5.5`) | O chat (você escolhe em Config) | `ANTHROPIC_API_KEY` ou `OPENAI_API_KEY` |
+| OpenAI `gpt-image-2` | Gerar imagens e transformar fotos/avatares | `OPENAI_API_KEY` |
+| ElevenLabs | Narração (com o tempo de cada palavra, para as legendas) | `ELEVENLABS_API_KEY` |
+| ffmpeg (já vem no `npm install`) | Monta o MP4: imagens com zoom suave + narração + legendas palavra por palavra | — |
+
+> **Vídeo com IA (Sora):** a OpenAI desligou o Sora 2 e a API de vídeos em 24/09/2026. Por isso o vídeo é **montado
+> no próprio servidor** a partir das imagens e da narração, que é o formato mais comum de Reels de canal dark.
+
+### Configurar
+1. Coloque as chaves no `.env` (veja o `.env.example`) e reinicie: `pm2 restart painel`.
+2. Rode as migrações do banco (cria as tabelas do estúdio): `npx prisma migrate deploy`.
+3. Abra **Canal Dark → Config** e cole as **instruções do seu canal**. Já vem um modelo pronto para começar.
+4. Na VPS, ajuste o Nginx com `client_max_body_size 25m;` e `proxy_read_timeout 900s;` (já está no exemplo da seção 8.5).
+5. O ffmpeg é baixado pelo `npm install`. Se der erro ao montar vídeo, instale o do sistema e reinicie:
+   `sudo apt install -y ffmpeg` (ou aponte o caminho em `FFMPEG_PATH` no `.env`).
+
+### Exemplos de pedidos no chat
+- “Cria um Reels completo sobre o navio Mary Celeste: roteiro em cenas, imagens, narração e o vídeo com legendas.”
+- (com uma foto anexada) “Transforma essa pessoa num personagem sombrio estilo graphic novel, 3 variações.”
+- “Usa o avatar Luna e gera 5 cenas dela numa floresta à noite para um carrossel 4:5.”
+- “Me dá 10 hooks para vídeos sobre psicologia sombria.”
+
+### Custos (pagos direto nos serviços)
+- Imagem: centavos de dólar por imagem (qualidade “Rápida” é a mais barata). Ajuste em Config.
+- Narração: consome caracteres do seu plano da ElevenLabs.
+- Montagem do vídeo: grátis (roda no seu servidor).
+- A IA pede confirmação antes de gerar muitas imagens de uma vez.
+
+Os arquivos ficam na pasta `storage/estudio` do servidor (fora do GitHub). Apagar uma conversa **não** apaga os
+arquivos; para isso, use a Biblioteca.

@@ -21,3 +21,6 @@ logs/
 .DS_Store
 prisma/*.db-shm
 prisma/*.db-wal
+
+# Arquivos do Estúdio Canal Dark (avatares, imagens, áudios, vídeos)
+storage/

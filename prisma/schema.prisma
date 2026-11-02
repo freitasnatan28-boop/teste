@@ -189,3 +189,57 @@ model Persona {
   forbidden    String   @default("[]")
   updatedAt    DateTime @updatedAt
 }
+
+// ================= Estúdio Canal Dark (IG/EUA) =================
+
+// Uma conversa do chat do estúdio.
+model EstudioConversa {
+  id        String            @id @default(cuid())
+  titulo    String            @default("Nova conversa")
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  mensagens EstudioMensagem[]
+}
+
+// Uma mensagem do chat (sua ou da IA).
+model EstudioMensagem {
+  id         String          @id @default(cuid())
+  conversaId String
+  conversa   EstudioConversa @relation(fields: [conversaId], references: [id], onDelete: Cascade)
+  papel      String // "user" | "assistant"
+  texto      String          @default("")
+  // JSON: IDs dos arquivos anexados (user) ou gerados pela IA (assistant)
+  arquivos   String          @default("[]")
+  // Mensagens no formato do provedor (para reenviar o histórico sem perder nada)
+  provedor   String?
+  bruto      String?
+  createdAt  DateTime        @default(now())
+
+  @@index([conversaId, createdAt])
+}
+
+// Arquivo do estúdio: avatar/imagem enviada por você, imagem gerada, narração ou vídeo.
+model EstudioArquivo {
+  id         String   @id @default(cuid())
+  tipo       String // "upload" | "imagem" | "audio" | "video"
+  // Nome do arquivo dentro da pasta do estúdio (vazio enquanto processa)
+  arquivo    String   @default("")
+  mime       String   @default("application/octet-stream")
+  rotulo     String   @default("")
+  // Prompt/texto usado para gerar (ou descrição do avatar)
+  prompt     String   @default("")
+  // true = aparece na lista de avatares/referências
+  avatar     Boolean  @default(false)
+  status     String   @default("pronto") // "processando" | "pronto" | "erro"
+  erro       String?
+  // JSON extra (ex.: tempos das palavras da narração, para legendas)
+  meta       String?
+  largura    Int?
+  altura     Int?
+  duracao    Float?
+  conversaId String?
+  createdAt  DateTime @default(now())
+
+  @@index([tipo, createdAt])
+  @@index([avatar])
+}
