@@ -7,7 +7,7 @@ import { type Arquivo, apagarArquivoRemoto, atualizarArquivo, baixarTodos, busca
 
 const FILTROS = [
   ["", "Tudo"],
-  ["avatar", "⭐ Avatares"],
+  ["avatar", "⭐ Produtos/avatares"],
   ["upload", "📤 Enviadas"],
   ["imagem", "🖼️ Imagens"],
   ["audio", "🎙️ Narrações"],
@@ -77,13 +77,13 @@ export function Biblioteca({ filtroInicial }: { filtroInicial: string }) {
   return (
     <>
       <section className="card">
-        <h2>⭐ Enviar avatar / personagem</h2>
+        <h2>⭐ Enviar foto do produto / avatar</h2>
         <p className="muted small">
-          Avatares ficam salvos para você usar sempre: no chat (📎) ou como referência no <Link href="/estudio/gerar">Gerar</Link>. Dê um nome (ex.: “Luna”) para pedir
-          no chat: “usa a Luna nessa cena”.
+          Fotos salvas aqui ficam à mão para usar sempre: no chat (📎) ou como referência no <Link href="/estudio/gerar">Gerar</Link>. Dê um nome (ex.: “garrafa
+          térmica rosa”) para pedir no chat: “faz um vídeo da garrafa térmica rosa”. Use fotos reais e nítidas do produto.
         </p>
         <div className="linha-form">
-          <input value={nomeAvatar} onChange={(e) => setNomeAvatar(e.target.value)} placeholder="Nome do avatar (opcional)" aria-label="Nome do avatar" />
+          <input value={nomeAvatar} onChange={(e) => setNomeAvatar(e.target.value)} placeholder="Nome do produto/avatar (opcional)" aria-label="Nome do produto ou avatar" />
           <button type="button" className="btn" onClick={() => input.current?.click()} disabled={enviando}>
             {enviando ? "Enviando…" : "📤 Enviar imagens"}
           </button>

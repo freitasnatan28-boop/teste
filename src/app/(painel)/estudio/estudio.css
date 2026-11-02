@@ -16,13 +16,14 @@
 }
 .estudio-marca { font-family: var(--fonte-titulo-pilha); font-weight: 700; font-size: 1.15rem; }
 .estudio-marca em { font-style: normal; color: var(--primary); font-size: 0.85em; }
-.estudio-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+.estudio-links { display: flex; flex-wrap: wrap; gap: 4px; max-width: 100%; }
 .estudio-links a {
   white-space: nowrap; padding: 7px 12px; border-radius: 999px; text-decoration: none;
   color: var(--text); font-weight: 600; font-size: 0.9rem; border: 1px solid transparent;
 }
 .estudio-links a:hover { background: var(--primary-soft); }
 .estudio-links a[aria-current="page"] { background: var(--primary); color: var(--primary-text); }
+@media (max-width: 420px) { .estudio-links a { padding: 6px 9px; font-size: 0.84rem; } }
 
 /* ---------- Botões extras ---------- */
 .btn-mini { min-height: 34px; padding: 4px 12px; font-size: 0.82rem; }

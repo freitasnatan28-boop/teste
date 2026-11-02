@@ -58,6 +58,8 @@ export function Gerador({
   const [movimento, setMovimento] = useState(true);
   const [segundos, setSegundos] = useState(3);
   const [formatoVideo, setFormatoVideo] = useState(padrao.formato);
+  const [gancho, setGancho] = useState("");
+  const [cta, setCta] = useState("Tap the orange cart");
 
   useEffect(() => {
     if (aba === "narracao" && !vozes.length && servicos.elevenlabs) {
@@ -136,14 +138,14 @@ export function Gerador({
               required
               placeholder={
                 referencias.length
-                  ? "Ex.: o mesmo personagem da referência, de capuz, numa rua escura de Nova York à noite, chuva, luz neon, cinematográfico"
-                  : "Ex.: farol abandonado numa ilha à noite, tempestade, lua atrás das nuvens, fotografia cinematográfica, tons frios"
+                  ? "Ex.: the exact same product from the reference image on a clean marble kitchen counter, morning light, hands using it, close-up, TikTok style"
+                  : "Ex.: messy kitchen counter full of cables, warm light, realistic phone photo, vertical"
               }
             />
           </label>
           <div className="referencias">
             <div className="referencias-topo">
-              <strong>Referências (avatar, foto, personagem)</strong>
+              <strong>Referências (foto do produto, avatar)</strong>
               <button type="button" className="btn btn-mini btn-sec" onClick={() => setSeletorRef(true)}>
                 📎 Escolher / enviar
               </button>
@@ -161,7 +163,9 @@ export function Gerador({
                 ))}
               </div>
             ) : (
-              <p className="muted small">Opcional. Com referência, a IA transforma a imagem ou mantém o mesmo rosto/estilo na nova cena.</p>
+              <p className="muted small">
+                Mande a foto real do produto para ele aparecer igual na cena. Dica: escreva “the exact same product from the reference image” no começo da descrição.
+              </p>
             )}
           </div>
           <div className="grid-form">
@@ -216,7 +220,7 @@ export function Gerador({
           {erroVozes && <div className="flash flash-erro">{erroVozes}</div>}
           <label>
             Texto da narração
-            <textarea value={textoVoz} onChange={(e) => setTextoVoz(e.target.value)} rows={7} required placeholder="In 1872, a ship was found drifting in the Atlantic. Nobody was on board…" />
+            <textarea value={textoVoz} onChange={(e) => setTextoVoz(e.target.value)} rows={7} required placeholder="I was tired of tangled cables everywhere… until I found this. It holds five cables, sticks anywhere, and takes ten seconds to set up. Tap the orange cart before it sells out." />
           </label>
           <p className={`small ${caracteres > 5000 ? "erro-texto" : "muted"}`}>{caracteres}/5000 caracteres</p>
           <div className="grid-form">
@@ -270,12 +274,15 @@ export function Gerador({
               legendas,
               movimento,
               segundosPorImagem: segundos,
-              rotulo: "vídeo",
+              gancho,
+              cta,
+              rotulo: gancho ? gancho.slice(0, 40) : "vídeo",
             });
           }}
         >
           <p className="muted small">
-            Junta as imagens em sequência (com zoom suave), a narração e legendas palavra por palavra. O tempo de cada imagem acompanha a narração.
+            Junta as cenas (com zoom suave), a narração, legendas palavra por palavra, o hook no topo e o CTA no final. Os textos ficam fora da área dos botões do
+            TikTok.
           </p>
           <div className="referencias">
             <div className="referencias-topo">
@@ -331,6 +338,14 @@ export function Gerador({
                   </option>
                 ))}
               </select>
+            </label>
+            <label>
+              Hook na tela (primeiros 3 s)
+              <input value={gancho} onChange={(e) => setGancho(e.target.value)} maxLength={200} placeholder="This $20 gadget fixed my kitchen" />
+            </label>
+            <label>
+              CTA no final (últimos 3 s)
+              <input value={cta} onChange={(e) => setCta(e.target.value)} maxLength={120} placeholder="Tap the orange cart" />
             </label>
             {!audioId && (
               <label>

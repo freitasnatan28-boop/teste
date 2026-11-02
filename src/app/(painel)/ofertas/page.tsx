@@ -42,18 +42,14 @@ export default async function OfertasPage({ searchParams }: { searchParams: Prom
     <>
       <section className="hero">
         <div className="hero-texto">
-          <p className="sobretitulo">Painel de ofertas</p>
-          <h1>Oi, afilhada! 💅</h1>
-          <p>Parece caro, né? A Tia acha o barato pra você divulgar.</p>
+          <p className="sobretitulo">Achados para divulgar</p>
+          <h1>Ofertas</h1>
+          <p>Produtos com bom desconto, prontos para virar vídeo ou mensagem.</p>
           <div className="hero-numeros">
             <span>{total} ofertas</span>
             <span>{comLink} com link</span>
             <span>{codigo?.ativo ? "⚡ link automático ligado" : "link automático desligado"}</span>
           </div>
-        </div>
-        <div className="hero-foto">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/tia-fifi.webp" alt="Tia Fifi com caixas do Mercado Livre e da Shopee" />
         </div>
       </section>
 

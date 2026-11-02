@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { dimensoesImagem, mimeImagem } from "@/estudio/armazenamento";
 import { textoComAnexos } from "@/estudio/chat-tipos";
-import { blocosLegenda, legendasAss } from "@/estudio/video";
+import { blocosLegenda, legendasAss, textoSobreposto } from "@/estudio/video";
 import { palavrasDoAlinhamento } from "@/estudio/voz";
 
 function alinhamento(texto: string) {
@@ -35,7 +35,7 @@ describe("legendas", () => {
   });
 
   it("gera um evento por palavra, com a palavra falada destacada, em maiúsculas", () => {
-    const ass = legendasAss(palavras, 1080, 1920, 6);
+    const ass = legendasAss({ palavras, largura: 1080, altura: 1920, duracaoTotal: 6 });
     expect(ass).toContain("PlayResX: 1080");
     expect(ass).toContain("Style: Padrao,Anton,");
     const eventos = ass.split("\n").filter((l) => l.startsWith("Dialogue:"));
@@ -44,9 +44,30 @@ describe("legendas", () => {
   });
 
   it("remove caracteres que quebrariam o arquivo de legenda", () => {
-    const ass = legendasAss([{ p: "{oi}\\", i: 0, f: 0.5 }], 1080, 1920, 1);
+    const ass = legendasAss({ palavras: [{ p: "{oi}\\", i: 0, f: 0.5 }], largura: 1080, altura: 1920, duracaoTotal: 1 });
     expect(ass).toContain("OI");
     expect(ass.split("\n").find((l) => l.startsWith("Dialogue:"))).not.toMatch(/\{oi\}/i);
+  });
+});
+
+describe("texto do gancho e CTA (TikTok Shop)", () => {
+  it("mostra o gancho no começo e o CTA no fim, sem sobrepor", () => {
+    const ass = legendasAss({ palavras: [], largura: 1080, altura: 1920, duracaoTotal: 20, gancho: "This gadget fixed my kitchen", cta: "Tap the orange cart" });
+    const eventos = ass.split("\n").filter((l) => l.startsWith("Dialogue:"));
+    expect(eventos).toHaveLength(2);
+    expect(eventos[0]).toMatch(/^Dialogue: 1,0:00:00\.00,0:00:03\.00,Gancho,.*This gadget fixed my kitchen$/);
+    expect(eventos[1]).toMatch(/^Dialogue: 1,0:00:17\.00,0:00:20\.00,Cta,.*Tap the orange cart$/);
+  });
+
+  it("em vídeo curto, o gancho termina antes do CTA começar", () => {
+    const ass = legendasAss({ palavras: [], largura: 1080, altura: 1920, duracaoTotal: 4, gancho: "Wait for it", cta: "Shop now" });
+    const [g, c] = ass.split("\n").filter((l) => l.startsWith("Dialogue:"));
+    expect(g).toContain(",0:00:02.00,Gancho");
+    expect(c).toContain("0:00:02.00,0:00:04.00,Cta");
+  });
+
+  it("tira emojis (a fonte não tem) e mantém quebras de linha", () => {
+    expect(textoSobreposto("🛒 Tap the\norange cart 🔥")).toBe("Tap the\\Norange cart");
   });
 });
 

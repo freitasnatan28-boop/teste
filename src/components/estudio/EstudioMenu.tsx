@@ -12,9 +12,9 @@ const ITENS = [
 export function EstudioMenu() {
   const atual = usePathname();
   return (
-    <nav className="estudio-menu" aria-label="Canal Dark">
+    <nav className="estudio-menu" aria-label="Estúdio TikTok Shop">
       <span className="estudio-marca">
-        <span aria-hidden>🌑</span> Canal Dark <em>IG/EUA</em>
+        <span aria-hidden>🛒</span> Estúdio <em>TikTok Shop</em>
       </span>
       <div className="estudio-links">
         {ITENS.map((i) => (

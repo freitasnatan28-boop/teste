@@ -21,15 +21,16 @@ export const DEFINICOES: DefinicaoFerramenta[] = [
   {
     name: "gerar_imagem",
     description:
-      "Gera imagens com IA (gpt-image-2) e salva na biblioteca do usuário, que pode baixar. Use para cenas de Reels, capas e carrosséis. " +
-      "Para manter um personagem/avatar ou transformar uma foto enviada pelo usuário, passe os IDs em 'referencias' e descreva no prompt o que fazer com elas " +
-      "(ex.: 'the same man from the reference image, now standing in a foggy forest at night'). Escreva o prompt em inglês, bem descritivo (cena, luz, estilo, enquadramento). " +
+      "Gera imagens com IA (gpt-image-2) e salva na biblioteca do usuário, que pode baixar. Use para as cenas dos vídeos de TikTok Shop, capas e carrosséis. " +
+      "Para mostrar o produto do usuário, passe o id da foto do produto em 'referencias' e escreva no prompt 'the exact same product from the reference image, " +
+      "keep its shape, colors, logo and packaging unchanged' + a cena (ex.: 'on a clean marble kitchen counter, morning light, hands using it, close-up'). " +
+      "Também serve para transformar fotos/avatares enviados. Escreva o prompt em inglês, bem descritivo (cena, luz, estilo, enquadramento). " +
       "Não escreva textos/legendas dentro da imagem, a menos que o usuário peça. Devolve os IDs das imagens criadas.",
     input_schema: {
       type: "object",
       properties: {
         prompt: { type: "string", description: "Descrição detalhada da imagem, em inglês." },
-        formato: { type: "string", enum: formatos, description: "Proporção. 9:16 para Reels/Stories (padrão), 4:5 feed, 1:1 quadrado, 16:9 horizontal." },
+        formato: { type: "string", enum: formatos, description: "Proporção. 9:16 para TikTok (padrão), 4:5 carrossel, 1:1 quadrado, 16:9 horizontal." },
         referencias: { type: "array", items: { type: "string" }, description: "IDs de imagens/avatares do usuário para usar como referência (opcional)." },
         quantidade: { type: "integer", minimum: 1, maximum: 4, description: "Quantas variações (padrão 1)." },
         rotulo: { type: "string", description: "Nome curto para o arquivo, ex.: 'cena 1 - farol'." },
@@ -56,7 +57,8 @@ export const DEFINICOES: DefinicaoFerramenta[] = [
   {
     name: "montar_video",
     description:
-      "Monta um vídeo MP4 com as imagens em sequência (com zoom suave), a narração e legendas sincronizadas palavra por palavra. " +
+      "Monta um vídeo MP4 para TikTok com as imagens em sequência (com zoom suave), a narração, legendas sincronizadas palavra por palavra, " +
+      "o texto do hook em destaque no topo nos primeiros 3 s ('gancho') e a chamada final nos últimos 3 s ('cta'). " +
       "O tempo de cada imagem é dividido igualmente pela duração da narração. A montagem roda em segundo plano e aparece pronta no chat em alguns segundos/minutos.",
     input_schema: {
       type: "object",
@@ -65,17 +67,19 @@ export const DEFINICOES: DefinicaoFerramenta[] = [
         narracao: { type: "string", description: "ID do áudio de narração (ou string vazia para vídeo sem áudio)." },
         legendas: { type: "boolean", description: "Queimar legendas no vídeo (precisa de narração). Padrão true." },
         formato: { type: "string", enum: formatos, description: "Proporção do vídeo (padrão 9:16)." },
+        gancho: { type: "string", description: "Texto curto do hook na tela (até ~8 palavras, em inglês, sem emoji). String vazia para não usar." },
+        cta: { type: "string", description: "Chamada final curta (ex.: 'Tap the orange cart'). String vazia para não usar." },
         rotulo: { type: "string", description: "Nome curto para o vídeo." },
       },
-      required: ["imagens", "narracao", "legendas", "formato", "rotulo"],
+      required: ["imagens", "narracao", "legendas", "formato", "gancho", "cta", "rotulo"],
       additionalProperties: false,
     },
   },
   {
     name: "listar_arquivos",
     description:
-      "Lista os arquivos da biblioteca do usuário (avatares/fotos enviadas, imagens, narrações e vídeos gerados) com ID, nome e descrição. " +
-      "Use para achar um avatar salvo pelo nome ou reaproveitar imagens de antes.",
+      "Lista os arquivos da biblioteca do usuário (fotos de produto e avatares salvos, fotos enviadas, imagens, narrações e vídeos gerados) com ID, nome e descrição. " +
+      "Use para achar a foto de um produto ou avatar salvo pelo nome, ou reaproveitar imagens de antes.",
     input_schema: {
       type: "object",
       properties: {
@@ -104,6 +108,8 @@ const esquemas = {
     narracao: z.string().optional().default(""),
     legendas: z.boolean().optional().default(true),
     formato: fmt.optional(),
+    gancho: z.string().max(200).optional().default(""),
+    cta: z.string().max(120).optional().default(""),
     rotulo: z.string().max(120).optional().default(""),
   }),
   listar_arquivos: z.object({
@@ -178,6 +184,8 @@ export async function executarFerramenta(nome: string, entrada: unknown, ctx: Co
             formato: e.formato ?? ctx.config.formatoPadrao,
             legendas: e.legendas,
             movimento: true,
+            gancho: e.gancho,
+            cta: e.cta,
             rotulo: e.rotulo,
             conversaId: ctx.conversaId,
           }),

@@ -97,7 +97,7 @@ export function SeletorImagens({
           </button>
           <label className="check">
             <input type="checkbox" checked={salvarAvatar} onChange={(e) => setSalvarAvatar(e.target.checked)} />
-            Salvar como avatar
+            Salvar (⭐ produto/avatar)
           </label>
           <input ref={input} type="file" accept="image/*" multiple={multiplo} hidden onChange={(e) => enviar(e.target.files)} />
         </div>
@@ -105,12 +105,12 @@ export function SeletorImagens({
         {carregando ? (
           <p className="muted">Carregando…</p>
         ) : !lista.length ? (
-          <p className="muted">Nenhuma imagem ainda. Envie um avatar ou foto acima.</p>
+          <p className="muted">Nenhuma imagem ainda. Envie a foto do produto acima.</p>
         ) : (
           <>
             {avatares.length > 0 && (
               <>
-                <h3 className="seletor-secao">⭐ Avatares</h3>
+                <h3 className="seletor-secao">⭐ Produtos e avatares salvos</h3>
                 {grade(avatares)}
               </>
             )}

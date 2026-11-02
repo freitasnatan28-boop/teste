@@ -1,61 +1,34 @@
-/* Visual do painel Tia Fifi — cores tiradas da foto:
-   magenta da blusa, bege do fundo, dourado dos brincos. Pensado primeiro para o celular. */
+/* Visual do Canal Dark — tema escuro com as cores do TikTok (rosa #fe2c55 e ciano #25f4ee).
+   Pensado primeiro para o celular. */
 :root {
-  --bg: #f6efe8;
-  --bg-2: #efe3d6;
-  --card: #fffcf9;
-  --text: #2b1b21;
-  --muted: #7d6870;
-  --border: #eadcd0;
-  --primary: #c8176a;
-  --primary-strong: #9e0f52;
-  --primary-soft: #fbe4ee;
+  --bg: #0b0b10;
+  --bg-2: #16161e;
+  --card: #15151d;
+  --text: #f3f3f6;
+  --muted: #a1a1b2;
+  --border: #2a2a36;
+  --primary: #fe2c55;
+  --primary-strong: #ff5c7c;
+  --primary-soft: #3a1220;
   --primary-text: #ffffff;
-  --gold: #a87a22;
-  --gold-soft: #f6e9cf;
-  --ok-bg: #e3f4ea;
-  --ok-text: #1e6b40;
-  --err-bg: #fdeaea;
-  --err-text: #a3262c;
-  --warn-bg: #fff3d6;
-  --warn-text: #7c5200;
-  --score-alto: #1f8a4c;
-  --score-medio: #c7871a;
-  --score-baixo: #9a8d92;
+  --gold: #25f4ee;
+  --gold-soft: #0e2a2c;
+  --ok-bg: #12301f;
+  --ok-text: #8fe0ad;
+  --err-bg: #3a1618;
+  --err-text: #ffb0ae;
+  --warn-bg: #352a10;
+  --warn-text: #ffd479;
+  --score-alto: #34a867;
+  --score-medio: #d49b2a;
+  --score-baixo: #6f6a78;
   --ml: #ffe600;
   --ml-text: #2d3277;
   --radius: 18px;
-  --shadow: 0 1px 2px rgba(80, 30, 45, 0.06), 0 6px 20px rgba(80, 30, 45, 0.06);
+  --shadow: none;
   --fonte-titulo-pilha: var(--fonte-titulo), Georgia, "Times New Roman", serif;
   --fonte-corpo-pilha: var(--fonte-corpo), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1b1216;
-    --bg-2: #22171c;
-    --card: #271b20;
-    --text: #f6ecef;
-    --muted: #bba3ac;
-    --border: #3b2a32;
-    --primary: #ff4f9a;
-    --primary-strong: #ff7ab3;
-    --primary-soft: #3f1d2d;
-    --primary-text: #1b1216;
-    --gold: #e5b660;
-    --gold-soft: #3a2e18;
-    --ok-bg: #173323;
-    --ok-text: #9be0b4;
-    --err-bg: #3d1c1e;
-    --err-text: #ffb4b0;
-    --warn-bg: #3a2f14;
-    --warn-text: #ffd479;
-    --score-alto: #34a867;
-    --score-medio: #d49b2a;
-    --score-baixo: #6f6268;
-    --shadow: none;
-    color-scheme: dark;
-  }
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -92,10 +65,10 @@ code { background: var(--primary-soft); color: var(--primary-strong); padding: 1
 .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
 .marca span { font-family: var(--fonte-titulo-pilha); font-weight: 700; font-size: 1.25rem; }
 .marca em { font-style: normal; color: var(--primary); }
-/* Recorte no rosto da foto */
-.avatar {
-  display: block; flex: 0 0 42px; width: 42px; height: 42px; border-radius: 50%;
-  border: 2px solid var(--gold); background: var(--bg-2) url("/tia-fifi.webp") 30% 4% / 300% no-repeat;
+/* Logo: lua rosa (mesmo desenho do ícone da aba) */
+.logo {
+  display: block; flex: 0 0 38px; width: 38px; height: 38px; border-radius: 11px;
+  background: #14090f url("/icon.svg") center / cover no-repeat; box-shadow: -2px -2px 0 #25f4ee, 2px 2px 0 #fe2c55;
 }
 .menu-topo { display: none; gap: 4px; }
 .menu-topo a { padding: 8px 14px; border-radius: 999px; text-decoration: none; color: var(--text); font-weight: 500; }
@@ -105,7 +78,7 @@ code { background: var(--primary-soft); color: var(--primary-strong); padding: 1
   display: flex; justify-content: space-around;
   background: var(--card); border-top: 1px solid var(--border);
   padding: 0 8px env(safe-area-inset-bottom);
-  box-shadow: 0 -4px 16px rgba(80, 30, 45, 0.06);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4);
 }
 .aba {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
@@ -169,7 +142,7 @@ details summary { cursor: pointer; font-weight: 600; min-height: 32px; color: va
 .hero {
   position: relative; overflow: hidden; display: flex; align-items: stretch;
   border-radius: 24px; margin-bottom: 16px; min-height: 180px;
-  background: linear-gradient(120deg, var(--primary) 0%, var(--primary-strong) 55%, #6d0b3a 100%);
+  background: radial-gradient(circle at 85% 20%, rgba(37, 244, 238, 0.25), transparent 50%), linear-gradient(120deg, #fe2c55 0%, #a3123a 60%, #3a0716 100%);
   color: #fff; box-shadow: var(--shadow);
 }
 .hero-texto { position: relative; z-index: 1; padding: 20px; flex: 1 1 60%; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
@@ -184,10 +157,6 @@ details summary { cursor: pointer; font-weight: 600; min-height: 32px; color: va
 .hero-foto::before {
   content: ""; position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(90deg, var(--primary-strong) 0%, transparent 45%);
-}
-@media (prefers-color-scheme: dark) {
-  .hero { background: linear-gradient(120deg, #a0105a 0%, #6d0b3a 60%, #3d0620 100%); }
-  .hero-foto::before { background: linear-gradient(90deg, #6d0b3a 0%, transparent 45%); }
 }
 @media (min-width: 760px) {
   .hero { min-height: 230px; }
@@ -260,14 +229,22 @@ details summary { cursor: pointer; font-weight: 600; min-height: 32px; color: va
 
 /* ---------- Login ---------- */
 .login { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.login-foto { width: 100%; height: 46vh; min-height: 260px; overflow: hidden; }
-.login-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 20%; display: block; }
+.login-marca {
+  width: 100%; height: 40vh; min-height: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  background: radial-gradient(circle at 30% 30%, rgba(37, 244, 238, 0.18), transparent 55%), radial-gradient(circle at 70% 70%, rgba(254, 44, 85, 0.28), transparent 55%), #08080c;
+  text-align: center; padding: 24px;
+}
+.login-marca strong { font-family: var(--fonte-titulo-pilha); font-size: 2.4rem; line-height: 1; }
+.login-marca strong em { font-style: normal; color: var(--primary); }
+.login-marca > span:last-child { color: var(--muted); }
+.logo-grande { width: 72px; height: 72px; flex-basis: 72px; border-radius: 20px; box-shadow: -4px -4px 0 #25f4ee, 4px 4px 0 #fe2c55; }
 .login-card { width: calc(100% - 32px); max-width: 400px; margin: -48px 16px 32px; position: relative; display: flex; flex-direction: column; gap: 12px; }
 .login-card h1 { margin: 0; color: var(--primary); font-size: 1.8rem; }
 .login-card p { margin: 0; }
 @media (min-width: 860px) {
   .login { flex-direction: row; }
-  .login-foto { width: 50vw; height: 100vh; }
+  .login-marca { width: 50vw; height: 100vh; }
+  .login-marca strong { font-size: 3.4rem; }
   .login-card { margin: 0 auto; max-width: 380px; padding: 28px; }
 }
 

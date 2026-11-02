@@ -1,7 +1,10 @@
-# Tia Fifi · Painel de Ofertas para Afiliados
+# Canal Dark · Vídeos com IA para TikTok Shop
 
-Painel web para quem divulga ofertas em grupos de WhatsApp. Ele encontra boas ofertas,
-guarda seus links de afiliado e, nas próximas fases, gera mensagens com IA, dispara nos grupos e mostra métricas.
+Site do **Canal Dark**: um estúdio com chat de IA que cria vídeos de produto para o **TikTok Shop**
+(roteiro, cenas com a foto do seu produto, narração, legendas, hook e CTA), tudo para baixar e postar.
+Veja a [seção 12](#12-estúdio-canal-dark-tiktok-shop).
+
+O site também traz o painel de ofertas de afiliado (Mercado Livre + WhatsApp), descrito nas seções 4 a 11.
 
 | Fase | O que faz | Situação |
 | --- | --- | --- |
@@ -27,7 +30,7 @@ guarda seus links de afiliado e, nas próximas fases, gera mensagens com IA, dis
 9. [Segurança e cuidados](#9-segurança-e-cuidados)
 10. [Comandos úteis](#10-comandos-úteis)
 11. [WhatsApp e piloto automático](#11-whatsapp-e-piloto-automático)
-12. [Estúdio Canal Dark (IG/EUA)](#12-estúdio-canal-dark-igeua)
+12. [Estúdio Canal Dark (TikTok Shop)](#12-estúdio-canal-dark-tiktok-shop)
 
 ---
 
@@ -535,17 +538,18 @@ Na primeira vez, acesse o painel pelo endereço do servidor, vá em **WhatsApp**
 
 ---
 
-## 12. Estúdio Canal Dark (IG/EUA)
+## 12. Estúdio Canal Dark (TikTok Shop)
 
-Menu **Canal Dark** (🌑). É o chat do projeto *CANAL DARK IG/EUA* dentro do seu próprio site: você conversa, gera e
-baixa tudo por aqui, no computador ou no celular.
+Menu **🎬 Vídeos** (é a página inicial depois do login). Você manda a foto do produto, conversa com a IA e recebe o
+vídeo pronto para o TikTok Shop: roteiro, cenas com o seu produto, narração em inglês, legendas palavra por palavra,
+**hook** no topo nos primeiros 3 s e **CTA** (“Tap the orange cart”) no final.
 
 | Tela | Para que serve |
 |---|---|
-| **💬 Chat** | Conversa com a IA do canal. Ela escreve roteiros, captions e hashtags **e gera de verdade**: imagens, narração e o vídeo montado. Toque em 📎 para mandar uma foto/avatar e pedir “transforma isso em…”. |
-| **✨ Gerar** | Sem chat: gera imagem (com ou sem referência), narração (escolhendo a voz) ou monta um vídeo escolhendo as cenas na ordem. |
-| **📁 Biblioteca** | Tudo o que você enviou e gerou, com **Baixar** e **Baixar todos**. Marque ⭐ para salvar uma imagem como **avatar** e reaproveitar sempre. |
-| **⚙️ Config** | **Instruções do canal** (cole aqui o texto do seu projeto CANAL DARK IG/EUA), IA do chat, voz do narrador, formato e qualidade. |
+| **💬 Chat** | Conversa com a IA do canal. Ela escreve roteiros, hooks, captions e hashtags **e gera de verdade**: cenas do produto, narração e o vídeo montado. Toque em 📎 para mandar a foto do produto. |
+| **✨ Gerar** | Sem chat: gera imagem (com a foto do produto como referência), narração (escolhendo a voz) ou monta um vídeo escolhendo as cenas, o hook e o CTA. |
+| **📁 Biblioteca** | Tudo o que você enviou e gerou, com **Baixar** e **Baixar todos**. Marque ⭐ para salvar a foto de um produto (ou avatar) e reaproveitar sempre. |
+| **⚙️ Config** | **Instruções do canal** (já vem um modelo para TikTok Shop EUA), IA do chat, voz do narrador, formato e qualidade. |
 
 ### O que cada serviço faz
 
@@ -557,21 +561,28 @@ baixa tudo por aqui, no computador ou no celular.
 | ffmpeg (já vem no `npm install`) | Monta o MP4: imagens com zoom suave + narração + legendas palavra por palavra | — |
 
 > **Vídeo com IA (Sora):** a OpenAI desligou o Sora 2 e a API de vídeos em 24/09/2026. Por isso o vídeo é **montado
-> no próprio servidor** a partir das imagens e da narração, que é o formato mais comum de Reels de canal dark.
+> no próprio servidor** a partir das cenas e da narração, que é o formato mais comum de vídeo de canal dark.
 
 ### Configurar
 1. Coloque as chaves no `.env` (veja o `.env.example`) e reinicie: `pm2 restart painel`.
 2. Rode as migrações do banco (cria as tabelas do estúdio): `npx prisma migrate deploy`.
-3. Abra **Canal Dark → Config** e cole as **instruções do seu canal**. Já vem um modelo pronto para começar.
+3. Abra **Vídeos → Config** e confira as **instruções do canal**. Já vem um modelo pronto para TikTok Shop (EUA).
 4. Na VPS, ajuste o Nginx com `client_max_body_size 25m;` e `proxy_read_timeout 900s;` (já está no exemplo da seção 8.5).
 5. O ffmpeg é baixado pelo `npm install`. Se der erro ao montar vídeo, instale o do sistema e reinicie:
    `sudo apt install -y ffmpeg` (ou aponte o caminho em `FFMPEG_PATH` no `.env`).
 
 ### Exemplos de pedidos no chat
-- “Cria um Reels completo sobre o navio Mary Celeste: roteiro em cenas, imagens, narração e o vídeo com legendas.”
-- (com uma foto anexada) “Transforma essa pessoa num personagem sombrio estilo graphic novel, 3 variações.”
-- “Usa o avatar Luna e gera 5 cenas dela numa floresta à noite para um carrossel 4:5.”
-- “Me dá 10 hooks para vídeos sobre psicologia sombria.”
+- (com a foto do produto) “Faz um vídeo de TikTok Shop dessa garrafa térmica: roteiro problema → solução, 5 cenas, narração, legendas, hook e CTA.”
+- “Me dá 10 hooks para vender esse organizador de cabos.”
+- “Usa a foto salva ‘luminária lua’ e gera 4 cenas num quarto aconchegante à noite.”
+- “Escreve a caption com palavras-chave e 5 hashtags para esse produto.”
+
+### Cuidados do TikTok Shop
+- Use **fotos reais** do produto como referência: o que aparece no vídeo precisa ser o que você vende.
+- Ao postar, marque o vídeo como **conteúdo gerado por IA** (o TikTok exige para imagens/vozes realistas feitas por IA).
+- Nada de promessas falsas, avaliações inventadas, desconto ou escassez que não existem, nem citar outras lojas.
+  O modelo de instruções já pede isso para a IA, mas a palavra final é sua.
+- As legendas, o hook e o CTA ficam fora da área dos botões do TikTok (lado direito e parte de baixo).
 
 ### Custos (pagos direto nos serviços)
 - Imagem: centavos de dólar por imagem (qualidade “Rápida” é a mais barata). Ajuste em Config.

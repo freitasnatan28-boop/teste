@@ -25,13 +25,13 @@ export default async function EstudioConfigPage({ searchParams }: { searchParams
 
   return (
     <>
-      <h1 className="titulo-pagina">Config do Canal Dark</h1>
+      <h1 className="titulo-pagina">Config do estúdio</h1>
       <Flash msg={sp.msg} erro={sp.erro} />
 
       <section className="card">
         <h2>🧠 Instruções do canal</h2>
         <p className="muted small">
-          É o “cérebro” do chat: o mesmo texto que você usa no projeto <strong>CANAL DARK IG/EUA</strong>. Cole aqui as suas instruções (nicho, tom, estrutura dos roteiros,
+          É o “cérebro” do chat. Já vem um modelo pronto para vídeos de <strong>TikTok Shop</strong> (EUA); ajuste ou cole as suas instruções (nicho, tom, estrutura,
           regras). O chat segue isso em toda conversa.
         </p>
         <form action={salvarInstrucoes}>

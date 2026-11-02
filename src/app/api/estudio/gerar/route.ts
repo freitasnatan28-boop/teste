@@ -39,6 +39,8 @@ const Pedido = z.discriminatedUnion("tipo", [
     legendas: z.boolean().default(true),
     movimento: z.boolean().default(true),
     segundosPorImagem: z.number().min(1).max(20).default(3),
+    gancho: z.string().max(200).default(""),
+    cta: z.string().max(120).default(""),
     rotulo: z.string().max(120).default(""),
   }),
 ]);

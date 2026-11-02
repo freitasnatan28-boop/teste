@@ -50,7 +50,7 @@ export function ArquivoCard({
         <div className="arq-info">
           <strong title={a.prompt}>{a.rotulo || ROTULO_TIPO[a.tipo] || a.tipo}</strong>
           <span className="muted small">
-            {a.avatar ? "⭐ Avatar · " : ""}
+            {a.avatar ? "⭐ Salvo · " : ""}
             {ROTULO_TIPO[a.tipo]}
             {a.largura ? ` · ${a.largura}×${a.altura}` : ""}
             {a.duracao ? ` · ${duracaoTexto(a.duracao)}` : ""}
@@ -69,7 +69,7 @@ export function ArquivoCard({
           )}
           {aoAlternarAvatar && a.mime.startsWith("image/") && a.status === "pronto" && (
             <button type="button" className="btn btn-mini btn-sec" onClick={() => aoAlternarAvatar(a)} aria-pressed={a.avatar}>
-              {a.avatar ? "★ Avatar" : "☆ Avatar"}
+              {a.avatar ? "★ Salvo" : "☆ Salvar"}
             </button>
           )}
           {aoApagar && (

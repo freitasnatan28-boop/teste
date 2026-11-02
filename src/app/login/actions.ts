@@ -32,7 +32,7 @@ export async function entrar(formData: FormData) {
     path: "/",
   });
   // Só redireciona para caminhos internos
-  redirect(de.startsWith("/") && !de.startsWith("//") ? de : "/ofertas");
+  redirect(de.startsWith("/") && !de.startsWith("//") ? de : "/estudio");
 }
 
 export async function sair() {

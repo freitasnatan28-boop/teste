@@ -1,6 +1,6 @@
 // Montagem de vídeo no próprio servidor (ffmpeg):
-// imagens em sequência com movimento suave (zoom), narração e legendas
-// palavra por palavra no estilo Reels.
+// imagens em sequência com movimento suave (zoom), narração, legendas
+// palavra por palavra, texto de gancho no topo e chamada final (CTA) — no estilo TikTok Shop.
 import { spawn } from "node:child_process";
 import { existsSync } from "node:fs";
 import { mkdir, rm, stat, writeFile } from "node:fs/promises";
@@ -29,6 +29,10 @@ export interface PedidoVideo {
   formato: Formato;
   legendas: boolean;
   movimento: boolean;
+  /** Texto grande no topo nos primeiros segundos (o "hook") */
+  gancho?: string;
+  /** Chamada final nos últimos segundos (ex.: "Tap the orange cart") */
+  cta?: string;
   /** Segundos por imagem quando não há narração */
   segundosPorImagem?: number;
   rotulo?: string;
@@ -94,10 +98,41 @@ export function blocosLegenda(palavras: PalavraTempo[], maxPalavras = 3): Palavr
   return blocos;
 }
 
-/** Gera o arquivo de legendas: o bloco aparece inteiro e a palavra falada fica amarela. */
-export function legendasAss(palavras: PalavraTempo[], largura: number, altura: number, duracaoTotal: number): string {
-  const tamanho = Math.round(Math.min(largura, altura) * 0.105);
-  const margemV = Math.round(altura * (altura > largura ? 0.26 : 0.12));
+/** Texto livre (gancho/CTA): tira o que quebra o arquivo e emojis (a fonte não tem) e respeita quebras de linha. */
+export function textoSobreposto(t: string): string {
+  return t
+    .replace(/[{}\\]/g, "")
+    .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}]/gu, "")
+    .split(/\r?\n/)
+    .map((l) => l.replace(/\s+/g, " ").trim())
+    .filter(Boolean)
+    .join("\\N");
+}
+
+export interface OpcoesLegenda {
+  palavras: PalavraTempo[];
+  largura: number;
+  altura: number;
+  duracaoTotal: number;
+  gancho?: string;
+  cta?: string;
+}
+
+/**
+ * Gera o arquivo de legendas (ASS):
+ * - legenda palavra por palavra (o bloco aparece inteiro e a palavra falada fica amarela);
+ * - gancho em caixa branca no topo nos primeiros 3 s;
+ * - CTA em caixa rosa nos últimos 3 s.
+ * As margens deixam livres as áreas que o TikTok cobre (botões à direita, descrição e carrinho embaixo).
+ */
+export function legendasAss({ palavras, largura, altura, duracaoTotal, gancho, cta }: OpcoesLegenda): string {
+  const vertical = altura > largura;
+  const tamanho = Math.round(Math.min(largura, altura) * 0.1);
+  const margemV = Math.round(altura * (vertical ? 0.34 : 0.12));
+  const margemDireita = Math.round(largura * (vertical ? 0.16 : 0.06));
+  const margemEsquerda = Math.round(largura * (vertical ? 0.08 : 0.06));
+  const tamCaixa = Math.round(Math.min(largura, altura) * 0.082);
+  const topo = Math.round(altura * (vertical ? 0.13 : 0.08));
   const cab = [
     "[Script Info]",
     "ScriptType: v4.00+",
@@ -108,7 +143,10 @@ export function legendasAss(palavras: PalavraTempo[], largura: number, altura: n
     "",
     "[V4+ Styles]",
     "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
-    `Style: Padrao,Anton,${tamanho},&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,0,0,0,0,100,100,1,0,1,${Math.round(tamanho / 11)},${Math.round(tamanho / 18)},2,60,60,${margemV},1`,
+    `Style: Padrao,Anton,${tamanho},&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,0,0,0,0,100,100,1,0,1,${Math.round(tamanho / 11)},${Math.round(tamanho / 18)},2,${margemEsquerda},${margemDireita},${margemV},1`,
+    // BorderStyle 3 = caixa atrás do texto (a cor da caixa é a OutlineColour)
+    `Style: Gancho,Anton,${tamCaixa},&H00000000,&H00000000,&H00FFFFFF,&H00000000,0,0,0,0,100,100,0.5,0,3,${Math.round(tamCaixa / 3.5)},0,8,${margemEsquerda + 20},${margemDireita + 20},${topo},1`,
+    `Style: Cta,Anton,${tamCaixa},&H00FFFFFF,&H00FFFFFF,&H00552CFE,&H00000000,0,0,0,0,100,100,0.5,0,3,${Math.round(tamCaixa / 3.5)},0,8,${margemEsquerda + 20},${margemDireita + 20},${topo},1`,
     "",
     "[Events]",
     "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
@@ -126,6 +164,13 @@ export function legendasAss(palavras: PalavraTempo[], largura: number, altura: n
       linhas.push(`Dialogue: 0,${tempoAss(ini)},${tempoAss(fim)},Padrao,,0,0,0,,{\\fad(40,0)}${texto}`);
     });
   });
+
+  const g = gancho ? textoSobreposto(gancho) : "";
+  const c = cta ? textoSobreposto(cta) : "";
+  // O CTA ocupa os últimos 3 s; o gancho, os primeiros 3 s (sem encostar no CTA em vídeos curtos)
+  const inicioCta = c ? Math.max(duracaoTotal - 3, duracaoTotal * 0.5) : duracaoTotal;
+  if (g) linhas.push(`Dialogue: 1,${tempoAss(0)},${tempoAss(Math.min(3, inicioCta, duracaoTotal))},Gancho,,0,0,0,,{\\fad(0,200)}${g}`);
+  if (c) linhas.push(`Dialogue: 1,${tempoAss(inicioCta)},${tempoAss(duracaoTotal)},Cta,,0,0,0,,{\\fad(200,0)}${c}`);
   return [...cab, ...linhas, ""].join("\n");
 }
 
@@ -156,7 +201,7 @@ export async function iniciarMontagem(p: PedidoVideo): Promise<EstudioArquivo> {
       status: "processando",
       rotulo: (p.rotulo || "vídeo").slice(0, 120),
       prompt: audio?.prompt ?? "",
-      meta: JSON.stringify({ imagens: listaImgs.map((a) => a.id), audioId: audio?.id ?? null, formato: p.formato, legendas: p.legendas }),
+      meta: JSON.stringify({ imagens: listaImgs.map((a) => a.id), audioId: audio?.id ?? null, formato: p.formato, legendas: p.legendas, gancho: p.gancho ?? "", cta: p.cta ?? "" }),
       largura: SAIDA[p.formato].largura,
       altura: SAIDA[p.formato].altura,
       conversaId: p.conversaId ?? null,
@@ -217,9 +262,10 @@ async function montar(id: string, imagens: EstudioArquivo[], audio: EstudioArqui
     filtros.push(`${imagens.map((_, k) => `[v${k}]`).join("")}concat=n=${n}:v=1:a=0[vcat]`);
 
     let ultimo = "vcat";
-    if (p.legendas && palavras.length) {
+    const usarPalavras = p.legendas ? palavras : [];
+    if (usarPalavras.length || p.gancho?.trim() || p.cta?.trim()) {
       const ass = path.join(tmp, "legendas.ass");
-      await writeFile(ass, legendasAss(palavras, W, H, total), "utf8");
+      await writeFile(ass, legendasAss({ palavras: usarPalavras, largura: W, altura: H, duracaoTotal: total, gancho: p.gancho, cta: p.cta }), "utf8");
       filtros.push(`[vcat]subtitles=filename='${escaparFiltro(ass)}':fontsdir='${escaparFiltro(PASTA_FONTES)}'[vleg]`);
       ultimo = "vleg";
     }

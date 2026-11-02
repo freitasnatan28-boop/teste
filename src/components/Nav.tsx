@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 const ITENS: { href: string; rotulo: string; curto?: string; icone: string }[] = [
+  { href: "/estudio", rotulo: "Vídeos", icone: "🎬" },
   { href: "/ofertas", rotulo: "Ofertas", icone: "🏷️" },
   { href: "/adicionar", rotulo: "Adicionar", icone: "➕" },
   { href: "/whatsapp", rotulo: "WhatsApp", icone: "💬" },
   { href: "/piloto", rotulo: "Piloto", icone: "🤖" },
-  { href: "/estudio", rotulo: "Canal Dark", curto: "Dark", icone: "🌑" },
   { href: "/configuracoes", rotulo: "Config.", icone: "⚙️" },
 ];
 
@@ -13,10 +13,10 @@ export function Nav() {
   return (
     <>
       <header className="topo">
-        <Link href="/ofertas" className="marca">
-          <span className="avatar" aria-hidden />
+        <Link href="/estudio" className="marca">
+          <span className="logo" aria-hidden />
           <span>
-            Tia Fifi <em>ofertas</em>
+            Canal <em>Dark</em>
           </span>
         </Link>
         <nav className="menu-topo" aria-label="Menu principal">

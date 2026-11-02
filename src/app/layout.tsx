@@ -6,18 +6,15 @@ const corpo = DM_Sans({ subsets: ["latin"], variable: "--fonte-corpo", display: 
 const titulo = Playfair_Display({ subsets: ["latin"], weight: ["600", "700"], variable: "--fonte-titulo", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Tia Fifi · Painel de Ofertas",
-  description: "Painel de ofertas para afiliados",
+  title: "Canal Dark · TikTok Shop",
+  description: "Estúdio de vídeos com IA para TikTok Shop",
   robots: { index: false, follow: false },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6efe8" },
-    { media: "(prefers-color-scheme: dark)", color: "#1b1216" },
-  ],
+  themeColor: "#0b0b10",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

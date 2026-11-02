@@ -35,15 +35,16 @@ interface ConversaResumo {
 
 const SUGESTOES = [
   {
-    rotulo: "🎬 Reels completo",
-    texto: "Crie um Reels completo para o canal: escolha um tema forte, escreva o roteiro em cenas, gere as imagens de cada cena, a narração e monte o vídeo com legendas. No final, me dê a caption e as hashtags.",
+    rotulo: "🛒 Vídeo de produto completo",
+    texto:
+      "Vou te mandar a foto do produto. Crie um vídeo completo para o TikTok Shop: roteiro em cenas, imagens de cada cena com o produto igual ao da foto, narração, e monte o vídeo com legendas, hook na tela e CTA. No final, me dê a caption, as hashtags e 3 hooks alternativos.\n\nProduto: \nO que faz: \nPreço/promo: ",
   },
-  { rotulo: "💡 10 ideias virais", texto: "Me dê 10 ideias de Reels com potencial viral para o público dos EUA, cada uma com o hook dos 3 primeiros segundos." },
+  { rotulo: "🎯 10 hooks para o produto", texto: "Me dê 10 hooks (texto na tela + primeira frase falada) para vender este produto no TikTok Shop: " },
   {
-    rotulo: "🧑‍🎨 Transformar avatar",
-    texto: "Vou te mandar um avatar/foto. Transforme em um personagem para o canal dark, no estilo cinematográfico sombrio, e gere 3 variações.",
+    rotulo: "📸 Produto em cenas",
+    texto: "Com a foto do produto que vou mandar, gere 4 cenas de uso realistas em 9:16 (sem rostos), com o produto exatamente igual ao da foto.",
   },
-  { rotulo: "✍️ Caption + hashtags", texto: "Escreva a caption e 10 hashtags (em inglês) para este Reels: " },
+  { rotulo: "✍️ Caption + hashtags", texto: "Escreva a caption (com palavras-chave para busca) e 5 hashtags para o TikTok Shop deste produto: " },
 ];
 
 const FEITO: Record<string, string> = {
@@ -342,11 +343,11 @@ export function ChatEstudio({
 
         {vazia ? (
           <div className="chat-vazio">
-            <p className="sobretitulo">Canal Dark · IG/EUA</p>
-            <h2>O que vamos criar hoje?</h2>
+            <p className="sobretitulo">Canal Dark · TikTok Shop</p>
+            <h2>Qual produto vamos vender hoje?</h2>
             <p className="muted">
-              Peça roteiros, imagens, narrações e vídeos prontos. Envie um avatar ou foto (📎) para a IA transformar. Tudo fica salvo na{" "}
-              <Link href="/estudio/biblioteca">Biblioteca</Link> para baixar.
+              Mande a foto do produto (📎) e peça o vídeo: a IA escreve o roteiro, cria as cenas com o seu produto, narra e monta o vídeo com legenda, hook e CTA.
+              Tudo fica salvo na <Link href="/estudio/biblioteca">Biblioteca</Link> para baixar.
             </p>
             <div className="sugestoes">
               {SUGESTOES.map((s) => (
@@ -442,7 +443,7 @@ export function ChatEstudio({
             </div>
           )}
           <div className="composer-linha">
-            <button type="button" className="btn btn-icone btn-sec" onClick={() => setSeletor(true)} aria-label="Anexar imagem ou avatar" title="Anexar imagem/avatar">
+            <button type="button" className="btn btn-icone btn-sec" onClick={() => setSeletor(true)} aria-label="Anexar foto do produto ou avatar" title="Anexar foto do produto / avatar">
               📎
             </button>
             <textarea
@@ -462,7 +463,7 @@ export function ChatEstudio({
         </form>
       </section>
 
-      <SeletorImagens aberto={seletor} aoFechar={() => setSeletor(false)} aoEscolher={(l) => setAnexos((a) => [...a, ...l.filter((x) => !a.some((y) => y.id === x.id))].slice(0, 10))} titulo="Anexar imagens / avatares" />
+      <SeletorImagens aberto={seletor} aoFechar={() => setSeletor(false)} aoEscolher={(l) => setAnexos((a) => [...a, ...l.filter((x) => !a.some((y) => y.id === x.id))].slice(0, 10))} titulo="Anexar fotos do produto / avatares" />
     </div>
   );
 }
