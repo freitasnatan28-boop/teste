@@ -19,6 +19,8 @@ export interface PedidoImagem {
   quantidade?: number;
   rotulo?: string;
   conversaId?: string | null;
+  /** Salva direto como avatar (⭐) */
+  avatar?: boolean;
 }
 
 export class ErroServico extends Error {}
@@ -94,6 +96,7 @@ export async function gerarImagens(p: PedidoImagem): Promise<EstudioArquivo[]> {
         mime: "image/png",
         rotulo: n > 1 ? `${p.rotulo || "imagem"} ${i + 1}` : p.rotulo || "",
         prompt,
+        avatar: p.avatar ?? false,
         largura: dim?.largura ?? fmt.largura,
         altura: dim?.altura ?? fmt.altura,
         meta: { formato: p.formato, qualidade: p.qualidade, referencias: refs },

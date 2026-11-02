@@ -104,6 +104,8 @@ export interface ArquivoPublico {
   url: string;
   download: string;
   criadoEm: string;
+  /** Vídeo gerado por IA (leva minutos) */
+  ia: boolean;
 }
 
 export function publico(a: EstudioArquivo): ArquivoPublico {
@@ -122,6 +124,7 @@ export function publico(a: EstudioArquivo): ArquivoPublico {
     url: `/api/estudio/arquivos/${a.id}`,
     download: `/api/estudio/arquivos/${a.id}?baixar=1`,
     criadoEm: a.createdAt.toISOString(),
+    ia: Boolean(a.meta?.includes('"provedor":"elevenlabs"')),
   };
 }
 

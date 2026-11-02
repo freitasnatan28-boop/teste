@@ -16,7 +16,7 @@ export async function entrar(formData: FormData) {
   if (t && t.n >= MAX_TENTATIVAS && t.ate > Date.now()) redirect("/login?erro=bloqueado");
 
   const senha = String(formData.get("senha") ?? "");
-  const de = String(formData.get("de") ?? "/ofertas");
+  const de = String(formData.get("de") ?? "/estudio");
   if (!passwordMatches(senha, env().PANEL_PASSWORD)) {
     const atual = t && t.ate > Date.now() ? t.n + 1 : 1;
     tentativas.set(ip, { n: atual, ate: Date.now() + BLOQUEIO_MS });

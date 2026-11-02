@@ -99,3 +99,41 @@ describe("anexos no chat", () => {
     expect(t).toContain("salvo como avatar");
   });
 });
+
+import { entradaVideo } from "@/estudio/video";
+import { corpoCena } from "@/estudio/video-ia";
+
+describe("vídeo com IA (Veo pela ElevenLabs)", () => {
+  const img = { type: "inline_base64", mime_type: "image/png", content_base64: "AAA" };
+
+  it("usa a imagem inicial como primeiro quadro, em 9:16", () => {
+    const c = corpoCena({ modelo: "veo-3.1-fast-generate-001", prompt: "hand picks up bottle", formato: "9:16", duracao: 6, som: false, resolucao: "720p", imagemInicial: img });
+    expect(c).toMatchObject({ model_id: "veo-3.1-fast-generate-001", aspect_ratio: "9:16", duration_secs: 6, generate_audio: false, start_frame: img });
+    expect(c.images).toBeUndefined();
+  });
+
+  it("com fotos de referência (sem imagem inicial), manda como 'subject' e força 8 s", () => {
+    const c = corpoCena({ modelo: "veo-3.1-generate-001", prompt: "x", formato: "4:5", duracao: 4, som: true, resolucao: "720p", referencias: [img, img, img, img] });
+    expect(c.duration_secs).toBe(8);
+    expect(c.aspect_ratio).toBe("9:16");
+    expect(c.images).toEqual([{ image: img, role: "subject" }, { image: img, role: "subject" }, { image: img, role: "subject" }]);
+  });
+
+  it("duração inválida vira 8 s", () => {
+    expect(corpoCena({ modelo: "veo-3.1-fast-generate-001", prompt: "x", formato: "9:16", duracao: 5, som: true, resolucao: "720p" }).duration_secs).toBe(8);
+  });
+});
+
+describe("montagem com vídeos", () => {
+  it("avatar falando que cobre a narração toda: corta o mesmo trecho (boca sincronizada)", () => {
+    expect(entradaVideo({ tipo: "video", inicio: 10, duracao: 5, duracaoOriginal: 20 })).toEqual(["-ss", "10.000", "-t", "5.000"]);
+  });
+
+  it("clipe que não cobre o trecho: começa do início", () => {
+    expect(entradaVideo({ tipo: "video", inicio: 10, duracao: 5, duracaoOriginal: 8 })).toEqual(["-t", "5.000"]);
+  });
+
+  it("clipe mais curto que a cena: repete em loop", () => {
+    expect(entradaVideo({ tipo: "video", inicio: 0, duracao: 6, duracaoOriginal: 4 })).toEqual(["-stream_loop", "-1", "-t", "6.000"]);
+  });
+});

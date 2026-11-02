@@ -7,6 +7,7 @@ import { type ArquivoPublico, publico } from "./armazenamento";
 import { type ConfigEstudio, FORMATOS, type Formato } from "./config";
 import { gerarImagens } from "./imagem";
 import { iniciarMontagem } from "./video";
+import { gerarAvatarFalando, gerarCenaIA, verificarPlanoVideo } from "./video-ia";
 import { gerarNarracao } from "./voz";
 
 export interface DefinicaoFerramenta {
@@ -33,9 +34,13 @@ export const DEFINICOES: DefinicaoFerramenta[] = [
         formato: { type: "string", enum: formatos, description: "Proporção. 9:16 para TikTok (padrão), 4:5 carrossel, 1:1 quadrado, 16:9 horizontal." },
         referencias: { type: "array", items: { type: "string" }, description: "IDs de imagens/avatares do usuário para usar como referência (opcional)." },
         quantidade: { type: "integer", minimum: 1, maximum: 4, description: "Quantas variações (padrão 1)." },
-        rotulo: { type: "string", description: "Nome curto para o arquivo, ex.: 'cena 1 - farol'." },
+        rotulo: { type: "string", description: "Nome curto para o arquivo, ex.: 'cena 1 - produto na cozinha'. Para avatar, o nome dele (ex.: 'Emma')." },
+        salvar_como_avatar: {
+          type: "boolean",
+          description: "true quando estiver criando um AVATAR (pessoa/personagem que vai aparecer nos vídeos): a imagem já fica salva na lista de avatares.",
+        },
       },
-      required: ["prompt", "formato", "referencias", "quantidade", "rotulo"],
+      required: ["prompt", "formato", "referencias", "quantidade", "rotulo", "salvar_como_avatar"],
       additionalProperties: false,
     },
   },
@@ -57,13 +62,13 @@ export const DEFINICOES: DefinicaoFerramenta[] = [
   {
     name: "montar_video",
     description:
-      "Monta um vídeo MP4 para TikTok com as imagens em sequência (com zoom suave), a narração, legendas sincronizadas palavra por palavra, " +
+      "Monta o vídeo final MP4 para TikTok juntando as cenas em sequência — imagens (ganham zoom suave) e/ou vídeos (cenas de IA, avatar falando) —, a narração, legendas sincronizadas palavra por palavra, " +
       "o texto do hook em destaque no topo nos primeiros 3 s ('gancho') e a chamada final nos últimos 3 s ('cta'). " +
       "O tempo de cada imagem é dividido igualmente pela duração da narração. A montagem roda em segundo plano e aparece pronta no chat em alguns segundos/minutos.",
     input_schema: {
       type: "object",
       properties: {
-        imagens: { type: "array", items: { type: "string" }, description: "IDs das imagens na ordem das cenas." },
+        imagens: { type: "array", items: { type: "string" }, description: "IDs das cenas na ordem: imagens e/ou vídeos (prontos)." },
         narracao: { type: "string", description: "ID do áudio de narração (ou string vazia para vídeo sem áudio)." },
         legendas: { type: "boolean", description: "Queimar legendas no vídeo (precisa de narração). Padrão true." },
         formato: { type: "string", enum: formatos, description: "Proporção do vídeo (padrão 9:16)." },
@@ -72,6 +77,46 @@ export const DEFINICOES: DefinicaoFerramenta[] = [
         rotulo: { type: "string", description: "Nome curto para o vídeo." },
       },
       required: ["imagens", "narracao", "legendas", "formato", "gancho", "cta", "rotulo"],
+      additionalProperties: false,
+    },
+  },
+  {
+    name: "gerar_video_ia",
+    description:
+      "Gera um vídeo curto com movimento real por IA (Veo 3.1, via ElevenLabs), 4 a 8 s, com som ambiente opcional. " +
+      "Para produto, o melhor é primeiro gerar a cena com gerar_imagem (produto igual à foto) e passar o id dela em 'imagem_inicial' — o vídeo começa dessa imagem e anima a cena. " +
+      "Escreva o prompt em inglês descrevendo o movimento (ex.: 'slow push-in, a hand picks up the bottle, condensation drips, soft morning light'). " +
+      "Demora alguns minutos; o vídeo aparece pronto no chat. Custa créditos da ElevenLabs: confirme antes de gerar vários.",
+    input_schema: {
+      type: "object",
+      properties: {
+        prompt: { type: "string", description: "Descrição da cena e do movimento, em inglês." },
+        imagem_inicial: { type: "string", description: "ID da imagem que vira o primeiro quadro (recomendado). String vazia para não usar." },
+        referencias: { type: "array", items: { type: "string" }, description: "Até 3 IDs de fotos (produto/pessoa) como referência quando não há imagem inicial. Força 8 s." },
+        duracao: { type: "integer", enum: [4, 6, 8], description: "Duração em segundos." },
+        qualidade: { type: "string", enum: ["rapida", "maxima"], description: "rapida = Veo 3.1 Fast (padrão), maxima = Veo 3.1." },
+        som: { type: "boolean", description: "Gerar som ambiente/efeitos no clipe (desligue quando houver narração por cima)." },
+        rotulo: { type: "string", description: "Nome curto para o vídeo." },
+      },
+      required: ["prompt", "imagem_inicial", "referencias", "duracao", "qualidade", "som", "rotulo"],
+      additionalProperties: false,
+    },
+  },
+  {
+    name: "avatar_falando",
+    description:
+      "Cria um vídeo do AVATAR FALANDO (estilo UGC): a foto do avatar + a narração viram um vídeo com a boca sincronizada (Creatify Aurora, via ElevenLabs). " +
+      "Passe o id de uma narração já gerada em 'narracao' ou o texto em 'texto' (aí a narração é gerada antes, com a voz do canal). " +
+      "Depois, use montar_video com o vídeo do avatar + cenas do produto + a MESMA narração para ter legendas, hook e CTA. Demora alguns minutos.",
+    input_schema: {
+      type: "object",
+      properties: {
+        avatar: { type: "string", description: "ID da imagem do avatar (rosto visível, de frente, boca fechada)." },
+        narracao: { type: "string", description: "ID da narração (áudio) já gerada. String vazia se for passar o texto." },
+        texto: { type: "string", description: "Texto falado (inglês), usado só se 'narracao' estiver vazia." },
+        rotulo: { type: "string", description: "Nome curto para o vídeo." },
+      },
+      required: ["avatar", "narracao", "texto", "rotulo"],
       additionalProperties: false,
     },
   },
@@ -100,6 +145,22 @@ const esquemas = {
     formato: fmt.optional(),
     referencias: z.array(z.string()).max(8).optional().default([]),
     quantidade: z.number().int().min(1).max(4).optional().default(1),
+    rotulo: z.string().max(120).optional().default(""),
+    salvar_como_avatar: z.boolean().optional().default(false),
+  }),
+  gerar_video_ia: z.object({
+    prompt: z.string().min(1).max(4000),
+    imagem_inicial: z.string().optional().default(""),
+    referencias: z.array(z.string()).max(3).optional().default([]),
+    duracao: z.number().int().optional().default(8),
+    qualidade: z.enum(["rapida", "maxima"]).catch("rapida").optional().default("rapida"),
+    som: z.boolean().optional().default(true),
+    rotulo: z.string().max(120).optional().default(""),
+  }),
+  avatar_falando: z.object({
+    avatar: z.string().min(1),
+    narracao: z.string().optional().default(""),
+    texto: z.string().optional().default(""),
     rotulo: z.string().max(120).optional().default(""),
   }),
   gerar_narracao: z.object({ texto: z.string().min(1), rotulo: z.string().max(120).optional().default("") }),
@@ -155,6 +216,7 @@ export async function executarFerramenta(nome: string, entrada: unknown, ctx: Co
           quantidade: e.quantidade,
           rotulo: e.rotulo,
           conversaId: ctx.conversaId,
+          avatar: e.salvar_como_avatar,
         });
         const pub = imgs.map(publico);
         pub.forEach(ctx.aoCriarArquivo);
@@ -196,6 +258,49 @@ export async function executarFerramenta(nome: string, entrada: unknown, ctx: Co
           erro: false,
         };
       }
+      case "gerar_video_ia": {
+        const e = esquemas.gerar_video_ia.parse(entrada);
+        const v = publico(
+          await gerarCenaIA({
+            prompt: e.prompt,
+            formato: ctx.config.formatoPadrao === "16:9" ? "16:9" : "9:16",
+            modelo: e.qualidade === "maxima" ? "veo-3.1-generate-001" : "veo-3.1-fast-generate-001",
+            duracao: e.duracao,
+            som: e.som,
+            imagemInicialId: e.imagem_inicial || null,
+            referencias: e.referencias,
+            rotulo: e.rotulo,
+            conversaId: ctx.conversaId,
+          }),
+        );
+        ctx.aoCriarArquivo(v);
+        return { texto: JSON.stringify({ ok: true, video: { id: v.id, nome: v.rotulo, status: "gerando — leva alguns minutos e aparece pronto no chat" } }), erro: false };
+      }
+      case "avatar_falando": {
+        const e = esquemas.avatar_falando.parse(entrada);
+        await verificarPlanoVideo();
+        let audioId = e.narracao;
+        let narracaoNova: { id: string; duracao_s: number | null } | undefined;
+        if (!audioId) {
+          if (!e.texto.trim()) return { texto: "Passe o id da narração ou o texto a ser falado.", erro: true };
+          const n = publico(
+            await gerarNarracao({ texto: e.texto, vozId: ctx.config.vozId, vozNome: ctx.config.vozNome, modelo: ctx.config.modeloVoz, rotulo: e.rotulo ? `fala - ${e.rotulo}` : "fala do avatar", conversaId: ctx.conversaId }),
+          );
+          ctx.aoCriarArquivo(n);
+          audioId = n.id;
+          narracaoNova = { id: n.id, duracao_s: n.duracao };
+        }
+        const v = publico(await gerarAvatarFalando({ avatarId: e.avatar, audioId, rotulo: e.rotulo, conversaId: ctx.conversaId }));
+        ctx.aoCriarArquivo(v);
+        return {
+          texto: JSON.stringify({
+            ok: true,
+            narracao: narracaoNova,
+            video: { id: v.id, nome: v.rotulo, status: "gerando — leva alguns minutos; use montar_video com este id e a mesma narração para legendas/hook/CTA" },
+          }),
+          erro: false,
+        };
+      }
       case "listar_arquivos": {
         const e = esquemas.listar_arquivos.parse(entrada);
         const where = e.tipo === "todos" ? {} : e.tipo === "avatar" ? { avatar: true } : { tipo: e.tipo };
@@ -220,6 +325,8 @@ export function rotuloFerramenta(nome: string): string {
       gerar_imagem: "🖼️ Gerando imagem…",
       gerar_narracao: "🎙️ Gerando narração…",
       montar_video: "🎬 Montando vídeo…",
+      gerar_video_ia: "🎥 Enviando vídeo para a IA…",
+      avatar_falando: "🗣️ Criando avatar falando…",
       listar_arquivos: "📁 Consultando sua biblioteca…",
     }[nome] ?? `⚙️ ${nome}…`
   );

@@ -39,6 +39,15 @@ const SUGESTOES = [
     texto:
       "Vou te mandar a foto do produto. Crie um vídeo completo para o TikTok Shop: roteiro em cenas, imagens de cada cena com o produto igual ao da foto, narração, e monte o vídeo com legendas, hook na tela e CTA. No final, me dê a caption, as hashtags e 3 hooks alternativos.\n\nProduto: \nO que faz: \nPreço/promo: ",
   },
+  {
+    rotulo: "🧑 Criar avatar",
+    texto: "Crie um avatar para os meus vídeos de TikTok Shop: mulher americana de uns 28 anos, simpática, estilo UGC (selfie de celular). Gere 2 variações e salve como avatar com o nome Emma.",
+  },
+  {
+    rotulo: "🗣️ Vídeo com avatar falando",
+    texto:
+      "Faça um vídeo UGC com o meu avatar falando sobre o produto da foto: roteiro em primeira pessoa (até 60 palavras), avatar falando, 2 cenas do produto com movimento e monte tudo com legendas, hook e CTA.\n\nAvatar: \nProduto: ",
+  },
   { rotulo: "🎯 10 hooks para o produto", texto: "Me dê 10 hooks (texto na tela + primeira frase falada) para vender este produto no TikTok Shop: " },
   {
     rotulo: "📸 Produto em cenas",
@@ -52,6 +61,8 @@ const FEITO: Record<string, string> = {
   gerar_narracao: "Narração gerada",
   montar_video: "Vídeo enviado para montagem",
   listar_arquivos: "Biblioteca consultada",
+  gerar_video_ia: "Vídeo IA enviado (leva alguns minutos)",
+  avatar_falando: "Avatar falando enviado (leva alguns minutos)",
 };
 
 function idTemp() {

@@ -9,12 +9,15 @@ export function SeletorImagens({
   aoEscolher,
   multiplo = true,
   titulo = "Escolher imagens",
+  incluirVideos = false,
 }: {
   aberto: boolean;
   aoFechar: () => void;
   aoEscolher: (lista: Arquivo[]) => void;
   multiplo?: boolean;
   titulo?: string;
+  /** Também lista vídeos prontos (para a montagem) */
+  incluirVideos?: boolean;
 }) {
   const dialogo = useRef<HTMLDialogElement>(null);
   const input = useRef<HTMLInputElement>(null);
@@ -33,12 +36,12 @@ export function SeletorImagens({
       setMarcados([]);
       setErro(null);
       setCarregando(true);
-      buscarArquivos({ tipo: "referencias", limite: "120" })
+      buscarArquivos({ tipo: incluirVideos ? "cenas" : "referencias", limite: "120" })
         .then(setLista)
         .catch((e: Error) => setErro(e.message))
         .finally(() => setCarregando(false));
     } else if (!aberto && d.open) d.close();
-  }, [aberto]);
+  }, [aberto, incluirVideos]);
 
   function alternar(id: string) {
     setMarcados((m) => (m.includes(id) ? m.filter((x) => x !== id) : multiplo ? [...m, id] : [id]));
@@ -61,7 +64,8 @@ export function SeletorImagens({
   }
 
   const avatares = lista.filter((a) => a.avatar);
-  const outras = lista.filter((a) => !a.avatar);
+  const videos = lista.filter((a) => !a.avatar && a.tipo === "video");
+  const outras = lista.filter((a) => !a.avatar && a.tipo !== "video");
 
   const grade = (itens: Arquivo[]) => (
     <div className="seletor-grade">
@@ -74,9 +78,13 @@ export function SeletorImagens({
           aria-pressed={marcados.includes(a.id)}
           title={a.rotulo || a.prompt}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={a.url} alt={a.rotulo || "imagem"} loading="lazy" />
-          <span>{a.rotulo || (a.tipo === "upload" ? "enviada" : "gerada")}</span>
+          {a.tipo === "video" ? (
+            <video src={`${a.url}#t=0.1`} muted playsInline preload="metadata" aria-label={a.rotulo || "vídeo"} />
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={a.url} alt={a.rotulo || "imagem"} loading="lazy" />
+          )}
+          <span>{a.tipo === "video" ? "🎥 " : ""}{a.rotulo || (a.tipo === "upload" ? "enviada" : "gerada")}</span>
         </button>
       ))}
     </div>
@@ -112,6 +120,12 @@ export function SeletorImagens({
               <>
                 <h3 className="seletor-secao">⭐ Produtos e avatares salvos</h3>
                 {grade(avatares)}
+              </>
+            )}
+            {videos.length > 0 && (
+              <>
+                <h3 className="seletor-secao">🎥 Vídeos</h3>
+                {grade(videos)}
               </>
             )}
             {outras.length > 0 && (

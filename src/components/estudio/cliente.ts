@@ -106,9 +106,9 @@ export function useArquivoVivo(inicial: Arquivo): Arquivo {
       } catch {
         /* tenta de novo no próximo ciclo */
       }
-    }, 3000);
+    }, atual.ia ? 10000 : 3000);
     return () => clearInterval(t);
-  }, [processando, atual.id]);
+  }, [processando, atual.id, atual.ia]);
   return atual;
 }
 

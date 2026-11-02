@@ -318,6 +318,20 @@ Para mudar essas regras, edite `src/lib/precos.ts` (bloco `REGRAS`) e `src/lib/s
 
 ## 8. Colocar no ar numa VPS (passo a passo)
 
+### ⚡ Jeito rápido: um comando só
+
+Entre na VPS (Ubuntu 22.04/24.04) pelo terminal (SSH) e cole:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/freitasnatan28-boop/teste/claude/relaxed-ritchie-uuikis/scripts/instalar-vps.sh | bash
+```
+
+Ele instala tudo (Node.js, Nginx, ffmpeg, PM2), baixa o site, pergunta o **domínio** (ou usa o IP da VPS), a
+**senha do site** e as **chaves das IAs**, liga o HTTPS grátis (se tiver domínio) e mostra o endereço no final.
+Para **atualizar** o site depois, rode o mesmo comando (ele não pergunta de novo).
+
+Se preferir fazer à mão, siga os passos abaixo.
+
 ### 8.1 O que contratar
 
 - **VPS** com Ubuntu 24.04, 1 a 2 GB de RAM (Hostinger, Contabo, DigitalOcean, Vultr, Magalu Cloud etc.). Custa cerca de R$ 25 a 60 por mês.
@@ -360,7 +374,7 @@ sudo ufw enable
 cd ~
 git clone https://github.com/freitasnatan28-boop/teste.git tia-fifi
 cd tia-fifi
-git checkout claude/affiliate-whatsapp-automation-tuhjld
+git checkout claude/relaxed-ritchie-uuikis
 npm ci
 cp .env.example .env
 nano .env
@@ -373,6 +387,7 @@ No editor `nano`, preencha:
 - `ML_CLIENT_ID`, `ML_CLIENT_SECRET`
 - `ML_REDIRECT_URI=https://painel.seudominio.com.br/api/ml/oauth/callback`
 - `ML_MOCK=false`
+- `OPENAI_API_KEY`, `ELEVENLABS_API_KEY` (e, se quiser o chat com Claude, `ANTHROPIC_API_KEY`) — veja a seção 12
 
 Salve com `Ctrl+O` e `Enter`, e saia com `Ctrl+X`.
 
@@ -546,9 +561,13 @@ vídeo pronto para o TikTok Shop: roteiro, cenas com o seu produto, narração e
 
 | Tela | Para que serve |
 |---|---|
-| **💬 Chat** | Conversa com a IA do canal. Ela escreve roteiros, hooks, captions e hashtags **e gera de verdade**: cenas do produto, narração e o vídeo montado. Toque em 📎 para mandar a foto do produto. |
-| **✨ Gerar** | Sem chat: gera imagem (com a foto do produto como referência), narração (escolhendo a voz) ou monta um vídeo escolhendo as cenas, o hook e o CTA. |
-| **📁 Biblioteca** | Tudo o que você enviou e gerou, com **Baixar** e **Baixar todos**. Marque ⭐ para salvar a foto de um produto (ou avatar) e reaproveitar sempre. |
+| **💬 Chat** | Conversa com a IA do canal. Ela escreve roteiros, hooks, captions e hashtags **e gera de verdade**: cenas do produto, avatares, narração, vídeos com IA e o vídeo montado. Toque em 📎 para mandar a foto do produto. |
+| **✨ Gerar → 🖼️ Imagem** | Cena do produto (com a foto real como referência). |
+| **✨ Gerar → 🧑 Avatar** | Cria a pessoa/personagem dos seus vídeos (UGC selfie, estúdio, 3D, sombrio). Fica salvo com ⭐. |
+| **✨ Gerar → 🎥 Vídeo IA** | **Cena com movimento** (Veo 3.1, 4–8 s, começando de uma imagem) ou **avatar falando** (foto do avatar + narração, boca sincronizada). |
+| **✨ Gerar → 🎙️ Narração** | Voz em inglês, escolhendo a voz. |
+| **✨ Gerar → 🎬 Montar vídeo** | Junta imagens **e vídeos** (avatar falando, cenas de IA) com narração, legendas, hook e CTA. |
+| **📁 Biblioteca** | Tudo o que você enviou e gerou, com **Baixar** e **Baixar todos**. |
 | **⚙️ Config** | **Instruções do canal** (já vem um modelo para TikTok Shop EUA), IA do chat, voz do narrador, formato e qualidade. |
 
 ### O que cada serviço faz
@@ -558,10 +577,12 @@ vídeo pronto para o TikTok Shop: roteiro, cenas com o seu produto, narração e
 | Claude (`claude-opus-5-5`) **ou** GPT (`gpt-5.5`) | O chat (você escolhe em Config) | `ANTHROPIC_API_KEY` ou `OPENAI_API_KEY` |
 | OpenAI `gpt-image-2` | Gerar imagens e transformar fotos/avatares | `OPENAI_API_KEY` |
 | ElevenLabs | Narração (com o tempo de cada palavra, para as legendas) | `ELEVENLABS_API_KEY` |
-| ffmpeg (já vem no `npm install`) | Monta o MP4: imagens com zoom suave + narração + legendas palavra por palavra | — |
+| ElevenLabs **Image & Video** (plano **Pro** ou acima) | Vídeo com IA (Veo 3.1) e avatar falando (Creatify Aurora) | `ELEVENLABS_API_KEY` |
+| ffmpeg (já vem no `npm install`) | Monta o MP4: cenas (imagens com zoom e vídeos) + narração + legendas + hook + CTA | — |
 
-> **Vídeo com IA (Sora):** a OpenAI desligou o Sora 2 e a API de vídeos em 24/09/2026. Por isso o vídeo é **montado
-> no próprio servidor** a partir das cenas e da narração, que é o formato mais comum de vídeo de canal dark.
+> **Vídeo com IA:** a OpenAI desligou o Sora 2 em 24/09/2026; o site usa o **Veo 3.1** e o **avatar falando** pela
+> ElevenLabs. Essa parte só funciona no plano **Pro** (ou acima) da ElevenLabs — no plano Starter o site mostra o aviso
+> e o resto (imagens, avatares em foto, narração e montagem) continua funcionando.
 
 ### Configurar
 1. Coloque as chaves no `.env` (veja o `.env.example`) e reinicie: `pm2 restart painel`.

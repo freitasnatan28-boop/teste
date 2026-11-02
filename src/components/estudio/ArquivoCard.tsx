@@ -9,6 +9,7 @@ export function ArquivoCard({
   aoApagar,
   aoAlternarAvatar,
   compacto,
+  usarVideos,
 }: {
   arquivo: Arquivo;
   /** Botão "Usar" (anexar no chat / referência) */
@@ -16,6 +17,8 @@ export function ArquivoCard({
   aoApagar?: (a: Arquivo) => void;
   aoAlternarAvatar?: (a: Arquivo) => void;
   compacto?: boolean;
+  /** Mostra "Usar" também em vídeos (montagem) */
+  usarVideos?: boolean;
 }) {
   const a = useArquivoVivo(arquivo);
   const vertical = (a.altura ?? 0) > (a.largura ?? 0);
@@ -26,7 +29,7 @@ export function ArquivoCard({
         {a.status === "processando" ? (
           <div className="arq-processando" role="status">
             <span className="girando" aria-hidden />
-            <span>{a.tipo === "video" ? "Montando o vídeo…" : "Processando…"}</span>
+            <span>{a.ia ? "Gerando com IA… leva alguns minutos" : a.tipo === "video" ? "Montando o vídeo…" : "Processando…"}</span>
           </div>
         ) : a.status === "erro" ? (
           <div className="arq-erro" role="alert">
@@ -62,7 +65,7 @@ export function ArquivoCard({
               ⬇️ Baixar
             </a>
           )}
-          {aoUsar && a.status === "pronto" && a.mime.startsWith("image/") && (
+          {aoUsar && a.status === "pronto" && (a.mime.startsWith("image/") || (usarVideos && a.tipo === "video")) && (
             <button type="button" className="btn btn-mini btn-sec" onClick={() => aoUsar(a)}>
               ➕ Usar
             </button>

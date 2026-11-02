@@ -183,16 +183,48 @@ function escaparFiltro(p: string): string {
   return p.replace(/\\/g, "\\\\").replace(/:/g, "\\:").replace(/'/g, "\\'");
 }
 
+/** Informações de um vídeo: duração e se tem som. */
+export async function infoMidia(arquivo: string): Promise<{ duracao: number | null; temAudio: boolean }> {
+  const { saida } = await rodar(["-hide_banner", "-i", arquivo]);
+  const m = /Duration:\s*(\d+):(\d+):(\d+(?:\.\d+)?)/.exec(saida);
+  return { duracao: m ? Number(m[1]) * 3600 + Number(m[2]) * 60 + Number(m[3]) : null, temAudio: /Stream #.*Audio:/.test(saida) };
+}
+
+/** Uma cena da montagem: imagem (ganha zoom) ou vídeo (cena de IA, avatar falando). */
+export interface PlanoCena {
+  tipo: "imagem" | "video";
+  inicio: number;
+  duracao: number;
+  /** Duração do vídeo original (só para vídeos) */
+  duracaoOriginal?: number | null;
+}
+
+/**
+ * Como recortar cada vídeo: se ele cobre o trecho inteiro da narração (ex.: avatar falando a mesma
+ * narração), usa o mesmo trecho de tempo para a boca continuar sincronizada; se não, começa do início
+ * e repete em loop se for curto.
+ */
+export function entradaVideo(c: PlanoCena): string[] {
+  const d = c.duracao.toFixed(3);
+  const orig = c.duracaoOriginal ?? 0;
+  if (orig >= c.inicio + c.duracao - 0.05 && c.inicio > 0) return ["-ss", c.inicio.toFixed(3), "-t", d];
+  if (orig >= c.duracao) return ["-t", d];
+  return ["-stream_loop", "-1", "-t", d];
+}
+
 /** Cria o registro "processando" e monta o vídeo em segundo plano. */
 export async function iniciarMontagem(p: PedidoVideo): Promise<EstudioArquivo> {
   const imagens = p.imagens.filter(Boolean).slice(0, 40);
-  if (!imagens.length) throw new ErroServico("Escolha pelo menos uma imagem para o vídeo.");
+  if (!imagens.length) throw new ErroServico("Escolha pelo menos uma imagem ou vídeo para a montagem.");
   const encontrados = await prisma.estudioArquivo.findMany({ where: { id: { in: [...imagens, ...(p.audioId ? [p.audioId] : [])] } } });
   const porId = new Map(encontrados.map((a) => [a.id, a]));
-  const listaImgs = imagens.map((id) => porId.get(id)).filter((a): a is EstudioArquivo => Boolean(a && a.status === "pronto" && a.mime.startsWith("image/")));
-  if (!listaImgs.length) throw new ErroServico("Nenhuma das imagens escolhidas foi encontrada (ou ainda não ficou pronta).");
+  // Cenas ainda "processando" (ex.: avatar falando sendo gerado) são aceitas: a montagem espera ficarem prontas
+  const utilizavel = (a: EstudioArquivo | undefined): a is EstudioArquivo =>
+    Boolean(a && (a.status === "pronto" || a.status === "processando") && (a.mime.startsWith("image/") || a.mime.startsWith("video/")));
+  const listaImgs = imagens.map((id) => porId.get(id)).filter(utilizavel);
+  if (!listaImgs.length) throw new ErroServico("Nenhuma das cenas escolhidas foi encontrada.");
   const audio = p.audioId ? porId.get(p.audioId) : undefined;
-  if (p.audioId && (!audio || audio.status !== "pronto" || audio.tipo !== "audio")) throw new ErroServico("A narração escolhida não foi encontrada.");
+  if (p.audioId && (!audio || audio.status === "erro" || audio.tipo !== "audio")) throw new ErroServico("A narração escolhida não foi encontrada.");
 
   const registro = await prisma.estudioArquivo.create({
     data: {
@@ -208,23 +240,50 @@ export async function iniciarMontagem(p: PedidoVideo): Promise<EstudioArquivo> {
     },
   });
 
-  fila = fila
-    .catch(() => undefined)
-    .then(() => montar(registro.id, listaImgs, audio, p))
-    .catch(async (e: unknown) => {
-      const msg = e instanceof Error ? e.message : "Erro ao montar o vídeo";
-      await prisma.estudioArquivo.update({ where: { id: registro.id }, data: { status: "erro", erro: msg.slice(0, 500) } }).catch(() => undefined);
-    });
+  const falhou = async (e: unknown) => {
+    const msg = e instanceof Error ? e.message : "Erro ao montar o vídeo";
+    await prisma.estudioArquivo.update({ where: { id: registro.id }, data: { status: "erro", erro: msg.slice(0, 500) } }).catch(() => undefined);
+  };
+  const ids = [...new Set([...listaImgs.map((a) => a.id), ...(audio ? [audio.id] : [])])];
+  void aguardarProntos(ids)
+    .then((prontos) => {
+      const cenasProntas = listaImgs.map((a) => prontos.get(a.id)!);
+      const audioPronto = audio ? prontos.get(audio.id) : undefined;
+      fila = fila
+        .catch(() => undefined)
+        .then(() => montar(registro.id, cenasProntas, audioPronto, p))
+        .catch(falhou);
+    })
+    .catch(falhou);
   return registro;
 }
 
-async function montar(id: string, imagens: EstudioArquivo[], audio: EstudioArquivo | undefined, p: PedidoVideo) {
+/** Espera os arquivos ficarem prontos (vídeos de IA levam minutos). Falha se algum der erro. */
+async function aguardarProntos(ids: string[], limiteMs = 50 * 60_000): Promise<Map<string, EstudioArquivo>> {
+  const inicio = Date.now();
+  for (;;) {
+    const lista = await prisma.estudioArquivo.findMany({ where: { id: { in: ids } } });
+    const comErro = lista.find((a) => a.status === "erro");
+    if (comErro) throw new ErroServico(`Uma das cenas falhou ("${comErro.rotulo || comErro.tipo}"): ${comErro.erro ?? "erro"}`);
+    if (lista.length < ids.length) throw new ErroServico("Uma das cenas foi apagada.");
+    if (lista.every((a) => a.status === "pronto" && a.arquivo)) return new Map(lista.map((a) => [a.id, a]));
+    if (Date.now() - inicio > limiteMs) throw new ErroServico("As cenas demoraram demais para ficar prontas.");
+    await new Promise((r) => setTimeout(r, 5000));
+  }
+}
+
+async function montar(id: string, cenas: EstudioArquivo[], audio: EstudioArquivo | undefined, p: PedidoVideo) {
   const { largura: W, altura: H } = SAIDA[p.formato] ?? SAIDA["9:16"];
   const tmp = path.join(pastaEstudio(), "tmp", id);
   await mkdir(tmp, { recursive: true });
   try {
-    let total: number;
+    const infos = await Promise.all(
+      cenas.map(async (c) => (c.mime.startsWith("video/") ? infoMidia(caminhoArquivo(c.arquivo)) : { duracao: null, temAudio: false })),
+    );
+    const segImagem = Math.min(Math.max(p.segundosPorImagem ?? 3, 1), 20);
     let palavras: PalavraTempo[] = [];
+    let duracoes: number[];
+    let total: number;
     if (audio) {
       const dur = await duracaoMidia(caminhoArquivo(audio.arquivo));
       if (!dur) throw new ErroServico("Não consegui ler a duração da narração.");
@@ -234,23 +293,48 @@ async function montar(id: string, imagens: EstudioArquivo[], audio: EstudioArqui
       } catch {
         palavras = [];
       }
+      // Divide o tempo da narração igualmente entre as cenas (em quadros inteiros)
+      duracoes = [];
+      let acumulado = 0;
+      cenas.forEach((_, k) => {
+        const fim = k === cenas.length - 1 ? total : Math.round(((k + 1) * total) / cenas.length * FPS) / FPS;
+        const q = Math.max(1, Math.round((fim - acumulado) * FPS));
+        duracoes.push(q / FPS);
+        acumulado += q / FPS;
+      });
     } else {
-      total = imagens.length * Math.min(Math.max(p.segundosPorImagem ?? 3, 1), 20);
+      // Sem narração: imagem dura "segundos por imagem"; vídeo dura o próprio tempo (até 60 s)
+      duracoes = cenas.map((c, k) => (c.mime.startsWith("video/") ? Math.min(infos[k].duracao ?? segImagem, 60) : segImagem));
+      duracoes = duracoes.map((d) => Math.max(1, Math.round(d * FPS)) / FPS);
+      total = duracoes.reduce((a, b) => a + b, 0);
     }
+    const planos: PlanoCena[] = [];
+    let t = 0;
+    cenas.forEach((c, k) => {
+      planos.push({ tipo: c.mime.startsWith("video/") ? "video" : "imagem", inicio: t, duracao: duracoes[k], duracaoOriginal: infos[k].duracao });
+      t += duracoes[k];
+    });
+    // Sem narração e só vídeos com som (ex.: cenas do Veo com áudio): mantém o som deles
+    const somDosClipes = !audio && planos.every((pl, k) => pl.tipo === "video" && infos[k].temAudio);
 
-    const n = imagens.length;
-    const porCena = total / n;
+    const n = cenas.length;
     const args: string[] = ["-hide_banner", "-y"];
-    imagens.forEach((img) => args.push("-framerate", String(FPS), "-i", caminhoArquivo(img.arquivo)));
+    cenas.forEach((c, k) => {
+      if (planos[k].tipo === "video") args.push(...entradaVideo(planos[k]), "-i", caminhoArquivo(c.arquivo));
+      else args.push("-framerate", String(FPS), "-i", caminhoArquivo(c.arquivo));
+    });
     if (audio) args.push("-i", caminhoArquivo(audio.arquivo));
 
     const filtros: string[] = [];
-    let acumulado = 0;
-    imagens.forEach((_, k) => {
-      // Arredonda em quadros e joga a sobra na última cena (o total fica exato)
-      const fim = k === n - 1 ? total : Math.round(((k + 1) * porCena) * FPS) / FPS;
-      const quadros = Math.max(1, Math.round((fim - acumulado) * FPS));
-      acumulado += quadros / FPS;
+    planos.forEach((pl, k) => {
+      const quadros = Math.max(1, Math.round(pl.duracao * FPS));
+      if (pl.tipo === "video") {
+        filtros.push(
+          `[${k}:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},setsar=1,fps=${FPS},tpad=stop_mode=clone:stop_duration=2,trim=end_frame=${quadros},setpts=PTS-STARTPTS,format=yuv420p[v${k}]`,
+        );
+        if (somDosClipes) filtros.push(`[${k}:a]aresample=44100,aformat=channel_layouts=stereo,apad,atrim=0:${pl.duracao.toFixed(3)},asetpts=PTS-STARTPTS[a${k}]`);
+        return;
+      }
       const base = `scale=${W * 2}:${H * 2}:force_original_aspect_ratio=increase,crop=${W * 2}:${H * 2},setsar=1`;
       const zoomMax = 0.12;
       const z = k % 2 === 0 ? `1+${zoomMax}*on/${quadros}` : `${1 + zoomMax}-${zoomMax}*on/${quadros}`;
@@ -259,7 +343,8 @@ async function montar(id: string, imagens: EstudioArquivo[], audio: EstudioArqui
         : `scale=${W}:${H},loop=loop=${quadros - 1}:size=1:start=0,fps=${FPS}`;
       filtros.push(`[${k}:v]${base},${mov},format=yuv420p[v${k}]`);
     });
-    filtros.push(`${imagens.map((_, k) => `[v${k}]`).join("")}concat=n=${n}:v=1:a=0[vcat]`);
+    if (somDosClipes) filtros.push(`${planos.map((_, k) => `[v${k}][a${k}]`).join("")}concat=n=${n}:v=1:a=1[vcat][acat]`);
+    else filtros.push(`${planos.map((_, k) => `[v${k}]`).join("")}concat=n=${n}:v=1:a=0[vcat]`);
 
     let ultimo = "vcat";
     const usarPalavras = p.legendas ? palavras : [];
@@ -274,6 +359,7 @@ async function montar(id: string, imagens: EstudioArquivo[], audio: EstudioArqui
     const saida = caminhoArquivo(nome);
     args.push("-filter_complex", filtros.join(";"), "-map", `[${ultimo}]`);
     if (audio) args.push("-map", `${n}:a`, "-c:a", "aac", "-b:a", "192k");
+    else if (somDosClipes) args.push("-map", "[acat]", "-c:a", "aac", "-b:a", "192k");
     args.push("-t", total.toFixed(3), "-r", String(FPS), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-movflags", "+faststart", saida);
 
     const r = await rodar(args);
@@ -286,4 +372,3 @@ async function montar(id: string, imagens: EstudioArquivo[], audio: EstudioArqui
     await rm(tmp, { recursive: true, force: true }).catch(() => undefined);
   }
 }
-
