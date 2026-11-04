@@ -1,49 +1,30 @@
 // Static site builder for the blog.
 // Reads Markdown from content/, writes a ready-to-upload site to dist/.
-// Usage: node build.mjs   (then upload the contents of dist/ to public_html)
+// Usage: node build.mjs            → dist/ (only posts whose date has arrived)
+//        node build.mjs --future   → dist/ including scheduled posts
+//        node build.mjs --preview  → dist-preview/ including scheduled posts (used by preview.mjs)
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, cpSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, cpSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { Marked } from "marked";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-// --preview: builds a browsable copy in dist-preview/ (relative links, all scheduled posts included)
 const PREVIEW = process.argv.includes("--preview");
 const OUT = join(ROOT, PREVIEW ? "dist-preview" : "dist");
 const config = JSON.parse(readFileSync(join(ROOT, "site.config.json"), "utf8"));
 const SITE_URL = config.url.replace(/\/+$/, "");
 const TODAY = new Date().toISOString().slice(0, 10);
 const INCLUDE_FUTURE = PREVIEW || process.argv.includes("--future");
-
-const CATEGORIES = {
-  cats: {
-    name: "Cats",
-    title: "DIY Cardboard Projects for Cats",
-    intro:
-      "Scratchers, hideouts, castles and food puzzles you can build from the boxes piling up at home. Every project is sized for real cats and tested for the things cats actually do: scratch, chew, sleep and knock things over.",
-  },
-  dogs: {
-    name: "Dogs",
-    title: "DIY Enrichment and Puzzle Toys for Dogs",
-    intro:
-      "Cheap brain games, snuffle boxes and shred-safe puzzles that give dogs a job to do. Each idea includes who it suits, how to make it harder, and when cardboard is not the right choice for your dog.",
-  },
-  guides: {
-    name: "Guides",
-    title: "Pet Safety and Enrichment Guides",
-    intro:
-      "The background behind the projects: which materials are safe, why cats love boxes, how enrichment works, and how to pick the right cardboard. Read these before you start cutting.",
-  },
-};
+const SECTIONS = Object.fromEntries(config.sections.map((s) => [s.key, s]));
 
 const LEGAL_PAGES = [
   ["about", "About"],
   ["contact", "Contact"],
-  ["privacy-policy", "Privacy Policy"],
-  ["cookie-policy", "Cookie Policy"],
-  ["terms", "Terms of Use"],
-  ["affiliate-disclosure", "Affiliate Disclosure"],
+  ["privacy-policy", "Privacy"],
+  ["cookie-policy", "Cookies"],
+  ["terms", "Terms"],
+  ["affiliate-disclosure", "Affiliate disclosure"],
   ["disclaimer", "Disclaimer"],
 ];
 
@@ -54,12 +35,15 @@ const stripTags = (s) => s.replace(/<[^>]+>/g, "");
 const slugify = (s) =>
   stripTags(s)
     .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
     .replace(/&[a-z]+;/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 const fmtDate = (iso) =>
-  new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+  new Date(iso + "T12:00:00Z").toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 const abs = (path) => SITE_URL + path;
+const minutes = (words) => Math.max(1, Math.round(words / 230));
 
 function fill(text) {
   return text
@@ -88,6 +72,19 @@ function parseFrontmatter(src) {
   return { data, body: src.slice(m[0].length) };
 }
 
+// A passport-style stamp, drawn inline so it follows the theme colour.
+function stamp(section, cls = "stamp") {
+  const name = section.name.toUpperCase();
+  const size = name.length > 10 ? 7 : 8.5;
+  return `<svg class="${cls}" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+<circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3"/>
+<circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2.4 2.4"/>
+<text x="50" y="33" text-anchor="middle" fill="currentColor" style="font:500 7px var(--mono);letter-spacing:1.5px">${esc(config.name.toUpperCase())}</text>
+<text x="50" y="60" text-anchor="middle" fill="currentColor" style="font:700 24px var(--display);letter-spacing:2px">${esc(section.code)}</text>
+<text x="50" y="75" text-anchor="middle" fill="currentColor" style="font:500 ${size}px var(--mono);letter-spacing:0.5px">${esc(name)}</text>
+</svg>`;
+}
+
 // ---------- markdown ----------
 const marked = new Marked({ gfm: true });
 marked.use({
@@ -96,6 +93,10 @@ marked.use({
       const text = this.parser.parseInline(tokens);
       return `<h${depth} id="${slugify(text)}">${text}</h${depth}>\n`;
     },
+    paragraph({ tokens }) {
+      const text = this.parser.parseInline(tokens);
+      return text.startsWith("<strong>Tip</strong>") ? `<p class="tip">${text}</p>\n` : `<p>${text}</p>\n`;
+    },
     image({ href, title, text }) {
       const img = `<img src="${esc(href)}" alt="${esc(text)}" loading="lazy" decoding="async">`;
       return title ? `<figure>${img}<figcaption>${esc(title)}</figcaption></figure>` : img;
@@ -103,7 +104,7 @@ marked.use({
     link({ href, title, tokens }) {
       const text = this.parser.parseInline(tokens);
       const external = /^https?:\/\//.test(href) && !href.startsWith(SITE_URL);
-      const affiliate = /amzn\.to|amazon\.[a-z.]+\/.*tag=|chewy\.com\/.*utm|go\.skimresources|shareasale/.test(href);
+      const affiliate = /amzn\.to|amazon\.[a-z.]+\/.*tag=|booking\.com\/.*aid=|getyourguide\.[a-z]+\/.*partner_id|go\.skimresources|shareasale/.test(href);
       const rel = affiliate ? ' rel="sponsored nofollow noopener" target="_blank"' : external ? ' rel="noopener" target="_blank"' : "";
       return `<a href="${esc(href)}"${title ? ` title="${esc(title)}"` : ""}${rel}>${text}</a>`;
     },
@@ -130,6 +131,7 @@ function loadDir(dir) {
 }
 
 const allPosts = loadDir("posts");
+for (const p of allPosts) if (!SECTIONS[p.country]) throw new Error(`${p.slug}: unknown country "${p.country}"`);
 const posts = allPosts
   .filter((p) => !p.draft && (INCLUDE_FUTURE || p.date <= TODAY))
   .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.title.localeCompare(b.title)));
@@ -145,11 +147,9 @@ for (const item of [...posts, ...pages]) {
 const adsenseId = (config.adsensePublisherId || "").trim();
 const adsOn = /^pub-\d{10,}$/.test(adsenseId);
 
-function layout({ title, description, path, body, jsonLd = [], ogType = "website", noindex = false, bodyClass = "" }) {
+function layout({ title, description, path, body, jsonLd = [], ogType = "website", noindex = false }) {
   const fullTitle = path === "/" ? `${config.name}: ${config.tagline}` : `${title} | ${config.name}`;
-  const nav = Object.entries(CATEGORIES)
-    .map(([k, c]) => `<a href="/category/${k}/"${path.startsWith(`/category/${k}/`) ? ' aria-current="page"' : ""}>${c.name}</a>`)
-    .join("");
+  const here = (p) => (path === p || (p !== "/" && path.startsWith(p)) ? ' aria-current="page"' : "");
   const footerLinks = LEGAL_PAGES.map(([s, n]) => `<a href="/${s}/">${n}</a>`).join("");
   return `<!doctype html>
 <html lang="${config.language}">
@@ -165,9 +165,9 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : ""}<meta property="og:s
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${abs(path)}">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#f7f1e6">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="${esc(config.name)}" href="/feed.xml">
+<link rel="preload" href="/assets/fonts/literata-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/style.css">
 ${config.googleSiteVerification ? `<meta name="google-site-verification" content="${esc(config.googleSiteVerification)}">\n` : ""}${
     adsOn
@@ -176,57 +176,35 @@ ${config.googleSiteVerification ? `<meta name="google-site-verification" content
       : ""
   }${jsonLd.map((j) => `<script type="application/ld+json">${JSON.stringify(j)}</script>`).join("\n")}
 </head>
-<body class="${bodyClass}">
+<body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="34" height="34"><span>${esc(config.name)}</span></a>
-    <nav class="main-nav" aria-label="Main">${nav}<a href="/about/"${path === "/about/" ? ' aria-current="page"' : ""}>About</a></nav>
-  </div>
+<div class="page">
+<header class="masthead">
+  <a class="wordmark" href="/">${esc(config.name)}<span>.</span></a>
+  <nav class="nav" aria-label="Main"><a href="/"${here("/")}>Destinations</a><a href="/country/brazil/"${here("/country/brazil/")}>Brazil</a><a href="/about/"${here("/about/")}>About</a></nav>
 </header>
 <main id="main">
 ${body}
 </main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <div>
-        <p class="footer-brand">${esc(config.name)}</p>
-        <p class="muted">${esc(config.tagline)}.</p>
-      </div>
-      <nav class="footer-links" aria-label="Site information">${footerLinks}${
-        adsOn ? '<a href="#" data-consent-settings>Privacy &amp; cookie settings</a>' : ""
-      }</nav>
-    </div>
-    <p class="muted small">Content on this site is for general information and is not a substitute for advice from your veterinarian. Some links may be affiliate links; see our <a href="/affiliate-disclosure/">disclosure</a>.</p>
-    <p class="muted small">&copy; ${new Date().getFullYear()} ${esc(config.name)}. All rights reserved.</p>
-  </div>
+<footer class="footer">
+  <nav aria-label="Site information">${footerLinks}${adsOn ? '<a href="#" data-consent-settings>Privacy &amp; cookie settings</a>' : ""}</nav>
+  <p>${esc(config.name)} publishes independent travel guides. Prices, opening hours and entry rules change often; check official sources before you book.</p>
+  <p>&copy; ${new Date().getFullYear()} ${esc(config.name)}</p>
 </footer>
+</div>
 <script src="/assets/site.js" defer></script>
 </body>
 </html>
 `;
 }
 
-const orgLd = {
-  "@type": "Organization",
-  name: config.name,
-  url: SITE_URL + "/",
-  logo: { "@type": "ImageObject", url: abs("/assets/logo.png") },
-};
+const orgLd = { "@type": "Organization", name: config.name, url: SITE_URL + "/", logo: { "@type": "ImageObject", url: abs("/assets/logo.png") } };
 const personLd = { "@type": "Person", name: config.author.name, url: abs("/about/") };
 
-function card(p) {
-  const cat = CATEGORIES[p.category];
-  return `<article class="card">
-  <a class="card-link" href="/${p.slug}/">
-    <span class="pill pill-${p.category}">${cat ? cat.name : ""}</span>
-    <h3>${esc(p.title)}</h3>
-    <p>${esc(p.description)}</p>
-    <span class="card-meta">${p.difficulty ? `${esc(p.difficulty)} · ` : ""}${Math.max(1, Math.round(p.words / 230))} min read</span>
-  </a>
-</article>`;
-}
+const entry = (p) => `<a class="entry" href="/${p.slug}/">
+  <span class="label">${esc(SECTIONS[p.country].name)} · ${minutes(p.words)} min read</span>
+  <h3>${esc(p.title)}</h3>
+</a>`;
 
 // ---------- writers ----------
 function write(path, html) {
@@ -243,49 +221,43 @@ cpSync(join(ROOT, "assets", "favicon.svg"), join(OUT, "favicon.svg"));
 // Posts
 for (const p of posts) {
   const path = `/${p.slug}/`;
-  const cat = CATEGORIES[p.category];
-  const related = posts.filter((x) => x.slug !== p.slug && x.category === p.category).slice(0, 3);
-  const fill3 = related.length < 3 ? posts.filter((x) => x.slug !== p.slug && !related.includes(x)).slice(0, 3 - related.length) : [];
-  const projectBox =
-    p.time || p.difficulty || p.cost
-      ? `<dl class="project-box">
-  ${p.time ? `<div><dt>Time</dt><dd>${esc(p.time)}</dd></div>` : ""}
-  ${p.difficulty ? `<div><dt>Difficulty</dt><dd>${esc(p.difficulty)}</dd></div>` : ""}
-  ${p.cost ? `<div><dt>Cost</dt><dd>${esc(p.cost)}</dd></div>` : ""}
-  ${p.pet ? `<div><dt>Best for</dt><dd>${esc(p.pet)}</dd></div>` : ""}
-</dl>`
-      : "";
-  const toc =
-    p.toc.length >= 4
-      ? `<nav class="toc" aria-label="In this article"><p class="toc-title">In this article</p><ol>${p.toc
-          .map((t) => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`)
+  const sec = SECTIONS[p.country];
+  const more = [
+    ...posts.filter((x) => x.slug !== p.slug && x.country === p.country),
+    ...posts.filter((x) => x.slug !== p.slug && x.country !== p.country),
+  ].slice(0, 3);
+  const facts = [
+    ["Best time to go", p.bestTime],
+    ["Currency", p.currency],
+    ["Language", p.languageSpoken],
+  ].filter(([, v]) => v);
+  const factsHtml = facts.length
+    ? `<dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>`
+    : "";
+  const contents =
+    p.toc && p.toc.length >= 6 && p.contents !== false
+      ? `<nav class="contents" aria-label="In this guide"><p class="label">In this guide</p><ol>${p.toc
+          .map((t) => `<li><a href="#${t.id}">${esc(t.text.replace(/^\d+\.\s*/, ""))}</a></li>`)
           .join("")}</ol></nav>`
       : "";
-  const updated = p.updated && p.updated !== p.date ? ` · Updated <time datetime="${p.updated}">${fmtDate(p.updated)}</time>` : "";
-  const body = `<article class="wrap post">
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span>›</span> <a href="/category/${p.category}/">${cat.name}</a></nav>
-  <header class="post-header">
+  const updated = p.updated && p.updated !== p.date ? ` · Updated ${fmtDate(p.updated)}` : "";
+  const body = `<article>
+  <header class="post-head">
+    <a class="label crumb" href="/country/${p.country}/">${esc(sec.name)}</a>
     <h1>${esc(p.title)}</h1>
-    <p class="lede">${esc(p.description)}</p>
-    <p class="byline">By <a href="/about/">${esc(config.author.name)}</a> · <time datetime="${p.date}">${fmtDate(p.date)}</time>${updated} · ${Math.max(1, Math.round(p.words / 230))} min read</p>
+    <p class="dek">${esc(p.description)}</p>
+    <p class="label">By ${esc(config.author.name)} · ${fmtDate(p.date)}${updated} · ${minutes(p.words)} min read</p>
+    ${stamp(sec)}
   </header>
-  ${projectBox}
-  ${toc}
+  ${factsHtml}
+  ${contents}
   <div class="prose">
 ${p.html}
   </div>
-  <aside class="author-box">
-    <img src="/favicon.svg" alt="" width="56" height="56">
-    <div>
-      <p class="author-name">Written by <a href="/about/">${esc(config.author.name)}</a></p>
-      <p>${esc(config.author.shortBio)}</p>
-      <p class="small muted">Spotted a mistake or have a safety concern about this article? <a href="/contact/">Tell us</a> and we will review it.</p>
-    </div>
-  </aside>
-  <section class="related">
-    <h2>Keep building</h2>
-    <div class="grid">${[...related, ...fill3].map(card).join("")}</div>
-  </section>
+  <footer class="post-end">
+    <p class="byline-end"><strong>${esc(config.author.name)}</strong> writes ${esc(config.name)} from ${esc(config.ownerCountry)}. ${esc(config.author.shortBio)} Found something out of date? <a href="/contact/">Let us know</a>.</p>
+    <section class="block"><p class="label">More guides</p>${more.map(entry).join("")}</section>
+  </footer>
 </article>`;
   const ld = [
     {
@@ -304,21 +276,21 @@ ${p.html}
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL + "/" },
-        { "@type": "ListItem", position: 2, name: cat.name, item: abs(`/category/${p.category}/`) },
+        { "@type": "ListItem", position: 1, name: "Destinations", item: SITE_URL + "/" },
+        { "@type": "ListItem", position: 2, name: sec.name, item: abs(`/country/${p.country}/`) },
         { "@type": "ListItem", position: 3, name: p.title, item: abs(path) },
       ],
     },
   ];
-  write(path, layout({ title: p.title, description: p.description, path, body, jsonLd: ld, ogType: "article", bodyClass: "is-post" }));
+  write(path, layout({ title: p.title, description: p.description, path, body, jsonLd: ld, ogType: "article" }));
 }
 
 // Static pages
 for (const pg of pages) {
   const path = `/${pg.slug}/`;
-  const body = `<article class="wrap post page">
-  <header class="post-header"><h1>${esc(pg.title)}</h1>${
-    pg.showUpdated ? `<p class="byline">Last updated: ${fmtDate(config.policiesLastUpdated)}</p>` : ""
+  const body = `<article>
+  <header class="post-head"><h1>${esc(pg.title)}</h1>${
+    pg.showUpdated ? `<p class="label">Last updated ${fmtDate(config.policiesLastUpdated)}</p>` : ""
   }</header>
   <div class="prose">
 ${pg.html}
@@ -327,49 +299,40 @@ ${pg.html}
   write(path, layout({ title: pg.title, description: pg.description || `${pg.title} for ${config.name}.`, path, body }));
 }
 
-// Category pages
-for (const [key, c] of Object.entries(CATEGORIES)) {
-  const list = posts.filter((p) => p.category === key);
-  const path = `/category/${key}/`;
-  const body = `<section class="wrap">
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span>›</span> ${c.name}</nav>
-  <header class="section-header"><h1>${esc(c.title)}</h1><p class="lede">${esc(c.intro)}</p></header>
-  <div class="grid">${list.map(card).join("") || "<p>New articles are on the way.</p>"}</div>
-</section>`;
-  write(path, layout({ title: c.title, description: c.intro, path, body }));
+// Country pages
+for (const sec of config.sections) {
+  const list = posts.filter((p) => p.country === sec.key);
+  const path = `/country/${sec.key}/`;
+  const title = `${sec.name} travel guides`;
+  const body = `<header class="post-head">
+  <a class="label crumb" href="/">Destinations</a>
+  <h1>${esc(sec.name)}</h1>
+  <p class="dek">${esc(sec.intro)}</p>
+  ${stamp(sec)}
+</header>
+<section class="block">${list.map(entry).join("") || '<p class="dek">Guides to this country are on the way.</p>'}</section>`;
+  write(path, layout({ title, description: sec.intro, path, body }));
 }
 
 // Home
 {
-  const start = ["safe-glue-paint-and-tape-for-pet-diy", "how-to-make-a-cardboard-cat-scratcher", "diy-dog-puzzle-toys-from-cardboard"]
-    .map((s) => posts.find((p) => p.slug === s))
-    .filter(Boolean);
-  const body = `<section class="hero">
-  <div class="wrap hero-inner">
-    <div>
-      <p class="eyebrow">DIY for cats &amp; dogs</p>
-      <h1>Turn the box your package came in into your pet&rsquo;s favorite thing.</h1>
-      <p class="lede">${esc(config.description)}</p>
-      <p class="hero-actions"><a class="btn" href="/category/cats/">Projects for cats</a><a class="btn btn-ghost" href="/category/dogs/">Projects for dogs</a></p>
-    </div>
-    <img class="hero-art" src="/assets/img/hero.svg" alt="Illustration of a cat peeking out of a cardboard box next to a dog with a puzzle toy" width="420" height="320">
-  </div>
+  const dests = config.sections
+    .map(
+      (s) => `<a class="dest" href="/country/${s.key}/">
+  <span class="code">${esc(s.code)}</span>
+  <h2>${esc(s.name)}</h2>
+  <p>${esc(s.intro)}</p>
+</a>`
+    )
+    .join("");
+  const body = `<section class="intro">
+  <p>Travel guides written from Southeast Brazil. Where to go, when to go and what to sort out before you book, for Brazil and five of the most visited countries in the world.</p>
+  <p>No sponsored rankings and no invented trips: every guide links to the official sources we used, so you can check the details yourself.</p>
 </section>
-${start.length ? `<section class="wrap"><h2 class="section-title">Start here</h2><div class="grid">${start.map(card).join("")}</div></section>` : ""}
-<section class="wrap"><h2 class="section-title">Latest articles</h2><div class="grid">${posts.filter((p) => !start.includes(p)).map(card).join("")}</div></section>
-<section class="wrap promise">
-  <h2>How we make our projects</h2>
-  <ul>
-    <li><strong>Safety first.</strong> Every project lists the materials to avoid and when to skip it entirely.</li>
-    <li><strong>Built from what you have.</strong> Most projects need a box, scissors and a few minutes.</li>
-    <li><strong>No miracle claims.</strong> We are pet owners, not vets. Health questions go to your veterinarian.</li>
-  </ul>
-  <p><a href="/about/">Read more about us and our editorial standards →</a></p>
-</section>`;
-  const ld = [
-    { "@context": "https://schema.org", "@type": "WebSite", name: config.name, url: SITE_URL + "/", inLanguage: config.language, publisher: orgLd },
-  ];
-  write("/", layout({ title: config.name, description: config.description, path: "/", body, jsonLd: ld, bodyClass: "is-home" }));
+<section class="block" aria-label="Destinations"><p class="label">Destinations</p>${dests}</section>
+<section class="block"><p class="label">Latest guides</p>${posts.slice(0, 8).map(entry).join("")}</section>`;
+  const ld = [{ "@context": "https://schema.org", "@type": "WebSite", name: config.name, url: SITE_URL + "/", inLanguage: config.language, publisher: orgLd }];
+  write("/", layout({ title: config.name, description: config.description, path: "/", body, jsonLd: ld }));
 }
 
 // 404
@@ -380,7 +343,7 @@ write(
     description: "This page could not be found.",
     path: "/404.html",
     noindex: true,
-    body: `<section class="wrap post"><h1>This box is empty.</h1><p class="lede">The page you were looking for has moved or never existed.</p><p><a class="btn" href="/">Back to the homepage</a></p></section>`,
+    body: `<header class="post-head"><h1>Wrong gate.</h1><p class="dek">This page has moved or never existed. <a href="/">Back to all destinations</a>.</p></header>`,
   })
 );
 
@@ -388,7 +351,7 @@ write(
 const urls = [
   { loc: "/", lastmod: posts[0]?.date || TODAY },
   ...posts.map((p) => ({ loc: `/${p.slug}/`, lastmod: p.updated || p.date })),
-  ...Object.keys(CATEGORIES).map((k) => ({ loc: `/category/${k}/`, lastmod: posts.find((p) => p.category === k)?.date || TODAY })),
+  ...config.sections.map((s) => ({ loc: `/country/${s.key}/`, lastmod: posts.find((p) => p.country === s.key)?.date || TODAY })),
   ...pages.map((p) => ({ loc: `/${p.slug}/`, lastmod: config.policiesLastUpdated })),
 ];
 write(
@@ -424,6 +387,7 @@ Options -Indexes
   ExpiresActive On
   ExpiresByType text/css "access plus 7 days"
   ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType font/woff2 "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 30 days"
   ExpiresByType image/jpeg "access plus 30 days"
   ExpiresByType image/webp "access plus 30 days"
@@ -446,5 +410,4 @@ const photoTotal = posts.reduce((n, p) => n + p.photoSlots, 0);
 console.log(`\n✔ Site gerado em ${PREVIEW ? "dist-preview" : "dist"}/  (${posts.length} posts, ${pages.length} páginas${hidden ? `, ${hidden} agendados/rascunho` : ""})`);
 for (const p of posts) console.log(`  · ${p.slug.padEnd(48)} ${String(p.words).padStart(5)} palavras  ${p.photoSlots} fotos para adicionar`);
 console.log(`  Total de espaços para fotos suas: ${photoTotal}`);
-if (!existsSync(join(ROOT, "assets", "logo.png"))) warnings.push("assets/logo.png não existe (usado nos dados estruturados do Google).");
 if (warnings.length) console.log("\n⚠ Antes de publicar:\n" + warnings.map((w) => "  - " + w).join("\n"));

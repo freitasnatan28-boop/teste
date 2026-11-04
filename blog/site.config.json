@@ -1,16 +1,24 @@
 {
-  "name": "Paws & Cardboard",
-  "tagline": "Simple DIY cardboard projects and everyday enrichment for cats and dogs",
-  "description": "Step-by-step DIY cardboard projects, food puzzles and enrichment ideas for cats and dogs, built from boxes you already have, with pet safety first.",
-  "url": "https://www.pawsandcardboard.com",
+  "name": "Carimbo",
+  "tagline": "Travel guides written from Brazil",
+  "description": "Practical travel guides to Brazil and five of the world's most visited countries: where to go, when to go and what to sort out before you book.",
+  "url": "https://www.carimbotravel.com",
   "language": "en",
   "author": {
     "name": "[Your Name]",
-    "shortBio": "[One or two sentences about you and your pets, e.g. who you live with, how long you have been making cardboard projects.]"
+    "shortBio": "[One or two sentences about you, e.g. where in Southeast Brazil you live and the trips you plan or have taken.]"
   },
   "ownerCountry": "Brazil",
   "contactEmail": "[contact email]",
   "adsensePublisherId": "",
   "googleSiteVerification": "",
-  "policiesLastUpdated": "2026-11-04"
+  "policiesLastUpdated": "2026-11-04",
+  "sections": [
+    { "key": "brazil", "name": "Brazil", "code": "BRA", "intro": "Beaches, rainforest, waterfalls and some of the liveliest cities in South America. Our home country, and the place we know best." },
+    { "key": "usa", "name": "United States", "code": "USA", "intro": "National parks, road trips and big cities, in a country so large that most visitors only see a corner of it." },
+    { "key": "spain", "name": "Spain", "code": "ESP", "intro": "Moorish palaces, late dinners and a coastline that runs from the Basque Country to Andalusia." },
+    { "key": "england", "name": "England", "code": "GBR", "intro": "London, cathedral cities, national parks and villages that look exactly like the postcards." },
+    { "key": "france", "name": "France", "code": "FRA", "intro": "The most visited country in the world, and far more than Paris: castles, coast, Alps and vineyards." },
+    { "key": "italy", "name": "Italy", "code": "ITA", "intro": "Ancient Rome, Renaissance Florence, the canals of Venice and a coast built into the cliffs." }
+  ]
 }

@@ -1,6 +1,6 @@
 ---
 title: Cookie Policy
-description: Which cookies Paws & Cardboard and its advertising partners use, why, and how to manage or withdraw your consent.
+description: Which cookies Carimbo and its advertising partners use, why, and how to manage or withdraw your consent.
 showUpdated: true
 ---
 

@@ -1,10 +1,11 @@
 // Builds a single-file, self-contained preview of the whole site (all posts, including scheduled ones).
 // Every page becomes a <section>, links become #hash routes, CSS and images are inlined.
-// Usage: node preview.mjs   →   dist-preview/index.html
+// Usage: node preview.mjs   →   dist-preview/carimbo-preview.html
 import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { join, dirname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+const config = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), "site.config.json"), "utf8"));
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const D = join(ROOT, "dist-preview");
@@ -26,8 +27,8 @@ const pages = files.map((f) => {
   return { id, route, title, main, html };
 });
 const home = pages.find((p) => p.id === "home").html;
-const header = home.match(/<header class="site-header">[\s\S]*?<\/header>/)[0];
-const footer = home.match(/<footer class="site-footer">[\s\S]*?<\/footer>/)[0];
+const header = home.match(/<header class="masthead">[\s\S]*?<\/header>/)[0];
+const footer = home.match(/<footer class="footer">[\s\S]*?<\/footer>/)[0];
 
 const dataUri = (p) => {
   const buf = readFileSync(join(D, p));
@@ -40,25 +41,27 @@ const rewrite = (s) =>
     .replace(/src="\/([^"]+\.(?:svg|png))"/g, (_, p) => `src="${dataUri(p)}"`)
     .replace(/href="(\/[^"#]*)"/g, (m, r) => (known.has(r) ? `href="#${idOf(r)}"` : m));
 
-const css = readFileSync(join(D, "assets", "style.css"), "utf8");
+const css = readFileSync(join(D, "assets", "style.css"), "utf8").replace(/url\("\/assets\/fonts\/([^"]+)"\)/g, (_, f) => `url("data:font/woff2;base64,${readFileSync(join(D, "assets", "fonts", f)).toString("base64")}")`);
 const sections = pages
   .map((p) => `<section class="pv-page" id="${p.id}" data-title="${p.title}"${p.id === "home" ? "" : " hidden"}>${p.main}</section>`)
   .join("\n");
 
-const out = `<title>Paws &amp; Cardboard</title>
+const out = `<title>${config.name}</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="robots" content="noindex">
 <style>
 ${css}
 /* preview-only */
-.site-header { top: env(safe-area-inset-top, 0px); }
-.pv-note { background: #2f6b4f; color: #fff; font: 600 14px/1.4 system-ui, sans-serif; text-align: center; padding-block: 8px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.pv-note { font: 500 0.75rem/1.5 var(--mono); letter-spacing: 0.04em; color: var(--ink-soft); padding-block: 10px; border-bottom: 1px dashed var(--rule); }
 </style>
-<div class="pv-note">Prévia do site completo (21 artigos, incluindo os agendados). Clique à vontade: menu, cards, links e rodapé funcionam.</div>
+<div class="page">
+<p class="pv-note">PRÉVIA · todos os links funcionam aqui dentro · nome, e-mail e anúncios entram quando você enviar seus dados</p>
 ${rewrite(header)}
 <main id="main">
 ${rewrite(sections)}
 </main>
 ${rewrite(footer)}
+</div>
 <script>
 (function () {
   var pages = Array.prototype.slice.call(document.querySelectorAll(".pv-page"));
@@ -77,5 +80,5 @@ ${rewrite(footer)}
 })();
 </script>
 `;
-writeFileSync(join(D, "index.html"), out);
-console.log(`Prévia de arquivo único: dist-preview/index.html (${pages.length} páginas, ${Math.round(out.length / 1024)} KB)`);
+writeFileSync(join(D, "carimbo-preview.html"), out);
+console.log(`Prévia de arquivo único: dist-preview/carimbo-preview.html (${pages.length} páginas, ${Math.round(out.length / 1024)} KB)`);

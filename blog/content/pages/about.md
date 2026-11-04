@@ -1,32 +1,27 @@
 ---
-title: About Paws & Cardboard
-description: Who writes Paws & Cardboard, why we build pet projects from cardboard, and the editorial and safety standards every article follows.
+title: About Carimbo
+description: Who writes Carimbo, how the travel guides are researched, and the editorial rules every guide follows.
 ---
 
 Hi, I'm {{author.name}}. {{author.shortBio}}
 
-<!-- PHOTO: a real photo of you (or your hands) with your pet and a cardboard project. This is the single most important photo on the site. -->
+<!-- PHOTO: a real photo of you, ideally somewhere you travelled. It matters more than any other photo on the site. -->
 
-{{site.name}} started with a simple observation that every pet owner has made: you spend money on a toy, and your cat ignores it to sit in the box it came in. Boxes are free, they show up at the door every week, and with a little cutting and folding they can become scratchers, hideouts, food puzzles and brain games for both cats and dogs.
+*Carimbo* is Portuguese for a rubber stamp, the kind that lands in your passport when you cross a border. This site is a collection of guides for people planning those crossings: to Brazil, where we live, and to five of the most visited countries in the world.
 
-This site collects those projects, written up so that anyone can build them in an afternoon with tools they already own.
+## How the guides are made
 
-## What you will find here
+Every guide is researched from sources you can check yourself: national tourism boards, park authorities, museum websites, rail operators and government travel pages. We link to them in the text, so you never have to take our word for something like an opening day or an entry rule.
 
-- **Step-by-step cardboard projects** for cats and dogs, with real measurements, the materials to avoid, and tips for making each one harder or easier.
-- **Enrichment ideas** that give indoor pets something to do: foraging, sniffing, hiding, climbing and scratching.
-- **Safety guides** on glue, paint, tape and chewing, because a homemade toy is only a good idea if it is a safe one.
+We do not pretend to have done things we haven't. When a guide is based on research rather than a personal visit, it reads like a guide, not a diary. When we add our own trips and photos, we say so.
 
-## Our editorial standards
+## Our rules
 
-Every article on {{site.name}} follows the same rules:
-
-1. **Safety comes before cuteness.** Each project lists what to remove (staples, plastic tape, glossy coatings), which pets should skip it, and when to supervise. If we would not leave our own pets alone with something, we say so.
-2. **We are pet owners, not veterinarians.** We write about building things and keeping pets busy. We do not give medical advice. When a topic touches on health (for example, a dog that swallowed cardboard), we explain the general guidance from veterinary sources and tell you to call your vet.
-3. **We cite our sources.** When we mention research, such as studies on why cats like boxes, we link to it so you can read it yourself.
-4. **We update articles.** If a reader reports a problem or we find a better method, we revise the article and change the "Updated" date at the top.
-5. **Honest recommendations.** If we ever recommend a product, it is because we think it is useful, and any affiliate relationship is disclosed. Read our [affiliate disclosure](/affiliate-disclosure/) for details.
+1. **Nobody pays for a place on a list.** Rankings are our own judgement, based on what makes a first trip memorable and practical.
+2. **Practical beats poetic.** Where to go, how long to stay, when to avoid, what to book ahead.
+3. **Dated and updated.** Each guide shows when it was published and when it was last updated. Prices and rules change; we review guides regularly and correct mistakes as soon as we hear about them.
+4. **Clear about money.** The site is paid for by ads and, in some guides, affiliate links. See our [affiliate disclosure](/affiliate-disclosure/).
 
 ## Get in touch
 
-Questions, project photos, corrections and ideas are all welcome. Visit the [contact page](/contact/) or email us at [{{contactEmail}}](mailto:{{contactEmail}}).
+Corrections, questions and suggestions are welcome at [{{contactEmail}}](mailto:{{contactEmail}}), or through the [contact page](/contact/).

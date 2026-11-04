@@ -1,55 +1,47 @@
-# Paws & Cardboard — blog em inglês para AdSense
+# Carimbo — blog de viagem em inglês para AdSense
 
-Blog estático (HTML puro) sobre projetos "faça você mesmo" com papelão para gatos e cachorros.
-Rápido, seguro, sem plugins para atualizar e funciona em qualquer plano da Hostinger.
+Blog estático (HTML puro) com guias de viagem para o Brasil, EUA, Espanha, Inglaterra, França e Itália.
+Rápido, sem plugins e funciona em qualquer plano da Hostinger.
 
 ```
 blog/
-├── site.config.json      ← nome do site, domínio, seu nome, e-mail, ID do AdSense
-├── content/posts/*.md    ← os artigos (1 arquivo = 1 post)
-├── content/pages/*.md    ← Sobre, Contato, Privacidade, Cookies, Termos, Afiliados, Aviso legal
-├── assets/               ← visual (CSS), logo, ilustrações e suas fotos (assets/img/)
+├── site.config.json      ← nome, domínio, seu nome, e-mail, ID do AdSense e a lista de países
+├── content/posts/*.md    ← os guias (1 arquivo = 1 página)
+├── content/pages/*.md    ← About, Contact, Privacy, Cookies, Terms, Affiliate, Disclaimer
+├── assets/               ← CSS, fontes (licença SIL OFL), logo e suas fotos (assets/img/)
 ├── build.mjs             ← gera o site pronto em dist/
+├── preview.mjs           ← gera a prévia em arquivo único (dist-preview/carimbo-preview.html)
 └── dist/                 ← o site final (é isso que vai para a Hostinger)
 ```
 
 ## O que já está pronto
 
-- 21 artigos em inglês (6 gatos, 8 cães, 7 guias), com fontes científicas conferidas
-- 12 publicados de imediato + 9 **agendados** (2 por semana, de 07/11 a 04/12/2026): o post só entra no site quando a data chega e você gera/envia o site de novo. Links para posts agendados ficam como texto até eles saírem
-- Páginas obrigatórias: About, Contact, Privacy Policy (cita AdSense, GDPR, LGPD e leis dos EUA), Cookie Policy, Terms, Affiliate Disclosure, Disclaimer
-- Link "Privacy & cookie settings" no rodapé (reabre a mensagem de consentimento do Google)
-- SEO: título e descrição por página, canonical, sitemap.xml, robots.txt, RSS, dados estruturados (BlogPosting, Breadcrumb)
-- Código do AdSense e `ads.txt` gerados automaticamente quando você preencher o ID
-- Página 404, layout para celular, sem fontes externas (mais rápido e sem problema de privacidade)
+- 8 guias em inglês: "10 Best Places to Visit" para os 6 países + "Best Time to Visit Brazil" + "Is Rio de Janeiro Safe?"
+- Cada guia termina com links das fontes oficiais (turismo, governo, parques)
+- Páginas obrigatórias: About, Contact, Privacy Policy (AdSense, GDPR, LGPD, EUA), Cookie Policy, Terms, Affiliate Disclosure, Disclaimer
+- Design de uma coluna, fontes próprias (sem Google Fonts), modo escuro automático, carimbo de passaporte por país
+- SEO: canonical, sitemap.xml, robots.txt, RSS, dados estruturados; código do AdSense e `ads.txt` automáticos
+- Posts com data futura ficam agendados (só entram quando a data chega e o site é gerado de novo)
 
-## 1. O que VOCÊ precisa preencher (`site.config.json`)
+## 1. Preencher `site.config.json`
 
 | Campo | O que colocar |
 |---|---|
-| `url` | O domínio que você comprar, ex.: `https://www.pawsandcardboard.com` |
-| `author.name` | Seu nome real (ou nome + sobrenome abreviado). O Google valoriza um autor de verdade |
-| `author.shortBio` | 1 ou 2 frases em inglês sobre você e seus pets |
-| `contactEmail` | Um e-mail de contato (ex.: `hello@seudominio.com`, que a Hostinger cria grátis) |
-| `adsensePublisherId` | Seu ID do AdSense, no formato `pub-1234567890123456` (AdSense → Conta → Informações da conta) |
+| `url` | O domínio comprado, ex.: `https://www.carimbotravel.com` (estava livre em 04/11/2026) |
+| `author.name` | Seu nome real |
+| `author.shortBio` | 1 ou 2 frases em inglês sobre você |
+| `contactEmail` | E-mail de contato (ex.: `hello@carimbotravel.com`) |
+| `adsensePublisherId` | `pub-1234567890123456` (AdSense → Conta → Informações da conta) |
 
-O comando `node build.mjs` avisa o que ainda falta preencher.
+## 2. Fotos
 
-## 2. Suas fotos (o que mais ajuda na aprovação)
-
-Os artigos têm **17 lugares marcados** para fotos suas, com comentários assim:
+Fotos suas valem mais que qualquer outra coisa. Salve em `assets/img/` e coloque no texto:
 
 ```
-<!-- PHOTO: finished scratcher, ideally with your cat using it -->
+![Copacabana beach seen from the Sugarloaf cable car](/assets/img/copacabana.jpg "Copacabana from Sugarloaf")
 ```
 
-Para colocar uma foto: salve em `assets/img/` (ex.: `scratcher-pronto.jpg`, de preferência até 1600 px de largura) e troque o comentário por:
-
-```
-![Finished cardboard scratcher with a cat on it](/assets/img/scratcher-pronto.jpg "Legenda opcional")
-```
-
-Fotos **reais** dos projetos, mesmo simples e tiradas no celular, valem mais que qualquer foto bonita de banco de imagens.
+Se usar fotos de outras pessoas, use só fotos com licença livre (ex.: Unsplash, Pexels ou Wikimedia Commons, citando o autor quando a licença pedir). Não use fotos geradas por IA de lugares reais.
 
 ## 3. Gerar o site
 
@@ -58,52 +50,34 @@ cd blog
 npm install
 node build.mjs          # gera dist/
 node serve.mjs          # pré-visualização em http://localhost:4321
-node preview.mjs        # prévia em arquivo único com TODOS os posts (inclusive agendados): dist-preview/index.html
-npm run zip             # gera site.zip pronto para enviar
+node preview.mjs        # prévia em arquivo único com todos os posts
+npm run zip             # gera site.zip para enviar à Hostinger
 ```
 
 ## 4. Publicar na Hostinger
 
-1. Compre o domínio `.com` (sugestão: `pawsandcardboard.com`, que estava livre em 04/11/2026) e adicione-o ao seu plano de hospedagem no hPanel.
-2. hPanel → **Sites** → seu domínio → **Gerenciador de arquivos** → abra a pasta `public_html`.
-3. Apague o que estiver lá (se for um site novo) e envie o `site.zip`. Clique com o botão direito → **Extrair**.
-4. Confirme que o `index.html` ficou direto dentro de `public_html` (e não numa subpasta).
-5. hPanel → **Segurança → SSL**: ative o SSL grátis e ligue **Forçar HTTPS**.
+1. hPanel → Domínios → comprar o domínio → Sites → Adicionar site (site vazio)
+2. Gerenciador de arquivos → `public_html` → apagar o `default.php` → Upload do `site.zip` → botão direito → Extrair
+3. Conferir que o `index.html` está direto em `public_html`
+4. Segurança → SSL → instalar e ativar "Forçar HTTPS"
 
-## 5. Google Search Console (antes do AdSense)
+## 5. Google Search Console
 
-1. Entre em search.google.com/search-console e adicione o domínio (verificação por DNS na Hostinger).
-2. Em **Sitemaps**, envie `sitemap.xml`.
-3. Espere os artigos aparecerem como indexados (alguns dias).
+1. Adicionar propriedade do tipo **Domínio** e verificar com o registro **TXT** no DNS da Hostinger
+2. Sitemaps → enviar `sitemap.xml`
+3. Inspeção de URL → solicitar indexação da página inicial e dos guias principais
 
-## 6. AdSense + cookies
+## 6. AdSense
 
-1. AdSense → **Sites** → **Novo site** → seu domínio novo.
-2. Coloque seu `pub-...` no `site.config.json`, rode `npm run zip` e reenvie o site. O código do AdSense, a meta tag de verificação e o `ads.txt` entram sozinhos.
-3. AdSense → **Privacidade e mensagens**:
-   - **Europeus (GDPR)**: crie a mensagem e publique. Ela mostra o banner "aceitar ou recusar cookies" para visitantes da Europa, Reino Unido e Suíça. É uma plataforma de consentimento certificada pelo Google, obrigatória para ter anúncios personalizados na Europa.
-   - **Regulamentações estaduais dos EUA**: crie e publique a mensagem de opt-out.
-4. Ative os **Anúncios automáticos**.
-5. **Só peça a revisão** quando: tiver 20 a 25 posts, com fotos suas, nome e e-mail preenchidos e o site indexado no Search Console.
+1. Sites → Novo site → seu domínio
+2. Privacidade e mensagens → publicar a mensagem GDPR (banner de cookies) e a de estados dos EUA
+3. Pedir revisão só com o site indexado e uns 20 guias publicados
 
-⚠️ **Nunca clique nos seus próprios anúncios** nem peça para outras pessoas clicarem. Isso dá banimento permanente.
+⚠️ Nunca clique nos seus próprios anúncios.
 
-## 7. Cronograma sugerido
+## 7. Próximos guias (Brasil primeiro, que é a sua vantagem)
 
-| Quando | O quê |
-|---|---|
-| Semana 1 | Domínio + preencher config + fotos + publicar os 12 primeiros + Search Console |
-| Semanas 2 a 5 | Os 9 agendados entram 2 por semana (gerar e reenviar o site) |
-| ~Semana 5 | Com 21+ posts com fotos e tudo indexado: pedir revisão no AdSense |
+- Rio de Janeiro in 4 days · São Paulo for first-time visitors · Best beaches near Rio · Paraty and Ilha Grande · Getting around Brazil (flights, buses, apps) · Brazilian food to try · Money in Brazil (cards, cash, ATMs)
+- One week in Rome · Paris in 3 days · London on a budget · New York in 5 days · Barcelona in 3 days
 
-Se o site for ao ar depois de novembro/2026, ajuste o campo `date` dos posts para as novas datas de publicação.
-
-## 8. Próximos posts (planejados)
-
-**Gatos:** wall-mounted cardboard scratcher · paper bag and box hide-and-seek game · cardboard cat stairs/steps for senior cats
-
-**Cães:** DIY lick mat alternatives · cardboard tug toy (supervised) · enrichment for dogs on crate rest (with vet note)
-
-**Guias:** cheap enrichment for multi-cat homes · how often to replace cardboard toys · cat-safe and dog-safe houseplants for a pet-friendly home
-
-Para criar um post: copie um arquivo de `content/posts/`, mude o nome do arquivo (vira o endereço da página) e o cabeçalho (`title`, `description`, `date`, `category`: `cats`, `dogs` ou `guides`).
+Para criar um guia: copie um arquivo de `content/posts/`, mude o nome do arquivo (vira o endereço) e o cabeçalho (`title`, `description`, `date`, `country`: `brazil`, `usa`, `spain`, `england`, `france` ou `italy`).

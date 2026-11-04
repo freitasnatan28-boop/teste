@@ -1,29 +1,31 @@
 ---
 title: Disclaimer
-description: Important information about the limits of the advice on Paws & Cardboard, including veterinary and DIY safety disclaimers.
+description: The limits of the travel information on Carimbo, including prices, entry requirements and safety.
 showUpdated: true
 ---
 
-## Not veterinary advice
+## General information only
 
-The content on {{site.name}} is written by pet owners for general information and entertainment. It is not veterinary advice and is not a substitute for examination, diagnosis or treatment by a qualified veterinarian.
+The guides on {{site.name}} are written for general information. We research them carefully and link to our sources, but travel details change constantly: opening hours, ticket prices, transport timetables, closures, and the rules for entering a country.
 
-Never ignore professional advice or delay seeking it because of something you read here. **If your pet may have swallowed something harmful, is in pain, is not eating, is vomiting repeatedly, or is straining to pass stool, contact your veterinarian or an emergency animal clinic immediately.** In the United States you can also call the ASPCA Animal Poison Control Center at (888) 426-4435 (a consultation fee may apply).
+Always confirm important details with the official source before you travel or pay for anything.
 
-## DIY safety
+## Entry requirements and visas
 
-Our projects involve sharp tools, adhesives and paints. Follow the safety notes in each article, read the labels of the products you use, and keep tools and materials away from children and pets while you work.
+Visa and entry rules depend on your nationality and can change at short notice. Nothing on this site is legal or immigration advice. Check the official government website of the country you are visiting, or contact its embassy or consulate.
 
-Every animal is different. Supervise your pet the first few times it uses anything you make, and remove the item if it starts to fall apart or if your pet begins to chew off and swallow pieces.
+## Safety and health
 
-## Accuracy
+Safety advice in our guides is general. Check your own government's travel advice for your destination before and during your trip, buy suitable travel insurance, and follow local authorities in an emergency. For health questions, including vaccinations, talk to a doctor or a travel clinic.
 
-We work hard to keep our articles accurate and up to date, and we link to our sources. However, we cannot guarantee that every piece of information is complete, current or suitable for your situation. If you find an error, please [contact us](/contact/).
+## Third-party services
 
-## External links
-
-We link to external websites for reference. We are not responsible for their content, and a link is not an endorsement.
+We may link to hotels, tours, transport companies and booking sites. We are not responsible for their services, prices or terms. A link is not an endorsement unless we say so.
 
 ## Advertising and affiliate links
 
-The Site displays ads and may contain affiliate links. See our [Affiliate Disclosure](/affiliate-disclosure/) for details.
+The site shows ads and may contain affiliate links. See our [Affiliate Disclosure](/affiliate-disclosure/).
+
+## Found an error?
+
+Please [tell us](/contact/). We correct mistakes as quickly as we can.

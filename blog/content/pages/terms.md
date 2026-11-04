@@ -1,6 +1,6 @@
 ---
 title: Terms of Use
-description: The terms that apply when you use the Paws & Cardboard website and its DIY project instructions.
+description: The terms that apply when you use the Carimbo website and its travel guides.
 showUpdated: true
 ---
 
@@ -15,24 +15,22 @@ You may read, print and use the Site's content for your personal, non-commercial
 - attempt to gain unauthorized access to any part of the Site or its systems;
 - use automated tools to scrape the Site's content for republication.
 
-## DIY projects and your responsibility
+## Travel information and your responsibility
 
-Our articles describe projects that involve cutting tools, glue and other materials, and they are used around animals. You build and use any project at your own risk. You are responsible for:
+Our guides describe destinations, transport and activities for general information. You are responsible for:
 
-- using tools safely and keeping them away from children and pets;
-- choosing materials that are appropriate for your pet;
-- supervising your pet with any homemade toy or structure, and removing it if it becomes damaged or if your pet starts eating it;
-- considering your own pet's age, size, health and habits.
+- checking prices, opening hours, entry requirements and safety advice with official sources before you travel;
+- choosing activities that suit your health, fitness and experience;
+- buying appropriate travel insurance;
+- following local laws and the instructions of local authorities.
 
-Pets differ. A project that suits one animal may not suit another.
+## Not professional advice
 
-## Not veterinary advice
-
-Content on the Site is for general information only and is not a substitute for professional veterinary advice, diagnosis or treatment. Always ask your veterinarian about your pet's health. See our [Disclaimer](/disclaimer/).
+Content on the Site is not legal, immigration, medical or financial advice. See our [Disclaimer](/disclaimer/).
 
 ## Intellectual property
 
-Unless stated otherwise, all content on the Site, including text, illustrations, diagrams, photos and the {{site.name}} name and logo, belongs to {{site.name}} and is protected by copyright and other laws.
+Unless stated otherwise, all content on the Site, including text, maps, illustrations, photos and the {{site.name}} name and logo, belongs to {{site.name}} and is protected by copyright and other laws.
 
 ## Third-party links and advertising
 
@@ -44,7 +42,7 @@ The Site and its content are provided "as is" and "as available". To the fullest
 
 ## Limitation of liability
 
-To the fullest extent permitted by law, {{site.name}} and its author will not be liable for any indirect, incidental, special or consequential damages, or for any injury to persons or animals or damage to property, arising from your use of the Site or from building or using any project described on it. Nothing in these Terms limits liability that cannot be limited under applicable law.
+To the fullest extent permitted by law, {{site.name}} and its author will not be liable for any indirect, incidental, special or consequential damages, or for any loss, injury, cancellation or expense arising from your use of the Site or from travel plans based on it. Nothing in these Terms limits liability that cannot be limited under applicable law.
 
 ## Changes
 

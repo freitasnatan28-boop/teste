@@ -1,6 +1,6 @@
 ---
 title: Privacy Policy
-description: How Paws & Cardboard collects, uses and protects information, including cookies and Google AdSense advertising.
+description: How Carimbo collects, uses and protects information, including cookies and Google AdSense advertising.
 showUpdated: true
 ---
 
@@ -47,7 +47,7 @@ Some articles may contain affiliate links. If you click one and make a purchase,
 
 ## Third-party links
 
-The Site links to other websites, such as research papers and retailers. We are not responsible for the privacy practices of those websites, and we encourage you to read their policies.
+The Site links to other websites, such as tourism boards, booking sites and retailers. We are not responsible for the privacy practices of those websites, and we encourage you to read their policies.
 
 ## How long we keep information
 
