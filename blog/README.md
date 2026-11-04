@@ -15,7 +15,7 @@ blog/
 
 ## O que já está pronto
 
-- 21 artigos em inglês (7 gatos, 7 cães, 7 guias), com fontes científicas conferidas
+- 21 artigos em inglês (6 gatos, 8 cães, 7 guias), com fontes científicas conferidas
 - 12 publicados de imediato + 9 **agendados** (2 por semana, de 07/11 a 04/12/2026): o post só entra no site quando a data chega e você gera/envia o site de novo. Links para posts agendados ficam como texto até eles saírem
 - Páginas obrigatórias: About, Contact, Privacy Policy (cita AdSense, GDPR, LGPD e leis dos EUA), Cookie Policy, Terms, Affiliate Disclosure, Disclaimer
 - Link "Privacy & cookie settings" no rodapé (reabre a mensagem de consentimento do Google)
