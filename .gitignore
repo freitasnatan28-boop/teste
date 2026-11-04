@@ -25,3 +25,4 @@ prisma/*.db-wal
 # Blog (gerado)
 blog/dist/
 blog/site.zip
+blog/dist-preview/

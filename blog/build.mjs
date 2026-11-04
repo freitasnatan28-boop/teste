@@ -8,11 +8,13 @@ import { fileURLToPath } from "node:url";
 import { Marked } from "marked";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-const OUT = join(ROOT, "dist");
+// --preview: builds a browsable copy in dist-preview/ (relative links, all scheduled posts included)
+const PREVIEW = process.argv.includes("--preview");
+const OUT = join(ROOT, PREVIEW ? "dist-preview" : "dist");
 const config = JSON.parse(readFileSync(join(ROOT, "site.config.json"), "utf8"));
 const SITE_URL = config.url.replace(/\/+$/, "");
 const TODAY = new Date().toISOString().slice(0, 10);
-const INCLUDE_FUTURE = process.argv.includes("--future");
+const INCLUDE_FUTURE = PREVIEW || process.argv.includes("--future");
 
 const CATEGORIES = {
   cats: {
@@ -133,6 +135,12 @@ const posts = allPosts
   .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.title.localeCompare(b.title)));
 const pages = loadDir("pages");
 
+// Links to scheduled (not yet published) posts become plain text until that post goes live.
+const unpublished = new Set(allPosts.filter((p) => !posts.includes(p)).map((p) => p.slug));
+for (const item of [...posts, ...pages]) {
+  item.html = item.html.replace(/<a href="\/([a-z0-9-]+)\/"[^>]*>([\s\S]*?)<\/a>/g, (m, slug, text) => (unpublished.has(slug) ? text : m));
+}
+
 // ---------- layout ----------
 const adsenseId = (config.adsensePublisherId || "").trim();
 const adsOn = /^pub-\d{10,}$/.test(adsenseId);
@@ -221,10 +229,26 @@ function card(p) {
 }
 
 // ---------- writers ----------
+function toPreview(path, html) {
+  const rel = path.endsWith("/") ? path + "index.html" : path;
+  const prefix = "../".repeat(rel.split("/").length - 2);
+  let out = html.replace(/(href|src)="\/(?!\/)([^"#]*)(#[^"]*)?"/g, (_, attr, target, hash = "") => {
+    const t = target === "" || target.endsWith("/") ? target + "index.html" : target;
+    return `${attr}="${prefix}${t}${hash}"`;
+  });
+  if (path === "/") {
+    // The preview host wraps the start page in its own document skeleton.
+    const head = out.match(/<head>([\s\S]*?)<\/head>/)[1].replace(/<title>[^<]*<\/title>/, `<title>${esc(config.name)}</title>`);
+    const body = out.match(/<body[^>]*>([\s\S]*?)<\/body>/)[1];
+    out = head.replace(/<meta charset="utf-8">\n<meta name="viewport"[^>]*>\n/, "") + body;
+  }
+  return out;
+}
+
 function write(path, html) {
   const file = path.endsWith("/") ? join(OUT, path, "index.html") : join(OUT, path);
   mkdirSync(dirname(file), { recursive: true });
-  writeFileSync(file, html);
+  writeFileSync(file, PREVIEW && file.endsWith(".html") ? toPreview(path, html) : html);
 }
 
 rmSync(OUT, { recursive: true, force: true });
@@ -435,7 +459,7 @@ if (!adsOn) warnings.push("adsensePublisherId vazio: código do AdSense e ads.tx
 const hidden = allPosts.length - posts.length;
 const photoTotal = posts.reduce((n, p) => n + p.photoSlots, 0);
 
-console.log(`\n✔ Site gerado em dist/  (${posts.length} posts, ${pages.length} páginas${hidden ? `, ${hidden} agendados/rascunho` : ""})`);
+console.log(`\n✔ Site gerado em ${PREVIEW ? "dist-preview" : "dist"}/  (${posts.length} posts, ${pages.length} páginas${hidden ? `, ${hidden} agendados/rascunho` : ""})`);
 for (const p of posts) console.log(`  · ${p.slug.padEnd(48)} ${String(p.words).padStart(5)} palavras  ${p.photoSlots} fotos para adicionar`);
 console.log(`  Total de espaços para fotos suas: ${photoTotal}`);
 if (!existsSync(join(ROOT, "assets", "logo.png"))) warnings.push("assets/logo.png não existe (usado nos dados estruturados do Google).");

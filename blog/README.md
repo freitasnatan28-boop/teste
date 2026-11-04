@@ -15,7 +15,8 @@ blog/
 
 ## O que já está pronto
 
-- 12 artigos em inglês (4 gatos, 4 cães, 4 guias), com fontes científicas conferidas
+- 21 artigos em inglês (7 gatos, 7 cães, 7 guias), com fontes científicas conferidas
+- 12 publicados de imediato + 9 **agendados** (2 por semana, de 07/11 a 04/12/2026): o post só entra no site quando a data chega e você gera/envia o site de novo. Links para posts agendados ficam como texto até eles saírem
 - Páginas obrigatórias: About, Contact, Privacy Policy (cita AdSense, GDPR, LGPD e leis dos EUA), Cookie Policy, Terms, Affiliate Disclosure, Disclaimer
 - Link "Privacy & cookie settings" no rodapé (reabre a mensagem de consentimento do Google)
 - SEO: título e descrição por página, canonical, sitemap.xml, robots.txt, RSS, dados estruturados (BlogPosting, Breadcrumb)
@@ -57,6 +58,7 @@ cd blog
 npm install
 node build.mjs          # gera dist/
 node serve.mjs          # pré-visualização em http://localhost:4321
+node build.mjs --preview  # cópia navegável com TODOS os posts (inclusive agendados) em dist-preview/
 npm run zip             # gera site.zip pronto para enviar
 ```
 
@@ -90,16 +92,18 @@ npm run zip             # gera site.zip pronto para enviar
 
 | Quando | O quê |
 |---|---|
-| Semana 1 | Domínio + preencher config + fotos dos 12 posts + publicar + Search Console |
-| Semanas 2 a 4 | 2 a 3 posts novos por semana (lista abaixo) |
-| ~Semana 4 | Com 20 a 25 posts e tudo indexado: pedir revisão no AdSense |
+| Semana 1 | Domínio + preencher config + fotos + publicar os 12 primeiros + Search Console |
+| Semanas 2 a 5 | Os 9 agendados entram 2 por semana (gerar e reenviar o site) |
+| ~Semana 5 | Com 21+ posts com fotos e tudo indexado: pedir revisão no AdSense |
+
+Se o site for ao ar depois de novembro/2026, ajuste o campo `date` dos posts para as novas datas de publicação.
 
 ## 8. Próximos posts (planejados)
 
-**Gatos:** cardboard cat tunnel · wall-mounted cardboard scratcher · cat window perch box · paper bag and box hide-and-seek game · DIY cat wand toy (safe version) · cardboard cat bed for winter
+**Gatos:** wall-mounted cardboard scratcher · paper bag and box hide-and-seek game · cardboard cat stairs/steps for senior cats
 
-**Cães:** cardboard dog maze for treats · DIY lick mat alternatives · how to teach "find it" · cardboard tug toy (supervised) · enrichment for senior dogs · enrichment for dogs on crate rest (with vet note)
+**Cães:** DIY lick mat alternatives · cardboard tug toy (supervised) · enrichment for dogs on crate rest (with vet note)
 
-**Guias:** is cardboard safe for cats to chew? · catnip vs silver vine · how to introduce a new toy to a shy cat · enrichment for dogs left alone · cheap enrichment for multi-cat homes · how often to replace cardboard toys
+**Guias:** cheap enrichment for multi-cat homes · how often to replace cardboard toys · cat-safe and dog-safe houseplants for a pet-friendly home
 
 Para criar um post: copie um arquivo de `content/posts/`, mude o nome do arquivo (vira o endereço da página) e o cabeçalho (`title`, `description`, `date`, `category`: `cats`, `dogs` ou `guides`).
