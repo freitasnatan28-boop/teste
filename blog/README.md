@@ -58,7 +58,7 @@ cd blog
 npm install
 node build.mjs          # gera dist/
 node serve.mjs          # pré-visualização em http://localhost:4321
-node build.mjs --preview  # cópia navegável com TODOS os posts (inclusive agendados) em dist-preview/
+node preview.mjs        # prévia em arquivo único com TODOS os posts (inclusive agendados): dist-preview/index.html
 npm run zip             # gera site.zip pronto para enviar
 ```
 

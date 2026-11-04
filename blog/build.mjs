@@ -229,26 +229,10 @@ function card(p) {
 }
 
 // ---------- writers ----------
-function toPreview(path, html) {
-  const rel = path.endsWith("/") ? path + "index.html" : path;
-  const prefix = "../".repeat(rel.split("/").length - 2);
-  let out = html.replace(/(href|src)="\/(?!\/)([^"#]*)(#[^"]*)?"/g, (_, attr, target, hash = "") => {
-    const t = target === "" || target.endsWith("/") ? target + "index.html" : target;
-    return `${attr}="${prefix}${t}${hash}"`;
-  });
-  if (path === "/") {
-    // The preview host wraps the start page in its own document skeleton.
-    const head = out.match(/<head>([\s\S]*?)<\/head>/)[1].replace(/<title>[^<]*<\/title>/, `<title>${esc(config.name)}</title>`);
-    const body = out.match(/<body[^>]*>([\s\S]*?)<\/body>/)[1];
-    out = head.replace(/<meta charset="utf-8">\n<meta name="viewport"[^>]*>\n/, "") + body;
-  }
-  return out;
-}
-
 function write(path, html) {
   const file = path.endsWith("/") ? join(OUT, path, "index.html") : join(OUT, path);
   mkdirSync(dirname(file), { recursive: true });
-  writeFileSync(file, PREVIEW && file.endsWith(".html") ? toPreview(path, html) : html);
+  writeFileSync(file, html);
 }
 
 rmSync(OUT, { recursive: true, force: true });
