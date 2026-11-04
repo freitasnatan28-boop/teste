@@ -1,0 +1,14 @@
+{
+  "name": "paws-and-cardboard-blog",
+  "private": true,
+  "type": "module",
+  "description": "Static English blog about DIY cardboard projects and enrichment for cats and dogs.",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "node build.mjs && node serve.mjs",
+    "zip": "node build.mjs && cd dist && zip -qr ../site.zip . -x '.*' && cd .. && zip -qj site.zip dist/.htaccess && echo 'site.zip pronto'"
+  },
+  "dependencies": {
+    "marked": "18.1.3"
+  }
+}

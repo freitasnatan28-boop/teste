@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="system-ui, sans-serif" role="img" aria-label="Diagram: cut cardboard into strips across the corrugation, then stand them on edge inside a frame so the fluted edges face up">
+  <rect width="760" height="360" fill="#fffdf8"/>
+  <text x="24" y="36" font-size="20" font-weight="700" fill="#2a211a">1. Cut strips across the flutes</text>
+  <text x="400" y="36" font-size="20" font-weight="700" fill="#2a211a">2. Stand them on edge in a frame</text>
+  <!-- sheet with flute lines -->
+  <g transform="translate(30 60)">
+    <rect width="320" height="200" fill="#e2b783" stroke="#7a4f24" stroke-width="2"/>
+    <g stroke="#c9975c" stroke-width="2">
+      <path d="M20 0 V200 M40 0 V200 M60 0 V200 M80 0 V200 M100 0 V200 M120 0 V200 M140 0 V200 M160 0 V200 M180 0 V200 M200 0 V200 M220 0 V200 M240 0 V200 M260 0 V200 M280 0 V200 M300 0 V200"/>
+    </g>
+    <g stroke="#b4532a" stroke-width="2.5" stroke-dasharray="8 6">
+      <path d="M0 40 H320 M0 80 H320 M0 120 H320 M0 160 H320"/>
+    </g>
+    <text x="0" y="228" font-size="15" fill="#6b5d50">Flutes run up and down. Cut left to right,</text>
+    <text x="0" y="248" font-size="15" fill="#6b5d50">so each strip shows the wavy edge.</text>
+    <path d="M330 40 v40" stroke="#2a211a" stroke-width="2"/><path d="M325 40 h10 M325 80 h10" stroke="#2a211a" stroke-width="2"/>
+    <text x="340" y="66" font-size="14" fill="#2a211a">2 in (5 cm)</text>
+  </g>
+  <!-- frame with strips -->
+  <g transform="translate(420 90)">
+    <path d="M0 40 L60 0 L320 0 L260 40 Z" fill="#f0dfc6" stroke="#7a4f24" stroke-width="2"/>
+    <g stroke="#7a4f24" stroke-width="1.6">
+      <path d="M14 31 L74 -9 M28 22 L88 -18" opacity="0"/>
+    </g>
+    <g fill="#d9a86c" stroke="#7a4f24" stroke-width="1.5">
+      <path d="M8 34 L68 -6 L72 -6 L12 34 Z"/><path d="M24 34 L84 -6 L88 -6 L28 34 Z"/><path d="M40 34 L100 -6 L104 -6 L44 34 Z"/>
+      <path d="M56 34 L116 -6 L120 -6 L60 34 Z"/><path d="M72 34 L132 -6 L136 -6 L76 34 Z"/><path d="M88 34 L148 -6 L152 -6 L92 34 Z"/>
+      <path d="M104 34 L164 -6 L168 -6 L108 34 Z"/><path d="M120 34 L180 -6 L184 -6 L124 34 Z"/><path d="M136 34 L196 -6 L200 -6 L140 34 Z"/>
+      <path d="M152 34 L212 -6 L216 -6 L156 34 Z"/><path d="M168 34 L228 -6 L232 -6 L172 34 Z"/><path d="M184 34 L244 -6 L248 -6 L188 34 Z"/>
+      <path d="M200 34 L260 -6 L264 -6 L204 34 Z"/><path d="M216 34 L276 -6 L280 -6 L220 34 Z"/><path d="M232 34 L292 -6 L296 -6 L236 34 Z"/>
+    </g>
+    <path d="M0 40 L260 40 L260 92 L0 92 Z" fill="#e2b783" stroke="#7a4f24" stroke-width="2"/>
+    <path d="M260 40 L320 0 L320 52 L260 92 Z" fill="#cf9b5e" stroke="#7a4f24" stroke-width="2"/>
+    <text x="0" y="130" font-size="15" fill="#6b5d50">Pack strips tightly, wavy edge up.</text>
+    <text x="0" y="150" font-size="15" fill="#6b5d50">Glue only the bottom edge and the ends.</text>
+    <text x="0" y="170" font-size="15" fill="#6b5d50">Frame: a shallow box or 4 glued sides.</text>
+  </g>
+</svg>
