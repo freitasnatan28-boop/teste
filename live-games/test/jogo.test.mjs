@@ -1,10 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import fs from 'node:fs';
 import { Jogo, normalizarTexto } from '../src/jogo.mjs';
 import { ContadorDeCombos, lerPresente, lerUsuario } from '../src/tiktok.mjs';
+import { PADRAO, validarConfig } from '../src/configuracao.mjs';
 
-const config = JSON.parse(fs.readFileSync(new URL('../config.json', import.meta.url), 'utf8')).jogo;
+const config = validarConfig(PADRAO);
 
 function novoJogo() {
   let t = 1_000_000;
@@ -25,13 +25,13 @@ test('normaliza acentos e pontuação', () => {
 test('chat com número ou apelido entra no time certo', () => {
   const { jogo } = novoJogo();
   jogo.processar({ tipo: 'chat', usuario: ana, texto: '3' });
-  assert.equal(jogo.usuarios.get('1').time, 'pal');
+  assert.equal(jogo.usuarios.get('1').time, 't3');
   jogo.processar({ tipo: 'chat', usuario: ana, texto: 'bora MENGÃO' });
-  assert.equal(jogo.usuarios.get('1').time, 'fla');
+  assert.equal(jogo.usuarios.get('1').time, 't1');
   jogo.processar({ tipo: 'chat', usuario: beto, texto: 'eu tenho 13 anos' });
   assert.equal(jogo.usuarios.get('2').time, null, 'número no meio da frase não entra');
   jogo.processar({ tipo: 'chat', usuario: beto, texto: 'vamo são paulo' });
-  assert.equal(jogo.usuarios.get('2').time, 'spfc');
+  assert.equal(jogo.usuarios.get('2').time, 't4');
 });
 
 test('presente soma moedas x pontos no time e no ranking; Top 1 dispara efeito', () => {
@@ -39,7 +39,7 @@ test('presente soma moedas x pontos no time e no ranking; Top 1 dispara efeito',
   jogo.iniciar();
   jogo.processar({ tipo: 'chat', usuario: ana, texto: '1' });
   jogo.processar({ tipo: 'presente', usuario: ana, moedas: 5, quantidade: 5, nomePresente: 'Rosa' });
-  assert.equal(jogo.timePorId('fla').pontos, 50);
+  assert.equal(jogo.timePorId('t1').pontos, 50);
   assert.equal(jogo.ranking()[0].moedas, 5);
   assert.ok(fx.some((e) => e.tipo === 'rei' && e.usuario.id === '1'));
 
@@ -58,7 +58,7 @@ test('quem não tem time cai no último colocado', () => {
   jogo.processar({ tipo: 'chat', usuario: ana, texto: '1' });
   jogo.processar({ tipo: 'curtida', usuario: ana, quantidade: 10 });
   jogo.processar({ tipo: 'curtida', usuario: beto, quantidade: 1 });
-  assert.notEqual(jogo.usuarios.get('2').time, 'fla');
+  assert.notEqual(jogo.usuarios.get('2').time, 't1');
 });
 
 test('final da rodada e meta de curtidas dobram os pontos (acumulando)', () => {
@@ -67,11 +67,11 @@ test('final da rodada e meta de curtidas dobram os pontos (acumulando)', () => {
   jogo.processar({ tipo: 'chat', usuario: ana, texto: '1' });
   relogio.avancar((config.duracaoRodadaSeg - 10) * 1000);
   jogo.processar({ tipo: 'presente', usuario: ana, moedas: 1, nomePresente: 'Rosa' });
-  assert.equal(jogo.timePorId('fla').pontos, 20);
+  assert.equal(jogo.timePorId('t1').pontos, 20);
   jogo.processar({ tipo: 'curtida', usuario: ana, quantidade: config.metaCurtidas.passo });
   jogo.processar({ tipo: 'presente', usuario: ana, moedas: 1, nomePresente: 'Rosa' });
   // 20 + curtidas da meta (x2 do final, a meta só bate no fim do lote) + rosa x4
-  assert.equal(jogo.timePorId('fla').pontos, 20 + config.metaCurtidas.passo * 2 + 40);
+  assert.equal(jogo.timePorId('t1').pontos, 20 + config.metaCurtidas.passo * 2 + 40);
 });
 
 test('rodada termina, dá troféu e MVP, e a próxima começa sozinha', () => {
@@ -82,16 +82,16 @@ test('rodada termina, dá troféu e MVP, e a próxima começa sozinha', () => {
   relogio.avancar(config.duracaoRodadaSeg * 1000);
   jogo.tick();
   const fim = fx.find((e) => e.tipo === 'fimRodada');
-  assert.equal(fim.vencedor.id, 'spfc');
+  assert.equal(fim.vencedor.id, 't4');
   assert.equal(fim.mvp.id, '1');
-  assert.equal(jogo.timePorId('spfc').trofeus, 1);
+  assert.equal(jogo.timePorId('t4').trofeus, 1);
 
   // presente no intervalo vai para a largada da próxima rodada
   jogo.processar({ tipo: 'presente', usuario: ana, moedas: 1, nomePresente: 'Rosa' });
   relogio.avancar(config.intervaloSeg * 1000);
   jogo.tick();
   assert.equal(jogo.rodada.numero, 2);
-  assert.equal(jogo.timePorId('spfc').pontos, 10);
+  assert.equal(jogo.timePorId('t4').pontos, 10);
   assert.equal(jogo.ranking()[0].moedas, 31, 'ranking da live continua entre rodadas');
 });
 

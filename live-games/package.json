@@ -2,11 +2,10 @@
   "name": "live-games",
   "version": "0.1.0",
   "private": true,
-  "description": "Jogos interativos para TikTok LIVE: Guerra de Times com ranking de presenteadores.",
+  "description": "Site de jogos interativos para TikTok LIVE: contas, painel e tela do jogo por link.",
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
-    "simular": "node server.mjs --simular",
     "test": "node --test test/*.test.mjs"
   },
   "engines": {

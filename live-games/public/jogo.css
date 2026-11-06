@@ -139,7 +139,7 @@ body.transparente .fundo { display: none; }
 }
 .time {
   position: relative;
-  height: 118px;
+  height: var(--h, 118px);
   border-radius: 26px;
   background: rgba(0, 0, 0, 0.32);
   border: 3px solid var(--borda);
@@ -154,24 +154,24 @@ body.transparente .fundo { display: none; }
 @keyframes bump { 40% { transform: scale(1.03); } }
 .num {
   flex: none;
-  width: 92px;
-  height: 92px;
+  width: calc(var(--h, 118px) - 26px);
+  height: calc(var(--h, 118px) - 26px);
   border-radius: 22px;
   display: grid;
   place-items: center;
   font-family: var(--display);
-  font-size: 64px;
+  font-size: calc(var(--h, 118px) * 0.54);
   color: #fff;
   text-shadow: 0 3px 0 rgba(0, 0, 0, 0.45);
   box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.25);
 }
 .time-corpo { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
 .time-linha { display: flex; align-items: baseline; gap: 14px; }
-.time-nome { font-family: var(--display); font-size: 44px; line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.time-info { font-size: 24px; font-weight: 800; color: var(--suave); white-space: nowrap; }
+.time-nome { font-family: var(--display); font-size: calc(var(--h, 118px) * 0.37); line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.time-info { font-size: calc(var(--h, 118px) * 0.2); font-weight: 800; color: var(--suave); white-space: nowrap; }
 .time-coroa { font-size: 40px; display: none; }
 .time.lider .time-coroa { display: inline; animation: pulsar 0.9s ease-in-out infinite alternate; }
-.barra { height: 30px; border-radius: 999px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+.barra { height: calc(var(--h, 118px) * 0.25); border-radius: 999px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
 .barra-fill {
   height: 100%;
   width: 0;
@@ -193,9 +193,11 @@ body.transparente .fundo { display: none; }
   min-width: 190px;
   text-align: right;
   font-family: var(--display);
-  font-size: 58px;
+  font-size: calc(var(--h, 118px) * 0.49);
   line-height: 1;
 }
+.times.compacto .pontos small { display: none; }
+.times.compacto .time-corpo { gap: 6px; }
 .pontos small { display: block; font-family: var(--corpo); font-weight: 800; font-size: 20px; color: var(--suave); }
 .flutua {
   position: absolute;
@@ -331,3 +333,6 @@ body.transparente .fundo { display: none; }
 @keyframes treme { 10%, 50%, 90% { transform-origin: top left; translate: -10px 4px; } 30%, 70% { translate: 10px -4px; } 100% { translate: 0 0; } }
 
 #confete { position: absolute; inset: 0; pointer-events: none; z-index: 11; }
+
+.aviso-tela { position: absolute; inset: 0; display: none; place-items: center; text-align: center; z-index: 20; background: rgba(10, 5, 30, 0.92); font-size: 44px; font-weight: 900; padding: 80px; }
+.aviso-tela.on { display: grid; }

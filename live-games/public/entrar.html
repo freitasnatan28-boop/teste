@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar · Live Games</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <style>
+    main { display: grid; place-items: center; padding: 20px 0 60px; }
+    .caixa { width: 100%; max-width: 420px; }
+    .abas { display: grid; grid-template-columns: 1fr 1fr; background: #120c33; border-radius: 14px; padding: 4px; margin-bottom: 20px; }
+    .abas button { border: 0; background: transparent; color: var(--suave); font: 900 15px var(--corpo); padding: 10px; border-radius: 11px; cursor: pointer; }
+    .abas button.on { background: var(--card2); color: var(--texto); }
+    .so-cadastro { display: none; }
+    form.cadastro .so-cadastro { display: block; }
+    h1 { font-size: 30px; margin-bottom: 6px; }
+    .sub { color: var(--suave); margin: 0 0 20px; }
+    form .btn { width: 100%; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav"><a class="logo" href="/"><i>🎮</i>LIVE GAMES</a></nav>
+    <main>
+      <div class="card caixa">
+        <div class="abas"><button type="button" data-aba="entrar">Entrar</button><button type="button" data-aba="cadastro">Criar conta</button></div>
+        <h1 id="titulo">Bem-vindo de volta</h1>
+        <p class="sub" id="sub">Entre para abrir seu painel.</p>
+        <form id="form" novalidate>
+          <div id="erro" class="erro" role="alert"></div>
+          <div class="campo so-cadastro"><label for="nome">Seu nome</label><input id="nome" name="nome" autocomplete="name" maxlength="40"></div>
+          <div class="campo"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div class="campo"><label for="senha">Senha</label><input id="senha" name="senha" type="password" autocomplete="current-password" minlength="6" required><div class="ajuda so-cadastro">Mínimo de 6 caracteres.</div></div>
+          <button class="btn prim grande" id="enviar" type="submit">Entrar</button>
+        </form>
+      </div>
+    </main>
+  </div>
+  <script>
+    const form = document.getElementById('form');
+    const erro = document.getElementById('erro');
+    let aba = location.pathname === '/criar-conta' ? 'cadastro' : 'entrar';
+
+    function mostrar(nova) {
+      aba = nova;
+      const cad = aba === 'cadastro';
+      form.classList.toggle('cadastro', cad);
+      document.querySelectorAll('.abas button').forEach((b) => b.classList.toggle('on', b.dataset.aba === aba));
+      document.getElementById('titulo').textContent = cad ? 'Crie sua conta grátis' : 'Bem-vindo de volta';
+      document.getElementById('sub').textContent = cad ? 'Em 20 segundos você já está no seu painel.' : 'Entre para abrir seu painel.';
+      document.getElementById('enviar').textContent = cad ? 'Criar conta' : 'Entrar';
+      document.getElementById('senha').autocomplete = cad ? 'new-password' : 'current-password';
+      history.replaceState(null, '', cad ? '/criar-conta' : '/entrar');
+      erro.classList.remove('on');
+    }
+    document.querySelectorAll('.abas button').forEach((b) => (b.onclick = () => mostrar(b.dataset.aba)));
+    mostrar(aba);
+
+    // já logado? vai direto pro painel
+    fetch('/api/eu').then((r) => r.ok && location.replace('/painel'));
+
+    form.onsubmit = async (ev) => {
+      ev.preventDefault();
+      const botao = document.getElementById('enviar');
+      botao.disabled = true;
+      erro.classList.remove('on');
+      const dados = Object.fromEntries(new FormData(form));
+      try {
+        const r = await fetch(aba === 'cadastro' ? '/api/criar-conta' : '/api/entrar', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(dados) });
+        const j = await r.json();
+        if (!r.ok) throw new Error(j.erro || 'Não deu certo, tente de novo.');
+        location.href = '/painel';
+      } catch (e) {
+        erro.textContent = e.message;
+        erro.classList.add('on');
+        botao.disabled = false;
+      }
+    };
+  </script>
+</body>
+</html>

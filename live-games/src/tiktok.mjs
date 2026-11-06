@@ -83,6 +83,7 @@ export class LiveTikTok extends EventEmitter {
 
   async iniciar() {
     const { TikTokLiveConnection, WebcastEvent, ControlEvent } = await import('tiktok-live-connector');
+    if (this.parado) return;
     this.conexao = new TikTokLiveConnection(this.usuario, {
       enableExtendedGiftInfo: true,
       processInitialData: false,
@@ -128,13 +129,16 @@ export class LiveTikTok extends EventEmitter {
   }
 
   async conectar() {
+    if (this.parado) return;
     this.mudarStatus('conectando');
     try {
       const estado = await this.conexao.connect();
+      if (this.parado) return this.conexao.disconnect().catch(() => {});
       this.tentativas = 0;
       this.mudarStatus('conectado');
       this.emit('log', `conectado à live de @${this.usuario} (sala ${estado.roomId})`);
     } catch (erro) {
+      if (this.parado) return;
       const msg = erro?.message ?? String(erro);
       this.emit('log', `não conectou em @${this.usuario}: ${msg}`);
       this.mudarStatus(/online|offline|not.*live/i.test(msg) || erro?.name === 'UserOfflineError' ? 'você não está ao vivo' : 'erro ao conectar');

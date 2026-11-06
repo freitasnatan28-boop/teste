@@ -3,64 +3,110 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Guerra de Times</title>
+  <title>Live Games · jogos interativos para sua live</title>
+  <meta name="description" content="Transforme sua live do TikTok em um jogo: o público escolhe um time pelo chat, curtidas e presentes viram pontos e o maior presenteador ganha a coroa.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/jogo.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <style>
+    .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; padding: 30px 0 60px; }
+    .selo { display: inline-block; padding: 6px 12px; border-radius: 999px; background: rgba(255, 210, 63, 0.14); color: var(--ouro); font-weight: 900; font-size: 14px; margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(40px, 6vw, 68px); }
+    .hero h1 span { background: linear-gradient(90deg, var(--ouro), var(--rosa)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p { font-size: 19px; color: var(--suave); max-width: 540px; margin: 18px 0 26px; }
+    .acoes { display: flex; gap: 12px; flex-wrap: wrap; }
+    .fone { justify-self: center; width: min(320px, 80vw); aspect-ratio: 9 / 16; border-radius: 34px; padding: 10px; background: #05030f; box-shadow: 0 30px 80px rgba(123, 61, 255, 0.45), 0 0 0 2px #2a2260; position: relative; }
+    .fone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 26px; }
+    .fone .bolha { position: absolute; left: -26px; bottom: 90px; background: #fff; color: #1a0f45; font-weight: 900; padding: 8px 14px; border-radius: 14px; box-shadow: 0 10px 24px rgba(0,0,0,.35); font-size: 15px; }
+    .fone .bolha.b2 { left: auto; right: -30px; bottom: auto; top: 120px; background: var(--ouro); }
+    section.bloco { padding: 50px 0; }
+    .bloco > h2 { font-size: clamp(30px, 4vw, 42px); text-align: center; margin-bottom: 10px; }
+    .bloco > p.sub { text-align: center; color: var(--suave); margin: 0 auto 30px; max-width: 620px; font-size: 17px; }
+    .passos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: passo; }
+    .passo { position: relative; padding-top: 26px; }
+    .passo::before { counter-increment: passo; content: counter(passo); position: absolute; top: -18px; left: 18px; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-family: var(--display); font-size: 26px; background: linear-gradient(135deg, var(--rosa), var(--roxo)); }
+    .passo p, .recurso p { color: var(--suave); margin: 8px 0 0; }
+    .recursos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .recurso .ic { font-size: 30px; }
+    .modelos { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .modelos span { padding: 10px 16px; border-radius: 999px; background: var(--card); border: 1px solid var(--borda); font-weight: 900; }
+    .cta { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(123, 61, 255, 0.35), rgba(255, 61, 127, 0.25)); border-radius: 28px; border: 1px solid var(--borda); }
+    .cta h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 18px; }
+    footer { color: var(--fraco); font-size: 13px; text-align: center; padding: 40px 0 30px; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; text-align: center; padding-top: 10px; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .acoes { justify-content: center; }
+      .passos, .recursos { grid-template-columns: 1fr; }
+      .passo { margin-top: 14px; }
+      .fone .bolha { left: -8px; } .fone .bolha.b2 { right: -8px; }
+    }
+  </style>
 </head>
 <body>
-  <div id="palco">
-    <div class="fundo"><span class="luz l1"></span><span class="luz l2"></span><span class="luz l3"></span></div>
+  <div class="container">
+    <nav class="nav">
+      <a class="logo" href="/"><i>🎮</i>LIVE GAMES</a>
+      <span class="espaco"></span>
+      <a class="btn fantasma" href="/entrar">Entrar</a>
+      <a class="btn prim esconde-celular" href="/criar-conta">Criar conta grátis</a>
+    </nav>
 
-    <header class="topo">
-      <div class="titulo">
-        <h1 id="titulo">GUERRA DE TIMES</h1>
-        <div class="sub"><span id="rodada">RODADA 1</span><span id="conexao" class="conexao"></span></div>
+    <header class="hero">
+      <div>
+        <span class="selo">🔥 Para lives do TikTok</span>
+        <h1>Transforme sua live em um <span>jogo que dá presente</span></h1>
+        <p>O público escolhe um time pelo chat. Curtidas e presentes viram pontos, a rodada esquenta no final e o maior presenteador ganha a <b>coroa de TOP 1</b> na tela.</p>
+        <div class="acoes">
+          <a class="btn prim grande" href="/criar-conta">Criar minha conta grátis</a>
+          <a class="btn fantasma grande" href="#como">Como funciona</a>
+        </div>
       </div>
-      <div class="selos">
-        <div id="seloDobro" class="selo dobro">⏱️ FINAL EM DOBRO</div>
-        <div id="seloTurbo" class="selo turbo">⚡ TURBO <b id="turboSeg">0</b>s</div>
-      </div>
-      <div class="relogio" id="relogio">
-        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" class="trilha"/><circle cx="50" cy="50" r="44" class="anel" id="anel"/></svg>
-        <span id="tempo">3:00</span>
+      <div class="fone">
+        <img src="/previa.jpg" alt="Tela do jogo Guerra de Times com 4 times, placar e ranking de presenteadores" width="540" height="960">
+        <div class="bolha">💬 “vai timão!!”</div>
+        <div class="bolha b2">👑 NOVO TOP 1</div>
       </div>
     </header>
 
-    <section id="times" class="times"></section>
-
-    <section class="meta">
-      <div class="meta-txt"><span>❤️ <b id="metaAtual">0</b> / <b id="metaAlvo">500</b> curtidas</span><span class="meta-premio">⚡ = PONTOS EM DOBRO</span></div>
-      <div class="meta-barra"><div id="metaFill" class="meta-fill"></div></div>
-    </section>
-
-    <section class="baixo">
-      <div class="card ranking">
-        <h2>👑 TOP PRESENTEADORES</h2>
-        <div id="rei" class="rei vazio">
-          <div class="rei-foto"><span class="coroa">👑</span><div class="av" id="reiAv"></div></div>
-          <div class="rei-info"><div class="rei-nome" id="reiNome">Seja o TOP 1!</div><div class="rei-moedas" id="reiMoedas">mande uma 🌹</div></div>
-        </div>
-        <ol id="listaRanking" class="lista"></ol>
-      </div>
-      <div class="card regras">
-        <h2>COMO JOGAR</h2>
-        <ul>
-          <li><b class="tag">1-4</b>digite o número do seu time</li>
-          <li><b class="tag">❤️</b>curtida = <b id="ptCurtida">1</b> pt</li>
-          <li><b class="tag">🌹</b>rosa = <b id="ptRosa">10</b> pts</li>
-          <li><b class="tag">🎁</b>1 moeda = <b id="ptMoeda">10</b> pts</li>
-          <li><b class="tag">x2</b>últimos <b id="segDobro">30</b>s</li>
-        </ul>
+    <section class="bloco" id="como">
+      <h2>Pronto em 3 passos</h2>
+      <p class="sub">Sem instalar nada. Funciona com o TikTok LIVE Studio e com o OBS.</p>
+      <div class="passos">
+        <div class="card passo"><h3>Crie sua conta</h3><p>Leva 20 segundos. Você ganha um painel só seu.</p></div>
+        <div class="card passo"><h3>Coloque seu @ do TikTok</h3><p>O jogo lê comentários, curtidas e presentes da sua live em tempo real.</p></div>
+        <div class="card passo"><h3>Cole o link na live</h3><p>Adicione o seu link da tela do jogo no LIVE Studio ou no OBS e comece.</p></div>
       </div>
     </section>
 
-    <div id="toasts" class="toasts"></div>
-    <div id="banner" class="banner"></div>
-    <div id="flash" class="flash"></div>
-    <canvas id="confete" width="1080" height="1920"></canvas>
+    <section class="bloco">
+      <h2>Feito para o público interagir</h2>
+      <p class="sub">Cada detalhe foi pensado para dar vontade de curtir, comentar e mandar presente.</p>
+      <div class="recursos">
+        <div class="card recurso"><div class="ic">⚔️</div><h3>Rivalidade</h3><p>Times disputando ao vivo. Ninguém quer ver o rival ganhar.</p></div>
+        <div class="card recurso"><div class="ic">👑</div><h3>Ranking com coroa</h3><p>Quando alguém passa o TOP 1, aparece um banner gigante com o nome dele.</p></div>
+        <div class="card recurso"><div class="ic">⏱️</div><h3>Final em dobro</h3><p>Nos últimos 30 segundos os pontos valem o dobro. Dá para virar.</p></div>
+        <div class="card recurso"><div class="ic">⚡</div><h3>Meta de curtidas</h3><p>Bateu a meta, entra o TURBO e todo mundo pontua em dobro.</p></div>
+        <div class="card recurso"><div class="ic">💥</div><h3>Super Ataque e Lendário</h3><p>Presente grande treme a tela, solta confete e mostra quem mandou.</p></div>
+        <div class="card recurso"><div class="ic">🎛️</div><h3>Você no controle</h3><p>Painel no celular: pausar, encerrar rodada, trocar times e regras.</p></div>
+      </div>
+    </section>
+
+    <section class="bloco">
+      <h2>Modelos prontos</h2>
+      <p class="sub">Escolha um modelo ou crie seus próprios times, de 2 a 6.</p>
+      <div class="modelos"><span>⚽ Times de futebol</span><span>🌎 Países</span><span>🗺️ Regiões do Brasil</span><span>💙💗 Meninos x Meninas</span><span>✏️ Do seu jeito</span></div>
+    </section>
+
+    <section class="bloco">
+      <div class="cta">
+        <h2>Bora fazer sua próxima live bombar?</h2>
+        <a class="btn ouro grande" href="/criar-conta">Começar agora, é grátis</a>
+      </div>
+    </section>
+
+    <footer>Live Games não é afiliado ao TikTok. Siga as diretrizes de LIVE do TikTok: não prometa dinheiro ou prêmios em troca de presentes.</footer>
   </div>
-  <script src="/jogo.js"></script>
 </body>
 </html>

@@ -1,105 +1,107 @@
-# 🎮 Live Games: Guerra de Times
+# 🎮 Live Games
 
-Jogo interativo para **TikTok LIVE**. O público escolhe um time pelo chat, e **curtidas e presentes viram pontos**. Ganha a rodada o time com mais pontos. Na tela também fica o **ranking dos maiores presenteadores**, com o **TOP 1 coroado** 👑.
+Site de **jogos interativos para TikTok LIVE**. Cada pessoa cria uma conta, coloca o @ do TikTok e recebe um **link exclusivo da tela do jogo** para pôr no TikTok LIVE Studio ou no OBS. Tudo se controla por um **painel**, que também funciona no celular.
 
-## Por que esse jogo prende o público e puxa presente
+O primeiro jogo é a **Guerra de Times**. O público escolhe um time pelo chat, curtidas e presentes viram pontos, e o maior presenteador ganha a coroa de **TOP 1** na tela.
 
-| Gatilho | Como aparece no jogo |
+| Página | Para que serve |
 |---|---|
-| **Rivalidade** (time de futebol) | 4 times na tela. Ninguém quer ver o rival ganhar. |
-| **Status** | Ranking de presenteadores. Quando alguém passa o TOP 1, aparece o banner **"NOVO TOP 1"** com o nome dele em destaque. |
-| **Urgência** | Rodadas de 3 min. Nos **últimos 30s os pontos valem em dobro**. |
-| **Virada** | Quem chega sem time cai no **último colocado**, então sempre dá para virar. |
-| **Recompensa visual** | Presente de 99+ moedas mostra o banner **SUPER ATAQUE**. De 1000+ mostra o **LENDÁRIO**, com tremida, flash e confete. |
-| **Meta coletiva** | A cada 500 curtidas entra o **TURBO**: pontos em dobro por 20s. Isso faz todo mundo tocar na tela. |
-| **Reconhecimento** | No fim da rodada aparece o **CRAQUE** (quem mais pontuou pelo time vencedor). |
+| `/` | Página inicial (apresentação e botão de cadastro) |
+| `/criar-conta` e `/entrar` | Cadastro e login |
+| `/painel` | Painel de cada pessoa: conectar na live, link da tela, controle da partida, testes, ranking e configuração dos times e regras |
+| `/o/<código>` | Tela do jogo de cada conta (1080x1920), que vai na live |
 
-Pontuação padrão: ❤️ curtida = 1 pt · 🌹 rosa (1 moeda) = 10 pts · cada moeda = 10 pts · seguir = 30 · compartilhar = 20.
+## Por que o público interage e manda presente
 
-## 1. Instalar (uma vez só)
+- **Rivalidade:** de 2 a 6 times. Tem modelos prontos de futebol, países, regiões e meninos x meninas, ou você monta os seus.
+- **Status:** ranking de presenteadores. Quando alguém passa o TOP 1, aparece o banner **"NOVO TOP 1"**.
+- **Urgência:** nos últimos 30 segundos da rodada os pontos valem em dobro.
+- **Meta de curtidas:** quando bate a meta, entra o **TURBO**, com pontos em dobro.
+- **Presente grande aparece muito:** a partir de 99 moedas surge o **SUPER ATAQUE**. A partir de 1000 moedas, o **LENDÁRIO**, com tremida, flash e confete.
+- **Craque da rodada** e troféus para o time vencedor.
 
-1. Instale o **Node.js 20 ou mais novo**: https://nodejs.org (botão "LTS").
-2. Abra o terminal nesta pasta (`live-games`) e rode:
+---
+
+## Rodar no seu computador
+
+1. Instale o **Node.js 20 ou mais novo** em https://nodejs.org (versão LTS).
+2. Abra o terminal nesta pasta (`live-games`) e instale as dependências:
 
 ```bash
 npm install
 ```
 
-## 2. Testar sem estar ao vivo
-
-```bash
-npm run simular
-```
-
-Abra no navegador:
-- **Tela do jogo:** http://localhost:8080/
-- **Painel de controle:** http://localhost:8080/controle
-
-O simulador cria um público falso que curte, comenta e manda presentes. No painel você também tem botões para mandar presentes de teste.
-
-## 3. Usar na live de verdade
-
-1. Abra `config.json` e troque `SEU_USUARIO_AQUI` pelo seu @ do TikTok (sem o @).
-2. **Comece a live primeiro**. Depois rode:
+3. Ligue o site:
 
 ```bash
 npm start
 ```
 
-Se preferir não editar o arquivo, passe o @ direto no comando:
+4. Abra http://localhost:8080, crie sua conta e use o **Modo teste** no painel para ver o jogo funcionando com um público falso.
+
+Assim o site só funciona no seu computador. Para outras pessoas acessarem, ele precisa estar publicado na internet (veja abaixo).
+
+## Colocar no ar (para outras pessoas usarem)
+
+O site precisa de um servidor ligado 24 horas e com suporte a WebSocket. Ele **não funciona** na Vercel nem em hospedagem de site estático. Precisa também de um **disco permanente** para guardar contas e rankings, apontado pela variável `DATA_DIR`.
+
+### Opção 1: Railway (mais fácil)
+1. Crie uma conta em https://railway.app e escolha **New Project → Deploy from GitHub repo**, selecionando este repositório.
+2. Em **Settings → Root Directory**, coloque `live-games`. O Railway usa o `Dockerfile` sozinho.
+3. Em **Volumes**, crie um volume montado em `/data`.
+4. Em **Variables**, adicione `EULER_API_KEY` (veja a seção sobre a Euler Stream abaixo).
+5. Em **Settings → Networking**, clique em **Generate Domain**. Esse é o endereço do seu site. Você pode trocar por um domínio próprio depois.
+
+### Opção 2: Render
+Crie um **Web Service** com Root Directory `live-games` e runtime **Docker**. Adicione um **Disk** montado em `/data`. O disco exige plano pago e, sem ele, as contas se perdem a cada atualização. Coloque as mesmas variáveis do Railway.
+
+### Opção 3: VPS (Hostinger, Contabo, DigitalOcean…)
+Funciona em um servidor Linux com Docker:
 
 ```bash
-npm start -- --usuario=seu_usuario
+docker build -t live-games .
 ```
 
-O programa espera a live começar e reconecta sozinho se cair.
+```bash
+docker run -d --restart=always -p 8080:8080 -v /srv/live-games:/data -e EULER_API_KEY=sua_chave live-games
+```
 
-3. Antes de começar, clique em **🆕 Nova live** no painel para zerar o ranking dos testes.
+Na frente, coloque um proxy com HTTPS (Caddy ou Nginx) apontando para a porta 8080.
 
-### Colocar a tela do jogo na transmissão
+### Variáveis de ambiente
 
-**Opção A: TikTok LIVE Studio (PC)**
-- Deixe a transmissão na vertical.
-- Adicione uma fonte de **Link / Navegador** com `http://localhost:8080/`, se a sua versão tiver.
-- Se não tiver, abra `http://localhost:8080/` no navegador em tela cheia (F11) e adicione uma fonte de **Captura de janela** apontando para essa janela.
+| Variável | O que faz |
+|---|---|
+| `PORT` | Porta do servidor (as hospedagens já definem sozinhas) |
+| `DATA_DIR` | Pasta das contas e rankings (`/data` no Docker). **Precisa ser um disco permanente.** |
+| `EULER_API_KEY` | Chave da Euler Stream. Recomendada quando muitas pessoas usam o site |
+| `MAX_LIVES` | Quantas lives podem ficar conectadas ao mesmo tempo (padrão 50) |
+| `CADASTRO=fechado` | Para de aceitar contas novas (útil se quiser liberar só para convidados) |
 
-**Opção B: OBS Studio**
-- Fontes → **Navegador** → URL `http://localhost:8080/`, largura **1080**, altura **1920**.
-- Para colocar o jogo por cima da sua câmera, use `http://localhost:8080/?fundo=transparente`.
-- Para transmitir do OBS para o TikTok você precisa da chave de transmissão, que nem toda conta tem.
+`GET /saude` mostra se o servidor está de pé e quantas lives estão conectadas.
 
-Para tirar o som dos alertas, use `?som=0` no endereço.
+## Coisas importantes antes de abrir para o público
 
-> A parte de baixo da tela fica livre de propósito: é onde o TikTok mostra os comentários.
+- **Leitura da live:** o site usa a biblioteca **não oficial** [`tiktok-live-connector`](https://www.npmjs.com/package/tiktok-live-connector). Quando o TikTok muda alguma coisa ela pode parar até sair atualização. Nesse caso, rode `npm update` e publique de novo.
+- **Euler Stream:** a biblioteca usa o serviço da Euler Stream para conectar nas lives. Sem chave, o limite de conexões é baixo. Com várias pessoas usando o site ao mesmo tempo, crie uma chave em https://www.eulerstream.com e coloque em `EULER_API_KEY`. Confira lá os limites e preços.
+- **Servidor na nuvem:** o TikTok às vezes desconfia de conexões vindas de servidores de nuvem. Se as lives não conectarem a partir do servidor, mas conectarem rodando no seu PC, é isso. A chave da Euler costuma resolver.
+- **Lives muito cheias:** o TikTok não manda todas as curtidas uma a uma. Os presentes chegam todos.
+- **Regras do TikTok:** não prometa dinheiro nem prêmio em troca de presente, e não transforme o jogo em aposta. Leia as diretrizes de LIVE e monetização do TikTok e deixe isso claro para quem usar o site.
+- **Dados:** o site guarda nome, e-mail, senha (só a versão protegida, nunca a senha em si), o @ do TikTok e os apelidos de quem presenteou. Se for abrir para o público em geral, vale ter uma página de **Termos de uso e Privacidade** (LGPD).
 
-## 4. Personalizar (`config.json`)
-
-- `times`: nome, cores e apelidos que o chat pode digitar. Dá para trocar por estados, países, signos, "meninos x meninas" etc. Funciona com 2 a 6 times. Com mais de 4 times, diminua a altura das barras em `public/jogo.css`.
-- `duracaoRodadaSeg`, `finalEmDobroSeg`, `intervaloSeg`: tempo das rodadas.
-- `pontos`: quanto vale cada curtida, moeda, follow e compartilhamento.
-- `metaCurtidas.passo`: de quantas em quantas curtidas entra o TURBO. Para live pequena, use 200. Para live grande, use 2000 ou mais.
-- `presentes`: a partir de quantas moedas aparece o SUPER ATAQUE e o LENDÁRIO.
-- `semTime`: `"ultimo"` coloca quem não escolheu time no último colocado. `"nenhum"` não conta pontos para quem não escolheu time.
-
-Depois de mudar, feche o programa (Ctrl+C) e rode de novo.
-
-## Observações importantes
-
-- A leitura da live usa a biblioteca **não oficial** [`tiktok-live-connector`](https://www.npmjs.com/package/tiktok-live-connector). Quando o TikTok muda alguma coisa ela pode parar até sair atualização. Para atualizar, rode `npm update`.
-- A biblioteca usa o servidor da **Euler Stream** para assinar a conexão. Se aparecer erro de limite ("rate limit"), crie uma chave grátis em https://www.eulerstream.com e coloque em `tiktok.eulerApiKey` no `config.json`.
-- Em lives muito cheias, o TikTok não manda todas as curtidas uma por uma. Os presentes chegam todos.
-- **Regras do TikTok:** não prometa dinheiro nem prêmio em troca de presente, e não transforme o jogo em aposta ("quem mandar X ganha Y"). Presente como "ponto para o time" e ranking de reconhecimento é o formato comum. Mesmo assim, leia as diretrizes de LIVE e de monetização do TikTok.
-- O ranking fica salvo em `data/ranking.json`, então reiniciar o programa no meio da live não perde nada.
-
-## Estrutura
+## Como o código está organizado
 
 ```
-server.mjs          servidor: lê a live, roda o jogo e manda para a tela
-config.json         configurações do jogo
-src/jogo.mjs        regras (times, rodadas, pontos, ranking)
-src/tiktok.mjs      conexão com o TikTok e leitura dos presentes (inclusive combos)
-src/simulador.mjs   live falsa para testes
-public/index.html   tela do jogo (1080x1920) + jogo.css + jogo.js
-public/controle.html  painel de controle
-test/               testes das regras (npm test)
+server.mjs              site: páginas, API, login e tempo real (WebSocket)
+src/contas.mjs          cadastro, senha (scrypt) e sessões
+src/banco.mjs           armazenamento em arquivo JSON (DATA_DIR/banco.json)
+src/salas.mjs           uma "sala" por conta: jogo + conexão com a live + telas abertas
+src/jogo.mjs            regras da Guerra de Times
+src/configuracao.mjs    configuração padrão, modelos prontos e validação
+src/tiktok.mjs          conexão com o TikTok e leitura dos presentes (inclusive combos)
+src/simulador.mjs       público falso do modo teste
+public/                 páginas (inicial, entrar, painel) e a tela do jogo (jogo.html/css/js)
+test/                   testes (npm test)
 ```
+
+O "banco" em arquivo JSON aguenta bem algumas centenas de contas. Se o site crescer, dá para trocar `src/banco.mjs` por Postgres sem mexer no resto.

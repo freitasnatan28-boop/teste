@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel · Live Games</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <link rel="stylesheet" href="/painel.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a class="logo" href="/"><i>🎮</i><span class="esconde-celular">LIVE GAMES</span></a>
+      <span class="espaco"></span>
+      <span class="ola esconde-celular">Olá, <b id="nomeConta">…</b></span>
+      <button class="btn fantasma pequeno" id="sair">Sair</button>
+    </nav>
+
+    <div class="layout">
+      <div class="coluna">
+
+        <!-- 1. Live -->
+        <section class="card">
+          <div class="cab"><h2>📡 Sua live</h2><span id="pillStatus" class="pill">carregando…</span></div>
+          <form id="formTikTok" class="linha">
+            <div class="arroba"><span>@</span><input id="tiktok" placeholder="seu.usuario" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="40"></div>
+            <button class="btn" type="submit">Salvar</button>
+          </form>
+          <div class="linha botoes">
+            <button class="btn prim" data-cmd="ligarTikTok">▶️ Conectar na live</button>
+            <button class="btn" data-cmd="ligarTeste">🧪 Modo teste</button>
+            <button class="btn fantasma" data-cmd="desligar">⏹️ Desligar</button>
+          </div>
+          <p class="ajuda">Entre ao vivo no TikTok e depois clique em <b>Conectar</b>. Se a tela do jogo já estiver aberta no LIVE Studio/OBS, ele conecta sozinho. O <b>Modo teste</b> cria um público falso para você ver como fica.</p>
+        </section>
+
+        <!-- 2. Link -->
+        <section class="card">
+          <div class="cab"><h2>🔗 Link da tela do jogo</h2><span id="pillTelas" class="pill">0 telas abertas</span></div>
+          <div class="linha">
+            <input id="linkTela" readonly>
+            <button class="btn ouro" id="copiar">Copiar</button>
+          </div>
+          <div class="linha opcoes">
+            <label class="check"><input type="checkbox" id="transparente"> Fundo transparente (jogo por cima da câmera)</label>
+            <label class="check"><input type="checkbox" id="semSom"> Sem som</label>
+          </div>
+          <details class="como">
+            <summary>Como colocar na live</summary>
+            <ol>
+              <li><b>TikTok LIVE Studio (PC):</b> deixe a live na vertical. Adicione uma fonte de <b>Link</b> ou <b>Navegador</b> com o link acima, se a sua versão tiver. Se não tiver, abra o link no Chrome em tela cheia (F11) e use <b>Captura de janela</b>.</li>
+              <li><b>OBS:</b> Fontes → <b>Navegador</b> → cole o link, largura <b>1080</b>, altura <b>1920</b>.</li>
+              <li>Deixe a parte de baixo livre: é onde aparecem os comentários do TikTok.</li>
+            </ol>
+          </details>
+          <div class="linha" style="margin-top:10px">
+            <a class="btn fantasma pequeno" id="abrirTela" target="_blank" rel="noopener">Abrir em nova aba ↗</a>
+            <button class="btn perigo pequeno" id="novoLink">Gerar link novo</button>
+          </div>
+        </section>
+
+        <!-- 3. Partida -->
+        <section class="card">
+          <div class="cab"><h2>🎮 Partida</h2><span class="relogio" id="relogio">—</span></div>
+          <p class="estado-rodada" id="rodada">—</p>
+          <div class="linha botoes">
+            <button class="btn verde" data-cmd="iniciar">▶️ Iniciar / continuar</button>
+            <button class="btn" data-cmd="pausar">⏸️ Pausar</button>
+            <button class="btn" data-cmd="encerrar">🏁 Encerrar rodada</button>
+          </div>
+          <h3 class="sub-h">Testar na tela</h3>
+          <div class="linha botoes">
+            <button class="btn pequeno" data-teste="presente" data-presente="Rosa">🌹 Rosa</button>
+            <button class="btn pequeno" data-teste="presente" data-presente="Rosquinha">🍩 30</button>
+            <button class="btn pequeno" data-teste="presente" data-presente="Chapéu">🎩 99</button>
+            <button class="btn pequeno" data-teste="presente" data-presente="Carro Esportivo">🏎️ 1000</button>
+            <button class="btn pequeno" data-teste="curtida">❤️ 50 curtidas</button>
+            <button class="btn pequeno" data-cmd="publicoFalso">🤖 Público falso</button>
+          </div>
+          <form id="formChat" class="linha" style="margin-top:10px">
+            <input id="msg" placeholder="Simular comentário, ex.: 1 ou vai palmeiras" maxlength="200">
+            <button class="btn" type="submit">💬</button>
+          </form>
+          <div class="linha botoes" style="margin-top:14px">
+            <button class="btn perigo pequeno" data-cmd="zerarPartida" data-confirma="Zerar o placar e os troféus dos times?">♻️ Zerar placar</button>
+            <button class="btn perigo pequeno" data-cmd="novaLive" data-confirma="Começar uma NOVA LIVE? Isso zera o ranking de presenteadores.">🆕 Nova live (zera ranking)</button>
+          </div>
+        </section>
+
+        <div class="duas">
+          <section class="card"><h2>🏆 Placar</h2><div id="placar" class="placar"></div></section>
+          <section class="card"><h2>👑 Ranking</h2><ol id="ranking" class="ranking"></ol></section>
+        </div>
+
+        <section class="card">
+          <h2>📜 Acontecimentos</h2>
+          <div id="feed" class="feed"><p class="vazio">Nada ainda. Conecte na live ou use o modo teste.</p></div>
+        </section>
+
+        <!-- 4. Configuração -->
+        <section class="card" id="config">
+          <div class="cab"><h2>⚙️ Configurar jogo</h2></div>
+          <label>Modelos prontos</label>
+          <div class="linha botoes" id="modelos"></div>
+          <form id="formConfig">
+            <div class="campo" style="margin-top:14px"><label for="cTitulo">Título na tela</label><input id="cTitulo" maxlength="28"></div>
+            <label>Times <span class="fraco">(2 a 6 · o público digita o número ou um apelido)</span></label>
+            <div id="times" class="times-ed"></div>
+            <button type="button" class="btn fantasma pequeno" id="addTime">+ Adicionar time</button>
+
+            <details class="regras" open>
+              <summary>Regras e pontos</summary>
+              <div class="grade-campos">
+                <div><label for="cDuracao">Duração da rodada (s)</label><input id="cDuracao" type="number" min="30" max="1800"></div>
+                <div><label for="cDobro">Final em dobro (s)</label><input id="cDobro" type="number" min="0" max="1800"></div>
+                <div><label for="cIntervalo">Intervalo entre rodadas (s)</label><input id="cIntervalo" type="number" min="3" max="120"></div>
+                <div><label for="cCurtida">Pontos por curtida</label><input id="cCurtida" type="number" min="0" max="1000"></div>
+                <div><label for="cMoeda">Pontos por moeda</label><input id="cMoeda" type="number" min="0" max="10000"></div>
+                <div><label for="cSeguir">Pontos por seguir</label><input id="cSeguir" type="number" min="0" max="10000"></div>
+                <div><label for="cCompartilhar">Pontos por compartilhar</label><input id="cCompartilhar" type="number" min="0" max="10000"></div>
+                <div><label for="cMeta">Meta: a cada X curtidas</label><input id="cMeta" type="number" min="10"></div>
+                <div><label for="cTurbo">Turbo dura (s)</label><input id="cTurbo" type="number" min="0" max="300"></div>
+                <div><label for="cSuper">Super Ataque a partir de (moedas)</label><input id="cSuper" type="number" min="1"></div>
+                <div><label for="cLendario">Lendário a partir de (moedas)</label><input id="cLendario" type="number" min="1"></div>
+                <div><label for="cSemTime">Quem não escolheu time</label><select id="cSemTime"><option value="ultimo">Cai no último colocado</option><option value="nenhum">Não pontua</option></select></div>
+              </div>
+            </details>
+            <div class="linha" style="margin-top:16px"><button class="btn prim grande" type="submit">💾 Salvar configuração</button></div>
+            <p class="ajuda">Trocar os times reinicia o placar (o ranking de presenteadores continua). Mudar só as regras não zera nada.</p>
+          </form>
+        </section>
+      </div>
+
+      <aside class="lateral">
+        <div class="card previa">
+          <div class="cab"><h2>👀 Prévia</h2></div>
+          <div class="tela"><iframe id="previa" title="Prévia da tela do jogo"></iframe></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <div id="toast" class="toast-site" role="status"></div>
+  <script src="/painel.js"></script>
+</body>
+</html>

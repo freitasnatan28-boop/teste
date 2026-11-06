@@ -67,6 +67,11 @@
   function montarTimes(times) {
     elTimes.innerHTML = '';
     linhas.clear();
+    mostrado.clear();
+    // 2 a 6 times dividem a mesma área da tela
+    const altura = Math.min(130, Math.floor((508 - 12 * (times.length - 1)) / times.length));
+    elTimes.style.setProperty('--h', `${altura}px`);
+    elTimes.classList.toggle('compacto', altura < 100);
     for (const t of times) {
       timeCores.set(t.id, t.cores);
       const el = document.createElement('div');
@@ -90,7 +95,11 @@
   }
 
   function atualizarTimes(times, status) {
-    if (linhas.size !== times.length || times.some((t) => !linhas.has(t.id))) montarTimes(times);
+    const assinatura = JSON.stringify(times.map((t) => [t.id, t.nome, t.cores]));
+    if (elTimes.dataset.assinatura !== assinatura) {
+      montarTimes(times);
+      elTimes.dataset.assinatura = assinatura;
+    }
     // no intervalo o placar fica congelado no resultado; o que chega agora vai para a largada da próxima
     const total = (t) => (status === 'intervalo' ? t.pontos : t.pontos + t.reserva);
     const max = Math.max(1, ...times.map(total));
@@ -212,7 +221,7 @@
     const el = $('conexao');
     const ok = c.status === 'conectado' || c.status === 'simulando';
     el.className = `conexao ${ok ? 'ok' : 'ruim'}`;
-    el.textContent = c.simulacao ? 'simulação' : c.status === 'conectado' ? 'ao vivo' : c.status;
+    el.textContent = c.simulacao ? 'modo teste' : c.status === 'conectado' ? 'ao vivo' : c.status;
   }
 
   // ---------- alertas ----------
@@ -401,17 +410,23 @@
   }
 
   // ---------- conexão com o servidor ----------
+  const token = location.pathname.split('/')[2] ?? '';
   function conectar() {
-    const ws = new WebSocket(`${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}`);
+    const ws = new WebSocket(`${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/ws?o=${encodeURIComponent(token)}${params.get('previa') ? '&previa=1' : ''}`);
     ws.onmessage = (m) => {
       const msg = JSON.parse(m.data);
       if (msg.t === 'estado') aplicarEstado(msg.d);
       else if (msg.t === 'fx') aplicarFx(msg.d);
       else if (msg.t === 'conexao') aplicarConexao(msg.d);
     };
-    ws.onclose = () => {
-      aplicarConexao({ status: 'sem servidor' });
-      setTimeout(conectar, 1500);
+    ws.onclose = (ev) => {
+      if (ev.code === 4001) {
+        // o dono gerou um link novo no painel: este parou de valer
+        $('avisoTela').classList.add('on');
+        return;
+      }
+      aplicarConexao({ status: 'reconectando…' });
+      setTimeout(conectar, 2000);
     };
   }
   conectar();
