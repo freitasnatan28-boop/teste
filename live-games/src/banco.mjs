@@ -9,17 +9,45 @@ const VAZIO = () => ({ versao: 1, contas: {}, sessoes: {}, rankings: {}, ajustes
 export class Banco {
   constructor(arquivo) {
     this.arquivo = arquivo;
-    fs.mkdirSync(path.dirname(arquivo), { recursive: true });
+    this.erroGravacao = null;
+    this.salvoEm = null;
+    try {
+      fs.mkdirSync(path.dirname(arquivo), { recursive: true });
+    } catch (erro) {
+      this.erroGravacao = erro.message;
+    }
     try {
       this.dados = { ...VAZIO(), ...JSON.parse(fs.readFileSync(arquivo, 'utf8')) };
     } catch (erro) {
       if (erro.code !== 'ENOENT') {
         // arquivo corrompido: guarda uma cópia em vez de apagar
-        fs.copyFileSync(arquivo, `${arquivo}.corrompido-${Date.now()}`);
+        try {
+          fs.copyFileSync(arquivo, `${arquivo}.corrompido-${Date.now()}`);
+        } catch {}
       }
       this.dados = VAZIO();
     }
     this.timer = null;
+    this.testarGravacao();
+  }
+
+  // confere na hora de ligar se a pasta aceita gravação (senão as contas somem ao reiniciar)
+  testarGravacao() {
+    const teste = path.join(path.dirname(this.arquivo), '.teste-gravacao');
+    try {
+      fs.writeFileSync(teste, String(Date.now()));
+      fs.unlinkSync(teste);
+      this.erroGravacao = null;
+    } catch (erro) {
+      this.erroGravacao = erro.message;
+      console.error(`\n  ⚠️  NÃO CONSIGO GRAVAR EM ${path.dirname(this.arquivo)}: ${erro.message}`);
+      console.error('  ⚠️  Contas e rankings vão se perder quando o site reiniciar. Veja "Colocar no ar" no README.\n');
+    }
+    return !this.erroGravacao;
+  }
+
+  get gravando() {
+    return !this.erroGravacao;
   }
 
   // grava no máximo 1x por segundo, sem travar o servidor
@@ -28,9 +56,17 @@ export class Banco {
     this.timer = setTimeout(() => {
       this.timer = null;
       const tmp = `${this.arquivo}.tmp`;
+      const falhou = (erro) => {
+        this.erroGravacao = erro.message;
+        console.error('[banco] erro ao salvar', erro.message);
+      };
       fs.writeFile(tmp, JSON.stringify(this.dados), (erro) => {
-        if (erro) return console.error('[banco] erro ao salvar', erro);
-        fs.rename(tmp, this.arquivo, (e2) => e2 && console.error('[banco] erro ao salvar', e2));
+        if (erro) return falhou(erro);
+        fs.rename(tmp, this.arquivo, (e2) => {
+          if (e2) return falhou(e2);
+          this.erroGravacao = null;
+          this.salvoEm = Date.now();
+        });
       });
     }, 1000);
   }
@@ -39,8 +75,12 @@ export class Banco {
     clearTimeout(this.timer);
     this.timer = null;
     const tmp = `${this.arquivo}.tmp`;
-    fs.writeFileSync(tmp, JSON.stringify(this.dados));
-    fs.renameSync(tmp, this.arquivo);
+    try {
+      fs.writeFileSync(tmp, JSON.stringify(this.dados));
+      fs.renameSync(tmp, this.arquivo);
+    } catch (erro) {
+      console.error('[banco] erro ao salvar', erro.message);
+    }
   }
 
   // ---------- contas ----------

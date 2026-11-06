@@ -50,7 +50,7 @@ O site precisa de um servidor ligado 24 horas e com suporte a WebSocket. Ele **n
 ### Opção 1: Railway (mais fácil)
 1. Crie uma conta em https://railway.app e escolha **New Project → Deploy from GitHub repo**, selecionando este repositório.
 2. Em **Settings → Root Directory**, coloque `live-games`. O Railway usa o `Dockerfile` sozinho.
-3. Em **Volumes**, crie um volume montado em `/data`.
+3. Crie um **Volume** (**+ Add → Volume**) e ligue ao serviço. O caminho pode ser `/data`. O site encontra o volume sozinho, não precisa configurar `DATA_DIR`. No **/admin** aparece **"Dados ✅ salvando"** quando está tudo certo.
 4. Em **Variables**, adicione `EULER_API_KEY` (veja a seção sobre a Euler Stream abaixo).
 5. Em **Settings → Networking**, clique em **Generate Domain**. Esse é o endereço do seu site. Você pode trocar por um domínio próprio depois.
 
@@ -75,7 +75,7 @@ Na frente, coloque um proxy com HTTPS (Caddy ou Nginx) apontando para a porta 80
 | Variável | O que faz |
 |---|---|
 | `PORT` | Porta do servidor (as hospedagens já definem sozinhas) |
-| `DATA_DIR` | Pasta das contas e rankings (`/data` no Docker). **Precisa ser um disco permanente.** |
+| `DATA_DIR` | Pasta das contas e rankings. **Precisa ser um disco permanente.** No Railway não precisa: o site usa o volume ligado ao serviço automaticamente. |
 | `EULER_API_KEY` | Chave da Euler Stream. Recomendada quando muitas pessoas usam o site |
 | `MAX_LIVES` | Quantas lives podem ficar conectadas ao mesmo tempo (padrão 50) |
 | `CADASTRO=fechado` | Para de aceitar contas novas (útil se quiser liberar só para convidados) |

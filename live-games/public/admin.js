@@ -50,9 +50,20 @@
     botao.textContent = r.cadastroAberto ? '🔓 Aberto · clique para fechar' : '🔒 Fechado · clique para abrir';
     botao.className = `btn ${r.cadastroAberto ? 'verde' : 'perigo'}`;
     botao.dataset.aberto = r.cadastroAberto ? '1' : '';
+    const a = r.armazenamento ?? {};
+    const alerta = $('alertaDados');
+    if (!a.seguro) {
+      let motivo;
+      if (a.railway && !a.volume) motivo = 'Este serviço do Railway <b>não tem um volume ligado</b>. Crie um volume (botão <b>+ Add → Volume</b>) e conecte ao serviço.';
+      else if (!a.gravando) motivo = `O servidor <b>não consegue gravar</b> em <code>${esc(a.pasta)}</code>${a.erro ? ` (${esc(a.erro)})` : ''}.`;
+      else motivo = `Os dados estão em <code>${esc(a.pasta)}</code>, que <b>não é o volume</b>. Apague a variável <code>DATA_DIR</code> no Railway para usar o volume automaticamente.`;
+      alerta.innerHTML = `<h2>⚠️ As contas NÃO estão sendo salvas com segurança</h2><p>${motivo}</p><p>Enquanto isso não for resolvido, contas e rankings somem toda vez que o site atualiza ou reinicia.</p>`;
+      alerta.hidden = false;
+    } else alerta.hidden = true;
     $('servidor').innerHTML = `
       <span>Servidor no ar <b>${haQuanto(r.noArDesde)}</b></span>
       <span>Memória <b>${r.memoriaMb} MB</b></span>
+      <span>Dados ${a.seguro ? '<b>✅ salvando</b>' : '<b style="color:var(--ruim)">⚠️ não estão sendo salvos</b>'}</span>
       <span>Chave Euler ${r.euler ? '<b>✅ configurada</b>' : '<b style="color:var(--ouro)">⚠️ não configurada</b>'}</span>`;
   }
 

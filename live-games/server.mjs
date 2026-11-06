@@ -6,7 +6,8 @@
 // Variáveis de ambiente (opcionais):
 //   PORT           porta (padrão 8080; serviços de hospedagem já definem sozinhos)
 //   HOST           padrão 0.0.0.0 quando PORT existe, senão 127.0.0.1
-//   DATA_DIR       pasta onde ficam contas e rankings (padrão ./data) — use um disco persistente
+//   DATA_DIR       pasta onde ficam contas e rankings — use um disco persistente
+//                  (no Railway, se não for definida, usa sozinho o caminho do volume)
 //   EULER_API_KEY  chave da Euler Stream (recomendado em produção, ver README)
 //   MAX_LIVES      máximo de lives conectadas ao mesmo tempo (padrão 50)
 //   CADASTRO       "fechado" para não aceitar novas contas (o admin também pode abrir/fechar no /admin)
@@ -24,13 +25,29 @@ import { MODELOS, PADRAO, validarConfig, validarUsuarioTikTok } from './src/conf
 
 const RAIZ = path.dirname(fileURLToPath(import.meta.url));
 const PUBLICO = path.join(RAIZ, 'public');
-const DATA_DIR = path.resolve(process.env.DATA_DIR || path.join(RAIZ, 'data'));
+// Onde ficam as contas: DATA_DIR, ou o volume do Railway (ele avisa o caminho), ou ./data
+const VOLUME_RAILWAY = process.env.RAILWAY_VOLUME_MOUNT_PATH || '';
+const NO_RAILWAY = Boolean(process.env.RAILWAY_ENVIRONMENT || process.env.RAILWAY_PROJECT_ID || process.env.RAILWAY_SERVICE_ID);
+const DATA_DIR = path.resolve(process.env.DATA_DIR || VOLUME_RAILWAY || path.join(RAIZ, 'data'));
 const PORTA = Number(process.env.PORT || 8080);
 const HOST = process.env.HOST || (process.env.PORT ? '0.0.0.0' : '127.0.0.1');
 const banco = new Banco(path.join(DATA_DIR, 'banco.json'));
 const contas = new Contas(banco, { emailsAdmin: String(process.env.ADMIN_EMAILS ?? '').split(',') });
 const cadastroAberto = () => banco.ajuste('cadastroAberto', process.env.CADASTRO !== 'fechado');
 const INICIO = Date.now();
+
+function armazenamento() {
+  const noVolume = !NO_RAILWAY || (VOLUME_RAILWAY && (DATA_DIR + path.sep).startsWith(path.resolve(VOLUME_RAILWAY) + path.sep));
+  return {
+    pasta: DATA_DIR,
+    gravando: banco.gravando,
+    erro: banco.erroGravacao,
+    salvoEm: banco.salvoEm ? new Date(banco.salvoEm).toISOString() : null,
+    railway: NO_RAILWAY,
+    volume: Boolean(VOLUME_RAILWAY),
+    seguro: banco.gravando && Boolean(noVolume),
+  };
+}
 const salas = new Salas({ banco, eulerApiKey: process.env.EULER_API_KEY || undefined, maxLives: Number(process.env.MAX_LIVES) || 50 });
 
 // ---------- utilidades HTTP ----------
@@ -137,7 +154,7 @@ async function rotear(req, res) {
     if (!dona || dona.bloqueada) return arquivo404(res);
     return arquivo(res, 'jogo.html');
   }
-  if (req.method === 'GET' && rota === '/saude') return json(res, 200, { ok: true, ...salas.estatisticas() });
+  if (req.method === 'GET' && rota === '/saude') return json(res, 200, { ok: true, dadosSalvando: armazenamento().seguro, ...salas.estatisticas() });
   if (!rota.startsWith('/api/')) {
     if (req.method !== 'GET' || rota.endsWith('.html')) return arquivo404(res);
     return arquivo(res, rota);
@@ -256,6 +273,7 @@ async function rotearAdmin(req, res, rota, admin, corpo) {
       euler: Boolean(process.env.EULER_API_KEY),
       memoriaMb: Math.round(process.memoryUsage().rss / 1048576),
       noArDesde: new Date(INICIO).toISOString(),
+      armazenamento: armazenamento(),
     });
   }
 
@@ -363,7 +381,9 @@ setInterval(() => {
 
 servidor.listen(PORTA, HOST, () => {
   console.log(`\n  🎮 ARENIX no ar: http://${HOST === '0.0.0.0' ? 'localhost' : HOST}:${PORTA}`);
-  console.log(`  📁 dados em ${DATA_DIR}\n`);
+  const a = armazenamento();
+  console.log(`  📁 dados em ${DATA_DIR} ${a.seguro ? '(gravando ✅)' : '(⚠️ NÃO estão sendo guardados com segurança)'}\n`);
+  if (NO_RAILWAY && !VOLUME_RAILWAY) console.error('  ⚠️  Nenhum volume do Railway ligado a este serviço: as contas somem a cada atualização.\n');
 });
 
 for (const sinal of ['SIGINT', 'SIGTERM']) {
