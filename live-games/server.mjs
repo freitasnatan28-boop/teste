@@ -49,7 +49,8 @@ function arquivo(res, nome, extras = {}) {
   fs.readFile(caminho, (erro, conteudo) => {
     if (erro) return arquivo404(res);
     const tipo = TIPOS[path.extname(caminho)] ?? 'application/octet-stream';
-    const cache = tipo.startsWith('image/') ? 'public, max-age=86400' : 'no-cache';
+    // imagens: o navegador pode guardar, mas confere se mudou (assim uma imagem nova aparece logo após publicar)
+    const cache = tipo.startsWith('image/') ? 'public, max-age=300, must-revalidate' : 'no-cache';
     res.writeHead(200, { 'content-type': tipo, 'cache-control': cache, ...SEGURANCA, ...extras });
     res.end(conteudo);
   });
