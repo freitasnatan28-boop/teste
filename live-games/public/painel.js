@@ -52,6 +52,7 @@
     const tokenMudou = conta?.overlayToken !== c.overlayToken;
     conta = c;
     $('nomeConta').textContent = c.nome;
+    $('linkAdmin').hidden = !c.admin;
     $('tiktok').value = c.tiktok || '';
     atualizarLink();
     if (tokenMudou) $('previa').src = `/o/${c.overlayToken}?som=0&previa=1`;

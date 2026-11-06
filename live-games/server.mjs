@@ -9,7 +9,8 @@
 //   DATA_DIR       pasta onde ficam contas e rankings (padrão ./data) — use um disco persistente
 //   EULER_API_KEY  chave da Euler Stream (recomendado em produção, ver README)
 //   MAX_LIVES      máximo de lives conectadas ao mesmo tempo (padrão 50)
-//   CADASTRO       "fechado" para não aceitar novas contas
+//   CADASTRO       "fechado" para não aceitar novas contas (o admin também pode abrir/fechar no /admin)
+//   ADMIN_EMAILS   e-mails com acesso ao /admin, separados por vírgula
 
 import http from 'node:http';
 import fs from 'node:fs';
@@ -26,10 +27,10 @@ const PUBLICO = path.join(RAIZ, 'public');
 const DATA_DIR = path.resolve(process.env.DATA_DIR || path.join(RAIZ, 'data'));
 const PORTA = Number(process.env.PORT || 8080);
 const HOST = process.env.HOST || (process.env.PORT ? '0.0.0.0' : '127.0.0.1');
-const CADASTRO_ABERTO = process.env.CADASTRO !== 'fechado';
-
 const banco = new Banco(path.join(DATA_DIR, 'banco.json'));
-const contas = new Contas(banco);
+const contas = new Contas(banco, { emailsAdmin: String(process.env.ADMIN_EMAILS ?? '').split(',') });
+const cadastroAberto = () => banco.ajuste('cadastroAberto', process.env.CADASTRO !== 'fechado');
+const INICIO = Date.now();
 const salas = new Salas({ banco, eulerApiKey: process.env.EULER_API_KEY || undefined, maxLives: Number(process.env.MAX_LIVES) || 50 });
 
 // ---------- utilidades HTTP ----------
@@ -123,7 +124,7 @@ const contaLogada = (req) => contas.contaDaSessao(lerCookie(req, COOKIE));
 
 // ---------- rotas ----------
 
-const PAGINAS = { '/': 'index.html', '/entrar': 'entrar.html', '/criar-conta': 'entrar.html', '/painel': 'painel.html' };
+const PAGINAS = { '/': 'index.html', '/entrar': 'entrar.html', '/criar-conta': 'entrar.html', '/painel': 'painel.html', '/admin': 'admin.html' };
 
 async function rotear(req, res) {
   const url = new URL(req.url, 'http://x');
@@ -131,7 +132,8 @@ async function rotear(req, res) {
 
   if (req.method === 'GET' && PAGINAS[rota]) return arquivo(res, PAGINAS[rota]);
   if (req.method === 'GET' && /^\/o\/[\w-]{10,64}$/.test(rota)) {
-    if (!banco.contaPorOverlay(rota.slice(3))) return arquivo404(res);
+    const dona = banco.contaPorOverlay(rota.slice(3));
+    if (!dona || dona.bloqueada) return arquivo404(res);
     return arquivo(res, 'jogo.html');
   }
   if (req.method === 'GET' && rota === '/saude') return json(res, 200, { ok: true, ...salas.estatisticas() });
@@ -153,7 +155,7 @@ async function rotear(req, res) {
   }
 
   if (req.method === 'POST' && rota === '/api/criar-conta') {
-    if (!CADASTRO_ABERTO) return json(res, 403, { erro: 'Cadastro fechado no momento.' });
+    if (!cadastroAberto()) return json(res, 403, { erro: 'Cadastro fechado no momento.' });
     if (bloqueado(req)) return json(res, 429, { erro: 'Muitas tentativas. Espere alguns minutos.' });
     const r = await contas.criar(corpo);
     if (r.erro) return json(res, 400, r);
@@ -174,7 +176,7 @@ async function rotear(req, res) {
     return json(res, 200, { ok: true }, { 'set-cookie': cookieSessao(req, '', 0) });
   }
 
-  if (req.method === 'GET' && rota === '/api/info') return json(res, 200, { cadastroAberto: CADASTRO_ABERTO });
+  if (req.method === 'GET' && rota === '/api/info') return json(res, 200, { cadastroAberto: cadastroAberto() });
 
   const conta = contaLogada(req);
   if (!conta) return json(res, 401, { erro: 'Entre na sua conta.' });
@@ -207,6 +209,100 @@ async function rotear(req, res) {
     return json(res, 200, { conta: contas.publica(conta) });
   }
 
+  if (rota.startsWith('/api/admin/')) return rotearAdmin(req, res, rota, conta, corpo);
+
+  return json(res, 404, { erro: 'não encontrado' });
+}
+
+// ---------- área do admin ----------
+
+function resumoConta(c) {
+  const sala = salas.existente(c.id);
+  const ranking = banco.ranking(c.id);
+  return {
+    id: c.id,
+    nome: c.nome,
+    email: c.email,
+    tiktok: c.tiktok,
+    criadaEm: c.criadaEm,
+    ultimoAcesso: c.ultimoAcesso ?? null,
+    bloqueada: Boolean(c.bloqueada),
+    admin: contas.ehAdmin(c),
+    jogo: c.config?.titulo ?? '',
+    sala: sala ? sala.infoConexao() : null,
+    moedas: ranking.reduce((n, u) => n + (Number(u.moedas) || 0), 0),
+    presenteadores: ranking.filter((u) => u.moedas > 0).length,
+  };
+}
+
+async function rotearAdmin(req, res, rota, admin, corpo) {
+  // para quem não é admin a área simplesmente não existe
+  if (!contas.ehAdmin(admin)) return json(res, 404, { erro: 'não encontrado' });
+
+  if (req.method === 'GET' && rota === '/api/admin/resumo') {
+    const todas = banco.todasContas();
+    const agora = Date.now();
+    const desde = (ms) => todas.filter((c) => agora - Date.parse(c.criadaEm) < ms).length;
+    return json(res, 200, {
+      contas: todas.length,
+      novas24h: desde(86_400_000),
+      novas7d: desde(7 * 86_400_000),
+      ativas7d: todas.filter((c) => c.ultimoAcesso && agora - Date.parse(c.ultimoAcesso) < 7 * 86_400_000).length,
+      bloqueadas: todas.filter((c) => c.bloqueada).length,
+      ...salas.estatisticas(),
+      maxLives: salas.maxLives,
+      cadastroAberto: cadastroAberto(),
+      euler: Boolean(process.env.EULER_API_KEY),
+      memoriaMb: Math.round(process.memoryUsage().rss / 1048576),
+      noArDesde: new Date(INICIO).toISOString(),
+    });
+  }
+
+  if (req.method === 'GET' && rota === '/api/admin/contas') {
+    const lista = banco.todasContas().map(resumoConta).sort((a, b) => String(b.criadaEm).localeCompare(String(a.criadaEm)));
+    return json(res, 200, { contas: lista });
+  }
+
+  if (req.method === 'PUT' && rota === '/api/admin/ajustes') {
+    if (typeof corpo.cadastroAberto === 'boolean') banco.gravarAjuste('cadastroAberto', corpo.cadastroAberto);
+    return json(res, 200, { cadastroAberto: cadastroAberto() });
+  }
+
+  const m = rota.match(/^\/api\/admin\/conta\/([\w-]+)(?:\/(bloquear|desligar|senha))?$/);
+  const alvo = m ? banco.conta(m[1]) : null;
+  if (!alvo) return json(res, 404, { erro: 'Conta não encontrada.' });
+  const acao = m[2];
+  const ehVoce = alvo.id === admin.id;
+
+  if (req.method === 'POST' && acao === 'bloquear') {
+    if (ehVoce) return json(res, 400, { erro: 'Você não pode bloquear a própria conta.' });
+    alvo.bloqueada = Boolean(corpo.bloqueada);
+    banco.gravarConta(alvo);
+    if (alvo.bloqueada) {
+      banco.apagarSessoesDe(alvo.id);
+      salas.encerrar(alvo.id);
+    }
+    return json(res, 200, { conta: resumoConta(alvo) });
+  }
+
+  if (req.method === 'POST' && acao === 'desligar') {
+    salas.encerrar(alvo.id);
+    return json(res, 200, { conta: resumoConta(alvo) });
+  }
+
+  if (req.method === 'POST' && acao === 'senha') {
+    if (ehVoce) return json(res, 400, { erro: 'Para a sua conta, use uma senha que você escolheu.' });
+    const senha = await contas.senhaTemporaria(alvo);
+    return json(res, 200, { senha });
+  }
+
+  if (req.method === 'DELETE' && !acao) {
+    if (ehVoce) return json(res, 400, { erro: 'Você não pode excluir a própria conta.' });
+    salas.encerrar(alvo.id);
+    banco.apagarConta(alvo.id);
+    return json(res, 200, { ok: true });
+  }
+
   return json(res, 404, { erro: 'não encontrado' });
 }
 
@@ -230,6 +326,7 @@ servidor.on('upgrade', (req, socket, cabeca) => {
   let tipo = null;
   if (url.searchParams.get('o')) {
     conta = banco.contaPorOverlay(url.searchParams.get('o'));
+    if (conta?.bloqueada) conta = null;
     // a prévia do painel não conta como tela da live e não liga a conexão sozinha
     tipo = url.searchParams.get('previa') ? 'previa' : 'overlay';
   } else if (url.searchParams.get('painel') && mesmaOrigem(req)) {

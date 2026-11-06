@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin · Live Games</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <style>
+    main { display: grid; gap: 16px; padding-bottom: 60px; }
+    .selo-admin { padding: 4px 10px; border-radius: 999px; background: rgba(255, 210, 63, 0.15); color: var(--ouro); font-weight: 900; font-size: 13px; }
+    .numeros { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
+    .num { background: var(--card); border: 1px solid var(--borda); border-radius: var(--raio); padding: 14px 16px; }
+    .num small { display: block; color: var(--suave); font-weight: 800; font-size: 13px; }
+    .num b { display: block; font-family: var(--display); font-weight: 400; font-size: 34px; line-height: 1.1; margin-top: 4px; }
+    .num span { color: var(--fraco); font-size: 13px; font-weight: 700; }
+    .num.destaque b { color: var(--ok); }
+    .linha { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .linha > input { flex: 1; min-width: 200px; }
+    .linha > select { width: auto; }
+    .servidor { color: var(--suave); font-size: 14px; display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; }
+    .servidor b { color: var(--texto); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th { text-align: left; color: var(--fraco); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 10px; border-bottom: 1px solid var(--borda); white-space: nowrap; }
+    td { padding: 10px; border-bottom: 1px solid var(--borda); vertical-align: middle; }
+    tr:last-child td { border-bottom: 0; }
+    tr.bloqueada td { opacity: 0.55; }
+    .quem b { display: block; }
+    .quem span { color: var(--fraco); font-size: 13px; word-break: break-all; }
+    .tag { display: inline-block; font-size: 11px; font-weight: 900; padding: 2px 7px; border-radius: 999px; background: var(--card2); margin-left: 4px; vertical-align: middle; }
+    .tag.adm { background: rgba(255, 210, 63, 0.18); color: var(--ouro); }
+    .tag.blq { background: rgba(255, 107, 107, 0.18); color: var(--ruim); }
+    .acoes { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+    .moedas { color: var(--ouro); font-weight: 900; white-space: nowrap; }
+    .fraco { color: var(--fraco); }
+    .tabela { overflow-x: auto; }
+    .vazio { color: var(--fraco); text-align: center; padding: 30px 0; }
+    .negado { text-align: center; padding: 60px 20px; }
+    @media (max-width: 760px) {
+      table, tbody, tr, td { display: block; width: 100%; }
+      thead { display: none; }
+      tr { border: 1px solid var(--borda); border-radius: 14px; padding: 6px 4px; margin-bottom: 10px; background: #160f3c; }
+      td { border: 0; padding: 6px 10px; }
+      td[data-r]::before { content: attr(data-r) ': '; color: var(--fraco); font-size: 12px; font-weight: 800; }
+      .acoes { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a class="logo" href="/"><i>🎮</i><span class="esconde-celular">LIVE GAMES</span></a>
+      <span class="selo-admin">🛡️ ADMIN</span>
+      <span class="espaco"></span>
+      <a class="btn fantasma pequeno" href="/painel">Meu painel</a>
+      <button class="btn fantasma pequeno" id="sair">Sair</button>
+    </nav>
+
+    <main id="conteudo" hidden>
+      <section class="numeros" id="numeros"></section>
+
+      <section class="card">
+        <div class="linha" style="justify-content:space-between">
+          <div><h2 style="margin:0">Cadastro de novas contas</h2><p class="ajuda" style="margin:4px 0 0">Feche para ninguém mais conseguir criar conta. Quem já tem conta continua entrando normalmente.</p></div>
+          <button class="btn" id="cadastro">…</button>
+        </div>
+        <div class="servidor" id="servidor"></div>
+      </section>
+
+      <section class="card">
+        <div class="linha" style="margin-bottom:14px">
+          <h2 style="margin:0;flex:1">Contas</h2>
+          <input id="busca" placeholder="Buscar por nome, e-mail ou @" aria-label="Buscar contas">
+          <select id="filtro" aria-label="Filtrar contas">
+            <option value="todas">Todas</option>
+            <option value="aovivo">Ao vivo agora</option>
+            <option value="ativas">Com jogo aberto</option>
+            <option value="bloqueadas">Bloqueadas</option>
+          </select>
+        </div>
+        <div class="tabela">
+          <table>
+            <thead><tr><th>Conta</th><th>TikTok</th><th>Agora</th><th>Criada</th><th>Último acesso</th><th>Presentes</th><th></th></tr></thead>
+            <tbody id="lista"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <div id="negado" class="card negado" hidden>
+      <h2>Área restrita</h2>
+      <p class="ajuda">Esta conta não tem acesso de administrador.</p>
+      <a class="btn prim" href="/painel">Ir para o meu painel</a>
+    </div>
+  </div>
+  <div id="toast" class="toast-site" role="status"></div>
+  <script src="/admin.js"></script>
+</body>
+</html>

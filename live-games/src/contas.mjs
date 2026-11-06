@@ -35,8 +35,14 @@ export function validarCadastro({ nome, email, senha }) {
 }
 
 export class Contas {
-  constructor(banco) {
+  constructor(banco, { emailsAdmin = [] } = {}) {
     this.banco = banco;
+    this.emailsAdmin = new Set(emailsAdmin.map((e) => e.trim().toLowerCase()).filter(Boolean));
+  }
+
+  // admin = e-mail listado na variável ADMIN_EMAILS (nunca vem do que o usuário manda)
+  ehAdmin(conta) {
+    return Boolean(conta && this.emailsAdmin.has(conta.email));
   }
 
   async criar({ nome, email, senha }) {
@@ -61,7 +67,18 @@ export class Contas {
     const conta = this.banco.contaPorEmail(String(email ?? '').trim().toLowerCase());
     // compara mesmo sem conta, para não revelar quais e-mails existem pelo tempo de resposta
     const ok = await conferirSenha(String(senha ?? ''), conta?.senha ?? `${'0'.repeat(32)}:${'0'.repeat(128)}`);
-    return ok && conta ? { conta } : { erro: 'E-mail ou senha incorretos.' };
+    if (!ok || !conta) return { erro: 'E-mail ou senha incorretos.' };
+    if (conta.bloqueada) return { erro: 'Esta conta está bloqueada. Fale com o suporte.' };
+    return { conta };
+  }
+
+  // senha temporária gerada pelo admin para quem esqueceu a senha
+  async senhaTemporaria(conta) {
+    const senha = crypto.randomBytes(6).toString('base64url').replace(/[-_]/g, 'x');
+    conta.senha = await hashSenha(senha);
+    this.banco.gravarConta(conta);
+    this.banco.apagarSessoesDe(conta.id);
+    return senha;
   }
 
   abrirSessao(contaId) {
@@ -73,7 +90,14 @@ export class Contas {
   contaDaSessao(token) {
     if (!token) return null;
     const s = this.banco.sessao(sha256(token));
-    return s ? this.banco.conta(s.contaId) : null;
+    const conta = s ? this.banco.conta(s.contaId) : null;
+    if (!conta || conta.bloqueada) return null;
+    // marca o último acesso (no máximo a cada 5 min, para não gravar em todo pedido)
+    if (!conta.ultimoAcesso || Date.now() - Date.parse(conta.ultimoAcesso) > 5 * 60_000) {
+      conta.ultimoAcesso = new Date().toISOString();
+      this.banco.gravarConta(conta);
+    }
+    return conta;
   }
 
   fecharSessao(token) {
@@ -81,6 +105,6 @@ export class Contas {
   }
 
   publica(conta) {
-    return { id: conta.id, nome: conta.nome, email: conta.email, tiktok: conta.tiktok, overlayToken: conta.overlayToken, config: conta.config };
+    return { id: conta.id, nome: conta.nome, email: conta.email, tiktok: conta.tiktok, overlayToken: conta.overlayToken, config: conta.config, admin: this.ehAdmin(conta) };
   }
 }

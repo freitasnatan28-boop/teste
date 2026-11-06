@@ -229,6 +229,14 @@ export class Salas {
     return this.mapa.get(contaId) ?? null;
   }
 
+  // usado pelo admin: derruba a live, fecha as telas e tira a sala da memória
+  encerrar(contaId) {
+    const sala = this.mapa.get(contaId);
+    if (!sala) return;
+    sala.fechar();
+    this.mapa.delete(contaId);
+  }
+
   podeConectar(sala) {
     const ativas = [...this.mapa.values()].filter((s) => s !== sala && s.modo === 'tiktok').length;
     return ativas >= this.maxLives ? 'servidor lotado, tente em alguns minutos' : null;
@@ -251,7 +259,12 @@ export class Salas {
 
   estatisticas() {
     const salas = [...this.mapa.values()];
-    return { salas: salas.length, livesConectadas: salas.filter((s) => s.status === 'conectado').length };
+    return {
+      salas: salas.length,
+      livesConectadas: salas.filter((s) => s.status === 'conectado').length,
+      emTeste: salas.filter((s) => s.modo === 'teste').length,
+      telasAbertas: salas.reduce((n, s) => n + [...s.clientes].filter((c) => c.tipo === 'overlay').length, 0),
+    };
   }
 
   fecharTodas() {

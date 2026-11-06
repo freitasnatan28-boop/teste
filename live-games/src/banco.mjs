@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const VAZIO = () => ({ versao: 1, contas: {}, sessoes: {}, rankings: {} });
+const VAZIO = () => ({ versao: 1, contas: {}, sessoes: {}, rankings: {}, ajustes: {} });
 
 export class Banco {
   constructor(arquivo) {
@@ -57,6 +57,14 @@ export class Banco {
     this.dados.contas[conta.id] = conta;
     this.salvar();
   }
+  todasContas() {
+    return Object.values(this.dados.contas);
+  }
+  apagarConta(id) {
+    delete this.dados.contas[id];
+    delete this.dados.rankings[id];
+    this.apagarSessoesDe(id);
+  }
 
   // ---------- sessões ----------
   sessao(hash) {
@@ -76,6 +84,20 @@ export class Banco {
   }
   apagarSessao(hash) {
     delete this.dados.sessoes[hash];
+    this.salvar();
+  }
+  apagarSessoesDe(contaId) {
+    for (const [h, s] of Object.entries(this.dados.sessoes)) if (s.contaId === contaId) delete this.dados.sessoes[h];
+    this.salvar();
+  }
+
+  // ---------- ajustes do site (mudados pelo admin) ----------
+  ajuste(nome, padrao) {
+    return this.dados.ajustes?.[nome] ?? padrao;
+  }
+  gravarAjuste(nome, valor) {
+    this.dados.ajustes ??= {};
+    this.dados.ajustes[nome] = valor;
     this.salvar();
   }
 

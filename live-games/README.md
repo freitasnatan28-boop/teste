@@ -77,8 +77,12 @@ Na frente, coloque um proxy com HTTPS (Caddy ou Nginx) apontando para a porta 80
 | `EULER_API_KEY` | Chave da Euler Stream. Recomendada quando muitas pessoas usam o site |
 | `MAX_LIVES` | Quantas lives podem ficar conectadas ao mesmo tempo (padrão 50) |
 | `CADASTRO=fechado` | Para de aceitar contas novas (útil se quiser liberar só para convidados) |
+| `ADMIN_EMAILS` | E-mails com acesso à área de admin (`/admin`), separados por vírgula |
 
 `GET /saude` mostra se o servidor está de pé e quantas lives estão conectadas.
+
+### Área de admin (`/admin`)
+Coloque seu e-mail em `ADMIN_EMAILS` (no Railway: **Variables**) e entre no site com a conta desse e-mail. Vai aparecer o botão **🛡️ Admin** no painel. Lá você vê os números do site e todas as contas (quem está ao vivo, último acesso, presentes recebidos) e pode desligar o jogo de alguém, gerar senha nova, bloquear, excluir e abrir/fechar o cadastro.
 
 ## Coisas importantes antes de abrir para o público
 

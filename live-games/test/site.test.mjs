@@ -18,7 +18,7 @@ before(async () => {
   pasta = fs.mkdtempSync(path.join(os.tmpdir(), 'live-games-'));
   servidor = spawn(process.execPath, ['server.mjs'], {
     cwd: new URL('..', import.meta.url),
-    env: { ...process.env, PORT: String(PORTA), HOST: '127.0.0.1', DATA_DIR: pasta },
+    env: { ...process.env, PORT: String(PORTA), HOST: '127.0.0.1', DATA_DIR: pasta, ADMIN_EMAILS: 'chefe@exemplo.com, outro@exemplo.com' },
     stdio: 'pipe',
   });
   for (let i = 0; i < 50; i++) {
@@ -178,4 +178,59 @@ test('fluxo completo: conta, login, @, configuração, link da tela e tempo real
 test('pedido de outro site é bloqueado', async () => {
   const r = await fetch(`${BASE}/api/entrar`, { method: 'POST', headers: { 'content-type': 'application/json', origin: 'https://site-malicioso.com' }, body: '{}' });
   assert.equal(r.status, 403);
+});
+
+test('admin: só o e-mail da lista acessa, e consegue bloquear, trocar senha, excluir e fechar cadastro', async () => {
+  const chefe = cliente();
+  await chefe.req('POST', '/api/criar-conta', { nome: 'Chefe', email: 'Chefe@Exemplo.com', senha: 'senha123' });
+  assert.equal((await chefe.req('GET', '/api/eu')).corpo.conta.admin, true);
+
+  const zé = cliente();
+  await zé.req('POST', '/api/criar-conta', { nome: 'Zé', email: 'ze@exemplo.com', senha: 'senha123' });
+  await zé.req('PUT', '/api/tiktok', { usuario: 'ze.live' });
+  const zeConta = (await zé.req('GET', '/api/eu')).corpo.conta;
+  assert.equal(zeConta.admin, false);
+
+  // quem não é admin nem descobre que a área existe
+  assert.equal((await zé.req('GET', '/api/admin/resumo')).status, 404);
+  assert.equal((await zé.req('POST', `/api/admin/conta/${zeConta.id}/bloquear`, { bloqueada: false })).status, 404);
+  assert.equal((await cliente().req('GET', '/api/admin/contas')).status, 401);
+
+  const resumo = (await chefe.req('GET', '/api/admin/resumo')).corpo;
+  assert.ok(resumo.contas >= 2);
+  assert.equal(resumo.cadastroAberto, true);
+  const lista = (await chefe.req('GET', '/api/admin/contas')).corpo.contas;
+  const ze = lista.find((c) => c.email === 'ze@exemplo.com');
+  assert.equal(ze.tiktok, 'ze.live');
+  assert.ok(!('senha' in ze) && !('overlayToken' in ze), 'lista do admin não expõe senha nem link da tela');
+  const eu = lista.find((c) => c.email === 'chefe@exemplo.com');
+  assert.equal((await chefe.req('POST', `/api/admin/conta/${eu.id}/bloquear`, { bloqueada: true })).status, 400, 'não bloqueia a si mesmo');
+
+  // bloquear: derruba a sessão, impede login e tira a tela do ar
+  assert.equal((await chefe.req('POST', `/api/admin/conta/${ze.id}/bloquear`, { bloqueada: true })).status, 200);
+  assert.equal((await zé.req('GET', '/api/eu')).status, 401);
+  assert.match((await zé.req('POST', '/api/entrar', { email: 'ze@exemplo.com', senha: 'senha123' })).corpo.erro, /bloqueada/);
+  assert.equal((await fetch(`${BASE}/o/${zeConta.overlayToken}`)).status, 404);
+  await assert.rejects(abrirWs(`ws://127.0.0.1:${PORTA}/ws?o=${zeConta.overlayToken}`), /401/);
+  await chefe.req('POST', `/api/admin/conta/${ze.id}/bloquear`, { bloqueada: false });
+  assert.equal((await fetch(`${BASE}/o/${zeConta.overlayToken}`)).status, 200);
+
+  // senha temporária
+  const { senha } = (await chefe.req('POST', `/api/admin/conta/${ze.id}/senha`)).corpo;
+  assert.ok(senha.length >= 8);
+  assert.equal((await zé.req('POST', '/api/entrar', { email: 'ze@exemplo.com', senha: 'senha123' })).status, 401);
+  assert.equal((await zé.req('POST', '/api/entrar', { email: 'ze@exemplo.com', senha })).status, 200);
+
+  // fechar cadastro
+  await chefe.req('PUT', '/api/admin/ajustes', { cadastroAberto: false });
+  assert.equal((await cliente().req('POST', '/api/criar-conta', { nome: 'X', email: 'x@exemplo.com', senha: 'senha123' })).status, 403);
+  assert.equal((await zé.req('GET', '/api/eu')).status, 200, 'quem já tem conta continua entrando');
+  await chefe.req('PUT', '/api/admin/ajustes', { cadastroAberto: true });
+
+  // excluir
+  assert.equal((await chefe.req('DELETE', `/api/admin/conta/${ze.id}`)).status, 200);
+  assert.equal((await zé.req('GET', '/api/eu')).status, 401);
+  assert.equal((await fetch(`${BASE}/o/${zeConta.overlayToken}`)).status, 404);
+  assert.ok(!(await chefe.req('GET', '/api/admin/contas')).corpo.contas.some((c) => c.email === 'ze@exemplo.com'));
+  assert.equal((await fetch(`${BASE}/admin`)).status, 200);
 });
