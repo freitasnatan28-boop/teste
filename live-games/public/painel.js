@@ -44,6 +44,7 @@
     const p = new URLSearchParams();
     if ($('transparente').checked) p.set('fundo', 'transparente');
     if ($('semSom').checked) p.set('som', '0');
+    if ($('leve').checked) p.set('leve', '1');
     const q = p.toString();
     return `${location.origin}/o/${conta.overlayToken}${q ? `?${q}` : ''}`;
   }
@@ -174,6 +175,7 @@
   };
   $('transparente').onchange = atualizarLink;
   $('semSom').onchange = atualizarLink;
+  $('leve').onchange = atualizarLink;
 
   $('novoLink').onclick = async () => {
     if (!confirm('Gerar um link novo? O link antigo para de funcionar. Use isso se alguém pegou o seu link.')) return;

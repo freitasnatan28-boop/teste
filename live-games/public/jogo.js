@@ -4,6 +4,13 @@
   const params = new URLSearchParams(location.search);
   const somLigado = params.get('som') !== '0';
   if (params.get('fundo') === 'transparente') document.body.classList.add('transparente');
+  const leve = params.get('leve') === '1' || params.get('previa') === '1';
+  if (leve) document.body.classList.add('leve');
+
+  // só mexe na tela quando o valor muda (o servidor manda o estado várias vezes por segundo)
+  const definir = (el, v) => { v = String(v); if (el.textContent !== v) el.textContent = v; };
+  const estilo = (el, prop, v) => { if (el.style[prop] !== v) el.style[prop] = v; };
+  const alternar = (el, classe, on) => { if (el.classList.contains(classe) !== on) el.classList.toggle(classe, on); };
 
   // ---------- escala do palco ----------
   const palco = $('palco');
@@ -107,10 +114,10 @@
     const liderId = total(ordem[0]) > 0 && total(ordem[0]) !== total(ordem[1] ?? { pontos: -1, reserva: 0 }) ? ordem[0].id : null;
     for (const t of times) {
       const l = linhas.get(t.id);
-      l.fill.style.width = `${(total(t) / max) * 100}%`;
-      l.info.textContent = `👥 ${t.membros}${t.trofeus ? `  🏆 ${t.trofeus}` : ''}`;
-      l.el.classList.toggle('lider', t.id === liderId);
-      l.rotulo.textContent = status === 'aguardando' && t.reserva ? 'na largada' : 'pontos';
+      estilo(l.fill, 'width', `${((total(t) / max) * 100).toFixed(2)}%`);
+      definir(l.info, `👥 ${t.membros}${t.trofeus ? `  🏆 ${t.trofeus}` : ''}`);
+      alternar(l.el, 'lider', t.id === liderId);
+      definir(l.rotulo, status === 'aguardando' && t.reserva ? 'na largada' : 'pontos');
       animarNumero(t.id, total(t), l.valor);
     }
   }
@@ -161,29 +168,29 @@
       ajustarTitulo();
     }
     const r = e.rodada;
-    $('rodada').textContent = r.status === 'aguardando' ? 'PREPARANDO…' : r.status === 'intervalo' ? `PRÓXIMA EM ${Math.ceil(r.proximaEmMs / 1000)}s` : r.status === 'pausado' ? `RODADA ${r.numero} · PAUSA` : `RODADA ${r.numero}`;
+    definir($('rodada'), r.status === 'aguardando' ? 'PREPARANDO…' : r.status === 'intervalo' ? `PRÓXIMA EM ${Math.ceil(r.proximaEmMs / 1000)}s` : r.status === 'pausado' ? `RODADA ${r.numero} · PAUSA` : `RODADA ${r.numero}`);
 
     const seg = Math.ceil(r.restanteMs / 1000);
-    $('tempo').textContent = `${Math.floor(seg / 60)}:${String(seg % 60).padStart(2, '0')}`;
-    $('anel').style.strokeDashoffset = String(276.46 * (1 - r.restanteMs / r.duracaoMs));
-    $('relogio').classList.toggle('urgente', r.dobroFinal);
-    $('seloDobro').classList.toggle('on', r.dobroFinal);
-    $('seloTurbo').classList.toggle('on', r.turboMs > 0);
-    $('turboSeg').textContent = Math.ceil(r.turboMs / 1000);
+    definir($('tempo'), `${Math.floor(seg / 60)}:${String(seg % 60).padStart(2, '0')}`);
+    estilo($('anel'), 'strokeDashoffset', (276.46 * (1 - r.restanteMs / r.duracaoMs)).toFixed(1));
+    alternar($('relogio'), 'urgente', r.dobroFinal);
+    alternar($('seloDobro'), 'on', r.dobroFinal);
+    alternar($('seloTurbo'), 'on', r.turboMs > 0);
+    definir($('turboSeg'), Math.ceil(r.turboMs / 1000));
 
     atualizarTimes(e.times, r.status);
 
     const m = e.metaCurtidas;
     const base = m.proxima - m.passo;
-    $('metaAtual').textContent = fmt(m.total);
-    $('metaAlvo').textContent = fmt(m.proxima);
-    $('metaFill').style.width = `${Math.min(100, ((m.total - base) / m.passo) * 100)}%`;
+    definir($('metaAtual'), fmt(m.total));
+    definir($('metaAlvo'), fmt(m.proxima));
+    estilo($('metaFill'), 'width', `${Math.min(100, ((m.total - base) / m.passo) * 100).toFixed(2)}%`);
 
-    $('ptCurtida').textContent = e.pontos.curtida;
-    $('ptRosa').textContent = e.pontos.porMoeda;
-    $('ptMoeda').textContent = e.pontos.porMoeda;
-    $('segDobro').textContent = e.regras?.finalEmDobroSeg ?? 30;
-    $('tagTimes').textContent = `1-${e.times.length}`;
+    definir($('ptCurtida'), e.pontos.curtida);
+    definir($('ptRosa'), e.pontos.porMoeda);
+    definir($('ptMoeda'), e.pontos.porMoeda);
+    definir($('segDobro'), e.regras?.finalEmDobroSeg ?? 30);
+    definir($('tagTimes'), `1-${e.times.length}`);
 
     atualizarRanking(e.ranking);
   }
@@ -202,14 +209,14 @@
         }
         reiAtual = rei.id;
       }
-      $('reiNome').textContent = rei.nome;
-      $('reiMoedas').textContent = `🪙 ${fmt(rei.moedas)} moedas`;
+      definir($('reiNome'), rei.nome);
+      definir($('reiMoedas'), `🪙 ${fmt(rei.moedas)} moedas`);
     } else {
       elRei.classList.add('vazio');
       reiAtual = null;
       $('reiAv').outerHTML = '<div class="av" id="reiAv" style="background-color:#444">?</div>';
-      $('reiNome').textContent = 'Seja o TOP 1!';
-      $('reiMoedas').textContent = 'mande uma 🌹';
+      definir($('reiNome'), 'Seja o TOP 1!');
+      definir($('reiMoedas'), 'mande uma 🌹');
     }
     const html = resto
       .map((u, i) => `<li><span class="pos">${i + 2}º</span>${avatar(u)}<span class="nome">${esc(u.nome)}</span><span class="moedas">🪙 ${fmt(u.moedas)}</span></li>`)
@@ -299,6 +306,7 @@
     f.classList.add('on');
   }
   function tremer() {
+    if (leve) return;
     palco.classList.remove('treme');
     void palco.offsetWidth;
     palco.classList.add('treme');
@@ -310,6 +318,7 @@
   let pedacos = [];
   let animando = false;
   function confete(qtd = 160, cores = ['#2bff88', '#d4ff3a', '#ffffff', '#ffcf3d', '#7dffbf']) {
+    qtd = Math.round(qtd * (leve ? 0.3 : 0.7));
     for (let i = 0; i < qtd; i++) {
       pedacos.push({
         x: Math.random() * 1080,

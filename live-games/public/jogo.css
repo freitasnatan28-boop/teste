@@ -1,7 +1,7 @@
 /* ARENIX · tela do jogo na live (1080x1920) */
 :root {
   --bg: #050807;
-  --painel: rgba(12, 18, 16, 0.86);
+  --painel: rgba(12, 18, 16, 0.93);
   --painel2: rgba(18, 27, 24, 0.9);
   --borda: rgba(120, 255, 190, 0.12);
   --borda2: rgba(120, 255, 190, 0.22);
@@ -25,13 +25,9 @@ body.transparente .fundo { display: none; }
 #palco { position: absolute; top: 0; left: 0; width: 1080px; height: 1920px; transform-origin: top left; overflow: hidden; }
 
 /* ---------- fundo ---------- */
-.fundo { position: absolute; inset: 0; background: radial-gradient(1100px 700px at 50% -8%, rgba(43, 255, 136, 0.16), transparent 62%), linear-gradient(180deg, #08100d 0%, var(--bg) 55%, #030504 100%); }
+.fundo { position: absolute; inset: 0; background: radial-gradient(1100px 700px at 50% -8%, rgba(43, 255, 136, 0.16), transparent 62%), radial-gradient(700px 700px at -10% 30%, rgba(43, 255, 136, 0.12), transparent 70%), radial-gradient(640px 640px at 110% 55%, rgba(212, 255, 58, 0.07), transparent 70%), linear-gradient(180deg, #08100d 0%, var(--bg) 55%, #030504 100%); }
 .fundo::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(43, 255, 136, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(43, 255, 136, 0.07) 1px, transparent 1px); background-size: 72px 72px; -webkit-mask-image: radial-gradient(ellipse 80% 55% at 50% 30%, #000 10%, transparent 75%); mask-image: radial-gradient(ellipse 80% 55% at 50% 30%, #000 10%, transparent 75%); }
-.luz { position: absolute; border-radius: 50%; filter: blur(110px); opacity: 0.22; animation: flutuar 16s ease-in-out infinite alternate; }
-.l1 { width: 620px; height: 620px; background: var(--neon); top: 260px; left: -320px; }
-.l2 { width: 560px; height: 560px; background: var(--lima); top: 820px; right: -340px; opacity: 0.12; animation-delay: -6s; }
-.l3 { display: none; }
-@keyframes flutuar { to { transform: translate(70px, -50px) scale(1.12); } }
+.luz { display: none; }
 
 /* ---------- topo ---------- */
 .topo { position: absolute; top: 146px; left: 40px; right: 40px; height: 176px; display: flex; align-items: center; gap: 18px; }
@@ -55,18 +51,19 @@ body.transparente .fundo { display: none; }
 @keyframes pulsar { to { transform: scale(1.06); } }
 
 .relogio { position: relative; width: 168px; height: 168px; flex: none; }
-.relogio svg { width: 100%; height: 100%; transform: rotate(-90deg); filter: drop-shadow(0 0 14px rgba(43, 255, 136, 0.45)); }
+.relogio { border-radius: 50%; box-shadow: 0 0 26px rgba(43, 255, 136, 0.35); }
+.relogio svg { width: 100%; height: 100%; transform: rotate(-90deg); }
 .relogio circle { fill: rgba(5, 8, 7, 0.85); stroke-width: 7; }
 .relogio .trilha { stroke: rgba(255, 255, 255, 0.08); }
 .relogio .anel { fill: none; stroke: var(--neon); stroke-linecap: round; stroke-dasharray: 276.46; transition: stroke-dashoffset 0.2s linear, stroke 0.3s; }
 .relogio span { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 40px; font-variant-numeric: tabular-nums; }
-.relogio.urgente svg { filter: drop-shadow(0 0 18px rgba(255, 77, 109, 0.7)); }
+.relogio.urgente { box-shadow: 0 0 30px rgba(255, 77, 109, 0.6); }
 .relogio.urgente .anel { stroke: var(--perigo); }
 .relogio.urgente span { color: #ffd0d9; animation: pulsar 0.5s ease-in-out infinite alternate; }
 
 /* ---------- times ---------- */
 .times { position: absolute; top: 340px; left: 40px; right: 40px; display: flex; flex-direction: column; gap: 12px; }
-.time { position: relative; height: var(--h, 118px); border-radius: 22px; background: var(--painel); border: 2px solid var(--borda); display: flex; align-items: center; padding: 0 24px 0 14px; gap: 18px; backdrop-filter: blur(6px); transition: transform 0.4s cubic-bezier(.2, 1.4, .4, 1), border-color 0.3s, box-shadow 0.3s; }
+.time { position: relative; height: var(--h, 118px); border-radius: 22px; background: var(--painel); border: 2px solid var(--borda); display: flex; align-items: center; padding: 0 24px 0 14px; gap: 18px; transition: transform 0.4s cubic-bezier(.2, 1.4, .4, 1), border-color 0.3s, box-shadow 0.3s; }
 .time.lider { border-color: var(--neon); box-shadow: 0 0 0 1px rgba(43, 255, 136, 0.4), 0 0 44px rgba(43, 255, 136, 0.28), inset 0 0 40px rgba(43, 255, 136, 0.06); }
 .time.bump { animation: bump 0.35s ease-out; }
 @keyframes bump { 40% { transform: scale(1.025); } }
@@ -78,8 +75,8 @@ body.transparente .fundo { display: none; }
 .time-coroa { display: none; font-family: var(--display); font-weight: 800; font-size: 15px; letter-spacing: 0.1em; padding: 5px 9px; border-radius: 8px; background: var(--neon); color: #04140b; }
 .time.lider .time-coroa { display: inline-block; }
 .barra { height: calc(var(--h, 118px) * 0.2); border-radius: 999px; background: rgba(255, 255, 255, 0.07); overflow: hidden; }
-.barra-fill { height: 100%; width: 0; border-radius: 999px; transition: width 0.45s cubic-bezier(.2, .9, .3, 1); position: relative; overflow: hidden; box-shadow: 0 0 18px rgba(255, 255, 255, 0.15); }
-.barra-fill::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.4) 45%, transparent 70%); animation: brilho 2.4s linear infinite; }
+.barra-fill { height: 100%; width: 0; border-radius: 999px; transition: width 0.45s cubic-bezier(.2, .9, .3, 1); position: relative; overflow: hidden; }
+.barra-fill::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.35) 45%, transparent 70%); animation: brilho 3.2s linear infinite; will-change: transform; }
 @keyframes brilho { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
 .pontos { flex: none; min-width: 190px; text-align: right; font-family: var(--display); font-weight: 800; font-size: calc(var(--h, 118px) * 0.4); line-height: 1; font-variant-numeric: tabular-nums; }
 .pontos small { display: block; font-family: var(--corpo); font-weight: 700; font-size: 18px; color: var(--fraco); margin-top: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
@@ -99,7 +96,7 @@ body.transparente .fundo { display: none; }
 
 /* ---------- ranking e regras ---------- */
 .baixo { position: absolute; top: 950px; left: 40px; right: 40px; display: flex; gap: 18px; align-items: stretch; }
-.card { background: var(--painel); border: 2px solid var(--borda); border-radius: 24px; padding: 22px; backdrop-filter: blur(6px); }
+.card { background: var(--painel); border: 2px solid var(--borda); border-radius: 24px; padding: 22px; }
 .card h2 { font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: 0.1em; color: var(--neon); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
 .card h2::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--neon); box-shadow: 0 0 10px var(--neon); }
 .ranking { flex: 1.45; min-width: 0; }
@@ -166,3 +163,8 @@ body.transparente .fundo { display: none; }
 
 .aviso-tela { position: absolute; inset: 0; display: none; place-items: center; text-align: center; z-index: 20; background: rgba(5, 8, 7, 0.95); font-family: var(--display); font-size: 40px; font-weight: 700; padding: 80px; }
 .aviso-tela.on { display: grid; }
+
+/* modo leve: sem animações contínuas (prévia do painel e ?leve=1) */
+body.leve .barra-fill::after { display: none; }
+body.leve .selo.on, body.leve .relogio.urgente span { animation: none; }
+body.leve .time { transition: none; }
