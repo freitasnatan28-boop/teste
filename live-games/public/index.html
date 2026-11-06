@@ -3,110 +3,176 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Live Games · jogos interativos para sua live</title>
-  <meta name="description" content="Transforme sua live do TikTok em um jogo: o público escolhe um time pelo chat, curtidas e presentes viram pontos e o maior presenteador ganha a coroa.">
+  <title>ARENIX · Jogos interativos para sua live do TikTok</title>
+  <meta name="description" content="Transforme sua live do TikTok em uma arena: o chat escolhe um lado, curtidas e presentes viram pontos e o maior apoiador ganha a coroa na tela. Grátis, sem instalar nada.">
+  <meta property="og:title" content="ARENIX · Sua live vira uma arena">
+  <meta property="og:description" content="Jogos interativos para TikTok LIVE. Curtidas e presentes viram pontos, ranking com coroa de TOP 1 e alertas épicos.">
+  <meta property="og:image" content="/marca/og.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#050807">
+  <link rel="icon" href="/marca/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/marca/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/site.css">
-  <style>
-    .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; padding: 30px 0 60px; }
-    .selo { display: inline-block; padding: 6px 12px; border-radius: 999px; background: rgba(255, 210, 63, 0.14); color: var(--ouro); font-weight: 900; font-size: 14px; margin-bottom: 16px; }
-    .hero h1 { font-size: clamp(40px, 6vw, 68px); }
-    .hero h1 span { background: linear-gradient(90deg, var(--ouro), var(--rosa)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .hero p { font-size: 19px; color: var(--suave); max-width: 540px; margin: 18px 0 26px; }
-    .acoes { display: flex; gap: 12px; flex-wrap: wrap; }
-    .fone { justify-self: center; width: min(320px, 80vw); aspect-ratio: 9 / 16; border-radius: 34px; padding: 10px; background: #05030f; box-shadow: 0 30px 80px rgba(123, 61, 255, 0.45), 0 0 0 2px #2a2260; position: relative; }
-    .fone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 26px; }
-    .fone .bolha { position: absolute; left: -26px; bottom: 90px; background: #fff; color: #1a0f45; font-weight: 900; padding: 8px 14px; border-radius: 14px; box-shadow: 0 10px 24px rgba(0,0,0,.35); font-size: 15px; }
-    .fone .bolha.b2 { left: auto; right: -30px; bottom: auto; top: 120px; background: var(--ouro); }
-    section.bloco { padding: 50px 0; }
-    .bloco > h2 { font-size: clamp(30px, 4vw, 42px); text-align: center; margin-bottom: 10px; }
-    .bloco > p.sub { text-align: center; color: var(--suave); margin: 0 auto 30px; max-width: 620px; font-size: 17px; }
-    .passos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: passo; }
-    .passo { position: relative; padding-top: 26px; }
-    .passo::before { counter-increment: passo; content: counter(passo); position: absolute; top: -18px; left: 18px; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-family: var(--display); font-size: 26px; background: linear-gradient(135deg, var(--rosa), var(--roxo)); }
-    .passo p, .recurso p { color: var(--suave); margin: 8px 0 0; }
-    .recursos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .recurso .ic { font-size: 30px; }
-    .modelos { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-    .modelos span { padding: 10px 16px; border-radius: 999px; background: var(--card); border: 1px solid var(--borda); font-weight: 900; }
-    .cta { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(123, 61, 255, 0.35), rgba(255, 61, 127, 0.25)); border-radius: 28px; border: 1px solid var(--borda); }
-    .cta h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 18px; }
-    footer { color: var(--fraco); font-size: 13px; text-align: center; padding: 40px 0 30px; }
-    @media (max-width: 860px) {
-      .hero { grid-template-columns: 1fr; text-align: center; padding-top: 10px; }
-      .hero p { margin-left: auto; margin-right: auto; }
-      .acoes { justify-content: center; }
-      .passos, .recursos { grid-template-columns: 1fr; }
-      .passo { margin-top: 14px; }
-      .fone .bolha { left: -8px; } .fone .bolha.b2 { right: -8px; }
-    }
-  </style>
+  <link rel="stylesheet" href="/inicio.css">
 </head>
 <body>
-  <div class="container">
-    <nav class="nav">
-      <a class="logo" href="/"><i>🎮</i>LIVE GAMES</a>
+  <header class="topo">
+    <div class="container nav">
+      <a class="logo" href="/"><img src="/marca/simbolo.svg" alt="" width="34" height="34"><span>ARENI<em>X</em></span></a>
+      <nav class="links esconde-celular" aria-label="Seções">
+        <a href="#como">Como funciona</a><a href="#recursos">Recursos</a><a href="#jogos">Jogos</a><a href="#duvidas">Dúvidas</a>
+      </nav>
       <span class="espaco"></span>
       <a class="btn fantasma" href="/entrar">Entrar</a>
-      <a class="btn prim esconde-celular" href="/criar-conta">Criar conta grátis</a>
-    </nav>
+      <a class="btn prim esconde-celular" href="/criar-conta">Começar grátis</a>
+    </div>
+  </header>
 
-    <header class="hero">
-      <div>
-        <span class="selo">🔥 Para lives do TikTok</span>
-        <h1>Transforme sua live em um <span>jogo que dá presente</span></h1>
-        <p>O público escolhe um time pelo chat. Curtidas e presentes viram pontos, a rodada esquenta no final e o maior presenteador ganha a <b>coroa de TOP 1</b> na tela.</p>
-        <div class="acoes">
-          <a class="btn prim grande" href="/criar-conta">Criar minha conta grátis</a>
-          <a class="btn fantasma grande" href="#como">Como funciona</a>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="grade-fundo" aria-hidden="true"></div>
+      <div class="container hero-in">
+        <div class="hero-texto">
+          <span class="selo"><i></i>Beta aberto · grátis</span>
+          <h1>Sua live vira uma <span class="neon">arena.</span></h1>
+          <p class="lead">Jogos interativos para <b>TikTok LIVE</b>. O chat escolhe um lado, curtidas e presentes viram pontos, e quem mais apoia ganha a coroa de <b>TOP&nbsp;1</b> na tela.</p>
+          <div class="acoes">
+            <a class="btn prim grande" href="/criar-conta">Criar conta grátis <span aria-hidden="true">→</span></a>
+            <a class="btn fantasma grande" href="#como">Ver como funciona</a>
+          </div>
+          <ul class="checks">
+            <li>Sem instalar nada</li><li>LIVE Studio e OBS</li><li>Pronto em 2 minutos</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-label="Exemplo da tela do jogo durante uma live">
+          <div class="fone">
+            <img src="/previa.jpg" alt="Tela do jogo Guerra de Times: quatro times com barras de pontos, cronômetro e ranking de presenteadores" width="540" height="960">
+          </div>
+          <div class="flutua f1"><span class="ic">💥</span><div><b>SUPER ATAQUE</b><small>Chapéu · +990 pts</small></div></div>
+          <div class="flutua f2"><span class="ic">👑</span><div><b>Novo TOP 1</b><small>passou o 2º lugar</small></div></div>
+          <div class="flutua f3"><div class="meta-mini"><small>⚡ Meta de curtidas</small><div class="barra"><span></span></div><small class="fraco">412 / 500 → pontos em dobro</small></div></div>
         </div>
       </div>
-      <div class="fone">
-        <img src="/previa.jpg" alt="Tela do jogo Guerra de Times com 4 times, placar e ranking de presenteadores" width="540" height="960">
-        <div class="bolha">💬 “vai timão!!”</div>
-        <div class="bolha b2">👑 NOVO TOP 1</div>
-      </div>
-    </header>
-
-    <section class="bloco" id="como">
-      <h2>Pronto em 3 passos</h2>
-      <p class="sub">Sem instalar nada. Funciona com o TikTok LIVE Studio e com o OBS.</p>
-      <div class="passos">
-        <div class="card passo"><h3>Crie sua conta</h3><p>Leva 20 segundos. Você ganha um painel só seu.</p></div>
-        <div class="card passo"><h3>Coloque seu @ do TikTok</h3><p>O jogo lê comentários, curtidas e presentes da sua live em tempo real.</p></div>
-        <div class="card passo"><h3>Cole o link na live</h3><p>Adicione o seu link da tela do jogo no LIVE Studio ou no OBS e comece.</p></div>
-      </div>
     </section>
 
-    <section class="bloco">
-      <h2>Feito para o público interagir</h2>
-      <p class="sub">Cada detalhe foi pensado para dar vontade de curtir, comentar e mandar presente.</p>
-      <div class="recursos">
-        <div class="card recurso"><div class="ic">⚔️</div><h3>Rivalidade</h3><p>Times disputando ao vivo. Ninguém quer ver o rival ganhar.</p></div>
-        <div class="card recurso"><div class="ic">👑</div><h3>Ranking com coroa</h3><p>Quando alguém passa o TOP 1, aparece um banner gigante com o nome dele.</p></div>
-        <div class="card recurso"><div class="ic">⏱️</div><h3>Final em dobro</h3><p>Nos últimos 30 segundos os pontos valem o dobro. Dá para virar.</p></div>
-        <div class="card recurso"><div class="ic">⚡</div><h3>Meta de curtidas</h3><p>Bateu a meta, entra o TURBO e todo mundo pontua em dobro.</p></div>
-        <div class="card recurso"><div class="ic">💥</div><h3>Super Ataque e Lendário</h3><p>Presente grande treme a tela, solta confete e mostra quem mandou.</p></div>
-        <div class="card recurso"><div class="ic">🎛️</div><h3>Você no controle</h3><p>Painel no celular: pausar, encerrar rodada, trocar times e regras.</p></div>
+    <div class="faixa">
+      <div class="container faixa-in">
+        <span>Funciona com</span><b>TikTok LIVE Studio</b><b>OBS Studio</b><b>Streamlabs</b><b>Qualquer fonte de navegador</b>
+      </div>
+    </div>
+
+    <!-- COMO FUNCIONA -->
+    <section class="secao" id="como">
+      <div class="container">
+        <p class="sobre">Como funciona</p>
+        <h2 class="titulo">Do cadastro à live em três passos</h2>
+        <div class="passos">
+          <article class="card passo"><span class="n">01</span><h3>Crie sua conta</h3><p>Leva 20 segundos e você ganha um painel só seu, que funciona no PC e no celular.</p></article>
+          <article class="card passo"><span class="n">02</span><h3>Conecte seu @</h3><p>Coloque seu usuário do TikTok. O jogo lê comentários, curtidas e presentes em tempo real.</p></article>
+          <article class="card passo"><span class="n">03</span><h3>Cole o link na live</h3><p>Copie o link exclusivo da tela do jogo e adicione no LIVE Studio ou no OBS. Pronto.</p></article>
+        </div>
       </div>
     </section>
 
-    <section class="bloco">
-      <h2>Modelos prontos</h2>
-      <p class="sub">Escolha um modelo ou crie seus próprios times, de 2 a 6.</p>
-      <div class="modelos"><span>⚽ Times de futebol</span><span>🌎 Países</span><span>🗺️ Regiões do Brasil</span><span>💙💗 Meninos x Meninas</span><span>✏️ Do seu jeito</span></div>
-    </section>
-
-    <section class="bloco">
-      <div class="cta">
-        <h2>Bora fazer sua próxima live bombar?</h2>
-        <a class="btn ouro grande" href="/criar-conta">Começar agora, é grátis</a>
+    <!-- RECURSOS -->
+    <section class="secao" id="recursos">
+      <div class="container">
+        <p class="sobre">Recursos</p>
+        <h2 class="titulo">Feito para o público participar</h2>
+        <p class="subtitulo">Cada mecânica foi pensada para dar motivo de curtir, comentar e apoiar a live.</p>
+        <div class="bento">
+          <article class="card b-ranking">
+            <h3>Ranking com coroa</h3>
+            <p>Os maiores apoiadores aparecem na tela. Quando alguém assume o TOP 1, um banner gigante anuncia.</p>
+            <ol class="mini-rank" aria-hidden="true">
+              <li><span class="av">D</span>Diego<b>🪙 1.000</b></li>
+              <li><span class="av a2">M</span>Mari<b>🪙 299</b></li>
+              <li><span class="av a3">J</span>Ju<b>🪙 99</b></li>
+            </ol>
+          </article>
+          <article class="card b-dobro"><span class="big">x2</span><h3>Final em dobro</h3><p>Nos últimos 30 segundos os pontos dobram. Sempre dá para virar.</p></article>
+          <article class="card b-meta"><span class="big">⚡</span><h3>Meta de curtidas</h3><p>Bateu a meta, entra o TURBO e todo mundo pontua em dobro.</p></article>
+          <article class="card b-alerta"><h3>Alertas épicos</h3><p>Presentes grandes tremem a tela, soltam confete e mostram o nome de quem mandou: <b>Super Ataque</b> e <b>Lendário</b>.</p></article>
+          <article class="card b-painel"><h3>Controle pelo celular</h3><p>Inicie, pause e encerre rodadas, teste presentes e acompanhe o placar de qualquer lugar.</p></article>
+          <article class="card b-link"><h3>Link exclusivo</h3><p>Cada conta tem a própria tela do jogo, com fundo transparente opcional para ficar por cima da câmera.</p></article>
+        </div>
       </div>
     </section>
 
-    <footer>Live Games não é afiliado ao TikTok. Siga as diretrizes de LIVE do TikTok: não prometa dinheiro ou prêmios em troca de presentes.</footer>
-  </div>
+    <!-- JOGOS -->
+    <section class="secao" id="jogos">
+      <div class="container">
+        <p class="sobre">Jogos</p>
+        <h2 class="titulo">Escolha um modo ou crie o seu</h2>
+        <div class="jogos">
+          <article class="card jogo"><span class="estado on">Disponível</span><h3>⚽ Guerra de Times</h3><p>Os maiores clubes disputando ponto a ponto, com troféus por rodada.</p></article>
+          <article class="card jogo"><span class="estado on">Disponível</span><h3>🌎 Batalha de Países</h3><p>Brasil, Portugal, Argentina, EUA. Ideal para público de vários lugares.</p></article>
+          <article class="card jogo"><span class="estado on">Disponível</span><h3>💙 Meninos x Meninas</h3><p>Dois lados, rivalidade garantida e partidas rápidas.</p></article>
+          <article class="card jogo"><span class="estado on">Disponível</span><h3>✏️ Do seu jeito</h3><p>De 2 a 6 times com nomes, cores, apelidos e regras que você define.</p></article>
+          <article class="card jogo"><span class="estado">Em breve</span><h3>🔥 Palavra Quente</h3><p>O chat tenta adivinhar a palavra secreta pela temperatura dos palpites.</p></article>
+          <article class="card jogo"><span class="estado">Em breve</span><h3>🏁 Corrida</h3><p>Cada presente empurra o seu corredor rumo à linha de chegada.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAINEL -->
+    <section class="secao">
+      <div class="container mostra">
+        <div>
+          <p class="sobre">Painel</p>
+          <h2 class="titulo esq">Tudo da sua live em um só lugar</h2>
+          <ul class="lista-check">
+            <li>Status da conexão com a live em tempo real</li>
+            <li>Prévia da tela exatamente como o público vê</li>
+            <li>Placar, ranking e tudo o que acontece no chat</li>
+            <li>Modo teste com público simulado para ensaiar</li>
+            <li>Modelos prontos e editor de times e regras</li>
+          </ul>
+          <a class="btn prim grande" href="/criar-conta">Abrir meu painel</a>
+        </div>
+        <div class="mostra-img"><img src="/painel-previa.jpg" alt="Painel da ARENIX com status da live, link da tela, controles da partida e prévia" width="1280" height="900" loading="lazy"></div>
+      </div>
+    </section>
+
+    <!-- DÚVIDAS -->
+    <section class="secao" id="duvidas">
+      <div class="container estreito">
+        <p class="sobre">Dúvidas</p>
+        <h2 class="titulo">Perguntas frequentes</h2>
+        <div class="faq">
+          <details><summary>Preciso instalar alguma coisa?</summary><p>Não. Você só precisa do TikTok LIVE Studio ou do OBS no computador. A tela do jogo é um link que você adiciona como fonte de navegador.</p></details>
+          <details><summary>Quanto custa?</summary><p>Durante o beta a ARENIX é gratuita.</p></details>
+          <details><summary>Funciona com qualquer conta do TikTok?</summary><p>Funciona com qualquer conta que possa fazer live. Para receber presentes, a conta precisa cumprir os requisitos do próprio TikTok.</p></details>
+          <details><summary>Posso testar sem estar ao vivo?</summary><p>Sim. O <b>Modo teste</b> cria um público simulado que curte, comenta e manda presentes para você ver tudo funcionando antes de entrar no ar.</p></details>
+          <details><summary>A ARENIX é do TikTok?</summary><p>Não. A ARENIX é uma ferramenta independente e não tem relação com o TikTok ou a ByteDance.</p></details>
+          <details><summary>Posso oferecer prêmios para quem mandar presente?</summary><p>Não recomendamos. As diretrizes do TikTok não permitem prometer dinheiro ou prêmios em troca de presentes. Use os pontos e o ranking como reconhecimento.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container">
+        <div class="cta">
+          <h2>Pronto para a sua próxima live?</h2>
+          <p>Crie sua conta e teste agora com o público simulado.</p>
+          <a class="btn prim grande" href="/criar-conta">Começar grátis <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-in">
+      <a class="logo" href="/"><img src="/marca/simbolo.svg" alt="" width="28" height="28"><span>ARENI<em>X</em></span></a>
+      <nav aria-label="Rodapé"><a href="/entrar">Entrar</a><a href="/criar-conta">Criar conta</a><a href="#duvidas">Dúvidas</a></nav>
+      <p>© 2026 ARENIX. Ferramenta independente, sem afiliação com o TikTok.</p>
+    </div>
+  </footer>
 </body>
 </html>

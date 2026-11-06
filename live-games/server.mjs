@@ -1,4 +1,4 @@
-// Site "Live Games": cada pessoa cria uma conta, liga o jogo na própria live do TikTok
+// Site ARENIX: cada pessoa cria uma conta, liga o jogo na própria live do TikTok
 // e recebe um link exclusivo da tela do jogo para colocar no TikTok LIVE Studio / OBS.
 //
 //   npm start      -> http://localhost:8080
@@ -57,7 +57,7 @@ function arquivo(res, nome, extras = {}) {
 
 function arquivo404(res) {
   res.writeHead(404, { 'content-type': 'text/html; charset=utf-8' });
-  res.end('<meta charset="utf-8"><body style="font-family:system-ui;background:#120a2e;color:#fff;display:grid;place-items:center;height:100vh;margin:0"><div style="text-align:center"><h1>Página não encontrada</h1><a style="color:#ffd23f" href="/">Voltar ao início</a></div>');
+  res.end('<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Página não encontrada · ARENIX</title><link rel="icon" href="/marca/favicon.svg"><body style="font-family:system-ui,sans-serif;background:#050807;color:#ecfff5;display:grid;place-items:center;min-height:100vh;margin:0"><div style="text-align:center;padding:24px"><img src="/marca/simbolo.svg" width="64" height="64" alt="" style="margin:0 auto 20px"><h1 style="margin:0 0 10px">Página não encontrada</h1><p style="color:#a3b8af;margin:0 0 24px">O link pode ter sido trocado ou não existe mais.</p><a style="color:#2bff88;font-weight:700" href="/">Voltar ao início</a></div>');
 }
 
 function lerCorpo(req, limite = 64 * 1024) {
@@ -361,7 +361,7 @@ setInterval(() => {
 }, 25_000);
 
 servidor.listen(PORTA, HOST, () => {
-  console.log(`\n  🎮 Live Games no ar: http://${HOST === '0.0.0.0' ? 'localhost' : HOST}:${PORTA}`);
+  console.log(`\n  🎮 ARENIX no ar: http://${HOST === '0.0.0.0' ? 'localhost' : HOST}:${PORTA}`);
   console.log(`  📁 dados em ${DATA_DIR}\n`);
 });
 

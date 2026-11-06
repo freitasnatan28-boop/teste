@@ -1,6 +1,8 @@
-# 🎮 Live Games
+# ARENIX
 
-Site de **jogos interativos para TikTok LIVE**. Cada pessoa cria uma conta, coloca o @ do TikTok e recebe um **link exclusivo da tela do jogo** para pôr no TikTok LIVE Studio ou no OBS. Tudo se controla por um **painel**, que também funciona no celular.
+![ARENIX](public/marca/og.png)
+
+**ARENIX** é um site de **jogos interativos para TikTok LIVE** ("Sua live vira uma arena."). Cada pessoa cria uma conta, coloca o @ do TikTok e recebe um **link exclusivo da tela do jogo** para pôr no TikTok LIVE Studio ou no OBS. Tudo se controla por um **painel**, que também funciona no celular.
 
 O primeiro jogo é a **Guerra de Times**. O público escolhe um time pelo chat, curtidas e presentes viram pontos, e o maior presenteador ganha a coroa de **TOP 1** na tela.
 
@@ -109,3 +111,17 @@ test/                   testes (npm test)
 ```
 
 O "banco" em arquivo JSON aguenta bem algumas centenas de contas. Se o site crescer, dá para trocar `src/banco.mjs` por Postgres sem mexer no resto.
+
+## Marca
+
+Os arquivos da marca ficam em `public/marca/`:
+
+| Arquivo | Uso |
+|---|---|
+| `simbolo.svg` / `simbolo-512.png` | Símbolo (foto de perfil, ícone de app) |
+| `logo-horizontal.png` | Logo completo para fundo escuro (fundo transparente) |
+| `logo-horizontal-fundo-claro.png` | Logo completo para fundo claro |
+| `favicon.svg`, `apple-touch-icon.png` | Ícone da aba e do celular |
+| `og.png` | Imagem que aparece quando o link é compartilhado |
+
+Cores: Neon `#2BFF88`, Lima `#D4FF3A`, Preto Arena `#050807`, Grafite `#0C1210`, Texto `#ECFFF5`, Moedas `#FFCF3D`. Fontes: **Unbounded** (títulos e marca) e **Manrope** (textos).

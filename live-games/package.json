@@ -2,7 +2,7 @@
   "name": "live-games",
   "version": "0.1.0",
   "private": true,
-  "description": "Site de jogos interativos para TikTok LIVE: contas, painel e tela do jogo por link.",
+  "description": "ARENIX: site de jogos interativos para TikTok LIVE (contas, painel e tela do jogo por link).",
   "type": "module",
   "scripts": {
     "start": "node server.mjs",

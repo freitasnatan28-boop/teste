@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Arenix">
+  <defs>
+    <linearGradient id="arx-g" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d4ff3a"/>
+      <stop offset="1" stop-color="#22f58a"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="17" fill="#0a0f0d"/>
+  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="16.25" fill="none" stroke="url(#arx-g)" stroke-opacity=".55" stroke-width="1.5"/>
+  <path d="M15 47.5 32 15l17 32.5" fill="none" stroke="url(#arx-g)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28.5 36.6c0-1 1.1-1.6 1.9-1.1l6.8 4.1c.8.5.8 1.7 0 2.2l-6.8 4.1c-.8.5-1.9-.1-1.9-1.1z" fill="url(#arx-g)"/>
+</svg>

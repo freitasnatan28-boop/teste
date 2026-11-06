@@ -10,8 +10,9 @@
 .ajuda b { color: var(--suave); }
 .fraco { color: var(--fraco); font-weight: 700; }
 
-.arroba { flex: 1; min-width: 180px; display: flex; align-items: center; background: #120c33; border: 2px solid var(--borda); border-radius: 12px; }
-.arroba:focus-within { border-color: var(--roxo); }
+.arroba { flex: 1; min-width: 180px; display: flex; align-items: center; background: var(--bg2); border: 1px solid var(--borda2); border-radius: 12px; }
+.arroba:focus-within { border-color: var(--neon); box-shadow: 0 0 0 3px rgba(43, 255, 136, 0.15); }
+.arroba input:focus { box-shadow: none; }
 .arroba span { padding-left: 12px; color: var(--fraco); font-weight: 900; }
 .arroba input { border: 0; background: transparent; padding-left: 4px; }
 
@@ -20,12 +21,12 @@
 .check input { width: 18px; height: 18px; accent-color: var(--rosa); }
 
 details.como, details.regras { margin-top: 12px; }
-details summary { cursor: pointer; font-weight: 900; color: var(--ouro); }
+details summary { cursor: pointer; font-weight: 800; color: var(--neon); }
 details.como ol { margin: 10px 0 0; padding-left: 20px; color: var(--suave); }
 details.como li { margin-bottom: 6px; }
 details.como b { color: var(--texto); }
 
-.relogio { font-family: var(--display); font-size: 28px; }
+.relogio { font-family: var(--display); font-size: 24px; color: var(--neon); font-variant-numeric: tabular-nums; }
 .estado-rodada { margin: 0; font-weight: 900; color: var(--suave); }
 .sub-h { margin: 18px 0 0; font-size: 16px; color: var(--suave); }
 
@@ -44,14 +45,14 @@ details.como b { color: var(--texto); }
 .vazio { color: var(--fraco); margin: 0; }
 
 .times-ed { display: grid; gap: 10px; margin-bottom: 10px; }
-.time-ed { display: grid; grid-template-columns: 36px minmax(0, 1.2fr) 52px 52px minmax(0, 1.6fr) 40px; gap: 8px; align-items: center; background: #160f3c; border: 1px solid var(--borda); border-radius: 14px; padding: 8px; }
-.time-ed .n { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; font-family: var(--display); font-size: 20px; text-shadow: 0 2px 0 rgba(0,0,0,.4); }
+.time-ed { display: grid; grid-template-columns: 36px minmax(0, 1.2fr) 52px 52px minmax(0, 1.6fr) 40px; gap: 8px; align-items: center; background: var(--bg2); border: 1px solid var(--borda); border-radius: 14px; padding: 8px; }
+.time-ed .n { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; font-family: var(--display); font-size: 16px; text-shadow: 0 1px 2px rgba(0,0,0,.6); }
 .time-ed input { padding: 9px 10px; }
 .time-ed input[type='color'] { height: 42px; }
 .time-ed .remover { width: 40px; height: 40px; padding: 0; }
 .grade-campos { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
 
-.previa .tela { width: 100%; aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; background: #000; border: 1px solid var(--borda); }
+.previa .tela { width: 100%; aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; background: #000; border: 1px solid var(--borda2); box-shadow: 0 0 40px rgba(43, 255, 136, 0.08); }
 .previa iframe { width: 100%; height: 100%; border: 0; display: block; }
 
 @media (max-width: 900px) {
@@ -66,3 +67,7 @@ details.como b { color: var(--texto); }
   .time-ed .remover { grid-column: 5; grid-row: 1; }
   .linha .btn { flex: 1 1 auto; }
 }
+
+.cab h2 { font-size: 17px; }
+.card h2 { letter-spacing: -0.01em; }
+.ola b { color: var(--texto); }
