@@ -1,11 +1,12 @@
 /* página inicial */
 .topo { position: sticky; top: 0; z-index: 20; background: rgba(5, 8, 7, 0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.topo .container.nav { padding: 14px 16px; }
 .links { display: flex; gap: 26px; margin-left: 28px; }
 .links a { color: var(--suave); font-weight: 600; font-size: 14.5px; }
 .links a:hover { color: var(--texto); text-decoration: none; }
 
 /* ---------- hero ---------- */
-.hero { position: relative; overflow: hidden; padding: 72px 0 96px; }
+.hero { position: relative; overflow: hidden; overflow: clip; padding: 72px 0 96px; }
 .grade-fundo {
   position: absolute;
   inset: 0;
@@ -130,6 +131,9 @@
   .b-alerta, .b-painel { grid-column: auto; }
   .secao { padding-top: 72px; }
   .flutua { padding: 8px 11px; } .flutua b { font-size: 13px; }
-  .f1 { left: -10px; top: 14%; } .f2 { right: -10px; } .f3 { display: none; }
+  .hero-visual { width: min(300px, 74vw); }
+  .f1 { left: -14px; top: 12%; } .f2 { right: -14px; top: 56%; } .f3 { display: none; }
+  .flutua .ic { font-size: 18px; }
+  .flutua small { font-size: 11px; }
   .acoes .btn { flex: 1 1 100%; }
 }

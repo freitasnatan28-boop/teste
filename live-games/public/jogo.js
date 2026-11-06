@@ -79,7 +79,7 @@
       el.innerHTML = `
         <div class="num" style="background:${gradiente(t.cores)}">${t.numero}</div>
         <div class="time-corpo">
-          <div class="time-linha"><span class="time-nome">${esc(t.nome)}</span><span class="time-coroa">👑</span><span class="time-info"></span></div>
+          <div class="time-linha"><span class="time-nome">${esc(t.nome)}</span><span class="time-coroa">LÍDER</span><span class="time-info"></span></div>
           <div class="barra"><div class="barra-fill" style="background:${gradiente(t.cores)}"></div></div>
         </div>
         <div class="pontos"><span class="valor">0</span><small>pontos</small></div>`;
@@ -156,7 +156,10 @@
 
   function aplicarEstado(e) {
     estadoAtual = e;
-    $('titulo').textContent = e.titulo;
+    if ($('titulo').textContent !== e.titulo) {
+      $('titulo').textContent = e.titulo;
+      ajustarTitulo();
+    }
     const r = e.rodada;
     $('rodada').textContent = r.status === 'aguardando' ? 'PREPARANDO…' : r.status === 'intervalo' ? `PRÓXIMA EM ${Math.ceil(r.proximaEmMs / 1000)}s` : r.status === 'pausado' ? `RODADA ${r.numero} · PAUSA` : `RODADA ${r.numero}`;
 
@@ -180,6 +183,7 @@
     $('ptRosa').textContent = e.pontos.porMoeda;
     $('ptMoeda').textContent = e.pontos.porMoeda;
     $('segDobro').textContent = e.regras?.finalEmDobroSeg ?? 30;
+    $('tagTimes').textContent = `1-${e.times.length}`;
 
     atualizarRanking(e.ranking);
   }
@@ -225,6 +229,16 @@
   }
 
   // ---------- alertas ----------
+  // título longo diminui sozinho para caber
+  function ajustarTitulo() {
+    const h = $('titulo');
+    let tam = 60;
+    h.style.fontSize = `${tam}px`;
+    while (h.scrollWidth > h.clientWidth && tam > 30) h.style.fontSize = `${(tam -= 2)}px`;
+  }
+
+  document.fonts?.ready.then(ajustarTitulo);
+
   const toasts = $('toasts');
   function toast(html, cor) {
     while (toasts.children.length >= 2) toasts.lastElementChild.remove();
@@ -233,8 +247,12 @@
     if (cor) t.style.setProperty('--cor', cor);
     t.innerHTML = html;
     toasts.prepend(t);
+    palco.classList.add('com-toast');
     setTimeout(() => t.classList.add('saindo'), 2600);
-    setTimeout(() => t.remove(), 2950);
+    setTimeout(() => {
+      t.remove();
+      if (!toasts.children.length) palco.classList.remove('com-toast');
+    }, 2950);
   }
 
   const fila = [];
@@ -291,7 +309,7 @@
   const ctx = canvas.getContext('2d');
   let pedacos = [];
   let animando = false;
-  function confete(qtd = 160, cores = ['#ffd23f', '#ff3d7f', '#3de0ff', '#7b3dff', '#ffffff']) {
+  function confete(qtd = 160, cores = ['#2bff88', '#d4ff3a', '#ffffff', '#ffcf3d', '#7dffbf']) {
     for (let i = 0; i < qtd; i++) {
       pedacos.push({
         x: Math.random() * 1080,
@@ -340,7 +358,7 @@
   function aplicarFx(fx) {
     switch (fx.tipo) {
       case 'presente': {
-        const cores = timeCores.get(fx.time) ?? ['#ff3d7f'];
+        const cores = timeCores.get(fx.time) ?? ['#2bff88'];
         if (fx.time) flutuar(fx.time, `+${fmt(fx.pontos)}`);
         const img = fx.imagem ? `<img class="pres" src="${esc(fx.imagem)}" alt="">` : '';
         const qtd = fx.quantidade > 1 ? `${fx.quantidade}x ` : '';
@@ -358,14 +376,14 @@
            ${img}
            <div class="valor">+${fmt(fx.pontos)} PONTOS</div>`,
           {
-            cor: lendario ? '#ffd23f' : cores[0],
+            cor: lendario ? '#ffcf3d' : cores[0],
             classe: lendario ? 'lendario' : '',
             duracao: lendario ? 5000 : 3400,
             som: () => {
               (lendario ? sons.lendario : sons.super)();
               flash();
               tremer();
-              confete(lendario ? 320 : 120, lendario ? ['#ffd23f', '#ff9f1c', '#fff3b0', '#ffffff'] : undefined);
+              confete(lendario ? 320 : 120, lendario ? ['#ffcf3d', '#ff9f1c', '#fff3b0', '#ffffff'] : undefined);
             },
           },
         );
@@ -378,19 +396,19 @@
            <div class="quem">${esc(fx.usuario.nome)}</div>
            <div class="oque">${fx.anterior ? `passou ${esc(fx.anterior.nome)} e agora` : 'agora'} é o maior presenteador da live</div>
            <div class="valor">🪙 ${fmt(fx.moedas)}</div>`,
-          { cor: '#ffd23f', duracao: 3000, som: () => { sons.rei(); confete(90, ['#ffd23f', '#ffffff', '#ff9f1c']); } },
+          { cor: '#ffcf3d', duracao: 3000, som: () => { sons.rei(); confete(90, ['#ffcf3d', '#ffffff', '#ff9f1c']); } },
         );
         return;
       case 'turbo':
         flash();
         sons.turbo();
-        toast(`<span class="txt">⚡ META DE ${fmt(fx.curtidas)} CURTIDAS! PONTOS EM DOBRO POR ${fx.segundos}s</span>`, '#ffd23f');
+        toast(`<span class="txt">⚡ META DE ${fmt(fx.curtidas)} CURTIDAS! PONTOS EM DOBRO POR ${fx.segundos}s</span>`, '#d4ff3a');
         return;
       case 'entrou':
         chipEntrou(fx.time, fx.usuario.nome);
         return;
       case 'rodada':
-        banner(`<div class="chamada">RODADA ${fx.numero}</div><div class="oque">digite o número do seu time e VALENDO!</div>`, { cor: '#3de0ff', duracao: 1800, som: sons.apito, urgente: true });
+        banner(`<div class="chamada">RODADA ${fx.numero}</div><div class="oque">digite o número do seu time e VALENDO!</div>`, { cor: '#2bff88', duracao: 1800, som: sons.apito, urgente: true });
         return;
       case 'fimRodada': {
         if (!fx.vencedor) {
@@ -403,7 +421,7 @@
            <div class="valor">${fmt(v.pontos)} pontos</div>
            ${fx.mvp ? `${avatar(fx.mvp)}<div class="quem">⭐ CRAQUE: ${esc(fx.mvp.nome)}</div><div class="oque">${fmt(fx.mvp.pontos)} pontos para o time</div>` : ''}
            <div class="placar">nova rodada já já…</div>`,
-          { cor: v.cores[0], duracao: 6000, urgente: true, som: () => { sons.apito(); confete(220, [...v.cores, '#ffffff', '#ffd23f']); } },
+          { cor: v.cores[0], duracao: 6000, urgente: true, som: () => { sons.apito(); confete(220, [...v.cores, '#ffffff', '#2bff88']); } },
         );
       }
     }
