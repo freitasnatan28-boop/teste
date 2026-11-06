@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guerra de Times</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/jogo.css">
+</head>
+<body>
+  <div id="palco">
+    <div class="fundo"><span class="luz l1"></span><span class="luz l2"></span><span class="luz l3"></span></div>
+
+    <header class="topo">
+      <div class="titulo">
+        <h1 id="titulo">GUERRA DE TIMES</h1>
+        <div class="sub"><span id="rodada">RODADA 1</span><span id="conexao" class="conexao"></span></div>
+      </div>
+      <div class="selos">
+        <div id="seloDobro" class="selo dobro">⏱️ FINAL EM DOBRO</div>
+        <div id="seloTurbo" class="selo turbo">⚡ TURBO <b id="turboSeg">0</b>s</div>
+      </div>
+      <div class="relogio" id="relogio">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" class="trilha"/><circle cx="50" cy="50" r="44" class="anel" id="anel"/></svg>
+        <span id="tempo">3:00</span>
+      </div>
+    </header>
+
+    <section id="times" class="times"></section>
+
+    <section class="meta">
+      <div class="meta-txt"><span>❤️ <b id="metaAtual">0</b> / <b id="metaAlvo">500</b> curtidas</span><span class="meta-premio">⚡ = PONTOS EM DOBRO</span></div>
+      <div class="meta-barra"><div id="metaFill" class="meta-fill"></div></div>
+    </section>
+
+    <section class="baixo">
+      <div class="card ranking">
+        <h2>👑 TOP PRESENTEADORES</h2>
+        <div id="rei" class="rei vazio">
+          <div class="rei-foto"><span class="coroa">👑</span><div class="av" id="reiAv"></div></div>
+          <div class="rei-info"><div class="rei-nome" id="reiNome">Seja o TOP 1!</div><div class="rei-moedas" id="reiMoedas">mande uma 🌹</div></div>
+        </div>
+        <ol id="listaRanking" class="lista"></ol>
+      </div>
+      <div class="card regras">
+        <h2>COMO JOGAR</h2>
+        <ul>
+          <li><b class="tag">1-4</b>digite o número do seu time</li>
+          <li><b class="tag">❤️</b>curtida = <b id="ptCurtida">1</b> pt</li>
+          <li><b class="tag">🌹</b>rosa = <b id="ptRosa">10</b> pts</li>
+          <li><b class="tag">🎁</b>1 moeda = <b id="ptMoeda">10</b> pts</li>
+          <li><b class="tag">x2</b>últimos <b id="segDobro">30</b>s</li>
+        </ul>
+      </div>
+    </section>
+
+    <div id="toasts" class="toasts"></div>
+    <div id="banner" class="banner"></div>
+    <div id="flash" class="flash"></div>
+    <canvas id="confete" width="1080" height="1920"></canvas>
+  </div>
+  <script src="/jogo.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+  "tiktok": {
+    "usuario": "SEU_USUARIO_AQUI",
+    "eulerApiKey": ""
+  },
+  "servidor": {
+    "porta": 8080,
+    "host": "127.0.0.1"
+  },
+  "jogo": {
+    "titulo": "GUERRA DE TIMES",
+    "duracaoRodadaSeg": 180,
+    "finalEmDobroSeg": 30,
+    "intervaloSeg": 12,
+    "pontos": {
+      "curtida": 1,
+      "porMoeda": 10,
+      "seguir": 30,
+      "compartilhar": 20
+    },
+    "metaCurtidas": {
+      "passo": 500,
+      "turboSeg": 20
+    },
+    "presentes": {
+      "superAtaqueMoedas": 99,
+      "lendarioMoedas": 1000
+    },
+    "semTime": "ultimo",
+    "times": [
+      {
+        "id": "fla",
+        "nome": "FLAMENGO",
+        "cores": ["#e0102a", "#5a0010"],
+        "apelidos": ["flamengo", "mengo", "mengao", "fla", "urubu"]
+      },
+      {
+        "id": "cor",
+        "nome": "CORINTHIANS",
+        "cores": ["#f5f5f5", "#7a7a7a"],
+        "apelidos": ["corinthians", "corintians", "timao", "coringao", "curintia"]
+      },
+      {
+        "id": "pal",
+        "nome": "PALMEIRAS",
+        "cores": ["#22c063", "#0a5a2c"],
+        "apelidos": ["palmeiras", "verdao", "porco", "palestra"]
+      },
+      {
+        "id": "spfc",
+        "nome": "SÃO PAULO",
+        "cores": ["#ff3b3b", "#1b1b1b"],
+        "apelidos": ["sao paulo", "spfc", "tricolor", "soberano"]
+      }
+    ]
+  }
+}
