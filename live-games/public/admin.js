@@ -64,6 +64,7 @@
       <span>Servidor no ar <b>${haQuanto(r.noArDesde)}</b></span>
       <span>Memória <b>${r.memoriaMb} MB</b></span>
       <span>Dados ${a.seguro ? '<b>✅ salvando</b>' : '<b style="color:var(--ruim)">⚠️ não estão sendo salvos</b>'}</span>
+      <span>IA do personagem ${r.ia ? '<b>✅ ligada</b>' : '<b style="color:var(--ouro)">⚠️ sem chave OPENAI_API_KEY</b>'}</span>
       <span>Chave Euler ${r.euler ? '<b>✅ configurada</b>' : '<b style="color:var(--ouro)">⚠️ não configurada</b>'}</span>`;
   }
 
@@ -98,7 +99,7 @@
           <td data-r="Agora">${statusSala(c)}</td>
           <td data-r="Criada" class="fraco">${haQuanto(c.criadaEm)}</td>
           <td data-r="Último acesso" class="fraco">${haQuanto(c.ultimoAcesso)}</td>
-          <td data-r="Presentes"><span class="moedas">🪙 ${fmt(c.moedas)}</span> <span class="fraco">· ${c.presenteadores} pessoas</span></td>
+          <td data-r="Presentes"><span class="moedas">🪙 ${fmt(c.moedas)}</span> <span class="fraco">· ${c.presenteadores} pessoas</span>${c.modoJogo === 'personagem' ? `<br><span class="fraco">🤖 ${fmt(c.respostasIAHoje)} respostas de IA hoje</span>` : ''}</td>
           <td><div class="acoes">
             ${aoVivo ? `<button class="btn pequeno" data-acao="desligar" data-id="${c.id}">⏹️ Desligar</button>` : ''}
             ${c.admin ? '' : `<button class="btn pequeno" data-acao="senha" data-id="${c.id}">🔑 Senha nova</button>

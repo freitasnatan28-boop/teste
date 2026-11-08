@@ -36,10 +36,19 @@ export function presenteFalso(usuario, presente = sortearPresente(), quantidade 
   return { tipo: 'presente', usuario, quantidade, moedas: presente.moedas * quantidade, nomePresente: presente.nome, imagem: '' };
 }
 
+const PERGUNTAS = [
+  'oi! de onde você é?', 'qual sua comida favorita?', 'manda um oi pra minha mãe', 'você gosta de música?',
+  'qual seu jogo preferido?', 'me conta uma piada', 'qual seu time do coração?', 'você dorme?',
+  'o que você faz no fim de semana?', 'qual o melhor sabor de pizza?', 'canta uma música pra mim',
+  'qual seu animal favorito?', 'tô com sono, me anima', 'você prefere praia ou piscina?', 'é meu aniversário hoje!',
+  'qual seu superpoder?', 'manda um salve pro meu irmão', 'você tem medo de quê?', 'qual a cor mais bonita?',
+];
+
 export class Simulador extends EventEmitter {
-  constructor(times) {
+  constructor(times, { modo = 'times' } = {}) {
     super();
     this.times = times;
+    this.modo = modo;
   }
 
   iniciar() {
@@ -51,6 +60,13 @@ export class Simulador extends EventEmitter {
   passo() {
     const usuario = usuarioFalso();
     const r = Math.random();
+    if (this.modo === 'personagem') {
+      // menos presentes e uma pergunta a cada ~10 s (cada resposta usa a IA)
+      if (r < 0.04) this.emit('evento', { tipo: 'chat', usuario, texto: sortear(PERGUNTAS) });
+      else if (r < 0.07) this.emit('evento', presenteFalso(usuario, sortearPresente(), 1));
+      else if (r < 0.75) this.emit('evento', { tipo: 'curtida', usuario, quantidade: 1 + Math.floor(Math.random() * 15) });
+      return;
+    }
     if (r < 0.12) {
       const time = sortear(this.times);
       const texto = Math.random() < 0.5 ? String(time.numero) : `vai ${time.apelidos[1]}`;

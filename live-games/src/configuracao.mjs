@@ -40,7 +40,45 @@ export const MODELOS = {
   },
 };
 
+// ---------- modo Personagem IA ----------
+export const VOZES = {
+  coral: 'Coral (feminina, animada)',
+  nova: 'Nova (feminina, jovem)',
+  shimmer: 'Shimmer (feminina, suave)',
+  sage: 'Sage (feminina, calma)',
+  alloy: 'Alloy (neutra)',
+  fable: 'Fable (masculina, expressiva)',
+  ash: 'Ash (masculina)',
+  echo: 'Echo (masculina, suave)',
+  verse: 'Verse (masculina, versátil)',
+  ballad: 'Ballad (masculina, dramática)',
+  onyx: 'Onyx (masculina, grave)',
+};
+export const ESTILOS_VOZ = {
+  animada: { rotulo: '🎉 Animada', instrucao: 'Voz de personagem de desenho animado: muito animada, alegre, expressiva e com energia alta. Fale em português do Brasil, num ritmo rápido e dinâmico, sem pausas longas.' },
+  engracada: { rotulo: '😂 Engraçada', instrucao: 'Voz cômica e exagerada de personagem de desenho, cheia de expressão e entonações divertidas. Fale em português do Brasil, num ritmo rápido e dinâmico, sem pausas longas.' },
+  fofa: { rotulo: '🥰 Fofa', instrucao: 'Voz fofa, doce e carinhosa, sorridente. Fale em português do Brasil, num ritmo rápido e dinâmico, sem pausas longas.' },
+  calma: { rotulo: '😌 Calma', instrucao: 'Voz calma, simpática e acolhedora. Fale em português do Brasil, num ritmo rápido e dinâmico, sem pausas longas.' },
+  robo: { rotulo: '🤖 Robô', instrucao: 'Voz de robô simpático, ritmada e levemente metálica, mas clara. Fale em português do Brasil, num ritmo rápido e dinâmico, sem pausas longas.' },
+  narrador: { rotulo: '🎬 Narrador', instrucao: 'Voz grave e épica de narrador de trailer, mas bem-humorada. Fale em português do Brasil, num ritmo rápido e dinâmico, sem pausas longas.' },
+};
+export const CENARIOS = { neon: '🟢 Arena neon', praia: '🏝️ Praia', espaco: '🚀 Espaço', quarto: '🎮 Quarto gamer', transparente: '🔲 Sem fundo (por cima da câmera)' };
+
+export const PADRAO_PERSONAGEM = {
+  nome: 'Nix',
+  personalidade: 'Mascote da ARENIX: um robozinho neon muito animado, engraçado e carinhoso, que ama games, música e conversar com o público da live.',
+  voz: 'coral',
+  estiloVoz: 'animada',
+  cenario: 'neon',
+  imagem: '',
+  presentes: { prioridadeMoedas: 1, salveMoedas: 5, fotoMoedas: 30 },
+};
+
+export const MODOS = { times: '⚔️ Guerra de Times', personagem: '🤖 Personagem IA' };
+
 export const PADRAO = {
+  modo: 'times',
+  personagem: PADRAO_PERSONAGEM,
   titulo: 'GUERRA DE TIMES',
   duracaoRodadaSeg: 180,
   finalEmDobroSeg: 30,
@@ -87,7 +125,26 @@ export function validarConfig(entrada = {}) {
   });
 
   const superAtaque = inteiro(e.presentes?.superAtaqueMoedas, 1, 1_000_000, p.presentes.superAtaqueMoedas);
+  const pe = e.personagem && typeof e.personagem === 'object' ? e.personagem : {};
+  const pp = PADRAO_PERSONAGEM;
+  const salve = inteiro(pe.presentes?.salveMoedas, 1, 1_000_000, pp.presentes.salveMoedas);
+  const personagem = {
+    nome: texto(pe.nome, 24, pp.nome),
+    personalidade: texto(pe.personalidade, 400, pp.personalidade),
+    voz: Object.hasOwn(VOZES, pe.voz) ? pe.voz : pp.voz,
+    estiloVoz: Object.hasOwn(ESTILOS_VOZ, pe.estiloVoz) ? pe.estiloVoz : pp.estiloVoz,
+    cenario: Object.hasOwn(CENARIOS, pe.cenario) ? pe.cenario : pp.cenario,
+    // só aceita imagem enviada para o próprio site (/m/...)
+    imagem: /^\/m\/[\w.-]{1,80}$/.test(String(pe.imagem ?? '')) ? pe.imagem : '',
+    presentes: {
+      prioridadeMoedas: inteiro(pe.presentes?.prioridadeMoedas, 1, 1_000_000, pp.presentes.prioridadeMoedas),
+      salveMoedas: salve,
+      fotoMoedas: Math.max(salve, inteiro(pe.presentes?.fotoMoedas, 1, 1_000_000, pp.presentes.fotoMoedas)),
+    },
+  };
   return {
+    modo: Object.hasOwn(MODOS, e.modo) ? e.modo : p.modo,
+    personagem,
     titulo: texto(e.titulo, 28, p.titulo),
     duracaoRodadaSeg: duracao,
     finalEmDobroSeg: inteiro(e.finalEmDobroSeg, 0, duracao, Math.min(p.finalEmDobroSeg, duracao)),

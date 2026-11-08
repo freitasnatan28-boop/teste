@@ -3,7 +3,11 @@
 import { Jogo } from './jogo.mjs';
 import { LiveTikTok } from './tiktok.mjs';
 import { Simulador, usuarioFalso, presenteFalso, PRESENTES } from './simulador.mjs';
-import { mesmosTimes } from './configuracao.mjs';
+import { mesmosTimes, validarConfig } from './configuracao.mjs';
+import { Atendente } from './personagem.mjs';
+import { guardarAudio } from './audios.mjs';
+
+export const LIMITE_RESPOSTAS_DIA = Number(process.env.IA_RESPOSTAS_DIA) || 400;
 
 const OCIOSA_MS = 15 * 60_000; // sem ninguém com a tela ou o painel aberto -> desliga
 
@@ -14,7 +18,7 @@ export class Sala {
     this.eulerApiKey = eulerApiKey;
     this.podeConectar = podeConectar;
     this.tiktok = conta.tiktok;
-    this.config = conta.config;
+    this.config = validarConfig(conta.config);
     this.clientes = new Set();
     this.fonte = null;
     this.modo = 'desligado'; // desligado | tiktok | teste
@@ -23,6 +27,47 @@ export class Sala {
     this.ultimoUso = Date.now();
     this.rankingMudou = false;
     this.criarJogo(this.config, banco.ranking(conta.id));
+    this.criarAtendente();
+  }
+
+  // ---------- modo Personagem IA ----------
+  criarAtendente() {
+    this.atendente = new Atendente({
+      personagem: () => this.config.personagem,
+      podeFalar: () => this.motivoSemFala(),
+      contarUso: () => this.banco.contarRespostaIA(this.contaId, LIMITE_RESPOSTAS_DIA),
+      guardarAudio,
+    });
+    this.atendente.on('fx', (fx) => this.enviar({ t: 'fx', d: fx }));
+    this.atendente.on('erro', (erro) => console.error(`[personagem ${this.contaId}]`, erro.message));
+    this.atendente.iniciar();
+  }
+
+  // por que o personagem não está respondendo agora (ou null se pode)
+  motivoSemFala() {
+    if (this.config.modo !== 'personagem') return 'outro modo';
+    if (this.modo === 'desligado') return 'desligado';
+    // só gasta IA se tem alguma tela mostrando o personagem
+    if (![...this.clientes].some((c) => c.tipo === 'overlay' || c.tipo === 'previa')) return 'sem tela';
+    return null;
+  }
+
+  estado() {
+    const e = this.jogo.estado();
+    e.modo = this.config.modo;
+    if (this.config.modo === 'personagem') {
+      const p = this.config.personagem;
+      e.personagem = {
+        ...this.atendente.estado(),
+        nome: p.nome,
+        cenario: p.cenario,
+        imagem: p.imagem,
+        presentes: p.presentes,
+        usoHoje: this.banco.respostasIAHoje(this.contaId),
+        limiteDia: LIMITE_RESPOSTAS_DIA,
+      };
+    }
+    return e;
   }
 
   criarJogo(config, ranking) {
@@ -37,7 +82,7 @@ export class Sala {
     ws.tipo = tipo;
     this.clientes.add(ws);
     this.ultimoUso = Date.now();
-    ws.send(JSON.stringify({ t: 'estado', d: this.jogo.estado() }));
+    ws.send(JSON.stringify({ t: 'estado', d: this.estado() }));
     // abriu a tela do jogo no LIVE Studio/OBS -> já tenta ligar na live sozinho
     if (tipo === 'overlay' && this.modo === 'desligado' && this.tiktok) this.ligarTikTok();
     this.enviar({ t: 'conexao', d: this.infoConexao() });
@@ -85,7 +130,7 @@ export class Sala {
   ligarTeste() {
     this.desligar();
     this.modo = 'teste';
-    const sim = new Simulador(this.jogo.times);
+    const sim = new Simulador(this.jogo.times, { modo: this.config.modo });
     this.ligarFonte(sim);
     sim.iniciar();
     return {};
@@ -110,6 +155,11 @@ export class Sala {
   }
 
   evento(e) {
+    if (this.config.modo === 'personagem') {
+      // no modo personagem o chat vira pergunta; curtidas e presentes continuam contando no ranking e na meta
+      if (e.tipo === 'chat') return void this.atendente.chat(e.usuario, e.texto);
+      if (e.tipo === 'presente') this.atendente.presente(e.usuario, e);
+    }
     this.jogo.processar(e);
     if (e.tipo === 'presente' || e.tipo === 'curtida') this.rankingMudou = true;
   }
@@ -118,6 +168,8 @@ export class Sala {
   atualizarConta(conta) {
     const mudouTikTok = conta.tiktok !== this.tiktok;
     this.tiktok = conta.tiktok;
+    conta = { ...conta, config: validarConfig(conta.config) };
+    const mudouModo = conta.config.modo !== this.config.modo;
     if (JSON.stringify(conta.config) !== JSON.stringify(this.config)) {
       const timesMudaram = !mesmosTimes(conta.config, this.config);
       const rodando = this.jogo.rodada.status !== 'aguardando';
@@ -130,10 +182,18 @@ export class Sala {
         this.jogo.cfg = conta.config;
       }
       this.config = conta.config;
-      if (this.fonte instanceof Simulador) this.fonte.times = this.jogo.times;
+      if (this.fonte instanceof Simulador) {
+        this.fonte.times = this.jogo.times;
+        this.fonte.modo = this.config.modo;
+      }
+    }
+    if (mudouModo) {
+      this.atendente.limparFila();
+      // a tela do jogo troca de layout: manda recarregar
+      for (const c of this.clientes) if (c.tipo !== 'painel' && c.readyState === 1) c.send(JSON.stringify({ t: 'recarregar' }));
     }
     if (mudouTikTok && this.modo === 'tiktok') this.ligarTikTok();
-    this.enviar({ t: 'estado', d: this.jogo.estado() });
+    this.enviar({ t: 'estado', d: this.estado() });
     this.enviar({ t: 'conexao', d: this.infoConexao() });
   }
 
@@ -160,7 +220,8 @@ export class Sala {
         this.rankingMudou = true;
         return;
       case 'testar': {
-        const usuario = dados.tipo === 'chat' ? { id: 'painel', nome: 'Você (teste)', usuario: 'voce', foto: '' } : usuarioFalso();
+        const idTeste = this.config.modo === 'personagem' ? `painel-${Date.now()}` : 'painel';
+        const usuario = dados.tipo === 'chat' ? { id: idTeste, nome: 'Você (teste)', usuario: 'voce', foto: '' } : usuarioFalso();
         if (dados.tipo === 'presente') {
           const presente = PRESENTES.find((p) => p.nome === dados.presente) ?? PRESENTES[0];
           this.evento(presenteFalso(usuario, presente, 1));
@@ -168,13 +229,21 @@ export class Sala {
         else if (dados.tipo === 'chat') this.evento({ tipo: 'chat', usuario, texto: String(dados.texto ?? '').slice(0, 200) });
         return;
       }
+      case 'personagemPausar':
+        return this.atendente.pausar();
+      case 'personagemContinuar':
+        return this.atendente.continuar();
+      case 'personagemPular':
+        return this.atendente.pular();
+      case 'personagemLimpar':
+        return this.atendente.limparFila();
       case 'publicoFalso':
         // liga/desliga um público de teste por cima da live real
         if (this.publicoFalso) {
           this.publicoFalso.parar();
           this.publicoFalso = null;
         } else if (this.modo !== 'teste') {
-          this.publicoFalso = new Simulador(this.jogo.times);
+          this.publicoFalso = new Simulador(this.jogo.times, { modo: this.config.modo });
           this.publicoFalso.on('evento', (e) => this.evento(e));
           this.publicoFalso.iniciar();
         }
@@ -185,7 +254,7 @@ export class Sala {
   // ---------- manutenção ----------
   tick() {
     this.jogo.tick();
-    if (this.clientes.size) this.enviar({ t: 'estado', d: this.jogo.estado() });
+    if (this.clientes.size) this.enviar({ t: 'estado', d: this.estado() });
   }
 
   salvarRanking() {
@@ -199,6 +268,7 @@ export class Sala {
   }
 
   fechar() {
+    this.atendente.parar();
     this.rankingMudou = true;
     this.salvarRanking();
     this.desligar();

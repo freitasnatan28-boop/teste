@@ -71,3 +71,27 @@ details.como b { color: var(--texto); }
 .cab h2 { font-size: 17px; }
 .card h2 { letter-spacing: -0.01em; }
 .ola b { color: var(--texto); }
+
+/* modo da live */
+body[data-modo="personagem"] .so-times, body[data-modo="times"] .so-personagem { display: none !important; }
+body[data-modo="personagem"] .duas { grid-template-columns: 1fr; }
+.modos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.modo { text-align: left; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--borda2); background: var(--bg2); color: var(--texto); font: 700 15px var(--corpo); cursor: pointer; }
+.modo b { display: block; font-family: var(--display); font-size: 15px; margin-bottom: 4px; }
+.modo small { color: var(--fraco); font-weight: 600; }
+.modo.on { border-color: var(--neon); background: rgba(43, 255, 136, 0.08); box-shadow: 0 0 0 1px var(--neon); }
+.uso { margin: 12px 0 4px; }
+.uso-barra { height: 8px; border-radius: 99px; background: var(--card2); overflow: hidden; }
+.uso-barra span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--neon), var(--lima)); border-radius: inherit; transition: width 0.3s; }
+.uso small { color: var(--fraco); font-weight: 700; }
+.fila-lista { margin: 8px 0 0; padding-left: 22px; }
+.fila-lista li { padding: 4px 0; font-size: 14px; }
+.fila-lista li.vazio { list-style: none; margin-left: -22px; color: var(--fraco); }
+.fila-lista .vip { color: #ff8da0; font-weight: 800; }
+textarea { resize: vertical; font: 600 15px/1.45 var(--corpo); color: var(--texto); background: var(--bg2); border: 1px solid var(--borda2); border-radius: 12px; padding: 11px 12px; width: 100%; }
+.pers-topo { display: flex; gap: 16px; align-items: center; margin-bottom: 14px; }
+.pers-img { flex: none; width: 110px; height: 130px; border-radius: 14px; border: 1px dashed var(--borda2); background: var(--bg2); display: grid; place-items: center; text-align: center; font-weight: 800; color: var(--suave); overflow: hidden; }
+.pers-img img { width: 100%; height: 100%; object-fit: contain; }
+.pers-img small { color: var(--fraco); font-weight: 600; }
+.pers-img-acoes { min-width: 0; flex: 1; }
+@media (max-width: 600px) { .modos { grid-template-columns: 1fr; } .pers-topo { align-items: flex-start; } }

@@ -18,7 +18,7 @@ before(async () => {
   pasta = fs.mkdtempSync(path.join(os.tmpdir(), 'live-games-'));
   servidor = spawn(process.execPath, ['server.mjs'], {
     cwd: new URL('..', import.meta.url),
-    env: { ...process.env, PORT: String(PORTA), HOST: '127.0.0.1', DATA_DIR: pasta, ADMIN_EMAILS: 'chefe@exemplo.com, outro@exemplo.com' },
+    env: { ...process.env, PORT: String(PORTA), HOST: '127.0.0.1', DATA_DIR: pasta, ADMIN_EMAILS: 'chefe@exemplo.com, outro@exemplo.com', OPENAI_API_KEY: '' },
     stdio: 'pipe',
   });
   for (let i = 0; i < 50; i++) {
@@ -233,4 +233,63 @@ test('admin: só o e-mail da lista acessa, e consegue bloquear, trocar senha, ex
   assert.equal((await fetch(`${BASE}/o/${zeConta.overlayToken}`)).status, 404);
   assert.ok(!(await chefe.req('GET', '/api/admin/contas')).corpo.contas.some((c) => c.email === 'ze@exemplo.com'));
   assert.equal((await fetch(`${BASE}/admin`)).status, 200);
+});
+
+test('modo personagem: troca de modo, imagem do personagem e respostas na tela', async () => {
+  const dono = cliente();
+  await dono.req('POST', '/api/criar-conta', { nome: 'Pers', email: 'pers@exemplo.com', senha: 'senha123' });
+  const eu = (await dono.req('GET', '/api/eu')).corpo;
+  assert.ok(eu.vozes.coral && eu.cenarios.neon && eu.modos.personagem);
+  assert.equal(eu.conta.config.modo, 'times');
+  assert.match(await (await fetch(`${BASE}/o/${eu.conta.overlayToken}`)).text(), /jogo\.js/);
+
+  // salvar só o modo não apaga os times; salvar o personagem não apaga o modo
+  let c = (await dono.req('PUT', '/api/config', { config: { modo: 'personagem' } })).corpo.conta.config;
+  assert.equal(c.modo, 'personagem');
+  assert.equal(c.times.length, 4);
+  c = (await dono.req('PUT', '/api/config', { config: { personagem: { nome: 'Zico', voz: 'nova', imagem: 'http://site-ruim.com/x.png' } } })).corpo.conta.config;
+  assert.equal(c.modo, 'personagem');
+  assert.equal(c.personagem.nome, 'Zico');
+  assert.equal(c.personagem.imagem, '', 'imagem de fora não é aceita');
+  assert.match(await (await fetch(`${BASE}/o/${eu.conta.overlayToken}`)).text(), /personagem\.js/);
+
+  // envio de imagem (PNG 1x1)
+  const png = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==';
+  assert.equal((await dono.req('POST', '/api/personagem/imagem', { dataUrl: 'data:image/svg+xml;base64,PHN2Zz4=' })).status, 400, 'SVG não (pode ter script)');
+  const img = (await dono.req('POST', '/api/personagem/imagem', { dataUrl: png })).corpo.conta.config.personagem.imagem;
+  assert.match(img, /^\/m\/[\w-]+\.png$/);
+  const r = await fetch(BASE + img);
+  assert.equal(r.status, 200);
+  assert.equal(r.headers.get('content-type'), 'image/png');
+  assert.equal((await dono.req('POST', '/api/personagem/imagem', {})).corpo.conta.config.personagem.imagem, '');
+  assert.equal((await fetch(BASE + img)).status, 404, 'imagem antiga é apagada');
+
+  // pergunta do chat vira fala na tela (sem chave da OpenAI: resposta pronta + voz do navegador)
+  const tela = await abrirWs(`ws://127.0.0.1:${PORTA}/ws?o=${eu.conta.overlayToken}`);
+  const painel = await abrirWs(`ws://127.0.0.1:${PORTA}/ws?painel=1`, { cookie: dono.cookie, origin: BASE });
+  painel.ws.send(JSON.stringify({ cmd: 'ligarTeste' }));
+  await esperar(200);
+  painel.ws.send(JSON.stringify({ cmd: 'personagemLimpar' }));
+  painel.ws.send(JSON.stringify({ cmd: 'testar', tipo: 'chat', texto: 'qual sua cor favorita?' }));
+  let fala;
+  for (let i = 0; i < 40 && !fala; i++) {
+    await esperar(150);
+    fala = tela.msgs.find((m) => m.t === 'fx' && m.d.tipo === 'fala')?.d;
+  }
+  assert.ok(fala, 'personagem respondeu');
+  assert.equal(fala.audio, null);
+  assert.ok(fala.resposta.length > 10);
+  const estado = tela.msgs.filter((m) => m.t === 'estado').at(-1).d;
+  assert.equal(estado.modo, 'personagem');
+  assert.equal(estado.personagem.nome, 'Zico');
+  assert.ok(estado.personagem.usoHoje >= 1);
+  // a tela do jogo só pode mandar "terminei de falar"
+  tela.ws.send(JSON.stringify({ cmd: 'novaLive' }));
+  tela.ws.send(JSON.stringify({ cmd: 'falaTerminou', id: fala.id }));
+  await esperar(1000);
+  assert.ok(tela.msgs.some((m) => m.t === 'fx' && m.d.tipo === 'falaFim' && m.d.id === fala.id));
+  painel.ws.send(JSON.stringify({ cmd: 'desligar' }));
+  painel.ws.close();
+  tela.ws.close();
+  assert.equal((await dono.req('POST', '/api/personagem/ouvir', { personagem: {} })).status, 400, 'sem chave: avisa em vez de quebrar');
 });

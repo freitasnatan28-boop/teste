@@ -13,6 +13,24 @@ O primeiro jogo é a **Guerra de Times**. O público escolhe um time pelo chat, 
 | `/painel` | Painel de cada pessoa: conectar na live, link da tela, controle da partida, testes, ranking e configuração dos times e regras |
 | `/o/<código>` | Tela do jogo de cada conta (1080x1920), que vai na live |
 
+## Modos de jogo
+
+| Modo | Como funciona |
+|---|---|
+| ⚔️ **Guerra de Times** | O chat escolhe um time; curtidas e presentes viram pontos; rodadas com troféu. |
+| 🤖 **Personagem IA** | Um personagem responde **em voz alta** as perguntas do chat, com legenda. 🌹 Rosa = responde primeiro, 📣 5 moedas = salve, 📸 30 moedas = "julgo sua foto" (valores ajustáveis). |
+
+O modo é escolhido no painel, em **Modo da live**. A tela do jogo troca sozinha.
+
+### Personagem IA
+- O personagem padrão é o **Nix**, mascote original da ARENIX. Cada pessoa pode **enviar a imagem do próprio personagem** (PNG com fundo transparente fica melhor). Use só personagens próprios: personagens de desenhos e marcas famosas têm direitos autorais e podem derrubar a live.
+- Dá para escolher **nome, personalidade, voz, jeito de falar** (animada, engraçada, fofa, calma, robô, narrador) e **cenário** (arena neon, praia, espaço, quarto gamer ou sem fundo). O botão **Ouvir a voz** toca uma amostra.
+- A IA segue regras fixas: respostas curtas, nada sexual, ofensivo ou perigoso, nunca pede presente em troca de prêmio, e ignora quem tenta "mudar as regras" pelo chat.
+- O personagem só responde quando a live (ou o modo teste) está ligada **e** alguma tela do jogo está aberta. Assim não gasta IA à toa.
+- **Precisa da chave da OpenAI** (`OPENAI_API_KEY`) no Railway. Sem ela, o personagem usa respostas prontas e a voz do próprio navegador.
+- **Custo:** cada resposta usa um pouco de texto e alguns segundos de voz da OpenAI. Uma hora de respostas sem parar fica na casa de poucos dólares. Confira os preços atuais em https://openai.com/api/pricing. Para controlar o gasto, cada conta tem um **limite de respostas por dia** (`IA_RESPOSTAS_DIA`, padrão 400), e no **/admin** dá para ver quantas respostas cada conta usou hoje.
+- Na tela do LIVE Studio/OBS a voz toca sozinha. No celular (Safari/Chrome), toque uma vez em **"Toque para ativar a voz"** quando aparecer.
+
 ## Por que o público interage e manda presente
 
 - **Rivalidade:** de 2 a 6 times. Tem modelos prontos de futebol, países, regiões e meninos x meninas, ou você monta os seus.
@@ -77,6 +95,9 @@ Na frente, coloque um proxy com HTTPS (Caddy ou Nginx) apontando para a porta 80
 | `PORT` | Porta do servidor (as hospedagens já definem sozinhas) |
 | `DATA_DIR` | Pasta das contas e rankings. **Precisa ser um disco permanente.** No Railway não precisa: o site usa o volume ligado ao serviço automaticamente. |
 | `EULER_API_KEY` | Chave da Euler Stream. Recomendada quando muitas pessoas usam o site |
+| `OPENAI_API_KEY` | Chave da OpenAI para o modo **Personagem IA** (texto e voz) |
+| `IA_RESPOSTAS_DIA` | Máximo de respostas do personagem por conta por dia (padrão 400) |
+| `IA_MODELO` / `IA_MODELO_VOZ` | Modelos da OpenAI (padrão `gpt-5.4-mini` e `gpt-4o-mini-tts`) |
 | `MAX_LIVES` | Quantas lives podem ficar conectadas ao mesmo tempo (padrão 50) |
 | `CADASTRO=fechado` | Para de aceitar contas novas (útil se quiser liberar só para convidados) |
 | `ADMIN_EMAILS` | E-mails com acesso à área de admin (`/admin`), separados por vírgula |
@@ -103,6 +124,9 @@ src/contas.mjs          cadastro, senha (scrypt) e sessões
 src/banco.mjs           armazenamento em arquivo JSON (DATA_DIR/banco.json)
 src/salas.mjs           uma "sala" por conta: jogo + conexão com a live + telas abertas
 src/jogo.mjs            regras da Guerra de Times
+src/personagem.mjs      modo Personagem IA: fila, prioridade por presente, salve e foto
+src/ia.mjs              textos e voz do personagem (OpenAI) e regras de segurança
+src/audios.mjs          guarda as falas por alguns minutos (/voz/...)
 src/configuracao.mjs    configuração padrão, modelos prontos e validação
 src/tiktok.mjs          conexão com o TikTok e leitura dos presentes (inclusive combos)
 src/simulador.mjs       público falso do modo teste

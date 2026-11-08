@@ -4,7 +4,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const VAZIO = () => ({ versao: 1, contas: {}, sessoes: {}, rankings: {}, ajustes: {} });
+const hoje = () => new Date(Date.now() - 3 * 3600_000).toISOString().slice(0, 10); // dia no horário de Brasília
+
+const VAZIO = () => ({ versao: 1, contas: {}, sessoes: {}, rankings: {}, ajustes: {}, usoIA: {} });
 
 export class Banco {
   constructor(arquivo) {
@@ -102,6 +104,7 @@ export class Banco {
   }
   apagarConta(id) {
     delete this.dados.contas[id];
+    if (this.dados.usoIA) delete this.dados.usoIA[id];
     delete this.dados.rankings[id];
     this.apagarSessoesDe(id);
   }
@@ -139,6 +142,22 @@ export class Banco {
     this.dados.ajustes ??= {};
     this.dados.ajustes[nome] = valor;
     this.salvar();
+  }
+
+  // ---------- uso da IA (respostas do personagem por dia) ----------
+  respostasIAHoje(contaId) {
+    const u = this.dados.usoIA?.[contaId];
+    return u && u.dia === hoje() ? u.n : 0;
+  }
+  contarRespostaIA(contaId, limite) {
+    this.dados.usoIA ??= {};
+    const dia = hoje();
+    const u = this.dados.usoIA[contaId];
+    const n = u && u.dia === dia ? u.n : 0;
+    if (n >= limite) return false;
+    this.dados.usoIA[contaId] = { dia, n: n + 1 };
+    this.salvar();
+    return true;
   }
 
   // ---------- ranking de cada live ----------

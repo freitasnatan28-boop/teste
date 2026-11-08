@@ -27,6 +27,13 @@
     <div class="layout">
       <div class="coluna">
 
+        <!-- 0. Modo -->
+        <section class="card">
+          <div class="cab"><h2>🎯 Modo da live</h2></div>
+          <div class="modos" id="modos"></div>
+          <p class="ajuda" id="modoAjuda"></p>
+        </section>
+
         <!-- 1. Live -->
         <section class="card">
           <div class="cab"><h2>📡 Sua live</h2><span id="pillStatus" class="pill">carregando…</span></div>
@@ -69,7 +76,34 @@
         </section>
 
         <!-- 3. Partida -->
-        <section class="card">
+        <section class="card so-personagem">
+          <div class="cab"><h2>🤖 Personagem</h2><span id="pillIA" class="pill">…</span></div>
+          <p class="estado-rodada" id="persStatus">—</p>
+          <div class="uso"><div class="uso-barra"><span id="usoFill"></span></div><small id="usoTxt">0 respostas hoje</small></div>
+          <div class="linha botoes">
+            <button class="btn verde" data-cmd="personagemContinuar">▶️ Responder</button>
+            <button class="btn" data-cmd="personagemPausar">⏸️ Pausar respostas</button>
+            <button class="btn" data-cmd="personagemPular">⏭️ Pular fala</button>
+            <button class="btn perigo pequeno" data-cmd="personagemLimpar" data-confirma="Apagar todas as perguntas da fila?">🧹 Limpar fila</button>
+          </div>
+          <h3 class="sub-h">Próximos na fila</h3>
+          <ol id="filaLista" class="fila-lista"><li class="vazio">Fila vazia.</li></ol>
+          <h3 class="sub-h">Testar</h3>
+          <form id="formPergunta" class="linha">
+            <input id="perguntaTeste" placeholder="Faça uma pergunta de teste para o personagem" maxlength="200">
+            <button class="btn" type="submit">💬 Perguntar</button>
+          </form>
+          <div class="linha botoes">
+            <button class="btn pequeno" data-teste="presente" data-presente="Rosa">🌹 Rosa</button>
+            <button class="btn pequeno" data-teste="presente" data-presente="Dedo Coração">🫰 5 moedas</button>
+            <button class="btn pequeno" data-teste="presente" data-presente="Rosquinha">🍩 30 moedas</button>
+            <button class="btn pequeno" data-teste="curtida">❤️ 50 curtidas</button>
+            <button class="btn perigo pequeno" data-cmd="novaLive" data-confirma="Começar uma NOVA LIVE? Isso zera o ranking de presenteadores.">🆕 Nova live</button>
+          </div>
+          <p class="ajuda" id="iaAviso" hidden>⚠️ A IA ainda não está ligada no site (falta a chave <b>OPENAI_API_KEY</b> no Railway). Por enquanto o personagem usa respostas prontas e a voz do navegador.</p>
+        </section>
+
+        <section class="card so-times">
           <div class="cab"><h2>🎮 Partida</h2><span class="relogio" id="relogio">—</span></div>
           <p class="estado-rodada" id="rodada">—</p>
           <div class="linha botoes">
@@ -97,7 +131,7 @@
         </section>
 
         <div class="duas">
-          <section class="card"><h2>🏆 Placar</h2><div id="placar" class="placar"></div></section>
+          <section class="card so-times"><h2>🏆 Placar</h2><div id="placar" class="placar"></div></section>
           <section class="card"><h2>👑 Ranking</h2><ol id="ranking" class="ranking"></ol></section>
         </div>
 
@@ -107,7 +141,40 @@
         </section>
 
         <!-- 4. Configuração -->
-        <section class="card" id="config">
+        <section class="card so-personagem" id="configPersonagem">
+          <div class="cab"><h2>⚙️ Configurar personagem</h2></div>
+          <div class="pers-topo">
+            <div class="pers-img" id="persImg"><img id="persImgPrev" alt="Imagem do personagem" hidden><span id="persImgVazio">🤖<br>Nix<br><small>(padrão)</small></span></div>
+            <div class="pers-img-acoes">
+              <label>Imagem do personagem</label>
+              <div class="linha">
+                <label class="btn pequeno" for="persArquivo" style="margin:0">📤 Enviar imagem</label>
+                <input type="file" id="persArquivo" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+                <button type="button" class="btn fantasma pequeno" id="persRemover">Usar o Nix</button>
+              </div>
+              <p class="ajuda">PNG com fundo transparente fica melhor. Use só personagens que são seus: desenhos e marcas famosas têm direitos autorais e podem derrubar sua live.</p>
+            </div>
+          </div>
+          <form id="formPersonagem">
+            <div class="grade-campos">
+              <div><label for="persNome">Nome</label><input id="persNome" maxlength="24"></div>
+              <div><label for="persCenario">Cenário</label><select id="persCenario"></select></div>
+              <div><label for="persVoz">Voz</label><select id="persVoz"></select></div>
+              <div><label for="persEstilo">Jeito de falar</label><select id="persEstilo"></select></div>
+            </div>
+            <div class="linha" style="margin-top:12px"><button type="button" class="btn pequeno" id="persOuvir">🔊 Ouvir a voz</button></div>
+            <div class="campo" style="margin-top:14px"><label for="persPersonalidade">Personalidade (como ele fala e se comporta)</label><textarea id="persPersonalidade" rows="3" maxlength="400"></textarea></div>
+            <label>Presentes (a partir de quantas moedas)</label>
+            <div class="grade-campos">
+              <div><label for="persPrioridade">🌹 Responder primeiro</label><input id="persPrioridade" type="number" min="1"></div>
+              <div><label for="persSalve">📣 Mandar um salve</label><input id="persSalve" type="number" min="1"></div>
+              <div><label for="persFoto">📸 Julgar a foto de perfil</label><input id="persFoto" type="number" min="1"></div>
+            </div>
+            <div class="linha" style="margin-top:16px"><button class="btn prim grande" type="submit">💾 Salvar personagem</button></div>
+          </form>
+        </section>
+
+        <section class="card so-times" id="config">
           <div class="cab"><h2>⚙️ Configurar jogo</h2></div>
           <label>Modelos prontos</label>
           <div class="linha botoes" id="modelos"></div>

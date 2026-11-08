@@ -162,6 +162,7 @@
   let reiAtual = null;
 
   function aplicarEstado(e) {
+    if (e.modo && e.modo !== 'times') return location.reload();
     estadoAtual = e;
     if ($('titulo').textContent !== e.titulo) {
       $('titulo').textContent = e.titulo;
@@ -445,6 +446,7 @@
       if (msg.t === 'estado') aplicarEstado(msg.d);
       else if (msg.t === 'fx') aplicarFx(msg.d);
       else if (msg.t === 'conexao') aplicarConexao(msg.d);
+      else if (msg.t === 'recarregar') location.reload();
     };
     ws.onclose = (ev) => {
       if (ev.code === 4001) {

@@ -105,6 +105,6 @@ export class Contas {
   }
 
   publica(conta) {
-    return { id: conta.id, nome: conta.nome, email: conta.email, tiktok: conta.tiktok, overlayToken: conta.overlayToken, config: conta.config, admin: this.ehAdmin(conta) };
+    return { id: conta.id, nome: conta.nome, email: conta.email, tiktok: conta.tiktok, overlayToken: conta.overlayToken, config: validarConfig(conta.config), admin: this.ehAdmin(conta) };
   }
 }

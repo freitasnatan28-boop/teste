@@ -21,7 +21,9 @@ import { WebSocketServer } from 'ws';
 import { Banco } from './src/banco.mjs';
 import { Contas, COOKIE, novoToken } from './src/contas.mjs';
 import { Salas } from './src/salas.mjs';
-import { MODELOS, PADRAO, validarConfig, validarUsuarioTikTok } from './src/configuracao.mjs';
+import { MODELOS, PADRAO, VOZES, ESTILOS_VOZ, CENARIOS, MODOS, validarConfig, validarUsuarioTikTok } from './src/configuracao.mjs';
+import { obterAudio, guardarAudio } from './src/audios.mjs';
+import { iaDisponivel, gerarVoz } from './src/ia.mjs';
 
 const RAIZ = path.dirname(fileURLToPath(import.meta.url));
 const PUBLICO = path.join(RAIZ, 'public');
@@ -32,6 +34,12 @@ const DATA_DIR = path.resolve(process.env.DATA_DIR || VOLUME_RAILWAY || path.joi
 const PORTA = Number(process.env.PORT || 8080);
 const HOST = process.env.HOST || (process.env.PORT ? '0.0.0.0' : '127.0.0.1');
 const banco = new Banco(path.join(DATA_DIR, 'banco.json'));
+const PASTA_MIDIA = path.join(DATA_DIR, 'midia');
+const ultimaAmostra = new Map();
+function apagarMidia(url) {
+  if (!/^\/m\/[\w-]{1,80}\.(png|jpg|webp|gif)$/.test(String(url))) return;
+  fs.unlink(path.join(PASTA_MIDIA, url.slice(3)), () => {});
+}
 const contas = new Contas(banco, { emailsAdmin: String(process.env.ADMIN_EMAILS ?? '').split(',') });
 const cadastroAberto = () => banco.ajuste('cadastroAberto', process.env.CADASTRO !== 'fechado');
 const INICIO = Date.now();
@@ -52,7 +60,7 @@ const salas = new Salas({ banco, eulerApiKey: process.env.EULER_API_KEY || undef
 
 // ---------- utilidades HTTP ----------
 
-const TIPOS = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon' };
+const TIPOS = { '.gif': 'image/gif', '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon' };
 const SEGURANCA = { 'x-content-type-options': 'nosniff', 'referrer-policy': 'same-origin' };
 
 function json(res, status, corpo, extras = {}) {
@@ -152,7 +160,22 @@ async function rotear(req, res) {
   if (req.method === 'GET' && /^\/o\/[\w-]{10,64}$/.test(rota)) {
     const dona = banco.contaPorOverlay(rota.slice(3));
     if (!dona || dona.bloqueada) return arquivo404(res);
-    return arquivo(res, 'jogo.html');
+    return arquivo(res, validarConfig(dona.config).modo === 'personagem' ? 'personagem.html' : 'jogo.html');
+  }
+  // voz do personagem (gerada na hora, guardada por poucos minutos)
+  if (req.method === 'GET' && /^\/voz\/[\w-]{10,40}\.mp3$/.test(rota)) {
+    const audio = obterAudio(rota.slice(5, -4));
+    if (!audio) return json(res, 404, { erro: 'áudio expirou' });
+    res.writeHead(200, { 'content-type': 'audio/mpeg', 'content-length': audio.length, 'cache-control': 'private, max-age=600', ...SEGURANCA });
+    return res.end(audio);
+  }
+  // imagens enviadas pelos usuários (personagem)
+  if (req.method === 'GET' && /^\/m\/[\w-]{1,80}\.(png|jpg|webp|gif)$/.test(rota)) {
+    return fs.readFile(path.join(PASTA_MIDIA, rota.slice(3)), (erro, conteudo) => {
+      if (erro) return arquivo404(res);
+      res.writeHead(200, { 'content-type': TIPOS[path.extname(rota)] ?? 'image/png', 'cache-control': 'public, max-age=31536000, immutable', ...SEGURANCA });
+      res.end(conteudo);
+    });
   }
   if (req.method === 'GET' && rota === '/saude') return json(res, 200, { ok: true, dadosSalvando: armazenamento().seguro, ...salas.estatisticas() });
   if (!rota.startsWith('/api/')) {
@@ -166,7 +189,7 @@ async function rotear(req, res) {
   let corpo = {};
   if (req.method === 'POST' || req.method === 'PUT') {
     try {
-      corpo = await lerCorpo(req);
+      corpo = await lerCorpo(req, rota === '/api/personagem/imagem' ? 6 * 1024 * 1024 : undefined);
     } catch (e) {
       return json(res, 400, { erro: e.message });
     }
@@ -200,7 +223,7 @@ async function rotear(req, res) {
   if (!conta) return json(res, 401, { erro: 'Entre na sua conta.' });
 
   if (req.method === 'GET' && rota === '/api/eu') {
-    return json(res, 200, { conta: contas.publica(conta), modelos: MODELOS, padrao: PADRAO });
+    return json(res, 200, { conta: contas.publica(conta), modelos: MODELOS, padrao: PADRAO, modos: MODOS, vozes: VOZES, estilosVoz: Object.fromEntries(Object.entries(ESTILOS_VOZ).map(([k, v]) => [k, v.rotulo])), cenarios: CENARIOS, ia: iaDisponivel() });
   }
 
   if (req.method === 'PUT' && rota === '/api/tiktok') {
@@ -213,7 +236,11 @@ async function rotear(req, res) {
   }
 
   if (req.method === 'PUT' && rota === '/api/config') {
-    conta.config = validarConfig(corpo.config);
+    // junta com o que já existe: o painel pode mandar só uma parte (ex.: só o personagem)
+    const atual = validarConfig(conta.config);
+    const novo = corpo.config && typeof corpo.config === 'object' ? corpo.config : {};
+    const personagem = { ...atual.personagem, ...(novo.personagem ?? {}), imagem: atual.personagem.imagem };
+    conta.config = validarConfig({ ...atual, ...novo, personagem });
     banco.gravarConta(conta);
     salas.existente(conta.id)?.atualizarConta(conta);
     return json(res, 200, { conta: contas.publica(conta) });
@@ -225,6 +252,45 @@ async function rotear(req, res) {
     // derruba telas abertas com o link antigo
     for (const c of salas.existente(conta.id)?.clientes ?? []) if (c.tipo === 'overlay' || c.tipo === 'previa') c.close(4001, 'link trocado');
     return json(res, 200, { conta: contas.publica(conta) });
+  }
+
+  if (req.method === 'POST' && rota === '/api/personagem/imagem') {
+    const atual = validarConfig(conta.config);
+    let imagem = '';
+    if (corpo.dataUrl) {
+      const m = String(corpo.dataUrl).match(/^data:image\/(png|jpeg|webp|gif);base64,([A-Za-z0-9+/=]+)$/);
+      if (!m) return json(res, 400, { erro: 'Envie uma imagem PNG, JPG, WEBP ou GIF.' });
+      const buf = Buffer.from(m[2], 'base64');
+      if (buf.length > 4 * 1024 * 1024) return json(res, 400, { erro: 'Imagem grande demais (máximo 4 MB).' });
+      const ext = { png: 'png', jpeg: 'jpg', webp: 'webp', gif: 'gif' }[m[1]];
+      const nome = `${conta.id}-${novoToken(6)}.${ext}`;
+      try {
+        fs.mkdirSync(PASTA_MIDIA, { recursive: true });
+        fs.writeFileSync(path.join(PASTA_MIDIA, nome), buf);
+      } catch (erro) {
+        return json(res, 500, { erro: `Não consegui salvar a imagem: ${erro.message}` });
+      }
+      imagem = `/m/${nome}`;
+    }
+    apagarMidia(atual.personagem.imagem);
+    conta.config = validarConfig({ ...atual, personagem: { ...atual.personagem, imagem } });
+    banco.gravarConta(conta);
+    salas.existente(conta.id)?.atualizarConta(conta);
+    return json(res, 200, { conta: contas.publica(conta) });
+  }
+
+  if (req.method === 'POST' && rota === '/api/personagem/ouvir') {
+    if (!iaDisponivel()) return json(res, 400, { erro: 'A voz com IA ainda não está ligada no site (falta a chave OPENAI_API_KEY).' });
+    const agora = Date.now();
+    if (agora - (ultimaAmostra.get(conta.id) ?? 0) < 3000) return json(res, 429, { erro: 'Espere uns segundinhos para ouvir de novo.' });
+    ultimaAmostra.set(conta.id, agora);
+    const p = validarConfig({ personagem: corpo.personagem }).personagem;
+    try {
+      const audio = await gerarVoz(p, `Oi, pessoal! Eu sou ${p.nome}, e essa é a minha voz. Me pergunte qualquer coisa no chat!`);
+      return json(res, 200, { audio: guardarAudio(audio) });
+    } catch (erro) {
+      return json(res, 502, { erro: `A voz não respondeu: ${erro.message}` });
+    }
   }
 
   if (rota.startsWith('/api/admin/')) return rotearAdmin(req, res, rota, conta, corpo);
@@ -250,6 +316,8 @@ function resumoConta(c) {
     sala: sala ? sala.infoConexao() : null,
     moedas: ranking.reduce((n, u) => n + (Number(u.moedas) || 0), 0),
     presenteadores: ranking.filter((u) => u.moedas > 0).length,
+    modoJogo: validarConfig(c.config).modo,
+    respostasIAHoje: banco.respostasIAHoje(c.id),
   };
 }
 
@@ -271,6 +339,7 @@ async function rotearAdmin(req, res, rota, admin, corpo) {
       maxLives: salas.maxLives,
       cadastroAberto: cadastroAberto(),
       euler: Boolean(process.env.EULER_API_KEY),
+      ia: iaDisponivel(),
       memoriaMb: Math.round(process.memoryUsage().rss / 1048576),
       noArDesde: new Date(INICIO).toISOString(),
       armazenamento: armazenamento(),
@@ -318,6 +387,7 @@ async function rotearAdmin(req, res, rota, admin, corpo) {
   if (req.method === 'DELETE' && !acao) {
     if (ehVoce) return json(res, 400, { erro: 'Você não pode excluir a própria conta.' });
     salas.encerrar(alvo.id);
+    apagarMidia(validarConfig(alvo.config).personagem.imagem);
     banco.apagarConta(alvo.id);
     return json(res, 200, { ok: true });
   }
@@ -359,7 +429,16 @@ servidor.on('upgrade', (req, socket, cabeca) => {
   wss.handleUpgrade(req, socket, cabeca, (ws) => {
     const sala = salas.obter(conta);
     sala.entrar(ws, tipo);
-    if (tipo !== 'painel') return;
+    if (tipo !== 'painel') {
+      // a tela do jogo só pode avisar que terminou de tocar uma fala
+      ws.on('message', (bruto) => {
+        try {
+          const msg = JSON.parse(bruto);
+          if (msg?.cmd === 'falaTerminou' && tipo === 'overlay') sala.atendente.falaTerminou(String(msg.id));
+        } catch {}
+      });
+      return;
+    }
     ws.on('message', (bruto) => {
       let msg;
       try {
@@ -369,7 +448,7 @@ servidor.on('upgrade', (req, socket, cabeca) => {
       }
       const r = sala.comando(msg);
       if (r?.erro) ws.send(JSON.stringify({ t: 'aviso', d: r.erro }));
-      sala.enviar({ t: 'estado', d: sala.jogo.estado() });
+      sala.enviar({ t: 'estado', d: sala.estado() });
     });
   });
 });
