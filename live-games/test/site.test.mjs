@@ -146,7 +146,13 @@ test('fluxo completo: conta, login, @, configuração, link da tela e tempo real
   painel.ws.send(JSON.stringify({ cmd: 'ligarTeste' }));
   painel.ws.send(JSON.stringify({ cmd: 'testar', tipo: 'presente', presente: 'Carro Esportivo' }));
   await esperar(600);
-  const estado = tela.msgs.filter((m) => m.t === 'estado').at(-1).d;
+  // o estado chega algumas vezes por segundo: espera o próximo, já com a resposta contada
+  let estado;
+  for (let i = 0; i < 20; i++) {
+    estado = tela.msgs.filter((m) => m.t === 'estado').at(-1).d;
+    if (estado.personagem?.usoHoje >= 1) break;
+    await esperar(100);
+  }
   assert.equal(estado.times.length, 2);
   assert.equal(estado.times[0].nome, 'MENINOS');
   assert.ok(estado.ranking[0].moedas >= 1000);
@@ -299,7 +305,13 @@ test('modo personagem: troca de modo, imagem do personagem e respostas na tela',
   assert.ok(fala, 'personagem respondeu');
   assert.equal(fala.audio, null);
   assert.ok(fala.resposta.length > 10);
-  const estado = tela.msgs.filter((m) => m.t === 'estado').at(-1).d;
+  // o estado chega algumas vezes por segundo: espera o próximo, já com a resposta contada
+  let estado;
+  for (let i = 0; i < 20; i++) {
+    estado = tela.msgs.filter((m) => m.t === 'estado').at(-1).d;
+    if (estado.personagem?.usoHoje >= 1) break;
+    await esperar(100);
+  }
   assert.equal(estado.modo, 'personagem');
   assert.equal(estado.personagem.nome, 'Zico');
   assert.ok(estado.personagem.usoHoje >= 1);
