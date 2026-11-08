@@ -143,27 +143,38 @@
         <!-- 4. Configuração -->
         <section class="card so-personagem" id="configPersonagem">
           <div class="cab"><h2>⚙️ Configurar personagem</h2></div>
-          <div class="pers-topo">
-            <div class="pers-img" id="persImg"><img id="persImgPrev" alt="Imagem do personagem" hidden><span id="persImgVazio">🤖<br>Nix<br><small>(padrão)</small></span></div>
-            <div class="pers-img-acoes">
-              <label>Imagem do personagem</label>
-              <div class="linha">
-                <label class="btn pequeno" for="persArquivo" style="margin:0">📤 Enviar imagem</label>
-                <input type="file" id="persArquivo" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
-                <button type="button" class="btn fantasma pequeno" id="persRemover">Usar o Nix</button>
-              </div>
-              <p class="ajuda">PNG com fundo transparente fica melhor. Use só personagens que são seus: desenhos e marcas famosas têm direitos autorais e podem derrubar sua live.</p>
-            </div>
-          </div>
           <form id="formPersonagem">
             <div class="grade-campos">
+              <div><label for="persPacote">Personagem</label><select id="persPacote"></select></div>
               <div><label for="persNome">Nome</label><input id="persNome" maxlength="24"></div>
               <div><label for="persCenario">Cenário</label><select id="persCenario"></select></div>
+              <div><label for="persPlaca">Texto da placa (vazio = sem placa)</label><input id="persPlaca" maxlength="60" placeholder="ME PERGUNTE QUALQUER COISA!"></div>
+            </div>
+
+            <div id="blocoProprio" class="bloco-midia" hidden>
+              <h3 class="sub-h">Seu personagem</h3>
+              <p class="ajuda">Envie <b>imagens</b> (PNG com fundo transparente, todas do mesmo tamanho e na mesma pose, mudando só a boca/olhos) <b>ou vídeos em loop</b> (MP4/WEBM, ele parado e ele falando). Use só personagens que são seus: desenhos e marcas famosas têm direitos autorais e podem derrubar a live.</p>
+              <div class="slots">
+                <div class="slot" data-campo="parado"><div class="slot-prev"></div><b>Parado (boca fechada)</b><small>imagem · obrigatória</small></div>
+                <div class="slot" data-campo="meio"><div class="slot-prev"></div><b>Boca meio aberta</b><small>imagem · opcional</small></div>
+                <div class="slot" data-campo="falando"><div class="slot-prev"></div><b>Boca aberta</b><small>imagem · recomendada</small></div>
+                <div class="slot" data-campo="piscando"><div class="slot-prev"></div><b>Olhos fechados</b><small>imagem · para piscar</small></div>
+                <div class="slot" data-campo="videoParado"><div class="slot-prev"></div><b>Vídeo parado</b><small>MP4/WEBM em loop</small></div>
+                <div class="slot" data-campo="videoFalando"><div class="slot-prev"></div><b>Vídeo falando</b><small>MP4/WEBM em loop</small></div>
+              </div>
+            </div>
+            <div id="blocoFundo" class="bloco-midia" hidden>
+              <h3 class="sub-h">Seu fundo</h3>
+              <div class="slots"><div class="slot" data-campo="fundo"><div class="slot-prev"></div><b>Fundo</b><small>imagem ou vídeo vertical</small></div></div>
+            </div>
+            <input type="file" id="persArquivo" hidden>
+
+            <div class="grade-campos" style="margin-top:14px">
               <div><label for="persVoz">Voz</label><select id="persVoz"></select></div>
               <div><label for="persEstilo">Jeito de falar</label><select id="persEstilo"></select></div>
             </div>
             <div class="linha" style="margin-top:12px"><button type="button" class="btn pequeno" id="persOuvir">🔊 Ouvir a voz</button></div>
-            <div class="campo" style="margin-top:14px"><label for="persPersonalidade">Personalidade (como ele fala e se comporta)</label><textarea id="persPersonalidade" rows="3" maxlength="400"></textarea></div>
+            <div class="campo" style="margin-top:14px"><label for="persPersonalidade">Personalidade (quem ele é, do que gosta, como fala)</label><textarea id="persPersonalidade" rows="3" maxlength="400"></textarea></div>
             <label>Presentes (a partir de quantas moedas)</label>
             <div class="grade-campos">
               <div><label for="persPrioridade">🌹 Responder primeiro</label><input id="persPrioridade" type="number" min="1"></div>

@@ -239,7 +239,7 @@ test('modo personagem: troca de modo, imagem do personagem e respostas na tela',
   const dono = cliente();
   await dono.req('POST', '/api/criar-conta', { nome: 'Pers', email: 'pers@exemplo.com', senha: 'senha123' });
   const eu = (await dono.req('GET', '/api/eu')).corpo;
-  assert.ok(eu.vozes.coral && eu.cenarios.neon && eu.modos.personagem);
+  assert.ok(eu.vozes.coral && eu.cenarios.praia && eu.modos.personagem && eu.pacotes.capi);
   assert.equal(eu.conta.config.modo, 'times');
   assert.match(await (await fetch(`${BASE}/o/${eu.conta.overlayToken}`)).text(), /jogo\.js/);
 
@@ -247,22 +247,42 @@ test('modo personagem: troca de modo, imagem do personagem e respostas na tela',
   let c = (await dono.req('PUT', '/api/config', { config: { modo: 'personagem' } })).corpo.conta.config;
   assert.equal(c.modo, 'personagem');
   assert.equal(c.times.length, 4);
-  c = (await dono.req('PUT', '/api/config', { config: { personagem: { nome: 'Zico', voz: 'nova', imagem: 'http://site-ruim.com/x.png' } } })).corpo.conta.config;
+  c = (await dono.req('PUT', '/api/config', { config: { personagem: { nome: 'Zico', voz: 'nova', midia: { parado: 'http://site-ruim.com/x.png' } } } })).corpo.conta.config;
   assert.equal(c.modo, 'personagem');
   assert.equal(c.personagem.nome, 'Zico');
-  assert.equal(c.personagem.imagem, '', 'imagem de fora não é aceita');
+  assert.equal(c.personagem.midia.parado, '', 'arquivo de fora não é aceito');
   assert.match(await (await fetch(`${BASE}/o/${eu.conta.overlayToken}`)).text(), /personagem\.js/);
 
-  // envio de imagem (PNG 1x1)
-  const png = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==';
-  assert.equal((await dono.req('POST', '/api/personagem/imagem', { dataUrl: 'data:image/svg+xml;base64,PHN2Zz4=' })).status, 400, 'SVG não (pode ter script)');
-  const img = (await dono.req('POST', '/api/personagem/imagem', { dataUrl: png })).corpo.conta.config.personagem.imagem;
-  assert.match(img, /^\/m\/[\w-]+\.png$/);
+  // envio de arquivos do personagem (imagem e vídeo), conferindo o tipo pelo conteúdo
+  const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', 'base64');
+  const mp4 = Buffer.concat([Buffer.from([0, 0, 0, 0x18]), Buffer.from('ftypmp42'), Buffer.alloc(64)]);
+  const enviar = (campo, corpo, extra = '') => fetch(`${BASE}/api/personagem/arquivo?campo=${campo}${extra}`, { method: 'POST', headers: { cookie: dono.cookie, origin: BASE, 'content-type': 'application/octet-stream' }, body: corpo });
+  assert.equal((await enviar('parado', Buffer.from('<svg onload=alert(1)></svg>'))).status, 400, 'SVG/HTML não passa');
+  assert.equal((await enviar('videoParado', png)).status, 400, 'imagem no lugar de vídeo não');
+  assert.equal((await enviar('outracoisa', png)).status, 400);
+  let p = (await (await enviar('parado', png)).json()).conta.config.personagem;
+  assert.match(p.midia.parado, /^\/m\/[\w-]+\.png$/);
+  assert.equal(p.pacote, 'proprio', 'enviar o personagem já passa a usar ele');
+  const img = p.midia.parado;
   const r = await fetch(BASE + img);
   assert.equal(r.status, 200);
   assert.equal(r.headers.get('content-type'), 'image/png');
-  assert.equal((await dono.req('POST', '/api/personagem/imagem', {})).corpo.conta.config.personagem.imagem, '');
-  assert.equal((await fetch(BASE + img)).status, 404, 'imagem antiga é apagada');
+  p = (await (await enviar('videoFalando', mp4)).json()).conta.config.personagem;
+  const vid = p.midia.videoFalando;
+  assert.match(vid, /\.mp4$/);
+  const parte = await fetch(BASE + vid, { headers: { range: 'bytes=0-9' } });
+  assert.equal(parte.status, 206, 'vídeo responde por pedaços');
+  assert.equal((await parte.arrayBuffer()).byteLength, 10);
+  p = (await (await enviar('fundo', png)).json()).conta.config.personagem;
+  assert.equal(p.cenario, 'proprio');
+  // salvar o resto do personagem não apaga os arquivos
+  p = (await dono.req('PUT', '/api/config', { config: { personagem: { nome: 'Zico', placa: 'LINK NA BIO', midia: { parado: '' } } } })).corpo.conta.config.personagem;
+  assert.equal(p.midia.parado, img);
+  assert.equal(p.placa, 'LINK NA BIO');
+  p = (await (await enviar('parado', '', '&remover=1')).json()).conta.config.personagem;
+  assert.equal(p.midia.parado, '');
+  await new Promise((r2) => setTimeout(r2, 100));
+  assert.equal((await fetch(BASE + img)).status, 404, 'arquivo removido é apagado');
 
   // pergunta do chat vira fala na tela (sem chave da OpenAI: resposta pronta + voz do navegador)
   const tela = await abrirWs(`ws://127.0.0.1:${PORTA}/ws?o=${eu.conta.overlayToken}`);

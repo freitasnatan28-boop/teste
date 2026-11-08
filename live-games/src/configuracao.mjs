@@ -55,22 +55,35 @@ export const VOZES = {
   onyx: 'Onyx (masculina, grave)',
 };
 export const ESTILOS_VOZ = {
-  animada: { rotulo: '🎉 Animada', instrucao: 'Voz de personagem de desenho animado: muito animada, alegre, expressiva e com energia alta. Fale em português do Brasil, num ritmo rápido e dinâmico, sem pausas longas.' },
-  engracada: { rotulo: '😂 Engraçada', instrucao: 'Voz cômica e exagerada de personagem de desenho, cheia de expressão e entonações divertidas. Fale em português do Brasil, num ritmo rápido e dinâmico, sem pausas longas.' },
-  fofa: { rotulo: '🥰 Fofa', instrucao: 'Voz fofa, doce e carinhosa, sorridente. Fale em português do Brasil, num ritmo rápido e dinâmico, sem pausas longas.' },
-  calma: { rotulo: '😌 Calma', instrucao: 'Voz calma, simpática e acolhedora. Fale em português do Brasil, num ritmo rápido e dinâmico, sem pausas longas.' },
-  robo: { rotulo: '🤖 Robô', instrucao: 'Voz de robô simpático, ritmada e levemente metálica, mas clara. Fale em português do Brasil, num ritmo rápido e dinâmico, sem pausas longas.' },
-  narrador: { rotulo: '🎬 Narrador', instrucao: 'Voz grave e épica de narrador de trailer, mas bem-humorada. Fale em português do Brasil, num ritmo rápido e dinâmico, sem pausas longas.' },
+  natural: { rotulo: '🙂 Natural', instrucao: 'Fale de forma natural e descontraída, como uma pessoa de verdade conversando com amigos numa live: emoção real, sorrindo na voz, ritmo dinâmico, sem soar como robô ou locutor. Português do Brasil.' },
+  animada: { rotulo: '🎉 Animada', instrucao: 'Voz de personagem de desenho animado: muito animada, alegre, expressiva e com energia alta, num ritmo rápido e dinâmico. Português do Brasil.' },
+  engracada: { rotulo: '😂 Engraçada', instrucao: 'Voz cômica e exagerada de personagem de desenho, cheia de expressão e entonações divertidas, ritmo rápido. Português do Brasil.' },
+  fofa: { rotulo: '🥰 Fofa', instrucao: 'Voz fofa, doce e carinhosa, sorridente, ritmo leve. Português do Brasil.' },
+  calma: { rotulo: '😌 Calma', instrucao: 'Voz calma, simpática e acolhedora, como um amigo tranquilo. Português do Brasil.' },
+  narrador: { rotulo: '🎬 Narrador', instrucao: 'Voz grave e épica de narrador de trailer, mas bem-humorada. Português do Brasil.' },
 };
-export const CENARIOS = { neon: '🟢 Arena neon', praia: '🏝️ Praia', espaco: '🚀 Espaço', quarto: '🎮 Quarto gamer', transparente: '🔲 Sem fundo (por cima da câmera)' };
+export const CENARIOS = {
+  praia: '🏝️ Quiosque na praia',
+  quarto: '🎮 Quarto gamer',
+  estudio: '🎤 Estúdio de TV',
+  transparente: '🔲 Sem fundo (por cima da câmera)',
+  proprio: '🖼️ Meu fundo (enviar imagem ou vídeo)',
+};
+export const PACOTES = { capi: '🦫 Capi, a capivara (pronto)', proprio: '📤 Meu personagem (enviar imagens ou vídeos)' };
+// arquivos que cada conta pode enviar para o personagem
+export const CAMPOS_MIDIA = ['parado', 'meio', 'falando', 'piscando', 'videoParado', 'videoFalando', 'fundo'];
+const MIDIA_VAZIA = Object.fromEntries(CAMPOS_MIDIA.map((c) => [c, '']));
+const URL_MIDIA = /^\/m\/[\w-]{1,80}\.(png|jpg|webp|gif|mp4|webm)$/;
 
 export const PADRAO_PERSONAGEM = {
-  nome: 'Nix',
-  personalidade: 'Mascote da ARENIX: um robozinho neon muito animado, engraçado e carinhoso, que ama games, música e conversar com o público da live.',
+  nome: 'Capi',
+  personalidade: 'Capi, uma capivara brasileira super gente boa, tranquila e engraçada. Ama praia, açaí, música e bater papo com a galera da live. Fala como um amigo de verdade, com gírias leves e muito carinho.',
   voz: 'coral',
-  estiloVoz: 'animada',
-  cenario: 'neon',
-  imagem: '',
+  estiloVoz: 'natural',
+  cenario: 'praia',
+  placa: 'ME PERGUNTE QUALQUER COISA!',
+  pacote: 'capi',
+  midia: MIDIA_VAZIA,
   presentes: { prioridadeMoedas: 1, salveMoedas: 5, fotoMoedas: 30 },
 };
 
@@ -134,8 +147,13 @@ export function validarConfig(entrada = {}) {
     voz: Object.hasOwn(VOZES, pe.voz) ? pe.voz : pp.voz,
     estiloVoz: Object.hasOwn(ESTILOS_VOZ, pe.estiloVoz) ? pe.estiloVoz : pp.estiloVoz,
     cenario: Object.hasOwn(CENARIOS, pe.cenario) ? pe.cenario : pp.cenario,
-    // só aceita imagem enviada para o próprio site (/m/...)
-    imagem: /^\/m\/[\w.-]{1,80}$/.test(String(pe.imagem ?? '')) ? pe.imagem : '',
+    placa: texto(pe.placa ?? pp.placa, 60, ''),
+    pacote: Object.hasOwn(PACOTES, pe.pacote) ? pe.pacote : pp.pacote,
+    // só aceita arquivos enviados para o próprio site (/m/...)
+    midia: Object.fromEntries(CAMPOS_MIDIA.map((c) => {
+      const v = String(pe.midia?.[c] ?? (c === 'parado' ? pe.imagem ?? '' : ''));
+      return [c, URL_MIDIA.test(v) ? v : ''];
+    })),
     presentes: {
       prioridadeMoedas: inteiro(pe.presentes?.prioridadeMoedas, 1, 1_000_000, pp.presentes.prioridadeMoedas),
       salveMoedas: salve,

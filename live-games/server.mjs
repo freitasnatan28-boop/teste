@@ -21,7 +21,7 @@ import { WebSocketServer } from 'ws';
 import { Banco } from './src/banco.mjs';
 import { Contas, COOKIE, novoToken } from './src/contas.mjs';
 import { Salas } from './src/salas.mjs';
-import { MODELOS, PADRAO, VOZES, ESTILOS_VOZ, CENARIOS, MODOS, validarConfig, validarUsuarioTikTok } from './src/configuracao.mjs';
+import { MODELOS, PADRAO, VOZES, ESTILOS_VOZ, CENARIOS, MODOS, PACOTES, CAMPOS_MIDIA, validarConfig, validarUsuarioTikTok } from './src/configuracao.mjs';
 import { obterAudio, guardarAudio } from './src/audios.mjs';
 import { iaDisponivel, gerarVoz } from './src/ia.mjs';
 
@@ -36,8 +36,9 @@ const HOST = process.env.HOST || (process.env.PORT ? '0.0.0.0' : '127.0.0.1');
 const banco = new Banco(path.join(DATA_DIR, 'banco.json'));
 const PASTA_MIDIA = path.join(DATA_DIR, 'midia');
 const ultimaAmostra = new Map();
+const URL_MIDIA = /^\/m\/[\w-]{1,80}\.(png|jpg|webp|gif|mp4|webm)$/;
 function apagarMidia(url) {
-  if (!/^\/m\/[\w-]{1,80}\.(png|jpg|webp|gif)$/.test(String(url))) return;
+  if (!URL_MIDIA.test(String(url))) return;
   fs.unlink(path.join(PASTA_MIDIA, url.slice(3)), () => {});
 }
 const contas = new Contas(banco, { emailsAdmin: String(process.env.ADMIN_EMAILS ?? '').split(',') });
@@ -60,7 +61,7 @@ const salas = new Salas({ banco, eulerApiKey: process.env.EULER_API_KEY || undef
 
 // ---------- utilidades HTTP ----------
 
-const TIPOS = { '.gif': 'image/gif', '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon' };
+const TIPOS = { '.mp4': 'video/mp4', '.webm': 'video/webm', '.gif': 'image/gif', '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon' };
 const SEGURANCA = { 'x-content-type-options': 'nosniff', 'referrer-policy': 'same-origin' };
 
 function json(res, status, corpo, extras = {}) {
@@ -105,6 +106,58 @@ function lerCorpo(req, limite = 64 * 1024) {
       }
     });
     req.on('error', reject);
+  });
+}
+
+function lerBinario(req, limite) {
+  return new Promise((resolve, reject) => {
+    let tamanho = 0;
+    const partes = [];
+    req.on('data', (p) => {
+      tamanho += p.length;
+      if (tamanho > limite) {
+        reject(new Error('grande'));
+        req.destroy();
+      } else partes.push(p);
+    });
+    req.on('end', () => resolve(Buffer.concat(partes)));
+    req.on('error', reject);
+  });
+}
+
+// descobre o tipo pelo conteúdo do arquivo (não confia no nome nem no que o navegador diz)
+function tipoDoArquivo(b) {
+  if (b.length < 12) return null;
+  if (b[0] === 0x89 && b.toString('ascii', 1, 4) === 'PNG') return 'png';
+  if (b[0] === 0xff && b[1] === 0xd8 && b[2] === 0xff) return 'jpg';
+  if (b.toString('ascii', 0, 4) === 'RIFF' && b.toString('ascii', 8, 12) === 'WEBP') return 'webp';
+  if (b.toString('ascii', 0, 4) === 'GIF8') return 'gif';
+  if (b.toString('ascii', 4, 8) === 'ftyp') return 'mp4';
+  if (b[0] === 0x1a && b[1] === 0x45 && b[2] === 0xdf && b[3] === 0xa3) return 'webm';
+  return null;
+}
+
+// entrega arquivos com suporte a pedaços (Range): vídeos tocam e repetem sem travar
+function servirMidia(req, res, caminho) {
+  fs.stat(caminho, (erro, info) => {
+    if (erro || !info.isFile()) return arquivo404(res);
+    const tipo = TIPOS[path.extname(caminho)] ?? 'application/octet-stream';
+    const base = { 'content-type': tipo, 'accept-ranges': 'bytes', 'cache-control': 'public, max-age=31536000, immutable', ...SEGURANCA };
+    const m = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range ?? '');
+    if (m && (m[1] || m[2])) {
+      let ini = m[1] ? Number(m[1]) : info.size - Number(m[2]);
+      let fim = m[1] && m[2] ? Number(m[2]) : info.size - 1;
+      ini = Math.max(0, ini);
+      fim = Math.min(fim, info.size - 1);
+      if (ini > fim) {
+        res.writeHead(416, { 'content-range': `bytes */${info.size}` });
+        return res.end();
+      }
+      res.writeHead(206, { ...base, 'content-range': `bytes ${ini}-${fim}/${info.size}`, 'content-length': fim - ini + 1 });
+      return fs.createReadStream(caminho, { start: ini, end: fim }).pipe(res);
+    }
+    res.writeHead(200, { ...base, 'content-length': info.size });
+    fs.createReadStream(caminho).pipe(res);
   });
 }
 
@@ -169,14 +222,8 @@ async function rotear(req, res) {
     res.writeHead(200, { 'content-type': 'audio/mpeg', 'content-length': audio.length, 'cache-control': 'private, max-age=600', ...SEGURANCA });
     return res.end(audio);
   }
-  // imagens enviadas pelos usuários (personagem)
-  if (req.method === 'GET' && /^\/m\/[\w-]{1,80}\.(png|jpg|webp|gif)$/.test(rota)) {
-    return fs.readFile(path.join(PASTA_MIDIA, rota.slice(3)), (erro, conteudo) => {
-      if (erro) return arquivo404(res);
-      res.writeHead(200, { 'content-type': TIPOS[path.extname(rota)] ?? 'image/png', 'cache-control': 'public, max-age=31536000, immutable', ...SEGURANCA });
-      res.end(conteudo);
-    });
-  }
+  // imagens e vídeos enviados pelos usuários (personagem e fundo)
+  if (req.method === 'GET' && URL_MIDIA.test(rota)) return servirMidia(req, res, path.join(PASTA_MIDIA, rota.slice(3)));
   if (req.method === 'GET' && rota === '/saude') return json(res, 200, { ok: true, dadosSalvando: armazenamento().seguro, ...salas.estatisticas() });
   if (!rota.startsWith('/api/')) {
     if (req.method !== 'GET' || rota.endsWith('.html')) return arquivo404(res);
@@ -189,7 +236,7 @@ async function rotear(req, res) {
   let corpo = {};
   if (req.method === 'POST' || req.method === 'PUT') {
     try {
-      corpo = await lerCorpo(req, rota === '/api/personagem/imagem' ? 6 * 1024 * 1024 : undefined);
+      if (rota !== '/api/personagem/arquivo') corpo = await lerCorpo(req);
     } catch (e) {
       return json(res, 400, { erro: e.message });
     }
@@ -223,7 +270,7 @@ async function rotear(req, res) {
   if (!conta) return json(res, 401, { erro: 'Entre na sua conta.' });
 
   if (req.method === 'GET' && rota === '/api/eu') {
-    return json(res, 200, { conta: contas.publica(conta), modelos: MODELOS, padrao: PADRAO, modos: MODOS, vozes: VOZES, estilosVoz: Object.fromEntries(Object.entries(ESTILOS_VOZ).map(([k, v]) => [k, v.rotulo])), cenarios: CENARIOS, ia: iaDisponivel() });
+    return json(res, 200, { conta: contas.publica(conta), modelos: MODELOS, padrao: PADRAO, modos: MODOS, vozes: VOZES, estilosVoz: Object.fromEntries(Object.entries(ESTILOS_VOZ).map(([k, v]) => [k, v.rotulo])), cenarios: CENARIOS, pacotes: PACOTES, ia: iaDisponivel() });
   }
 
   if (req.method === 'PUT' && rota === '/api/tiktok') {
@@ -239,7 +286,8 @@ async function rotear(req, res) {
     // junta com o que já existe: o painel pode mandar só uma parte (ex.: só o personagem)
     const atual = validarConfig(conta.config);
     const novo = corpo.config && typeof corpo.config === 'object' ? corpo.config : {};
-    const personagem = { ...atual.personagem, ...(novo.personagem ?? {}), imagem: atual.personagem.imagem };
+    // arquivos do personagem só mudam pelo envio de arquivo
+    const personagem = { ...atual.personagem, ...(novo.personagem ?? {}), midia: atual.personagem.midia };
     conta.config = validarConfig({ ...atual, ...novo, personagem });
     banco.gravarConta(conta);
     salas.existente(conta.id)?.atualizarConta(conta);
@@ -254,26 +302,38 @@ async function rotear(req, res) {
     return json(res, 200, { conta: contas.publica(conta) });
   }
 
-  if (req.method === 'POST' && rota === '/api/personagem/imagem') {
+  if (req.method === 'POST' && rota === '/api/personagem/arquivo') {
+    const campo = url.searchParams.get('campo');
+    if (!CAMPOS_MIDIA.includes(campo)) return json(res, 400, { erro: 'Campo de arquivo inválido.' });
     const atual = validarConfig(conta.config);
-    let imagem = '';
-    if (corpo.dataUrl) {
-      const m = String(corpo.dataUrl).match(/^data:image\/(png|jpeg|webp|gif);base64,([A-Za-z0-9+/=]+)$/);
-      if (!m) return json(res, 400, { erro: 'Envie uma imagem PNG, JPG, WEBP ou GIF.' });
-      const buf = Buffer.from(m[2], 'base64');
-      if (buf.length > 4 * 1024 * 1024) return json(res, 400, { erro: 'Imagem grande demais (máximo 4 MB).' });
-      const ext = { png: 'png', jpeg: 'jpg', webp: 'webp', gif: 'gif' }[m[1]];
-      const nome = `${conta.id}-${novoToken(6)}.${ext}`;
+    let novoUrl = '';
+    if (url.searchParams.get('remover') !== '1') {
+      const video = campo.startsWith('video');
+      const limite = video || campo === 'fundo' ? 40 * 1024 * 1024 : 8 * 1024 * 1024;
+      let buf;
+      try {
+        buf = await lerBinario(req, limite);
+      } catch (e) {
+        return json(res, 400, { erro: e.message === 'grande' ? `Arquivo grande demais (máximo ${limite / 1048576} MB).` : 'Não consegui receber o arquivo.' });
+      }
+      const ext = tipoDoArquivo(buf);
+      const aceitos = video ? ['mp4', 'webm'] : campo === 'fundo' ? ['png', 'jpg', 'webp', 'gif', 'mp4', 'webm'] : ['png', 'jpg', 'webp', 'gif'];
+      if (!ext || !aceitos.includes(ext)) return json(res, 400, { erro: video ? 'Envie um vídeo MP4 ou WEBM.' : campo === 'fundo' ? 'Envie uma imagem (PNG, JPG, WEBP, GIF) ou vídeo (MP4, WEBM).' : 'Envie uma imagem PNG, JPG, WEBP ou GIF.' });
+      const nome = `${conta.id}-${campo}-${novoToken(6)}.${ext}`;
       try {
         fs.mkdirSync(PASTA_MIDIA, { recursive: true });
         fs.writeFileSync(path.join(PASTA_MIDIA, nome), buf);
       } catch (erro) {
-        return json(res, 500, { erro: `Não consegui salvar a imagem: ${erro.message}` });
+        return json(res, 500, { erro: `Não consegui salvar o arquivo: ${erro.message}` });
       }
-      imagem = `/m/${nome}`;
+      novoUrl = `/m/${nome}`;
     }
-    apagarMidia(atual.personagem.imagem);
-    conta.config = validarConfig({ ...atual, personagem: { ...atual.personagem, imagem } });
+    apagarMidia(atual.personagem.midia[campo]);
+    const personagem = { ...atual.personagem, midia: { ...atual.personagem.midia, [campo]: novoUrl } };
+    // mandou o próprio personagem ou o próprio fundo: já passa a usar
+    if (novoUrl && campo !== 'fundo') personagem.pacote = 'proprio';
+    if (novoUrl && campo === 'fundo') personagem.cenario = 'proprio';
+    conta.config = validarConfig({ ...atual, personagem });
     banco.gravarConta(conta);
     salas.existente(conta.id)?.atualizarConta(conta);
     return json(res, 200, { conta: contas.publica(conta) });
@@ -387,7 +447,7 @@ async function rotearAdmin(req, res, rota, admin, corpo) {
   if (req.method === 'DELETE' && !acao) {
     if (ehVoce) return json(res, 400, { erro: 'Você não pode excluir a própria conta.' });
     salas.encerrar(alvo.id);
-    apagarMidia(validarConfig(alvo.config).personagem.imagem);
+    for (const url of Object.values(validarConfig(alvo.config).personagem.midia)) apagarMidia(url);
     banco.apagarConta(alvo.id);
     return json(res, 200, { ok: true });
   }

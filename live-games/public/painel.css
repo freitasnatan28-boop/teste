@@ -95,3 +95,14 @@ textarea { resize: vertical; font: 600 15px/1.45 var(--corpo); color: var(--text
 .pers-img small { color: var(--fraco); font-weight: 600; }
 .pers-img-acoes { min-width: 0; flex: 1; }
 @media (max-width: 600px) { .modos { grid-template-columns: 1fr; } .pers-topo { align-items: flex-start; } }
+
+.bloco-midia { margin-top: 10px; }
+.slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 10px; }
+.slot { border: 1px dashed var(--borda2); border-radius: 14px; padding: 10px; background: var(--bg2); cursor: pointer; display: flex; flex-direction: column; gap: 4px; text-align: center; transition: border-color 0.15s; }
+.slot:hover { border-color: var(--neon); }
+.slot b { font-size: 13px; }
+.slot small { color: var(--fraco); font-size: 12px; font-weight: 600; }
+.slot-prev { height: 110px; border-radius: 10px; background: repeating-conic-gradient(#1b2622 0 25%, #121b18 0 50%) 0 0 / 18px 18px; display: grid; place-items: center; overflow: hidden; color: var(--fraco); font-size: 28px; }
+.slot-prev img, .slot-prev video { width: 100%; height: 100%; object-fit: contain; }
+.slot .remover-slot { margin-top: 4px; }
+.slot.enviando { opacity: 0.6; pointer-events: none; }

@@ -98,5 +98,7 @@ test('prompt protege contra pedido malicioso e usa nome seguro', () => {
   assert.equal((p.match(/<\/mensagem>/g) ?? []).length, 1, 'não deixa fechar a mensagem antes da hora');
   assert.equal(primeiroNome('🔥xX_Dark.Lord_Xx🔥'), 'xX');
   assert.equal(primeiroNome('😂😂'), 'amigo');
+  assert.equal(primeiroNome('Rebeca1'), 'Rebeca');
+  assert.match(promptPedido({ tipo: 'agradecer', usuario: u('d', 'Duda1'), presente: { nome: 'Rosa', quantidade: 1 } }), /Duda .*o presente "Rosa"/);
   assert.equal(limparParaFala('Oi **você**! 😄 #live'), 'Oi você! live');
 });

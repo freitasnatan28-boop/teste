@@ -23,8 +23,10 @@ O primeiro jogo é a **Guerra de Times**. O público escolhe um time pelo chat, 
 O modo é escolhido no painel, em **Modo da live**. A tela do jogo troca sozinha.
 
 ### Personagem IA
-- O personagem padrão é o **Nix**, mascote original da ARENIX. Cada pessoa pode **enviar a imagem do próprio personagem** (PNG com fundo transparente fica melhor). Use só personagens próprios: personagens de desenhos e marcas famosas têm direitos autorais e podem derrubar a live.
-- Dá para escolher **nome, personalidade, voz, jeito de falar** (animada, engraçada, fofa, calma, robô, narrador) e **cenário** (arena neon, praia, espaço, quarto gamer ou sem fundo). O botão **Ouvir a voz** toca uma amostra.
+- Visual de **cena**: cenário ilustrado (quiosque na praia, quarto gamer, estúdio de TV, sem fundo ou um fundo próprio em imagem/vídeo), placa de madeira com texto à escolha e legenda grande com contorno.
+- O personagem padrão é a **Capi**, uma capivara original da ARENIX (imagens em `public/personagens/capi/`). Ela respira, balança, olha para os lados, pisca, troca a boca (fechada / meio aberta / aberta) conforme o volume da voz e comemora quando chega presente.
+- Cada pessoa pode usar **o próprio personagem**: imagens (parado, boca meio aberta, boca aberta, olhos fechados; PNG transparente, mesma pose) **ou vídeos em loop** (parado e falando, MP4/WEBM). Use só personagens próprios: personagens de desenhos e marcas famosas têm direitos autorais e podem derrubar a live.
+- Dá para escolher **nome, personalidade, voz, jeito de falar** (animada, engraçada, fofa, calma, robô, narrador) e **cenário**. O botão **Ouvir a voz** toca uma amostra.
 - A IA segue regras fixas: respostas curtas, nada sexual, ofensivo ou perigoso, nunca pede presente em troca de prêmio, e ignora quem tenta "mudar as regras" pelo chat.
 - O personagem só responde quando a live (ou o modo teste) está ligada **e** alguma tela do jogo está aberta. Assim não gasta IA à toa.
 - **Precisa da chave da OpenAI** (`OPENAI_API_KEY`) no Railway. Sem ela, o personagem usa respostas prontas e a voz do próprio navegador.

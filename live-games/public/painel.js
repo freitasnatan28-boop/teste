@@ -133,32 +133,58 @@
   // ---------- personagem ----------
   const opcoes = (obj) => Object.entries(obj ?? {}).map(([v, r]) => `<option value="${esc(v)}">${esc(r)}</option>`).join('');
   function montarPersonagem(j) {
+    $('persPacote').innerHTML = opcoes(j.pacotes);
     $('persVoz').innerHTML = opcoes(j.vozes);
     $('persEstilo').innerHTML = opcoes(j.estilosVoz);
     $('persCenario').innerHTML = opcoes(j.cenarios);
     $('iaAviso').hidden = Boolean(j.ia);
   }
   function preencherPersonagem(p) {
+    $('persPacote').value = p.pacote;
     $('persNome').value = p.nome;
     $('persCenario').value = p.cenario;
+    $('persPlaca').value = p.placa;
     $('persVoz').value = p.voz;
     $('persEstilo').value = p.estiloVoz;
     $('persPersonalidade').value = p.personalidade;
     $('persPrioridade').value = p.presentes.prioridadeMoedas;
     $('persSalve').value = p.presentes.salveMoedas;
     $('persFoto').value = p.presentes.fotoMoedas;
-    mostrarImagem(p.imagem);
+    mostrarMidia(p.midia);
+    mostrarBlocos();
   }
-  function mostrarImagem(url) {
-    $('persImgPrev').hidden = !url;
-    if (url) $('persImgPrev').src = url;
-    $('persImgVazio').hidden = Boolean(url);
-    $('persRemover').hidden = !url;
+  function mostrarBlocos() {
+    $('blocoProprio').hidden = $('persPacote').value !== 'proprio';
+    $('blocoFundo').hidden = $('persCenario').value !== 'proprio';
+  }
+  $('persPacote').onchange = mostrarBlocos;
+  $('persCenario').onchange = mostrarBlocos;
+
+  function mostrarMidia(midia) {
+    for (const slot of document.querySelectorAll('.slot[data-campo]')) {
+      const url = midia?.[slot.dataset.campo] ?? '';
+      const prev = slot.querySelector('.slot-prev');
+      const html = !url ? '＋' : /\.(mp4|webm)$/.test(url) ? `<video src="${esc(url)}" muted loop autoplay playsinline></video>` : `<img src="${esc(url)}" alt="">`;
+      if (prev.dataset.url !== url) {
+        prev.innerHTML = html;
+        prev.dataset.url = url;
+      }
+      let rem = slot.querySelector('.remover-slot');
+      if (url && !rem) {
+        rem = document.createElement('button');
+        rem.type = 'button';
+        rem.className = 'btn fantasma pequeno remover-slot';
+        rem.textContent = 'Remover';
+        slot.appendChild(rem);
+      } else if (!url && rem) rem.remove();
+    }
   }
   function lerPersonagem() {
     return {
+      pacote: $('persPacote').value,
       nome: $('persNome').value,
       cenario: $('persCenario').value,
+      placa: $('persPlaca').value,
       voz: $('persVoz').value,
       estiloVoz: $('persEstilo').value,
       personalidade: $('persPersonalidade').value,
@@ -193,52 +219,70 @@
       b.textContent = '🔊 Ouvir a voz';
     }
   };
-  // reduz a imagem antes de enviar (mantém fundo transparente; GIF animado vai como está)
-  function lerImagem(arquivo) {
-    return new Promise((resolve, reject) => {
-      const leitor = new FileReader();
-      leitor.onerror = () => reject(new Error('Não consegui ler a imagem.'));
-      leitor.onload = () => {
-        if (arquivo.type === 'image/gif') return resolve(leitor.result);
-        const img = new Image();
-        img.onerror = () => reject(new Error('Arquivo de imagem inválido.'));
-        img.onload = () => {
-          const escala = Math.min(1, 1100 / Math.max(img.width, img.height));
-          const c = document.createElement('canvas');
-          c.width = Math.round(img.width * escala);
-          c.height = Math.round(img.height * escala);
-          c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
-          resolve(c.toDataURL('image/webp', 0.9));
-        };
-        img.src = leitor.result;
+
+  // ---------- envio de imagens e vídeos ----------
+  // imagens grandes são reduzidas (mantendo a transparência); GIF e vídeo vão como estão
+  function prepararArquivo(arquivo) {
+    if (!/^image\/(png|jpeg|webp)$/.test(arquivo.type)) return Promise.resolve(arquivo);
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onerror = () => resolve(arquivo);
+      img.onload = () => {
+        const escala = Math.min(1, 1400 / Math.max(img.width, img.height));
+        if (escala === 1 && arquivo.size < 3 * 1024 * 1024) return resolve(arquivo);
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.width * escala);
+        c.height = Math.round(img.height * escala);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        c.toBlob((b) => resolve(b ?? arquivo), 'image/webp', 0.9);
       };
-      leitor.readAsDataURL(arquivo);
+      img.src = URL.createObjectURL(arquivo);
     });
   }
+  async function enviarArquivo(campo, arquivo) {
+    const r = await fetch(`/api/personagem/arquivo?campo=${campo}${arquivo ? '' : '&remover=1'}`, { method: 'POST', headers: { 'content-type': arquivo?.type || 'application/octet-stream' }, body: arquivo ?? '' });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.erro || 'Não deu certo enviar o arquivo.');
+    return j;
+  }
+  let campoEscolhido = null;
+  document.addEventListener('click', async (ev) => {
+    const slot = ev.target.closest('.slot[data-campo]');
+    if (!slot) return;
+    const campo = slot.dataset.campo;
+    if (ev.target.closest('.remover-slot')) {
+      try {
+        const j = await enviarArquivo(campo, null);
+        aplicarConta(j.conta);
+        preencherPersonagem(j.conta.config.personagem);
+        avisar('Arquivo removido.');
+      } catch (e) {
+        avisar(e.message);
+      }
+      return;
+    }
+    campoEscolhido = campo;
+    const video = campo.startsWith('video');
+    $('persArquivo').accept = video ? 'video/mp4,video/webm' : campo === 'fundo' ? 'image/*,video/mp4,video/webm' : 'image/png,image/jpeg,image/webp,image/gif';
+    $('persArquivo').click();
+  });
   $('persArquivo').onchange = async () => {
     const arquivo = $('persArquivo').files[0];
     $('persArquivo').value = '';
-    if (!arquivo) return;
-    if (arquivo.size > 8 * 1024 * 1024) return avisar('Imagem grande demais (máximo 8 MB).');
+    const campo = campoEscolhido;
+    if (!arquivo || !campo) return;
+    const slot = document.querySelector(`.slot[data-campo="${campo}"]`);
+    slot?.classList.add('enviando');
     try {
-      avisar('Enviando imagem…');
-      const dataUrl = await lerImagem(arquivo);
-      const j = await api('POST', '/api/personagem/imagem', { dataUrl });
+      avisar('Enviando…');
+      const j = await enviarArquivo(campo, await prepararArquivo(arquivo));
       aplicarConta(j.conta);
-      mostrarImagem(j.conta.config.personagem.imagem);
-      avisar('Imagem do personagem atualizada!');
+      preencherPersonagem(j.conta.config.personagem);
+      avisar('Pronto! Já aparece na tela do jogo.');
     } catch (e) {
       avisar(e.message);
-    }
-  };
-  $('persRemover').onclick = async () => {
-    try {
-      const j = await api('POST', '/api/personagem/imagem', {});
-      aplicarConta(j.conta);
-      mostrarImagem('');
-      avisar('Voltou para o Nix.');
-    } catch (e) {
-      avisar(e.message);
+    } finally {
+      slot?.classList.remove('enviando');
     }
   };
   $('formPergunta').onsubmit = (ev) => {
