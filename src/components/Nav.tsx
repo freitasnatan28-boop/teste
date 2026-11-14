@@ -5,6 +5,7 @@ const ITENS = [
   { href: "/adicionar", rotulo: "Adicionar", icone: "➕" },
   { href: "/whatsapp", rotulo: "WhatsApp", icone: "💬" },
   { href: "/piloto", rotulo: "Piloto", icone: "🤖" },
+  { href: "/story-akte", rotulo: "Story Akte", icone: "🎬" },
   { href: "/configuracoes", rotulo: "Config.", icone: "⚙️" },
 ];
 
