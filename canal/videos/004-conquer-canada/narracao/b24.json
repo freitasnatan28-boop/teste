@@ -1,0 +1,188 @@
+{
+ "id": "b24",
+ "capitulo": "War Plan Red",
+ "visual": "Canada's own plan: arrows south to Seattle, Detroit, Albany. \"1921\" Buster Brown.",
+ "texto": "And Canada had a plan too. In 1921, a Canadian officer named James Sutherland Brown wrote Defence Scheme Number One: a surprise attack on American cities like Seattle, Detroit and Albany, to slow the Americans down.",
+ "palavras": [
+  {
+   "texto": "And",
+   "inicio": 0.375,
+   "fim": 0.537
+  },
+  {
+   "texto": "Canada",
+   "inicio": 0.537,
+   "fim": 1.0
+  },
+  {
+   "texto": "had",
+   "inicio": 1.0,
+   "fim": 1.137
+  },
+  {
+   "texto": "a",
+   "inicio": 1.137,
+   "fim": 1.212
+  },
+  {
+   "texto": "plan",
+   "inicio": 1.212,
+   "fim": 1.65
+  },
+  {
+   "texto": "too.",
+   "inicio": 1.65,
+   "fim": 2.375
+  },
+  {
+   "texto": "In",
+   "inicio": 2.562,
+   "fim": 2.7
+  },
+  {
+   "texto": "1921,",
+   "inicio": 2.7,
+   "fim": 4.1
+  },
+  {
+   "texto": "a",
+   "inicio": 4.213,
+   "fim": 4.325
+  },
+  {
+   "texto": "Canadian",
+   "inicio": 4.325,
+   "fim": 4.925
+  },
+  {
+   "texto": "officer",
+   "inicio": 4.925,
+   "fim": 5.5
+  },
+  {
+   "texto": "named",
+   "inicio": 5.5,
+   "fim": 5.825
+  },
+  {
+   "texto": "James",
+   "inicio": 5.825,
+   "fim": 6.275
+  },
+  {
+   "texto": "Sutherland",
+   "inicio": 6.275,
+   "fim": 6.912
+  },
+  {
+   "texto": "Brown",
+   "inicio": 6.912,
+   "fim": 7.338
+  },
+  {
+   "texto": "wrote",
+   "inicio": 7.338,
+   "fim": 7.65
+  },
+  {
+   "texto": "Defence",
+   "inicio": 7.65,
+   "fim": 8.137
+  },
+  {
+   "texto": "Scheme",
+   "inicio": 8.137,
+   "fim": 8.55
+  },
+  {
+   "texto": "Number",
+   "inicio": 8.55,
+   "fim": 8.863
+  },
+  {
+   "texto": "One:",
+   "inicio": 8.863,
+   "fim": 9.625
+  },
+  {
+   "texto": "a",
+   "inicio": 9.762,
+   "fim": 9.875
+  },
+  {
+   "texto": "surprise",
+   "inicio": 9.875,
+   "fim": 10.5
+  },
+  {
+   "texto": "attack",
+   "inicio": 10.5,
+   "fim": 10.938
+  },
+  {
+   "texto": "on",
+   "inicio": 10.938,
+   "fim": 11.075
+  },
+  {
+   "texto": "American",
+   "inicio": 11.075,
+   "fim": 11.65
+  },
+  {
+   "texto": "cities",
+   "inicio": 11.65,
+   "fim": 12.1
+  },
+  {
+   "texto": "like",
+   "inicio": 12.1,
+   "fim": 12.35
+  },
+  {
+   "texto": "Seattle,",
+   "inicio": 12.35,
+   "fim": 13.025
+  },
+  {
+   "texto": "Detroit",
+   "inicio": 13.1,
+   "fim": 13.7
+  },
+  {
+   "texto": "and",
+   "inicio": 13.7,
+   "fim": 13.875
+  },
+  {
+   "texto": "Albany,",
+   "inicio": 13.875,
+   "fim": 14.675
+  },
+  {
+   "texto": "to",
+   "inicio": 14.8,
+   "fim": 14.95
+  },
+  {
+   "texto": "slow",
+   "inicio": 14.95,
+   "fim": 15.35
+  },
+  {
+   "texto": "the",
+   "inicio": 15.35,
+   "fim": 15.5
+  },
+  {
+   "texto": "Americans",
+   "inicio": 15.5,
+   "fim": 16.163
+  },
+  {
+   "texto": "down.",
+   "inicio": 16.163,
+   "fim": 16.95
+  }
+ ]
+}

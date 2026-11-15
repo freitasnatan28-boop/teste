@@ -1,0 +1,143 @@
+{
+ "id": "b16",
+ "capitulo": "The Overthrow",
+ "visual": "\"1891\". Queen Liliuokalani portrait. Iolani Palace photo.",
+ "texto": "In 1891, Kalakaua died, and his sister became queen. Her name was Liliuokalani. She wanted to restore power to the monarchy and the vote to her people.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0.4,
+   "fim": 0.5
+  },
+  {
+   "texto": "1891,",
+   "inicio": 0.5,
+   "fim": 1.8
+  },
+  {
+   "texto": "Kalakaua",
+   "inicio": 1.913,
+   "fim": 2.487
+  },
+  {
+   "texto": "died,",
+   "inicio": 2.487,
+   "fim": 3.225
+  },
+  {
+   "texto": "and",
+   "inicio": 3.325,
+   "fim": 3.438
+  },
+  {
+   "texto": "his",
+   "inicio": 3.438,
+   "fim": 3.587
+  },
+  {
+   "texto": "sister",
+   "inicio": 3.587,
+   "fim": 4.0
+  },
+  {
+   "texto": "became",
+   "inicio": 4.0,
+   "fim": 4.45
+  },
+  {
+   "texto": "queen.",
+   "inicio": 4.45,
+   "fim": 5.375
+  },
+  {
+   "texto": "Her",
+   "inicio": 5.537,
+   "fim": 5.725
+  },
+  {
+   "texto": "name",
+   "inicio": 5.725,
+   "fim": 6.125
+  },
+  {
+   "texto": "was",
+   "inicio": 6.125,
+   "fim": 6.338
+  },
+  {
+   "texto": "Liliuokalani.",
+   "inicio": 6.338,
+   "fim": 7.875
+  },
+  {
+   "texto": "She",
+   "inicio": 8.012,
+   "fim": 8.15
+  },
+  {
+   "texto": "wanted",
+   "inicio": 8.15,
+   "fim": 8.45
+  },
+  {
+   "texto": "to",
+   "inicio": 8.45,
+   "fim": 8.575
+  },
+  {
+   "texto": "restore",
+   "inicio": 8.575,
+   "fim": 9.088
+  },
+  {
+   "texto": "power",
+   "inicio": 9.088,
+   "fim": 9.525
+  },
+  {
+   "texto": "to",
+   "inicio": 9.525,
+   "fim": 9.625
+  },
+  {
+   "texto": "the",
+   "inicio": 9.625,
+   "fim": 9.762
+  },
+  {
+   "texto": "monarchy",
+   "inicio": 9.762,
+   "fim": 10.387
+  },
+  {
+   "texto": "and",
+   "inicio": 10.387,
+   "fim": 10.512
+  },
+  {
+   "texto": "the",
+   "inicio": 10.512,
+   "fim": 10.637
+  },
+  {
+   "texto": "vote",
+   "inicio": 10.637,
+   "fim": 10.95
+  },
+  {
+   "texto": "to",
+   "inicio": 10.95,
+   "fim": 11.062
+  },
+  {
+   "texto": "her",
+   "inicio": 11.062,
+   "fim": 11.2
+  },
+  {
+   "texto": "people.",
+   "inicio": 11.2,
+   "fim": 11.975
+  }
+ ]
+}

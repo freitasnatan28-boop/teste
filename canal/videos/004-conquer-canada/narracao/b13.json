@@ -1,0 +1,133 @@
+{
+ "id": "b13",
+ "capitulo": "A Mere Matter of Marching",
+ "visual": "Detroit. Surrender stamp. Arrows pushed back.",
+ "texto": "It was not. Two months later, an American general surrendered the entire city of Detroit without a fight. Attack after attack along the border failed.",
+ "palavras": [
+  {
+   "texto": "It",
+   "inicio": 0.35,
+   "fim": 0.463
+  },
+  {
+   "texto": "was",
+   "inicio": 0.463,
+   "fim": 0.637
+  },
+  {
+   "texto": "not.",
+   "inicio": 0.637,
+   "fim": 1.375
+  },
+  {
+   "texto": "Two",
+   "inicio": 1.525,
+   "fim": 1.75
+  },
+  {
+   "texto": "months",
+   "inicio": 1.75,
+   "fim": 2.075
+  },
+  {
+   "texto": "later,",
+   "inicio": 2.075,
+   "fim": 2.575
+  },
+  {
+   "texto": "an",
+   "inicio": 2.65,
+   "fim": 2.75
+  },
+  {
+   "texto": "American",
+   "inicio": 2.75,
+   "fim": 3.325
+  },
+  {
+   "texto": "general",
+   "inicio": 3.325,
+   "fim": 3.837
+  },
+  {
+   "texto": "surrendered",
+   "inicio": 3.837,
+   "fim": 4.4
+  },
+  {
+   "texto": "the",
+   "inicio": 4.4,
+   "fim": 4.55
+  },
+  {
+   "texto": "entire",
+   "inicio": 4.55,
+   "fim": 5.175
+  },
+  {
+   "texto": "city",
+   "inicio": 5.175,
+   "fim": 5.525
+  },
+  {
+   "texto": "of",
+   "inicio": 5.525,
+   "fim": 5.65
+  },
+  {
+   "texto": "Detroit",
+   "inicio": 5.65,
+   "fim": 6.275
+  },
+  {
+   "texto": "without",
+   "inicio": 6.275,
+   "fim": 6.588
+  },
+  {
+   "texto": "a",
+   "inicio": 6.588,
+   "fim": 6.7
+  },
+  {
+   "texto": "fight.",
+   "inicio": 6.7,
+   "fim": 7.45
+  },
+  {
+   "texto": "Attack",
+   "inicio": 7.6,
+   "fim": 8.088
+  },
+  {
+   "texto": "after",
+   "inicio": 8.088,
+   "fim": 8.45
+  },
+  {
+   "texto": "attack",
+   "inicio": 8.45,
+   "fim": 8.9
+  },
+  {
+   "texto": "along",
+   "inicio": 8.9,
+   "fim": 9.287
+  },
+  {
+   "texto": "the",
+   "inicio": 9.287,
+   "fim": 9.387
+  },
+  {
+   "texto": "border",
+   "inicio": 9.387,
+   "fim": 9.787
+  },
+  {
+   "texto": "failed.",
+   "inicio": 9.787,
+   "fim": 10.6
+  }
+ ]
+}

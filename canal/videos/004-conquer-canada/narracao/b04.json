@@ -1,0 +1,168 @@
+{
+ "id": "b04",
+ "capitulo": "The 51st State",
+ "visual": "Title over the map. Swords icon on the border.",
+ "texto": "But here is what most Americans never learned in school. The United States has tried to take Canada before. More than once. With real armies. And every single time, it went badly.",
+ "palavras": [
+  {
+   "texto": "But",
+   "inicio": 0.35,
+   "fim": 0.487
+  },
+  {
+   "texto": "here",
+   "inicio": 0.487,
+   "fim": 0.875
+  },
+  {
+   "texto": "is",
+   "inicio": 0.875,
+   "fim": 1.025
+  },
+  {
+   "texto": "what",
+   "inicio": 1.025,
+   "fim": 1.25
+  },
+  {
+   "texto": "most",
+   "inicio": 1.25,
+   "fim": 1.55
+  },
+  {
+   "texto": "Americans",
+   "inicio": 1.55,
+   "fim": 2.312
+  },
+  {
+   "texto": "never",
+   "inicio": 2.312,
+   "fim": 2.638
+  },
+  {
+   "texto": "learned",
+   "inicio": 2.638,
+   "fim": 3.025
+  },
+  {
+   "texto": "in",
+   "inicio": 3.025,
+   "fim": 3.188
+  },
+  {
+   "texto": "school.",
+   "inicio": 3.188,
+   "fim": 4.075
+  },
+  {
+   "texto": "The",
+   "inicio": 4.213,
+   "fim": 4.325
+  },
+  {
+   "texto": "United",
+   "inicio": 4.325,
+   "fim": 4.787
+  },
+  {
+   "texto": "States",
+   "inicio": 4.787,
+   "fim": 5.213
+  },
+  {
+   "texto": "has",
+   "inicio": 5.213,
+   "fim": 5.4
+  },
+  {
+   "texto": "tried",
+   "inicio": 5.4,
+   "fim": 5.662
+  },
+  {
+   "texto": "to",
+   "inicio": 5.662,
+   "fim": 5.75
+  },
+  {
+   "texto": "take",
+   "inicio": 5.75,
+   "fim": 6.013
+  },
+  {
+   "texto": "Canada",
+   "inicio": 6.013,
+   "fim": 6.45
+  },
+  {
+   "texto": "before.",
+   "inicio": 6.45,
+   "fim": 7.275
+  },
+  {
+   "texto": "More",
+   "inicio": 7.412,
+   "fim": 7.65
+  },
+  {
+   "texto": "than",
+   "inicio": 7.65,
+   "fim": 7.838
+  },
+  {
+   "texto": "once.",
+   "inicio": 7.838,
+   "fim": 8.6
+  },
+  {
+   "texto": "With",
+   "inicio": 8.725,
+   "fim": 8.963
+  },
+  {
+   "texto": "real",
+   "inicio": 8.963,
+   "fim": 9.375
+  },
+  {
+   "texto": "armies.",
+   "inicio": 9.375,
+   "fim": 10.225
+  },
+  {
+   "texto": "And",
+   "inicio": 10.325,
+   "fim": 10.488
+  },
+  {
+   "texto": "every",
+   "inicio": 10.488,
+   "fim": 10.863
+  },
+  {
+   "texto": "single",
+   "inicio": 10.863,
+   "fim": 11.312
+  },
+  {
+   "texto": "time,",
+   "inicio": 11.312,
+   "fim": 11.75
+  },
+  {
+   "texto": "it",
+   "inicio": 11.8,
+   "fim": 11.925
+  },
+  {
+   "texto": "went",
+   "inicio": 11.925,
+   "fim": 12.188
+  },
+  {
+   "texto": "badly.",
+   "inicio": 12.188,
+   "fim": 13.075
+  }
+ ]
+}

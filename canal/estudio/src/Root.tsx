@@ -1,6 +1,6 @@
 import React from "react";
 import { CalculateMetadataFunction, Composition, staticFile, Still } from "remotion";
-import { Avatar, AvatarEN, Banner, BannerEN, MarcaDaguaEN, ThumbGreenland, ThumbLagosta, ThumbPanama } from "./Identidade";
+import { Avatar, AvatarEN, Banner, BannerEN, MarcaDaguaEN, ThumbGreenland, ThumbLagosta, ThumbModelo, ThumbPanama } from "./Identidade";
 import type { Timeline } from "./tipos";
 import { Video } from "./Video";
 
@@ -29,6 +29,8 @@ export const Root: React.FC = () => (
     <Still id="Avatar-EN" component={AvatarEN} width={800} height={800} />
     <Still id="Banner-EN" component={BannerEN} width={2560} height={1440} />
     <Still id="MarcaDagua-EN" component={MarcaDaguaEN} width={150} height={150} />
+    <Still id="Thumb-004" component={ThumbModelo} width={1280} height={720} defaultProps={{ pasta: "videos/004-conquer-canada", linhas: [{ t: "INVADE" }, { t: "CANADA?", cor: "#ffd400" }], carimbo: "SECRET\nWAR PLAN", de: "USA", para: "CAN", retrato: "trump", fala: "THE", falaDestaque: "51ST STATE!" }} />
+    <Still id="Thumb-005" component={ThumbModelo} width={1280} height={720} defaultProps={{ pasta: "videos/005-taking-hawaii", linhas: [{ t: "STOLEN" }, { t: "KINGDOM?", cor: "#ffd400" }], carimbo: "OVERTHROWN\n1893", de: "HAW", para: "USA", retrato: "liliuokalani", fala: "THE LAST", falaDestaque: "QUEEN" }} />
     <Still id="Thumb-003" component={ThumbPanama} width={1280} height={720} defaultProps={{ pasta: "videos/003-panama-canal" }} />
     <Still id="Thumb-002" component={ThumbGreenland} width={1280} height={720} defaultProps={{ pasta: "videos/002-buying-greenland" }} />
     <Still id="Thumb-001" component={ThumbLagosta} width={1280} height={720} defaultProps={{ pasta: "videos/001-guerra-da-lagosta" }} />

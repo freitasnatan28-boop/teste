@@ -1,0 +1,173 @@
+{
+ "id": "b19",
+ "capitulo": "Fifty-Four Forty or Fight",
+ "visual": "Line moves down to the 49th parallel. Treaty 1846.",
+ "texto": "But President Polk was already heading for war with Mexico. So in 1846 he signed a compromise with Britain, and the border was drawn along the forty-ninth parallel, where it still runs today.",
+ "palavras": [
+  {
+   "texto": "But",
+   "inicio": 0.35,
+   "fim": 0.487
+  },
+  {
+   "texto": "President",
+   "inicio": 0.487,
+   "fim": 1.012
+  },
+  {
+   "texto": "Polk",
+   "inicio": 1.012,
+   "fim": 1.4
+  },
+  {
+   "texto": "was",
+   "inicio": 1.4,
+   "fim": 1.587
+  },
+  {
+   "texto": "already",
+   "inicio": 1.587,
+   "fim": 2.013
+  },
+  {
+   "texto": "heading",
+   "inicio": 2.013,
+   "fim": 2.375
+  },
+  {
+   "texto": "for",
+   "inicio": 2.375,
+   "fim": 2.55
+  },
+  {
+   "texto": "war",
+   "inicio": 2.55,
+   "fim": 2.925
+  },
+  {
+   "texto": "with",
+   "inicio": 2.925,
+   "fim": 3.1
+  },
+  {
+   "texto": "Mexico.",
+   "inicio": 3.1,
+   "fim": 4.125
+  },
+  {
+   "texto": "So",
+   "inicio": 4.325,
+   "fim": 4.6
+  },
+  {
+   "texto": "in",
+   "inicio": 4.6,
+   "fim": 4.75
+  },
+  {
+   "texto": "1846",
+   "inicio": 4.75,
+   "fim": 6.263
+  },
+  {
+   "texto": "he",
+   "inicio": 6.263,
+   "fim": 6.438
+  },
+  {
+   "texto": "signed",
+   "inicio": 6.438,
+   "fim": 6.737
+  },
+  {
+   "texto": "a",
+   "inicio": 6.737,
+   "fim": 6.812
+  },
+  {
+   "texto": "compromise",
+   "inicio": 6.812,
+   "fim": 7.5
+  },
+  {
+   "texto": "with",
+   "inicio": 7.5,
+   "fim": 7.688
+  },
+  {
+   "texto": "Britain,",
+   "inicio": 7.688,
+   "fim": 8.45
+  },
+  {
+   "texto": "and",
+   "inicio": 8.588,
+   "fim": 8.713
+  },
+  {
+   "texto": "the",
+   "inicio": 8.713,
+   "fim": 8.812
+  },
+  {
+   "texto": "border",
+   "inicio": 8.812,
+   "fim": 9.25
+  },
+  {
+   "texto": "was",
+   "inicio": 9.25,
+   "fim": 9.438
+  },
+  {
+   "texto": "drawn",
+   "inicio": 9.438,
+   "fim": 9.925
+  },
+  {
+   "texto": "along",
+   "inicio": 9.925,
+   "fim": 10.275
+  },
+  {
+   "texto": "the",
+   "inicio": 10.275,
+   "fim": 10.438
+  },
+  {
+   "texto": "forty-ninth",
+   "inicio": 10.438,
+   "fim": 11.188
+  },
+  {
+   "texto": "parallel,",
+   "inicio": 11.188,
+   "fim": 12.05
+  },
+  {
+   "texto": "where",
+   "inicio": 12.15,
+   "fim": 12.35
+  },
+  {
+   "texto": "it",
+   "inicio": 12.35,
+   "fim": 12.512
+  },
+  {
+   "texto": "still",
+   "inicio": 12.512,
+   "fim": 12.912
+  },
+  {
+   "texto": "runs",
+   "inicio": 12.912,
+   "fim": 13.325
+  },
+  {
+   "texto": "today.",
+   "inicio": 13.325,
+   "fim": 14.125
+  }
+ ]
+}

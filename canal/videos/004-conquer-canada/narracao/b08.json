@@ -1,0 +1,113 @@
+{
+ "id": "b08",
+ "capitulo": "The Fourteenth Colony",
+ "visual": "Arnold portrait. Stamp \"TRAITOR\".",
+ "texto": "And Benedict Arnold? A few years later, he switched sides and joined the British. In America, his name still means traitor.",
+ "palavras": [
+  {
+   "texto": "And",
+   "inicio": 0.375,
+   "fim": 0.537
+  },
+  {
+   "texto": "Benedict",
+   "inicio": 0.537,
+   "fim": 1.113
+  },
+  {
+   "texto": "Arnold?",
+   "inicio": 1.113,
+   "fim": 1.9
+  },
+  {
+   "texto": "A",
+   "inicio": 2.038,
+   "fim": 2.163
+  },
+  {
+   "texto": "few",
+   "inicio": 2.163,
+   "fim": 2.4
+  },
+  {
+   "texto": "years",
+   "inicio": 2.4,
+   "fim": 2.7
+  },
+  {
+   "texto": "later,",
+   "inicio": 2.7,
+   "fim": 3.075
+  },
+  {
+   "texto": "he",
+   "inicio": 3.125,
+   "fim": 3.3
+  },
+  {
+   "texto": "switched",
+   "inicio": 3.3,
+   "fim": 3.75
+  },
+  {
+   "texto": "sides",
+   "inicio": 3.75,
+   "fim": 4.3
+  },
+  {
+   "texto": "and",
+   "inicio": 4.3,
+   "fim": 4.438
+  },
+  {
+   "texto": "joined",
+   "inicio": 4.438,
+   "fim": 4.787
+  },
+  {
+   "texto": "the",
+   "inicio": 4.787,
+   "fim": 4.875
+  },
+  {
+   "texto": "British.",
+   "inicio": 4.875,
+   "fim": 5.725
+  },
+  {
+   "texto": "In",
+   "inicio": 5.862,
+   "fim": 6.0
+  },
+  {
+   "texto": "America,",
+   "inicio": 6.0,
+   "fim": 6.65
+  },
+  {
+   "texto": "his",
+   "inicio": 6.725,
+   "fim": 6.925
+  },
+  {
+   "texto": "name",
+   "inicio": 6.925,
+   "fim": 7.287
+  },
+  {
+   "texto": "still",
+   "inicio": 7.287,
+   "fim": 7.575
+  },
+  {
+   "texto": "means",
+   "inicio": 7.575,
+   "fim": 7.888
+  },
+  {
+   "texto": "traitor.",
+   "inicio": 7.888,
+   "fim": 8.725
+  }
+ ]
+}

@@ -1,0 +1,163 @@
+{
+ "id": "b34",
+ "capitulo": "Encerramento",
+ "visual": "Pull back to the globe. End card.",
+ "texto": "If you want to see the other places on America's list, watch our videos on Greenland and the Panama Canal. And subscribe, so you don't miss what's behind the next map.",
+ "palavras": [
+  {
+   "texto": "If",
+   "inicio": 0.35,
+   "fim": 0.525
+  },
+  {
+   "texto": "you",
+   "inicio": 0.525,
+   "fim": 0.65
+  },
+  {
+   "texto": "want",
+   "inicio": 0.65,
+   "fim": 0.838
+  },
+  {
+   "texto": "to",
+   "inicio": 0.838,
+   "fim": 0.938
+  },
+  {
+   "texto": "see",
+   "inicio": 0.938,
+   "fim": 1.15
+  },
+  {
+   "texto": "the",
+   "inicio": 1.15,
+   "fim": 1.312
+  },
+  {
+   "texto": "other",
+   "inicio": 1.312,
+   "fim": 1.6
+  },
+  {
+   "texto": "places",
+   "inicio": 1.6,
+   "fim": 2.1
+  },
+  {
+   "texto": "on",
+   "inicio": 2.1,
+   "fim": 2.25
+  },
+  {
+   "texto": "America's",
+   "inicio": 2.25,
+   "fim": 2.85
+  },
+  {
+   "texto": "list,",
+   "inicio": 2.85,
+   "fim": 3.45
+  },
+  {
+   "texto": "watch",
+   "inicio": 3.612,
+   "fim": 3.913
+  },
+  {
+   "texto": "our",
+   "inicio": 3.913,
+   "fim": 4.05
+  },
+  {
+   "texto": "videos",
+   "inicio": 4.05,
+   "fim": 4.575
+  },
+  {
+   "texto": "on",
+   "inicio": 4.575,
+   "fim": 4.787
+  },
+  {
+   "texto": "Greenland",
+   "inicio": 4.787,
+   "fim": 5.513
+  },
+  {
+   "texto": "and",
+   "inicio": 5.513,
+   "fim": 5.638
+  },
+  {
+   "texto": "the",
+   "inicio": 5.638,
+   "fim": 5.737
+  },
+  {
+   "texto": "Panama",
+   "inicio": 5.737,
+   "fim": 6.275
+  },
+  {
+   "texto": "Canal.",
+   "inicio": 6.275,
+   "fim": 7.2
+  },
+  {
+   "texto": "And",
+   "inicio": 7.325,
+   "fim": 7.5
+  },
+  {
+   "texto": "subscribe,",
+   "inicio": 7.5,
+   "fim": 8.5
+  },
+  {
+   "texto": "so",
+   "inicio": 8.637,
+   "fim": 8.825
+  },
+  {
+   "texto": "you",
+   "inicio": 8.825,
+   "fim": 8.925
+  },
+  {
+   "texto": "don't",
+   "inicio": 8.925,
+   "fim": 9.2
+  },
+  {
+   "texto": "miss",
+   "inicio": 9.2,
+   "fim": 9.45
+  },
+  {
+   "texto": "what's",
+   "inicio": 9.45,
+   "fim": 9.725
+  },
+  {
+   "texto": "behind",
+   "inicio": 9.725,
+   "fim": 10.137
+  },
+  {
+   "texto": "the",
+   "inicio": 10.137,
+   "fim": 10.225
+  },
+  {
+   "texto": "next",
+   "inicio": 10.225,
+   "fim": 10.55
+  },
+  {
+   "texto": "map.",
+   "inicio": 10.55,
+   "fim": 11.225
+  }
+ ]
+}

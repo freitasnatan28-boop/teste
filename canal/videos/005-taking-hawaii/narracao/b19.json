@@ -1,0 +1,213 @@
+{
+ "id": "b19",
+ "capitulo": "The Overthrow",
+ "visual": "Queen bubble \"TO AVOID BLOODSHED\". Stamp \"OVERTHROWN\".",
+ "texto": "The queen had soldiers loyal to her. But she did not want a war with the United States. To avoid bloodshed, she gave up her power, not to the businessmen, but to the United States, hoping Washington would put her back.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0.375,
+   "fim": 0.487
+  },
+  {
+   "texto": "queen",
+   "inicio": 0.487,
+   "fim": 0.95
+  },
+  {
+   "texto": "had",
+   "inicio": 0.95,
+   "fim": 1.163
+  },
+  {
+   "texto": "soldiers",
+   "inicio": 1.163,
+   "fim": 1.712
+  },
+  {
+   "texto": "loyal",
+   "inicio": 1.712,
+   "fim": 2.125
+  },
+  {
+   "texto": "to",
+   "inicio": 2.125,
+   "fim": 2.25
+  },
+  {
+   "texto": "her.",
+   "inicio": 2.25,
+   "fim": 2.85
+  },
+  {
+   "texto": "But",
+   "inicio": 2.95,
+   "fim": 3.112
+  },
+  {
+   "texto": "she",
+   "inicio": 3.112,
+   "fim": 3.275
+  },
+  {
+   "texto": "did",
+   "inicio": 3.275,
+   "fim": 3.425
+  },
+  {
+   "texto": "not",
+   "inicio": 3.425,
+   "fim": 3.675
+  },
+  {
+   "texto": "want",
+   "inicio": 3.675,
+   "fim": 3.862
+  },
+  {
+   "texto": "a",
+   "inicio": 3.862,
+   "fim": 3.962
+  },
+  {
+   "texto": "war",
+   "inicio": 3.962,
+   "fim": 4.325
+  },
+  {
+   "texto": "with",
+   "inicio": 4.325,
+   "fim": 4.463
+  },
+  {
+   "texto": "the",
+   "inicio": 4.463,
+   "fim": 4.55
+  },
+  {
+   "texto": "United",
+   "inicio": 4.55,
+   "fim": 5.013
+  },
+  {
+   "texto": "States.",
+   "inicio": 5.013,
+   "fim": 5.9
+  },
+  {
+   "texto": "To",
+   "inicio": 6.037,
+   "fim": 6.2
+  },
+  {
+   "texto": "avoid",
+   "inicio": 6.2,
+   "fim": 6.688
+  },
+  {
+   "texto": "bloodshed,",
+   "inicio": 6.688,
+   "fim": 7.35
+  },
+  {
+   "texto": "she",
+   "inicio": 7.438,
+   "fim": 7.6
+  },
+  {
+   "texto": "gave",
+   "inicio": 7.6,
+   "fim": 7.838
+  },
+  {
+   "texto": "up",
+   "inicio": 7.838,
+   "fim": 7.987
+  },
+  {
+   "texto": "her",
+   "inicio": 7.987,
+   "fim": 8.137
+  },
+  {
+   "texto": "power,",
+   "inicio": 8.137,
+   "fim": 8.725
+  },
+  {
+   "texto": "not",
+   "inicio": 8.8,
+   "fim": 9.025
+  },
+  {
+   "texto": "to",
+   "inicio": 9.025,
+   "fim": 9.125
+  },
+  {
+   "texto": "the",
+   "inicio": 9.125,
+   "fim": 9.262
+  },
+  {
+   "texto": "businessmen,",
+   "inicio": 9.262,
+   "fim": 9.95
+  },
+  {
+   "texto": "but",
+   "inicio": 10.0,
+   "fim": 10.188
+  },
+  {
+   "texto": "to",
+   "inicio": 10.188,
+   "fim": 10.325
+  },
+  {
+   "texto": "the",
+   "inicio": 10.325,
+   "fim": 10.425
+  },
+  {
+   "texto": "United",
+   "inicio": 10.425,
+   "fim": 10.912
+  },
+  {
+   "texto": "States,",
+   "inicio": 10.912,
+   "fim": 11.675
+  },
+  {
+   "texto": "hoping",
+   "inicio": 11.812,
+   "fim": 12.287
+  },
+  {
+   "texto": "Washington",
+   "inicio": 12.287,
+   "fim": 12.975
+  },
+  {
+   "texto": "would",
+   "inicio": 12.975,
+   "fim": 13.15
+  },
+  {
+   "texto": "put",
+   "inicio": 13.15,
+   "fim": 13.312
+  },
+  {
+   "texto": "her",
+   "inicio": 13.312,
+   "fim": 13.45
+  },
+  {
+   "texto": "back.",
+   "inicio": 13.45,
+   "fim": 14.125
+  }
+ ]
+}

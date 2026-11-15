@@ -1,0 +1,133 @@
+{
+ "id": "b29",
+ "capitulo": "Why Now",
+ "visual": "Oil pipelines from Alberta south. Oil icon. 60%.",
+ "texto": "And there is oil. Canada sends the United States more crude oil than any other country, around sixty percent of all the crude America imports.",
+ "palavras": [
+  {
+   "texto": "And",
+   "inicio": 0.375,
+   "fim": 0.512
+  },
+  {
+   "texto": "there",
+   "inicio": 0.512,
+   "fim": 0.7
+  },
+  {
+   "texto": "is",
+   "inicio": 0.7,
+   "fim": 0.875
+  },
+  {
+   "texto": "oil.",
+   "inicio": 0.875,
+   "fim": 1.675
+  },
+  {
+   "texto": "Canada",
+   "inicio": 1.837,
+   "fim": 2.288
+  },
+  {
+   "texto": "sends",
+   "inicio": 2.288,
+   "fim": 2.612
+  },
+  {
+   "texto": "the",
+   "inicio": 2.612,
+   "fim": 2.7
+  },
+  {
+   "texto": "United",
+   "inicio": 2.7,
+   "fim": 3.15
+  },
+  {
+   "texto": "States",
+   "inicio": 3.15,
+   "fim": 3.562
+  },
+  {
+   "texto": "more",
+   "inicio": 3.562,
+   "fim": 3.812
+  },
+  {
+   "texto": "crude",
+   "inicio": 3.812,
+   "fim": 4.162
+  },
+  {
+   "texto": "oil",
+   "inicio": 4.162,
+   "fim": 4.525
+  },
+  {
+   "texto": "than",
+   "inicio": 4.525,
+   "fim": 4.688
+  },
+  {
+   "texto": "any",
+   "inicio": 4.688,
+   "fim": 4.963
+  },
+  {
+   "texto": "other",
+   "inicio": 4.963,
+   "fim": 5.225
+  },
+  {
+   "texto": "country,",
+   "inicio": 5.225,
+   "fim": 5.975
+  },
+  {
+   "texto": "around",
+   "inicio": 6.138,
+   "fim": 6.575
+  },
+  {
+   "texto": "sixty",
+   "inicio": 6.575,
+   "fim": 6.975
+  },
+  {
+   "texto": "percent",
+   "inicio": 6.975,
+   "fim": 7.55
+  },
+  {
+   "texto": "of",
+   "inicio": 7.55,
+   "fim": 7.725
+  },
+  {
+   "texto": "all",
+   "inicio": 7.725,
+   "fim": 8.025
+  },
+  {
+   "texto": "the",
+   "inicio": 8.025,
+   "fim": 8.162
+  },
+  {
+   "texto": "crude",
+   "inicio": 8.162,
+   "fim": 8.525
+  },
+  {
+   "texto": "America",
+   "inicio": 8.525,
+   "fim": 9.062
+  },
+  {
+   "texto": "imports.",
+   "inicio": 9.062,
+   "fim": 10.075
+  }
+ ]
+}

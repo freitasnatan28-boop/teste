@@ -1,0 +1,98 @@
+{
+ "id": "b12",
+ "capitulo": "A Mere Matter of Marching",
+ "visual": "Jefferson bubble \"A MERE MATTER OF MARCHING\".",
+ "texto": "Thomas Jefferson predicted it would be easy. Taking Canada, he wrote, would be a mere matter of marching.",
+ "palavras": [
+  {
+   "texto": "Thomas",
+   "inicio": 0.35,
+   "fim": 0.738
+  },
+  {
+   "texto": "Jefferson",
+   "inicio": 0.738,
+   "fim": 1.275
+  },
+  {
+   "texto": "predicted",
+   "inicio": 1.275,
+   "fim": 1.812
+  },
+  {
+   "texto": "it",
+   "inicio": 1.812,
+   "fim": 1.925
+  },
+  {
+   "texto": "would",
+   "inicio": 1.925,
+   "fim": 2.05
+  },
+  {
+   "texto": "be",
+   "inicio": 2.05,
+   "fim": 2.25
+  },
+  {
+   "texto": "easy.",
+   "inicio": 2.25,
+   "fim": 3.05
+  },
+  {
+   "texto": "Taking",
+   "inicio": 3.212,
+   "fim": 3.638
+  },
+  {
+   "texto": "Canada,",
+   "inicio": 3.638,
+   "fim": 4.1
+  },
+  {
+   "texto": "he",
+   "inicio": 4.15,
+   "fim": 4.325
+  },
+  {
+   "texto": "wrote,",
+   "inicio": 4.325,
+   "fim": 4.8
+  },
+  {
+   "texto": "would",
+   "inicio": 4.9,
+   "fim": 5.025
+  },
+  {
+   "texto": "be",
+   "inicio": 5.025,
+   "fim": 5.175
+  },
+  {
+   "texto": "a",
+   "inicio": 5.175,
+   "fim": 5.275
+  },
+  {
+   "texto": "mere",
+   "inicio": 5.275,
+   "fim": 5.513
+  },
+  {
+   "texto": "matter",
+   "inicio": 5.513,
+   "fim": 5.925
+  },
+  {
+   "texto": "of",
+   "inicio": 5.925,
+   "fim": 6.088
+  },
+  {
+   "texto": "marching.",
+   "inicio": 6.088,
+   "fim": 7.0
+  }
+ ]
+}

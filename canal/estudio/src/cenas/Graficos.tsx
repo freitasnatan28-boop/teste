@@ -104,8 +104,8 @@ export const Citacao: React.FC<P<"citacao">> = ({ cena, offset, duracaoCena, pas
   );
 };
 
-const NOME: Record<string, string> = { BRA: "BRASIL", FRA: "FRANÇA", USA: "EUA", ESP: "SPAIN", MEX: "MEXICO", RUS: "RUSSIA", DNK: "DENMARK", GRL: "GREENLAND", GBR: "BRITAIN", CHN: "CHINA", URS: "USSR", PAN: "PANAMA", COL: "COLOMBIA" };
-const CORPAIS: Record<string, string> = { BRA: COR.brasil, FRA: COR.franca, USA: "#b22234", ESP: "#aa151b", MEX: "#006847", RUS: "#0039a6", DNK: "#c8102e", GRL: "#c8102e", GBR: "#012169", CHN: "#ee1c25", URS: "#cc0000", PAN: "#072357", COL: "#fcd116" };
+const NOME: Record<string, string> = { BRA: "BRASIL", FRA: "FRANÇA", USA: "EUA", ESP: "SPAIN", MEX: "MEXICO", RUS: "RUSSIA", DNK: "DENMARK", GRL: "GREENLAND", GBR: "BRITAIN", CHN: "CHINA", URS: "USSR", PAN: "PANAMA", COL: "COLOMBIA", CAN: "CANADA", HAW: "HAWAII", JPN: "JAPAN" };
+const CORPAIS: Record<string, string> = { BRA: COR.brasil, FRA: COR.franca, USA: "#b22234", ESP: "#aa151b", MEX: "#006847", RUS: "#0039a6", DNK: "#c8102e", GRL: "#c8102e", GBR: "#012169", CHN: "#ee1c25", URS: "#cc0000", PAN: "#072357", COL: "#fcd116", CAN: "#d52b1e", HAW: "#012169", JPN: "#bc002d" };
 
 export const Versus: React.FC<P<"versus">> = ({ cena, offset }) => {
   const f = useCurrentFrame() + offset;

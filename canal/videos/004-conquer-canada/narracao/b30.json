@@ -1,0 +1,263 @@
+{
+ "id": "b30",
+ "capitulo": "Why Now",
+ "visual": "Arctic: Northwest Passage opening. Greenland, Alaska, Canada lit.",
+ "texto": "Then there is the Arctic. As the ice melts, a new shipping route is opening through Canada's northern islands. Canada says those waters are Canadian. Washington says they are international. Put Alaska, Canada and Greenland on one map, and you can see why the top of the world matters so much.",
+ "palavras": [
+  {
+   "texto": "Then",
+   "inicio": 0.4,
+   "fim": 0.6
+  },
+  {
+   "texto": "there",
+   "inicio": 0.6,
+   "fim": 0.8
+  },
+  {
+   "texto": "is",
+   "inicio": 0.8,
+   "fim": 0.95
+  },
+  {
+   "texto": "the",
+   "inicio": 0.95,
+   "fim": 1.113
+  },
+  {
+   "texto": "Arctic.",
+   "inicio": 1.113,
+   "fim": 2.0
+  },
+  {
+   "texto": "As",
+   "inicio": 2.1,
+   "fim": 2.263
+  },
+  {
+   "texto": "the",
+   "inicio": 2.263,
+   "fim": 2.413
+  },
+  {
+   "texto": "ice",
+   "inicio": 2.413,
+   "fim": 2.737
+  },
+  {
+   "texto": "melts,",
+   "inicio": 2.737,
+   "fim": 3.275
+  },
+  {
+   "texto": "a",
+   "inicio": 3.388,
+   "fim": 3.513
+  },
+  {
+   "texto": "new",
+   "inicio": 3.513,
+   "fim": 3.788
+  },
+  {
+   "texto": "shipping",
+   "inicio": 3.788,
+   "fim": 4.2
+  },
+  {
+   "texto": "route",
+   "inicio": 4.2,
+   "fim": 4.475
+  },
+  {
+   "texto": "is",
+   "inicio": 4.475,
+   "fim": 4.638
+  },
+  {
+   "texto": "opening",
+   "inicio": 4.638,
+   "fim": 5.125
+  },
+  {
+   "texto": "through",
+   "inicio": 5.125,
+   "fim": 5.338
+  },
+  {
+   "texto": "Canada's",
+   "inicio": 5.338,
+   "fim": 5.888
+  },
+  {
+   "texto": "northern",
+   "inicio": 5.888,
+   "fim": 6.338
+  },
+  {
+   "texto": "islands.",
+   "inicio": 6.338,
+   "fim": 7.325
+  },
+  {
+   "texto": "Canada",
+   "inicio": 7.487,
+   "fim": 7.938
+  },
+  {
+   "texto": "says",
+   "inicio": 7.938,
+   "fim": 8.225
+  },
+  {
+   "texto": "those",
+   "inicio": 8.225,
+   "fim": 8.525
+  },
+  {
+   "texto": "waters",
+   "inicio": 8.525,
+   "fim": 9.025
+  },
+  {
+   "texto": "are",
+   "inicio": 9.025,
+   "fim": 9.175
+  },
+  {
+   "texto": "Canadian.",
+   "inicio": 9.175,
+   "fim": 10.175
+  },
+  {
+   "texto": "Washington",
+   "inicio": 10.325,
+   "fim": 11.037
+  },
+  {
+   "texto": "says",
+   "inicio": 11.037,
+   "fim": 11.35
+  },
+  {
+   "texto": "they",
+   "inicio": 11.35,
+   "fim": 11.537
+  },
+  {
+   "texto": "are",
+   "inicio": 11.537,
+   "fim": 11.7
+  },
+  {
+   "texto": "international.",
+   "inicio": 11.7,
+   "fim": 12.825
+  },
+  {
+   "texto": "Put",
+   "inicio": 12.938,
+   "fim": 13.1
+  },
+  {
+   "texto": "Alaska,",
+   "inicio": 13.1,
+   "fim": 13.9
+  },
+  {
+   "texto": "Canada",
+   "inicio": 14.037,
+   "fim": 14.55
+  },
+  {
+   "texto": "and",
+   "inicio": 14.55,
+   "fim": 14.713
+  },
+  {
+   "texto": "Greenland",
+   "inicio": 14.713,
+   "fim": 15.338
+  },
+  {
+   "texto": "on",
+   "inicio": 15.338,
+   "fim": 15.537
+  },
+  {
+   "texto": "one",
+   "inicio": 15.537,
+   "fim": 15.775
+  },
+  {
+   "texto": "map,",
+   "inicio": 15.775,
+   "fim": 16.325
+  },
+  {
+   "texto": "and",
+   "inicio": 16.4,
+   "fim": 16.525
+  },
+  {
+   "texto": "you",
+   "inicio": 16.525,
+   "fim": 16.65
+  },
+  {
+   "texto": "can",
+   "inicio": 16.65,
+   "fim": 16.85
+  },
+  {
+   "texto": "see",
+   "inicio": 16.85,
+   "fim": 17.125
+  },
+  {
+   "texto": "why",
+   "inicio": 17.125,
+   "fim": 17.325
+  },
+  {
+   "texto": "the",
+   "inicio": 17.325,
+   "fim": 17.462
+  },
+  {
+   "texto": "top",
+   "inicio": 17.462,
+   "fim": 17.812
+  },
+  {
+   "texto": "of",
+   "inicio": 17.812,
+   "fim": 17.887
+  },
+  {
+   "texto": "the",
+   "inicio": 17.887,
+   "fim": 18.012
+  },
+  {
+   "texto": "world",
+   "inicio": 18.012,
+   "fim": 18.387
+  },
+  {
+   "texto": "matters",
+   "inicio": 18.387,
+   "fim": 18.837
+  },
+  {
+   "texto": "so",
+   "inicio": 18.837,
+   "fim": 19.075
+  },
+  {
+   "texto": "much.",
+   "inicio": 19.075,
+   "fim": 19.825
+  }
+ ]
+}

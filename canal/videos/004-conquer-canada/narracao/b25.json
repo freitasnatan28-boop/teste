@@ -1,0 +1,148 @@
+{
+ "id": "b25",
+ "capitulo": "War Plan Red",
+ "visual": "Plans filed away. Stamp \"DECLASSIFIED 1974\".",
+ "texto": "Neither plan was ever used. War Plan Red was withdrawn in 1939, when the real enemy turned out to be Nazi Germany, and it stayed secret until 1974.",
+ "palavras": [
+  {
+   "texto": "Neither",
+   "inicio": 0.425,
+   "fim": 0.762
+  },
+  {
+   "texto": "plan",
+   "inicio": 0.762,
+   "fim": 1.225
+  },
+  {
+   "texto": "was",
+   "inicio": 1.225,
+   "fim": 1.438
+  },
+  {
+   "texto": "ever",
+   "inicio": 1.438,
+   "fim": 1.738
+  },
+  {
+   "texto": "used.",
+   "inicio": 1.738,
+   "fim": 2.6
+  },
+  {
+   "texto": "War",
+   "inicio": 2.775,
+   "fim": 3.112
+  },
+  {
+   "texto": "Plan",
+   "inicio": 3.112,
+   "fim": 3.538
+  },
+  {
+   "texto": "Red",
+   "inicio": 3.538,
+   "fim": 3.9
+  },
+  {
+   "texto": "was",
+   "inicio": 3.9,
+   "fim": 4.075
+  },
+  {
+   "texto": "withdrawn",
+   "inicio": 4.075,
+   "fim": 4.775
+  },
+  {
+   "texto": "in",
+   "inicio": 4.775,
+   "fim": 4.9
+  },
+  {
+   "texto": "1939,",
+   "inicio": 4.9,
+   "fim": 6.425
+  },
+  {
+   "texto": "when",
+   "inicio": 6.525,
+   "fim": 6.662
+  },
+  {
+   "texto": "the",
+   "inicio": 6.662,
+   "fim": 6.787
+  },
+  {
+   "texto": "real",
+   "inicio": 6.787,
+   "fim": 7.162
+  },
+  {
+   "texto": "enemy",
+   "inicio": 7.162,
+   "fim": 7.588
+  },
+  {
+   "texto": "turned",
+   "inicio": 7.588,
+   "fim": 7.925
+  },
+  {
+   "texto": "out",
+   "inicio": 7.925,
+   "fim": 8.15
+  },
+  {
+   "texto": "to",
+   "inicio": 8.15,
+   "fim": 8.25
+  },
+  {
+   "texto": "be",
+   "inicio": 8.25,
+   "fim": 8.438
+  },
+  {
+   "texto": "Nazi",
+   "inicio": 8.438,
+   "fim": 8.938
+  },
+  {
+   "texto": "Germany,",
+   "inicio": 8.938,
+   "fim": 9.725
+  },
+  {
+   "texto": "and",
+   "inicio": 9.863,
+   "fim": 9.988
+  },
+  {
+   "texto": "it",
+   "inicio": 9.988,
+   "fim": 10.075
+  },
+  {
+   "texto": "stayed",
+   "inicio": 10.075,
+   "fim": 10.475
+  },
+  {
+   "texto": "secret",
+   "inicio": 10.475,
+   "fim": 10.95
+  },
+  {
+   "texto": "until",
+   "inicio": 10.95,
+   "fim": 11.25
+  },
+  {
+   "texto": "1974.",
+   "inicio": 11.25,
+   "fim": 12.925
+  }
+ ]
+}

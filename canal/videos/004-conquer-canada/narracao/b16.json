@@ -1,0 +1,178 @@
+{
+ "id": "b16",
+ "capitulo": "A Mere Matter of Marching",
+ "visual": "Baltimore. Fort McHenry. Flag icon. Bombardment.",
+ "texto": "Weeks later, the British attacked Baltimore. They failed. An American lawyer who watched the bombardment wrote a poem about the flag still flying over the fort. It became the national anthem: The Star-Spangled Banner.",
+ "palavras": [
+  {
+   "texto": "Weeks",
+   "inicio": 0.4,
+   "fim": 0.688
+  },
+  {
+   "texto": "later,",
+   "inicio": 0.688,
+   "fim": 1.05
+  },
+  {
+   "texto": "the",
+   "inicio": 1.1,
+   "fim": 1.238
+  },
+  {
+   "texto": "British",
+   "inicio": 1.238,
+   "fim": 1.675
+  },
+  {
+   "texto": "attacked",
+   "inicio": 1.675,
+   "fim": 2.138
+  },
+  {
+   "texto": "Baltimore.",
+   "inicio": 2.138,
+   "fim": 3.075
+  },
+  {
+   "texto": "They",
+   "inicio": 3.212,
+   "fim": 3.425
+  },
+  {
+   "texto": "failed.",
+   "inicio": 3.425,
+   "fim": 4.3
+  },
+  {
+   "texto": "An",
+   "inicio": 4.438,
+   "fim": 4.55
+  },
+  {
+   "texto": "American",
+   "inicio": 4.55,
+   "fim": 5.138
+  },
+  {
+   "texto": "lawyer",
+   "inicio": 5.138,
+   "fim": 5.55
+  },
+  {
+   "texto": "who",
+   "inicio": 5.55,
+   "fim": 5.713
+  },
+  {
+   "texto": "watched",
+   "inicio": 5.713,
+   "fim": 6.075
+  },
+  {
+   "texto": "the",
+   "inicio": 6.075,
+   "fim": 6.175
+  },
+  {
+   "texto": "bombardment",
+   "inicio": 6.175,
+   "fim": 6.925
+  },
+  {
+   "texto": "wrote",
+   "inicio": 6.925,
+   "fim": 7.112
+  },
+  {
+   "texto": "a",
+   "inicio": 7.112,
+   "fim": 7.213
+  },
+  {
+   "texto": "poem",
+   "inicio": 7.213,
+   "fim": 7.725
+  },
+  {
+   "texto": "about",
+   "inicio": 7.725,
+   "fim": 7.975
+  },
+  {
+   "texto": "the",
+   "inicio": 7.975,
+   "fim": 8.125
+  },
+  {
+   "texto": "flag",
+   "inicio": 8.125,
+   "fim": 8.613
+  },
+  {
+   "texto": "still",
+   "inicio": 8.613,
+   "fim": 8.95
+  },
+  {
+   "texto": "flying",
+   "inicio": 8.95,
+   "fim": 9.45
+  },
+  {
+   "texto": "over",
+   "inicio": 9.45,
+   "fim": 9.662
+  },
+  {
+   "texto": "the",
+   "inicio": 9.662,
+   "fim": 9.8
+  },
+  {
+   "texto": "fort.",
+   "inicio": 9.8,
+   "fim": 10.525
+  },
+  {
+   "texto": "It",
+   "inicio": 10.625,
+   "fim": 10.762
+  },
+  {
+   "texto": "became",
+   "inicio": 10.762,
+   "fim": 11.225
+  },
+  {
+   "texto": "the",
+   "inicio": 11.225,
+   "fim": 11.363
+  },
+  {
+   "texto": "national",
+   "inicio": 11.363,
+   "fim": 11.912
+  },
+  {
+   "texto": "anthem:",
+   "inicio": 11.912,
+   "fim": 12.65
+  },
+  {
+   "texto": "The",
+   "inicio": 12.75,
+   "fim": 12.887
+  },
+  {
+   "texto": "Star-Spangled",
+   "inicio": 12.887,
+   "fim": 13.787
+  },
+  {
+   "texto": "Banner.",
+   "inicio": 13.787,
+   "fim": 14.575
+  }
+ ]
+}

@@ -1,0 +1,183 @@
+{
+ "id": "b08",
+ "capitulo": "The Crossroads of the Pacific",
+ "visual": "\"1810\". Kamehameha unites the islands. Hawaiian flag.",
+ "texto": "By 1810, a chief named Kamehameha had united all the islands into one kingdom. Its flag still flies today, with the British Union Jack in the corner and eight stripes, one for each main island.",
+ "palavras": [
+  {
+   "texto": "By",
+   "inicio": 0.35,
+   "fim": 0.525
+  },
+  {
+   "texto": "1810,",
+   "inicio": 0.525,
+   "fim": 1.725
+  },
+  {
+   "texto": "a",
+   "inicio": 1.863,
+   "fim": 2.0
+  },
+  {
+   "texto": "chief",
+   "inicio": 2.0,
+   "fim": 2.35
+  },
+  {
+   "texto": "named",
+   "inicio": 2.35,
+   "fim": 2.663
+  },
+  {
+   "texto": "Kamehameha",
+   "inicio": 2.663,
+   "fim": 3.4
+  },
+  {
+   "texto": "had",
+   "inicio": 3.4,
+   "fim": 3.575
+  },
+  {
+   "texto": "united",
+   "inicio": 3.575,
+   "fim": 4.1
+  },
+  {
+   "texto": "all",
+   "inicio": 4.1,
+   "fim": 4.375
+  },
+  {
+   "texto": "the",
+   "inicio": 4.375,
+   "fim": 4.537
+  },
+  {
+   "texto": "islands",
+   "inicio": 4.537,
+   "fim": 5.013
+  },
+  {
+   "texto": "into",
+   "inicio": 5.013,
+   "fim": 5.287
+  },
+  {
+   "texto": "one",
+   "inicio": 5.287,
+   "fim": 5.588
+  },
+  {
+   "texto": "kingdom.",
+   "inicio": 5.588,
+   "fim": 6.475
+  },
+  {
+   "texto": "Its",
+   "inicio": 6.6,
+   "fim": 6.862
+  },
+  {
+   "texto": "flag",
+   "inicio": 6.862,
+   "fim": 7.3
+  },
+  {
+   "texto": "still",
+   "inicio": 7.3,
+   "fim": 7.588
+  },
+  {
+   "texto": "flies",
+   "inicio": 7.588,
+   "fim": 8.025
+  },
+  {
+   "texto": "today,",
+   "inicio": 8.025,
+   "fim": 8.7
+  },
+  {
+   "texto": "with",
+   "inicio": 8.825,
+   "fim": 8.963
+  },
+  {
+   "texto": "the",
+   "inicio": 8.963,
+   "fim": 9.088
+  },
+  {
+   "texto": "British",
+   "inicio": 9.088,
+   "fim": 9.488
+  },
+  {
+   "texto": "Union",
+   "inicio": 9.488,
+   "fim": 9.925
+  },
+  {
+   "texto": "Jack",
+   "inicio": 9.925,
+   "fim": 10.262
+  },
+  {
+   "texto": "in",
+   "inicio": 10.262,
+   "fim": 10.338
+  },
+  {
+   "texto": "the",
+   "inicio": 10.338,
+   "fim": 10.463
+  },
+  {
+   "texto": "corner",
+   "inicio": 10.463,
+   "fim": 10.9
+  },
+  {
+   "texto": "and",
+   "inicio": 10.9,
+   "fim": 11.037
+  },
+  {
+   "texto": "eight",
+   "inicio": 11.037,
+   "fim": 11.312
+  },
+  {
+   "texto": "stripes,",
+   "inicio": 11.312,
+   "fim": 12.1
+  },
+  {
+   "texto": "one",
+   "inicio": 12.238,
+   "fim": 12.525
+  },
+  {
+   "texto": "for",
+   "inicio": 12.525,
+   "fim": 12.713
+  },
+  {
+   "texto": "each",
+   "inicio": 12.713,
+   "fim": 13.037
+  },
+  {
+   "texto": "main",
+   "inicio": 13.037,
+   "fim": 13.412
+  },
+  {
+   "texto": "island.",
+   "inicio": 13.412,
+   "fim": 14.275
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+Imagens:
+- Liliuokalani, Queen of Hawaii, Library of Congress, public domain https://tile.loc.gov/storage-services/service/pnp/cph/3b00000/3b07000/3b07500/3b07514v.jpg
+- King David Kalakaua, Library of Congress, public domain https://tile.loc.gov/storage-services/service/pnp/cph/3a20000/3a22000/3a22700/3a22705v.jpg
+- Sanford B. Dole, Library of Congress, public domain https://tile.loc.gov/storage-services/service/pnp/cph/3a20000/3a22000/3a22600/3a22625v.jpg
+- Grover Cleveland, half-length portrait, Library of Congress, public domain https://tile.loc.gov/storage-services/service/pnp/cph/3b30000/3b37000/3b37400/3b37499v.jpg
+- Annexation ceremony at Iolani Palace, Aug. 1898, Library of Congress, public domain https://tile.loc.gov/storage-services/service/pnp/cph/3a40000/3a48000/3a48700/3a48701v.jpg
+- USS Arizona burning, Pearl Harbor, Dec. 7, 1941, U.S. Navy, Library of Congress, no known restrictions https://tile.loc.gov/storage-services/service/pnp/cph/3c00000/3c04000/3c04700/3c04778v.jpg
+- Sugar plantation, Hawaii, National Photo Company, Library of Congress, no known restrictions https://tile.loc.gov/storage-services/service/pnp/npcc/30800/30852v.jpg
+- Satellite imagery: NASA Blue Marble (public domain)

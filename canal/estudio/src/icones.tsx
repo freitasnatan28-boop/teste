@@ -54,7 +54,7 @@ export const Aviao: React.FC<{ tamanho?: number; cor?: string }> = ({ tamanho = 
 );
 
 // Largura / altura oficial de cada bandeira (as outras são 3:2).
-const RAZAO: Partial<Record<Pais, number>> = { USA: 1.9, DNK: 37 / 28, GBR: 2 };
+const RAZAO: Partial<Record<Pais, number>> = { USA: 1.9, DNK: 37 / 28, GBR: 2, CAN: 2, HAW: 2 };
 
 // "esticar": cobre a caixa toda sem deformar (corta as sobras), para pintar o território do país com a bandeira.
 export const Bandeira: React.FC<{ pais: Pais; largura?: number; altura?: number; esticar?: boolean; x?: number; y?: number }> = ({ pais, largura = 180, altura, esticar, x, y }) => {
@@ -127,6 +127,37 @@ export const Bandeira: React.FC<{ pais: Pais; largura?: number; altura?: number;
         <path d="M0 0 L60 30 M60 0 L0 30" stroke="#c8102e" strokeWidth={2} />
         <path d="M30 0 V30 M0 15 H60" stroke="#fff" strokeWidth={10} />
         <path d="M30 0 V30 M0 15 H60" stroke="#c8102e" strokeWidth={6} />
+      </svg>
+    );
+  if (pais === "CAN")
+    return (
+      <svg width={largura} height={a} viewBox="0 0 40 20" {...extra}>
+        <rect width={40} height={20} fill="#fff" />
+        <rect width={10} height={20} fill="#d52b1e" />
+        <rect x={30} width={10} height={20} fill="#d52b1e" />
+        <path d="M20 3.2 L21.3 5.9 L22.9 5.2 L22.4 9.3 L24.6 7.3 L25.1 8.6 L27.4 8.1 L26.6 10.6 L27.6 11.1 L23.6 14.4 L24 15.8 L20.4 15.4 L20.4 18.6 L19.6 18.6 L19.6 15.4 L16 15.8 L16.4 14.4 L12.4 11.1 L13.4 10.6 L12.6 8.1 L14.9 8.6 L15.4 7.3 L17.6 9.3 L17.1 5.2 L18.7 5.9 Z" fill="#d52b1e" />
+      </svg>
+    );
+  if (pais === "HAW")
+    return (
+      <svg width={largura} height={a} viewBox="0 0 60 30" {...extra}>
+        {Array.from({ length: 8 }, (_, i) => (
+          <rect key={i} y={(i * 30) / 8} width={60} height={30 / 8} fill={["#fff", "#c8102e", "#012169"][i % 3]} />
+        ))}
+        <g>
+          <rect width={30} height={15} fill="#012169" />
+          <path d="M0 0 L30 15 M30 0 L0 15" stroke="#fff" strokeWidth={3} />
+          <path d="M0 0 L30 15 M30 0 L0 15" stroke="#c8102e" strokeWidth={1} />
+          <path d="M15 0 V15 M0 7.5 H30" stroke="#fff" strokeWidth={5} />
+          <path d="M15 0 V15 M0 7.5 H30" stroke="#c8102e" strokeWidth={3} />
+        </g>
+      </svg>
+    );
+  if (pais === "JPN")
+    return (
+      <svg width={largura} height={a} viewBox="0 0 30 20" {...extra}>
+        <rect width={30} height={20} fill="#fff" />
+        <circle cx={15} cy={10} r={6} fill="#bc002d" />
       </svg>
     );
   if (pais === "PAN")

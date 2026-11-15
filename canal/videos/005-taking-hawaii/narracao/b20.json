@@ -1,0 +1,113 @@
+{
+ "id": "b20",
+ "capitulo": "The Overthrow",
+ "visual": "Sanford Dole portrait. Republic of Hawaii flag. \"1894\".",
+ "texto": "A judge named Sanford Dole became the leader of the new government. His cousin would later found the Dole pineapple company.",
+ "palavras": [
+  {
+   "texto": "A",
+   "inicio": 0.4,
+   "fim": 0.5
+  },
+  {
+   "texto": "judge",
+   "inicio": 0.5,
+   "fim": 0.912
+  },
+  {
+   "texto": "named",
+   "inicio": 0.912,
+   "fim": 1.325
+  },
+  {
+   "texto": "Sanford",
+   "inicio": 1.325,
+   "fim": 1.887
+  },
+  {
+   "texto": "Dole",
+   "inicio": 1.887,
+   "fim": 2.513
+  },
+  {
+   "texto": "became",
+   "inicio": 2.513,
+   "fim": 2.975
+  },
+  {
+   "texto": "the",
+   "inicio": 2.975,
+   "fim": 3.112
+  },
+  {
+   "texto": "leader",
+   "inicio": 3.112,
+   "fim": 3.5
+  },
+  {
+   "texto": "of",
+   "inicio": 3.5,
+   "fim": 3.6
+  },
+  {
+   "texto": "the",
+   "inicio": 3.6,
+   "fim": 3.737
+  },
+  {
+   "texto": "new",
+   "inicio": 3.737,
+   "fim": 3.987
+  },
+  {
+   "texto": "government.",
+   "inicio": 3.987,
+   "fim": 5.0
+  },
+  {
+   "texto": "His",
+   "inicio": 5.125,
+   "fim": 5.338
+  },
+  {
+   "texto": "cousin",
+   "inicio": 5.338,
+   "fim": 5.85
+  },
+  {
+   "texto": "would",
+   "inicio": 5.85,
+   "fim": 6.037
+  },
+  {
+   "texto": "later",
+   "inicio": 6.037,
+   "fim": 6.438
+  },
+  {
+   "texto": "found",
+   "inicio": 6.438,
+   "fim": 6.812
+  },
+  {
+   "texto": "the",
+   "inicio": 6.812,
+   "fim": 6.938
+  },
+  {
+   "texto": "Dole",
+   "inicio": 6.938,
+   "fim": 7.338
+  },
+  {
+   "texto": "pineapple",
+   "inicio": 7.338,
+   "fim": 7.95
+  },
+  {
+   "texto": "company.",
+   "inicio": 7.95,
+   "fim": 8.825
+  }
+ ]
+}

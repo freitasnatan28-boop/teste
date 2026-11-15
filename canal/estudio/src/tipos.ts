@@ -44,7 +44,7 @@ export type Cena =
   | { tipo: "linhaTempo"; itens: { data: string; texto: string }[] }
   | { tipo: "final" };
 
-export type Pais = "BRA" | "FRA" | "USA" | "ESP" | "MEX" | "RUS" | "DNK" | "GRL" | "GBR" | "CHN" | "URS" | "PAN" | "COL";
+export type Pais = "BRA" | "FRA" | "USA" | "ESP" | "MEX" | "RUS" | "DNK" | "GRL" | "GBR" | "CHN" | "URS" | "PAN" | "COL" | "CAN" | "HAW" | "JPN";
 
 export type Icone = "documento" | "navio" | "aviao" | "lagosta" | "ancora" | "explosao" | "alerta" | "interrogacao" | "acordo" | "radar" | "tropa" | "dinheiro" | "ouro" | "petroleo" | "minerio";
 

@@ -4,6 +4,7 @@ import { AbsoluteFill, Img, staticFile } from "remotion";
 import { LogoCanal } from "./cenas/Graficos";
 import { CONTORNO_PRETO, COR, FONTE_TEXTO, FONTE_TITULO } from "./estilo";
 import { Bandeira } from "./icones";
+import type { Pais } from "./tipos";
 
 export const Avatar: React.FC = () => (
   <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 40%, #173352 0%, ${COR.fundo} 75%)`, justifyContent: "center", alignItems: "center" }}>
@@ -135,6 +136,45 @@ export const MarcaDaguaEN: React.FC = () => (
 );
 
 // Thumbnail do vídeo 002 (EN): Groenlândia no satélite com etiqueta de preço gigante.
+// Modelo de thumbnail reutilizável: fundo de satélite, texto gigante, carimbo, bandeiras A ➜ B e retrato com balão.
+type PropsThumb = { pasta: string; linhas: { t: string; cor?: string }[]; carimbo?: string; de: Pais; para: Pais; retrato?: string; fala?: string; falaDestaque?: string; selo?: string };
+export const ThumbModelo: React.FC<PropsThumb> = ({ pasta, linhas, carimbo, de, para, retrato, fala, falaDestaque, selo }) => (
+  <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
+    <Img src={staticFile(`${pasta}/imagens/thumb-fundo.jpg`)} style={{ position: "absolute", width: 1280, height: 720 }} />
+    <AbsoluteFill style={{ background: "linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.2) 48%, rgba(0,0,0,0) 65%)" }} />
+    <AbsoluteFill style={{ background: "radial-gradient(ellipse at 60% 50%, rgba(0,0,0,0) 35%, rgba(0,0,0,.5) 85%)" }} />
+    <div style={{ position: "absolute", left: 40, top: 22, lineHeight: 0.9 }}>
+      {linhas.map((l, i) => (
+        <div key={i} style={{ fontFamily: FONTE_TITULO, fontSize: 150, color: l.cor ?? COR.texto, WebkitTextStroke: "6px #000", textShadow: "0 10px 0 #000, 0 0 40px rgba(0,0,0,.8)" }}>{l.t}</div>
+      ))}
+    </div>
+    <div style={{ position: "absolute", right: 36, top: 36, display: "flex", alignItems: "center", gap: 12 }}>
+      <div style={{ border: "4px solid #fff", lineHeight: 0, boxShadow: "0 6px 16px rgba(0,0,0,.6)" }}><Bandeira pais={de} largura={120} /></div>
+      <span style={{ fontFamily: FONTE_TITULO, fontSize: 56, color: COR.texto, textShadow: CONTORNO_PRETO }}>➜</span>
+      <div style={{ border: "4px solid #fff", lineHeight: 0, boxShadow: "0 6px 16px rgba(0,0,0,.6)" }}><Bandeira pais={para} largura={120} /></div>
+    </div>
+    {carimbo && (
+      <div style={{ position: "absolute", right: 70, top: 290, transform: "rotate(-10deg)", border: "12px solid #ff2a2a", outline: "5px solid #ff2a2a", outlineOffset: 7, padding: "4px 30px", fontFamily: FONTE_TITULO, fontSize: 104, color: "#ff2a2a", letterSpacing: 6, background: "rgba(0,0,0,.25)", whiteSpace: "pre", textAlign: "center", lineHeight: 1 }}>
+        {carimbo}
+      </div>
+    )}
+    {selo && <div style={{ position: "absolute", right: 120, bottom: 70, fontFamily: FONTE_TITULO, fontSize: 90, color: COR.amarelo, WebkitTextStroke: "5px #000", textShadow: "0 8px 0 #000" }}>{selo}</div>}
+    {retrato && (
+      <div style={{ position: "absolute", left: 40, bottom: 34, display: "flex", alignItems: "center", gap: 18 }}>
+        <div style={{ width: 220, height: 220, borderRadius: 110, overflow: "hidden", border: "7px solid #fff", boxShadow: "0 10px 30px rgba(0,0,0,.7)" }}>
+          <Img src={staticFile(`${pasta}/imagens/${retrato}.jpg`)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 22%" }} />
+        </div>
+        {fala && (
+          <div style={{ position: "relative", background: "#fff", color: "#000", fontFamily: FONTE_TITULO, fontSize: 60, lineHeight: 1, padding: "16px 26px", borderRadius: 18, boxShadow: "0 10px 30px rgba(0,0,0,.6)", whiteSpace: "nowrap" }}>
+            {fala} {falaDestaque && <span style={{ color: "#e00" }}>{falaDestaque}</span>}
+            <div style={{ position: "absolute", left: -22, top: "50%", transform: "translateY(-50%)", width: 0, height: 0, borderTop: "16px solid transparent", borderBottom: "16px solid transparent", borderRight: "24px solid #fff" }} />
+          </div>
+        )}
+      </div>
+    )}
+  </AbsoluteFill>
+);
+
 // Thumbnail do 003: canal brilhando dentro de um círculo vermelho, "$0" gigante, "GIVEN AWAY" e Trump pedindo de volta.
 const CANAL_THUMB = "610,295 609,328 620,346 645,361 668,366 678,382 691,395 699,410 709,433";
 export const ThumbPanama: React.FC<{ pasta: string }> = ({ pasta }) => (

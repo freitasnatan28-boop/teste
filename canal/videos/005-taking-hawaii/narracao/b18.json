@@ -1,0 +1,313 @@
+{
+ "id": "b18",
+ "capitulo": "The Overthrow",
+ "visual": "\"1893\". Committee of Safety: 13 men. USS Boston route to Honolulu. Marines.",
+ "texto": "The businessmen moved first. A group of thirteen men called the Committee of Safety declared the queen's government over. And the American minister in Honolulu ordered about one hundred and sixty sailors and marines from the warship USS Boston to come ashore. The marines did not fire a shot. But they were posted near the palace, and everyone understood the message.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0.375,
+   "fim": 0.487
+  },
+  {
+   "texto": "businessmen",
+   "inicio": 0.487,
+   "fim": 1.163
+  },
+  {
+   "texto": "moved",
+   "inicio": 1.163,
+   "fim": 1.538
+  },
+  {
+   "texto": "first.",
+   "inicio": 1.538,
+   "fim": 2.3
+  },
+  {
+   "texto": "A",
+   "inicio": 2.438,
+   "fim": 2.55
+  },
+  {
+   "texto": "group",
+   "inicio": 2.55,
+   "fim": 2.812
+  },
+  {
+   "texto": "of",
+   "inicio": 2.812,
+   "fim": 2.95
+  },
+  {
+   "texto": "thirteen",
+   "inicio": 2.95,
+   "fim": 3.5
+  },
+  {
+   "texto": "men",
+   "inicio": 3.5,
+   "fim": 3.837
+  },
+  {
+   "texto": "called",
+   "inicio": 3.837,
+   "fim": 4.112
+  },
+  {
+   "texto": "the",
+   "inicio": 4.112,
+   "fim": 4.2
+  },
+  {
+   "texto": "Committee",
+   "inicio": 4.2,
+   "fim": 4.625
+  },
+  {
+   "texto": "of",
+   "inicio": 4.625,
+   "fim": 4.775
+  },
+  {
+   "texto": "Safety",
+   "inicio": 4.775,
+   "fim": 5.325
+  },
+  {
+   "texto": "declared",
+   "inicio": 5.325,
+   "fim": 5.713
+  },
+  {
+   "texto": "the",
+   "inicio": 5.713,
+   "fim": 5.812
+  },
+  {
+   "texto": "queen's",
+   "inicio": 5.812,
+   "fim": 6.338
+  },
+  {
+   "texto": "government",
+   "inicio": 6.338,
+   "fim": 6.8
+  },
+  {
+   "texto": "over.",
+   "inicio": 6.8,
+   "fim": 7.55
+  },
+  {
+   "texto": "And",
+   "inicio": 7.675,
+   "fim": 7.812
+  },
+  {
+   "texto": "the",
+   "inicio": 7.812,
+   "fim": 7.9
+  },
+  {
+   "texto": "American",
+   "inicio": 7.9,
+   "fim": 8.45
+  },
+  {
+   "texto": "minister",
+   "inicio": 8.45,
+   "fim": 8.95
+  },
+  {
+   "texto": "in",
+   "inicio": 8.95,
+   "fim": 9.1
+  },
+  {
+   "texto": "Honolulu",
+   "inicio": 9.1,
+   "fim": 9.988
+  },
+  {
+   "texto": "ordered",
+   "inicio": 9.988,
+   "fim": 10.425
+  },
+  {
+   "texto": "about",
+   "inicio": 10.425,
+   "fim": 10.762
+  },
+  {
+   "texto": "one",
+   "inicio": 10.762,
+   "fim": 11.037
+  },
+  {
+   "texto": "hundred",
+   "inicio": 11.037,
+   "fim": 11.438
+  },
+  {
+   "texto": "and",
+   "inicio": 11.438,
+   "fim": 11.575
+  },
+  {
+   "texto": "sixty",
+   "inicio": 11.575,
+   "fim": 12.0
+  },
+  {
+   "texto": "sailors",
+   "inicio": 12.0,
+   "fim": 12.6
+  },
+  {
+   "texto": "and",
+   "inicio": 12.6,
+   "fim": 12.725
+  },
+  {
+   "texto": "marines",
+   "inicio": 12.725,
+   "fim": 13.35
+  },
+  {
+   "texto": "from",
+   "inicio": 13.35,
+   "fim": 13.512
+  },
+  {
+   "texto": "the",
+   "inicio": 13.512,
+   "fim": 13.637
+  },
+  {
+   "texto": "warship",
+   "inicio": 13.637,
+   "fim": 14.162
+  },
+  {
+   "texto": "USS",
+   "inicio": 14.162,
+   "fim": 14.787
+  },
+  {
+   "texto": "Boston",
+   "inicio": 14.787,
+   "fim": 15.325
+  },
+  {
+   "texto": "to",
+   "inicio": 15.325,
+   "fim": 15.45
+  },
+  {
+   "texto": "come",
+   "inicio": 15.45,
+   "fim": 15.65
+  },
+  {
+   "texto": "ashore.",
+   "inicio": 15.65,
+   "fim": 16.575
+  },
+  {
+   "texto": "The",
+   "inicio": 16.712,
+   "fim": 16.825
+  },
+  {
+   "texto": "marines",
+   "inicio": 16.825,
+   "fim": 17.375
+  },
+  {
+   "texto": "did",
+   "inicio": 17.375,
+   "fim": 17.55
+  },
+  {
+   "texto": "not",
+   "inicio": 17.55,
+   "fim": 17.825
+  },
+  {
+   "texto": "fire",
+   "inicio": 17.825,
+   "fim": 18.25
+  },
+  {
+   "texto": "a",
+   "inicio": 18.25,
+   "fim": 18.375
+  },
+  {
+   "texto": "shot.",
+   "inicio": 18.375,
+   "fim": 19.125
+  },
+  {
+   "texto": "But",
+   "inicio": 19.225,
+   "fim": 19.375
+  },
+  {
+   "texto": "they",
+   "inicio": 19.375,
+   "fim": 19.525
+  },
+  {
+   "texto": "were",
+   "inicio": 19.525,
+   "fim": 19.688
+  },
+  {
+   "texto": "posted",
+   "inicio": 19.688,
+   "fim": 20.2
+  },
+  {
+   "texto": "near",
+   "inicio": 20.2,
+   "fim": 20.425
+  },
+  {
+   "texto": "the",
+   "inicio": 20.425,
+   "fim": 20.538
+  },
+  {
+   "texto": "palace,",
+   "inicio": 20.538,
+   "fim": 21.35
+  },
+  {
+   "texto": "and",
+   "inicio": 21.45,
+   "fim": 21.587
+  },
+  {
+   "texto": "everyone",
+   "inicio": 21.587,
+   "fim": 22.075
+  },
+  {
+   "texto": "understood",
+   "inicio": 22.075,
+   "fim": 22.613
+  },
+  {
+   "texto": "the",
+   "inicio": 22.613,
+   "fim": 22.7
+  },
+  {
+   "texto": "message.",
+   "inicio": 22.7,
+   "fim": 23.55
+  }
+ ]
+}

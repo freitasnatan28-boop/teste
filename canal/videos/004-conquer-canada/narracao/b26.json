@@ -1,0 +1,138 @@
+{
+ "id": "b26",
+ "capitulo": "War Plan Red",
+ "visual": "Poison gas icon. Airfields near the border. Stamp \"1935\".",
+ "texto": "Before that, an update in 1935 even approved the use of poison gas, and Congress paid for new airfields near the border, disguised as civilian airports.",
+ "palavras": [
+  {
+   "texto": "Before",
+   "inicio": 0.35,
+   "fim": 0.725
+  },
+  {
+   "texto": "that,",
+   "inicio": 0.725,
+   "fim": 1.175
+  },
+  {
+   "texto": "an",
+   "inicio": 1.25,
+   "fim": 1.45
+  },
+  {
+   "texto": "update",
+   "inicio": 1.45,
+   "fim": 1.975
+  },
+  {
+   "texto": "in",
+   "inicio": 1.975,
+   "fim": 2.1
+  },
+  {
+   "texto": "1935",
+   "inicio": 2.1,
+   "fim": 3.513
+  },
+  {
+   "texto": "even",
+   "inicio": 3.513,
+   "fim": 3.775
+  },
+  {
+   "texto": "approved",
+   "inicio": 3.775,
+   "fim": 4.325
+  },
+  {
+   "texto": "the",
+   "inicio": 4.325,
+   "fim": 4.463
+  },
+  {
+   "texto": "use",
+   "inicio": 4.463,
+   "fim": 4.775
+  },
+  {
+   "texto": "of",
+   "inicio": 4.775,
+   "fim": 4.912
+  },
+  {
+   "texto": "poison",
+   "inicio": 4.912,
+   "fim": 5.438
+  },
+  {
+   "texto": "gas,",
+   "inicio": 5.438,
+   "fim": 6.275
+  },
+  {
+   "texto": "and",
+   "inicio": 6.412,
+   "fim": 6.562
+  },
+  {
+   "texto": "Congress",
+   "inicio": 6.562,
+   "fim": 7.062
+  },
+  {
+   "texto": "paid",
+   "inicio": 7.062,
+   "fim": 7.475
+  },
+  {
+   "texto": "for",
+   "inicio": 7.475,
+   "fim": 7.638
+  },
+  {
+   "texto": "new",
+   "inicio": 7.638,
+   "fim": 7.912
+  },
+  {
+   "texto": "airfields",
+   "inicio": 7.912,
+   "fim": 8.5
+  },
+  {
+   "texto": "near",
+   "inicio": 8.5,
+   "fim": 8.725
+  },
+  {
+   "texto": "the",
+   "inicio": 8.725,
+   "fim": 8.838
+  },
+  {
+   "texto": "border,",
+   "inicio": 8.838,
+   "fim": 9.525
+  },
+  {
+   "texto": "disguised",
+   "inicio": 9.65,
+   "fim": 10.363
+  },
+  {
+   "texto": "as",
+   "inicio": 10.363,
+   "fim": 10.512
+  },
+  {
+   "texto": "civilian",
+   "inicio": 10.512,
+   "fim": 11.088
+  },
+  {
+   "texto": "airports.",
+   "inicio": 11.088,
+   "fim": 12.1
+  }
+ ]
+}

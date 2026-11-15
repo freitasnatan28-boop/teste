@@ -63,9 +63,11 @@ function partePrincipal(f: Feature): Feature {
   };
   const maior = polis.reduce((a: Feature, b: Feature) => (area(b) > area(a) ? b : a));
   const [[o, s], [l, n]] = geoBounds(maior as any);
+  // Raio proporcional ao tamanho do país: o Canadá leva as ilhas do Ártico e a Terra Nova; a França não leva a Guiana.
+  const raio = Math.max(15, 0.6 * Math.max(l - o, n - s));
   const perto = polis.filter((p: Feature) => {
     const [[po, ps], [pl, pn]] = geoBounds(p as any);
-    return Math.abs((po + pl) / 2 - (o + l) / 2) < 15 && Math.abs((ps + pn) / 2 - (s + n) / 2) < 15;
+    return Math.abs((po + pl) / 2 - (o + l) / 2) < raio && Math.abs((ps + pn) / 2 - (s + n) / 2) < raio;
   });
   return { ...f, geometry: { type: "MultiPolygon", coordinates: perto.map((p: Feature) => p.geometry.coordinates) } };
 }
@@ -100,6 +102,7 @@ const LISTRAS: Record<string, string[]> = {
   MEX: ["#006847", "#ffffff", "#ce1126"], RUS: ["#ffffff", "#0039a6", "#d52b1e"], DNK: ["#c8102e", "#ffffff"], GRL: ["#ffffff", "#c8102e"],
   GBR: ["#012169", "#ffffff", "#c8102e"], CHN: ["#ee1c25", "#ffde00"], URS: ["#cc0000", "#ffde00"],
   PAN: ["#ffffff", "#da121a", "#072357"], COL: ["#fcd116", "#003893", "#ce1126"],
+  CAN: ["#d52b1e", "#ffffff"], HAW: ["#ffffff", "#c8102e", "#012169"], JPN: ["#ffffff", "#bc002d"],
 };
 
 const LIVRE_LEGENDA = 215; // px reservados embaixo para a legenda

@@ -1,0 +1,218 @@
+{
+ "id": "b15",
+ "capitulo": "A Mere Matter of Marching",
+ "visual": "York burns. Then Washington burns. White House icon on fire.",
+ "texto": "In 1813, American troops burned the town of York, today called Toronto. A year later, the British came for revenge. They marched into Washington and set fire to the Capitol and the White House. The president had to flee his own capital.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0.4,
+   "fim": 0.525
+  },
+  {
+   "texto": "1813,",
+   "inicio": 0.525,
+   "fim": 1.85
+  },
+  {
+   "texto": "American",
+   "inicio": 1.962,
+   "fim": 2.538
+  },
+  {
+   "texto": "troops",
+   "inicio": 2.538,
+   "fim": 2.962
+  },
+  {
+   "texto": "burned",
+   "inicio": 2.962,
+   "fim": 3.312
+  },
+  {
+   "texto": "the",
+   "inicio": 3.312,
+   "fim": 3.413
+  },
+  {
+   "texto": "town",
+   "inicio": 3.413,
+   "fim": 3.688
+  },
+  {
+   "texto": "of",
+   "inicio": 3.688,
+   "fim": 3.812
+  },
+  {
+   "texto": "York,",
+   "inicio": 3.812,
+   "fim": 4.375
+  },
+  {
+   "texto": "today",
+   "inicio": 4.475,
+   "fim": 4.812
+  },
+  {
+   "texto": "called",
+   "inicio": 4.812,
+   "fim": 5.175
+  },
+  {
+   "texto": "Toronto.",
+   "inicio": 5.175,
+   "fim": 6.15
+  },
+  {
+   "texto": "A",
+   "inicio": 6.375,
+   "fim": 6.513
+  },
+  {
+   "texto": "year",
+   "inicio": 6.513,
+   "fim": 6.787
+  },
+  {
+   "texto": "later,",
+   "inicio": 6.787,
+   "fim": 7.25
+  },
+  {
+   "texto": "the",
+   "inicio": 7.325,
+   "fim": 7.463
+  },
+  {
+   "texto": "British",
+   "inicio": 7.463,
+   "fim": 7.925
+  },
+  {
+   "texto": "came",
+   "inicio": 7.925,
+   "fim": 8.2
+  },
+  {
+   "texto": "for",
+   "inicio": 8.2,
+   "fim": 8.375
+  },
+  {
+   "texto": "revenge.",
+   "inicio": 8.375,
+   "fim": 9.325
+  },
+  {
+   "texto": "They",
+   "inicio": 9.488,
+   "fim": 9.688
+  },
+  {
+   "texto": "marched",
+   "inicio": 9.688,
+   "fim": 10.062
+  },
+  {
+   "texto": "into",
+   "inicio": 10.062,
+   "fim": 10.363
+  },
+  {
+   "texto": "Washington",
+   "inicio": 10.363,
+   "fim": 11.075
+  },
+  {
+   "texto": "and",
+   "inicio": 11.075,
+   "fim": 11.213
+  },
+  {
+   "texto": "set",
+   "inicio": 11.213,
+   "fim": 11.488
+  },
+  {
+   "texto": "fire",
+   "inicio": 11.488,
+   "fim": 11.9
+  },
+  {
+   "texto": "to",
+   "inicio": 11.9,
+   "fim": 11.988
+  },
+  {
+   "texto": "the",
+   "inicio": 11.988,
+   "fim": 12.113
+  },
+  {
+   "texto": "Capitol",
+   "inicio": 12.113,
+   "fim": 12.65
+  },
+  {
+   "texto": "and",
+   "inicio": 12.65,
+   "fim": 12.762
+  },
+  {
+   "texto": "the",
+   "inicio": 12.762,
+   "fim": 12.887
+  },
+  {
+   "texto": "White",
+   "inicio": 12.887,
+   "fim": 13.2
+  },
+  {
+   "texto": "House.",
+   "inicio": 13.2,
+   "fim": 13.975
+  },
+  {
+   "texto": "The",
+   "inicio": 14.113,
+   "fim": 14.238
+  },
+  {
+   "texto": "president",
+   "inicio": 14.238,
+   "fim": 14.775
+  },
+  {
+   "texto": "had",
+   "inicio": 14.775,
+   "fim": 14.975
+  },
+  {
+   "texto": "to",
+   "inicio": 14.975,
+   "fim": 15.125
+  },
+  {
+   "texto": "flee",
+   "inicio": 15.125,
+   "fim": 15.45
+  },
+  {
+   "texto": "his",
+   "inicio": 15.45,
+   "fim": 15.637
+  },
+  {
+   "texto": "own",
+   "inicio": 15.637,
+   "fim": 15.938
+  },
+  {
+   "texto": "capital.",
+   "inicio": 15.938,
+   "fim": 16.825
+  }
+ ]
+}

@@ -1,0 +1,2613 @@
+{
+ "titulo": "How America Took Hawaii",
+ "idioma": "en",
+ "estilo": "mapa",
+ "trilha": "trilha-mapa",
+ "chaves": [
+  "Hawaii",
+  "Hawaiian",
+  "kingdom",
+  "queen",
+  "Liliuokalani",
+  "Kalakaua",
+  "Cook",
+  "sugar",
+  "Pearl",
+  "Marines",
+  "Dole",
+  "Cleveland",
+  "war",
+  "petitions",
+  "annexed",
+  "Japan",
+  "apologized",
+  "apology",
+  "Congress",
+  "Boston",
+  "Committee",
+  "Bayonet",
+  "overthrow",
+  "Panama",
+  "Greenland",
+  "Canada"
+ ],
+ "beats": {
+  "b01": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "de": {
+      "centro": [
+       -100,
+       25
+      ],
+      "zoom": 1.3
+     },
+     "para": {
+      "centro": [
+       -140,
+       28
+      ],
+      "zoom": 2.6
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946",
+       "em": "islands"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         -122.42,
+         37.77
+        ],
+        [
+         -157.86,
+         21.31
+        ]
+       ],
+       "cor": "#ffd400",
+       "tracejada": true,
+       "em": "California",
+       "dur": 60,
+       "contador": {
+        "ate": 2400,
+        "sufixo": "MILES"
+       }
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        -122.4,
+        40.5
+       ],
+       "texto": "CALIFORNIA",
+       "em": "California"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.5,
+        24.5
+       ],
+       "emoji": "👑",
+       "rotulo": "A KINGDOM",
+       "em": "king"
+      }
+     ]
+    },
+    {
+     "em": "treaties",
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.3,
+       20.45
+      ],
+      "zoom": 40
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -159.9,
+        22.6
+       ],
+       "icone": "documento",
+       "rotulo": "TREATIES",
+       "em": "treaties"
+      }
+     ]
+    }
+   ]
+  },
+  "b02": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.3,
+       20.45
+      ],
+      "zoom": 40
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -159.6,
+        21.0
+       ],
+       "emoji": "🏛️",
+       "rotulo": "EMBASSIES",
+       "em": "embassies"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -155.6,
+        21.6
+       ],
+       "icone": "documento",
+       "rotulo": "CONSTITUTION",
+       "em": "constitution"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.4,
+        19.2
+       ],
+       "emoji": "📚",
+       "rotulo": "HIGH LITERACY",
+       "em": "literacy"
+      }
+     ]
+    }
+   ]
+  },
+  "b03": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.9,
+       21.4
+      ],
+      "zoom": 90
+     },
+     "ano": "1893",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "retrato",
+       "lonlat": [
+        -158.35,
+        21.6
+       ],
+       "img": "liliuokalani",
+       "nome": "QUEEN LILIUOKALANI",
+       "em": "queen"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.6,
+        21.55
+       ],
+       "emoji": "💼",
+       "rotulo": "BUSINESSMEN",
+       "em": "businessmen"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.5,
+        21.15
+       ],
+       "emoji": "⚓",
+       "rotulo": "US MARINES",
+       "em": "Marines"
+      },
+      {
+       "tipo": "carimbo",
+       "lonlat": [
+        -157.9,
+        21.0
+       ],
+       "texto": "OVERTHROWN",
+       "em": "removed"
+      }
+     ]
+    },
+    {
+     "em": "Five",
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.3,
+       20.45
+      ],
+      "zoom": 40
+     },
+     "ano": "1898",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#2f6fde",
+       "em": "belonged"
+      }
+     ]
+    }
+   ]
+  },
+  "b04": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -77.04,
+       38.9
+      ],
+      "zoom": 20
+     },
+     "ano": "1993",
+     "paises": [
+      {
+       "iso": "USA",
+       "bandeira": "USA"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -77.04,
+        38.9
+       ],
+       "icone": "documento",
+       "rotulo": "CONGRESS",
+       "em": "Congress"
+      },
+      {
+       "tipo": "carimbo",
+       "lonlat": [
+        -77,
+        37.6
+       ],
+       "texto": "APOLOGY",
+       "cor": "#1fa45b",
+       "em": "apologized"
+      }
+     ]
+    },
+    {
+     "em": "So",
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -150,
+       24
+      ],
+      "zoom": 2.6
+     },
+     "titulo": "HOW AMERICA\nTOOK HAWAII",
+     "som": "impacto",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      },
+      {
+       "iso": "USA",
+       "bandeira": "USA"
+      }
+     ]
+    }
+   ]
+  },
+  "b05": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -165,
+       22
+      ],
+      "zoom": 1.55
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#ffd400",
+       "em": "Hawaii"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         -122.42,
+         37.77
+        ],
+        [
+         -157.86,
+         21.31
+        ],
+        [
+         139.7,
+         35.7
+        ]
+       ],
+       "icone": "navio",
+       "cor": "#ffffff",
+       "em": "voyage",
+       "dur": 70
+      },
+      {
+       "pontos": [
+        [
+         -122.42,
+         37.77
+        ],
+        [
+         -157.86,
+         21.31
+        ],
+        [
+         151.2,
+         -33.87
+        ]
+       ],
+       "cor": "#ffd400",
+       "tracejada": true,
+       "em": "Pacific",
+       "dur": 60
+      },
+      {
+       "pontos": [
+        [
+         -122.42,
+         37.77
+        ],
+        [
+         -157.86,
+         21.31
+        ],
+        [
+         121.47,
+         31.23
+        ]
+       ],
+       "cor": "#ffd400",
+       "tracejada": true,
+       "em": "coal",
+       "dur": 60
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        -157.5,
+        26
+       ],
+       "texto": "HALFWAY",
+       "cor": "#ffd400",
+       "em": "Halfway"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -150,
+        14
+       ],
+       "emoji": "⛽",
+       "rotulo": "WATER · FOOD · COAL",
+       "em": "water"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.8,
+        30.5
+       ],
+       "emoji": "🐋",
+       "rotulo": "WHALING PORTS",
+       "em": "Whaling"
+      }
+     ]
+    }
+   ]
+  },
+  "b06": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -153,
+       5
+      ],
+      "zoom": 3.2
+     },
+     "ano": "1778",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         -149.4,
+         -17.6
+        ],
+        [
+         -155,
+         5
+        ],
+        [
+         -159.5,
+         22.05
+        ]
+       ],
+       "icone": "navio",
+       "pais": "GBR",
+       "cor": "#ffffff",
+       "em": "Cook",
+       "dur": 60
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -145,
+        14
+       ],
+       "emoji": "🧭",
+       "rotulo": "CAPTAIN COOK",
+       "em": "explorer"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -147,
+        24
+       ],
+       "emoji": "🐋",
+       "rotulo": "WHALERS",
+       "em": "whalers"
+      }
+     ]
+    }
+   ]
+  },
+  "b07": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -155.7,
+       19.6
+      ],
+      "zoom": 60
+     },
+     "ano": "1779",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -155.92,
+        19.48
+       ],
+       "icone": "explosao",
+       "rotulo": "KEALAKEKUA BAY",
+       "em": "killed"
+      },
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        -155.4,
+        20.25
+       ],
+       "texto": "THE BIG ISLAND",
+       "em": "Big"
+      }
+     ]
+    }
+   ]
+  },
+  "b08": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.3,
+       20.45
+      ],
+      "zoom": 40
+     },
+     "ano": "1810",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946",
+       "em": "united"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -160.6,
+        20.9
+       ],
+       "emoji": "👑",
+       "rotulo": "KAMEHAMEHA",
+       "em": "Kamehameha"
+      },
+      {
+       "tipo": "bandeira",
+       "lonlat": [
+        -155.3,
+        21.7
+       ],
+       "pais": "HAW",
+       "em": "flag"
+      },
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        -155.3,
+        21.15
+       ],
+       "texto": "UNION JACK + 8 STRIPES",
+       "em": "Union"
+      }
+     ]
+    }
+   ]
+  },
+  "b09": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -100,
+       5
+      ],
+      "zoom": 1.25
+     },
+     "ano": "1820",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         -71.06,
+         42.36
+        ],
+        [
+         -40,
+         0
+        ],
+        [
+         -67.3,
+         -56.6
+        ],
+        [
+         -80,
+         -20
+        ],
+        [
+         -120,
+         0
+        ],
+        [
+         -157.86,
+         21.31
+        ]
+       ],
+       "icone": "navio",
+       "pais": "USA",
+       "cor": "#ffffff",
+       "em": "arrived",
+       "dur": 90
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -71.06,
+        42.36
+       ],
+       "emoji": "⛪",
+       "rotulo": "MISSIONARIES",
+       "em": "missionaries"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.9,
+        26
+       ],
+       "emoji": "📖",
+       "rotulo": "SCHOOLS",
+       "em": "schools"
+      }
+     ]
+    }
+   ]
+  },
+  "b10": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -145,
+       28
+      ],
+      "zoom": 2.6
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      },
+      {
+       "iso": "USA",
+       "bandeira": "USA",
+       "em": "market"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         -157.86,
+         21.31
+        ],
+        [
+         -122.42,
+         37.77
+        ]
+       ],
+       "icone": "navio",
+       "cor": "#ffffff",
+       "em": "market",
+       "dur": 60
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "foto",
+       "lonlat": [
+        -152,
+        35
+       ],
+       "img": "acucar",
+       "rotulo": "SUGAR PLANTATION",
+       "em": "sugar"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.8,
+        17
+       ],
+       "icone": "dinheiro",
+       "rotulo": "RICH",
+       "em": "rich"
+      }
+     ]
+    }
+   ]
+  },
+  "b11": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -150,
+       25
+      ],
+      "zoom": 1.3
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         121.47,
+         31.23
+        ],
+        [
+         -157.86,
+         21.31
+        ]
+       ],
+       "cor": "#ffd400",
+       "tracejada": true,
+       "em": "China",
+       "dur": 40
+      },
+      {
+       "pontos": [
+        [
+         139.7,
+         35.7
+        ],
+        [
+         -157.86,
+         21.31
+        ]
+       ],
+       "cor": "#ffd400",
+       "tracejada": true,
+       "em": "Japan",
+       "dur": 40
+      },
+      {
+       "pontos": [
+        [
+         -16.9,
+         32.65
+        ],
+        [
+         -40,
+         10
+        ],
+        [
+         -67.3,
+         -56.6
+        ],
+        [
+         -110,
+         0
+        ],
+        [
+         -157.86,
+         21.31
+        ]
+       ],
+       "cor": "#ffd400",
+       "tracejada": true,
+       "em": "Portugal",
+       "dur": 40
+      },
+      {
+       "pontos": [
+        [
+         120.98,
+         14.6
+        ],
+        [
+         -157.86,
+         21.31
+        ]
+       ],
+       "cor": "#ffd400",
+       "tracejada": true,
+       "em": "Philippines",
+       "dur": 40
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        -157.8,
+        27
+       ],
+       "texto": "LABORERS",
+       "cor": "#ffd400",
+       "em": "laborers"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.8,
+        15
+       ],
+       "emoji": "🦠",
+       "rotulo": "DISEASES",
+       "em": "diseases"
+      }
+     ]
+    }
+   ]
+  },
+  "b12": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.3,
+       20.45
+      ],
+      "zoom": 40
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "preco",
+       "lonlat": [
+        -159.3,
+        21.3
+       ],
+       "valor": 300000,
+       "prefixo": "~",
+       "sufixo": "BEFORE COOK",
+       "cor": "#1fa45b",
+       "em": "three"
+      },
+      {
+       "tipo": "preco",
+       "lonlat": [
+        -155.5,
+        21.3
+       ],
+       "valor": 40000,
+       "prefixo": "",
+       "sufixo": "A CENTURY LATER",
+       "cor": "#e63946",
+       "em": "forty"
+      },
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        -157.3,
+        19.1
+       ],
+       "texto": "A MINORITY IN THEIR OWN LAND",
+       "cor": "#ffd400",
+       "em": "minority"
+      }
+     ]
+    }
+   ]
+  },
+  "b13": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -140,
+       30
+      ],
+      "zoom": 2.6
+     },
+     "ano": "1875",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      },
+      {
+       "iso": "USA",
+       "bandeira": "USA"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         -157.86,
+         21.31
+        ],
+        [
+         -122.42,
+         37.77
+        ]
+       ],
+       "icone": "navio",
+       "cor": "#1fa45b",
+       "em": "tax-free",
+       "dur": 50
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -120,
+        26
+       ],
+       "icone": "documento",
+       "rotulo": "RECIPROCITY TREATY",
+       "em": "deal"
+      },
+      {
+       "tipo": "preco",
+       "lonlat": [
+        -140,
+        38
+       ],
+       "valor": 0,
+       "prefixo": "$",
+       "sufixo": "TAX ON SUGAR",
+       "cor": "#1fa45b",
+       "em": "tax-free"
+      }
+     ]
+    },
+    {
+     "em": "harbor",
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.95,
+       21.38
+      ],
+      "zoom": 110
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.97,
+        21.36
+       ],
+       "icone": "ancora",
+       "rotulo": "PEARL HARBOR",
+       "em": "Pearl"
+      }
+     ]
+    }
+   ]
+  },
+  "b14": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.9,
+       21.4
+      ],
+      "zoom": 90
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "retrato",
+       "lonlat": [
+        -158.3,
+        21.55
+       ],
+       "img": "kalakaua",
+       "nome": "KING KALAKAUA",
+       "em": "Kalakaua"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.5,
+        21.55
+       ],
+       "emoji": "💡",
+       "rotulo": "ELECTRIC LIGHTS",
+       "em": "electric"
+      },
+      {
+       "tipo": "fala",
+       "lonlat": [
+        -158.3,
+        21.55
+       ],
+       "texto": "BEFORE THE WHITE HOUSE!",
+       "em": "White"
+      }
+     ]
+    },
+    {
+     "em": "1881",
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       10,
+       25
+      ],
+      "zoom": 1.15
+     },
+     "ano": "1881",
+     "rotas": [
+      {
+       "pontos": [
+        [
+         -157.86,
+         21.31
+        ],
+        [
+         139.7,
+         35.7
+        ],
+        [
+         80,
+         10
+        ],
+        [
+         32,
+         30
+        ],
+        [
+         2.35,
+         48.85
+        ],
+        [
+         -0.13,
+         51.5
+        ],
+        [
+         -74,
+         40.7
+        ],
+        [
+         -122.42,
+         37.77
+        ],
+        [
+         -157.86,
+         21.31
+        ]
+       ],
+       "icone": "navio",
+       "pais": "HAW",
+       "cor": "#ffd400",
+       "em": "first",
+       "dur": 110
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        10,
+        -5
+       ],
+       "texto": "FIRST KING AROUND THE WORLD",
+       "cor": "#ffd400",
+       "em": "around"
+      }
+     ]
+    }
+   ]
+  },
+  "b15": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.9,
+       21.4
+      ],
+      "zoom": 90
+     },
+     "ano": "1887",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.55,
+        21.6
+       ],
+       "emoji": "🔫",
+       "rotulo": "ARMED MILITIA",
+       "em": "militia"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -158.3,
+        21.6
+       ],
+       "icone": "documento",
+       "rotulo": "NEW CONSTITUTION",
+       "em": "constitution"
+      },
+      {
+       "tipo": "carimbo",
+       "lonlat": [
+        -157.9,
+        21.15
+       ],
+       "texto": "SIGN IT",
+       "em": "sign"
+      },
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        -157.9,
+        21.85
+       ],
+       "texto": "THE BAYONET CONSTITUTION",
+       "cor": "#ffd400",
+       "em": "Bayonet"
+      }
+     ]
+    }
+   ]
+  },
+  "b16": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.9,
+       21.4
+      ],
+      "zoom": 90
+     },
+     "ano": "1891",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "retrato",
+       "lonlat": [
+        -158.3,
+        21.55
+       ],
+       "img": "liliuokalani",
+       "nome": "QUEEN LILIUOKALANI",
+       "em": "Liliuokalani"
+      },
+      {
+       "tipo": "fala",
+       "lonlat": [
+        -158.3,
+        21.55
+       ],
+       "texto": "POWER BACK TO MY PEOPLE.",
+       "em": "restore"
+      }
+     ]
+    }
+   ]
+  },
+  "b17": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.9,
+       21.4
+      ],
+      "zoom": 90
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "retrato",
+       "lonlat": [
+        -158.3,
+        21.55
+       ],
+       "img": "liliuokalani",
+       "nome": "QUEEN LILIUOKALANI"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.5,
+        21.55
+       ],
+       "emoji": "🎵",
+       "rotulo": "ALOHA 'OE",
+       "em": "songwriter"
+      }
+     ]
+    }
+   ]
+  },
+  "b18": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.9,
+       21.4
+      ],
+      "zoom": 90
+     },
+     "ano": "1893",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         -157.95,
+         20.9
+        ],
+        [
+         -157.88,
+         21.28
+        ]
+       ],
+       "icone": "navio",
+       "pais": "USA",
+       "cor": "#ffffff",
+       "em": "Boston",
+       "dur": 40
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "preco",
+       "lonlat": [
+        -158.4,
+        21.75
+       ],
+       "valor": 13,
+       "prefixo": "",
+       "sufixo": "MEN",
+       "cor": "#e63946",
+       "em": "thirteen"
+      },
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        -158.4,
+        21.5
+       ],
+       "texto": "COMMITTEE OF SAFETY",
+       "em": "Committee"
+      },
+      {
+       "tipo": "preco",
+       "lonlat": [
+        -157.4,
+        21.75
+       ],
+       "valor": 162,
+       "prefixo": "~",
+       "sufixo": "MARINES & SAILORS",
+       "cor": "#012169",
+       "em": "sixty"
+      },
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        -157.7,
+        21.05
+       ],
+       "texto": "USS BOSTON",
+       "em": "Boston"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.6,
+        21.4
+       ],
+       "emoji": "🤫",
+       "rotulo": "NO SHOTS FIRED",
+       "em": "shot"
+      }
+     ]
+    }
+   ]
+  },
+  "b19": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.9,
+       21.4
+      ],
+      "zoom": 90
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "retrato",
+       "lonlat": [
+        -158.3,
+        21.55
+       ],
+       "img": "liliuokalani",
+       "nome": "QUEEN LILIUOKALANI",
+       "em": "queen"
+      },
+      {
+       "tipo": "fala",
+       "lonlat": [
+        -158.3,
+        21.55
+       ],
+       "texto": "TO AVOID BLOODSHED...",
+       "em": "bloodshed"
+      },
+      {
+       "tipo": "bandeira",
+       "lonlat": [
+        -157.45,
+        21.6
+       ],
+       "pais": "USA",
+       "em": "United"
+      },
+      {
+       "tipo": "reacao",
+       "lonlat": [
+        -157.45,
+        21.6
+       ],
+       "emoji": "🤞",
+       "em": "hoping"
+      }
+     ]
+    }
+   ]
+  },
+  "b20": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.9,
+       21.4
+      ],
+      "zoom": 90
+     },
+     "ano": "1894",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "retrato",
+       "lonlat": [
+        -158.3,
+        21.55
+       ],
+       "img": "dole",
+       "nome": "SANFORD DOLE",
+       "em": "Sanford"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.5,
+        21.55
+       ],
+       "emoji": "🍍",
+       "rotulo": "DOLE PINEAPPLES",
+       "em": "pineapple"
+      }
+     ]
+    }
+   ]
+  },
+  "b21": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -115,
+       30
+      ],
+      "zoom": 2.2
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "bandeira": "USA"
+      },
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         -77.04,
+         38.9
+        ],
+        [
+         -122.42,
+         37.77
+        ],
+        [
+         -157.86,
+         21.31
+        ]
+       ],
+       "cor": "#ffffff",
+       "tracejada": true,
+       "em": "investigator",
+       "dur": 60
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "retrato",
+       "lonlat": [
+        -80,
+        38.9
+       ],
+       "img": "cleveland",
+       "nome": "GROVER CLEVELAND",
+       "em": "Cleveland"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.8,
+        25.5
+       ],
+       "icone": "documento",
+       "rotulo": "BLOUNT REPORT",
+       "em": "Blount"
+      },
+      {
+       "tipo": "carimbo",
+       "lonlat": [
+        -140,
+        18
+       ],
+       "texto": "NOT WITHOUT THE MARINES",
+       "em": "marines"
+      }
+     ]
+    }
+   ]
+  },
+  "b22": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -100,
+       36
+      ],
+      "zoom": 4
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "bandeira": "USA"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "retrato",
+       "lonlat": [
+        -80,
+        38.5
+       ],
+       "img": "cleveland",
+       "nome": "GROVER CLEVELAND"
+      },
+      {
+       "tipo": "fala",
+       "lonlat": [
+        -80,
+        38.5
+       ],
+       "texto": "AN ACT OF WAR.",
+       "em": "war"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -98,
+        36
+       ],
+       "icone": "documento",
+       "rotulo": "CONGRESS",
+       "em": "Cleveland"
+      },
+      {
+       "tipo": "reacao",
+       "lonlat": [
+        -98,
+        36
+       ],
+       "emoji": "🤐",
+       "em": "would"
+      }
+     ]
+    }
+   ]
+  },
+  "b23": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.9,
+       21.4
+      ],
+      "zoom": 90
+     },
+     "ano": "1895",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.5,
+        21.55
+       ],
+       "icone": "explosao",
+       "rotulo": "UPRISING",
+       "em": "supporters"
+      },
+      {
+       "tipo": "retrato",
+       "lonlat": [
+        -158.3,
+        21.55
+       ],
+       "img": "liliuokalani",
+       "nome": "QUEEN LILIUOKALANI",
+       "em": "queen"
+      },
+      {
+       "tipo": "carimbo",
+       "lonlat": [
+        -157.9,
+        21.1
+       ],
+       "texto": "ARRESTED",
+       "em": "arrested"
+      }
+     ]
+    }
+   ]
+  },
+  "b24": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.86,
+       21.32
+      ],
+      "zoom": 110
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "foto",
+       "lonlat": [
+        -158.2,
+        21.45
+       ],
+       "img": "anexacao",
+       "rotulo": "IOLANI PALACE",
+       "em": "She"
+      },
+      {
+       "tipo": "preco",
+       "lonlat": [
+        -157.55,
+        21.2
+       ],
+       "valor": 8,
+       "prefixo": "",
+       "sufixo": "MONTHS AS A PRISONER",
+       "cor": "#e63946",
+       "em": "eight"
+      }
+     ]
+    }
+   ]
+  },
+  "b25": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -125,
+       30
+      ],
+      "zoom": 2.4
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      },
+      {
+       "iso": "USA",
+       "bandeira": "USA"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         -157.86,
+         21.31
+        ],
+        [
+         -122.42,
+         37.77
+        ],
+        [
+         -77.04,
+         38.9
+        ]
+       ],
+       "cor": "#ffd400",
+       "tracejada": true,
+       "em": "petitions",
+       "dur": 60
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "preco",
+       "lonlat": [
+        -150,
+        30
+       ],
+       "valor": 21000,
+       "prefixo": "",
+       "sufixo": "SIGNATURES",
+       "cor": "#1fa45b",
+       "em": "twenty-one"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -100,
+        40
+       ],
+       "icone": "documento",
+       "rotulo": "PETITIONS",
+       "em": "paper"
+      },
+      {
+       "tipo": "carimbo",
+       "lonlat": [
+        -90,
+        32
+       ],
+       "texto": "TREATY FAILED",
+       "em": "failed"
+      }
+     ]
+    }
+   ]
+  },
+  "b26": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -170,
+       25
+      ],
+      "zoom": 1.5
+     },
+     "ano": "1898",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         -122.42,
+         37.77
+        ],
+        [
+         -157.86,
+         21.31
+        ],
+        [
+         120.98,
+         14.6
+        ]
+       ],
+       "icone": "navio",
+       "pais": "USA",
+       "cor": "#ffffff",
+       "em": "warships",
+       "dur": 80
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.8,
+        27
+       ],
+       "emoji": "⚓",
+       "rotulo": "STEPPING STONE",
+       "em": "perfect"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        120.98,
+        14.6
+       ],
+       "icone": "explosao",
+       "rotulo": "PHILIPPINES",
+       "em": "Philippines"
+      }
+     ]
+    },
+    {
+     "em": "August",
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.86,
+       21.32
+      ],
+      "zoom": 110
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#2f6fde"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "foto",
+       "lonlat": [
+        -158.2,
+        21.45
+       ],
+       "img": "anexacao",
+       "rotulo": "IOLANI PALACE, AUG. 1898",
+       "em": "lowered"
+      },
+      {
+       "tipo": "bandeira",
+       "lonlat": [
+        -157.55,
+        21.45
+       ],
+       "pais": "HAW",
+       "em": "Hawaiian"
+      },
+      {
+       "tipo": "bandeira",
+       "lonlat": [
+        -157.55,
+        21.2
+       ],
+       "pais": "USA",
+       "em": "American"
+      },
+      {
+       "tipo": "reacao",
+       "lonlat": [
+        -157.55,
+        21.45
+       ],
+       "emoji": "😔",
+       "em": "refusing"
+      }
+     ]
+    }
+   ]
+  },
+  "b27": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -175,
+       28
+      ],
+      "zoom": 1.6
+     },
+     "ano": "1941",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#2f6fde"
+      },
+      {
+       "iso": "JPN",
+       "bandeira": "JPN",
+       "em": "Japan"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         147,
+         44
+        ],
+        [
+         -170,
+         40
+        ],
+        [
+         -158,
+         26
+        ],
+        [
+         -157.97,
+         21.36
+        ]
+       ],
+       "icone": "aviao",
+       "cor": "#e63946",
+       "em": "attacked",
+       "dur": 70
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.97,
+        21.36
+       ],
+       "icone": "explosao",
+       "rotulo": "PEARL HARBOR",
+       "em": "Pearl"
+      }
+     ]
+    }
+   ]
+  },
+  "b28": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.97,
+       21.36
+      ],
+      "zoom": 110
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#2f6fde"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "foto",
+       "lonlat": [
+        -158.3,
+        21.5
+       ],
+       "img": "arizona",
+       "rotulo": "USS ARIZONA, DEC. 7, 1941",
+       "em": "More"
+      },
+      {
+       "tipo": "preco",
+       "lonlat": [
+        -157.6,
+        21.2
+       ],
+       "valor": 2403,
+       "prefixo": "",
+       "sufixo": "KILLED",
+       "cor": "#e63946",
+       "em": "thousand"
+      }
+     ]
+    }
+   ]
+  },
+  "b29": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.3,
+       20.45
+      ],
+      "zoom": 40
+     },
+     "ano": "1959",
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#2f6fde",
+       "em": "fiftieth"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "preco",
+       "lonlat": [
+        -157.3,
+        22.6
+       ],
+       "valor": 50,
+       "prefixo": "",
+       "sufixo": "TH STATE",
+       "cor": "#012169",
+       "em": "fiftieth"
+      }
+     ]
+    }
+   ]
+  },
+  "b30": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.3,
+       20.45
+      ],
+      "zoom": 40
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#2f6fde"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "preco",
+       "lonlat": [
+        -159.3,
+        21.6
+       ],
+       "valor": 94,
+       "prefixo": "",
+       "sufixo": "% YES",
+       "cor": "#1fa45b",
+       "em": "ninety"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -155.5,
+        21.6
+       ],
+       "icone": "interrogacao",
+       "rotulo": "INDEPENDENCE?\nNOT ON THE BALLOT",
+       "em": "Independence"
+      }
+     ]
+    },
+    {
+     "em": "Today",
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -170,
+       5
+      ],
+      "zoom": 1.2
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#2f6fde"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.86,
+        21.31
+       ],
+       "icone": "radar",
+       "rotulo": "INDO-PACIFIC COMMAND",
+       "em": "Indo-Pacific"
+      },
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        -170,
+        -20
+       ],
+       "texto": "HALF THE PLANET",
+       "cor": "#ffd400",
+       "em": "half"
+      }
+     ]
+    }
+   ]
+  },
+  "b31": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -77.04,
+       38.9
+      ],
+      "zoom": 20
+     },
+     "ano": "1993",
+     "paises": [
+      {
+       "iso": "USA",
+       "bandeira": "USA"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -77.04,
+        38.9
+       ],
+       "icone": "documento",
+       "rotulo": "APOLOGY RESOLUTION",
+       "em": "resolution"
+      },
+      {
+       "tipo": "preco",
+       "lonlat": [
+        -74.8,
+        40.0
+       ],
+       "valor": 100,
+       "prefixo": "",
+       "sufixo": "YEARS LATER",
+       "cor": "#ffd400",
+       "em": "hundredth"
+      },
+      {
+       "tipo": "carimbo",
+       "lonlat": [
+        -77,
+        37.6
+       ],
+       "texto": "APOLOGY",
+       "cor": "#1fa45b",
+       "em": "apologized"
+      }
+     ]
+    }
+   ]
+  },
+  "b32": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -110,
+       35
+      ],
+      "zoom": 1.3
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946",
+       "em": "Hawaii,"
+      },
+      {
+       "iso": "PAN",
+       "bandeira": "PAN",
+       "em": "Panama"
+      },
+      {
+       "iso": "GRL",
+       "bandeira": "GRL",
+       "em": "Greenland,"
+      },
+      {
+       "iso": "CAN",
+       "bandeira": "CAN",
+       "em": "Canada."
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.8,
+        25
+       ],
+       "emoji": "🌺",
+       "rotulo": "HAWAII",
+       "em": "Hawaii,"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -79.7,
+        9.2
+       ],
+       "icone": "ancora",
+       "rotulo": "PANAMA",
+       "em": "Panama"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -42,
+        72
+       ],
+       "emoji": "🧊",
+       "rotulo": "GREENLAND",
+       "em": "Greenland,"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -100,
+        58
+       ],
+       "emoji": "🍁",
+       "rotulo": "CANADA",
+       "em": "Canada."
+      },
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        -115,
+        10
+       ],
+       "texto": "THE STEPPING STONES",
+       "cor": "#ffd400",
+       "em": "stepping"
+      }
+     ]
+    }
+   ]
+  },
+  "b33": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.3,
+       20.45
+      ],
+      "zoom": 40
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "carimbo",
+       "lonlat": [
+        -157.3,
+        21.8
+       ],
+       "texto": "KINGDOM → STATE",
+       "cor": "#ffd400",
+       "em": "kingdom"
+      },
+      {
+       "tipo": "icone",
+       "lonlat": [
+        -157.3,
+        19.3
+       ],
+       "icone": "documento",
+       "rotulo": "THE APOLOGY",
+       "em": "apology"
+      }
+     ]
+    }
+   ]
+  },
+  "b34": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "para": {
+      "centro": [
+       -157.3,
+       20.45
+      ],
+      "zoom": 40
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      }
+     ],
+     "rotas": [
+      {
+       "pontos": [
+        [
+         -150,
+         30
+        ],
+        [
+         -157.86,
+         21.31
+        ]
+       ],
+       "icone": "aviao",
+       "cor": "#ffffff",
+       "em": "tourists",
+       "dur": 50
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "preco",
+       "lonlat": [
+        -159.3,
+        21.6
+       ],
+       "valor": 10000000,
+       "prefixo": "~",
+       "sufixo": "VISITORS / YEAR",
+       "cor": "#ffd400",
+       "em": "ten"
+      },
+      {
+       "tipo": "bandeira",
+       "lonlat": [
+        -155.5,
+        21.4
+       ],
+       "pais": "HAW",
+       "em": "sovereignty"
+      },
+      {
+       "tipo": "fala",
+       "lonlat": [
+        -155.5,
+        21.4
+       ],
+       "texto": "NEVER GIVEN UP.",
+       "em": "never"
+      }
+     ]
+    }
+   ]
+  },
+  "b35": {
+   "cenas": [
+    {
+     "tipo": "mapa",
+     "de": {
+      "centro": [
+       -157.3,
+       20.45
+      ],
+      "zoom": 40
+     },
+     "para": {
+      "centro": [
+       -120,
+       25
+      ],
+      "zoom": 1.2
+     },
+     "paises": [
+      {
+       "iso": "USA",
+       "perto": [
+        -157.3,
+        20.6
+       ],
+       "cor": "#e63946"
+      },
+      {
+       "iso": "GRL",
+       "bandeira": "GRL",
+       "em": "Greenland,"
+      },
+      {
+       "iso": "PAN",
+       "bandeira": "PAN",
+       "em": "Panama"
+      },
+      {
+       "iso": "CAN",
+       "bandeira": "CAN",
+       "em": "Canada."
+      }
+     ],
+     "atores": [
+      {
+       "tipo": "rotulo",
+       "lonlat": [
+        -90,
+        52
+       ],
+       "texto": "WATCH NEXT",
+       "cor": "#ffd400",
+       "em": "watch"
+      }
+     ]
+    },
+    {
+     "em": "subscribe",
+     "tipo": "final"
+    }
+   ]
+  }
+ }
+}

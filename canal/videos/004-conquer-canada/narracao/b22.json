@@ -1,0 +1,213 @@
+{
+ "id": "b22",
+ "capitulo": "War Plan Red",
+ "visual": "\"1930\". Secret document. Stamp \"SECRET\". Code name CRIMSON on Canada.",
+ "texto": "By the twentieth century, the two countries were friends. But in 1930, the US Army approved a secret plan for a war with the British Empire. It was called War Plan Red, and in it, Canada had a code name: Crimson.",
+ "palavras": [
+  {
+   "texto": "By",
+   "inicio": 0.35,
+   "fim": 0.463
+  },
+  {
+   "texto": "the",
+   "inicio": 0.463,
+   "fim": 0.55
+  },
+  {
+   "texto": "twentieth",
+   "inicio": 0.55,
+   "fim": 1.038
+  },
+  {
+   "texto": "century,",
+   "inicio": 1.038,
+   "fim": 1.55
+  },
+  {
+   "texto": "the",
+   "inicio": 1.6,
+   "fim": 1.738
+  },
+  {
+   "texto": "two",
+   "inicio": 1.738,
+   "fim": 1.962
+  },
+  {
+   "texto": "countries",
+   "inicio": 1.962,
+   "fim": 2.5
+  },
+  {
+   "texto": "were",
+   "inicio": 2.5,
+   "fim": 2.663
+  },
+  {
+   "texto": "friends.",
+   "inicio": 2.663,
+   "fim": 3.625
+  },
+  {
+   "texto": "But",
+   "inicio": 3.725,
+   "fim": 3.862
+  },
+  {
+   "texto": "in",
+   "inicio": 3.862,
+   "fim": 3.975
+  },
+  {
+   "texto": "1930,",
+   "inicio": 3.975,
+   "fim": 5.05
+  },
+  {
+   "texto": "the",
+   "inicio": 5.15,
+   "fim": 5.287
+  },
+  {
+   "texto": "US",
+   "inicio": 5.287,
+   "fim": 5.825
+  },
+  {
+   "texto": "Army",
+   "inicio": 5.825,
+   "fim": 6.275
+  },
+  {
+   "texto": "approved",
+   "inicio": 6.275,
+   "fim": 6.725
+  },
+  {
+   "texto": "a",
+   "inicio": 6.725,
+   "fim": 6.862
+  },
+  {
+   "texto": "secret",
+   "inicio": 6.862,
+   "fim": 7.338
+  },
+  {
+   "texto": "plan",
+   "inicio": 7.338,
+   "fim": 7.8
+  },
+  {
+   "texto": "for",
+   "inicio": 7.8,
+   "fim": 7.925
+  },
+  {
+   "texto": "a",
+   "inicio": 7.925,
+   "fim": 8.037
+  },
+  {
+   "texto": "war",
+   "inicio": 8.037,
+   "fim": 8.4
+  },
+  {
+   "texto": "with",
+   "inicio": 8.4,
+   "fim": 8.537
+  },
+  {
+   "texto": "the",
+   "inicio": 8.537,
+   "fim": 8.637
+  },
+  {
+   "texto": "British",
+   "inicio": 8.637,
+   "fim": 9.0
+  },
+  {
+   "texto": "Empire.",
+   "inicio": 9.0,
+   "fim": 10.025
+  },
+  {
+   "texto": "It",
+   "inicio": 10.15,
+   "fim": 10.287
+  },
+  {
+   "texto": "was",
+   "inicio": 10.287,
+   "fim": 10.463
+  },
+  {
+   "texto": "called",
+   "inicio": 10.463,
+   "fim": 10.85
+  },
+  {
+   "texto": "War",
+   "inicio": 10.85,
+   "fim": 11.188
+  },
+  {
+   "texto": "Plan",
+   "inicio": 11.188,
+   "fim": 11.637
+  },
+  {
+   "texto": "Red,",
+   "inicio": 11.637,
+   "fim": 12.275
+  },
+  {
+   "texto": "and",
+   "inicio": 12.387,
+   "fim": 12.525
+  },
+  {
+   "texto": "in",
+   "inicio": 12.525,
+   "fim": 12.65
+  },
+  {
+   "texto": "it,",
+   "inicio": 12.65,
+   "fim": 12.975
+  },
+  {
+   "texto": "Canada",
+   "inicio": 13.088,
+   "fim": 13.525
+  },
+  {
+   "texto": "had",
+   "inicio": 13.525,
+   "fim": 13.688
+  },
+  {
+   "texto": "a",
+   "inicio": 13.688,
+   "fim": 13.787
+  },
+  {
+   "texto": "code",
+   "inicio": 13.787,
+   "fim": 14.2
+  },
+  {
+   "texto": "name:",
+   "inicio": 14.2,
+   "fim": 14.825
+  },
+  {
+   "texto": "Crimson.",
+   "inicio": 14.963,
+   "fim": 15.925
+  }
+ ]
+}

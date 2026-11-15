@@ -1,0 +1,133 @@
+{
+ "id": "b17",
+ "capitulo": "A Mere Matter of Marching",
+ "visual": "\"1814\". Treaty document. Border unchanged. Price tag $0.",
+ "texto": "The war ended in a treaty that changed almost nothing. After two and a half years of fighting, the border stayed exactly where it was.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0.35,
+   "fim": 0.463
+  },
+  {
+   "texto": "war",
+   "inicio": 0.463,
+   "fim": 0.85
+  },
+  {
+   "texto": "ended",
+   "inicio": 0.85,
+   "fim": 1.275
+  },
+  {
+   "texto": "in",
+   "inicio": 1.275,
+   "fim": 1.387
+  },
+  {
+   "texto": "a",
+   "inicio": 1.387,
+   "fim": 1.5
+  },
+  {
+   "texto": "treaty",
+   "inicio": 1.5,
+   "fim": 1.95
+  },
+  {
+   "texto": "that",
+   "inicio": 1.95,
+   "fim": 2.175
+  },
+  {
+   "texto": "changed",
+   "inicio": 2.175,
+   "fim": 2.763
+  },
+  {
+   "texto": "almost",
+   "inicio": 2.763,
+   "fim": 3.263
+  },
+  {
+   "texto": "nothing.",
+   "inicio": 3.263,
+   "fim": 4.075
+  },
+  {
+   "texto": "After",
+   "inicio": 4.237,
+   "fim": 4.562
+  },
+  {
+   "texto": "two",
+   "inicio": 4.562,
+   "fim": 4.787
+  },
+  {
+   "texto": "and",
+   "inicio": 4.787,
+   "fim": 4.888
+  },
+  {
+   "texto": "a",
+   "inicio": 4.888,
+   "fim": 4.95
+  },
+  {
+   "texto": "half",
+   "inicio": 4.95,
+   "fim": 5.25
+  },
+  {
+   "texto": "years",
+   "inicio": 5.25,
+   "fim": 5.537
+  },
+  {
+   "texto": "of",
+   "inicio": 5.537,
+   "fim": 5.662
+  },
+  {
+   "texto": "fighting,",
+   "inicio": 5.662,
+   "fim": 6.35
+  },
+  {
+   "texto": "the",
+   "inicio": 6.45,
+   "fim": 6.588
+  },
+  {
+   "texto": "border",
+   "inicio": 6.588,
+   "fim": 6.975
+  },
+  {
+   "texto": "stayed",
+   "inicio": 6.975,
+   "fim": 7.3
+  },
+  {
+   "texto": "exactly",
+   "inicio": 7.3,
+   "fim": 7.925
+  },
+  {
+   "texto": "where",
+   "inicio": 7.925,
+   "fim": 8.125
+  },
+  {
+   "texto": "it",
+   "inicio": 8.125,
+   "fim": 8.25
+  },
+  {
+   "texto": "was.",
+   "inicio": 8.25,
+   "fim": 9.025
+  }
+ ]
+}

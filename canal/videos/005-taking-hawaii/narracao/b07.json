@@ -1,0 +1,108 @@
+{
+ "id": "b07",
+ "capitulo": "The Crossroads of the Pacific",
+ "visual": "\"1779\". Kealakekua Bay. Explosion icon.",
+ "texto": "A year after he arrived, Cook was killed in a fight with Hawaiians at Kealakekua Bay, on the Big Island.",
+ "palavras": [
+  {
+   "texto": "A",
+   "inicio": 0.375,
+   "fim": 0.45
+  },
+  {
+   "texto": "year",
+   "inicio": 0.45,
+   "fim": 0.675
+  },
+  {
+   "texto": "after",
+   "inicio": 0.675,
+   "fim": 0.95
+  },
+  {
+   "texto": "he",
+   "inicio": 0.95,
+   "fim": 1.1
+  },
+  {
+   "texto": "arrived,",
+   "inicio": 1.1,
+   "fim": 1.9
+  },
+  {
+   "texto": "Cook",
+   "inicio": 2.038,
+   "fim": 2.3
+  },
+  {
+   "texto": "was",
+   "inicio": 2.3,
+   "fim": 2.487
+  },
+  {
+   "texto": "killed",
+   "inicio": 2.487,
+   "fim": 2.888
+  },
+  {
+   "texto": "in",
+   "inicio": 2.888,
+   "fim": 2.962
+  },
+  {
+   "texto": "a",
+   "inicio": 2.962,
+   "fim": 3.075
+  },
+  {
+   "texto": "fight",
+   "inicio": 3.075,
+   "fim": 3.388
+  },
+  {
+   "texto": "with",
+   "inicio": 3.388,
+   "fim": 3.525
+  },
+  {
+   "texto": "Hawaiians",
+   "inicio": 3.525,
+   "fim": 4.2
+  },
+  {
+   "texto": "at",
+   "inicio": 4.2,
+   "fim": 4.3
+  },
+  {
+   "texto": "Kealakekua",
+   "inicio": 4.3,
+   "fim": 4.888
+  },
+  {
+   "texto": "Bay,",
+   "inicio": 4.888,
+   "fim": 5.5
+  },
+  {
+   "texto": "on",
+   "inicio": 5.625,
+   "fim": 5.763
+  },
+  {
+   "texto": "the",
+   "inicio": 5.763,
+   "fim": 5.85
+  },
+  {
+   "texto": "Big",
+   "inicio": 5.85,
+   "fim": 6.088
+  },
+  {
+   "texto": "Island.",
+   "inicio": 6.088,
+   "fim": 6.975
+  }
+ ]
+}

@@ -1,0 +1,133 @@
+{
+ "id": "b10",
+ "capitulo": "Sugar",
+ "visual": "Sugar plantations icons. Ships to San Francisco. Price tags.",
+ "texto": "Then came sugar. The sons of the missionaries became planters and businessmen, and Hawaiian sugar made them rich. Their biggest market was the United States.",
+ "palavras": [
+  {
+   "texto": "Then",
+   "inicio": 0.375,
+   "fim": 0.588
+  },
+  {
+   "texto": "came",
+   "inicio": 0.588,
+   "fim": 0.938
+  },
+  {
+   "texto": "sugar.",
+   "inicio": 0.938,
+   "fim": 1.775
+  },
+  {
+   "texto": "The",
+   "inicio": 1.913,
+   "fim": 2.075
+  },
+  {
+   "texto": "sons",
+   "inicio": 2.075,
+   "fim": 2.462
+  },
+  {
+   "texto": "of",
+   "inicio": 2.462,
+   "fim": 2.538
+  },
+  {
+   "texto": "the",
+   "inicio": 2.538,
+   "fim": 2.638
+  },
+  {
+   "texto": "missionaries",
+   "inicio": 2.638,
+   "fim": 3.325
+  },
+  {
+   "texto": "became",
+   "inicio": 3.325,
+   "fim": 3.788
+  },
+  {
+   "texto": "planters",
+   "inicio": 3.788,
+   "fim": 4.425
+  },
+  {
+   "texto": "and",
+   "inicio": 4.425,
+   "fim": 4.562
+  },
+  {
+   "texto": "businessmen,",
+   "inicio": 4.562,
+   "fim": 5.5
+  },
+  {
+   "texto": "and",
+   "inicio": 5.6,
+   "fim": 5.725
+  },
+  {
+   "texto": "Hawaiian",
+   "inicio": 5.725,
+   "fim": 6.338
+  },
+  {
+   "texto": "sugar",
+   "inicio": 6.338,
+   "fim": 6.775
+  },
+  {
+   "texto": "made",
+   "inicio": 6.775,
+   "fim": 6.987
+  },
+  {
+   "texto": "them",
+   "inicio": 6.987,
+   "fim": 7.188
+  },
+  {
+   "texto": "rich.",
+   "inicio": 7.188,
+   "fim": 7.95
+  },
+  {
+   "texto": "Their",
+   "inicio": 8.113,
+   "fim": 8.338
+  },
+  {
+   "texto": "biggest",
+   "inicio": 8.338,
+   "fim": 8.738
+  },
+  {
+   "texto": "market",
+   "inicio": 8.738,
+   "fim": 9.175
+  },
+  {
+   "texto": "was",
+   "inicio": 9.175,
+   "fim": 9.375
+  },
+  {
+   "texto": "the",
+   "inicio": 9.375,
+   "fim": 9.475
+  },
+  {
+   "texto": "United",
+   "inicio": 9.475,
+   "fim": 9.988
+  },
+  {
+   "texto": "States.",
+   "inicio": 9.988,
+   "fim": 10.775
+  }
+ ]
+}

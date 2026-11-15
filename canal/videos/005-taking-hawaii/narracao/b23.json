@@ -1,0 +1,133 @@
+{
+ "id": "b23",
+ "capitulo": "An Act of War",
+ "visual": "\"1895\". Prison icon. Queen under arrest.",
+ "texto": "In 1895, supporters of the queen tried to take the country back. They failed. The queen was arrested and forced to give up the throne.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0.4,
+   "fim": 0.525
+  },
+  {
+   "texto": "1895,",
+   "inicio": 0.525,
+   "fim": 2.05
+  },
+  {
+   "texto": "supporters",
+   "inicio": 2.188,
+   "fim": 2.812
+  },
+  {
+   "texto": "of",
+   "inicio": 2.812,
+   "fim": 2.888
+  },
+  {
+   "texto": "the",
+   "inicio": 2.888,
+   "fim": 2.987
+  },
+  {
+   "texto": "queen",
+   "inicio": 2.987,
+   "fim": 3.462
+  },
+  {
+   "texto": "tried",
+   "inicio": 3.462,
+   "fim": 3.775
+  },
+  {
+   "texto": "to",
+   "inicio": 3.775,
+   "fim": 3.9
+  },
+  {
+   "texto": "take",
+   "inicio": 3.9,
+   "fim": 4.15
+  },
+  {
+   "texto": "the",
+   "inicio": 4.15,
+   "fim": 4.25
+  },
+  {
+   "texto": "country",
+   "inicio": 4.25,
+   "fim": 4.625
+  },
+  {
+   "texto": "back.",
+   "inicio": 4.625,
+   "fim": 5.3
+  },
+  {
+   "texto": "They",
+   "inicio": 5.438,
+   "fim": 5.65
+  },
+  {
+   "texto": "failed.",
+   "inicio": 5.65,
+   "fim": 6.525
+  },
+  {
+   "texto": "The",
+   "inicio": 6.662,
+   "fim": 6.812
+  },
+  {
+   "texto": "queen",
+   "inicio": 6.812,
+   "fim": 7.275
+  },
+  {
+   "texto": "was",
+   "inicio": 7.275,
+   "fim": 7.45
+  },
+  {
+   "texto": "arrested",
+   "inicio": 7.45,
+   "fim": 8.075
+  },
+  {
+   "texto": "and",
+   "inicio": 8.075,
+   "fim": 8.238
+  },
+  {
+   "texto": "forced",
+   "inicio": 8.238,
+   "fim": 8.675
+  },
+  {
+   "texto": "to",
+   "inicio": 8.675,
+   "fim": 8.8
+  },
+  {
+   "texto": "give",
+   "inicio": 8.8,
+   "fim": 8.988
+  },
+  {
+   "texto": "up",
+   "inicio": 8.988,
+   "fim": 9.15
+  },
+  {
+   "texto": "the",
+   "inicio": 9.15,
+   "fim": 9.287
+  },
+  {
+   "texto": "throne.",
+   "inicio": 9.287,
+   "fim": 10.125
+  }
+ ]
+}

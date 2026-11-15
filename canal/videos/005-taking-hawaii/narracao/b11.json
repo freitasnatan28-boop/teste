@@ -1,0 +1,168 @@
+{
+ "id": "b11",
+ "capitulo": "Sugar",
+ "visual": "Worker routes from China, Japan, Portugal, Philippines.",
+ "texto": "To work the fields, the planters brought in tens of thousands of laborers from China, Japan, Portugal and later the Philippines. Meanwhile, diseases brought by foreigners had devastated the Native Hawaiian population.",
+ "palavras": [
+  {
+   "texto": "To",
+   "inicio": 0.35,
+   "fim": 0.45
+  },
+  {
+   "texto": "work",
+   "inicio": 0.45,
+   "fim": 0.725
+  },
+  {
+   "texto": "the",
+   "inicio": 0.725,
+   "fim": 0.875
+  },
+  {
+   "texto": "fields,",
+   "inicio": 0.875,
+   "fim": 1.75
+  },
+  {
+   "texto": "the",
+   "inicio": 1.85,
+   "fim": 1.962
+  },
+  {
+   "texto": "planters",
+   "inicio": 1.962,
+   "fim": 2.487
+  },
+  {
+   "texto": "brought",
+   "inicio": 2.487,
+   "fim": 2.775
+  },
+  {
+   "texto": "in",
+   "inicio": 2.775,
+   "fim": 2.962
+  },
+  {
+   "texto": "tens",
+   "inicio": 2.962,
+   "fim": 3.312
+  },
+  {
+   "texto": "of",
+   "inicio": 3.312,
+   "fim": 3.45
+  },
+  {
+   "texto": "thousands",
+   "inicio": 3.45,
+   "fim": 3.962
+  },
+  {
+   "texto": "of",
+   "inicio": 3.962,
+   "fim": 4.088
+  },
+  {
+   "texto": "laborers",
+   "inicio": 4.088,
+   "fim": 4.675
+  },
+  {
+   "texto": "from",
+   "inicio": 4.675,
+   "fim": 4.9
+  },
+  {
+   "texto": "China,",
+   "inicio": 4.9,
+   "fim": 5.575
+  },
+  {
+   "texto": "Japan,",
+   "inicio": 5.713,
+   "fim": 6.5
+  },
+  {
+   "texto": "Portugal",
+   "inicio": 6.638,
+   "fim": 7.225
+  },
+  {
+   "texto": "and",
+   "inicio": 7.225,
+   "fim": 7.388
+  },
+  {
+   "texto": "later",
+   "inicio": 7.388,
+   "fim": 7.8
+  },
+  {
+   "texto": "the",
+   "inicio": 7.8,
+   "fim": 7.938
+  },
+  {
+   "texto": "Philippines.",
+   "inicio": 7.938,
+   "fim": 9.175
+  },
+  {
+   "texto": "Meanwhile,",
+   "inicio": 9.375,
+   "fim": 10.2
+  },
+  {
+   "texto": "diseases",
+   "inicio": 10.275,
+   "fim": 10.925
+  },
+  {
+   "texto": "brought",
+   "inicio": 10.925,
+   "fim": 11.225
+  },
+  {
+   "texto": "by",
+   "inicio": 11.225,
+   "fim": 11.45
+  },
+  {
+   "texto": "foreigners",
+   "inicio": 11.45,
+   "fim": 12.05
+  },
+  {
+   "texto": "had",
+   "inicio": 12.05,
+   "fim": 12.262
+  },
+  {
+   "texto": "devastated",
+   "inicio": 12.262,
+   "fim": 13.0
+  },
+  {
+   "texto": "the",
+   "inicio": 13.0,
+   "fim": 13.137
+  },
+  {
+   "texto": "Native",
+   "inicio": 13.137,
+   "fim": 13.575
+  },
+  {
+   "texto": "Hawaiian",
+   "inicio": 13.575,
+   "fim": 14.2
+  },
+  {
+   "texto": "population.",
+   "inicio": 14.2,
+   "fim": 15.35
+  }
+ ]
+}

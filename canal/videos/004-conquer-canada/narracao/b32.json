@@ -1,0 +1,133 @@
+{
+ "id": "b32",
+ "capitulo": "The Pattern",
+ "visual": "Wide map: Greenland, Canada, Panama lit. Arrows from Washington.",
+ "texto": "Look at the map again. Greenland. The Panama Canal. Canada. The same idea keeps coming back: more land, more resources, more control of the routes.",
+ "palavras": [
+  {
+   "texto": "Look",
+   "inicio": 0.4,
+   "fim": 0.537
+  },
+  {
+   "texto": "at",
+   "inicio": 0.537,
+   "fim": 0.613
+  },
+  {
+   "texto": "the",
+   "inicio": 0.613,
+   "fim": 0.7
+  },
+  {
+   "texto": "map",
+   "inicio": 0.7,
+   "fim": 1.0
+  },
+  {
+   "texto": "again.",
+   "inicio": 1.0,
+   "fim": 1.65
+  },
+  {
+   "texto": "Greenland.",
+   "inicio": 1.8,
+   "fim": 2.525
+  },
+  {
+   "texto": "The",
+   "inicio": 2.6,
+   "fim": 2.7
+  },
+  {
+   "texto": "Panama",
+   "inicio": 2.7,
+   "fim": 3.225
+  },
+  {
+   "texto": "Canal.",
+   "inicio": 3.225,
+   "fim": 3.825
+  },
+  {
+   "texto": "Canada.",
+   "inicio": 3.938,
+   "fim": 4.75
+  },
+  {
+   "texto": "The",
+   "inicio": 4.875,
+   "fim": 5.025
+  },
+  {
+   "texto": "same",
+   "inicio": 5.025,
+   "fim": 5.4
+  },
+  {
+   "texto": "idea",
+   "inicio": 5.4,
+   "fim": 5.888
+  },
+  {
+   "texto": "keeps",
+   "inicio": 5.888,
+   "fim": 6.2
+  },
+  {
+   "texto": "coming",
+   "inicio": 6.2,
+   "fim": 6.5
+  },
+  {
+   "texto": "back:",
+   "inicio": 6.5,
+   "fim": 7.0
+  },
+  {
+   "texto": "more",
+   "inicio": 7.088,
+   "fim": 7.35
+  },
+  {
+   "texto": "land,",
+   "inicio": 7.35,
+   "fim": 7.725
+  },
+  {
+   "texto": "more",
+   "inicio": 7.775,
+   "fim": 8.0
+  },
+  {
+   "texto": "resources,",
+   "inicio": 8.0,
+   "fim": 8.675
+  },
+  {
+   "texto": "more",
+   "inicio": 8.725,
+   "fim": 8.95
+  },
+  {
+   "texto": "control",
+   "inicio": 8.95,
+   "fim": 9.438
+  },
+  {
+   "texto": "of",
+   "inicio": 9.438,
+   "fim": 9.512
+  },
+  {
+   "texto": "the",
+   "inicio": 9.512,
+   "fim": 9.637
+  },
+  {
+   "texto": "routes.",
+   "inicio": 9.637,
+   "fim": 10.375
+  }
+ ]
+}

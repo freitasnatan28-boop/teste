@@ -1,0 +1,328 @@
+{
+ "id": "b33",
+ "capitulo": "The Pattern",
+ "visual": "Back to the border, peaceful. Canada flag and US flag side by side.",
+ "texto": "But Canada is the clearest lesson of all. America tried force, and it failed. What finally worked was the opposite: trade, trust, and an open border. Since 1814, the two countries have not fired a single shot at each other. Their soldiers fought side by side in two world wars, in Korea and in Afghanistan. Whether that lesson still holds is the real question.",
+ "palavras": [
+  {
+   "texto": "But",
+   "inicio": 0.35,
+   "fim": 0.487
+  },
+  {
+   "texto": "Canada",
+   "inicio": 0.487,
+   "fim": 1.0
+  },
+  {
+   "texto": "is",
+   "inicio": 1.0,
+   "fim": 1.15
+  },
+  {
+   "texto": "the",
+   "inicio": 1.15,
+   "fim": 1.288
+  },
+  {
+   "texto": "clearest",
+   "inicio": 1.288,
+   "fim": 1.75
+  },
+  {
+   "texto": "lesson",
+   "inicio": 1.75,
+   "fim": 2.075
+  },
+  {
+   "texto": "of",
+   "inicio": 2.075,
+   "fim": 2.2
+  },
+  {
+   "texto": "all.",
+   "inicio": 2.2,
+   "fim": 2.825
+  },
+  {
+   "texto": "America",
+   "inicio": 2.962,
+   "fim": 3.45
+  },
+  {
+   "texto": "tried",
+   "inicio": 3.45,
+   "fim": 3.8
+  },
+  {
+   "texto": "force,",
+   "inicio": 3.8,
+   "fim": 4.2
+  },
+  {
+   "texto": "and",
+   "inicio": 4.25,
+   "fim": 4.362
+  },
+  {
+   "texto": "it",
+   "inicio": 4.362,
+   "fim": 4.525
+  },
+  {
+   "texto": "failed.",
+   "inicio": 4.525,
+   "fim": 5.375
+  },
+  {
+   "texto": "What",
+   "inicio": 5.513,
+   "fim": 5.763
+  },
+  {
+   "texto": "finally",
+   "inicio": 5.763,
+   "fim": 6.263
+  },
+  {
+   "texto": "worked",
+   "inicio": 6.263,
+   "fim": 6.6
+  },
+  {
+   "texto": "was",
+   "inicio": 6.6,
+   "fim": 6.737
+  },
+  {
+   "texto": "the",
+   "inicio": 6.737,
+   "fim": 6.888
+  },
+  {
+   "texto": "opposite:",
+   "inicio": 6.888,
+   "fim": 7.6
+  },
+  {
+   "texto": "trade,",
+   "inicio": 7.713,
+   "fim": 8.275
+  },
+  {
+   "texto": "trust,",
+   "inicio": 8.363,
+   "fim": 8.85
+  },
+  {
+   "texto": "and",
+   "inicio": 8.9,
+   "fim": 9.012
+  },
+  {
+   "texto": "an",
+   "inicio": 9.012,
+   "fim": 9.137
+  },
+  {
+   "texto": "open",
+   "inicio": 9.137,
+   "fim": 9.537
+  },
+  {
+   "texto": "border.",
+   "inicio": 9.537,
+   "fim": 10.375
+  },
+  {
+   "texto": "Since",
+   "inicio": 10.525,
+   "fim": 10.775
+  },
+  {
+   "texto": "1814,",
+   "inicio": 10.775,
+   "fim": 12.0
+  },
+  {
+   "texto": "the",
+   "inicio": 12.075,
+   "fim": 12.213
+  },
+  {
+   "texto": "two",
+   "inicio": 12.213,
+   "fim": 12.438
+  },
+  {
+   "texto": "countries",
+   "inicio": 12.438,
+   "fim": 12.938
+  },
+  {
+   "texto": "have",
+   "inicio": 12.938,
+   "fim": 13.125
+  },
+  {
+   "texto": "not",
+   "inicio": 13.125,
+   "fim": 13.387
+  },
+  {
+   "texto": "fired",
+   "inicio": 13.387,
+   "fim": 13.787
+  },
+  {
+   "texto": "a",
+   "inicio": 13.787,
+   "fim": 13.9
+  },
+  {
+   "texto": "single",
+   "inicio": 13.9,
+   "fim": 14.325
+  },
+  {
+   "texto": "shot",
+   "inicio": 14.325,
+   "fim": 14.613
+  },
+  {
+   "texto": "at",
+   "inicio": 14.613,
+   "fim": 14.688
+  },
+  {
+   "texto": "each",
+   "inicio": 14.688,
+   "fim": 14.9
+  },
+  {
+   "texto": "other.",
+   "inicio": 14.9,
+   "fim": 15.575
+  },
+  {
+   "texto": "Their",
+   "inicio": 15.713,
+   "fim": 15.95
+  },
+  {
+   "texto": "soldiers",
+   "inicio": 15.95,
+   "fim": 16.512
+  },
+  {
+   "texto": "fought",
+   "inicio": 16.512,
+   "fim": 16.812
+  },
+  {
+   "texto": "side",
+   "inicio": 16.812,
+   "fim": 17.2
+  },
+  {
+   "texto": "by",
+   "inicio": 17.2,
+   "fim": 17.425
+  },
+  {
+   "texto": "side",
+   "inicio": 17.425,
+   "fim": 17.85
+  },
+  {
+   "texto": "in",
+   "inicio": 17.85,
+   "fim": 18.012
+  },
+  {
+   "texto": "two",
+   "inicio": 18.012,
+   "fim": 18.275
+  },
+  {
+   "texto": "world",
+   "inicio": 18.275,
+   "fim": 18.613
+  },
+  {
+   "texto": "wars,",
+   "inicio": 18.613,
+   "fim": 19.175
+  },
+  {
+   "texto": "in",
+   "inicio": 19.225,
+   "fim": 19.387
+  },
+  {
+   "texto": "Korea",
+   "inicio": 19.387,
+   "fim": 20.125
+  },
+  {
+   "texto": "and",
+   "inicio": 20.125,
+   "fim": 20.275
+  },
+  {
+   "texto": "in",
+   "inicio": 20.275,
+   "fim": 20.387
+  },
+  {
+   "texto": "Afghanistan.",
+   "inicio": 20.387,
+   "fim": 21.65
+  },
+  {
+   "texto": "Whether",
+   "inicio": 21.788,
+   "fim": 22.025
+  },
+  {
+   "texto": "that",
+   "inicio": 22.025,
+   "fim": 22.25
+  },
+  {
+   "texto": "lesson",
+   "inicio": 22.25,
+   "fim": 22.613
+  },
+  {
+   "texto": "still",
+   "inicio": 22.613,
+   "fim": 22.938
+  },
+  {
+   "texto": "holds",
+   "inicio": 22.938,
+   "fim": 23.413
+  },
+  {
+   "texto": "is",
+   "inicio": 23.413,
+   "fim": 23.575
+  },
+  {
+   "texto": "the",
+   "inicio": 23.575,
+   "fim": 23.712
+  },
+  {
+   "texto": "real",
+   "inicio": 23.712,
+   "fim": 24.0
+  },
+  {
+   "texto": "question.",
+   "inicio": 24.0,
+   "fim": 24.9
+  }
+ ]
+}

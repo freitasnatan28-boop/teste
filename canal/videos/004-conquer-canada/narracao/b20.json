@@ -1,0 +1,233 @@
+{
+ "id": "b20",
+ "capitulo": "Fifty-Four Forty or Fight",
+ "visual": "\"1867\". Canada becomes a country. Alaska bought the same year.",
+ "texto": "The fear of America also helped create modern Canada. In 1867, the British colonies united into one country, partly to stand together against their giant neighbor. That same year, the United States bought Alaska, and Canada found itself squeezed between American land on both sides.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0.375,
+   "fim": 0.5
+  },
+  {
+   "texto": "fear",
+   "inicio": 0.5,
+   "fim": 0.812
+  },
+  {
+   "texto": "of",
+   "inicio": 0.812,
+   "fim": 0.9
+  },
+  {
+   "texto": "America",
+   "inicio": 0.9,
+   "fim": 1.538
+  },
+  {
+   "texto": "also",
+   "inicio": 1.538,
+   "fim": 1.95
+  },
+  {
+   "texto": "helped",
+   "inicio": 1.95,
+   "fim": 2.288
+  },
+  {
+   "texto": "create",
+   "inicio": 2.288,
+   "fim": 2.737
+  },
+  {
+   "texto": "modern",
+   "inicio": 2.737,
+   "fim": 3.188
+  },
+  {
+   "texto": "Canada.",
+   "inicio": 3.188,
+   "fim": 4.1
+  },
+  {
+   "texto": "In",
+   "inicio": 4.287,
+   "fim": 4.45
+  },
+  {
+   "texto": "1867,",
+   "inicio": 4.45,
+   "fim": 6.025
+  },
+  {
+   "texto": "the",
+   "inicio": 6.125,
+   "fim": 6.263
+  },
+  {
+   "texto": "British",
+   "inicio": 6.263,
+   "fim": 6.662
+  },
+  {
+   "texto": "colonies",
+   "inicio": 6.662,
+   "fim": 7.275
+  },
+  {
+   "texto": "united",
+   "inicio": 7.275,
+   "fim": 7.737
+  },
+  {
+   "texto": "into",
+   "inicio": 7.737,
+   "fim": 8.037
+  },
+  {
+   "texto": "one",
+   "inicio": 8.037,
+   "fim": 8.363
+  },
+  {
+   "texto": "country,",
+   "inicio": 8.363,
+   "fim": 9.1
+  },
+  {
+   "texto": "partly",
+   "inicio": 9.238,
+   "fim": 9.65
+  },
+  {
+   "texto": "to",
+   "inicio": 9.65,
+   "fim": 9.775
+  },
+  {
+   "texto": "stand",
+   "inicio": 9.775,
+   "fim": 10.15
+  },
+  {
+   "texto": "together",
+   "inicio": 10.15,
+   "fim": 10.625
+  },
+  {
+   "texto": "against",
+   "inicio": 10.625,
+   "fim": 10.975
+  },
+  {
+   "texto": "their",
+   "inicio": 10.975,
+   "fim": 11.162
+  },
+  {
+   "texto": "giant",
+   "inicio": 11.162,
+   "fim": 11.575
+  },
+  {
+   "texto": "neighbor.",
+   "inicio": 11.575,
+   "fim": 12.475
+  },
+  {
+   "texto": "That",
+   "inicio": 12.65,
+   "fim": 12.963
+  },
+  {
+   "texto": "same",
+   "inicio": 12.963,
+   "fim": 13.3
+  },
+  {
+   "texto": "year,",
+   "inicio": 13.3,
+   "fim": 13.875
+  },
+  {
+   "texto": "the",
+   "inicio": 13.975,
+   "fim": 14.075
+  },
+  {
+   "texto": "United",
+   "inicio": 14.075,
+   "fim": 14.588
+  },
+  {
+   "texto": "States",
+   "inicio": 14.588,
+   "fim": 15.037
+  },
+  {
+   "texto": "bought",
+   "inicio": 15.037,
+   "fim": 15.3
+  },
+  {
+   "texto": "Alaska,",
+   "inicio": 15.3,
+   "fim": 16.175
+  },
+  {
+   "texto": "and",
+   "inicio": 16.312,
+   "fim": 16.462
+  },
+  {
+   "texto": "Canada",
+   "inicio": 16.462,
+   "fim": 16.913
+  },
+  {
+   "texto": "found",
+   "inicio": 16.913,
+   "fim": 17.212
+  },
+  {
+   "texto": "itself",
+   "inicio": 17.212,
+   "fim": 17.637
+  },
+  {
+   "texto": "squeezed",
+   "inicio": 17.637,
+   "fim": 18.25
+  },
+  {
+   "texto": "between",
+   "inicio": 18.25,
+   "fim": 18.625
+  },
+  {
+   "texto": "American",
+   "inicio": 18.625,
+   "fim": 19.2
+  },
+  {
+   "texto": "land",
+   "inicio": 19.2,
+   "fim": 19.587
+  },
+  {
+   "texto": "on",
+   "inicio": 19.587,
+   "fim": 19.775
+  },
+  {
+   "texto": "both",
+   "inicio": 19.775,
+   "fim": 20.087
+  },
+  {
+   "texto": "sides.",
+   "inicio": 20.087,
+   "fim": 21.0
+  }
+ ]
+}
