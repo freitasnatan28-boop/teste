@@ -24,7 +24,12 @@ the world's longest border.
 
 Chapters:
 00:00 The 51st state
-(the other times are filled in after the edit)
+00:57 The Fourteenth Colony
+02:26 A Mere Matter of Marching
+03:53 Fifty-Four Forty or Fight
+05:00 War Plan Red
+06:13 Why Now
+07:39 The Pattern
 
 Sources:
 - Office of the Historian, US State Department: War of 1812; Oregon Territory (1846); Treaty of Washington (1871)

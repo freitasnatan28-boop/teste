@@ -24,7 +24,13 @@ night in 1893 turned a kingdom into the 50th state, and why Congress apologized 
 
 Chapters:
 00:00 A kingdom in the Pacific
-(the other times are filled in after the edit)
+00:53 The Crossroads of the Pacific
+02:09 Sugar
+03:11 The Bayonet Constitution
+03:51 The Overthrow
+05:01 An Act of War
+06:27 The Fiftieth State
+07:24 The Pattern
 
 Sources:
 - Office of the Historian, US State Department: "Annexation of Hawaii, 1898"

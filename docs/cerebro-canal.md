@@ -72,6 +72,19 @@ Extra: cortar cerca de 3 Shorts de cada vídeo longo pra puxar público.
   (Colômbia, USS Nashville, Bunau-Varilla, US$ 10 mi), US$ 25 mi à Colômbia em 1921, US$ 375 mi e 5.609 mortos, 1914,
   1964 (Dia dos Mártires), tratados 1977 (Senado 68-32), invasão 1989 (27 mil), entrega 31/12/1999, seca 2023, portos da
   CK Hutchison (Hong Kong) desde 1997 e o acordo BlackRock de 2025 (ainda em disputa com Pequim). Kit de upload em `entregas/003/`.
+- **004 (EN, nov/2026):** `canal/roteiros/004-conquer-canada.md`, "Why America Tried to Conquer Canada (Twice)", 8,5 min.
+  1775 (Quebec, Montgomery, Arnold), Artigos da Confederação art. XI, 1812 (Detroit, York, Washington queimada, Baltimore/hino),
+  54°40' e Tratado do Oregon 1846, Confederação 1867, raides fenianos, War Plan Red 1930 (Crimson, gás 1935, aeroportos
+  disfarçados, desclassificado 1974), Defence Scheme No. 1 (1921), comércio US$ 909 bi (USTR 2024), ~60% do petróleo importado,
+  Passagem Noroeste, 2025 ("51st state", tarifas, "some places are never for sale").
+- **005 (EN, nov/2026):** `canal/roteiros/005-taking-hawaii.md`, "How America Took Hawaii (And Apologized 100 Years Later)", 8,3 min.
+  Cook 1778/1779, Kamehameha 1810, missionários 1820, açúcar e Tratado de Reciprocidade 1875, Pearl Harbor 1887, Constituição
+  da Baioneta 1887, Liliuokalani 1891, golpe de 1893 (Comitê de Segurança de 13, ~162 marines do USS Boston), Dole, Relatório
+  Blount e Cleveland ("act of war"), 1895 prisão e abdicação, petições de 21 mil, anexação por resolução 1898, Pearl Harbor 1941,
+  estado em 1959 (94% sim, sem opção de independência), Apology Resolution 1993.
+- **Voz grátis (nov/2026):** ElevenLabs acabou os créditos (renova 23/nov). O dono pediu "voz do Kaggle" e liberou o Kokoro
+  (modelo aberto) rodando no servidor: `scripts/narrar_kokoro.py`, voz `am_michael`, venv Python 3.12 com `pip install kokoro soundfile`.
+  Custo zero; regravar um trecho é só apagar o bNN.mp3/json e rodar de novo. Roteiro precisa de ~1.150 palavras pra passar de 8 min.
 - `canal/roteiros/001-guerra-da-lagosta.md`: primeiro vídeo (9,4 min). Status: roteiro aprovado, narração pronta,
   edição montada. Thumbnail em `canal/videos/001-guerra-da-lagosta/thumbnail.png`.
   Formato do arquivo serve de modelo pros próximos: títulos A/B, thumbnail, descrição com capítulos e fontes,
