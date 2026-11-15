@@ -1,0 +1,178 @@
+{
+ "id": "b07",
+ "capitulo": "The Deal of the Century",
+ "visual": "Jefferson portrait. Ship route to Paris.",
+ "texto": "President Thomas Jefferson sent his envoys to Paris with a simple mission: buy New Orleans. He authorized them to spend up to ten million dollars, just for the city and a strip of coast.",
+ "palavras": [
+  {
+   "texto": "President",
+   "inicio": 0,
+   "fim": 0.569
+  },
+  {
+   "texto": "Thomas",
+   "inicio": 0.615,
+   "fim": 0.987
+  },
+  {
+   "texto": "Jefferson",
+   "inicio": 1.068,
+   "fim": 1.649
+  },
+  {
+   "texto": "sent",
+   "inicio": 2.032,
+   "fim": 2.322
+  },
+  {
+   "texto": "his",
+   "inicio": 2.38,
+   "fim": 2.508
+  },
+  {
+   "texto": "envoys",
+   "inicio": 2.589,
+   "fim": 3.053
+  },
+  {
+   "texto": "to",
+   "inicio": 3.123,
+   "fim": 3.204
+  },
+  {
+   "texto": "Paris",
+   "inicio": 3.297,
+   "fim": 3.727
+  },
+  {
+   "texto": "with",
+   "inicio": 3.785,
+   "fim": 3.947
+  },
+  {
+   "texto": "a",
+   "inicio": 3.994,
+   "fim": 4.017
+  },
+  {
+   "texto": "simple",
+   "inicio": 4.098,
+   "fim": 4.481
+  },
+  {
+   "texto": "mission:",
+   "inicio": 4.528,
+   "fim": 5.12
+  },
+  {
+   "texto": "buy",
+   "inicio": 5.561,
+   "fim": 5.898
+  },
+  {
+   "texto": "New",
+   "inicio": 6.014,
+   "fim": 6.188
+  },
+  {
+   "texto": "Orleans.",
+   "inicio": 6.258,
+   "fim": 6.908
+  },
+  {
+   "texto": "He",
+   "inicio": 7.349,
+   "fim": 7.477
+  },
+  {
+   "texto": "authorized",
+   "inicio": 7.558,
+   "fim": 8.127
+  },
+  {
+   "texto": "them",
+   "inicio": 8.173,
+   "fim": 8.336
+  },
+  {
+   "texto": "to",
+   "inicio": 8.58,
+   "fim": 8.696
+  },
+  {
+   "texto": "spend",
+   "inicio": 8.766,
+   "fim": 9.079
+  },
+  {
+   "texto": "up",
+   "inicio": 9.149,
+   "fim": 9.253
+  },
+  {
+   "texto": "to",
+   "inicio": 9.323,
+   "fim": 9.392
+  },
+  {
+   "texto": "ten",
+   "inicio": 9.509,
+   "fim": 9.787
+  },
+  {
+   "texto": "million",
+   "inicio": 9.88,
+   "fim": 10.228
+  },
+  {
+   "texto": "dollars,",
+   "inicio": 10.286,
+   "fim": 10.971
+  },
+  {
+   "texto": "just",
+   "inicio": 11.18,
+   "fim": 11.436
+  },
+  {
+   "texto": "for",
+   "inicio": 11.505,
+   "fim": 11.633
+  },
+  {
+   "texto": "the",
+   "inicio": 11.691,
+   "fim": 11.761
+  },
+  {
+   "texto": "city",
+   "inicio": 11.819,
+   "fim": 12.167
+  },
+  {
+   "texto": "and",
+   "inicio": 12.411,
+   "fim": 12.585
+  },
+  {
+   "texto": "a",
+   "inicio": 12.655,
+   "fim": 12.678
+  },
+  {
+   "texto": "strip",
+   "inicio": 12.736,
+   "fim": 13.015
+  },
+  {
+   "texto": "of",
+   "inicio": 13.061,
+   "fim": 13.131
+  },
+  {
+   "texto": "coast.",
+   "inicio": 13.212,
+   "fim": 14.35
+  }
+ ]
+}

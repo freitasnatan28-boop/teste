@@ -1,0 +1,223 @@
+{
+ "id": "b01",
+ "capitulo": "A Kingdom in the Pacific",
+ "visual": "Globe spins to the middle of the Pacific. Hawaii lights up. Distance counter 2,400 MILES.",
+ "texto": "In the middle of the Pacific Ocean, more than two thousand miles from California, there is a chain of islands that used to be a country. It had a king, a flag, an army and treaties with the great powers of the world.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0.4,
+   "fim": 0.487
+  },
+  {
+   "texto": "the",
+   "inicio": 0.487,
+   "fim": 0.575
+  },
+  {
+   "texto": "middle",
+   "inicio": 0.575,
+   "fim": 0.863
+  },
+  {
+   "texto": "of",
+   "inicio": 0.863,
+   "fim": 0.938
+  },
+  {
+   "texto": "the",
+   "inicio": 0.938,
+   "fim": 1.025
+  },
+  {
+   "texto": "Pacific",
+   "inicio": 1.025,
+   "fim": 1.525
+  },
+  {
+   "texto": "Ocean,",
+   "inicio": 1.525,
+   "fim": 2.15
+  },
+  {
+   "texto": "more",
+   "inicio": 2.25,
+   "fim": 2.475
+  },
+  {
+   "texto": "than",
+   "inicio": 2.475,
+   "fim": 2.675
+  },
+  {
+   "texto": "two",
+   "inicio": 2.675,
+   "fim": 2.987
+  },
+  {
+   "texto": "thousand",
+   "inicio": 2.987,
+   "fim": 3.45
+  },
+  {
+   "texto": "miles",
+   "inicio": 3.45,
+   "fim": 3.875
+  },
+  {
+   "texto": "from",
+   "inicio": 3.875,
+   "fim": 4.075
+  },
+  {
+   "texto": "California,",
+   "inicio": 4.075,
+   "fim": 5.175
+  },
+  {
+   "texto": "there",
+   "inicio": 5.3,
+   "fim": 5.475
+  },
+  {
+   "texto": "is",
+   "inicio": 5.475,
+   "fim": 5.6
+  },
+  {
+   "texto": "a",
+   "inicio": 5.6,
+   "fim": 5.725
+  },
+  {
+   "texto": "chain",
+   "inicio": 5.725,
+   "fim": 6.088
+  },
+  {
+   "texto": "of",
+   "inicio": 6.088,
+   "fim": 6.225
+  },
+  {
+   "texto": "islands",
+   "inicio": 6.225,
+   "fim": 6.8
+  },
+  {
+   "texto": "that",
+   "inicio": 6.8,
+   "fim": 7.013
+  },
+  {
+   "texto": "used",
+   "inicio": 7.013,
+   "fim": 7.237
+  },
+  {
+   "texto": "to",
+   "inicio": 7.237,
+   "fim": 7.325
+  },
+  {
+   "texto": "be",
+   "inicio": 7.325,
+   "fim": 7.475
+  },
+  {
+   "texto": "a",
+   "inicio": 7.475,
+   "fim": 7.588
+  },
+  {
+   "texto": "country.",
+   "inicio": 7.588,
+   "fim": 8.55
+  },
+  {
+   "texto": "It",
+   "inicio": 8.7,
+   "fim": 8.85
+  },
+  {
+   "texto": "had",
+   "inicio": 8.85,
+   "fim": 9.037
+  },
+  {
+   "texto": "a",
+   "inicio": 9.037,
+   "fim": 9.15
+  },
+  {
+   "texto": "king,",
+   "inicio": 9.15,
+   "fim": 9.825
+  },
+  {
+   "texto": "a",
+   "inicio": 9.963,
+   "fim": 10.1
+  },
+  {
+   "texto": "flag,",
+   "inicio": 10.1,
+   "fim": 10.9
+  },
+  {
+   "texto": "an",
+   "inicio": 11.025,
+   "fim": 11.225
+  },
+  {
+   "texto": "army",
+   "inicio": 11.225,
+   "fim": 11.725
+  },
+  {
+   "texto": "and",
+   "inicio": 11.725,
+   "fim": 11.863
+  },
+  {
+   "texto": "treaties",
+   "inicio": 11.863,
+   "fim": 12.4
+  },
+  {
+   "texto": "with",
+   "inicio": 12.4,
+   "fim": 12.537
+  },
+  {
+   "texto": "the",
+   "inicio": 12.537,
+   "fim": 12.662
+  },
+  {
+   "texto": "great",
+   "inicio": 12.662,
+   "fim": 12.963
+  },
+  {
+   "texto": "powers",
+   "inicio": 12.963,
+   "fim": 13.463
+  },
+  {
+   "texto": "of",
+   "inicio": 13.463,
+   "fim": 13.537
+  },
+  {
+   "texto": "the",
+   "inicio": 13.537,
+   "fim": 13.662
+  },
+  {
+   "texto": "world.",
+   "inicio": 13.662,
+   "fim": 14.45
+  }
+ ]
+}

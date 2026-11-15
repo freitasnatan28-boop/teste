@@ -1,0 +1,198 @@
+{
+ "id": "b30",
+ "capitulo": "The Fiftieth State",
+ "visual": "Vote counter 94% YES. Question icon.",
+ "texto": "More than ninety percent of voters said yes. But the ballot only offered statehood or staying a territory. Independence was not on it. Today, the Pentagon runs its whole Indo-Pacific Command from Hawaii, watching over half the planet.",
+ "palavras": [
+  {
+   "texto": "More",
+   "inicio": 0.425,
+   "fim": 0.65
+  },
+  {
+   "texto": "than",
+   "inicio": 0.65,
+   "fim": 0.838
+  },
+  {
+   "texto": "ninety",
+   "inicio": 0.838,
+   "fim": 1.325
+  },
+  {
+   "texto": "percent",
+   "inicio": 1.325,
+   "fim": 1.688
+  },
+  {
+   "texto": "of",
+   "inicio": 1.688,
+   "fim": 1.775
+  },
+  {
+   "texto": "voters",
+   "inicio": 1.775,
+   "fim": 2.237
+  },
+  {
+   "texto": "said",
+   "inicio": 2.237,
+   "fim": 2.5
+  },
+  {
+   "texto": "yes.",
+   "inicio": 2.5,
+   "fim": 3.25
+  },
+  {
+   "texto": "But",
+   "inicio": 3.35,
+   "fim": 3.487
+  },
+  {
+   "texto": "the",
+   "inicio": 3.487,
+   "fim": 3.575
+  },
+  {
+   "texto": "ballot",
+   "inicio": 3.575,
+   "fim": 3.962
+  },
+  {
+   "texto": "only",
+   "inicio": 3.962,
+   "fim": 4.312
+  },
+  {
+   "texto": "offered",
+   "inicio": 4.312,
+   "fim": 4.737
+  },
+  {
+   "texto": "statehood",
+   "inicio": 4.737,
+   "fim": 5.425
+  },
+  {
+   "texto": "or",
+   "inicio": 5.425,
+   "fim": 5.588
+  },
+  {
+   "texto": "staying",
+   "inicio": 5.588,
+   "fim": 6.05
+  },
+  {
+   "texto": "a",
+   "inicio": 6.05,
+   "fim": 6.162
+  },
+  {
+   "texto": "territory.",
+   "inicio": 6.162,
+   "fim": 7.275
+  },
+  {
+   "texto": "Independence",
+   "inicio": 7.438,
+   "fim": 8.225
+  },
+  {
+   "texto": "was",
+   "inicio": 8.225,
+   "fim": 8.4
+  },
+  {
+   "texto": "not",
+   "inicio": 8.4,
+   "fim": 8.65
+  },
+  {
+   "texto": "on",
+   "inicio": 8.65,
+   "fim": 8.875
+  },
+  {
+   "texto": "it.",
+   "inicio": 8.875,
+   "fim": 9.325
+  },
+  {
+   "texto": "Today,",
+   "inicio": 9.438,
+   "fim": 10.1
+  },
+  {
+   "texto": "the",
+   "inicio": 10.225,
+   "fim": 10.363
+  },
+  {
+   "texto": "Pentagon",
+   "inicio": 10.363,
+   "fim": 11.062
+  },
+  {
+   "texto": "runs",
+   "inicio": 11.062,
+   "fim": 11.45
+  },
+  {
+   "texto": "its",
+   "inicio": 11.45,
+   "fim": 11.675
+  },
+  {
+   "texto": "whole",
+   "inicio": 11.675,
+   "fim": 12.113
+  },
+  {
+   "texto": "Indo-Pacific",
+   "inicio": 12.113,
+   "fim": 12.925
+  },
+  {
+   "texto": "Command",
+   "inicio": 12.925,
+   "fim": 13.425
+  },
+  {
+   "texto": "from",
+   "inicio": 13.425,
+   "fim": 13.575
+  },
+  {
+   "texto": "Hawaii,",
+   "inicio": 13.575,
+   "fim": 14.45
+  },
+  {
+   "texto": "watching",
+   "inicio": 14.613,
+   "fim": 15.075
+  },
+  {
+   "texto": "over",
+   "inicio": 15.075,
+   "fim": 15.363
+  },
+  {
+   "texto": "half",
+   "inicio": 15.363,
+   "fim": 15.65
+  },
+  {
+   "texto": "the",
+   "inicio": 15.65,
+   "fim": 15.762
+  },
+  {
+   "texto": "planet.",
+   "inicio": 15.762,
+   "fim": 16.65
+  }
+ ]
+}

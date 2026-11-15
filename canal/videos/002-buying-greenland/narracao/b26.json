@@ -1,0 +1,158 @@
+{
+ "id": "b26",
+ "capitulo": "Why Greenland, Why Now",
+ "visual": "Wide Arctic view. Russia, Greenland and the US. Shortest route over the top of the world.",
+ "texto": "So why does Greenland matter so much? Look at the top of the map. The shortest path between Russia and the United States runs over the Arctic, right past Greenland.",
+ "palavras": [
+  {
+   "texto": "So",
+   "inicio": 0,
+   "fim": 0.221
+  },
+  {
+   "texto": "why",
+   "inicio": 0.279,
+   "fim": 0.476
+  },
+  {
+   "texto": "does",
+   "inicio": 0.546,
+   "fim": 0.743
+  },
+  {
+   "texto": "Greenland",
+   "inicio": 0.801,
+   "fim": 1.405
+  },
+  {
+   "texto": "matter",
+   "inicio": 1.521,
+   "fim": 1.869
+  },
+  {
+   "texto": "so",
+   "inicio": 1.95,
+   "fim": 2.125
+  },
+  {
+   "texto": "much?",
+   "inicio": 2.206,
+   "fim": 2.752
+  },
+  {
+   "texto": "Look",
+   "inicio": 3.03,
+   "fim": 3.239
+  },
+  {
+   "texto": "at",
+   "inicio": 3.286,
+   "fim": 3.355
+  },
+  {
+   "texto": "the",
+   "inicio": 3.39,
+   "fim": 3.46
+  },
+  {
+   "texto": "top",
+   "inicio": 3.518,
+   "fim": 3.785
+  },
+  {
+   "texto": "of",
+   "inicio": 3.855,
+   "fim": 3.913
+  },
+  {
+   "texto": "the",
+   "inicio": 3.971,
+   "fim": 4.04
+  },
+  {
+   "texto": "map.",
+   "inicio": 4.087,
+   "fim": 4.609
+  },
+  {
+   "texto": "The",
+   "inicio": 4.76,
+   "fim": 4.888
+  },
+  {
+   "texto": "shortest",
+   "inicio": 4.946,
+   "fim": 5.364
+  },
+  {
+   "texto": "path",
+   "inicio": 5.422,
+   "fim": 5.759
+  },
+  {
+   "texto": "between",
+   "inicio": 5.84,
+   "fim": 6.258
+  },
+  {
+   "texto": "Russia",
+   "inicio": 6.339,
+   "fim": 6.757
+  },
+  {
+   "texto": "and",
+   "inicio": 6.931,
+   "fim": 7.175
+  },
+  {
+   "texto": "the",
+   "inicio": 7.245,
+   "fim": 7.314
+  },
+  {
+   "texto": "United",
+   "inicio": 7.396,
+   "fim": 7.825
+  },
+  {
+   "texto": "States",
+   "inicio": 7.883,
+   "fim": 8.382
+  },
+  {
+   "texto": "runs",
+   "inicio": 8.766,
+   "fim": 9.149
+  },
+  {
+   "texto": "over",
+   "inicio": 9.218,
+   "fim": 9.427
+  },
+  {
+   "texto": "the",
+   "inicio": 9.485,
+   "fim": 9.567
+  },
+  {
+   "texto": "Arctic,",
+   "inicio": 9.636,
+   "fim": 10.286
+  },
+  {
+   "texto": "right",
+   "inicio": 10.461,
+   "fim": 10.704
+  },
+  {
+   "texto": "past",
+   "inicio": 10.762,
+   "fim": 11.157
+  },
+  {
+   "texto": "Greenland.",
+   "inicio": 11.25,
+   "fim": 12.26
+  }
+ ]
+}

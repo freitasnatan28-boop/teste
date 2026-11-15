@@ -1,0 +1,153 @@
+{
+ "id": "b14",
+ "capitulo": "A Mere Matter of Marching",
+ "visual": "Tecumseh icon. Native allies alongside British flags.",
+ "texto": "The British also had powerful allies. The Shawnee leader Tecumseh and his confederacy fought on their side, hoping a British victory would stop American settlers from taking their land.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0.35,
+   "fim": 0.45
+  },
+  {
+   "texto": "British",
+   "inicio": 0.45,
+   "fim": 0.95
+  },
+  {
+   "texto": "also",
+   "inicio": 0.95,
+   "fim": 1.375
+  },
+  {
+   "texto": "had",
+   "inicio": 1.375,
+   "fim": 1.613
+  },
+  {
+   "texto": "powerful",
+   "inicio": 1.613,
+   "fim": 2.25
+  },
+  {
+   "texto": "allies.",
+   "inicio": 2.25,
+   "fim": 3.325
+  },
+  {
+   "texto": "The",
+   "inicio": 3.462,
+   "fim": 3.612
+  },
+  {
+   "texto": "Shawnee",
+   "inicio": 3.612,
+   "fim": 4.025
+  },
+  {
+   "texto": "leader",
+   "inicio": 4.025,
+   "fim": 4.35
+  },
+  {
+   "texto": "Tecumseh",
+   "inicio": 4.35,
+   "fim": 5.062
+  },
+  {
+   "texto": "and",
+   "inicio": 5.062,
+   "fim": 5.188
+  },
+  {
+   "texto": "his",
+   "inicio": 5.188,
+   "fim": 5.35
+  },
+  {
+   "texto": "confederacy",
+   "inicio": 5.35,
+   "fim": 6.312
+  },
+  {
+   "texto": "fought",
+   "inicio": 6.312,
+   "fim": 6.588
+  },
+  {
+   "texto": "on",
+   "inicio": 6.588,
+   "fim": 6.688
+  },
+  {
+   "texto": "their",
+   "inicio": 6.688,
+   "fim": 6.875
+  },
+  {
+   "texto": "side,",
+   "inicio": 6.875,
+   "fim": 7.65
+  },
+  {
+   "texto": "hoping",
+   "inicio": 7.787,
+   "fim": 8.2
+  },
+  {
+   "texto": "a",
+   "inicio": 8.2,
+   "fim": 8.312
+  },
+  {
+   "texto": "British",
+   "inicio": 8.312,
+   "fim": 8.738
+  },
+  {
+   "texto": "victory",
+   "inicio": 8.738,
+   "fim": 9.3
+  },
+  {
+   "texto": "would",
+   "inicio": 9.3,
+   "fim": 9.475
+  },
+  {
+   "texto": "stop",
+   "inicio": 9.475,
+   "fim": 9.825
+  },
+  {
+   "texto": "American",
+   "inicio": 9.825,
+   "fim": 10.425
+  },
+  {
+   "texto": "settlers",
+   "inicio": 10.425,
+   "fim": 10.975
+  },
+  {
+   "texto": "from",
+   "inicio": 10.975,
+   "fim": 11.175
+  },
+  {
+   "texto": "taking",
+   "inicio": 11.175,
+   "fim": 11.575
+  },
+  {
+   "texto": "their",
+   "inicio": 11.575,
+   "fim": 11.775
+  },
+  {
+   "texto": "land.",
+   "inicio": 11.775,
+   "fim": 12.55
+  }
+ ]
+}

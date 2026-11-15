@@ -1,0 +1,113 @@
+{
+ "id": "b06",
+ "capitulo": "The Deal of the Century",
+ "visual": "Louisiana painted with the French flag. Napoleon portrait.",
+ "texto": "The problem? New Orleans, and the huge territory behind it, now belonged to France. And France was ruled by Napoleon Bonaparte.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0,
+   "fim": 0.174
+  },
+  {
+   "texto": "problem?",
+   "inicio": 0.232,
+   "fim": 0.882
+  },
+  {
+   "texto": "New",
+   "inicio": 1.393,
+   "fim": 1.591
+  },
+  {
+   "texto": "Orleans,",
+   "inicio": 1.649,
+   "fim": 2.287
+  },
+  {
+   "texto": "and",
+   "inicio": 2.334,
+   "fim": 2.508
+  },
+  {
+   "texto": "the",
+   "inicio": 2.554,
+   "fim": 2.624
+  },
+  {
+   "texto": "huge",
+   "inicio": 2.67,
+   "fim": 2.984
+  },
+  {
+   "texto": "territory",
+   "inicio": 3.042,
+   "fim": 3.599
+  },
+  {
+   "texto": "behind",
+   "inicio": 3.669,
+   "fim": 4.005
+  },
+  {
+   "texto": "it,",
+   "inicio": 4.063,
+   "fim": 4.307
+  },
+  {
+   "texto": "now",
+   "inicio": 4.586,
+   "fim": 4.783
+  },
+  {
+   "texto": "belonged",
+   "inicio": 4.865,
+   "fim": 5.283
+  },
+  {
+   "texto": "to",
+   "inicio": 5.317,
+   "fim": 5.375
+  },
+  {
+   "texto": "France.",
+   "inicio": 5.457,
+   "fim": 6.223
+  },
+  {
+   "texto": "And",
+   "inicio": 6.664,
+   "fim": 6.827
+  },
+  {
+   "texto": "France",
+   "inicio": 6.908,
+   "fim": 7.523
+  },
+  {
+   "texto": "was",
+   "inicio": 7.639,
+   "fim": 7.814
+  },
+  {
+   "texto": "ruled",
+   "inicio": 7.895,
+   "fim": 8.324
+  },
+  {
+   "texto": "by",
+   "inicio": 8.499,
+   "fim": 8.673
+  },
+  {
+   "texto": "Napoleon",
+   "inicio": 8.742,
+   "fim": 9.288
+  },
+  {
+   "texto": "Bonaparte.",
+   "inicio": 9.346,
+   "fim": 10.588
+  }
+ ]
+}

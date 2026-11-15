@@ -1,0 +1,278 @@
+{
+ "id": "b06",
+ "capitulo": "A França sem lagostas",
+ "visual": "Seta atravessa o Atlântico até o Nordeste brasileiro.",
+ "texto": "E acharam. Do outro lado do oceano, no Nordeste do Brasil, havia lagosta em abundância. Em março de 1961, os franceses pediram autorização ao governo brasileiro pra fazer uma pesquisa sobre as lagostas da região. O Brasil aceitou, com condições: só três barcos, por 180 dias, e com fiscais da Marinha brasileira a bordo.",
+ "palavras": [
+  {
+   "texto": "E",
+   "inicio": 0,
+   "fim": 0.093
+  },
+  {
+   "texto": "acharam.",
+   "inicio": 0.186,
+   "fim": 0.755
+  },
+  {
+   "texto": "Do",
+   "inicio": 1.335,
+   "fim": 1.474
+  },
+  {
+   "texto": "outro",
+   "inicio": 1.544,
+   "fim": 1.811
+  },
+  {
+   "texto": "lado",
+   "inicio": 1.858,
+   "fim": 2.09
+  },
+  {
+   "texto": "do",
+   "inicio": 2.136,
+   "fim": 2.206
+  },
+  {
+   "texto": "oceano,",
+   "inicio": 2.229,
+   "fim": 2.856
+  },
+  {
+   "texto": "no",
+   "inicio": 2.995,
+   "fim": 3.111
+  },
+  {
+   "texto": "Nordeste",
+   "inicio": 3.17,
+   "fim": 3.704
+  },
+  {
+   "texto": "do",
+   "inicio": 3.75,
+   "fim": 3.796
+  },
+  {
+   "texto": "Brasil,",
+   "inicio": 3.843,
+   "fim": 4.365
+  },
+  {
+   "texto": "havia",
+   "inicio": 4.435,
+   "fim": 4.83
+  },
+  {
+   "texto": "lagosta",
+   "inicio": 4.876,
+   "fim": 5.422
+  },
+  {
+   "texto": "em",
+   "inicio": 5.526,
+   "fim": 5.689
+  },
+  {
+   "texto": "abundância.",
+   "inicio": 5.735,
+   "fim": 6.525
+  },
+  {
+   "texto": "Em",
+   "inicio": 7.012,
+   "fim": 7.198
+  },
+  {
+   "texto": "março",
+   "inicio": 7.256,
+   "fim": 7.628
+  },
+  {
+   "texto": "de",
+   "inicio": 7.674,
+   "fim": 7.744
+  },
+  {
+   "texto": "1961,",
+   "inicio": 7.872,
+   "fim": 9.567
+  },
+  {
+   "texto": "os",
+   "inicio": 9.729,
+   "fim": 9.868
+  },
+  {
+   "texto": "franceses",
+   "inicio": 9.927,
+   "fim": 10.472
+  },
+  {
+   "texto": "pediram",
+   "inicio": 10.519,
+   "fim": 10.902
+  },
+  {
+   "texto": "autorização",
+   "inicio": 10.96,
+   "fim": 11.668
+  },
+  {
+   "texto": "ao",
+   "inicio": 11.691,
+   "fim": 11.738
+  },
+  {
+   "texto": "governo",
+   "inicio": 11.796,
+   "fim": 12.202
+  },
+  {
+   "texto": "brasileiro",
+   "inicio": 12.225,
+   "fim": 12.817
+  },
+  {
+   "texto": "pra",
+   "inicio": 12.992,
+   "fim": 13.154
+  },
+  {
+   "texto": "fazer",
+   "inicio": 13.201,
+   "fim": 13.479
+  },
+  {
+   "texto": "uma",
+   "inicio": 13.514,
+   "fim": 13.618
+  },
+  {
+   "texto": "pesquisa",
+   "inicio": 13.665,
+   "fim": 14.106
+  },
+  {
+   "texto": "sobre",
+   "inicio": 14.152,
+   "fim": 14.373
+  },
+  {
+   "texto": "as",
+   "inicio": 14.396,
+   "fim": 14.454
+  },
+  {
+   "texto": "lagostas",
+   "inicio": 14.489,
+   "fim": 14.953
+  },
+  {
+   "texto": "da",
+   "inicio": 14.988,
+   "fim": 15.035
+  },
+  {
+   "texto": "região.",
+   "inicio": 15.093,
+   "fim": 15.685
+  },
+  {
+   "texto": "O",
+   "inicio": 16.358,
+   "fim": 16.416
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 16.486,
+   "fim": 16.799
+  },
+  {
+   "texto": "aceitou,",
+   "inicio": 16.834,
+   "fim": 17.403
+  },
+  {
+   "texto": "com",
+   "inicio": 17.554,
+   "fim": 17.786
+  },
+  {
+   "texto": "condições:",
+   "inicio": 17.867,
+   "fim": 18.761
+  },
+  {
+   "texto": "só",
+   "inicio": 18.912,
+   "fim": 19.121
+  },
+  {
+   "texto": "três",
+   "inicio": 19.203,
+   "fim": 19.47
+  },
+  {
+   "texto": "barcos,",
+   "inicio": 19.539,
+   "fim": 19.969
+  },
+  {
+   "texto": "por",
+   "inicio": 20.015,
+   "fim": 20.155
+  },
+  {
+   "texto": "180",
+   "inicio": 20.271,
+   "fim": 21.223
+  },
+  {
+   "texto": "dias,",
+   "inicio": 21.339,
+   "fim": 21.873
+  },
+  {
+   "texto": "e",
+   "inicio": 21.989,
+   "fim": 22.105
+  },
+  {
+   "texto": "com",
+   "inicio": 22.175,
+   "fim": 22.302
+  },
+  {
+   "texto": "fiscais",
+   "inicio": 22.372,
+   "fim": 22.906
+  },
+  {
+   "texto": "da",
+   "inicio": 22.953,
+   "fim": 23.022
+  },
+  {
+   "texto": "Marinha",
+   "inicio": 23.069,
+   "fim": 23.382
+  },
+  {
+   "texto": "brasileira",
+   "inicio": 23.417,
+   "fim": 23.893
+  },
+  {
+   "texto": "a",
+   "inicio": 23.916,
+   "fim": 23.939
+  },
+  {
+   "texto": "bordo.",
+   "inicio": 24.009,
+   "fim": 24.845
+  }
+ ]
+}

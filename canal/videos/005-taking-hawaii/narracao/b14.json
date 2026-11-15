@@ -1,0 +1,243 @@
+{
+ "id": "b14",
+ "capitulo": "The Bayonet Constitution",
+ "visual": "\"1887\". King Kalakaua portrait. Bubble. Bayonet icon.",
+ "texto": "The king was David Kalakaua. He traveled around the world, put electric lights in his palace before the White House had them, and tried to keep his country independent. In 1881, he became the first reigning monarch in history to travel all the way around the world.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0.375,
+   "fim": 0.487
+  },
+  {
+   "texto": "king",
+   "inicio": 0.487,
+   "fim": 0.85
+  },
+  {
+   "texto": "was",
+   "inicio": 0.85,
+   "fim": 1.075
+  },
+  {
+   "texto": "David",
+   "inicio": 1.075,
+   "fim": 1.562
+  },
+  {
+   "texto": "Kalakaua.",
+   "inicio": 1.562,
+   "fim": 2.65
+  },
+  {
+   "texto": "He",
+   "inicio": 2.775,
+   "fim": 2.925
+  },
+  {
+   "texto": "traveled",
+   "inicio": 2.925,
+   "fim": 3.375
+  },
+  {
+   "texto": "around",
+   "inicio": 3.375,
+   "fim": 3.737
+  },
+  {
+   "texto": "the",
+   "inicio": 3.737,
+   "fim": 3.837
+  },
+  {
+   "texto": "world,",
+   "inicio": 3.837,
+   "fim": 4.5
+  },
+  {
+   "texto": "put",
+   "inicio": 4.6,
+   "fim": 4.75
+  },
+  {
+   "texto": "electric",
+   "inicio": 4.75,
+   "fim": 5.287
+  },
+  {
+   "texto": "lights",
+   "inicio": 5.287,
+   "fim": 5.675
+  },
+  {
+   "texto": "in",
+   "inicio": 5.675,
+   "fim": 5.763
+  },
+  {
+   "texto": "his",
+   "inicio": 5.763,
+   "fim": 5.938
+  },
+  {
+   "texto": "palace",
+   "inicio": 5.938,
+   "fim": 6.45
+  },
+  {
+   "texto": "before",
+   "inicio": 6.45,
+   "fim": 6.8
+  },
+  {
+   "texto": "the",
+   "inicio": 6.8,
+   "fim": 6.938
+  },
+  {
+   "texto": "White",
+   "inicio": 6.938,
+   "fim": 7.25
+  },
+  {
+   "texto": "House",
+   "inicio": 7.25,
+   "fim": 7.612
+  },
+  {
+   "texto": "had",
+   "inicio": 7.612,
+   "fim": 7.875
+  },
+  {
+   "texto": "them,",
+   "inicio": 7.875,
+   "fim": 8.4
+  },
+  {
+   "texto": "and",
+   "inicio": 8.5,
+   "fim": 8.625
+  },
+  {
+   "texto": "tried",
+   "inicio": 8.625,
+   "fim": 8.925
+  },
+  {
+   "texto": "to",
+   "inicio": 8.925,
+   "fim": 9.05
+  },
+  {
+   "texto": "keep",
+   "inicio": 9.05,
+   "fim": 9.262
+  },
+  {
+   "texto": "his",
+   "inicio": 9.262,
+   "fim": 9.438
+  },
+  {
+   "texto": "country",
+   "inicio": 9.438,
+   "fim": 9.975
+  },
+  {
+   "texto": "independent.",
+   "inicio": 9.975,
+   "fim": 11.2
+  },
+  {
+   "texto": "In",
+   "inicio": 11.35,
+   "fim": 11.537
+  },
+  {
+   "texto": "1881,",
+   "inicio": 11.537,
+   "fim": 13.05
+  },
+  {
+   "texto": "he",
+   "inicio": 13.15,
+   "fim": 13.275
+  },
+  {
+   "texto": "became",
+   "inicio": 13.275,
+   "fim": 13.675
+  },
+  {
+   "texto": "the",
+   "inicio": 13.675,
+   "fim": 13.825
+  },
+  {
+   "texto": "first",
+   "inicio": 13.825,
+   "fim": 14.213
+  },
+  {
+   "texto": "reigning",
+   "inicio": 14.213,
+   "fim": 14.675
+  },
+  {
+   "texto": "monarch",
+   "inicio": 14.675,
+   "fim": 15.125
+  },
+  {
+   "texto": "in",
+   "inicio": 15.125,
+   "fim": 15.275
+  },
+  {
+   "texto": "history",
+   "inicio": 15.275,
+   "fim": 15.8
+  },
+  {
+   "texto": "to",
+   "inicio": 15.8,
+   "fim": 15.938
+  },
+  {
+   "texto": "travel",
+   "inicio": 15.938,
+   "fim": 16.475
+  },
+  {
+   "texto": "all",
+   "inicio": 16.475,
+   "fim": 16.75
+  },
+  {
+   "texto": "the",
+   "inicio": 16.75,
+   "fim": 16.887
+  },
+  {
+   "texto": "way",
+   "inicio": 16.887,
+   "fim": 17.2
+  },
+  {
+   "texto": "around",
+   "inicio": 17.2,
+   "fim": 17.562
+  },
+  {
+   "texto": "the",
+   "inicio": 17.562,
+   "fim": 17.663
+  },
+  {
+   "texto": "world.",
+   "inicio": 17.663,
+   "fim": 18.425
+  }
+ ]
+}

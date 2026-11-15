@@ -1,0 +1,158 @@
+{
+ "id": "b12",
+ "capitulo": "Sugar",
+ "visual": "Population counter falls: 300,000 to 40,000.",
+ "texto": "Before Cook arrived, there were probably around three hundred thousand Native Hawaiians. A century later, only about forty thousand were left. In their own country, they were becoming a minority.",
+ "palavras": [
+  {
+   "texto": "Before",
+   "inicio": 0.35,
+   "fim": 0.675
+  },
+  {
+   "texto": "Cook",
+   "inicio": 0.675,
+   "fim": 0.9
+  },
+  {
+   "texto": "arrived,",
+   "inicio": 0.9,
+   "fim": 1.675
+  },
+  {
+   "texto": "there",
+   "inicio": 1.775,
+   "fim": 1.887
+  },
+  {
+   "texto": "were",
+   "inicio": 1.887,
+   "fim": 2.038
+  },
+  {
+   "texto": "probably",
+   "inicio": 2.038,
+   "fim": 2.575
+  },
+  {
+   "texto": "around",
+   "inicio": 2.575,
+   "fim": 2.975
+  },
+  {
+   "texto": "three",
+   "inicio": 2.975,
+   "fim": 3.263
+  },
+  {
+   "texto": "hundred",
+   "inicio": 3.263,
+   "fim": 3.712
+  },
+  {
+   "texto": "thousand",
+   "inicio": 3.712,
+   "fim": 4.225
+  },
+  {
+   "texto": "Native",
+   "inicio": 4.225,
+   "fim": 4.55
+  },
+  {
+   "texto": "Hawaiians.",
+   "inicio": 4.55,
+   "fim": 5.675
+  },
+  {
+   "texto": "A",
+   "inicio": 5.838,
+   "fim": 5.975
+  },
+  {
+   "texto": "century",
+   "inicio": 5.975,
+   "fim": 6.513
+  },
+  {
+   "texto": "later,",
+   "inicio": 6.513,
+   "fim": 7.175
+  },
+  {
+   "texto": "only",
+   "inicio": 7.312,
+   "fim": 7.675
+  },
+  {
+   "texto": "about",
+   "inicio": 7.675,
+   "fim": 8.037
+  },
+  {
+   "texto": "forty",
+   "inicio": 8.037,
+   "fim": 8.512
+  },
+  {
+   "texto": "thousand",
+   "inicio": 8.512,
+   "fim": 9.025
+  },
+  {
+   "texto": "were",
+   "inicio": 9.025,
+   "fim": 9.188
+  },
+  {
+   "texto": "left.",
+   "inicio": 9.188,
+   "fim": 9.975
+  },
+  {
+   "texto": "In",
+   "inicio": 10.113,
+   "fim": 10.238
+  },
+  {
+   "texto": "their",
+   "inicio": 10.238,
+   "fim": 10.412
+  },
+  {
+   "texto": "own",
+   "inicio": 10.412,
+   "fim": 10.738
+  },
+  {
+   "texto": "country,",
+   "inicio": 10.738,
+   "fim": 11.3
+  },
+  {
+   "texto": "they",
+   "inicio": 11.375,
+   "fim": 11.525
+  },
+  {
+   "texto": "were",
+   "inicio": 11.525,
+   "fim": 11.65
+  },
+  {
+   "texto": "becoming",
+   "inicio": 11.65,
+   "fim": 12.15
+  },
+  {
+   "texto": "a",
+   "inicio": 12.15,
+   "fim": 12.225
+  },
+  {
+   "texto": "minority.",
+   "inicio": 12.225,
+   "fim": 13.25
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "id": "b01",
+ "capitulo": "The 51st State",
+ "visual": "\"2025\". Washington. Trump portrait, bubble \"THE 51ST STATE\". Canada lights up.",
+ "texto": "In 2025, the President of the United States started calling Canada something strange. The fifty-first state. Canada's leaders answered fast: Canada is not for sale, and it never will be.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0.4,
+   "fim": 0.525
+  },
+  {
+   "texto": "2025,",
+   "inicio": 0.525,
+   "fim": 1.7
+  },
+  {
+   "texto": "the",
+   "inicio": 1.775,
+   "fim": 1.913
+  },
+  {
+   "texto": "President",
+   "inicio": 1.913,
+   "fim": 2.413
+  },
+  {
+   "texto": "of",
+   "inicio": 2.413,
+   "fim": 2.487
+  },
+  {
+   "texto": "the",
+   "inicio": 2.487,
+   "fim": 2.575
+  },
+  {
+   "texto": "United",
+   "inicio": 2.575,
+   "fim": 3.038
+  },
+  {
+   "texto": "States",
+   "inicio": 3.038,
+   "fim": 3.45
+  },
+  {
+   "texto": "started",
+   "inicio": 3.45,
+   "fim": 3.862
+  },
+  {
+   "texto": "calling",
+   "inicio": 3.862,
+   "fim": 4.312
+  },
+  {
+   "texto": "Canada",
+   "inicio": 4.312,
+   "fim": 4.763
+  },
+  {
+   "texto": "something",
+   "inicio": 4.763,
+   "fim": 5.188
+  },
+  {
+   "texto": "strange.",
+   "inicio": 5.188,
+   "fim": 6.2
+  },
+  {
+   "texto": "The",
+   "inicio": 6.388,
+   "fim": 6.537
+  },
+  {
+   "texto": "fifty-first",
+   "inicio": 6.537,
+   "fim": 7.312
+  },
+  {
+   "texto": "state.",
+   "inicio": 7.312,
+   "fim": 8.075
+  },
+  {
+   "texto": "Canada's",
+   "inicio": 8.25,
+   "fim": 8.787
+  },
+  {
+   "texto": "leaders",
+   "inicio": 8.787,
+   "fim": 9.238
+  },
+  {
+   "texto": "answered",
+   "inicio": 9.238,
+   "fim": 9.713
+  },
+  {
+   "texto": "fast:",
+   "inicio": 9.713,
+   "fim": 10.475
+  },
+  {
+   "texto": "Canada",
+   "inicio": 10.613,
+   "fim": 11.05
+  },
+  {
+   "texto": "is",
+   "inicio": 11.05,
+   "fim": 11.2
+  },
+  {
+   "texto": "not",
+   "inicio": 11.2,
+   "fim": 11.45
+  },
+  {
+   "texto": "for",
+   "inicio": 11.45,
+   "fim": 11.637
+  },
+  {
+   "texto": "sale,",
+   "inicio": 11.637,
+   "fim": 12.225
+  },
+  {
+   "texto": "and",
+   "inicio": 12.3,
+   "fim": 12.412
+  },
+  {
+   "texto": "it",
+   "inicio": 12.412,
+   "fim": 12.562
+  },
+  {
+   "texto": "never",
+   "inicio": 12.562,
+   "fim": 12.9
+  },
+  {
+   "texto": "will",
+   "inicio": 12.9,
+   "fim": 13.088
+  },
+  {
+   "texto": "be.",
+   "inicio": 13.088,
+   "fim": 13.75
+  }
+ ]
+}

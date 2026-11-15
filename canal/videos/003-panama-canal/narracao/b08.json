@@ -1,0 +1,193 @@
+{
+ "id": "b08",
+ "capitulo": "The French Disaster",
+ "visual": "\"1881\". Paris. De Lesseps portrait. Route Suez, then to Panama.",
+ "texto": "The first to try were the French. In 1881, Ferdinand de Lesseps, the hero who had built the Suez Canal, arrived in Panama with a bold plan: dig a canal at sea level, straight through the mountains.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0,
+   "fim": 0.139
+  },
+  {
+   "texto": "first",
+   "inicio": 0.197,
+   "fim": 0.488
+  },
+  {
+   "texto": "to",
+   "inicio": 0.534,
+   "fim": 0.604
+  },
+  {
+   "texto": "try",
+   "inicio": 0.673,
+   "fim": 1.138
+  },
+  {
+   "texto": "were",
+   "inicio": 1.416,
+   "fim": 1.591
+  },
+  {
+   "texto": "the",
+   "inicio": 1.625,
+   "fim": 1.695
+  },
+  {
+   "texto": "French.",
+   "inicio": 1.765,
+   "fim": 2.392
+  },
+  {
+   "texto": "In",
+   "inicio": 2.833,
+   "fim": 2.995
+  },
+  {
+   "texto": "1881,",
+   "inicio": 3.042,
+   "fim": 4.214
+  },
+  {
+   "texto": "Ferdinand",
+   "inicio": 4.423,
+   "fim": 5.016
+  },
+  {
+   "texto": "de",
+   "inicio": 5.085,
+   "fim": 5.178
+  },
+  {
+   "texto": "Lesseps,",
+   "inicio": 5.236,
+   "fim": 5.968
+  },
+  {
+   "texto": "the",
+   "inicio": 6.084,
+   "fim": 6.188
+  },
+  {
+   "texto": "hero",
+   "inicio": 6.269,
+   "fim": 6.606
+  },
+  {
+   "texto": "who",
+   "inicio": 6.664,
+   "fim": 6.769
+  },
+  {
+   "texto": "had",
+   "inicio": 6.827,
+   "fim": 6.943
+  },
+  {
+   "texto": "built",
+   "inicio": 7.001,
+   "fim": 7.233
+  },
+  {
+   "texto": "the",
+   "inicio": 7.279,
+   "fim": 7.361
+  },
+  {
+   "texto": "Suez",
+   "inicio": 7.43,
+   "fim": 7.837
+  },
+  {
+   "texto": "Canal,",
+   "inicio": 7.918,
+   "fim": 8.649
+  },
+  {
+   "texto": "arrived",
+   "inicio": 8.824,
+   "fim": 9.346
+  },
+  {
+   "texto": "in",
+   "inicio": 9.392,
+   "fim": 9.474
+  },
+  {
+   "texto": "Panama",
+   "inicio": 9.543,
+   "fim": 10.077
+  },
+  {
+   "texto": "with",
+   "inicio": 10.147,
+   "fim": 10.31
+  },
+  {
+   "texto": "a",
+   "inicio": 10.356,
+   "fim": 10.391
+  },
+  {
+   "texto": "bold",
+   "inicio": 10.484,
+   "fim": 10.879
+  },
+  {
+   "texto": "plan:",
+   "inicio": 10.948,
+   "fim": 11.691
+  },
+  {
+   "texto": "dig",
+   "inicio": 12.132,
+   "fim": 12.411
+  },
+  {
+   "texto": "a",
+   "inicio": 12.469,
+   "fim": 12.504
+  },
+  {
+   "texto": "canal",
+   "inicio": 12.574,
+   "fim": 13.026
+  },
+  {
+   "texto": "at",
+   "inicio": 13.108,
+   "fim": 13.189
+  },
+  {
+   "texto": "sea",
+   "inicio": 13.259,
+   "fim": 13.456
+  },
+  {
+   "texto": "level,",
+   "inicio": 13.502,
+   "fim": 14.013
+  },
+  {
+   "texto": "straight",
+   "inicio": 14.222,
+   "fim": 14.605
+  },
+  {
+   "texto": "through",
+   "inicio": 14.663,
+   "fim": 14.954
+  },
+  {
+   "texto": "the",
+   "inicio": 15,
+   "fim": 15.07
+  },
+  {
+   "texto": "mountains.",
+   "inicio": 15.116,
+   "fim": 16.533
+  }
+ ]
+}

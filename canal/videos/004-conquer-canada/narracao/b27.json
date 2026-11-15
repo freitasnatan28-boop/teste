@@ -1,0 +1,158 @@
+{
+ "id": "b27",
+ "capitulo": "Why Now",
+ "visual": "Trade routes across the border. Price tag $909 BILLION.",
+ "texto": "Today, Canada and the United States trade more than nine hundred billion dollars a year. Cars, food, electricity, metals. Many products cross the border several times before they are finished.",
+ "palavras": [
+  {
+   "texto": "Today,",
+   "inicio": 0.35,
+   "fim": 0.825
+  },
+  {
+   "texto": "Canada",
+   "inicio": 0.938,
+   "fim": 1.462
+  },
+  {
+   "texto": "and",
+   "inicio": 1.462,
+   "fim": 1.587
+  },
+  {
+   "texto": "the",
+   "inicio": 1.587,
+   "fim": 1.675
+  },
+  {
+   "texto": "United",
+   "inicio": 1.675,
+   "fim": 2.125
+  },
+  {
+   "texto": "States",
+   "inicio": 2.125,
+   "fim": 2.525
+  },
+  {
+   "texto": "trade",
+   "inicio": 2.525,
+   "fim": 2.875
+  },
+  {
+   "texto": "more",
+   "inicio": 2.875,
+   "fim": 3.1
+  },
+  {
+   "texto": "than",
+   "inicio": 3.1,
+   "fim": 3.288
+  },
+  {
+   "texto": "nine",
+   "inicio": 3.288,
+   "fim": 3.6
+  },
+  {
+   "texto": "hundred",
+   "inicio": 3.6,
+   "fim": 4.05
+  },
+  {
+   "texto": "billion",
+   "inicio": 4.05,
+   "fim": 4.5
+  },
+  {
+   "texto": "dollars",
+   "inicio": 4.5,
+   "fim": 4.95
+  },
+  {
+   "texto": "a",
+   "inicio": 4.95,
+   "fim": 5.062
+  },
+  {
+   "texto": "year.",
+   "inicio": 5.062,
+   "fim": 5.825
+  },
+  {
+   "texto": "Cars,",
+   "inicio": 6.0,
+   "fim": 6.775
+  },
+  {
+   "texto": "food,",
+   "inicio": 6.938,
+   "fim": 7.675
+  },
+  {
+   "texto": "electricity,",
+   "inicio": 7.812,
+   "fim": 8.625
+  },
+  {
+   "texto": "metals.",
+   "inicio": 8.713,
+   "fim": 9.55
+  },
+  {
+   "texto": "Many",
+   "inicio": 9.688,
+   "fim": 9.963
+  },
+  {
+   "texto": "products",
+   "inicio": 9.963,
+   "fim": 10.475
+  },
+  {
+   "texto": "cross",
+   "inicio": 10.475,
+   "fim": 10.85
+  },
+  {
+   "texto": "the",
+   "inicio": 10.85,
+   "fim": 10.95
+  },
+  {
+   "texto": "border",
+   "inicio": 10.95,
+   "fim": 11.35
+  },
+  {
+   "texto": "several",
+   "inicio": 11.35,
+   "fim": 11.762
+  },
+  {
+   "texto": "times",
+   "inicio": 11.762,
+   "fim": 12.25
+  },
+  {
+   "texto": "before",
+   "inicio": 12.25,
+   "fim": 12.65
+  },
+  {
+   "texto": "they",
+   "inicio": 12.65,
+   "fim": 12.8
+  },
+  {
+   "texto": "are",
+   "inicio": 12.8,
+   "fim": 12.95
+  },
+  {
+   "texto": "finished.",
+   "inicio": 12.95,
+   "fim": 13.8
+  }
+ ]
+}

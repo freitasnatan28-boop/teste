@@ -1,0 +1,108 @@
+{
+ "id": "b02",
+ "capitulo": "A Kingdom in the Pacific",
+ "visual": "Treaty icons: USA, Britain, France, Japan around Hawaii. Book icon.",
+ "texto": "The Kingdom of Hawaii had embassies abroad, a written constitution, and one of the highest literacy rates in the world.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0.35,
+   "fim": 0.463
+  },
+  {
+   "texto": "Kingdom",
+   "inicio": 0.463,
+   "fim": 0.838
+  },
+  {
+   "texto": "of",
+   "inicio": 0.838,
+   "fim": 0.925
+  },
+  {
+   "texto": "Hawaii",
+   "inicio": 0.925,
+   "fim": 1.55
+  },
+  {
+   "texto": "had",
+   "inicio": 1.55,
+   "fim": 1.762
+  },
+  {
+   "texto": "embassies",
+   "inicio": 1.762,
+   "fim": 2.35
+  },
+  {
+   "texto": "abroad,",
+   "inicio": 2.35,
+   "fim": 3.2
+  },
+  {
+   "texto": "a",
+   "inicio": 3.337,
+   "fim": 3.462
+  },
+  {
+   "texto": "written",
+   "inicio": 3.462,
+   "fim": 3.788
+  },
+  {
+   "texto": "constitution,",
+   "inicio": 3.788,
+   "fim": 5.1
+  },
+  {
+   "texto": "and",
+   "inicio": 5.213,
+   "fim": 5.35
+  },
+  {
+   "texto": "one",
+   "inicio": 5.35,
+   "fim": 5.487
+  },
+  {
+   "texto": "of",
+   "inicio": 5.487,
+   "fim": 5.562
+  },
+  {
+   "texto": "the",
+   "inicio": 5.562,
+   "fim": 5.7
+  },
+  {
+   "texto": "highest",
+   "inicio": 5.7,
+   "fim": 6.213
+  },
+  {
+   "texto": "literacy",
+   "inicio": 6.213,
+   "fim": 6.75
+  },
+  {
+   "texto": "rates",
+   "inicio": 6.75,
+   "fim": 7.1
+  },
+  {
+   "texto": "in",
+   "inicio": 7.1,
+   "fim": 7.188
+  },
+  {
+   "texto": "the",
+   "inicio": 7.188,
+   "fim": 7.287
+  },
+  {
+   "texto": "world.",
+   "inicio": 7.287,
+   "fim": 8.05
+  }
+ ]
+}

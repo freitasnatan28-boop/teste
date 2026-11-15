@@ -1,0 +1,43 @@
+{
+ "id": "b29",
+ "capitulo": "The Fiftieth State",
+ "visual": "\"1959\". Star added to the flag. 50.",
+ "texto": "In 1959, Hawaii became the fiftieth state.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0.375,
+   "fim": 0.475
+  },
+  {
+   "texto": "1959,",
+   "inicio": 0.475,
+   "fim": 1.8
+  },
+  {
+   "texto": "Hawaii",
+   "inicio": 1.925,
+   "fim": 2.45
+  },
+  {
+   "texto": "became",
+   "inicio": 2.45,
+   "fim": 2.837
+  },
+  {
+   "texto": "the",
+   "inicio": 2.837,
+   "fim": 2.962
+  },
+  {
+   "texto": "fiftieth",
+   "inicio": 2.962,
+   "fim": 3.487
+  },
+  {
+   "texto": "state.",
+   "inicio": 3.487,
+   "fim": 4.2
+  }
+ ]
+}

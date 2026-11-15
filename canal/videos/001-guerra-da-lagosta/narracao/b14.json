@@ -1,0 +1,143 @@
+{
+ "id": "b14",
+ "capitulo": "De Gaulle manda a Marinha",
+ "visual": "A frota para em Dacar, no Senegal. Um único ponto se separa e desce pro Brasil.",
+ "texto": "No dia 21, a frota chegou a Dacar, no Senegal. Mas um dos navios tomou outro rumo. O contratorpedeiro Tartu seguiu sozinho em direção à costa brasileira.",
+ "palavras": [
+  {
+   "texto": "No",
+   "inicio": 0,
+   "fim": 0.186
+  },
+  {
+   "texto": "dia",
+   "inicio": 0.232,
+   "fim": 0.395
+  },
+  {
+   "texto": "21,",
+   "inicio": 0.464,
+   "fim": 1.057
+  },
+  {
+   "texto": "a",
+   "inicio": 1.265,
+   "fim": 1.335
+  },
+  {
+   "texto": "frota",
+   "inicio": 1.428,
+   "fim": 1.788
+  },
+  {
+   "texto": "chegou",
+   "inicio": 1.823,
+   "fim": 2.136
+  },
+  {
+   "texto": "a",
+   "inicio": 2.206,
+   "fim": 2.229
+  },
+  {
+   "texto": "Dacar,",
+   "inicio": 2.299,
+   "fim": 2.902
+  },
+  {
+   "texto": "no",
+   "inicio": 3.077,
+   "fim": 3.204
+  },
+  {
+   "texto": "Senegal.",
+   "inicio": 3.274,
+   "fim": 3.971
+  },
+  {
+   "texto": "Mas",
+   "inicio": 4.354,
+   "fim": 4.586
+  },
+  {
+   "texto": "um",
+   "inicio": 4.702,
+   "fim": 4.76
+  },
+  {
+   "texto": "dos",
+   "inicio": 4.807,
+   "fim": 4.923
+  },
+  {
+   "texto": "navios",
+   "inicio": 4.969,
+   "fim": 5.352
+  },
+  {
+   "texto": "tomou",
+   "inicio": 5.41,
+   "fim": 5.724
+  },
+  {
+   "texto": "outro",
+   "inicio": 5.875,
+   "fim": 6.235
+  },
+  {
+   "texto": "rumo.",
+   "inicio": 6.281,
+   "fim": 6.745
+  },
+  {
+   "texto": "O",
+   "inicio": 7.187,
+   "fim": 7.303
+  },
+  {
+   "texto": "contratorpedeiro",
+   "inicio": 7.454,
+   "fim": 8.673
+  },
+  {
+   "texto": "Tartu",
+   "inicio": 8.754,
+   "fim": 9.288
+  },
+  {
+   "texto": "seguiu",
+   "inicio": 9.613,
+   "fim": 9.985
+  },
+  {
+   "texto": "sozinho",
+   "inicio": 10.043,
+   "fim": 10.484
+  },
+  {
+   "texto": "em",
+   "inicio": 10.507,
+   "fim": 10.553
+  },
+  {
+   "texto": "direção",
+   "inicio": 10.6,
+   "fim": 11.053
+  },
+  {
+   "texto": "à",
+   "inicio": 11.099,
+   "fim": 11.122
+  },
+  {
+   "texto": "costa",
+   "inicio": 11.204,
+   "fim": 11.575
+  },
+  {
+   "texto": "brasileira.",
+   "inicio": 11.622,
+   "fim": 12.957
+  }
+ ]
+}

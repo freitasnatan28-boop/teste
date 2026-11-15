@@ -1,0 +1,223 @@
+{
+ "id": "b18",
+ "capitulo": "The Big Ditch",
+ "visual": "\"1914\". First ship route. Price tag $375,000,000. Counter 5,600.",
+ "texto": "It cost about three hundred and seventy-five million dollars, and more than five thousand six hundred workers died. In August 1914, the first ship crossed from the Atlantic to the Pacific. Crossing from one ocean to the other now took about ten hours.",
+ "palavras": [
+  {
+   "texto": "It",
+   "inicio": 0,
+   "fim": 0.151
+  },
+  {
+   "texto": "cost",
+   "inicio": 0.209,
+   "fim": 0.546
+  },
+  {
+   "texto": "about",
+   "inicio": 0.604,
+   "fim": 0.848
+  },
+  {
+   "texto": "three",
+   "inicio": 0.906,
+   "fim": 1.207
+  },
+  {
+   "texto": "hundred",
+   "inicio": 1.277,
+   "fim": 1.649
+  },
+  {
+   "texto": "and",
+   "inicio": 1.707,
+   "fim": 1.811
+  },
+  {
+   "texto": "seventy-five",
+   "inicio": 1.904,
+   "fim": 2.775
+  },
+  {
+   "texto": "million",
+   "inicio": 2.833,
+   "fim": 3.204
+  },
+  {
+   "texto": "dollars,",
+   "inicio": 3.262,
+   "fim": 3.971
+  },
+  {
+   "texto": "and",
+   "inicio": 4.296,
+   "fim": 4.47
+  },
+  {
+   "texto": "more",
+   "inicio": 4.54,
+   "fim": 4.714
+  },
+  {
+   "texto": "than",
+   "inicio": 4.748,
+   "fim": 4.899
+  },
+  {
+   "texto": "five",
+   "inicio": 4.981,
+   "fim": 5.341
+  },
+  {
+   "texto": "thousand",
+   "inicio": 5.399,
+   "fim": 5.875
+  },
+  {
+   "texto": "six",
+   "inicio": 5.968,
+   "fim": 6.269
+  },
+  {
+   "texto": "hundred",
+   "inicio": 6.351,
+   "fim": 6.699
+  },
+  {
+   "texto": "workers",
+   "inicio": 6.757,
+   "fim": 7.221
+  },
+  {
+   "texto": "died.",
+   "inicio": 7.303,
+   "fim": 7.964
+  },
+  {
+   "texto": "In",
+   "inicio": 8.475,
+   "fim": 8.638
+  },
+  {
+   "texto": "August",
+   "inicio": 8.707,
+   "fim": 9.067
+  },
+  {
+   "texto": "1914,",
+   "inicio": 9.137,
+   "fim": 10.379
+  },
+  {
+   "texto": "the",
+   "inicio": 10.658,
+   "fim": 10.762
+  },
+  {
+   "texto": "first",
+   "inicio": 10.82,
+   "fim": 11.111
+  },
+  {
+   "texto": "ship",
+   "inicio": 11.18,
+   "fim": 11.436
+  },
+  {
+   "texto": "crossed",
+   "inicio": 11.505,
+   "fim": 11.9
+  },
+  {
+   "texto": "from",
+   "inicio": 11.935,
+   "fim": 12.098
+  },
+  {
+   "texto": "the",
+   "inicio": 12.156,
+   "fim": 12.225
+  },
+  {
+   "texto": "Atlantic",
+   "inicio": 12.295,
+   "fim": 12.783
+  },
+  {
+   "texto": "to",
+   "inicio": 13.061,
+   "fim": 13.189
+  },
+  {
+   "texto": "the",
+   "inicio": 13.282,
+   "fim": 13.351
+  },
+  {
+   "texto": "Pacific.",
+   "inicio": 13.41,
+   "fim": 14.176
+  },
+  {
+   "texto": "Crossing",
+   "inicio": 14.687,
+   "fim": 15.174
+  },
+  {
+   "texto": "from",
+   "inicio": 15.244,
+   "fim": 15.441
+  },
+  {
+   "texto": "one",
+   "inicio": 15.558,
+   "fim": 15.778
+  },
+  {
+   "texto": "ocean",
+   "inicio": 15.825,
+   "fim": 16.15
+  },
+  {
+   "texto": "to",
+   "inicio": 16.219,
+   "fim": 16.301
+  },
+  {
+   "texto": "the",
+   "inicio": 16.382,
+   "fim": 16.452
+  },
+  {
+   "texto": "other",
+   "inicio": 16.521,
+   "fim": 16.788
+  },
+  {
+   "texto": "now",
+   "inicio": 17.229,
+   "fim": 17.438
+  },
+  {
+   "texto": "took",
+   "inicio": 17.508,
+   "fim": 17.682
+  },
+  {
+   "texto": "about",
+   "inicio": 17.729,
+   "fim": 17.972
+  },
+  {
+   "texto": "ten",
+   "inicio": 18.019,
+   "fim": 18.251
+  },
+  {
+   "texto": "hours.",
+   "inicio": 18.309,
+   "fim": 19.412
+  }
+ ]
+}

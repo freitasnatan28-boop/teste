@@ -1,0 +1,78 @@
+{
+ "id": "b02",
+ "capitulo": "We're Taking It Back",
+ "visual": "Panama flag. Bubble \"EVERY SQUARE METER IS OURS\".",
+ "texto": "Panama's answer came fast. The canal belongs to Panama, every square meter of it.",
+ "palavras": [
+  {
+   "texto": "Panama's",
+   "inicio": 0,
+   "fim": 0.731
+  },
+  {
+   "texto": "answer",
+   "inicio": 0.789,
+   "fim": 1.207
+  },
+  {
+   "texto": "came",
+   "inicio": 1.289,
+   "fim": 1.556
+  },
+  {
+   "texto": "fast.",
+   "inicio": 1.614,
+   "fim": 2.334
+  },
+  {
+   "texto": "The",
+   "inicio": 2.717,
+   "fim": 2.833
+  },
+  {
+   "texto": "canal",
+   "inicio": 2.891,
+   "fim": 3.367
+  },
+  {
+   "texto": "belongs",
+   "inicio": 3.448,
+   "fim": 3.936
+  },
+  {
+   "texto": "to",
+   "inicio": 3.994,
+   "fim": 4.087
+  },
+  {
+   "texto": "Panama,",
+   "inicio": 4.168,
+   "fim": 4.981
+  },
+  {
+   "texto": "every",
+   "inicio": 5.306,
+   "fim": 5.7
+  },
+  {
+   "texto": "square",
+   "inicio": 5.759,
+   "fim": 6.13
+  },
+  {
+   "texto": "meter",
+   "inicio": 6.188,
+   "fim": 6.478
+  },
+  {
+   "texto": "of",
+   "inicio": 6.548,
+   "fim": 6.641
+  },
+  {
+   "texto": "it.",
+   "inicio": 6.711,
+   "fim": 7.43
+  }
+ ]
+}

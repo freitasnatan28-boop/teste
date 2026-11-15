@@ -1,0 +1,168 @@
+{
+ "id": "b07",
+ "capitulo": "A França sem lagostas",
+ "visual": "Três barcos no mapa. Aparece um quarto, piscando em vermelho.",
+ "texto": "Não demorou pros fiscais perceberem duas coisas. Primeiro, não eram três barcos. Eram quatro. E segundo: ninguém estava pesquisando nada. Eles estavam pescando, sem controle, e levando as lagostas embora pra Europa.",
+ "palavras": [
+  {
+   "texto": "Não",
+   "inicio": 0,
+   "fim": 0.325
+  },
+  {
+   "texto": "demorou",
+   "inicio": 0.36,
+   "fim": 0.755
+  },
+  {
+   "texto": "pros",
+   "inicio": 0.813,
+   "fim": 0.975
+  },
+  {
+   "texto": "fiscais",
+   "inicio": 1.022,
+   "fim": 1.393
+  },
+  {
+   "texto": "perceberem",
+   "inicio": 1.451,
+   "fim": 2.125
+  },
+  {
+   "texto": "duas",
+   "inicio": 2.45,
+   "fim": 2.763
+  },
+  {
+   "texto": "coisas.",
+   "inicio": 2.821,
+   "fim": 3.437
+  },
+  {
+   "texto": "Primeiro,",
+   "inicio": 3.808,
+   "fim": 4.423
+  },
+  {
+   "texto": "não",
+   "inicio": 4.551,
+   "fim": 4.737
+  },
+  {
+   "texto": "eram",
+   "inicio": 4.772,
+   "fim": 4.969
+  },
+  {
+   "texto": "três",
+   "inicio": 5.05,
+   "fim": 5.306
+  },
+  {
+   "texto": "barcos.",
+   "inicio": 5.364,
+   "fim": 6.095
+  },
+  {
+   "texto": "Eram",
+   "inicio": 6.42,
+   "fim": 6.699
+  },
+  {
+   "texto": "quatro.",
+   "inicio": 6.757,
+   "fim": 7.349
+  },
+  {
+   "texto": "E",
+   "inicio": 7.779,
+   "fim": 7.872
+  },
+  {
+   "texto": "segundo:",
+   "inicio": 7.964,
+   "fim": 8.533
+  },
+  {
+   "texto": "ninguém",
+   "inicio": 8.707,
+   "fim": 9.091
+  },
+  {
+   "texto": "estava",
+   "inicio": 9.137,
+   "fim": 9.451
+  },
+  {
+   "texto": "pesquisando",
+   "inicio": 9.497,
+   "fim": 10.286
+  },
+  {
+   "texto": "nada.",
+   "inicio": 10.565,
+   "fim": 11.122
+  },
+  {
+   "texto": "Eles",
+   "inicio": 11.552,
+   "fim": 11.796
+  },
+  {
+   "texto": "estavam",
+   "inicio": 11.854,
+   "fim": 12.179
+  },
+  {
+   "texto": "pescando,",
+   "inicio": 12.225,
+   "fim": 12.875
+  },
+  {
+   "texto": "sem",
+   "inicio": 13.026,
+   "fim": 13.201
+  },
+  {
+   "texto": "controle,",
+   "inicio": 13.259,
+   "fim": 13.874
+  },
+  {
+   "texto": "e",
+   "inicio": 13.99,
+   "fim": 14.106
+  },
+  {
+   "texto": "levando",
+   "inicio": 14.153,
+   "fim": 14.559
+  },
+  {
+   "texto": "as",
+   "inicio": 14.582,
+   "fim": 14.617
+  },
+  {
+   "texto": "lagostas",
+   "inicio": 14.675,
+   "fim": 15.151
+  },
+  {
+   "texto": "embora",
+   "inicio": 15.197,
+   "fim": 15.511
+  },
+  {
+   "texto": "pra",
+   "inicio": 15.557,
+   "fim": 15.685
+  },
+  {
+   "texto": "Europa.",
+   "inicio": 15.708,
+   "fim": 16.625
+  }
+ ]
+}

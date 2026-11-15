@@ -1,0 +1,193 @@
+{
+ "id": "b23",
+ "capitulo": "The Giveaway",
+ "visual": "Senate vote counter 68 to 32. Stamp \"ONE VOTE\".",
+ "texto": "Back home, it was a political firestorm. Ronald Reagan campaigned against it: we bought it, we paid for it, it's ours. The Senate approved the treaties by sixty-eight to thirty-two, just one vote more than it needed.",
+ "palavras": [
+  {
+   "texto": "Back",
+   "inicio": 0,
+   "fim": 0.302
+  },
+  {
+   "texto": "home,",
+   "inicio": 0.372,
+   "fim": 0.72
+  },
+  {
+   "texto": "it",
+   "inicio": 0.755,
+   "fim": 0.836
+  },
+  {
+   "texto": "was",
+   "inicio": 0.894,
+   "fim": 1.045
+  },
+  {
+   "texto": "a",
+   "inicio": 1.115,
+   "fim": 1.138
+  },
+  {
+   "texto": "political",
+   "inicio": 1.219,
+   "fim": 1.741
+  },
+  {
+   "texto": "firestorm.",
+   "inicio": 1.8,
+   "fim": 2.786
+  },
+  {
+   "texto": "Ronald",
+   "inicio": 3.228,
+   "fim": 3.634
+  },
+  {
+   "texto": "Reagan",
+   "inicio": 3.692,
+   "fim": 4.04
+  },
+  {
+   "texto": "campaigned",
+   "inicio": 4.122,
+   "fim": 4.702
+  },
+  {
+   "texto": "against",
+   "inicio": 4.737,
+   "fim": 5.12
+  },
+  {
+   "texto": "it:",
+   "inicio": 5.178,
+   "fim": 5.515
+  },
+  {
+   "texto": "we",
+   "inicio": 5.84,
+   "fim": 5.979
+  },
+  {
+   "texto": "bought",
+   "inicio": 6.037,
+   "fim": 6.293
+  },
+  {
+   "texto": "it,",
+   "inicio": 6.327,
+   "fim": 6.711
+  },
+  {
+   "texto": "we",
+   "inicio": 6.92,
+   "fim": 7.059
+  },
+  {
+   "texto": "paid",
+   "inicio": 7.129,
+   "fim": 7.361
+  },
+  {
+   "texto": "for",
+   "inicio": 7.419,
+   "fim": 7.593
+  },
+  {
+   "texto": "it,",
+   "inicio": 7.674,
+   "fim": 7.988
+  },
+  {
+   "texto": "it's",
+   "inicio": 8.197,
+   "fim": 8.417
+  },
+  {
+   "texto": "ours.",
+   "inicio": 8.487,
+   "fim": 9.172
+  },
+  {
+   "texto": "The",
+   "inicio": 9.683,
+   "fim": 9.81
+  },
+  {
+   "texto": "Senate",
+   "inicio": 9.868,
+   "fim": 10.217
+  },
+  {
+   "texto": "approved",
+   "inicio": 10.24,
+   "fim": 10.693
+  },
+  {
+   "texto": "the",
+   "inicio": 10.728,
+   "fim": 10.797
+  },
+  {
+   "texto": "treaties",
+   "inicio": 10.844,
+   "fim": 11.262
+  },
+  {
+   "texto": "by",
+   "inicio": 11.331,
+   "fim": 11.471
+  },
+  {
+   "texto": "sixty-eight",
+   "inicio": 11.552,
+   "fim": 12.214
+  },
+  {
+   "texto": "to",
+   "inicio": 12.492,
+   "fim": 12.608
+  },
+  {
+   "texto": "thirty-two,",
+   "inicio": 12.678,
+   "fim": 13.618
+  },
+  {
+   "texto": "just",
+   "inicio": 14.002,
+   "fim": 14.268
+  },
+  {
+   "texto": "one",
+   "inicio": 14.35,
+   "fim": 14.605
+  },
+  {
+   "texto": "vote",
+   "inicio": 14.663,
+   "fim": 14.942
+  },
+  {
+   "texto": "more",
+   "inicio": 15,
+   "fim": 15.313
+  },
+  {
+   "texto": "than",
+   "inicio": 15.36,
+   "fim": 15.511
+  },
+  {
+   "texto": "it",
+   "inicio": 15.557,
+   "fim": 15.65
+  },
+  {
+   "texto": "needed.",
+   "inicio": 15.72,
+   "fim": 16.579
+  }
+ ]
+}

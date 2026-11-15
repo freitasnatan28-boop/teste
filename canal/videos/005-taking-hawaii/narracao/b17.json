@@ -1,0 +1,108 @@
+{
+ "id": "b17",
+ "capitulo": "The Overthrow",
+ "visual": "Music note icon. Bubble \"ALOHA OE\".",
+ "texto": "She was also a songwriter. Her song Aloha Oe is still one of the most famous Hawaiian songs ever written.",
+ "palavras": [
+  {
+   "texto": "She",
+   "inicio": 0.375,
+   "fim": 0.463
+  },
+  {
+   "texto": "was",
+   "inicio": 0.463,
+   "fim": 0.575
+  },
+  {
+   "texto": "also",
+   "inicio": 0.575,
+   "fim": 0.975
+  },
+  {
+   "texto": "a",
+   "inicio": 0.975,
+   "fim": 1.1
+  },
+  {
+   "texto": "songwriter.",
+   "inicio": 1.1,
+   "fim": 2.125
+  },
+  {
+   "texto": "Her",
+   "inicio": 2.25,
+   "fim": 2.413
+  },
+  {
+   "texto": "song",
+   "inicio": 2.413,
+   "fim": 2.75
+  },
+  {
+   "texto": "Aloha",
+   "inicio": 2.75,
+   "fim": 3.225
+  },
+  {
+   "texto": "Oe",
+   "inicio": 3.225,
+   "fim": 3.712
+  },
+  {
+   "texto": "is",
+   "inicio": 3.712,
+   "fim": 3.862
+  },
+  {
+   "texto": "still",
+   "inicio": 3.862,
+   "fim": 4.175
+  },
+  {
+   "texto": "one",
+   "inicio": 4.175,
+   "fim": 4.312
+  },
+  {
+   "texto": "of",
+   "inicio": 4.312,
+   "fim": 4.388
+  },
+  {
+   "texto": "the",
+   "inicio": 4.388,
+   "fim": 4.475
+  },
+  {
+   "texto": "most",
+   "inicio": 4.475,
+   "fim": 4.838
+  },
+  {
+   "texto": "famous",
+   "inicio": 4.838,
+   "fim": 5.325
+  },
+  {
+   "texto": "Hawaiian",
+   "inicio": 5.325,
+   "fim": 5.95
+  },
+  {
+   "texto": "songs",
+   "inicio": 5.95,
+   "fim": 6.487
+  },
+  {
+   "texto": "ever",
+   "inicio": 6.487,
+   "fim": 6.812
+  },
+  {
+   "texto": "written.",
+   "inicio": 6.812,
+   "fim": 7.525
+  }
+ ]
+}

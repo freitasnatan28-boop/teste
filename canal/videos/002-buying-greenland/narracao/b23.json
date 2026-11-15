@@ -1,0 +1,123 @@
+{
+ "id": "b23",
+ "capitulo": "The Secret Offer",
+ "visual": "\"1946\". Greenland. Truman portrait. Price tag $100,000,000 IN GOLD.",
+ "texto": "In 1946, right after World War Two, the Truman administration made Denmark a secret offer: one hundred million dollars, in gold, for Greenland.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0,
+   "fim": 0.197
+  },
+  {
+   "texto": "1946,",
+   "inicio": 0.244,
+   "fim": 1.591
+  },
+  {
+   "texto": "right",
+   "inicio": 1.765,
+   "fim": 1.997
+  },
+  {
+   "texto": "after",
+   "inicio": 2.032,
+   "fim": 2.276
+  },
+  {
+   "texto": "World",
+   "inicio": 2.345,
+   "fim": 2.635
+  },
+  {
+   "texto": "War",
+   "inicio": 2.694,
+   "fim": 2.902
+  },
+  {
+   "texto": "Two,",
+   "inicio": 2.972,
+   "fim": 3.529
+  },
+  {
+   "texto": "the",
+   "inicio": 3.738,
+   "fim": 3.843
+  },
+  {
+   "texto": "Truman",
+   "inicio": 3.901,
+   "fim": 4.307
+  },
+  {
+   "texto": "administration",
+   "inicio": 4.354,
+   "fim": 5.178
+  },
+  {
+   "texto": "made",
+   "inicio": 5.259,
+   "fim": 5.48
+  },
+  {
+   "texto": "Denmark",
+   "inicio": 5.515,
+   "fim": 6.002
+  },
+  {
+   "texto": "a",
+   "inicio": 6.06,
+   "fim": 6.095
+  },
+  {
+   "texto": "secret",
+   "inicio": 6.211,
+   "fim": 6.618
+  },
+  {
+   "texto": "offer:",
+   "inicio": 6.664,
+   "fim": 7.221
+  },
+  {
+   "texto": "one",
+   "inicio": 7.605,
+   "fim": 7.848
+  },
+  {
+   "texto": "hundred",
+   "inicio": 7.895,
+   "fim": 8.255
+  },
+  {
+   "texto": "million",
+   "inicio": 8.371,
+   "fim": 8.789
+  },
+  {
+   "texto": "dollars,",
+   "inicio": 8.858,
+   "fim": 9.52
+  },
+  {
+   "texto": "in",
+   "inicio": 9.567,
+   "fim": 9.741
+  },
+  {
+   "texto": "gold,",
+   "inicio": 9.81,
+   "fim": 10.368
+  },
+  {
+   "texto": "for",
+   "inicio": 10.519,
+   "fim": 10.681
+  },
+  {
+   "texto": "Greenland.",
+   "inicio": 10.728,
+   "fim": 11.981
+  }
+ ]
+}

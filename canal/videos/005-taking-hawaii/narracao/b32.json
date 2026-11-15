@@ -1,0 +1,198 @@
+{
+ "id": "b32",
+ "capitulo": "The Pattern",
+ "visual": "Wide map: Hawaii, Panama, Greenland, Canada lit.",
+ "texto": "Look at the map one more time. Hawaii, the Panama Canal, Greenland, Canada. Islands and passages in the middle of the routes that move the world. Again and again, America has wanted the same thing: the stepping stones.",
+ "palavras": [
+  {
+   "texto": "Look",
+   "inicio": 0.4,
+   "fim": 0.537
+  },
+  {
+   "texto": "at",
+   "inicio": 0.537,
+   "fim": 0.625
+  },
+  {
+   "texto": "the",
+   "inicio": 0.625,
+   "fim": 0.75
+  },
+  {
+   "texto": "map",
+   "inicio": 0.75,
+   "fim": 1.087
+  },
+  {
+   "texto": "one",
+   "inicio": 1.087,
+   "fim": 1.35
+  },
+  {
+   "texto": "more",
+   "inicio": 1.35,
+   "fim": 1.637
+  },
+  {
+   "texto": "time.",
+   "inicio": 1.637,
+   "fim": 2.425
+  },
+  {
+   "texto": "Hawaii,",
+   "inicio": 2.562,
+   "fim": 3.175
+  },
+  {
+   "texto": "the",
+   "inicio": 3.225,
+   "fim": 3.337
+  },
+  {
+   "texto": "Panama",
+   "inicio": 3.337,
+   "fim": 3.875
+  },
+  {
+   "texto": "Canal,",
+   "inicio": 3.875,
+   "fim": 4.325
+  },
+  {
+   "texto": "Greenland,",
+   "inicio": 4.388,
+   "fim": 5.025
+  },
+  {
+   "texto": "Canada.",
+   "inicio": 5.088,
+   "fim": 5.925
+  },
+  {
+   "texto": "Islands",
+   "inicio": 6.1,
+   "fim": 6.675
+  },
+  {
+   "texto": "and",
+   "inicio": 6.675,
+   "fim": 6.812
+  },
+  {
+   "texto": "passages",
+   "inicio": 6.812,
+   "fim": 7.5
+  },
+  {
+   "texto": "in",
+   "inicio": 7.5,
+   "fim": 7.588
+  },
+  {
+   "texto": "the",
+   "inicio": 7.588,
+   "fim": 7.688
+  },
+  {
+   "texto": "middle",
+   "inicio": 7.688,
+   "fim": 7.963
+  },
+  {
+   "texto": "of",
+   "inicio": 7.963,
+   "fim": 8.037
+  },
+  {
+   "texto": "the",
+   "inicio": 8.037,
+   "fim": 8.162
+  },
+  {
+   "texto": "routes",
+   "inicio": 8.162,
+   "fim": 8.525
+  },
+  {
+   "texto": "that",
+   "inicio": 8.525,
+   "fim": 8.738
+  },
+  {
+   "texto": "move",
+   "inicio": 8.738,
+   "fim": 9.025
+  },
+  {
+   "texto": "the",
+   "inicio": 9.025,
+   "fim": 9.162
+  },
+  {
+   "texto": "world.",
+   "inicio": 9.162,
+   "fim": 9.975
+  },
+  {
+   "texto": "Again",
+   "inicio": 10.15,
+   "fim": 10.575
+  },
+  {
+   "texto": "and",
+   "inicio": 10.575,
+   "fim": 10.7
+  },
+  {
+   "texto": "again,",
+   "inicio": 10.7,
+   "fim": 11.325
+  },
+  {
+   "texto": "America",
+   "inicio": 11.438,
+   "fim": 12.0
+  },
+  {
+   "texto": "has",
+   "inicio": 12.0,
+   "fim": 12.213
+  },
+  {
+   "texto": "wanted",
+   "inicio": 12.213,
+   "fim": 12.55
+  },
+  {
+   "texto": "the",
+   "inicio": 12.55,
+   "fim": 12.688
+  },
+  {
+   "texto": "same",
+   "inicio": 12.688,
+   "fim": 13.05
+  },
+  {
+   "texto": "thing:",
+   "inicio": 13.05,
+   "fim": 13.675
+  },
+  {
+   "texto": "the",
+   "inicio": 13.775,
+   "fim": 13.912
+  },
+  {
+   "texto": "stepping",
+   "inicio": 13.912,
+   "fim": 14.387
+  },
+  {
+   "texto": "stones.",
+   "inicio": 14.387,
+   "fim": 15.35
+  }
+ ]
+}

@@ -1,0 +1,248 @@
+{
+ "id": "b13",
+ "capitulo": "Florida, Mexico and a Desert",
+ "visual": "\"1846\". Mexico's flag over the Southwest. US units move in.",
+ "texto": "Then came the hardest case. In 1846, the United States went to war with Mexico. When it ended two years later, Mexico gave up more than half a million square miles: today's California, Nevada, Utah, and most of Arizona. The United States paid fifteen million dollars for it.",
+ "palavras": [
+  {
+   "texto": "Then",
+   "inicio": 0,
+   "fim": 0.232
+  },
+  {
+   "texto": "came",
+   "inicio": 0.325,
+   "fim": 0.615
+  },
+  {
+   "texto": "the",
+   "inicio": 0.662,
+   "fim": 0.743
+  },
+  {
+   "texto": "hardest",
+   "inicio": 0.813,
+   "fim": 1.219
+  },
+  {
+   "texto": "case.",
+   "inicio": 1.265,
+   "fim": 1.811
+  },
+  {
+   "texto": "In",
+   "inicio": 2.229,
+   "fim": 2.368
+  },
+  {
+   "texto": "1846,",
+   "inicio": 2.403,
+   "fim": 3.715
+  },
+  {
+   "texto": "the",
+   "inicio": 3.878,
+   "fim": 3.971
+  },
+  {
+   "texto": "United",
+   "inicio": 4.029,
+   "fim": 4.365
+  },
+  {
+   "texto": "States",
+   "inicio": 4.389,
+   "fim": 4.702
+  },
+  {
+   "texto": "went",
+   "inicio": 4.748,
+   "fim": 4.923
+  },
+  {
+   "texto": "to",
+   "inicio": 4.957,
+   "fim": 5.016
+  },
+  {
+   "texto": "war",
+   "inicio": 5.108,
+   "fim": 5.375
+  },
+  {
+   "texto": "with",
+   "inicio": 5.457,
+   "fim": 5.596
+  },
+  {
+   "texto": "Mexico.",
+   "inicio": 5.666,
+   "fim": 6.444
+  },
+  {
+   "texto": "When",
+   "inicio": 6.861,
+   "fim": 7.047
+  },
+  {
+   "texto": "it",
+   "inicio": 7.094,
+   "fim": 7.163
+  },
+  {
+   "texto": "ended",
+   "inicio": 7.221,
+   "fim": 7.488
+  },
+  {
+   "texto": "two",
+   "inicio": 7.535,
+   "fim": 7.721
+  },
+  {
+   "texto": "years",
+   "inicio": 7.79,
+   "fim": 8.046
+  },
+  {
+   "texto": "later,",
+   "inicio": 8.115,
+   "fim": 8.684
+  },
+  {
+   "texto": "Mexico",
+   "inicio": 8.905,
+   "fim": 9.485
+  },
+  {
+   "texto": "gave",
+   "inicio": 9.567,
+   "fim": 9.822
+  },
+  {
+   "texto": "up",
+   "inicio": 9.868,
+   "fim": 9.985
+  },
+  {
+   "texto": "more",
+   "inicio": 10.066,
+   "fim": 10.263
+  },
+  {
+   "texto": "than",
+   "inicio": 10.298,
+   "fim": 10.461
+  },
+  {
+   "texto": "half",
+   "inicio": 10.565,
+   "fim": 10.82
+  },
+  {
+   "texto": "a",
+   "inicio": 10.879,
+   "fim": 10.902
+  },
+  {
+   "texto": "million",
+   "inicio": 11.018,
+   "fim": 11.413
+  },
+  {
+   "texto": "square",
+   "inicio": 11.482,
+   "fim": 11.819
+  },
+  {
+   "texto": "miles:",
+   "inicio": 11.877,
+   "fim": 12.539
+  },
+  {
+   "texto": "today's",
+   "inicio": 12.899,
+   "fim": 13.282
+  },
+  {
+   "texto": "California,",
+   "inicio": 13.328,
+   "fim": 14.268
+  },
+  {
+   "texto": "Nevada,",
+   "inicio": 14.419,
+   "fim": 15.197
+  },
+  {
+   "texto": "Utah,",
+   "inicio": 15.36,
+   "fim": 16.068
+  },
+  {
+   "texto": "and",
+   "inicio": 16.184,
+   "fim": 16.346
+  },
+  {
+   "texto": "most",
+   "inicio": 16.404,
+   "fim": 16.648
+  },
+  {
+   "texto": "of",
+   "inicio": 16.706,
+   "fim": 16.764
+  },
+  {
+   "texto": "Arizona.",
+   "inicio": 16.834,
+   "fim": 17.6
+  },
+  {
+   "texto": "The",
+   "inicio": 17.983,
+   "fim": 18.088
+  },
+  {
+   "texto": "United",
+   "inicio": 18.158,
+   "fim": 18.494
+  },
+  {
+   "texto": "States",
+   "inicio": 18.529,
+   "fim": 18.843
+  },
+  {
+   "texto": "paid",
+   "inicio": 18.912,
+   "fim": 19.156
+  },
+  {
+   "texto": "fifteen",
+   "inicio": 19.237,
+   "fim": 19.853
+  },
+  {
+   "texto": "million",
+   "inicio": 20.004,
+   "fim": 20.433
+  },
+  {
+   "texto": "dollars",
+   "inicio": 20.491,
+   "fim": 20.921
+  },
+  {
+   "texto": "for",
+   "inicio": 20.99,
+   "fim": 21.176
+  },
+  {
+   "texto": "it.",
+   "inicio": 21.257,
+   "fim": 21.919
+  }
+ ]
+}

@@ -1,0 +1,248 @@
+{
+ "id": "b06",
+ "capitulo": "The Fourteenth Colony",
+ "visual": "Snowstorm icons. Quebec City. Explosion. Montgomery dead.",
+ "texto": "One army sailed up Lake Champlain. The other, led by Benedict Arnold, dragged boats through the forests of Maine. On the last night of 1775, they attacked Quebec City in a blizzard. The general leading the attack was killed. Arnold was shot in the leg. The invasion collapsed.",
+ "palavras": [
+  {
+   "texto": "One",
+   "inicio": 0.425,
+   "fim": 0.688
+  },
+  {
+   "texto": "army",
+   "inicio": 0.688,
+   "fim": 1.15
+  },
+  {
+   "texto": "sailed",
+   "inicio": 1.15,
+   "fim": 1.488
+  },
+  {
+   "texto": "up",
+   "inicio": 1.488,
+   "fim": 1.675
+  },
+  {
+   "texto": "Lake",
+   "inicio": 1.675,
+   "fim": 1.913
+  },
+  {
+   "texto": "Champlain.",
+   "inicio": 1.913,
+   "fim": 2.85
+  },
+  {
+   "texto": "The",
+   "inicio": 2.95,
+   "fim": 3.1
+  },
+  {
+   "texto": "other,",
+   "inicio": 3.1,
+   "fim": 3.425
+  },
+  {
+   "texto": "led",
+   "inicio": 3.5,
+   "fim": 3.725
+  },
+  {
+   "texto": "by",
+   "inicio": 3.725,
+   "fim": 3.938
+  },
+  {
+   "texto": "Benedict",
+   "inicio": 3.938,
+   "fim": 4.513
+  },
+  {
+   "texto": "Arnold,",
+   "inicio": 4.513,
+   "fim": 5.025
+  },
+  {
+   "texto": "dragged",
+   "inicio": 5.112,
+   "fim": 5.562
+  },
+  {
+   "texto": "boats",
+   "inicio": 5.562,
+   "fim": 5.95
+  },
+  {
+   "texto": "through",
+   "inicio": 5.95,
+   "fim": 6.15
+  },
+  {
+   "texto": "the",
+   "inicio": 6.15,
+   "fim": 6.3
+  },
+  {
+   "texto": "forests",
+   "inicio": 6.3,
+   "fim": 6.787
+  },
+  {
+   "texto": "of",
+   "inicio": 6.787,
+   "fim": 6.912
+  },
+  {
+   "texto": "Maine.",
+   "inicio": 6.912,
+   "fim": 7.75
+  },
+  {
+   "texto": "On",
+   "inicio": 7.875,
+   "fim": 8.012
+  },
+  {
+   "texto": "the",
+   "inicio": 8.012,
+   "fim": 8.137
+  },
+  {
+   "texto": "last",
+   "inicio": 8.137,
+   "fim": 8.525
+  },
+  {
+   "texto": "night",
+   "inicio": 8.525,
+   "fim": 8.738
+  },
+  {
+   "texto": "of",
+   "inicio": 8.738,
+   "fim": 8.863
+  },
+  {
+   "texto": "1775,",
+   "inicio": 8.863,
+   "fim": 10.375
+  },
+  {
+   "texto": "they",
+   "inicio": 10.45,
+   "fim": 10.6
+  },
+  {
+   "texto": "attacked",
+   "inicio": 10.6,
+   "fim": 11.075
+  },
+  {
+   "texto": "Quebec",
+   "inicio": 11.075,
+   "fim": 11.5
+  },
+  {
+   "texto": "City",
+   "inicio": 11.5,
+   "fim": 11.875
+  },
+  {
+   "texto": "in",
+   "inicio": 11.875,
+   "fim": 11.963
+  },
+  {
+   "texto": "a",
+   "inicio": 11.963,
+   "fim": 12.062
+  },
+  {
+   "texto": "blizzard.",
+   "inicio": 12.062,
+   "fim": 12.9
+  },
+  {
+   "texto": "The",
+   "inicio": 13.037,
+   "fim": 13.2
+  },
+  {
+   "texto": "general",
+   "inicio": 13.2,
+   "fim": 13.688
+  },
+  {
+   "texto": "leading",
+   "inicio": 13.688,
+   "fim": 14.075
+  },
+  {
+   "texto": "the",
+   "inicio": 14.075,
+   "fim": 14.225
+  },
+  {
+   "texto": "attack",
+   "inicio": 14.225,
+   "fim": 14.675
+  },
+  {
+   "texto": "was",
+   "inicio": 14.675,
+   "fim": 14.875
+  },
+  {
+   "texto": "killed.",
+   "inicio": 14.875,
+   "fim": 15.675
+  },
+  {
+   "texto": "Arnold",
+   "inicio": 15.85,
+   "fim": 16.3
+  },
+  {
+   "texto": "was",
+   "inicio": 16.3,
+   "fim": 16.5
+  },
+  {
+   "texto": "shot",
+   "inicio": 16.5,
+   "fim": 16.837
+  },
+  {
+   "texto": "in",
+   "inicio": 16.837,
+   "fim": 16.913
+  },
+  {
+   "texto": "the",
+   "inicio": 16.913,
+   "fim": 17.025
+  },
+  {
+   "texto": "leg.",
+   "inicio": 17.025,
+   "fim": 17.675
+  },
+  {
+   "texto": "The",
+   "inicio": 17.775,
+   "fim": 17.925
+  },
+  {
+   "texto": "invasion",
+   "inicio": 17.925,
+   "fim": 18.587
+  },
+  {
+   "texto": "collapsed.",
+   "inicio": 18.587,
+   "fim": 19.5
+  }
+ ]
+}

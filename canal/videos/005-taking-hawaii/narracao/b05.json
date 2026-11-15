@@ -1,0 +1,318 @@
+{
+ "id": "b05",
+ "capitulo": "The Crossroads of the Pacific",
+ "visual": "Routes: San Francisco, Asia, Australia all passing near Hawaii.",
+ "texto": "Look where Hawaii sits. Halfway between America and Asia, alone in the biggest ocean on Earth. In the age of sailing ships and steamships, every long voyage across the Pacific needed a place to stop for water, food and coal. Hawaii was that place. Whaling ships from New England turned Honolulu and Lahaina into some of the busiest ports in the Pacific.",
+ "palavras": [
+  {
+   "texto": "Look",
+   "inicio": 0.4,
+   "fim": 0.6
+  },
+  {
+   "texto": "where",
+   "inicio": 0.6,
+   "fim": 0.825
+  },
+  {
+   "texto": "Hawaii",
+   "inicio": 0.825,
+   "fim": 1.375
+  },
+  {
+   "texto": "sits.",
+   "inicio": 1.375,
+   "fim": 2.1
+  },
+  {
+   "texto": "Halfway",
+   "inicio": 2.212,
+   "fim": 2.65
+  },
+  {
+   "texto": "between",
+   "inicio": 2.65,
+   "fim": 3.0
+  },
+  {
+   "texto": "America",
+   "inicio": 3.0,
+   "fim": 3.575
+  },
+  {
+   "texto": "and",
+   "inicio": 3.575,
+   "fim": 3.725
+  },
+  {
+   "texto": "Asia,",
+   "inicio": 3.725,
+   "fim": 4.4
+  },
+  {
+   "texto": "alone",
+   "inicio": 4.537,
+   "fim": 4.963
+  },
+  {
+   "texto": "in",
+   "inicio": 4.963,
+   "fim": 5.037
+  },
+  {
+   "texto": "the",
+   "inicio": 5.037,
+   "fim": 5.162
+  },
+  {
+   "texto": "biggest",
+   "inicio": 5.162,
+   "fim": 5.562
+  },
+  {
+   "texto": "ocean",
+   "inicio": 5.562,
+   "fim": 5.938
+  },
+  {
+   "texto": "on",
+   "inicio": 5.938,
+   "fim": 6.112
+  },
+  {
+   "texto": "Earth.",
+   "inicio": 6.112,
+   "fim": 6.9
+  },
+  {
+   "texto": "In",
+   "inicio": 7.037,
+   "fim": 7.138
+  },
+  {
+   "texto": "the",
+   "inicio": 7.138,
+   "fim": 7.287
+  },
+  {
+   "texto": "age",
+   "inicio": 7.287,
+   "fim": 7.588
+  },
+  {
+   "texto": "of",
+   "inicio": 7.588,
+   "fim": 7.713
+  },
+  {
+   "texto": "sailing",
+   "inicio": 7.713,
+   "fim": 8.2
+  },
+  {
+   "texto": "ships",
+   "inicio": 8.2,
+   "fim": 8.55
+  },
+  {
+   "texto": "and",
+   "inicio": 8.55,
+   "fim": 8.688
+  },
+  {
+   "texto": "steamships,",
+   "inicio": 8.688,
+   "fim": 9.675
+  },
+  {
+   "texto": "every",
+   "inicio": 9.812,
+   "fim": 10.188
+  },
+  {
+   "texto": "long",
+   "inicio": 10.188,
+   "fim": 10.588
+  },
+  {
+   "texto": "voyage",
+   "inicio": 10.588,
+   "fim": 11.05
+  },
+  {
+   "texto": "across",
+   "inicio": 11.05,
+   "fim": 11.425
+  },
+  {
+   "texto": "the",
+   "inicio": 11.425,
+   "fim": 11.525
+  },
+  {
+   "texto": "Pacific",
+   "inicio": 11.525,
+   "fim": 12.062
+  },
+  {
+   "texto": "needed",
+   "inicio": 12.062,
+   "fim": 12.363
+  },
+  {
+   "texto": "a",
+   "inicio": 12.363,
+   "fim": 12.438
+  },
+  {
+   "texto": "place",
+   "inicio": 12.438,
+   "fim": 12.775
+  },
+  {
+   "texto": "to",
+   "inicio": 12.775,
+   "fim": 12.9
+  },
+  {
+   "texto": "stop",
+   "inicio": 12.9,
+   "fim": 13.225
+  },
+  {
+   "texto": "for",
+   "inicio": 13.225,
+   "fim": 13.387
+  },
+  {
+   "texto": "water,",
+   "inicio": 13.387,
+   "fim": 14.075
+  },
+  {
+   "texto": "food",
+   "inicio": 14.225,
+   "fim": 14.7
+  },
+  {
+   "texto": "and",
+   "inicio": 14.7,
+   "fim": 14.838
+  },
+  {
+   "texto": "coal.",
+   "inicio": 14.838,
+   "fim": 15.7
+  },
+  {
+   "texto": "Hawaii",
+   "inicio": 15.863,
+   "fim": 16.475
+  },
+  {
+   "texto": "was",
+   "inicio": 16.475,
+   "fim": 16.675
+  },
+  {
+   "texto": "that",
+   "inicio": 16.675,
+   "fim": 16.938
+  },
+  {
+   "texto": "place.",
+   "inicio": 16.938,
+   "fim": 17.775
+  },
+  {
+   "texto": "Whaling",
+   "inicio": 17.95,
+   "fim": 18.45
+  },
+  {
+   "texto": "ships",
+   "inicio": 18.45,
+   "fim": 18.775
+  },
+  {
+   "texto": "from",
+   "inicio": 18.775,
+   "fim": 18.95
+  },
+  {
+   "texto": "New",
+   "inicio": 18.95,
+   "fim": 19.125
+  },
+  {
+   "texto": "England",
+   "inicio": 19.125,
+   "fim": 19.512
+  },
+  {
+   "texto": "turned",
+   "inicio": 19.512,
+   "fim": 19.938
+  },
+  {
+   "texto": "Honolulu",
+   "inicio": 19.938,
+   "fim": 20.65
+  },
+  {
+   "texto": "and",
+   "inicio": 20.65,
+   "fim": 20.775
+  },
+  {
+   "texto": "Lahaina",
+   "inicio": 20.775,
+   "fim": 21.425
+  },
+  {
+   "texto": "into",
+   "inicio": 21.425,
+   "fim": 21.688
+  },
+  {
+   "texto": "some",
+   "inicio": 21.688,
+   "fim": 21.887
+  },
+  {
+   "texto": "of",
+   "inicio": 21.887,
+   "fim": 21.962
+  },
+  {
+   "texto": "the",
+   "inicio": 21.962,
+   "fim": 22.1
+  },
+  {
+   "texto": "busiest",
+   "inicio": 22.1,
+   "fim": 22.637
+  },
+  {
+   "texto": "ports",
+   "inicio": 22.637,
+   "fim": 23.075
+  },
+  {
+   "texto": "in",
+   "inicio": 23.075,
+   "fim": 23.163
+  },
+  {
+   "texto": "the",
+   "inicio": 23.163,
+   "fim": 23.25
+  },
+  {
+   "texto": "Pacific.",
+   "inicio": 23.25,
+   "fim": 24.175
+  }
+ ]
+}

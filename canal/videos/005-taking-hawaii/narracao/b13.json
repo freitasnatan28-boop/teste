@@ -1,0 +1,248 @@
+{
+ "id": "b13",
+ "capitulo": "Sugar",
+ "visual": "\"1875\". Treaty document. Duty-free sugar. Pearl Harbor pin.",
+ "texto": "In 1875, the kingdom signed a deal with Washington: Hawaiian sugar could enter the United States tax-free. A few years later, as part of renewing that deal, the United States got something it wanted badly: the right to use a harbor near Honolulu. Its name was Pearl Harbor.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0.4,
+   "fim": 0.537
+  },
+  {
+   "texto": "1875,",
+   "inicio": 0.537,
+   "fim": 1.925
+  },
+  {
+   "texto": "the",
+   "inicio": 1.975,
+   "fim": 2.1
+  },
+  {
+   "texto": "kingdom",
+   "inicio": 2.1,
+   "fim": 2.513
+  },
+  {
+   "texto": "signed",
+   "inicio": 2.513,
+   "fim": 2.837
+  },
+  {
+   "texto": "a",
+   "inicio": 2.837,
+   "fim": 2.938
+  },
+  {
+   "texto": "deal",
+   "inicio": 2.938,
+   "fim": 3.25
+  },
+  {
+   "texto": "with",
+   "inicio": 3.25,
+   "fim": 3.438
+  },
+  {
+   "texto": "Washington:",
+   "inicio": 3.438,
+   "fim": 4.525
+  },
+  {
+   "texto": "Hawaiian",
+   "inicio": 4.662,
+   "fim": 5.263
+  },
+  {
+   "texto": "sugar",
+   "inicio": 5.263,
+   "fim": 5.7
+  },
+  {
+   "texto": "could",
+   "inicio": 5.7,
+   "fim": 5.912
+  },
+  {
+   "texto": "enter",
+   "inicio": 5.912,
+   "fim": 6.275
+  },
+  {
+   "texto": "the",
+   "inicio": 6.275,
+   "fim": 6.375
+  },
+  {
+   "texto": "United",
+   "inicio": 6.375,
+   "fim": 6.875
+  },
+  {
+   "texto": "States",
+   "inicio": 6.875,
+   "fim": 7.287
+  },
+  {
+   "texto": "tax-free.",
+   "inicio": 7.287,
+   "fim": 8.35
+  },
+  {
+   "texto": "A",
+   "inicio": 8.512,
+   "fim": 8.637
+  },
+  {
+   "texto": "few",
+   "inicio": 8.637,
+   "fim": 8.875
+  },
+  {
+   "texto": "years",
+   "inicio": 8.875,
+   "fim": 9.213
+  },
+  {
+   "texto": "later,",
+   "inicio": 9.213,
+   "fim": 9.75
+  },
+  {
+   "texto": "as",
+   "inicio": 9.838,
+   "fim": 10.0
+  },
+  {
+   "texto": "part",
+   "inicio": 10.0,
+   "fim": 10.213
+  },
+  {
+   "texto": "of",
+   "inicio": 10.213,
+   "fim": 10.325
+  },
+  {
+   "texto": "renewing",
+   "inicio": 10.325,
+   "fim": 10.8
+  },
+  {
+   "texto": "that",
+   "inicio": 10.8,
+   "fim": 11.062
+  },
+  {
+   "texto": "deal,",
+   "inicio": 11.062,
+   "fim": 11.725
+  },
+  {
+   "texto": "the",
+   "inicio": 11.825,
+   "fim": 11.925
+  },
+  {
+   "texto": "United",
+   "inicio": 11.925,
+   "fim": 12.412
+  },
+  {
+   "texto": "States",
+   "inicio": 12.412,
+   "fim": 12.875
+  },
+  {
+   "texto": "got",
+   "inicio": 12.875,
+   "fim": 13.1
+  },
+  {
+   "texto": "something",
+   "inicio": 13.1,
+   "fim": 13.45
+  },
+  {
+   "texto": "it",
+   "inicio": 13.45,
+   "fim": 13.6
+  },
+  {
+   "texto": "wanted",
+   "inicio": 13.6,
+   "fim": 13.988
+  },
+  {
+   "texto": "badly:",
+   "inicio": 13.988,
+   "fim": 14.825
+  },
+  {
+   "texto": "the",
+   "inicio": 14.95,
+   "fim": 15.075
+  },
+  {
+   "texto": "right",
+   "inicio": 15.075,
+   "fim": 15.375
+  },
+  {
+   "texto": "to",
+   "inicio": 15.375,
+   "fim": 15.5
+  },
+  {
+   "texto": "use",
+   "inicio": 15.5,
+   "fim": 15.725
+  },
+  {
+   "texto": "a",
+   "inicio": 15.725,
+   "fim": 15.838
+  },
+  {
+   "texto": "harbor",
+   "inicio": 15.838,
+   "fim": 16.3
+  },
+  {
+   "texto": "near",
+   "inicio": 16.3,
+   "fim": 16.538
+  },
+  {
+   "texto": "Honolulu.",
+   "inicio": 16.538,
+   "fim": 17.55
+  },
+  {
+   "texto": "Its",
+   "inicio": 17.7,
+   "fim": 17.95
+  },
+  {
+   "texto": "name",
+   "inicio": 17.95,
+   "fim": 18.35
+  },
+  {
+   "texto": "was",
+   "inicio": 18.35,
+   "fim": 18.6
+  },
+  {
+   "texto": "Pearl",
+   "inicio": 18.6,
+   "fim": 19.012
+  },
+  {
+   "texto": "Harbor.",
+   "inicio": 19.012,
+   "fim": 19.85
+  }
+ ]
+}

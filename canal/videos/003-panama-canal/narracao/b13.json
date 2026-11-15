@@ -1,0 +1,263 @@
+{
+ "id": "b13",
+ "capitulo": "How to Buy a Country",
+ "visual": "Canal Zone strip appears with the US flag. Price tag $10,000,000. Stamp \"FOREVER\".",
+ "texto": "Two weeks later, a treaty was signed. And the man who signed for Panama was not even Panamanian. He was a Frenchman from the old canal company. America got a strip of land ten miles wide, from ocean to ocean, forever. Panama got ten million dollars, plus a small yearly payment.",
+ "palavras": [
+  {
+   "texto": "Two",
+   "inicio": 0,
+   "fim": 0.232
+  },
+  {
+   "texto": "weeks",
+   "inicio": 0.29,
+   "fim": 0.546
+  },
+  {
+   "texto": "later,",
+   "inicio": 0.604,
+   "fim": 1.161
+  },
+  {
+   "texto": "a",
+   "inicio": 1.37,
+   "fim": 1.451
+  },
+  {
+   "texto": "treaty",
+   "inicio": 1.521,
+   "fim": 1.881
+  },
+  {
+   "texto": "was",
+   "inicio": 1.939,
+   "fim": 2.078
+  },
+  {
+   "texto": "signed.",
+   "inicio": 2.125,
+   "fim": 2.786
+  },
+  {
+   "texto": "And",
+   "inicio": 3.111,
+   "fim": 3.274
+  },
+  {
+   "texto": "the",
+   "inicio": 3.332,
+   "fim": 3.402
+  },
+  {
+   "texto": "man",
+   "inicio": 3.448,
+   "fim": 3.669
+  },
+  {
+   "texto": "who",
+   "inicio": 3.715,
+   "fim": 3.855
+  },
+  {
+   "texto": "signed",
+   "inicio": 3.936,
+   "fim": 4.272
+  },
+  {
+   "texto": "for",
+   "inicio": 4.331,
+   "fim": 4.458
+  },
+  {
+   "texto": "Panama",
+   "inicio": 4.516,
+   "fim": 5.132
+  },
+  {
+   "texto": "was",
+   "inicio": 5.457,
+   "fim": 5.666
+  },
+  {
+   "texto": "not",
+   "inicio": 5.747,
+   "fim": 5.933
+  },
+  {
+   "texto": "even",
+   "inicio": 5.991,
+   "fim": 6.211
+  },
+  {
+   "texto": "Panamanian.",
+   "inicio": 6.293,
+   "fim": 7.245
+  },
+  {
+   "texto": "He",
+   "inicio": 7.848,
+   "fim": 7.999
+  },
+  {
+   "texto": "was",
+   "inicio": 8.069,
+   "fim": 8.22
+  },
+  {
+   "texto": "a",
+   "inicio": 8.278,
+   "fim": 8.301
+  },
+  {
+   "texto": "Frenchman",
+   "inicio": 8.371,
+   "fim": 8.905
+  },
+  {
+   "texto": "from",
+   "inicio": 8.986,
+   "fim": 9.16
+  },
+  {
+   "texto": "the",
+   "inicio": 9.218,
+   "fim": 9.3
+  },
+  {
+   "texto": "old",
+   "inicio": 9.369,
+   "fim": 9.578
+  },
+  {
+   "texto": "canal",
+   "inicio": 9.636,
+   "fim": 9.996
+  },
+  {
+   "texto": "company.",
+   "inicio": 10.077,
+   "fim": 10.751
+  },
+  {
+   "texto": "America",
+   "inicio": 11.262,
+   "fim": 11.877
+  },
+  {
+   "texto": "got",
+   "inicio": 11.947,
+   "fim": 12.156
+  },
+  {
+   "texto": "a",
+   "inicio": 12.202,
+   "fim": 12.225
+  },
+  {
+   "texto": "strip",
+   "inicio": 12.283,
+   "fim": 12.585
+  },
+  {
+   "texto": "of",
+   "inicio": 12.643,
+   "fim": 12.713
+  },
+  {
+   "texto": "land",
+   "inicio": 12.794,
+   "fim": 13.131
+  },
+  {
+   "texto": "ten",
+   "inicio": 13.201,
+   "fim": 13.433
+  },
+  {
+   "texto": "miles",
+   "inicio": 13.502,
+   "fim": 13.839
+  },
+  {
+   "texto": "wide,",
+   "inicio": 13.909,
+   "fim": 14.501
+  },
+  {
+   "texto": "from",
+   "inicio": 14.675,
+   "fim": 14.872
+  },
+  {
+   "texto": "ocean",
+   "inicio": 14.954,
+   "fim": 15.325
+  },
+  {
+   "texto": "to",
+   "inicio": 15.418,
+   "fim": 15.522
+  },
+  {
+   "texto": "ocean,",
+   "inicio": 15.65,
+   "fim": 16.242
+  },
+  {
+   "texto": "forever.",
+   "inicio": 16.358,
+   "fim": 17.032
+  },
+  {
+   "texto": "Panama",
+   "inicio": 17.543,
+   "fim": 18.135
+  },
+  {
+   "texto": "got",
+   "inicio": 18.204,
+   "fim": 18.402
+  },
+  {
+   "texto": "ten",
+   "inicio": 18.437,
+   "fim": 18.657
+  },
+  {
+   "texto": "million",
+   "inicio": 18.715,
+   "fim": 19.052
+  },
+  {
+   "texto": "dollars,",
+   "inicio": 19.11,
+   "fim": 19.772
+  },
+  {
+   "texto": "plus",
+   "inicio": 19.946,
+   "fim": 20.306
+  },
+  {
+   "texto": "a",
+   "inicio": 20.387,
+   "fim": 20.457
+  },
+  {
+   "texto": "small",
+   "inicio": 20.538,
+   "fim": 20.875
+  },
+  {
+   "texto": "yearly",
+   "inicio": 20.944,
+   "fim": 21.258
+  },
+  {
+   "texto": "payment.",
+   "inicio": 21.316,
+   "fim": 22.384
+  }
+ ]
+}

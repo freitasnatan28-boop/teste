@@ -1,0 +1,183 @@
+{
+ "id": "b28",
+ "capitulo": "Why Now",
+ "visual": "Ambassador Bridge, Detroit to Windsor. Trucks route. Electricity icon from Quebec to New York.",
+ "texto": "The Ambassador Bridge, between Detroit and Windsor, carries about a quarter of all the trade between the two countries. And dams in Quebec send electricity south to power homes in New York and New England.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0.35,
+   "fim": 0.487
+  },
+  {
+   "texto": "Ambassador",
+   "inicio": 0.487,
+   "fim": 1.212
+  },
+  {
+   "texto": "Bridge,",
+   "inicio": 1.212,
+   "fim": 1.725
+  },
+  {
+   "texto": "between",
+   "inicio": 1.775,
+   "fim": 2.225
+  },
+  {
+   "texto": "Detroit",
+   "inicio": 2.225,
+   "fim": 2.825
+  },
+  {
+   "texto": "and",
+   "inicio": 2.825,
+   "fim": 2.962
+  },
+  {
+   "texto": "Windsor,",
+   "inicio": 2.962,
+   "fim": 3.725
+  },
+  {
+   "texto": "carries",
+   "inicio": 3.862,
+   "fim": 4.275
+  },
+  {
+   "texto": "about",
+   "inicio": 4.275,
+   "fim": 4.513
+  },
+  {
+   "texto": "a",
+   "inicio": 4.513,
+   "fim": 4.612
+  },
+  {
+   "texto": "quarter",
+   "inicio": 4.612,
+   "fim": 5.1
+  },
+  {
+   "texto": "of",
+   "inicio": 5.1,
+   "fim": 5.3
+  },
+  {
+   "texto": "all",
+   "inicio": 5.3,
+   "fim": 5.575
+  },
+  {
+   "texto": "the",
+   "inicio": 5.575,
+   "fim": 5.688
+  },
+  {
+   "texto": "trade",
+   "inicio": 5.688,
+   "fim": 6.175
+  },
+  {
+   "texto": "between",
+   "inicio": 6.175,
+   "fim": 6.537
+  },
+  {
+   "texto": "the",
+   "inicio": 6.537,
+   "fim": 6.638
+  },
+  {
+   "texto": "two",
+   "inicio": 6.638,
+   "fim": 6.85
+  },
+  {
+   "texto": "countries.",
+   "inicio": 6.85,
+   "fim": 7.9
+  },
+  {
+   "texto": "And",
+   "inicio": 8.025,
+   "fim": 8.213
+  },
+  {
+   "texto": "dams",
+   "inicio": 8.213,
+   "fim": 8.7
+  },
+  {
+   "texto": "in",
+   "inicio": 8.7,
+   "fim": 8.85
+  },
+  {
+   "texto": "Quebec",
+   "inicio": 8.85,
+   "fim": 9.338
+  },
+  {
+   "texto": "send",
+   "inicio": 9.338,
+   "fim": 9.65
+  },
+  {
+   "texto": "electricity",
+   "inicio": 9.65,
+   "fim": 10.425
+  },
+  {
+   "texto": "south",
+   "inicio": 10.425,
+   "fim": 10.963
+  },
+  {
+   "texto": "to",
+   "inicio": 10.963,
+   "fim": 11.113
+  },
+  {
+   "texto": "power",
+   "inicio": 11.113,
+   "fim": 11.537
+  },
+  {
+   "texto": "homes",
+   "inicio": 11.537,
+   "fim": 12.025
+  },
+  {
+   "texto": "in",
+   "inicio": 12.025,
+   "fim": 12.15
+  },
+  {
+   "texto": "New",
+   "inicio": 12.15,
+   "fim": 12.338
+  },
+  {
+   "texto": "York",
+   "inicio": 12.338,
+   "fim": 12.725
+  },
+  {
+   "texto": "and",
+   "inicio": 12.725,
+   "fim": 12.85
+  },
+  {
+   "texto": "New",
+   "inicio": 12.85,
+   "fim": 13.025
+  },
+  {
+   "texto": "England.",
+   "inicio": 13.025,
+   "fim": 13.875
+  }
+ ]
+}

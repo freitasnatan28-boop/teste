@@ -1,0 +1,273 @@
+{
+ "id": "b27",
+ "capitulo": "Why Now",
+ "visual": "Drought: Gatun Lake shrinks. Ships queue. Price tag $4,000,000.",
+ "texto": "But the canal has a weakness: water. Every ship that crosses uses around fifty million gallons of fresh water from the lake. In 2023, a drought dried it up. Crossings were cut, more than a hundred ships waited in line, and one company paid nearly four million dollars just to skip the line.",
+ "palavras": [
+  {
+   "texto": "But",
+   "inicio": 0,
+   "fim": 0.244
+  },
+  {
+   "texto": "the",
+   "inicio": 0.279,
+   "fim": 0.36
+  },
+  {
+   "texto": "canal",
+   "inicio": 0.418,
+   "fim": 0.906
+  },
+  {
+   "texto": "has",
+   "inicio": 0.975,
+   "fim": 1.161
+  },
+  {
+   "texto": "a",
+   "inicio": 1.219,
+   "fim": 1.254
+  },
+  {
+   "texto": "weakness:",
+   "inicio": 1.312,
+   "fim": 2.043
+  },
+  {
+   "texto": "water.",
+   "inicio": 2.218,
+   "fim": 2.844
+  },
+  {
+   "texto": "Every",
+   "inicio": 3.344,
+   "fim": 3.715
+  },
+  {
+   "texto": "ship",
+   "inicio": 3.773,
+   "fim": 4.04
+  },
+  {
+   "texto": "that",
+   "inicio": 4.11,
+   "fim": 4.261
+  },
+  {
+   "texto": "crosses",
+   "inicio": 4.319,
+   "fim": 4.911
+  },
+  {
+   "texto": "uses",
+   "inicio": 4.992,
+   "fim": 5.422
+  },
+  {
+   "texto": "around",
+   "inicio": 5.492,
+   "fim": 5.817
+  },
+  {
+   "texto": "fifty",
+   "inicio": 5.898,
+   "fim": 6.269
+  },
+  {
+   "texto": "million",
+   "inicio": 6.339,
+   "fim": 6.664
+  },
+  {
+   "texto": "gallons",
+   "inicio": 6.722,
+   "fim": 7.14
+  },
+  {
+   "texto": "of",
+   "inicio": 7.21,
+   "fim": 7.268
+  },
+  {
+   "texto": "fresh",
+   "inicio": 7.338,
+   "fim": 7.616
+  },
+  {
+   "texto": "water",
+   "inicio": 7.686,
+   "fim": 8.011
+  },
+  {
+   "texto": "from",
+   "inicio": 8.069,
+   "fim": 8.231
+  },
+  {
+   "texto": "the",
+   "inicio": 8.29,
+   "fim": 8.359
+  },
+  {
+   "texto": "lake.",
+   "inicio": 8.417,
+   "fim": 8.87
+  },
+  {
+   "texto": "In",
+   "inicio": 9.311,
+   "fim": 9.462
+  },
+  {
+   "texto": "2023,",
+   "inicio": 9.543,
+   "fim": 11.041
+  },
+  {
+   "texto": "a",
+   "inicio": 11.215,
+   "fim": 11.297
+  },
+  {
+   "texto": "drought",
+   "inicio": 11.378,
+   "fim": 11.738
+  },
+  {
+   "texto": "dried",
+   "inicio": 11.854,
+   "fim": 12.19
+  },
+  {
+   "texto": "it",
+   "inicio": 12.237,
+   "fim": 12.307
+  },
+  {
+   "texto": "up.",
+   "inicio": 12.376,
+   "fim": 12.771
+  },
+  {
+   "texto": "Crossings",
+   "inicio": 13.154,
+   "fim": 13.769
+  },
+  {
+   "texto": "were",
+   "inicio": 13.816,
+   "fim": 13.967
+  },
+  {
+   "texto": "cut,",
+   "inicio": 14.002,
+   "fim": 14.536
+  },
+  {
+   "texto": "more",
+   "inicio": 14.849,
+   "fim": 15.07
+  },
+  {
+   "texto": "than",
+   "inicio": 15.116,
+   "fim": 15.244
+  },
+  {
+   "texto": "a",
+   "inicio": 15.29,
+   "fim": 15.314
+  },
+  {
+   "texto": "hundred",
+   "inicio": 15.395,
+   "fim": 15.743
+  },
+  {
+   "texto": "ships",
+   "inicio": 15.79,
+   "fim": 16.103
+  },
+  {
+   "texto": "waited",
+   "inicio": 16.161,
+   "fim": 16.498
+  },
+  {
+   "texto": "in",
+   "inicio": 16.533,
+   "fim": 16.602
+  },
+  {
+   "texto": "line,",
+   "inicio": 16.684,
+   "fim": 17.194
+  },
+  {
+   "texto": "and",
+   "inicio": 17.438,
+   "fim": 17.589
+  },
+  {
+   "texto": "one",
+   "inicio": 17.67,
+   "fim": 17.845
+  },
+  {
+   "texto": "company",
+   "inicio": 17.903,
+   "fim": 18.332
+  },
+  {
+   "texto": "paid",
+   "inicio": 18.414,
+   "fim": 18.657
+  },
+  {
+   "texto": "nearly",
+   "inicio": 18.715,
+   "fim": 19.029
+  },
+  {
+   "texto": "four",
+   "inicio": 19.145,
+   "fim": 19.47
+  },
+  {
+   "texto": "million",
+   "inicio": 19.551,
+   "fim": 19.911
+  },
+  {
+   "texto": "dollars",
+   "inicio": 19.969,
+   "fim": 20.468
+  },
+  {
+   "texto": "just",
+   "inicio": 20.852,
+   "fim": 21.13
+  },
+  {
+   "texto": "to",
+   "inicio": 21.188,
+   "fim": 21.258
+  },
+  {
+   "texto": "skip",
+   "inicio": 21.316,
+   "fim": 21.595
+  },
+  {
+   "texto": "the",
+   "inicio": 21.664,
+   "fim": 21.746
+  },
+  {
+   "texto": "line.",
+   "inicio": 21.815,
+   "fim": 22.941
+  }
+ ]
+}

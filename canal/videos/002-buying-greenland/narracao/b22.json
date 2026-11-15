@@ -1,0 +1,143 @@
+{
+ "id": "b22",
+ "capitulo": "Islands for Gold",
+ "visual": "Price tag $25,000,000 IN GOLD. Islands turn American.",
+ "texto": "The price: twenty-five million dollars in gold. Today, we call them the US Virgin Islands. And it was not the last time America knocked on Denmark's door.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0,
+   "fim": 0.139
+  },
+  {
+   "texto": "price:",
+   "inicio": 0.186,
+   "fim": 0.801
+  },
+  {
+   "texto": "twenty-five",
+   "inicio": 1.045,
+   "fim": 1.707
+  },
+  {
+   "texto": "million",
+   "inicio": 1.765,
+   "fim": 2.113
+  },
+  {
+   "texto": "dollars",
+   "inicio": 2.171,
+   "fim": 2.566
+  },
+  {
+   "texto": "in",
+   "inicio": 2.635,
+   "fim": 2.728
+  },
+  {
+   "texto": "gold.",
+   "inicio": 2.798,
+   "fim": 3.402
+  },
+  {
+   "texto": "Today,",
+   "inicio": 3.843,
+   "fim": 4.354
+  },
+  {
+   "texto": "we",
+   "inicio": 4.4,
+   "fim": 4.516
+  },
+  {
+   "texto": "call",
+   "inicio": 4.574,
+   "fim": 4.818
+  },
+  {
+   "texto": "them",
+   "inicio": 4.899,
+   "fim": 5.074
+  },
+  {
+   "texto": "the",
+   "inicio": 5.457,
+   "fim": 5.584
+  },
+  {
+   "texto": "US",
+   "inicio": 5.677,
+   "fim": 6.13
+  },
+  {
+   "texto": "Virgin",
+   "inicio": 6.258,
+   "fim": 6.676
+  },
+  {
+   "texto": "Islands.",
+   "inicio": 6.745,
+   "fim": 7.407
+  },
+  {
+   "texto": "And",
+   "inicio": 7.79,
+   "fim": 7.953
+  },
+  {
+   "texto": "it",
+   "inicio": 8.034,
+   "fim": 8.104
+  },
+  {
+   "texto": "was",
+   "inicio": 8.15,
+   "fim": 8.278
+  },
+  {
+   "texto": "not",
+   "inicio": 8.348,
+   "fim": 8.522
+  },
+  {
+   "texto": "the",
+   "inicio": 8.568,
+   "fim": 8.638
+  },
+  {
+   "texto": "last",
+   "inicio": 8.707,
+   "fim": 8.975
+  },
+  {
+   "texto": "time",
+   "inicio": 9.009,
+   "fim": 9.311
+  },
+  {
+   "texto": "America",
+   "inicio": 9.358,
+   "fim": 9.845
+  },
+  {
+   "texto": "knocked",
+   "inicio": 9.892,
+   "fim": 10.194
+  },
+  {
+   "texto": "on",
+   "inicio": 10.252,
+   "fim": 10.344
+  },
+  {
+   "texto": "Denmark's",
+   "inicio": 10.414,
+   "fim": 10.937
+  },
+  {
+   "texto": "door.",
+   "inicio": 10.983,
+   "fim": 12.074
+  }
+ ]
+}

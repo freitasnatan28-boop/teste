@@ -1,0 +1,63 @@
+{
+ "id": "b28",
+ "capitulo": "The Fiftieth State",
+ "visual": "Counter 2,403 KILLED. Battleship icons.",
+ "texto": "More than two thousand four hundred Americans were killed that morning.",
+ "palavras": [
+  {
+   "texto": "More",
+   "inicio": 0.4,
+   "fim": 0.625
+  },
+  {
+   "texto": "than",
+   "inicio": 0.625,
+   "fim": 0.825
+  },
+  {
+   "texto": "two",
+   "inicio": 0.825,
+   "fim": 1.137
+  },
+  {
+   "texto": "thousand",
+   "inicio": 1.137,
+   "fim": 1.613
+  },
+  {
+   "texto": "four",
+   "inicio": 1.613,
+   "fim": 1.925
+  },
+  {
+   "texto": "hundred",
+   "inicio": 1.925,
+   "fim": 2.237
+  },
+  {
+   "texto": "Americans",
+   "inicio": 2.237,
+   "fim": 2.925
+  },
+  {
+   "texto": "were",
+   "inicio": 2.925,
+   "fim": 3.087
+  },
+  {
+   "texto": "killed",
+   "inicio": 3.087,
+   "fim": 3.55
+  },
+  {
+   "texto": "that",
+   "inicio": 3.55,
+   "fim": 3.8
+  },
+  {
+   "texto": "morning.",
+   "inicio": 3.8,
+   "fim": 4.575
+  }
+ ]
+}

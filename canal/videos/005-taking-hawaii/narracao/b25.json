@@ -1,0 +1,153 @@
+{
+ "id": "b25",
+ "capitulo": "An Act of War",
+ "visual": "Petition document. Counter 21,000 SIGNATURES.",
+ "texto": "When annexation came up again, Native Hawaiians fought back with paper. More than twenty-one thousand of them signed petitions against it. A treaty of annexation failed in the Senate.",
+ "palavras": [
+  {
+   "texto": "When",
+   "inicio": 0.35,
+   "fim": 0.512
+  },
+  {
+   "texto": "annexation",
+   "inicio": 0.512,
+   "fim": 1.35
+  },
+  {
+   "texto": "came",
+   "inicio": 1.35,
+   "fim": 1.587
+  },
+  {
+   "texto": "up",
+   "inicio": 1.587,
+   "fim": 1.75
+  },
+  {
+   "texto": "again,",
+   "inicio": 1.75,
+   "fim": 2.35
+  },
+  {
+   "texto": "Native",
+   "inicio": 2.462,
+   "fim": 2.825
+  },
+  {
+   "texto": "Hawaiians",
+   "inicio": 2.825,
+   "fim": 3.513
+  },
+  {
+   "texto": "fought",
+   "inicio": 3.513,
+   "fim": 3.8
+  },
+  {
+   "texto": "back",
+   "inicio": 3.8,
+   "fim": 4.088
+  },
+  {
+   "texto": "with",
+   "inicio": 4.088,
+   "fim": 4.263
+  },
+  {
+   "texto": "paper.",
+   "inicio": 4.263,
+   "fim": 5.125
+  },
+  {
+   "texto": "More",
+   "inicio": 5.275,
+   "fim": 5.55
+  },
+  {
+   "texto": "than",
+   "inicio": 5.55,
+   "fim": 5.737
+  },
+  {
+   "texto": "twenty-one",
+   "inicio": 5.737,
+   "fim": 6.362
+  },
+  {
+   "texto": "thousand",
+   "inicio": 6.362,
+   "fim": 6.838
+  },
+  {
+   "texto": "of",
+   "inicio": 6.838,
+   "fim": 6.912
+  },
+  {
+   "texto": "them",
+   "inicio": 6.912,
+   "fim": 7.125
+  },
+  {
+   "texto": "signed",
+   "inicio": 7.125,
+   "fim": 7.5
+  },
+  {
+   "texto": "petitions",
+   "inicio": 7.5,
+   "fim": 8.075
+  },
+  {
+   "texto": "against",
+   "inicio": 8.075,
+   "fim": 8.55
+  },
+  {
+   "texto": "it.",
+   "inicio": 8.55,
+   "fim": 9.0
+  },
+  {
+   "texto": "A",
+   "inicio": 9.137,
+   "fim": 9.262
+  },
+  {
+   "texto": "treaty",
+   "inicio": 9.262,
+   "fim": 9.725
+  },
+  {
+   "texto": "of",
+   "inicio": 9.725,
+   "fim": 9.863
+  },
+  {
+   "texto": "annexation",
+   "inicio": 9.863,
+   "fim": 10.75
+  },
+  {
+   "texto": "failed",
+   "inicio": 10.75,
+   "fim": 11.2
+  },
+  {
+   "texto": "in",
+   "inicio": 11.2,
+   "fim": 11.287
+  },
+  {
+   "texto": "the",
+   "inicio": 11.287,
+   "fim": 11.425
+  },
+  {
+   "texto": "Senate.",
+   "inicio": 11.425,
+   "fim": 12.175
+  }
+ ]
+}

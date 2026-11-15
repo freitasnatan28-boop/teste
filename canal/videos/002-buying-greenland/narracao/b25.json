@@ -1,0 +1,233 @@
+{
+ "id": "b25",
+ "capitulo": "The Secret Offer",
+ "visual": "Radar icon at Pituffik, northwest Greenland. Missile routes over the pole.",
+ "texto": "But America got most of what it wanted anyway. Under a defense agreement with Denmark, it built a giant air base in the far north of Greenland. Today it's called Pituffik Space Base, and it watches the skies for missiles coming over the North Pole.",
+ "palavras": [
+  {
+   "texto": "But",
+   "inicio": 0,
+   "fim": 0.197
+  },
+  {
+   "texto": "America",
+   "inicio": 0.244,
+   "fim": 0.766
+  },
+  {
+   "texto": "got",
+   "inicio": 0.836,
+   "fim": 1.045
+  },
+  {
+   "texto": "most",
+   "inicio": 1.115,
+   "fim": 1.405
+  },
+  {
+   "texto": "of",
+   "inicio": 1.474,
+   "fim": 1.533
+  },
+  {
+   "texto": "what",
+   "inicio": 1.591,
+   "fim": 1.73
+  },
+  {
+   "texto": "it",
+   "inicio": 1.776,
+   "fim": 1.846
+  },
+  {
+   "texto": "wanted",
+   "inicio": 1.904,
+   "fim": 2.252
+  },
+  {
+   "texto": "anyway.",
+   "inicio": 2.31,
+   "fim": 3.03
+  },
+  {
+   "texto": "Under",
+   "inicio": 3.518,
+   "fim": 3.843
+  },
+  {
+   "texto": "a",
+   "inicio": 3.913,
+   "fim": 3.947
+  },
+  {
+   "texto": "defense",
+   "inicio": 4.017,
+   "fim": 4.435
+  },
+  {
+   "texto": "agreement",
+   "inicio": 4.481,
+   "fim": 4.923
+  },
+  {
+   "texto": "with",
+   "inicio": 4.957,
+   "fim": 5.108
+  },
+  {
+   "texto": "Denmark,",
+   "inicio": 5.166,
+   "fim": 5.817
+  },
+  {
+   "texto": "it",
+   "inicio": 6.084,
+   "fim": 6.235
+  },
+  {
+   "texto": "built",
+   "inicio": 6.281,
+   "fim": 6.525
+  },
+  {
+   "texto": "a",
+   "inicio": 6.571,
+   "fim": 6.606
+  },
+  {
+   "texto": "giant",
+   "inicio": 6.699,
+   "fim": 7.117
+  },
+  {
+   "texto": "air",
+   "inicio": 7.187,
+   "fim": 7.419
+  },
+  {
+   "texto": "base",
+   "inicio": 7.477,
+   "fim": 8.011
+  },
+  {
+   "texto": "in",
+   "inicio": 8.127,
+   "fim": 8.266
+  },
+  {
+   "texto": "the",
+   "inicio": 8.313,
+   "fim": 8.382
+  },
+  {
+   "texto": "far",
+   "inicio": 8.464,
+   "fim": 8.742
+  },
+  {
+   "texto": "north",
+   "inicio": 8.858,
+   "fim": 9.125
+  },
+  {
+   "texto": "of",
+   "inicio": 9.183,
+   "fim": 9.253
+  },
+  {
+   "texto": "Greenland.",
+   "inicio": 9.311,
+   "fim": 9.996
+  },
+  {
+   "texto": "Today",
+   "inicio": 10.484,
+   "fim": 10.948
+  },
+  {
+   "texto": "it's",
+   "inicio": 11.029,
+   "fim": 11.18
+  },
+  {
+   "texto": "called",
+   "inicio": 11.238,
+   "fim": 11.587
+  },
+  {
+   "texto": "Pituffik",
+   "inicio": 11.9,
+   "fim": 12.527
+  },
+  {
+   "texto": "Space",
+   "inicio": 12.597,
+   "fim": 12.98
+  },
+  {
+   "texto": "Base,",
+   "inicio": 13.038,
+   "fim": 13.595
+  },
+  {
+   "texto": "and",
+   "inicio": 13.909,
+   "fim": 14.06
+  },
+  {
+   "texto": "it",
+   "inicio": 14.129,
+   "fim": 14.188
+  },
+  {
+   "texto": "watches",
+   "inicio": 14.246,
+   "fim": 14.652
+  },
+  {
+   "texto": "the",
+   "inicio": 14.722,
+   "fim": 14.78
+  },
+  {
+   "texto": "skies",
+   "inicio": 14.826,
+   "fim": 15.232
+  },
+  {
+   "texto": "for",
+   "inicio": 15.302,
+   "fim": 15.453
+  },
+  {
+   "texto": "missiles",
+   "inicio": 15.499,
+   "fim": 15.883
+  },
+  {
+   "texto": "coming",
+   "inicio": 15.952,
+   "fim": 16.254
+  },
+  {
+   "texto": "over",
+   "inicio": 16.312,
+   "fim": 16.486
+  },
+  {
+   "texto": "the",
+   "inicio": 16.556,
+   "fim": 16.626
+  },
+  {
+   "texto": "North",
+   "inicio": 16.684,
+   "fim": 16.927
+  },
+  {
+   "texto": "Pole.",
+   "inicio": 16.997,
+   "fim": 18.158
+  }
+ ]
+}

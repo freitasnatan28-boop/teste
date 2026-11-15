@@ -1,0 +1,148 @@
+{
+ "id": "b02",
+ "capitulo": "The 51st State",
+ "visual": "Border line glows from ocean to ocean. Counter 5,525 MILES.",
+ "texto": "It sounds like a joke between two friendly neighbors. They share the longest border on Earth, about five thousand five hundred miles, and almost no soldiers guard it.",
+ "palavras": [
+  {
+   "texto": "It",
+   "inicio": 0.35,
+   "fim": 0.537
+  },
+  {
+   "texto": "sounds",
+   "inicio": 0.537,
+   "fim": 0.863
+  },
+  {
+   "texto": "like",
+   "inicio": 0.863,
+   "fim": 1.038
+  },
+  {
+   "texto": "a",
+   "inicio": 1.038,
+   "fim": 1.15
+  },
+  {
+   "texto": "joke",
+   "inicio": 1.15,
+   "fim": 1.5
+  },
+  {
+   "texto": "between",
+   "inicio": 1.5,
+   "fim": 1.9
+  },
+  {
+   "texto": "two",
+   "inicio": 1.9,
+   "fim": 2.2
+  },
+  {
+   "texto": "friendly",
+   "inicio": 2.2,
+   "fim": 2.65
+  },
+  {
+   "texto": "neighbors.",
+   "inicio": 2.65,
+   "fim": 3.625
+  },
+  {
+   "texto": "They",
+   "inicio": 3.763,
+   "fim": 3.975
+  },
+  {
+   "texto": "share",
+   "inicio": 3.975,
+   "fim": 4.25
+  },
+  {
+   "texto": "the",
+   "inicio": 4.25,
+   "fim": 4.388
+  },
+  {
+   "texto": "longest",
+   "inicio": 4.388,
+   "fim": 4.938
+  },
+  {
+   "texto": "border",
+   "inicio": 4.938,
+   "fim": 5.375
+  },
+  {
+   "texto": "on",
+   "inicio": 5.375,
+   "fim": 5.588
+  },
+  {
+   "texto": "Earth,",
+   "inicio": 5.588,
+   "fim": 6.225
+  },
+  {
+   "texto": "about",
+   "inicio": 6.35,
+   "fim": 6.675
+  },
+  {
+   "texto": "five",
+   "inicio": 6.675,
+   "fim": 7.05
+  },
+  {
+   "texto": "thousand",
+   "inicio": 7.05,
+   "fim": 7.487
+  },
+  {
+   "texto": "five",
+   "inicio": 7.487,
+   "fim": 7.8
+  },
+  {
+   "texto": "hundred",
+   "inicio": 7.8,
+   "fim": 8.175
+  },
+  {
+   "texto": "miles,",
+   "inicio": 8.175,
+   "fim": 9.0
+  },
+  {
+   "texto": "and",
+   "inicio": 9.1,
+   "fim": 9.225
+  },
+  {
+   "texto": "almost",
+   "inicio": 9.225,
+   "fim": 9.713
+  },
+  {
+   "texto": "no",
+   "inicio": 9.713,
+   "fim": 10.012
+  },
+  {
+   "texto": "soldiers",
+   "inicio": 10.012,
+   "fim": 10.613
+  },
+  {
+   "texto": "guard",
+   "inicio": 10.613,
+   "fim": 10.975
+  },
+  {
+   "texto": "it.",
+   "inicio": 10.975,
+   "fim": 11.45
+  }
+ ]
+}

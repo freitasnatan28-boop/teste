@@ -1,0 +1,288 @@
+{
+ "id": "b31",
+ "capitulo": "Why Now",
+ "visual": "Tariff icons. Canada flag. Bubble \"NOT FOR SALE\".",
+ "texto": "In 2025, the fifty-first state talk came with tariffs. Canadians booed the American anthem at hockey games, and many stopped buying American products. A friendship that survived two world wars suddenly felt very cold. When Canada's new prime minister visited the White House, he said it to the president's face: some places are never for sale.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0.4,
+   "fim": 0.5
+  },
+  {
+   "texto": "2025,",
+   "inicio": 0.5,
+   "fim": 1.775
+  },
+  {
+   "texto": "the",
+   "inicio": 1.875,
+   "fim": 2.025
+  },
+  {
+   "texto": "fifty-first",
+   "inicio": 2.025,
+   "fim": 2.775
+  },
+  {
+   "texto": "state",
+   "inicio": 2.775,
+   "fim": 3.138
+  },
+  {
+   "texto": "talk",
+   "inicio": 3.138,
+   "fim": 3.475
+  },
+  {
+   "texto": "came",
+   "inicio": 3.475,
+   "fim": 3.712
+  },
+  {
+   "texto": "with",
+   "inicio": 3.712,
+   "fim": 3.888
+  },
+  {
+   "texto": "tariffs.",
+   "inicio": 3.888,
+   "fim": 4.85
+  },
+  {
+   "texto": "Canadians",
+   "inicio": 4.987,
+   "fim": 5.65
+  },
+  {
+   "texto": "booed",
+   "inicio": 5.65,
+   "fim": 6.0
+  },
+  {
+   "texto": "the",
+   "inicio": 6.0,
+   "fim": 6.15
+  },
+  {
+   "texto": "American",
+   "inicio": 6.15,
+   "fim": 6.7
+  },
+  {
+   "texto": "anthem",
+   "inicio": 6.7,
+   "fim": 7.175
+  },
+  {
+   "texto": "at",
+   "inicio": 7.175,
+   "fim": 7.287
+  },
+  {
+   "texto": "hockey",
+   "inicio": 7.287,
+   "fim": 7.688
+  },
+  {
+   "texto": "games,",
+   "inicio": 7.688,
+   "fim": 8.425
+  },
+  {
+   "texto": "and",
+   "inicio": 8.525,
+   "fim": 8.65
+  },
+  {
+   "texto": "many",
+   "inicio": 8.65,
+   "fim": 8.875
+  },
+  {
+   "texto": "stopped",
+   "inicio": 8.875,
+   "fim": 9.225
+  },
+  {
+   "texto": "buying",
+   "inicio": 9.225,
+   "fim": 9.6
+  },
+  {
+   "texto": "American",
+   "inicio": 9.6,
+   "fim": 10.125
+  },
+  {
+   "texto": "products.",
+   "inicio": 10.125,
+   "fim": 11.125
+  },
+  {
+   "texto": "A",
+   "inicio": 11.262,
+   "fim": 11.4
+  },
+  {
+   "texto": "friendship",
+   "inicio": 11.4,
+   "fim": 11.975
+  },
+  {
+   "texto": "that",
+   "inicio": 11.975,
+   "fim": 12.188
+  },
+  {
+   "texto": "survived",
+   "inicio": 12.188,
+   "fim": 12.825
+  },
+  {
+   "texto": "two",
+   "inicio": 12.825,
+   "fim": 13.137
+  },
+  {
+   "texto": "world",
+   "inicio": 13.137,
+   "fim": 13.512
+  },
+  {
+   "texto": "wars",
+   "inicio": 13.512,
+   "fim": 14.0
+  },
+  {
+   "texto": "suddenly",
+   "inicio": 14.0,
+   "fim": 14.438
+  },
+  {
+   "texto": "felt",
+   "inicio": 14.438,
+   "fim": 14.738
+  },
+  {
+   "texto": "very",
+   "inicio": 14.738,
+   "fim": 15.088
+  },
+  {
+   "texto": "cold.",
+   "inicio": 15.088,
+   "fim": 15.95
+  },
+  {
+   "texto": "When",
+   "inicio": 16.087,
+   "fim": 16.312
+  },
+  {
+   "texto": "Canada's",
+   "inicio": 16.312,
+   "fim": 16.863
+  },
+  {
+   "texto": "new",
+   "inicio": 16.863,
+   "fim": 17.087
+  },
+  {
+   "texto": "prime",
+   "inicio": 17.087,
+   "fim": 17.5
+  },
+  {
+   "texto": "minister",
+   "inicio": 17.5,
+   "fim": 17.988
+  },
+  {
+   "texto": "visited",
+   "inicio": 17.988,
+   "fim": 18.4
+  },
+  {
+   "texto": "the",
+   "inicio": 18.4,
+   "fim": 18.538
+  },
+  {
+   "texto": "White",
+   "inicio": 18.538,
+   "fim": 18.85
+  },
+  {
+   "texto": "House,",
+   "inicio": 18.85,
+   "fim": 19.5
+  },
+  {
+   "texto": "he",
+   "inicio": 19.6,
+   "fim": 19.762
+  },
+  {
+   "texto": "said",
+   "inicio": 19.762,
+   "fim": 19.988
+  },
+  {
+   "texto": "it",
+   "inicio": 19.988,
+   "fim": 20.1
+  },
+  {
+   "texto": "to",
+   "inicio": 20.1,
+   "fim": 20.2
+  },
+  {
+   "texto": "the",
+   "inicio": 20.2,
+   "fim": 20.312
+  },
+  {
+   "texto": "president's",
+   "inicio": 20.312,
+   "fim": 20.938
+  },
+  {
+   "texto": "face:",
+   "inicio": 20.938,
+   "fim": 21.675
+  },
+  {
+   "texto": "some",
+   "inicio": 21.825,
+   "fim": 22.137
+  },
+  {
+   "texto": "places",
+   "inicio": 22.137,
+   "fim": 22.688
+  },
+  {
+   "texto": "are",
+   "inicio": 22.688,
+   "fim": 22.863
+  },
+  {
+   "texto": "never",
+   "inicio": 22.863,
+   "fim": 23.2
+  },
+  {
+   "texto": "for",
+   "inicio": 23.2,
+   "fim": 23.375
+  },
+  {
+   "texto": "sale.",
+   "inicio": 23.375,
+   "fim": 24.2
+  }
+ ]
+}

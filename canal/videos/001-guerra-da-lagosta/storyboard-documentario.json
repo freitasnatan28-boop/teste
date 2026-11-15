@@ -1,0 +1,285 @@
+{
+  "titulo": "A Guerra da Lagosta",
+  "beats": {
+    "b01": {
+      "cenas": [
+        {"tipo": "data", "texto": "FEVEREIRO DE 1963"},
+        {"em": "Carnaval", "tipo": "foto", "img": "carnaval", "rotulo": "Brasil · Carnaval"},
+        {"em": "navio", "tipo": "mapa", "de": {"centro": [-20, 25], "zoom": 2.6}, "para": {"centro": [-28, 3], "zoom": 4.2}, "rotas": [{"pontos": [[-17.4, 14.7], [-34.2, -7.5]], "cor": "#e63946", "icone": "navio", "inicio": 0.05, "fim": 0.9}], "pontos": [{"lonlat": [-34.9, -8.05], "rotulo": "Pernambuco", "em": 0.5}]}
+      ],
+      "apoio": ["frota-brasileira"]
+    },
+    "b02": {
+      "cenas": [
+        {"tipo": "foto", "img": "frota-brasileira", "rotulo": "Marinha do Brasil", "pb": true},
+        {"em": "Aviões", "tipo": "foto", "img": "tartu-b17", "efeito": "noite", "focos": [[0.3, 0.3], [0.45, 0.35]]},
+        {"em": "primeira", "tipo": "texto", "linhas": ["PELA PRIMEIRA VEZ EM", "QUASE 100 ANOS"]},
+        {"em": "guerra contra", "tipo": "versus", "esquerda": "BRA", "direita": "FRA"}
+      ],
+      "apoio": ["tartu-b17", "b17-noite"]
+    },
+    "b03": {
+      "cenas": [
+        {"tipo": "texto", "linhas": ["O MOTIVO?"]},
+        {"em": "Lagostas", "tipo": "foto", "img": "lagosta", "som": "impacto", "focos": [[0.5, 0.5], [0.4, 0.4]]},
+        {"em": "Essa", "tipo": "texto", "linhas": ["A GUERRA", "DA LAGOSTA"], "img": "frota-brasileira"},
+        {"em": "frase", "tipo": "citacao", "texto": "O Brasil não é um país sério.", "autor": "Quem disse?"},
+        {"em": "Spoiler", "tipo": "texto", "linhas": ["SPOILER:", "NÃO FOI QUEM", "VOCÊ IMAGINA"], "cor": "#e63946"}
+      ],
+      "apoio": ["lagosta", "tartu-b17"]
+    },
+    "b04": {
+      "cenas": [
+        {"tipo": "data", "texto": "ANOS 1960"},
+        {"em": "França", "tipo": "mapa", "de": {"centro": [5, 12], "zoom": 2.2}, "para": {"centro": [2, 10], "zoom": 2.9}, "titulo": "Colônias francesas na África", "destaques": [{"iso": "DZA", "cor": "#3a6fe0", "em": 0.05}, {"iso": "MRT", "cor": "#3a6fe0", "em": 0.1}, {"iso": "SEN", "cor": "#3a6fe0", "em": 0.14}, {"iso": "MLI", "cor": "#3a6fe0", "em": 0.18}, {"iso": "GIN", "cor": "#3a6fe0", "em": 0.22}, {"iso": "CIV", "cor": "#3a6fe0", "em": 0.26}, {"iso": "BFA", "cor": "#3a6fe0", "em": 0.3}, {"iso": "NER", "cor": "#3a6fe0", "em": 0.34}, {"iso": "TCD", "cor": "#3a6fe0", "em": 0.38}, {"iso": "CMR", "cor": "#3a6fe0", "em": 0.42}, {"iso": "CAF", "cor": "#3a6fe0", "em": 0.46}, {"iso": "GAB", "cor": "#3a6fe0", "em": 0.5}, {"iso": "COG", "cor": "#3a6fe0", "em": 0.54}, {"iso": "BEN", "cor": "#3a6fe0", "em": 0.58}, {"iso": "TGO", "cor": "#3a6fe0", "em": 0.62}, {"iso": "MDG", "cor": "#3a6fe0", "em": 0.66}]},
+        {"em": "mares", "tipo": "foto", "img": "langoustier", "rotulo": "Pescadores de lagosta da França"}
+      ],
+      "destaques": [{"palavra": "perdendo", "texto": "Perdendo colônias"}],
+      "apoio": ["langoustier", "camaret"]
+    },
+    "b05": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-5, 18], "zoom": 4}, "para": {"centro": [-12, 20], "zoom": 8}, "destaques": [{"iso": "MRT", "cor": "#e63946"}], "pontos": [{"lonlat": [-17.0, 20.9], "icone": "lagosta", "rotulo": "Mauritânia", "em": 0.3}]},
+        {"em": "Bretanha", "tipo": "mapa", "de": {"centro": [2, 46], "zoom": 10}, "para": {"centro": [-2.5, 48], "zoom": 22}, "destaques": [{"iso": "FRA", "cor": "#3a6fe0"}], "pontos": [{"lonlat": [-4.6, 48.28], "rotulo": "Camaret", "em": 0.4}]},
+        {"em": "Camaret", "tipo": "foto", "img": "camaret", "rotulo": "Porto de Camaret · Bretanha"},
+        {"em": "precisavam", "tipo": "texto", "linhas": ["PRECISAVAM DE", "OUTRO MAR"]}
+      ],
+      "apoio": ["camaret", "langoustier"]
+    },
+    "b06": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-15, 30], "zoom": 2.8}, "para": {"centro": [-25, 18], "zoom": 3.4}, "rotas": [{"pontos": [[-4.6, 48.28], [-20, 20], [-36, -5]], "cor": "#ffd400", "icone": "lagosta", "inicio": 0.0, "fim": 0.4}], "pontos": [{"lonlat": [-36, -5], "rotulo": "Nordeste do Brasil", "em": 0.35}]},
+        {"em": "abundância", "tipo": "foto", "img": "lagosta", "focos": [[0.3, 0.45], [0.6, 0.5], [0.5, 0.35]]},
+        {"em": "março", "tipo": "data", "texto": "MARÇO DE 1961", "sub": "Pedido francês: fazer uma \"pesquisa\""},
+        {"em": "aceitou", "tipo": "lista", "titulo": "As condições do Brasil", "itens": [{"texto": "Só 3 barcos", "em": "três"}, {"texto": "Por 180 dias", "em": "180"}, {"texto": "Fiscais a bordo", "em": "fiscais"}]}
+      ],
+      "destaques": [{"palavra": "pesquisa", "texto": "\"Pesquisa\""}],
+      "apoio": ["lagosta", "langoustier"]
+    },
+    "b07": {
+      "cenas": [
+        {"tipo": "texto", "linhas": ["OS FISCAIS", "PERCEBERAM"]},
+        {"em": "Primeiro", "tipo": "texto", "linhas": ["NÃO ERAM 3"]},
+        {"em": "quatro", "tipo": "texto", "linhas": ["ERAM 4"], "cor": "#e63946", "tremer": true, "som": "impacto"},
+        {"em": "segundo", "tipo": "foto", "img": "langoustier", "rotulo": "Pesca sem controle", "focos": [[0.6, 0.5], [0.35, 0.6]]},
+        {"em": "levando", "tipo": "mapa", "de": {"centro": [-30, -2], "zoom": 5}, "para": {"centro": [-18, 22], "zoom": 2.8}, "rotas": [{"pontos": [[-36, -5], [-20, 20], [-4.6, 48.28]], "cor": "#e63946", "icone": "lagosta", "inicio": 0.05, "fim": 0.85}], "pontos": [{"lonlat": [2.3, 48.8], "rotulo": "Europa", "em": 0.7}]}
+      ],
+      "apoio": ["langoustier", "lagosta"]
+    },
+    "b08": {
+      "cenas": [
+        {"tipo": "foto", "img": "goulart", "modo": "retrato", "nome": "João Goulart", "cargo": "Presidente do Brasil", "pb": true},
+        {"em": "de novo os", "tipo": "mapa", "de": {"centro": [-36, -6], "zoom": 14}, "para": {"centro": [-35.5, -6.5], "zoom": 20}, "titulo": "Pesca ilegal no Nordeste", "pontos": [{"lonlat": [-34.6, -5.6], "icone": "navio", "cor": "#e63946", "em": 0.1}, {"lonlat": [-34.3, -6.6], "icone": "navio", "cor": "#e63946", "em": 0.25}, {"lonlat": [-34.4, -7.6], "icone": "navio", "cor": "#e63946", "em": 0.4}, {"lonlat": [-34.9, -8.05], "rotulo": "Recife", "em": 0.05}]},
+        {"em": "expulsar", "tipo": "texto", "linhas": ["EXPULSAR", "E APREENDER"]},
+        {"em": "1962", "tipo": "data", "texto": "1962", "sub": "Corveta Ipiranga apreende o Cassiopée"},
+        {"em": "dez milhas", "tipo": "contador", "ate": 10, "unidade": "MILHAS", "sub": "da costa brasileira"},
+        {"em": "discussão", "tipo": "texto", "linhas": ["UMA BRIGA", "JURÍDICA"]},
+        {"em": "estranhas", "tipo": "texto", "linhas": ["DAS MAIS ESTRANHAS", "DA HISTÓRIA"]}
+      ],
+      "apoio": ["frota-brasileira", "langoustier"]
+    },
+    "b09": {
+      "cenas": [
+        {"tipo": "plataforma", "destaque": "plataforma", "bandeira": "BRA"},
+        {"em": "Então", "tipo": "texto", "linhas": ["RECURSO", "DO BRASIL"], "cor": "#1fa45b"}
+      ],
+      "destaques": [{"palavra": "fundo", "texto": "Vive no fundo do mar"}],
+      "apoio": ["lagosta"]
+    },
+    "b10": {
+      "cenas": [
+        {"tipo": "plataforma", "destaque": "mar", "lagostaPula": true, "bandeira": "FRA"},
+        {"em": "peixe", "tipo": "texto", "linhas": ["SERIA UM", "PEIXE?"], "cor": "#3a6fe0"},
+        {"em": "qualquer", "tipo": "texto", "linhas": ["QUALQUER UM", "PODE PESCAR"], "cor": "#e63946"}
+      ],
+      "destaques": [{"palavra": "saltos", "texto": "Dá saltos"}],
+      "apoio": ["lagosta"]
+    },
+    "b11": {
+      "cenas": [
+        {"tipo": "texto", "linhas": ["OFICIAL DA MARINHA", "PAULO MOREIRA DA SILVA"], "img": "frota-brasileira"},
+        {"em": "Por analogia", "tipo": "citacao", "texto": "Por analogia, se a lagosta é peixe porque se desloca dando saltos, então o canguru é uma ave.", "autor": "Paulo Moreira da Silva"},
+        {"em": "canguru", "tipo": "foto", "img": "canguru", "som": "pop"}
+      ],
+      "destaques": [{"palavra": "ave", "texto": "Uma ave?!"}],
+      "apoio": ["frota-brasileira", "canguru"]
+    },
+    "b12": {
+      "cenas": [
+        {"tipo": "foto", "img": "camaret", "rotulo": "Pescadores pedem ajuda à França", "focos": [[0.4, 0.6], [0.6, 0.5]]},
+        {"em": "Charles", "tipo": "foto", "img": "de-gaulle", "modo": "retrato", "nome": "Charles de Gaulle", "cargo": "Presidente da França", "pb": true}
+      ],
+      "destaques": [{"palavra": "recuar", "texto": "Não recuava"}],
+      "apoio": ["de-gaulle"]
+    },
+    "b13": {
+      "cenas": [
+        {"tipo": "data", "texto": "11 FEV 1963", "sub": "Porto de Toulon, França"},
+        {"em": "porta-aviões", "tipo": "foto", "img": "clemenceau", "rotulo": "Porta-aviões Clemenceau"},
+        {"em": "Toulon", "tipo": "foto", "img": "toulon", "rotulo": "Base naval de Toulon"},
+        {"em": "Eram", "tipo": "lista", "titulo": "A frota francesa", "itens": [{"texto": "Contratorpedeiros", "em": "contratorpedeiros"}, {"texto": "Fragatas", "em": "fragatas"}, {"texto": "Um cruzador", "em": "cruzador"}, {"texto": "Um navio-tanque", "em": "navio-tanque"}]},
+        {"em": "Oficialmente", "tipo": "texto", "linhas": ["\"SÓ UMA MISSÃO", "DE ROTINA\""]}
+      ],
+      "apoio": ["clemenceau", "toulon"]
+    },
+    "b14": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [0, 38], "zoom": 5}, "para": {"centro": [-8, 28], "zoom": 3.6}, "rotas": [{"pontos": [[5.93, 43.12], [-5.6, 36.0], [-13, 28], [-17.4, 14.7]], "cor": "#3a6fe0", "icone": "navio", "inicio": 0.0, "fim": 0.85}], "pontos": [{"lonlat": [5.93, 43.12], "rotulo": "Toulon", "cor": "#3a6fe0"}, {"lonlat": [-17.4, 14.7], "rotulo": "Dacar", "em": 0.75}]},
+        {"em": "Mas", "tipo": "mapa", "de": {"centro": [-20, 10], "zoom": 3.6}, "para": {"centro": [-28, 2], "zoom": 4.4}, "titulo": "O Tartu segue sozinho", "rotas": [{"pontos": [[-17.4, 14.7], [-34.2, -7.5]], "cor": "#e63946", "icone": "navio", "inicio": 0.0, "fim": 0.9}]},
+        {"em": "contratorpedeiro", "tipo": "foto", "img": "tartu-b17", "rotulo": "Contratorpedeiro Tartu (D636)", "pb": true, "focos": [[0.5, 0.62], [0.35, 0.6]]}
+      ],
+      "apoio": ["dacar", "tartu-b17"]
+    },
+    "b15": {
+      "cenas": [
+        {"tipo": "data", "texto": "22 FEV 1963", "sub": "Véspera de Carnaval"},
+        {"em": "mobilizou", "tipo": "foto", "img": "frota-brasileira", "rotulo": "Mobilização", "pb": true, "focos": [[0.3, 0.5], [0.7, 0.45]]},
+        {"em": "feriado", "tipo": "foto", "img": "carnaval", "focos": [[0.5, 0.4], [0.3, 0.5]]},
+        {"em": "convocados", "tipo": "texto", "linhas": ["CONVOCADOS", "NA MADRUGADA"]}
+      ],
+      "destaques": [{"palavra": "folga", "texto": "De folga"}],
+      "apoio": ["frota-brasileira", "carnaval"]
+    },
+    "b16": {
+      "cenas": [
+        {"tipo": "texto", "linhas": ["E TINHA", "MAIS..."]},
+        {"em": "bases", "tipo": "foto", "img": "recife", "rotulo": "Recife"},
+        {"em": "falta", "tipo": "lista", "marca": "x", "titulo": "Os problemas", "itens": [{"texto": "Pouca munição", "em": "munição"}, {"texto": "Pouco combustível", "em": "combustível"}, {"texto": "Navios em reparo", "em": "reparos"}]},
+        {"em": "situação", "tipo": "contador", "ate": 30, "unidade": "MIN", "sub": "de combate, no máximo", "som": "riser"}
+      ],
+      "apoio": ["recife", "contratorpedeiros"]
+    },
+    "b17": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-60, 20], "zoom": 1.6}, "para": {"centro": [-70, 10], "zoom": 2.3}, "destaques": [{"iso": "USA", "cor": "#e63946"}, {"iso": "BRA", "cor": "#1fa45b", "em": 0.2}], "rotas": [{"pontos": [[-98, 38], [-50, -10]], "cor": "#ffd400", "tracejada": true, "inicio": 0.25, "fim": 0.7}]},
+        {"em": "aviões", "tipo": "foto", "img": "b17", "rotulo": "Bombardeiro B-17 (fabricado nos EUA)"},
+        {"em": "regras", "tipo": "texto", "linhas": ["PROIBIDO USAR", "CONTRA OUTRO PAÍS"], "cor": "#e63946"}
+      ],
+      "destaques": [{"palavra": "incômodo", "texto": "Detalhe incômodo"}],
+      "apoio": ["b17"]
+    },
+    "b18": {
+      "cenas": [
+        {"tipo": "texto", "linhas": ["A CAÇADA", "COMEÇOU"]},
+        {"em": "26", "tipo": "data", "texto": "26 FEV 1963"},
+        {"em": "avião", "tipo": "foto", "img": "neptune", "rotulo": "Avião de patrulha Neptune", "pb": true},
+        {"em": "navio grande", "tipo": "mapa", "de": {"centro": [-34, -5], "zoom": 14}, "para": {"centro": [-33, -4.5], "zoom": 20}, "rotas": [{"pontos": [[-29.5, -1.5], [-32.0, -3.4]], "cor": "#e63946", "icone": "navio", "inicio": 0.0, "fim": 0.9}], "pontos": [{"lonlat": [-32.42, -3.85], "rotulo": "Fernando de Noronha", "em": 0.1}]},
+        {"em": "seguinte", "tipo": "foto", "img": "tartu-b17", "rotulo": "Foto real do reconhecimento da FAB", "pb": true, "focos": [[0.3, 0.3], [0.55, 0.6]]},
+        {"em": "Era", "tipo": "texto", "linhas": ["ERA O", "TARTU"], "som": "impacto", "tremer": true}
+      ],
+      "apoio": ["neptune", "noronha"]
+    },
+    "b19": {
+      "cenas": [
+        {"tipo": "texto", "linhas": ["A CENA MAIS", "INCRÍVEL"]},
+        {"em": "noite", "tipo": "foto", "img": "b17-noite", "som": "aviao", "focos": [[0.5, 0.45], [0.6, 0.5]]},
+        {"em": "luzes", "tipo": "foto", "img": "tartu-b17", "efeito": "noite", "focos": [[0.5, 0.6], [0.3, 0.3]]},
+        {"em": "30", "tipo": "contador", "ate": 30, "unidade": "METROS", "sub": "de altura"},
+        {"em": "acenderam", "tipo": "foto", "img": "tartu-b17", "efeito": "flash", "som": "flash", "focos": [[0.5, 0.6]]},
+        {"em": "marinheiros", "tipo": "foto", "img": "conves", "rotulo": "Correria no convés"},
+        {"em": "postos", "tipo": "texto", "linhas": ["POSTOS DE", "COMBATE"], "cor": "#e63946", "tremer": true}
+      ],
+      "destaques": [{"palavra": "apagadas", "texto": "Luzes apagadas"}, {"palavra": "silêncio", "texto": "Rádio em silêncio"}],
+      "apoio": ["tartu-b17", "b17"]
+    },
+    "b20": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-42, -16], "zoom": 5}, "para": {"centro": [-38, -12], "zoom": 6.5}, "rotas": [{"pontos": [[-43.2, -22.9], [-38.5, -18], [-34.9, -8.05], [-33.5, -6.5]], "cor": "#1fa45b", "icone": "navio", "inicio": 0.0, "fim": 0.9}], "pontos": [{"lonlat": [-43.2, -22.9], "rotulo": "Rio de Janeiro", "cor": "#1fa45b"}, {"lonlat": [-34.9, -8.05], "rotulo": "Recife", "cor": "#1fa45b", "em": 0.45}]},
+        {"em": "imprensa", "tipo": "foto", "img": "jornal-do-brasil", "rotulo": "A imprensa acompanhava tudo", "pb": true},
+        {"em": "encontro", "tipo": "versus", "esquerda": "BRA", "direita": "FRA", "titulo": "O encontro em alto-mar"}
+      ],
+      "apoio": ["contratorpedeiros", "jornal-do-brasil"]
+    },
+    "b21": {
+      "cenas": [
+        {"tipo": "data", "texto": "10:00", "sub": "Alto-mar"},
+        {"em": "radar", "tipo": "radar", "rotulo": "ALVO DETECTADO", "som": "radar"},
+        {"em": "Tinha de", "tipo": "texto", "linhas": ["TINHA DE", "SER ELE"], "som": "impacto"}
+      ],
+      "apoio": ["radar", "contratorpedeiros"]
+    },
+    "b22": {
+      "cenas": [
+        {"tipo": "contador", "ate": 13, "unidade": "KM", "sub": "de distância"},
+        {"em": "avistou", "tipo": "foto", "img": "tartu-b17", "rotulo": "O navio francês", "pb": true, "focos": [[0.5, 0.62], [0.65, 0.58]]},
+        {"em": "seis", "tipo": "texto", "linhas": ["+ 6 BARCOS", "PESQUEIROS"]},
+        {"em": "sozinho", "tipo": "foto", "img": "frota-brasileira", "rotulo": "Marinha do Brasil", "pb": true, "focos": [[0.4, 0.5], [0.7, 0.5]]},
+        {"em": "quatro", "tipo": "lista", "titulo": "Junto com o Paraná", "itens": [{"texto": "4 contratorpedeiros", "em": "quatro"}, {"texto": "1 corveta", "em": "corveta"}, {"texto": "1 submarino", "em": "submarino"}]}
+      ],
+      "apoio": ["tartu-b17", "contratorpedeiros"]
+    },
+    "b23": {
+      "cenas": [
+        {"tipo": "mapa", "de": {"centro": [-34, -6], "zoom": 18}, "para": {"centro": [-33.8, -6.8], "zoom": 70}, "titulo": "Vigilância o tempo todo", "pontos": [{"lonlat": [-33.6, -6.4], "icone": "lagosta", "em": 0.0}, {"lonlat": [-33.3, -6.9], "icone": "navio", "cor": "#e63946", "rotulo": "Tartu", "em": 0.05}, {"lonlat": [-33.9, -6.7], "icone": "navio", "cor": "#1fa45b", "rotulo": "Perto", "em": 0.25}, {"lonlat": [-34.3, -7.3], "icone": "navio", "cor": "#1fa45b", "rotulo": "À distância", "em": 0.45}]},
+        {"em": "respondeu", "tipo": "mapa", "de": {"centro": [-22, 6], "zoom": 3.8}, "para": {"centro": [-28, 0], "zoom": 4.6}, "titulo": "Chega o Paul Gaufeny", "rotas": [{"pontos": [[-17.4, 14.7], [-33.3, -6.9]], "cor": "#e63946", "icone": "navio", "inicio": 0.0, "fim": 0.9}]},
+        {"em": "Agora", "tipo": "versus", "esquerda": "BRA", "direita": "FRA", "titulo": "Marinha do Brasil × 2 navios de guerra + 6 pesqueiros"},
+        {"em": "Bastava", "tipo": "texto", "linhas": ["BASTAVA", "UM TIRO"], "cor": "#e63946", "tremer": true, "som": "riser"}
+      ],
+      "apoio": ["frota-brasileira", "tartu-b17"]
+    },
+    "b24": {
+      "cenas": [
+        {"tipo": "texto", "linhas": ["MAS O TIRO", "NUNCA VEIO"], "som": "impacto"},
+        {"em": "diplomacia", "tipo": "mapa", "de": {"centro": [-30, 20], "zoom": 1.5}, "para": {"centro": [-35, 15], "zoom": 1.9}, "titulo": "A diplomacia entra em ação", "destaques": [{"iso": "BRA", "cor": "#1fa45b"}, {"iso": "FRA", "cor": "#3a6fe0", "em": 0.1}, {"iso": "USA", "cor": "#ffd400", "em": 0.3}]},
+        {"em": "ONU", "tipo": "foto", "img": "onu", "rotulo": "Sede da ONU · Nova York"}
+      ],
+      "apoio": ["onu"]
+    },
+    "b25": {
+      "cenas": [
+        {"tipo": "data", "texto": "MARÇO DE 1963"},
+        {"em": "embora", "tipo": "mapa", "de": {"centro": [-28, 2], "zoom": 4.4}, "para": {"centro": [-15, 28], "zoom": 2.8}, "titulo": "Os franceses vão embora", "rotas": [{"pontos": [[-33.3, -6.9], [-17.4, 14.7], [5.93, 43.12]], "cor": "#3a6fe0", "icone": "navio", "inicio": 0.0, "fim": 0.95}]},
+        {"em": "boa", "tipo": "texto", "linhas": ["\"BOA", "VIAGEM\""]}
+      ],
+      "apoio": ["tartu-b17", "contratorpedeiros"]
+    },
+    "b26": {
+      "cenas": [
+        {"tipo": "linhaTempo", "itens": [{"data": "MAR 1963", "texto": "Navios vão embora"}, {"data": "ABR 1964", "texto": "Golpe militar"}, {"data": "DEZ 1964", "texto": "Acordo Brasil-França"}]},
+        {"em": "acordo", "tipo": "lista", "titulo": "O acordo", "itens": [{"texto": "Quantidade limitada", "em": "quantidade"}, {"texto": "Tempo limitado", "em": "tempo"}, {"texto": "Lucros divididos", "em": "dividindo"}]},
+        {"em": "Resultado", "tipo": "texto", "linhas": ["0 TIROS", "0 MORTOS"], "cor": "#1fa45b"},
+        {"em": "mostrou", "tipo": "foto", "img": "frota-brasileira", "rotulo": "O Brasil defendeu o próprio mar", "pb": true},
+        {"em": "hoje", "tipo": "contador", "ate": 200, "unidade": "MILHAS", "sub": "zona econômica exclusiva"},
+        {"em": "decide", "tipo": "mapa", "de": {"centro": [-48, -14], "zoom": 4}, "para": {"centro": [-44, -12], "zoom": 4.8}, "titulo": "Só o Brasil decide quem pesca", "destaques": [{"iso": "BRA", "cor": "#1fa45b"}]}
+      ],
+      "apoio": ["frota-brasileira", "noronha", "lagosta"]
+    },
+    "b27": {
+      "cenas": [
+        {"tipo": "texto", "linhas": ["E A", "FRASE?"]},
+        {"em": "Charles", "tipo": "foto", "img": "de-gaulle", "rotulo": "Charles de Gaulle", "pb": true, "focos": [[0.5, 0.25], [0.5, 0.3]]},
+        {"em": "não é um", "tipo": "citacao", "texto": "Le Brésil n'est pas un pays sérieux.", "autor": "Foi mesmo De Gaulle?"}
+      ],
+      "apoio": ["de-gaulle"]
+    },
+    "b28": {
+      "cenas": [
+        {"tipo": "texto", "linhas": ["SÓ QUE", "NÃO FOI ELE"], "cor": "#e63946", "som": "impacto", "tremer": true},
+        {"em": "diplomata", "tipo": "foto", "img": "embaixador", "modo": "retrato", "nome": "Carlos Alves de Souza Filho", "cargo": "Embaixador do Brasil em Paris", "pb": true},
+        {"em": "jornalista", "tipo": "foto", "img": "jornal-do-brasil", "rotulo": "Jornal do Brasil", "pb": true},
+        {"em": "1979", "tipo": "data", "texto": "1979", "sub": "O embaixador assume a autoria"}
+      ],
+      "apoio": ["embaixador", "jornal-do-brasil"]
+    },
+    "b29": {
+      "cenas": [
+        {"tipo": "data", "texto": "1997", "sub": "São Paulo"},
+        {"em": "Chirac", "tipo": "foto", "img": "chirac", "modo": "retrato", "nome": "Jacques Chirac", "cargo": "Presidente da França"},
+        {"em": "nunca", "tipo": "texto", "linhas": ["DE GAULLE", "NUNCA DISSE"]}
+      ],
+      "apoio": ["chirac"]
+    },
+    "b30": {
+      "cenas": [
+        {"tipo": "texto", "linhas": ["DITA POR UM", "BRASILEIRO"], "cor": "#1fa45b"},
+        {"em": "guerra mais", "tipo": "mapa", "de": {"centro": [-20, 20], "zoom": 2.4}, "para": {"centro": [-20, 18], "zoom": 3.2}, "titulo": "Por causa de lagostas", "destaques": [{"iso": "BRA", "cor": "#1fa45b"}, {"iso": "FRA", "cor": "#3a6fe0"}], "pontos": [{"lonlat": [-34, -6], "icone": "lagosta", "em": 0.3}]}
+      ],
+      "apoio": ["lagosta", "frota-brasileira"]
+    },
+    "b31": {
+      "cenas": [
+        {"tipo": "final"}
+      ]
+    }
+  }
+}

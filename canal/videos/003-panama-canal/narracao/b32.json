@@ -1,0 +1,348 @@
+{
+ "id": "b32",
+ "capitulo": "The Pattern",
+ "visual": "Back to Panama, Panama flag. Bubble \"OUR CANAL\".",
+ "texto": "America built the canal with its money and its engineers, and it gave it back because holding it had become more expensive than letting it go. Panama took it, and made it work. And Panama still says what its students said in 1964: the canal is ours. Now the question is whether a promise signed in 1977 still holds in a world where China is the other superpower.",
+ "palavras": [
+  {
+   "texto": "America",
+   "inicio": 0,
+   "fim": 0.604
+  },
+  {
+   "texto": "built",
+   "inicio": 0.673,
+   "fim": 0.929
+  },
+  {
+   "texto": "the",
+   "inicio": 0.987,
+   "fim": 1.057
+  },
+  {
+   "texto": "canal",
+   "inicio": 1.126,
+   "fim": 1.556
+  },
+  {
+   "texto": "with",
+   "inicio": 1.625,
+   "fim": 1.776
+  },
+  {
+   "texto": "its",
+   "inicio": 1.823,
+   "fim": 1.962
+  },
+  {
+   "texto": "money",
+   "inicio": 2.043,
+   "fim": 2.322
+  },
+  {
+   "texto": "and",
+   "inicio": 2.38,
+   "fim": 2.473
+  },
+  {
+   "texto": "its",
+   "inicio": 2.543,
+   "fim": 2.67
+  },
+  {
+   "texto": "engineers,",
+   "inicio": 2.728,
+   "fim": 3.657
+  },
+  {
+   "texto": "and",
+   "inicio": 3.901,
+   "fim": 4.063
+  },
+  {
+   "texto": "it",
+   "inicio": 4.145,
+   "fim": 4.203
+  },
+  {
+   "texto": "gave",
+   "inicio": 4.261,
+   "fim": 4.458
+  },
+  {
+   "texto": "it",
+   "inicio": 4.493,
+   "fim": 4.563
+  },
+  {
+   "texto": "back",
+   "inicio": 4.621,
+   "fim": 4.969
+  },
+  {
+   "texto": "because",
+   "inicio": 5.294,
+   "fim": 5.677
+  },
+  {
+   "texto": "holding",
+   "inicio": 5.724,
+   "fim": 6.142
+  },
+  {
+   "texto": "it",
+   "inicio": 6.211,
+   "fim": 6.374
+  },
+  {
+   "texto": "had",
+   "inicio": 6.618,
+   "fim": 6.78
+  },
+  {
+   "texto": "become",
+   "inicio": 6.838,
+   "fim": 7.175
+  },
+  {
+   "texto": "more",
+   "inicio": 7.221,
+   "fim": 7.407
+  },
+  {
+   "texto": "expensive",
+   "inicio": 7.454,
+   "fim": 8.243
+  },
+  {
+   "texto": "than",
+   "inicio": 8.278,
+   "fim": 8.429
+  },
+  {
+   "texto": "letting",
+   "inicio": 8.499,
+   "fim": 8.777
+  },
+  {
+   "texto": "it",
+   "inicio": 8.835,
+   "fim": 8.916
+  },
+  {
+   "texto": "go.",
+   "inicio": 8.975,
+   "fim": 9.578
+  },
+  {
+   "texto": "Panama",
+   "inicio": 10.089,
+   "fim": 10.693
+  },
+  {
+   "texto": "took",
+   "inicio": 10.751,
+   "fim": 10.971
+  },
+  {
+   "texto": "it,",
+   "inicio": 11.029,
+   "fim": 11.32
+  },
+  {
+   "texto": "and",
+   "inicio": 11.471,
+   "fim": 11.668
+  },
+  {
+   "texto": "made",
+   "inicio": 11.726,
+   "fim": 11.923
+  },
+  {
+   "texto": "it",
+   "inicio": 11.958,
+   "fim": 12.016
+  },
+  {
+   "texto": "work.",
+   "inicio": 12.074,
+   "fim": 12.562
+  },
+  {
+   "texto": "And",
+   "inicio": 12.945,
+   "fim": 13.2
+  },
+  {
+   "texto": "Panama",
+   "inicio": 13.293,
+   "fim": 13.92
+  },
+  {
+   "texto": "still",
+   "inicio": 14.001,
+   "fim": 14.338
+  },
+  {
+   "texto": "says",
+   "inicio": 14.431,
+   "fim": 14.767
+  },
+  {
+   "texto": "what",
+   "inicio": 14.837,
+   "fim": 15.011
+  },
+  {
+   "texto": "its",
+   "inicio": 15.058,
+   "fim": 15.185
+  },
+  {
+   "texto": "students",
+   "inicio": 15.22,
+   "fim": 15.65
+  },
+  {
+   "texto": "said",
+   "inicio": 15.673,
+   "fim": 15.905
+  },
+  {
+   "texto": "in",
+   "inicio": 15.963,
+   "fim": 16.033
+  },
+  {
+   "texto": "1964:",
+   "inicio": 16.079,
+   "fim": 17.519
+  },
+  {
+   "texto": "the",
+   "inicio": 17.798,
+   "fim": 17.89
+  },
+  {
+   "texto": "canal",
+   "inicio": 17.949,
+   "fim": 18.401
+  },
+  {
+   "texto": "is",
+   "inicio": 18.483,
+   "fim": 18.599
+  },
+  {
+   "texto": "ours.",
+   "inicio": 18.692,
+   "fim": 19.353
+  },
+  {
+   "texto": "Now",
+   "inicio": 19.957,
+   "fim": 20.154
+  },
+  {
+   "texto": "the",
+   "inicio": 20.224,
+   "fim": 20.294
+  },
+  {
+   "texto": "question",
+   "inicio": 20.352,
+   "fim": 20.897
+  },
+  {
+   "texto": "is",
+   "inicio": 21.223,
+   "fim": 21.385
+  },
+  {
+   "texto": "whether",
+   "inicio": 21.443,
+   "fim": 21.722
+  },
+  {
+   "texto": "a",
+   "inicio": 21.791,
+   "fim": 21.826
+  },
+  {
+   "texto": "promise",
+   "inicio": 21.884,
+   "fim": 22.302
+  },
+  {
+   "texto": "signed",
+   "inicio": 22.337,
+   "fim": 22.662
+  },
+  {
+   "texto": "in",
+   "inicio": 22.697,
+   "fim": 22.767
+  },
+  {
+   "texto": "1977",
+   "inicio": 22.813,
+   "fim": 23.928
+  },
+  {
+   "texto": "still",
+   "inicio": 24.311,
+   "fim": 24.647
+  },
+  {
+   "texto": "holds",
+   "inicio": 24.717,
+   "fim": 25.112
+  },
+  {
+   "texto": "in",
+   "inicio": 25.17,
+   "fim": 25.251
+  },
+  {
+   "texto": "a",
+   "inicio": 25.309,
+   "fim": 25.332
+  },
+  {
+   "texto": "world",
+   "inicio": 25.391,
+   "fim": 25.797
+  },
+  {
+   "texto": "where",
+   "inicio": 26.006,
+   "fim": 26.226
+  },
+  {
+   "texto": "China",
+   "inicio": 26.273,
+   "fim": 26.737
+  },
+  {
+   "texto": "is",
+   "inicio": 26.819,
+   "fim": 26.981
+  },
+  {
+   "texto": "the",
+   "inicio": 27.051,
+   "fim": 27.12
+  },
+  {
+   "texto": "other",
+   "inicio": 27.202,
+   "fim": 27.411
+  },
+  {
+   "texto": "superpower.",
+   "inicio": 27.469,
+   "fim": 28.932
+  }
+ ]
+}

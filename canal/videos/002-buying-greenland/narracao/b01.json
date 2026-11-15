@@ -1,0 +1,228 @@
+{
+ "id": "b01",
+ "capitulo": "Not For Sale",
+ "visual": "Globe zooms into Greenland. Trump portrait, speech bubble \"LET'S BUY IT\". Denmark flag replies.",
+ "texto": "In 2019, the President of the United States made an offer that sounded like a joke. He wanted to buy Greenland. The biggest island on Earth. Denmark's prime minister called the idea absurd. And Greenland's answer was even shorter: we are not for sale.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0,
+   "fim": 0.151
+  },
+  {
+   "texto": "2019,",
+   "inicio": 0.221,
+   "fim": 1.335
+  },
+  {
+   "texto": "the",
+   "inicio": 1.37,
+   "fim": 1.44
+  },
+  {
+   "texto": "President",
+   "inicio": 1.498,
+   "fim": 2.02
+  },
+  {
+   "texto": "of",
+   "inicio": 2.067,
+   "fim": 2.113
+  },
+  {
+   "texto": "the",
+   "inicio": 2.148,
+   "fim": 2.218
+  },
+  {
+   "texto": "United",
+   "inicio": 2.276,
+   "fim": 2.635
+  },
+  {
+   "texto": "States",
+   "inicio": 2.682,
+   "fim": 3.077
+  },
+  {
+   "texto": "made",
+   "inicio": 3.46,
+   "fim": 3.727
+  },
+  {
+   "texto": "an",
+   "inicio": 3.762,
+   "fim": 3.808
+  },
+  {
+   "texto": "offer",
+   "inicio": 3.866,
+   "fim": 4.145
+  },
+  {
+   "texto": "that",
+   "inicio": 4.214,
+   "fim": 4.365
+  },
+  {
+   "texto": "sounded",
+   "inicio": 4.447,
+   "fim": 4.876
+  },
+  {
+   "texto": "like",
+   "inicio": 4.934,
+   "fim": 5.12
+  },
+  {
+   "texto": "a",
+   "inicio": 5.155,
+   "fim": 5.201
+  },
+  {
+   "texto": "joke.",
+   "inicio": 5.317,
+   "fim": 5.921
+  },
+  {
+   "texto": "He",
+   "inicio": 6.304,
+   "fim": 6.42
+  },
+  {
+   "texto": "wanted",
+   "inicio": 6.49,
+   "fim": 6.78
+  },
+  {
+   "texto": "to",
+   "inicio": 6.815,
+   "fim": 6.885
+  },
+  {
+   "texto": "buy",
+   "inicio": 6.954,
+   "fim": 7.291
+  },
+  {
+   "texto": "Greenland.",
+   "inicio": 7.465,
+   "fim": 8.452
+  },
+  {
+   "texto": "The",
+   "inicio": 8.626,
+   "fim": 8.742
+  },
+  {
+   "texto": "biggest",
+   "inicio": 8.824,
+   "fim": 9.207
+  },
+  {
+   "texto": "island",
+   "inicio": 9.276,
+   "fim": 9.636
+  },
+  {
+   "texto": "on",
+   "inicio": 9.706,
+   "fim": 9.787
+  },
+  {
+   "texto": "Earth.",
+   "inicio": 9.857,
+   "fim": 10.356
+  },
+  {
+   "texto": "Denmark's",
+   "inicio": 10.786,
+   "fim": 11.389
+  },
+  {
+   "texto": "prime",
+   "inicio": 11.447,
+   "fim": 11.749
+  },
+  {
+   "texto": "minister",
+   "inicio": 11.773,
+   "fim": 12.214
+  },
+  {
+   "texto": "called",
+   "inicio": 12.283,
+   "fim": 12.585
+  },
+  {
+   "texto": "the",
+   "inicio": 12.62,
+   "fim": 12.69
+  },
+  {
+   "texto": "idea",
+   "inicio": 12.771,
+   "fim": 13.189
+  },
+  {
+   "texto": "absurd.",
+   "inicio": 13.27,
+   "fim": 14.234
+  },
+  {
+   "texto": "And",
+   "inicio": 14.617,
+   "fim": 14.779
+  },
+  {
+   "texto": "Greenland's",
+   "inicio": 14.838,
+   "fim": 15.395
+  },
+  {
+   "texto": "answer",
+   "inicio": 15.441,
+   "fim": 15.778
+  },
+  {
+   "texto": "was",
+   "inicio": 15.848,
+   "fim": 16.033
+  },
+  {
+   "texto": "even",
+   "inicio": 16.115,
+   "fim": 16.347
+  },
+  {
+   "texto": "shorter:",
+   "inicio": 16.405,
+   "fim": 17.032
+  },
+  {
+   "texto": "we",
+   "inicio": 17.241,
+   "fim": 17.427
+  },
+  {
+   "texto": "are",
+   "inicio": 17.508,
+   "fim": 17.775
+  },
+  {
+   "texto": "not",
+   "inicio": 17.845,
+   "fim": 18.123
+  },
+  {
+   "texto": "for",
+   "inicio": 18.204,
+   "fim": 18.379
+  },
+  {
+   "texto": "sale.",
+   "inicio": 18.448,
+   "fim": 19.691
+  }
+ ]
+}

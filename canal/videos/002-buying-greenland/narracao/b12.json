@@ -1,0 +1,253 @@
+{
+ "id": "b12",
+ "capitulo": "Florida, Mexico and a Desert",
+ "visual": "\"1819\". Florida with the Spanish flag. Price tag \"$0\".",
+ "texto": "The next deal came in 1819. Spain owned Florida, but it could barely control it. So Spain handed it over. The surprising part? Spain didn't get a single dollar. The United States simply agreed to pay up to five million dollars in claims that American citizens had against Spain.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0,
+   "fim": 0.128
+  },
+  {
+   "texto": "next",
+   "inicio": 0.186,
+   "fim": 0.395
+  },
+  {
+   "texto": "deal",
+   "inicio": 0.441,
+   "fim": 0.685
+  },
+  {
+   "texto": "came",
+   "inicio": 0.755,
+   "fim": 1.045
+  },
+  {
+   "texto": "in",
+   "inicio": 1.103,
+   "fim": 1.207
+  },
+  {
+   "texto": "1819.",
+   "inicio": 1.277,
+   "fim": 2.694
+  },
+  {
+   "texto": "Spain",
+   "inicio": 2.937,
+   "fim": 3.355
+  },
+  {
+   "texto": "owned",
+   "inicio": 3.448,
+   "fim": 3.692
+  },
+  {
+   "texto": "Florida,",
+   "inicio": 3.75,
+   "fim": 4.574
+  },
+  {
+   "texto": "but",
+   "inicio": 4.783,
+   "fim": 4.981
+  },
+  {
+   "texto": "it",
+   "inicio": 5.039,
+   "fim": 5.108
+  },
+  {
+   "texto": "could",
+   "inicio": 5.155,
+   "fim": 5.329
+  },
+  {
+   "texto": "barely",
+   "inicio": 5.375,
+   "fim": 5.712
+  },
+  {
+   "texto": "control",
+   "inicio": 5.759,
+   "fim": 6.2
+  },
+  {
+   "texto": "it.",
+   "inicio": 6.269,
+   "fim": 6.583
+  },
+  {
+   "texto": "So",
+   "inicio": 6.757,
+   "fim": 6.954
+  },
+  {
+   "texto": "Spain",
+   "inicio": 7.036,
+   "fim": 7.396
+  },
+  {
+   "texto": "handed",
+   "inicio": 7.465,
+   "fim": 7.79
+  },
+  {
+   "texto": "it",
+   "inicio": 7.837,
+   "fim": 7.906
+  },
+  {
+   "texto": "over.",
+   "inicio": 7.964,
+   "fim": 8.487
+  },
+  {
+   "texto": "The",
+   "inicio": 9.091,
+   "fim": 9.207
+  },
+  {
+   "texto": "surprising",
+   "inicio": 9.265,
+   "fim": 9.857
+  },
+  {
+   "texto": "part?",
+   "inicio": 9.938,
+   "fim": 10.449
+  },
+  {
+   "texto": "Spain",
+   "inicio": 10.693,
+   "fim": 11.088
+  },
+  {
+   "texto": "didn't",
+   "inicio": 11.169,
+   "fim": 11.413
+  },
+  {
+   "texto": "get",
+   "inicio": 11.447,
+   "fim": 11.598
+  },
+  {
+   "texto": "a",
+   "inicio": 11.645,
+   "fim": 11.668
+  },
+  {
+   "texto": "single",
+   "inicio": 11.761,
+   "fim": 12.167
+  },
+  {
+   "texto": "dollar.",
+   "inicio": 12.214,
+   "fim": 12.829
+  },
+  {
+   "texto": "The",
+   "inicio": 13.34,
+   "fim": 13.456
+  },
+  {
+   "texto": "United",
+   "inicio": 13.537,
+   "fim": 13.886
+  },
+  {
+   "texto": "States",
+   "inicio": 13.932,
+   "fim": 14.28
+  },
+  {
+   "texto": "simply",
+   "inicio": 14.408,
+   "fim": 14.779
+  },
+  {
+   "texto": "agreed",
+   "inicio": 14.837,
+   "fim": 15.151
+  },
+  {
+   "texto": "to",
+   "inicio": 15.186,
+   "fim": 15.244
+  },
+  {
+   "texto": "pay",
+   "inicio": 15.302,
+   "fim": 15.499
+  },
+  {
+   "texto": "up",
+   "inicio": 15.557,
+   "fim": 15.662
+  },
+  {
+   "texto": "to",
+   "inicio": 15.72,
+   "fim": 15.778
+  },
+  {
+   "texto": "five",
+   "inicio": 15.894,
+   "fim": 16.3
+  },
+  {
+   "texto": "million",
+   "inicio": 16.358,
+   "fim": 16.695
+  },
+  {
+   "texto": "dollars",
+   "inicio": 16.753,
+   "fim": 17.287
+  },
+  {
+   "texto": "in",
+   "inicio": 17.612,
+   "fim": 17.775
+  },
+  {
+   "texto": "claims",
+   "inicio": 17.856,
+   "fim": 18.285
+  },
+  {
+   "texto": "that",
+   "inicio": 18.344,
+   "fim": 18.483
+  },
+  {
+   "texto": "American",
+   "inicio": 18.541,
+   "fim": 19.005
+  },
+  {
+   "texto": "citizens",
+   "inicio": 19.075,
+   "fim": 19.563
+  },
+  {
+   "texto": "had",
+   "inicio": 19.609,
+   "fim": 19.83
+  },
+  {
+   "texto": "against",
+   "inicio": 19.876,
+   "fim": 20.259
+  },
+  {
+   "texto": "Spain.",
+   "inicio": 20.352,
+   "fim": 21.594
+  }
+ ]
+}

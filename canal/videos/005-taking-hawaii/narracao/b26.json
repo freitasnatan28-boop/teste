@@ -1,0 +1,348 @@
+{
+ "id": "b26",
+ "capitulo": "An Act of War",
+ "visual": "\"1898\". Warships to Manila. Hawaii as the stepping stone. US flag rises.",
+ "texto": "Then came the Spanish-American War. American warships were heading to the Philippines, and Hawaii was the perfect stop on the way. In 1898, Congress annexed the islands with a simple resolution. No treaty. No vote by the people who lived there. On August 12th, 1898, the Hawaiian flag was lowered at Iolani Palace and the American flag went up. Many Hawaiians stayed home that day, refusing to watch.",
+ "palavras": [
+  {
+   "texto": "Then",
+   "inicio": 0.4,
+   "fim": 0.613
+  },
+  {
+   "texto": "came",
+   "inicio": 0.613,
+   "fim": 0.863
+  },
+  {
+   "texto": "the",
+   "inicio": 0.863,
+   "fim": 0.963
+  },
+  {
+   "texto": "Spanish-American",
+   "inicio": 0.963,
+   "fim": 1.913
+  },
+  {
+   "texto": "War.",
+   "inicio": 1.913,
+   "fim": 2.65
+  },
+  {
+   "texto": "American",
+   "inicio": 2.788,
+   "fim": 3.325
+  },
+  {
+   "texto": "warships",
+   "inicio": 3.325,
+   "fim": 3.875
+  },
+  {
+   "texto": "were",
+   "inicio": 3.875,
+   "fim": 4.0
+  },
+  {
+   "texto": "heading",
+   "inicio": 4.0,
+   "fim": 4.3
+  },
+  {
+   "texto": "to",
+   "inicio": 4.3,
+   "fim": 4.388
+  },
+  {
+   "texto": "the",
+   "inicio": 4.388,
+   "fim": 4.487
+  },
+  {
+   "texto": "Philippines,",
+   "inicio": 4.487,
+   "fim": 5.2
+  },
+  {
+   "texto": "and",
+   "inicio": 5.275,
+   "fim": 5.4
+  },
+  {
+   "texto": "Hawaii",
+   "inicio": 5.4,
+   "fim": 6.0
+  },
+  {
+   "texto": "was",
+   "inicio": 6.0,
+   "fim": 6.175
+  },
+  {
+   "texto": "the",
+   "inicio": 6.175,
+   "fim": 6.312
+  },
+  {
+   "texto": "perfect",
+   "inicio": 6.312,
+   "fim": 6.775
+  },
+  {
+   "texto": "stop",
+   "inicio": 6.775,
+   "fim": 7.112
+  },
+  {
+   "texto": "on",
+   "inicio": 7.112,
+   "fim": 7.237
+  },
+  {
+   "texto": "the",
+   "inicio": 7.237,
+   "fim": 7.338
+  },
+  {
+   "texto": "way.",
+   "inicio": 7.338,
+   "fim": 8.05
+  },
+  {
+   "texto": "In",
+   "inicio": 8.213,
+   "fim": 8.35
+  },
+  {
+   "texto": "1898,",
+   "inicio": 8.35,
+   "fim": 9.425
+  },
+  {
+   "texto": "Congress",
+   "inicio": 9.512,
+   "fim": 10.012
+  },
+  {
+   "texto": "annexed",
+   "inicio": 10.012,
+   "fim": 10.387
+  },
+  {
+   "texto": "the",
+   "inicio": 10.387,
+   "fim": 10.537
+  },
+  {
+   "texto": "islands",
+   "inicio": 10.537,
+   "fim": 11.0
+  },
+  {
+   "texto": "with",
+   "inicio": 11.0,
+   "fim": 11.137
+  },
+  {
+   "texto": "a",
+   "inicio": 11.137,
+   "fim": 11.25
+  },
+  {
+   "texto": "simple",
+   "inicio": 11.25,
+   "fim": 11.675
+  },
+  {
+   "texto": "resolution.",
+   "inicio": 11.675,
+   "fim": 12.725
+  },
+  {
+   "texto": "No",
+   "inicio": 12.838,
+   "fim": 13.088
+  },
+  {
+   "texto": "treaty.",
+   "inicio": 13.088,
+   "fim": 13.825
+  },
+  {
+   "texto": "No",
+   "inicio": 13.963,
+   "fim": 14.213
+  },
+  {
+   "texto": "vote",
+   "inicio": 14.213,
+   "fim": 14.55
+  },
+  {
+   "texto": "by",
+   "inicio": 14.55,
+   "fim": 14.688
+  },
+  {
+   "texto": "the",
+   "inicio": 14.688,
+   "fim": 14.775
+  },
+  {
+   "texto": "people",
+   "inicio": 14.775,
+   "fim": 15.125
+  },
+  {
+   "texto": "who",
+   "inicio": 15.125,
+   "fim": 15.287
+  },
+  {
+   "texto": "lived",
+   "inicio": 15.287,
+   "fim": 15.6
+  },
+  {
+   "texto": "there.",
+   "inicio": 15.6,
+   "fim": 16.2
+  },
+  {
+   "texto": "On",
+   "inicio": 16.3,
+   "fim": 16.488
+  },
+  {
+   "texto": "August",
+   "inicio": 16.488,
+   "fim": 16.887
+  },
+  {
+   "texto": "12th,",
+   "inicio": 16.887,
+   "fim": 17.4
+  },
+  {
+   "texto": "1898,",
+   "inicio": 17.475,
+   "fim": 18.7
+  },
+  {
+   "texto": "the",
+   "inicio": 18.775,
+   "fim": 18.875
+  },
+  {
+   "texto": "Hawaiian",
+   "inicio": 18.875,
+   "fim": 19.45
+  },
+  {
+   "texto": "flag",
+   "inicio": 19.45,
+   "fim": 19.9
+  },
+  {
+   "texto": "was",
+   "inicio": 19.9,
+   "fim": 20.087
+  },
+  {
+   "texto": "lowered",
+   "inicio": 20.087,
+   "fim": 20.525
+  },
+  {
+   "texto": "at",
+   "inicio": 20.525,
+   "fim": 20.675
+  },
+  {
+   "texto": "Iolani",
+   "inicio": 20.675,
+   "fim": 21.363
+  },
+  {
+   "texto": "Palace",
+   "inicio": 21.363,
+   "fim": 21.9
+  },
+  {
+   "texto": "and",
+   "inicio": 21.9,
+   "fim": 22.012
+  },
+  {
+   "texto": "the",
+   "inicio": 22.012,
+   "fim": 22.1
+  },
+  {
+   "texto": "American",
+   "inicio": 22.1,
+   "fim": 22.637
+  },
+  {
+   "texto": "flag",
+   "inicio": 22.637,
+   "fim": 23.075
+  },
+  {
+   "texto": "went",
+   "inicio": 23.075,
+   "fim": 23.238
+  },
+  {
+   "texto": "up.",
+   "inicio": 23.238,
+   "fim": 23.875
+  },
+  {
+   "texto": "Many",
+   "inicio": 24.05,
+   "fim": 24.325
+  },
+  {
+   "texto": "Hawaiians",
+   "inicio": 24.325,
+   "fim": 24.95
+  },
+  {
+   "texto": "stayed",
+   "inicio": 24.95,
+   "fim": 25.3
+  },
+  {
+   "texto": "home",
+   "inicio": 25.3,
+   "fim": 25.6
+  },
+  {
+   "texto": "that",
+   "inicio": 25.6,
+   "fim": 25.85
+  },
+  {
+   "texto": "day,",
+   "inicio": 25.85,
+   "fim": 26.325
+  },
+  {
+   "texto": "refusing",
+   "inicio": 26.45,
+   "fim": 27.075
+  },
+  {
+   "texto": "to",
+   "inicio": 27.075,
+   "fim": 27.212
+  },
+  {
+   "texto": "watch.",
+   "inicio": 27.212,
+   "fim": 28.0
+  }
+ ]
+}

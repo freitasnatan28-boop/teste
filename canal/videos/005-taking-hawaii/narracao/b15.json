@@ -1,0 +1,248 @@
+{
+ "id": "b15",
+ "capitulo": "The Bayonet Constitution",
+ "visual": "Armed militia icon. Document with stamp \"SIGN IT\".",
+ "texto": "In 1887, a group of mostly American businessmen with an armed militia forced him to sign a new constitution. It stripped most of the king's power and gave the vote to wealthy foreigners, while most Asians and many poor Hawaiians lost theirs. People called it the Bayonet Constitution.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0.4,
+   "fim": 0.525
+  },
+  {
+   "texto": "1887,",
+   "inicio": 0.525,
+   "fim": 2.1
+  },
+  {
+   "texto": "a",
+   "inicio": 2.237,
+   "fim": 2.362
+  },
+  {
+   "texto": "group",
+   "inicio": 2.362,
+   "fim": 2.663
+  },
+  {
+   "texto": "of",
+   "inicio": 2.663,
+   "fim": 2.812
+  },
+  {
+   "texto": "mostly",
+   "inicio": 2.812,
+   "fim": 3.3
+  },
+  {
+   "texto": "American",
+   "inicio": 3.3,
+   "fim": 3.888
+  },
+  {
+   "texto": "businessmen",
+   "inicio": 3.888,
+   "fim": 4.55
+  },
+  {
+   "texto": "with",
+   "inicio": 4.55,
+   "fim": 4.688
+  },
+  {
+   "texto": "an",
+   "inicio": 4.688,
+   "fim": 4.85
+  },
+  {
+   "texto": "armed",
+   "inicio": 4.85,
+   "fim": 5.25
+  },
+  {
+   "texto": "militia",
+   "inicio": 5.25,
+   "fim": 5.8
+  },
+  {
+   "texto": "forced",
+   "inicio": 5.8,
+   "fim": 6.112
+  },
+  {
+   "texto": "him",
+   "inicio": 6.112,
+   "fim": 6.3
+  },
+  {
+   "texto": "to",
+   "inicio": 6.3,
+   "fim": 6.45
+  },
+  {
+   "texto": "sign",
+   "inicio": 6.45,
+   "fim": 6.825
+  },
+  {
+   "texto": "a",
+   "inicio": 6.825,
+   "fim": 6.938
+  },
+  {
+   "texto": "new",
+   "inicio": 6.938,
+   "fim": 7.213
+  },
+  {
+   "texto": "constitution.",
+   "inicio": 7.213,
+   "fim": 8.6
+  },
+  {
+   "texto": "It",
+   "inicio": 8.725,
+   "fim": 8.925
+  },
+  {
+   "texto": "stripped",
+   "inicio": 8.925,
+   "fim": 9.338
+  },
+  {
+   "texto": "most",
+   "inicio": 9.338,
+   "fim": 9.637
+  },
+  {
+   "texto": "of",
+   "inicio": 9.637,
+   "fim": 9.713
+  },
+  {
+   "texto": "the",
+   "inicio": 9.713,
+   "fim": 9.812
+  },
+  {
+   "texto": "king's",
+   "inicio": 9.812,
+   "fim": 10.188
+  },
+  {
+   "texto": "power",
+   "inicio": 10.188,
+   "fim": 10.812
+  },
+  {
+   "texto": "and",
+   "inicio": 10.812,
+   "fim": 10.95
+  },
+  {
+   "texto": "gave",
+   "inicio": 10.95,
+   "fim": 11.275
+  },
+  {
+   "texto": "the",
+   "inicio": 11.275,
+   "fim": 11.412
+  },
+  {
+   "texto": "vote",
+   "inicio": 11.412,
+   "fim": 11.725
+  },
+  {
+   "texto": "to",
+   "inicio": 11.725,
+   "fim": 11.863
+  },
+  {
+   "texto": "wealthy",
+   "inicio": 11.863,
+   "fim": 12.3
+  },
+  {
+   "texto": "foreigners,",
+   "inicio": 12.3,
+   "fim": 13.275
+  },
+  {
+   "texto": "while",
+   "inicio": 13.375,
+   "fim": 13.613
+  },
+  {
+   "texto": "most",
+   "inicio": 13.613,
+   "fim": 13.975
+  },
+  {
+   "texto": "Asians",
+   "inicio": 13.975,
+   "fim": 14.625
+  },
+  {
+   "texto": "and",
+   "inicio": 14.625,
+   "fim": 14.75
+  },
+  {
+   "texto": "many",
+   "inicio": 14.75,
+   "fim": 15.012
+  },
+  {
+   "texto": "poor",
+   "inicio": 15.012,
+   "fim": 15.325
+  },
+  {
+   "texto": "Hawaiians",
+   "inicio": 15.325,
+   "fim": 15.988
+  },
+  {
+   "texto": "lost",
+   "inicio": 15.988,
+   "fim": 16.375
+  },
+  {
+   "texto": "theirs.",
+   "inicio": 16.375,
+   "fim": 17.125
+  },
+  {
+   "texto": "People",
+   "inicio": 17.262,
+   "fim": 17.663
+  },
+  {
+   "texto": "called",
+   "inicio": 17.663,
+   "fim": 18.0
+  },
+  {
+   "texto": "it",
+   "inicio": 18.0,
+   "fim": 18.15
+  },
+  {
+   "texto": "the",
+   "inicio": 18.15,
+   "fim": 18.288
+  },
+  {
+   "texto": "Bayonet",
+   "inicio": 18.288,
+   "fim": 18.8
+  },
+  {
+   "texto": "Constitution.",
+   "inicio": 18.8,
+   "fim": 20.075
+  }
+ ]
+}

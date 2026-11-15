@@ -1,0 +1,118 @@
+{
+ "id": "b06",
+ "capitulo": "The Crossroads of the Pacific",
+ "visual": "\"1778\". Captain Cook route. British flag. Cook icon.",
+ "texto": "The British explorer James Cook reached the islands in 1778. Soon whalers, traders and missionaries followed, many of them from New England.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0.375,
+   "fim": 0.487
+  },
+  {
+   "texto": "British",
+   "inicio": 0.487,
+   "fim": 0.9
+  },
+  {
+   "texto": "explorer",
+   "inicio": 0.9,
+   "fim": 1.512
+  },
+  {
+   "texto": "James",
+   "inicio": 1.512,
+   "fim": 1.962
+  },
+  {
+   "texto": "Cook",
+   "inicio": 1.962,
+   "fim": 2.312
+  },
+  {
+   "texto": "reached",
+   "inicio": 2.312,
+   "fim": 2.587
+  },
+  {
+   "texto": "the",
+   "inicio": 2.587,
+   "fim": 2.737
+  },
+  {
+   "texto": "islands",
+   "inicio": 2.737,
+   "fim": 3.275
+  },
+  {
+   "texto": "in",
+   "inicio": 3.275,
+   "fim": 3.438
+  },
+  {
+   "texto": "1778.",
+   "inicio": 3.438,
+   "fim": 5.125
+  },
+  {
+   "texto": "Soon",
+   "inicio": 5.312,
+   "fim": 5.688
+  },
+  {
+   "texto": "whalers,",
+   "inicio": 5.688,
+   "fim": 6.525
+  },
+  {
+   "texto": "traders",
+   "inicio": 6.662,
+   "fim": 7.275
+  },
+  {
+   "texto": "and",
+   "inicio": 7.275,
+   "fim": 7.4
+  },
+  {
+   "texto": "missionaries",
+   "inicio": 7.4,
+   "fim": 8.037
+  },
+  {
+   "texto": "followed,",
+   "inicio": 8.037,
+   "fim": 8.775
+  },
+  {
+   "texto": "many",
+   "inicio": 8.912,
+   "fim": 9.188
+  },
+  {
+   "texto": "of",
+   "inicio": 9.188,
+   "fim": 9.275
+  },
+  {
+   "texto": "them",
+   "inicio": 9.275,
+   "fim": 9.475
+  },
+  {
+   "texto": "from",
+   "inicio": 9.475,
+   "fim": 9.675
+  },
+  {
+   "texto": "New",
+   "inicio": 9.675,
+   "fim": 9.85
+  },
+  {
+   "texto": "England.",
+   "inicio": 9.85,
+   "fim": 10.675
+  }
+ ]
+}

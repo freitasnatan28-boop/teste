@@ -1,0 +1,153 @@
+{
+ "id": "b23",
+ "capitulo": "War Plan Red",
+ "visual": "Attack arrows: Halifax, Montreal, Winnipeg, Vancouver.",
+ "texto": "The plan was to strike first. Seize the port of Halifax, cut the railways, take Montreal and Quebec, and grab the Great Lakes region before Britain could send help.",
+ "palavras": [
+  {
+   "texto": "The",
+   "inicio": 0.35,
+   "fim": 0.463
+  },
+  {
+   "texto": "plan",
+   "inicio": 0.463,
+   "fim": 0.925
+  },
+  {
+   "texto": "was",
+   "inicio": 0.925,
+   "fim": 1.1
+  },
+  {
+   "texto": "to",
+   "inicio": 1.1,
+   "fim": 1.225
+  },
+  {
+   "texto": "strike",
+   "inicio": 1.225,
+   "fim": 1.587
+  },
+  {
+   "texto": "first.",
+   "inicio": 1.587,
+   "fim": 2.375
+  },
+  {
+   "texto": "Seize",
+   "inicio": 2.538,
+   "fim": 2.9
+  },
+  {
+   "texto": "the",
+   "inicio": 2.9,
+   "fim": 3.0
+  },
+  {
+   "texto": "port",
+   "inicio": 3.0,
+   "fim": 3.212
+  },
+  {
+   "texto": "of",
+   "inicio": 3.212,
+   "fim": 3.3
+  },
+  {
+   "texto": "Halifax,",
+   "inicio": 3.3,
+   "fim": 4.3
+  },
+  {
+   "texto": "cut",
+   "inicio": 4.438,
+   "fim": 4.7
+  },
+  {
+   "texto": "the",
+   "inicio": 4.7,
+   "fim": 4.838
+  },
+  {
+   "texto": "railways,",
+   "inicio": 4.838,
+   "fim": 5.65
+  },
+  {
+   "texto": "take",
+   "inicio": 5.725,
+   "fim": 5.975
+  },
+  {
+   "texto": "Montreal",
+   "inicio": 5.975,
+   "fim": 6.713
+  },
+  {
+   "texto": "and",
+   "inicio": 6.713,
+   "fim": 6.825
+  },
+  {
+   "texto": "Quebec,",
+   "inicio": 6.825,
+   "fim": 7.575
+  },
+  {
+   "texto": "and",
+   "inicio": 7.688,
+   "fim": 7.838
+  },
+  {
+   "texto": "grab",
+   "inicio": 7.838,
+   "fim": 8.25
+  },
+  {
+   "texto": "the",
+   "inicio": 8.25,
+   "fim": 8.363
+  },
+  {
+   "texto": "Great",
+   "inicio": 8.363,
+   "fim": 8.725
+  },
+  {
+   "texto": "Lakes",
+   "inicio": 8.725,
+   "fim": 9.012
+  },
+  {
+   "texto": "region",
+   "inicio": 9.012,
+   "fim": 9.475
+  },
+  {
+   "texto": "before",
+   "inicio": 9.475,
+   "fim": 9.887
+  },
+  {
+   "texto": "Britain",
+   "inicio": 9.887,
+   "fim": 10.25
+  },
+  {
+   "texto": "could",
+   "inicio": 10.25,
+   "fim": 10.463
+  },
+  {
+   "texto": "send",
+   "inicio": 10.463,
+   "fim": 10.775
+  },
+  {
+   "texto": "help.",
+   "inicio": 10.775,
+   "fim": 11.45
+  }
+ ]
+}

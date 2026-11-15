@@ -1,0 +1,248 @@
+{
+ "id": "b16",
+ "capitulo": "The Big Ditch",
+ "visual": "Locks icon. Gatun Lake fills. Ship lifted 85 FEET.",
+ "texto": "And the engineers changed the plan. Instead of cutting all the way down to sea level, they built a giant staircase of water. Locks lift every ship eighty-five feet up into an artificial lake, carry it across the country, and lower it back down on the other side.",
+ "palavras": [
+  {
+   "texto": "And",
+   "inicio": 0,
+   "fim": 0.197
+  },
+  {
+   "texto": "the",
+   "inicio": 0.255,
+   "fim": 0.325
+  },
+  {
+   "texto": "engineers",
+   "inicio": 0.395,
+   "fim": 1.045
+  },
+  {
+   "texto": "changed",
+   "inicio": 1.173,
+   "fim": 1.614
+  },
+  {
+   "texto": "the",
+   "inicio": 1.672,
+   "fim": 1.741
+  },
+  {
+   "texto": "plan.",
+   "inicio": 1.8,
+   "fim": 2.426
+  },
+  {
+   "texto": "Instead",
+   "inicio": 2.868,
+   "fim": 3.251
+  },
+  {
+   "texto": "of",
+   "inicio": 3.297,
+   "fim": 3.355
+  },
+  {
+   "texto": "cutting",
+   "inicio": 3.425,
+   "fim": 3.727
+  },
+  {
+   "texto": "all",
+   "inicio": 3.785,
+   "fim": 4.017
+  },
+  {
+   "texto": "the",
+   "inicio": 4.087,
+   "fim": 4.156
+  },
+  {
+   "texto": "way",
+   "inicio": 4.203,
+   "fim": 4.342
+  },
+  {
+   "texto": "down",
+   "inicio": 4.412,
+   "fim": 4.632
+  },
+  {
+   "texto": "to",
+   "inicio": 4.69,
+   "fim": 4.783
+  },
+  {
+   "texto": "sea",
+   "inicio": 4.899,
+   "fim": 5.108
+  },
+  {
+   "texto": "level,",
+   "inicio": 5.166,
+   "fim": 5.666
+  },
+  {
+   "texto": "they",
+   "inicio": 5.944,
+   "fim": 6.095
+  },
+  {
+   "texto": "built",
+   "inicio": 6.153,
+   "fim": 6.385
+  },
+  {
+   "texto": "a",
+   "inicio": 6.432,
+   "fim": 6.467
+  },
+  {
+   "texto": "giant",
+   "inicio": 6.583,
+   "fim": 7.012
+  },
+  {
+   "texto": "staircase",
+   "inicio": 7.129,
+   "fim": 7.86
+  },
+  {
+   "texto": "of",
+   "inicio": 7.906,
+   "fim": 7.976
+  },
+  {
+   "texto": "water.",
+   "inicio": 8.057,
+   "fim": 8.661
+  },
+  {
+   "texto": "Locks",
+   "inicio": 9.172,
+   "fim": 9.613
+  },
+  {
+   "texto": "lift",
+   "inicio": 9.729,
+   "fim": 9.996
+  },
+  {
+   "texto": "every",
+   "inicio": 10.054,
+   "fim": 10.298
+  },
+  {
+   "texto": "ship",
+   "inicio": 10.356,
+   "fim": 10.6
+  },
+  {
+   "texto": "eighty-five",
+   "inicio": 10.681,
+   "fim": 11.343
+  },
+  {
+   "texto": "feet",
+   "inicio": 11.378,
+   "fim": 11.622
+  },
+  {
+   "texto": "up",
+   "inicio": 11.68,
+   "fim": 11.831
+  },
+  {
+   "texto": "into",
+   "inicio": 11.923,
+   "fim": 12.144
+  },
+  {
+   "texto": "an",
+   "inicio": 12.237,
+   "fim": 12.307
+  },
+  {
+   "texto": "artificial",
+   "inicio": 12.353,
+   "fim": 12.899
+  },
+  {
+   "texto": "lake,",
+   "inicio": 12.969,
+   "fim": 13.387
+  },
+  {
+   "texto": "carry",
+   "inicio": 13.77,
+   "fim": 14.118
+  },
+  {
+   "texto": "it",
+   "inicio": 14.176,
+   "fim": 14.257
+  },
+  {
+   "texto": "across",
+   "inicio": 14.304,
+   "fim": 14.675
+  },
+  {
+   "texto": "the",
+   "inicio": 14.722,
+   "fim": 14.792
+  },
+  {
+   "texto": "country,",
+   "inicio": 14.85,
+   "fim": 15.407
+  },
+  {
+   "texto": "and",
+   "inicio": 15.558,
+   "fim": 15.72
+  },
+  {
+   "texto": "lower",
+   "inicio": 15.778,
+   "fim": 16.022
+  },
+  {
+   "texto": "it",
+   "inicio": 16.08,
+   "fim": 16.15
+  },
+  {
+   "texto": "back",
+   "inicio": 16.208,
+   "fim": 16.405
+  },
+  {
+   "texto": "down",
+   "inicio": 16.475,
+   "fim": 16.742
+  },
+  {
+   "texto": "on",
+   "inicio": 16.8,
+   "fim": 16.881
+  },
+  {
+   "texto": "the",
+   "inicio": 16.928,
+   "fim": 16.997
+  },
+  {
+   "texto": "other",
+   "inicio": 17.055,
+   "fim": 17.264
+  },
+  {
+   "texto": "side.",
+   "inicio": 17.334,
+   "fim": 18.391
+  }
+ ]
+}

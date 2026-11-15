@@ -1,0 +1,173 @@
+{
+ "id": "b20",
+ "capitulo": "A Flag Too Far",
+ "visual": "\"1964\". Balboa. Flag icons. Bubble \"OUR FLAG\". Explosion icons.",
+ "texto": "For decades, that anger grew. Then, in January 1964, Panamanian students tried to raise their flag at an American high school inside the zone. The flag was torn. Riots exploded along the border.",
+ "palavras": [
+  {
+   "texto": "For",
+   "inicio": 0,
+   "fim": 0.209
+  },
+  {
+   "texto": "decades,",
+   "inicio": 0.302,
+   "fim": 1.161
+  },
+  {
+   "texto": "that",
+   "inicio": 1.265,
+   "fim": 1.474
+  },
+  {
+   "texto": "anger",
+   "inicio": 1.533,
+   "fim": 1.869
+  },
+  {
+   "texto": "grew.",
+   "inicio": 1.939,
+   "fim": 2.508
+  },
+  {
+   "texto": "Then,",
+   "inicio": 3.007,
+   "fim": 3.529
+  },
+  {
+   "texto": "in",
+   "inicio": 3.599,
+   "fim": 3.738
+  },
+  {
+   "texto": "January",
+   "inicio": 3.796,
+   "fim": 4.354
+  },
+  {
+   "texto": "1964,",
+   "inicio": 4.423,
+   "fim": 5.77
+  },
+  {
+   "texto": "Panamanian",
+   "inicio": 6.037,
+   "fim": 6.722
+  },
+  {
+   "texto": "students",
+   "inicio": 6.78,
+   "fim": 7.187
+  },
+  {
+   "texto": "tried",
+   "inicio": 7.233,
+   "fim": 7.5
+  },
+  {
+   "texto": "to",
+   "inicio": 7.535,
+   "fim": 7.605
+  },
+  {
+   "texto": "raise",
+   "inicio": 7.709,
+   "fim": 8.046
+  },
+  {
+   "texto": "their",
+   "inicio": 8.092,
+   "fim": 8.266
+  },
+  {
+   "texto": "flag",
+   "inicio": 8.324,
+   "fim": 8.789
+  },
+  {
+   "texto": "at",
+   "inicio": 9.056,
+   "fim": 9.276
+  },
+  {
+   "texto": "an",
+   "inicio": 9.323,
+   "fim": 9.392
+  },
+  {
+   "texto": "American",
+   "inicio": 9.451,
+   "fim": 9.903
+  },
+  {
+   "texto": "high",
+   "inicio": 9.95,
+   "fim": 10.136
+  },
+  {
+   "texto": "school",
+   "inicio": 10.159,
+   "fim": 10.519
+  },
+  {
+   "texto": "inside",
+   "inicio": 10.623,
+   "fim": 11.146
+  },
+  {
+   "texto": "the",
+   "inicio": 11.18,
+   "fim": 11.238
+  },
+  {
+   "texto": "zone.",
+   "inicio": 11.308,
+   "fim": 11.912
+  },
+  {
+   "texto": "The",
+   "inicio": 12.411,
+   "fim": 12.516
+  },
+  {
+   "texto": "flag",
+   "inicio": 12.574,
+   "fim": 12.992
+  },
+  {
+   "texto": "was",
+   "inicio": 13.166,
+   "fim": 13.328
+  },
+  {
+   "texto": "torn.",
+   "inicio": 13.398,
+   "fim": 14.025
+  },
+  {
+   "texto": "Riots",
+   "inicio": 14.512,
+   "fim": 15.093
+  },
+  {
+   "texto": "exploded",
+   "inicio": 15.197,
+   "fim": 15.79
+  },
+  {
+   "texto": "along",
+   "inicio": 15.848,
+   "fim": 16.091
+  },
+  {
+   "texto": "the",
+   "inicio": 16.149,
+   "fim": 16.219
+  },
+  {
+   "texto": "border.",
+   "inicio": 16.266,
+   "fim": 17.415
+  }
+ ]
+}

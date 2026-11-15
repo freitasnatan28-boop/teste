@@ -1,0 +1,218 @@
+{
+ "id": "b11",
+ "capitulo": "A lagosta anda ou nada?",
+ "visual": "Foto do almirante Paulo Moreira da Silva. Depois, um canguru pulando.",
+ "texto": "Foi aí que o oficial da Marinha brasileira Paulo Moreira da Silva, que era oceanógrafo, respondeu com uma das frases mais geniais dessa história: \"Por analogia, se a lagosta é peixe porque se desloca dando saltos, então o canguru é uma ave.\"",
+ "palavras": [
+  {
+   "texto": "Foi",
+   "inicio": 0,
+   "fim": 0.255
+  },
+  {
+   "texto": "aí",
+   "inicio": 0.279,
+   "fim": 0.534
+  },
+  {
+   "texto": "que",
+   "inicio": 0.778,
+   "fim": 0.882
+  },
+  {
+   "texto": "o",
+   "inicio": 0.917,
+   "fim": 0.94
+  },
+  {
+   "texto": "oficial",
+   "inicio": 0.964,
+   "fim": 1.567
+  },
+  {
+   "texto": "da",
+   "inicio": 1.625,
+   "fim": 1.695
+  },
+  {
+   "texto": "Marinha",
+   "inicio": 1.753,
+   "fim": 2.101
+  },
+  {
+   "texto": "brasileira",
+   "inicio": 2.125,
+   "fim": 2.786
+  },
+  {
+   "texto": "Paulo",
+   "inicio": 3.053,
+   "fim": 3.506
+  },
+  {
+   "texto": "Moreira",
+   "inicio": 3.553,
+   "fim": 3.947
+  },
+  {
+   "texto": "da",
+   "inicio": 3.994,
+   "fim": 4.087
+  },
+  {
+   "texto": "Silva,",
+   "inicio": 4.168,
+   "fim": 4.679
+  },
+  {
+   "texto": "que",
+   "inicio": 4.992,
+   "fim": 5.12
+  },
+  {
+   "texto": "era",
+   "inicio": 5.178,
+   "fim": 5.375
+  },
+  {
+   "texto": "oceanógrafo,",
+   "inicio": 5.41,
+   "fim": 6.432
+  },
+  {
+   "texto": "respondeu",
+   "inicio": 6.629,
+   "fim": 7.268
+  },
+  {
+   "texto": "com",
+   "inicio": 7.5,
+   "fim": 7.721
+  },
+  {
+   "texto": "uma",
+   "inicio": 7.744,
+   "fim": 7.918
+  },
+  {
+   "texto": "das",
+   "inicio": 7.953,
+   "fim": 8.115
+  },
+  {
+   "texto": "frases",
+   "inicio": 8.197,
+   "fim": 8.603
+  },
+  {
+   "texto": "mais",
+   "inicio": 8.696,
+   "fim": 8.928
+  },
+  {
+   "texto": "geniais",
+   "inicio": 8.963,
+   "fim": 9.462
+  },
+  {
+   "texto": "dessa",
+   "inicio": 9.509,
+   "fim": 9.706
+  },
+  {
+   "texto": "história:",
+   "inicio": 9.729,
+   "fim": 10.31
+  },
+  {
+   "texto": "\"Por",
+   "inicio": 10.739,
+   "fim": 11.134
+  },
+  {
+   "texto": "analogia,",
+   "inicio": 11.18,
+   "fim": 11.912
+  },
+  {
+   "texto": "se",
+   "inicio": 12.109,
+   "fim": 12.249
+  },
+  {
+   "texto": "a",
+   "inicio": 12.295,
+   "fim": 12.318
+  },
+  {
+   "texto": "lagosta",
+   "inicio": 12.365,
+   "fim": 12.829
+  },
+  {
+   "texto": "é",
+   "inicio": 12.841,
+   "fim": 12.864
+  },
+  {
+   "texto": "peixe",
+   "inicio": 12.934,
+   "fim": 13.328
+  },
+  {
+   "texto": "porque",
+   "inicio": 13.398,
+   "fim": 13.688
+  },
+  {
+   "texto": "se",
+   "inicio": 13.746,
+   "fim": 13.839
+  },
+  {
+   "texto": "desloca",
+   "inicio": 13.897,
+   "fim": 14.396
+  },
+  {
+   "texto": "dando",
+   "inicio": 14.443,
+   "fim": 14.64
+  },
+  {
+   "texto": "saltos,",
+   "inicio": 14.698,
+   "fim": 15.302
+  },
+  {
+   "texto": "então",
+   "inicio": 15.418,
+   "fim": 15.871
+  },
+  {
+   "texto": "o",
+   "inicio": 16.045,
+   "fim": 16.161
+  },
+  {
+   "texto": "canguru",
+   "inicio": 16.219,
+   "fim": 16.741
+  },
+  {
+   "texto": "é",
+   "inicio": 16.892,
+   "fim": 16.985
+  },
+  {
+   "texto": "uma",
+   "inicio": 17.032,
+   "fim": 17.229
+  },
+  {
+   "texto": "ave.\"",
+   "inicio": 17.264,
+   "fim": 18.158
+  }
+ ]
+}

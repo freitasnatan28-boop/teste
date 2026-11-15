@@ -1,0 +1,118 @@
+{
+ "id": "b21",
+ "capitulo": "Frente a frente em alto-mar",
+ "visual": "Tela de radar verde. Um ponto aparece.",
+ "texto": "Às dez da manhã, o contratorpedeiro brasileiro Paraná detectou um alvo no radar. Tinha as características do Tartu. Tinha de ser ele.",
+ "palavras": [
+  {
+   "texto": "Às",
+   "inicio": 0,
+   "fim": 0.279
+  },
+  {
+   "texto": "dez",
+   "inicio": 0.325,
+   "fim": 0.499
+  },
+  {
+   "texto": "da",
+   "inicio": 0.557,
+   "fim": 0.615
+  },
+  {
+   "texto": "manhã,",
+   "inicio": 0.662,
+   "fim": 1.091
+  },
+  {
+   "texto": "o",
+   "inicio": 1.242,
+   "fim": 1.324
+  },
+  {
+   "texto": "contratorpedeiro",
+   "inicio": 1.416,
+   "fim": 2.554
+  },
+  {
+   "texto": "brasileiro",
+   "inicio": 2.601,
+   "fim": 3.146
+  },
+  {
+   "texto": "Paraná",
+   "inicio": 3.228,
+   "fim": 3.796
+  },
+  {
+   "texto": "detectou",
+   "inicio": 4.18,
+   "fim": 4.725
+  },
+  {
+   "texto": "um",
+   "inicio": 4.748,
+   "fim": 4.83
+  },
+  {
+   "texto": "alvo",
+   "inicio": 4.946,
+   "fim": 5.143
+  },
+  {
+   "texto": "no",
+   "inicio": 5.178,
+   "fim": 5.248
+  },
+  {
+   "texto": "radar.",
+   "inicio": 5.283,
+   "fim": 5.77
+  },
+  {
+   "texto": "Tinha",
+   "inicio": 6.153,
+   "fim": 6.536
+  },
+  {
+   "texto": "as",
+   "inicio": 6.618,
+   "fim": 6.769
+  },
+  {
+   "texto": "características",
+   "inicio": 6.85,
+   "fim": 7.639
+  },
+  {
+   "texto": "do",
+   "inicio": 7.686,
+   "fim": 7.755
+  },
+  {
+   "texto": "Tartu.",
+   "inicio": 7.814,
+   "fim": 8.394
+  },
+  {
+   "texto": "Tinha",
+   "inicio": 8.905,
+   "fim": 9.207
+  },
+  {
+   "texto": "de",
+   "inicio": 9.265,
+   "fim": 9.334
+  },
+  {
+   "texto": "ser",
+   "inicio": 9.392,
+   "fim": 9.578
+  },
+  {
+   "texto": "ele.",
+   "inicio": 9.636,
+   "fim": 10.542
+  }
+ ]
+}

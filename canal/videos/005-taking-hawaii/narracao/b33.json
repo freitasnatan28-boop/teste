@@ -1,0 +1,178 @@
+{
+ "id": "b33",
+ "capitulo": "The Pattern",
+ "visual": "Back to Hawaii. Hawaiian flag. Bubble \"ALOHA\".",
+ "texto": "Hawaii is the one place where it got all of it. A kingdom became a state. And the apology, a century later, shows that even the country that took it knows how it happened.",
+ "palavras": [
+  {
+   "texto": "Hawaii",
+   "inicio": 0.375,
+   "fim": 0.95
+  },
+  {
+   "texto": "is",
+   "inicio": 0.95,
+   "fim": 1.1
+  },
+  {
+   "texto": "the",
+   "inicio": 1.1,
+   "fim": 1.238
+  },
+  {
+   "texto": "one",
+   "inicio": 1.238,
+   "fim": 1.512
+  },
+  {
+   "texto": "place",
+   "inicio": 1.512,
+   "fim": 1.875
+  },
+  {
+   "texto": "where",
+   "inicio": 1.875,
+   "fim": 2.013
+  },
+  {
+   "texto": "it",
+   "inicio": 2.013,
+   "fim": 2.1
+  },
+  {
+   "texto": "got",
+   "inicio": 2.1,
+   "fim": 2.3
+  },
+  {
+   "texto": "all",
+   "inicio": 2.3,
+   "fim": 2.538
+  },
+  {
+   "texto": "of",
+   "inicio": 2.538,
+   "fim": 2.65
+  },
+  {
+   "texto": "it.",
+   "inicio": 2.65,
+   "fim": 3.125
+  },
+  {
+   "texto": "A",
+   "inicio": 3.237,
+   "fim": 3.362
+  },
+  {
+   "texto": "kingdom",
+   "inicio": 3.362,
+   "fim": 3.775
+  },
+  {
+   "texto": "became",
+   "inicio": 3.775,
+   "fim": 4.15
+  },
+  {
+   "texto": "a",
+   "inicio": 4.15,
+   "fim": 4.263
+  },
+  {
+   "texto": "state.",
+   "inicio": 4.263,
+   "fim": 5.15
+  },
+  {
+   "texto": "And",
+   "inicio": 5.25,
+   "fim": 5.412
+  },
+  {
+   "texto": "the",
+   "inicio": 5.412,
+   "fim": 5.525
+  },
+  {
+   "texto": "apology,",
+   "inicio": 5.525,
+   "fim": 6.375
+  },
+  {
+   "texto": "a",
+   "inicio": 6.487,
+   "fim": 6.638
+  },
+  {
+   "texto": "century",
+   "inicio": 6.638,
+   "fim": 7.2
+  },
+  {
+   "texto": "later,",
+   "inicio": 7.2,
+   "fim": 7.775
+  },
+  {
+   "texto": "shows",
+   "inicio": 7.925,
+   "fim": 8.35
+  },
+  {
+   "texto": "that",
+   "inicio": 8.35,
+   "fim": 8.562
+  },
+  {
+   "texto": "even",
+   "inicio": 8.562,
+   "fim": 8.875
+  },
+  {
+   "texto": "the",
+   "inicio": 8.875,
+   "fim": 9.012
+  },
+  {
+   "texto": "country",
+   "inicio": 9.012,
+   "fim": 9.5
+  },
+  {
+   "texto": "that",
+   "inicio": 9.5,
+   "fim": 9.688
+  },
+  {
+   "texto": "took",
+   "inicio": 9.688,
+   "fim": 9.95
+  },
+  {
+   "texto": "it",
+   "inicio": 9.95,
+   "fim": 10.113
+  },
+  {
+   "texto": "knows",
+   "inicio": 10.113,
+   "fim": 10.55
+  },
+  {
+   "texto": "how",
+   "inicio": 10.55,
+   "fim": 10.738
+  },
+  {
+   "texto": "it",
+   "inicio": 10.738,
+   "fim": 10.825
+  },
+  {
+   "texto": "happened.",
+   "inicio": 10.825,
+   "fim": 11.675
+  }
+ ]
+}

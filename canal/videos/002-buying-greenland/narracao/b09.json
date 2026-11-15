@@ -1,0 +1,93 @@
+{
+ "id": "b09",
+ "capitulo": "The Deal of the Century",
+ "visual": "Back to Paris. Napoleon bubble: \"WHY NOT ALL OF IT?\"",
+ "texto": "So the French made an offer the Americans never expected. Not just the city. All of Louisiana.",
+ "palavras": [
+  {
+   "texto": "So",
+   "inicio": 0,
+   "fim": 0.232
+  },
+  {
+   "texto": "the",
+   "inicio": 0.302,
+   "fim": 0.372
+  },
+  {
+   "texto": "French",
+   "inicio": 0.43,
+   "fim": 0.743
+  },
+  {
+   "texto": "made",
+   "inicio": 0.801,
+   "fim": 1.01
+  },
+  {
+   "texto": "an",
+   "inicio": 1.045,
+   "fim": 1.103
+  },
+  {
+   "texto": "offer",
+   "inicio": 1.161,
+   "fim": 1.44
+  },
+  {
+   "texto": "the",
+   "inicio": 1.521,
+   "fim": 1.602
+  },
+  {
+   "texto": "Americans",
+   "inicio": 1.672,
+   "fim": 2.241
+  },
+  {
+   "texto": "never",
+   "inicio": 2.31,
+   "fim": 2.554
+  },
+  {
+   "texto": "expected.",
+   "inicio": 2.624,
+   "fim": 3.448
+  },
+  {
+   "texto": "Not",
+   "inicio": 3.831,
+   "fim": 4.087
+  },
+  {
+   "texto": "just",
+   "inicio": 4.156,
+   "fim": 4.423
+  },
+  {
+   "texto": "the",
+   "inicio": 4.481,
+   "fim": 4.574
+  },
+  {
+   "texto": "city.",
+   "inicio": 4.632,
+   "fim": 5.201
+  },
+  {
+   "texto": "All",
+   "inicio": 5.375,
+   "fim": 5.747
+  },
+  {
+   "texto": "of",
+   "inicio": 5.828,
+   "fim": 5.886
+  },
+  {
+   "texto": "Louisiana.",
+   "inicio": 5.956,
+   "fim": 7.245
+  }
+ ]
+}

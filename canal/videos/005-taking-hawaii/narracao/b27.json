@@ -1,0 +1,158 @@
+{
+ "id": "b27",
+ "capitulo": "The Fiftieth State",
+ "visual": "\"1941\". Pearl Harbor. Japanese planes route. Explosion icons.",
+ "texto": "Hawaii became the heart of American power in the Pacific. That is exactly why Japan attacked Pearl Harbor on December 7th, 1941, pulling the United States into World War Two.",
+ "palavras": [
+  {
+   "texto": "Hawaii",
+   "inicio": 0.375,
+   "fim": 0.925
+  },
+  {
+   "texto": "became",
+   "inicio": 0.925,
+   "fim": 1.375
+  },
+  {
+   "texto": "the",
+   "inicio": 1.375,
+   "fim": 1.512
+  },
+  {
+   "texto": "heart",
+   "inicio": 1.512,
+   "fim": 1.825
+  },
+  {
+   "texto": "of",
+   "inicio": 1.825,
+   "fim": 1.925
+  },
+  {
+   "texto": "American",
+   "inicio": 1.925,
+   "fim": 2.513
+  },
+  {
+   "texto": "power",
+   "inicio": 2.513,
+   "fim": 2.95
+  },
+  {
+   "texto": "in",
+   "inicio": 2.95,
+   "fim": 3.038
+  },
+  {
+   "texto": "the",
+   "inicio": 3.038,
+   "fim": 3.125
+  },
+  {
+   "texto": "Pacific.",
+   "inicio": 3.125,
+   "fim": 4.15
+  },
+  {
+   "texto": "That",
+   "inicio": 4.287,
+   "fim": 4.5
+  },
+  {
+   "texto": "is",
+   "inicio": 4.5,
+   "fim": 4.625
+  },
+  {
+   "texto": "exactly",
+   "inicio": 4.625,
+   "fim": 5.225
+  },
+  {
+   "texto": "why",
+   "inicio": 5.225,
+   "fim": 5.425
+  },
+  {
+   "texto": "Japan",
+   "inicio": 5.425,
+   "fim": 5.975
+  },
+  {
+   "texto": "attacked",
+   "inicio": 5.975,
+   "fim": 6.463
+  },
+  {
+   "texto": "Pearl",
+   "inicio": 6.463,
+   "fim": 6.8
+  },
+  {
+   "texto": "Harbor",
+   "inicio": 6.8,
+   "fim": 7.225
+  },
+  {
+   "texto": "on",
+   "inicio": 7.225,
+   "fim": 7.4
+  },
+  {
+   "texto": "December",
+   "inicio": 7.4,
+   "fim": 7.9
+  },
+  {
+   "texto": "7th,",
+   "inicio": 7.9,
+   "fim": 8.6
+  },
+  {
+   "texto": "1941,",
+   "inicio": 8.738,
+   "fim": 10.275
+  },
+  {
+   "texto": "pulling",
+   "inicio": 10.412,
+   "fim": 10.775
+  },
+  {
+   "texto": "the",
+   "inicio": 10.775,
+   "fim": 10.875
+  },
+  {
+   "texto": "United",
+   "inicio": 10.875,
+   "fim": 11.387
+  },
+  {
+   "texto": "States",
+   "inicio": 11.387,
+   "fim": 11.838
+  },
+  {
+   "texto": "into",
+   "inicio": 11.838,
+   "fim": 12.113
+  },
+  {
+   "texto": "World",
+   "inicio": 12.113,
+   "fim": 12.475
+  },
+  {
+   "texto": "War",
+   "inicio": 12.475,
+   "fim": 12.75
+  },
+  {
+   "texto": "Two.",
+   "inicio": 12.75,
+   "fim": 13.475
+  }
+ ]
+}

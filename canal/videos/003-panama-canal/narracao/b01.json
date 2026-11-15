@@ -1,0 +1,158 @@
+{
+ "id": "b01",
+ "capitulo": "We're Taking It Back",
+ "visual": "\"2025\". Washington. Trump portrait, bubble \"WE'RE TAKING IT BACK\". Camera flies south to Panama.",
+ "texto": "In January 2025, in his inaugural speech, the President of the United States made a promise that stunned an entire country. He said America was taking the Panama Canal back.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0,
+   "fim": 0.151
+  },
+  {
+   "texto": "January",
+   "inicio": 0.232,
+   "fim": 0.952
+  },
+  {
+   "texto": "2025,",
+   "inicio": 1.045,
+   "fim": 2.322
+  },
+  {
+   "texto": "in",
+   "inicio": 2.496,
+   "fim": 2.647
+  },
+  {
+   "texto": "his",
+   "inicio": 2.717,
+   "fim": 2.868
+  },
+  {
+   "texto": "inaugural",
+   "inicio": 2.937,
+   "fim": 3.587
+  },
+  {
+   "texto": "speech,",
+   "inicio": 3.646,
+   "fim": 4.203
+  },
+  {
+   "texto": "the",
+   "inicio": 4.528,
+   "fim": 4.621
+  },
+  {
+   "texto": "President",
+   "inicio": 4.679,
+   "fim": 5.224
+  },
+  {
+   "texto": "of",
+   "inicio": 5.294,
+   "fim": 5.399
+  },
+  {
+   "texto": "the",
+   "inicio": 5.445,
+   "fim": 5.515
+  },
+  {
+   "texto": "United",
+   "inicio": 5.573,
+   "fim": 5.933
+  },
+  {
+   "texto": "States",
+   "inicio": 5.979,
+   "fim": 6.397
+  },
+  {
+   "texto": "made",
+   "inicio": 6.513,
+   "fim": 6.757
+  },
+  {
+   "texto": "a",
+   "inicio": 6.792,
+   "fim": 6.815
+  },
+  {
+   "texto": "promise",
+   "inicio": 6.896,
+   "fim": 7.639
+  },
+  {
+   "texto": "that",
+   "inicio": 7.814,
+   "fim": 8.011
+  },
+  {
+   "texto": "stunned",
+   "inicio": 8.081,
+   "fim": 8.568
+  },
+  {
+   "texto": "an",
+   "inicio": 8.661,
+   "fim": 8.835
+  },
+  {
+   "texto": "entire",
+   "inicio": 8.893,
+   "fim": 9.323
+  },
+  {
+   "texto": "country.",
+   "inicio": 9.392,
+   "fim": 10.066
+  },
+  {
+   "texto": "He",
+   "inicio": 10.507,
+   "fim": 10.646
+  },
+  {
+   "texto": "said",
+   "inicio": 10.728,
+   "fim": 11.029
+  },
+  {
+   "texto": "America",
+   "inicio": 11.146,
+   "fim": 11.749
+  },
+  {
+   "texto": "was",
+   "inicio": 11.819,
+   "fim": 11.993
+  },
+  {
+   "texto": "taking",
+   "inicio": 12.063,
+   "fim": 12.434
+  },
+  {
+   "texto": "the",
+   "inicio": 12.516,
+   "fim": 12.597
+  },
+  {
+   "texto": "Panama",
+   "inicio": 12.666,
+   "fim": 13.189
+  },
+  {
+   "texto": "Canal",
+   "inicio": 13.259,
+   "fim": 13.688
+  },
+  {
+   "texto": "back.",
+   "inicio": 13.781,
+   "fim": 14.768
+  }
+ ]
+}

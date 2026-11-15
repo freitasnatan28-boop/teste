@@ -1,0 +1,158 @@
+{
+ "id": "b05",
+ "capitulo": "The Fourteenth Colony",
+ "visual": "\"1775\". Thirteen colonies in blue. Quebec. Arnold and Montgomery routes north.",
+ "texto": "In 1775, the American Revolution had just begun, and the rebels had a bold idea. Canada should be the fourteenth colony. So two American armies marched north to take Quebec.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0.4,
+   "fim": 0.537
+  },
+  {
+   "texto": "1775,",
+   "inicio": 0.537,
+   "fim": 2.25
+  },
+  {
+   "texto": "the",
+   "inicio": 2.35,
+   "fim": 2.5
+  },
+  {
+   "texto": "American",
+   "inicio": 2.5,
+   "fim": 3.05
+  },
+  {
+   "texto": "Revolution",
+   "inicio": 3.05,
+   "fim": 3.725
+  },
+  {
+   "texto": "had",
+   "inicio": 3.725,
+   "fim": 3.938
+  },
+  {
+   "texto": "just",
+   "inicio": 3.938,
+   "fim": 4.2
+  },
+  {
+   "texto": "begun,",
+   "inicio": 4.2,
+   "fim": 5.025
+  },
+  {
+   "texto": "and",
+   "inicio": 5.125,
+   "fim": 5.237
+  },
+  {
+   "texto": "the",
+   "inicio": 5.237,
+   "fim": 5.338
+  },
+  {
+   "texto": "rebels",
+   "inicio": 5.338,
+   "fim": 5.8
+  },
+  {
+   "texto": "had",
+   "inicio": 5.8,
+   "fim": 5.987
+  },
+  {
+   "texto": "a",
+   "inicio": 5.987,
+   "fim": 6.1
+  },
+  {
+   "texto": "bold",
+   "inicio": 6.1,
+   "fim": 6.55
+  },
+  {
+   "texto": "idea.",
+   "inicio": 6.55,
+   "fim": 7.45
+  },
+  {
+   "texto": "Canada",
+   "inicio": 7.65,
+   "fim": 8.162
+  },
+  {
+   "texto": "should",
+   "inicio": 8.162,
+   "fim": 8.35
+  },
+  {
+   "texto": "be",
+   "inicio": 8.35,
+   "fim": 8.525
+  },
+  {
+   "texto": "the",
+   "inicio": 8.525,
+   "fim": 8.675
+  },
+  {
+   "texto": "fourteenth",
+   "inicio": 8.675,
+   "fim": 9.238
+  },
+  {
+   "texto": "colony.",
+   "inicio": 9.238,
+   "fim": 10.075
+  },
+  {
+   "texto": "So",
+   "inicio": 10.225,
+   "fim": 10.5
+  },
+  {
+   "texto": "two",
+   "inicio": 10.5,
+   "fim": 10.775
+  },
+  {
+   "texto": "American",
+   "inicio": 10.775,
+   "fim": 11.312
+  },
+  {
+   "texto": "armies",
+   "inicio": 11.312,
+   "fim": 11.787
+  },
+  {
+   "texto": "marched",
+   "inicio": 11.787,
+   "fim": 12.188
+  },
+  {
+   "texto": "north",
+   "inicio": 12.188,
+   "fim": 12.55
+  },
+  {
+   "texto": "to",
+   "inicio": 12.55,
+   "fim": 12.675
+  },
+  {
+   "texto": "take",
+   "inicio": 12.675,
+   "fim": 12.975
+  },
+  {
+   "texto": "Quebec.",
+   "inicio": 12.975,
+   "fim": 13.8
+  }
+ ]
+}

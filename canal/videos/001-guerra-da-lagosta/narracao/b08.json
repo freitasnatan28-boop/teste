@@ -1,0 +1,338 @@
+{
+ "id": "b08",
+ "capitulo": "A lagosta anda ou nada?",
+ "visual": "Corte lateral do fundo do mar: a costa, a plataforma continental, o mar aberto.",
+ "texto": "No fim de 1961, com João Goulart já na presidência, a França pediu autorização de novo. E de novo os barcos pescaram mais do que podiam. O Brasil começou a expulsar e apreender embarcações. Em 1962, a corveta brasileira Ipiranga apreendeu o pesqueiro francês Cassiopée a apenas dez milhas da costa. Aí a briga virou uma discussão jurídica. E das mais estranhas da história da diplomacia.",
+ "palavras": [
+  {
+   "texto": "No",
+   "inicio": 0,
+   "fim": 0.186
+  },
+  {
+   "texto": "fim",
+   "inicio": 0.255,
+   "fim": 0.418
+  },
+  {
+   "texto": "de",
+   "inicio": 0.464,
+   "fim": 0.522
+  },
+  {
+   "texto": "1961,",
+   "inicio": 0.639,
+   "fim": 2.566
+  },
+  {
+   "texto": "com",
+   "inicio": 2.844,
+   "fim": 3.007
+  },
+  {
+   "texto": "João",
+   "inicio": 3.077,
+   "fim": 3.251
+  },
+  {
+   "texto": "Goulart",
+   "inicio": 3.297,
+   "fim": 3.657
+  },
+  {
+   "texto": "já",
+   "inicio": 3.692,
+   "fim": 3.808
+  },
+  {
+   "texto": "na",
+   "inicio": 3.866,
+   "fim": 3.936
+  },
+  {
+   "texto": "presidência,",
+   "inicio": 3.971,
+   "fim": 4.714
+  },
+  {
+   "texto": "a",
+   "inicio": 4.888,
+   "fim": 4.946
+  },
+  {
+   "texto": "França",
+   "inicio": 5.027,
+   "fim": 5.352
+  },
+  {
+   "texto": "pediu",
+   "inicio": 5.399,
+   "fim": 5.735
+  },
+  {
+   "texto": "autorização",
+   "inicio": 5.863,
+   "fim": 6.687
+  },
+  {
+   "texto": "de",
+   "inicio": 6.734,
+   "fim": 6.803
+  },
+  {
+   "texto": "novo.",
+   "inicio": 6.861,
+   "fim": 7.326
+  },
+  {
+   "texto": "E",
+   "inicio": 7.651,
+   "fim": 7.744
+  },
+  {
+   "texto": "de",
+   "inicio": 7.825,
+   "fim": 7.883
+  },
+  {
+   "texto": "novo",
+   "inicio": 7.941,
+   "fim": 8.255
+  },
+  {
+   "texto": "os",
+   "inicio": 8.324,
+   "fim": 8.487
+  },
+  {
+   "texto": "barcos",
+   "inicio": 8.58,
+   "fim": 8.986
+  },
+  {
+   "texto": "pescaram",
+   "inicio": 9.044,
+   "fim": 9.52
+  },
+  {
+   "texto": "mais",
+   "inicio": 9.567,
+   "fim": 9.799
+  },
+  {
+   "texto": "do",
+   "inicio": 9.834,
+   "fim": 9.892
+  },
+  {
+   "texto": "que",
+   "inicio": 9.938,
+   "fim": 10.008
+  },
+  {
+   "texto": "podiam.",
+   "inicio": 10.054,
+   "fim": 10.577
+  },
+  {
+   "texto": "O",
+   "inicio": 11.018,
+   "fim": 11.088
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 11.169,
+   "fim": 11.622
+  },
+  {
+   "texto": "começou",
+   "inicio": 11.773,
+   "fim": 12.249
+  },
+  {
+   "texto": "a",
+   "inicio": 12.283,
+   "fim": 12.307
+  },
+  {
+   "texto": "expulsar",
+   "inicio": 12.341,
+   "fim": 12.968
+  },
+  {
+   "texto": "e",
+   "inicio": 13.015,
+   "fim": 13.038
+  },
+  {
+   "texto": "apreender",
+   "inicio": 13.084,
+   "fim": 13.618
+  },
+  {
+   "texto": "embarcações.",
+   "inicio": 13.665,
+   "fim": 14.512
+  },
+  {
+   "texto": "Em",
+   "inicio": 14.895,
+   "fim": 15.081
+  },
+  {
+   "texto": "1962,",
+   "inicio": 15.139,
+   "fim": 16.95
+  },
+  {
+   "texto": "a",
+   "inicio": 17.159,
+   "fim": 17.217
+  },
+  {
+   "texto": "corveta",
+   "inicio": 17.287,
+   "fim": 17.705
+  },
+  {
+   "texto": "brasileira",
+   "inicio": 17.751,
+   "fim": 18.343
+  },
+  {
+   "texto": "Ipiranga",
+   "inicio": 18.552,
+   "fim": 19.249
+  },
+  {
+   "texto": "apreendeu",
+   "inicio": 19.493,
+   "fim": 20.062
+  },
+  {
+   "texto": "o",
+   "inicio": 20.097,
+   "fim": 20.131
+  },
+  {
+   "texto": "pesqueiro",
+   "inicio": 20.189,
+   "fim": 20.619
+  },
+  {
+   "texto": "francês",
+   "inicio": 20.665,
+   "fim": 21.118
+  },
+  {
+   "texto": "Cassiopê",
+   "inicio": 21.188,
+   "fim": 21.803
+  },
+  {
+   "texto": "a",
+   "inicio": 22.244,
+   "fim": 22.372
+  },
+  {
+   "texto": "apenas",
+   "inicio": 22.395,
+   "fim": 22.837
+  },
+  {
+   "texto": "dez",
+   "inicio": 22.895,
+   "fim": 23.08
+  },
+  {
+   "texto": "milhas",
+   "inicio": 23.15,
+   "fim": 23.417
+  },
+  {
+   "texto": "da",
+   "inicio": 23.463,
+   "fim": 23.522
+  },
+  {
+   "texto": "costa.",
+   "inicio": 23.58,
+   "fim": 24.125
+  },
+  {
+   "texto": "Aí",
+   "inicio": 24.45,
+   "fim": 24.752
+  },
+  {
+   "texto": "a",
+   "inicio": 24.961,
+   "fim": 25.077
+  },
+  {
+   "texto": "briga",
+   "inicio": 25.159,
+   "fim": 25.414
+  },
+  {
+   "texto": "virou",
+   "inicio": 25.449,
+   "fim": 25.739
+  },
+  {
+   "texto": "uma",
+   "inicio": 25.89,
+   "fim": 26.122
+  },
+  {
+   "texto": "discussão",
+   "inicio": 26.157,
+   "fim": 26.668
+  },
+  {
+   "texto": "jurídica.",
+   "inicio": 26.703,
+   "fim": 27.388
+  },
+  {
+   "texto": "E",
+   "inicio": 27.829,
+   "fim": 27.922
+  },
+  {
+   "texto": "das",
+   "inicio": 28.038,
+   "fim": 28.2
+  },
+  {
+   "texto": "mais",
+   "inicio": 28.282,
+   "fim": 28.479
+  },
+  {
+   "texto": "estranhas",
+   "inicio": 28.56,
+   "fim": 29.013
+  },
+  {
+   "texto": "da",
+   "inicio": 29.059,
+   "fim": 29.129
+  },
+  {
+   "texto": "história",
+   "inicio": 29.152,
+   "fim": 29.617
+  },
+  {
+   "texto": "da",
+   "inicio": 29.652,
+   "fim": 29.733
+  },
+  {
+   "texto": "diplomacia.",
+   "inicio": 29.779,
+   "fim": 31.114
+  }
+ ]
+}

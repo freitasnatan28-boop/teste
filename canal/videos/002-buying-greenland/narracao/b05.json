@@ -1,0 +1,273 @@
+{
+ "id": "b05",
+ "capitulo": "The Deal of the Century",
+ "visual": "\"1803\". The young United States along the Atlantic. Mississippi River. Pin on New Orleans.",
+ "texto": "In 1803, the United States was a young country squeezed along the Atlantic coast. Its western border was the Mississippi River. And at the mouth of that river sat one city that controlled everything: New Orleans. Farmers in Kentucky and Ohio shipped their crops down the river and out through that one port.",
+ "palavras": [
+  {
+   "texto": "In",
+   "inicio": 0,
+   "fim": 0.209
+  },
+  {
+   "texto": "1803,",
+   "inicio": 0.255,
+   "fim": 1.521
+  },
+  {
+   "texto": "the",
+   "inicio": 1.695,
+   "fim": 1.788
+  },
+  {
+   "texto": "United",
+   "inicio": 1.869,
+   "fim": 2.264
+  },
+  {
+   "texto": "States",
+   "inicio": 2.322,
+   "fim": 2.775
+  },
+  {
+   "texto": "was",
+   "inicio": 2.891,
+   "fim": 3.077
+  },
+  {
+   "texto": "a",
+   "inicio": 3.146,
+   "fim": 3.181
+  },
+  {
+   "texto": "young",
+   "inicio": 3.251,
+   "fim": 3.46
+  },
+  {
+   "texto": "country",
+   "inicio": 3.541,
+   "fim": 4.029
+  },
+  {
+   "texto": "squeezed",
+   "inicio": 4.47,
+   "fim": 5.12
+  },
+  {
+   "texto": "along",
+   "inicio": 5.19,
+   "fim": 5.515
+  },
+  {
+   "texto": "the",
+   "inicio": 5.584,
+   "fim": 5.666
+  },
+  {
+   "texto": "Atlantic",
+   "inicio": 5.747,
+   "fim": 6.258
+  },
+  {
+   "texto": "coast.",
+   "inicio": 6.327,
+   "fim": 6.954
+  },
+  {
+   "texto": "Its",
+   "inicio": 7.338,
+   "fim": 7.57
+  },
+  {
+   "texto": "western",
+   "inicio": 7.639,
+   "fim": 8.092
+  },
+  {
+   "texto": "border",
+   "inicio": 8.139,
+   "fim": 8.51
+  },
+  {
+   "texto": "was",
+   "inicio": 8.58,
+   "fim": 8.766
+  },
+  {
+   "texto": "the",
+   "inicio": 8.835,
+   "fim": 8.905
+  },
+  {
+   "texto": "Mississippi",
+   "inicio": 8.963,
+   "fim": 9.59
+  },
+  {
+   "texto": "River.",
+   "inicio": 9.671,
+   "fim": 10.205
+  },
+  {
+   "texto": "And",
+   "inicio": 10.646,
+   "fim": 10.82
+  },
+  {
+   "texto": "at",
+   "inicio": 10.902,
+   "fim": 10.995
+  },
+  {
+   "texto": "the",
+   "inicio": 11.041,
+   "fim": 11.111
+  },
+  {
+   "texto": "mouth",
+   "inicio": 11.18,
+   "fim": 11.459
+  },
+  {
+   "texto": "of",
+   "inicio": 11.517,
+   "fim": 11.587
+  },
+  {
+   "texto": "that",
+   "inicio": 11.645,
+   "fim": 11.819
+  },
+  {
+   "texto": "river",
+   "inicio": 11.9,
+   "fim": 12.214
+  },
+  {
+   "texto": "sat",
+   "inicio": 12.597,
+   "fim": 12.91
+  },
+  {
+   "texto": "one",
+   "inicio": 13.003,
+   "fim": 13.27
+  },
+  {
+   "texto": "city",
+   "inicio": 13.34,
+   "fim": 13.7
+  },
+  {
+   "texto": "that",
+   "inicio": 13.793,
+   "fim": 13.955
+  },
+  {
+   "texto": "controlled",
+   "inicio": 14.013,
+   "fim": 14.593
+  },
+  {
+   "texto": "everything:",
+   "inicio": 14.675,
+   "fim": 15.476
+  },
+  {
+   "texto": "New",
+   "inicio": 15.685,
+   "fim": 15.87
+  },
+  {
+   "texto": "Orleans.",
+   "inicio": 15.94,
+   "fim": 16.683
+  },
+  {
+   "texto": "Farmers",
+   "inicio": 17.008,
+   "fim": 17.484
+  },
+  {
+   "texto": "in",
+   "inicio": 17.542,
+   "fim": 17.635
+  },
+  {
+   "texto": "Kentucky",
+   "inicio": 17.705,
+   "fim": 18.227
+  },
+  {
+   "texto": "and",
+   "inicio": 18.285,
+   "fim": 18.378
+  },
+  {
+   "texto": "Ohio",
+   "inicio": 18.471,
+   "fim": 18.97
+  },
+  {
+   "texto": "shipped",
+   "inicio": 19.249,
+   "fim": 19.586
+  },
+  {
+   "texto": "their",
+   "inicio": 19.62,
+   "fim": 19.771
+  },
+  {
+   "texto": "crops",
+   "inicio": 19.829,
+   "fim": 20.178
+  },
+  {
+   "texto": "down",
+   "inicio": 20.236,
+   "fim": 20.456
+  },
+  {
+   "texto": "the",
+   "inicio": 20.503,
+   "fim": 20.573
+  },
+  {
+   "texto": "river",
+   "inicio": 20.631,
+   "fim": 20.898
+  },
+  {
+   "texto": "and",
+   "inicio": 21.176,
+   "fim": 21.385
+  },
+  {
+   "texto": "out",
+   "inicio": 21.466,
+   "fim": 21.629
+  },
+  {
+   "texto": "through",
+   "inicio": 21.652,
+   "fim": 21.896
+  },
+  {
+   "texto": "that",
+   "inicio": 21.942,
+   "fim": 22.093
+  },
+  {
+   "texto": "one",
+   "inicio": 22.163,
+   "fim": 22.372
+  },
+  {
+   "texto": "port.",
+   "inicio": 22.43,
+   "fim": 23.405
+  }
+ ]
+}

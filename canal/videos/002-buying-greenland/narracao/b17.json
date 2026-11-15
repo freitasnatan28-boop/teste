@@ -1,0 +1,188 @@
+{
+ "id": "b17",
+ "capitulo": "Seward's Icebox",
+ "visual": "British Canada next door, in red. Warning icon.",
+ "texto": "Right next door sat British Canada. If another war broke out, Britain could simply take Alaska. So the Tsar made a cold calculation: better to sell it to America than lose it to Britain for nothing.",
+ "palavras": [
+  {
+   "texto": "Right",
+   "inicio": 0,
+   "fim": 0.29
+  },
+  {
+   "texto": "next",
+   "inicio": 0.36,
+   "fim": 0.604
+  },
+  {
+   "texto": "door",
+   "inicio": 0.65,
+   "fim": 0.998
+  },
+  {
+   "texto": "sat",
+   "inicio": 1.173,
+   "fim": 1.474
+  },
+  {
+   "texto": "British",
+   "inicio": 1.544,
+   "fim": 1.939
+  },
+  {
+   "texto": "Canada.",
+   "inicio": 1.997,
+   "fim": 2.647
+  },
+  {
+   "texto": "If",
+   "inicio": 3.03,
+   "fim": 3.181
+  },
+  {
+   "texto": "another",
+   "inicio": 3.239,
+   "fim": 3.529
+  },
+  {
+   "texto": "war",
+   "inicio": 3.587,
+   "fim": 3.831
+  },
+  {
+   "texto": "broke",
+   "inicio": 3.889,
+   "fim": 4.191
+  },
+  {
+   "texto": "out,",
+   "inicio": 4.238,
+   "fim": 4.702
+  },
+  {
+   "texto": "Britain",
+   "inicio": 4.946,
+   "fim": 5.306
+  },
+  {
+   "texto": "could",
+   "inicio": 5.375,
+   "fim": 5.573
+  },
+  {
+   "texto": "simply",
+   "inicio": 5.631,
+   "fim": 6.06
+  },
+  {
+   "texto": "take",
+   "inicio": 6.142,
+   "fim": 6.455
+  },
+  {
+   "texto": "Alaska.",
+   "inicio": 6.502,
+   "fim": 7.314
+  },
+  {
+   "texto": "So",
+   "inicio": 7.755,
+   "fim": 8.022
+  },
+  {
+   "texto": "the",
+   "inicio": 8.092,
+   "fim": 8.173
+  },
+  {
+   "texto": "Tsar",
+   "inicio": 8.243,
+   "fim": 8.615
+  },
+  {
+   "texto": "made",
+   "inicio": 8.684,
+   "fim": 8.858
+  },
+  {
+   "texto": "a",
+   "inicio": 8.893,
+   "fim": 8.916
+  },
+  {
+   "texto": "cold",
+   "inicio": 8.998,
+   "fim": 9.404
+  },
+  {
+   "texto": "calculation:",
+   "inicio": 9.474,
+   "fim": 10.426
+  },
+  {
+   "texto": "better",
+   "inicio": 10.867,
+   "fim": 11.157
+  },
+  {
+   "texto": "to",
+   "inicio": 11.215,
+   "fim": 11.285
+  },
+  {
+   "texto": "sell",
+   "inicio": 11.378,
+   "fim": 11.598
+  },
+  {
+   "texto": "it",
+   "inicio": 11.645,
+   "fim": 11.714
+  },
+  {
+   "texto": "to",
+   "inicio": 11.749,
+   "fim": 11.831
+  },
+  {
+   "texto": "America",
+   "inicio": 11.923,
+   "fim": 12.516
+  },
+  {
+   "texto": "than",
+   "inicio": 12.794,
+   "fim": 12.992
+  },
+  {
+   "texto": "lose",
+   "inicio": 13.05,
+   "fim": 13.293
+  },
+  {
+   "texto": "it",
+   "inicio": 13.34,
+   "fim": 13.41
+  },
+  {
+   "texto": "to",
+   "inicio": 13.444,
+   "fim": 13.514
+  },
+  {
+   "texto": "Britain",
+   "inicio": 13.595,
+   "fim": 13.944
+  },
+  {
+   "texto": "for",
+   "inicio": 14.036,
+   "fim": 14.176
+  },
+  {
+   "texto": "nothing.",
+   "inicio": 14.234,
+   "fim": 15.418
+  }
+ ]
+}

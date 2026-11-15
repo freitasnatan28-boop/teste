@@ -1,0 +1,233 @@
+{
+ "id": "b15",
+ "capitulo": "O Brasil se prepara pra guerra",
+ "visual": "Fotos de época do Rio de Janeiro no Carnaval, em contraste com navios no porto.",
+ "texto": "No dia 22 de fevereiro, véspera de Carnaval, o Brasil mobilizou a Marinha e a Força Aérea. O problema é que o país estava em clima de feriado. Boa parte dos marinheiros estava de folga, e eles tiveram que ser convocados no meio da madrugada.",
+ "palavras": [
+  {
+   "texto": "No",
+   "inicio": 0,
+   "fim": 0.197
+  },
+  {
+   "texto": "dia",
+   "inicio": 0.244,
+   "fim": 0.406
+  },
+  {
+   "texto": "22",
+   "inicio": 0.499,
+   "fim": 1.068
+  },
+  {
+   "texto": "de",
+   "inicio": 1.161,
+   "fim": 1.207
+  },
+  {
+   "texto": "fevereiro,",
+   "inicio": 1.277,
+   "fim": 1.997
+  },
+  {
+   "texto": "véspera",
+   "inicio": 2.171,
+   "fim": 2.67
+  },
+  {
+   "texto": "de",
+   "inicio": 2.717,
+   "fim": 2.775
+  },
+  {
+   "texto": "Carnaval,",
+   "inicio": 2.821,
+   "fim": 3.46
+  },
+  {
+   "texto": "o",
+   "inicio": 3.611,
+   "fim": 3.669
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 3.715,
+   "fim": 4.029
+  },
+  {
+   "texto": "mobilizou",
+   "inicio": 4.063,
+   "fim": 4.598
+  },
+  {
+   "texto": "a",
+   "inicio": 4.656,
+   "fim": 4.679
+  },
+  {
+   "texto": "Marinha",
+   "inicio": 4.748,
+   "fim": 5.178
+  },
+  {
+   "texto": "e",
+   "inicio": 5.248,
+   "fim": 5.283
+  },
+  {
+   "texto": "a",
+   "inicio": 5.317,
+   "fim": 5.341
+  },
+  {
+   "texto": "Força",
+   "inicio": 5.41,
+   "fim": 5.77
+  },
+  {
+   "texto": "Aérea.",
+   "inicio": 5.793,
+   "fim": 6.235
+  },
+  {
+   "texto": "O",
+   "inicio": 6.618,
+   "fim": 6.711
+  },
+  {
+   "texto": "problema",
+   "inicio": 6.827,
+   "fim": 7.372
+  },
+  {
+   "texto": "é",
+   "inicio": 7.442,
+   "fim": 7.465
+  },
+  {
+   "texto": "que",
+   "inicio": 7.523,
+   "fim": 7.605
+  },
+  {
+   "texto": "o",
+   "inicio": 7.639,
+   "fim": 7.674
+  },
+  {
+   "texto": "país",
+   "inicio": 7.721,
+   "fim": 8.092
+  },
+  {
+   "texto": "estava",
+   "inicio": 8.162,
+   "fim": 8.51
+  },
+  {
+   "texto": "em",
+   "inicio": 8.533,
+   "fim": 8.58
+  },
+  {
+   "texto": "clima",
+   "inicio": 8.649,
+   "fim": 8.986
+  },
+  {
+   "texto": "de",
+   "inicio": 9.021,
+   "fim": 9.091
+  },
+  {
+   "texto": "feriado.",
+   "inicio": 9.149,
+   "fim": 9.915
+  },
+  {
+   "texto": "Boa",
+   "inicio": 10.356,
+   "fim": 10.612
+  },
+  {
+   "texto": "parte",
+   "inicio": 10.67,
+   "fim": 10.995
+  },
+  {
+   "texto": "dos",
+   "inicio": 11.053,
+   "fim": 11.169
+  },
+  {
+   "texto": "marinheiros",
+   "inicio": 11.227,
+   "fim": 11.749
+  },
+  {
+   "texto": "estava",
+   "inicio": 11.819,
+   "fim": 12.132
+  },
+  {
+   "texto": "de",
+   "inicio": 12.179,
+   "fim": 12.237
+  },
+  {
+   "texto": "folga,",
+   "inicio": 12.318,
+   "fim": 12.841
+  },
+  {
+   "texto": "e",
+   "inicio": 12.957,
+   "fim": 13.073
+  },
+  {
+   "texto": "eles",
+   "inicio": 13.108,
+   "fim": 13.282
+  },
+  {
+   "texto": "tiveram",
+   "inicio": 13.305,
+   "fim": 13.677
+  },
+  {
+   "texto": "que",
+   "inicio": 13.712,
+   "fim": 13.793
+  },
+  {
+   "texto": "ser",
+   "inicio": 13.839,
+   "fim": 13.967
+  },
+  {
+   "texto": "convocados",
+   "inicio": 14.037,
+   "fim": 14.675
+  },
+  {
+   "texto": "no",
+   "inicio": 14.733,
+   "fim": 14.803
+  },
+  {
+   "texto": "meio",
+   "inicio": 14.896,
+   "fim": 15.14
+  },
+  {
+   "texto": "da",
+   "inicio": 15.175,
+   "fim": 15.233
+  },
+  {
+   "texto": "madrugada.",
+   "inicio": 15.291,
+   "fim": 16.486
+  }
+ ]
+}

@@ -1,0 +1,143 @@
+{
+ "id": "b03",
+ "capitulo": "A Kingdom in the Pacific",
+ "visual": "\"1893\". Queen portrait. Marines icon. Stamp \"OVERTHROWN\".",
+ "texto": "Then, in 1893, a small group of American businessmen, backed by United States Marines, removed its queen. Five years later, the islands belonged to the United States.",
+ "palavras": [
+  {
+   "texto": "Then,",
+   "inicio": 0.4,
+   "fim": 0.65
+  },
+  {
+   "texto": "in",
+   "inicio": 0.7,
+   "fim": 0.85
+  },
+  {
+   "texto": "1893,",
+   "inicio": 0.85,
+   "fim": 2.25
+  },
+  {
+   "texto": "a",
+   "inicio": 2.388,
+   "fim": 2.525
+  },
+  {
+   "texto": "small",
+   "inicio": 2.525,
+   "fim": 2.938
+  },
+  {
+   "texto": "group",
+   "inicio": 2.938,
+   "fim": 3.237
+  },
+  {
+   "texto": "of",
+   "inicio": 3.237,
+   "fim": 3.325
+  },
+  {
+   "texto": "American",
+   "inicio": 3.325,
+   "fim": 3.913
+  },
+  {
+   "texto": "businessmen,",
+   "inicio": 3.913,
+   "fim": 4.6
+  },
+  {
+   "texto": "backed",
+   "inicio": 4.688,
+   "fim": 5.05
+  },
+  {
+   "texto": "by",
+   "inicio": 5.05,
+   "fim": 5.225
+  },
+  {
+   "texto": "United",
+   "inicio": 5.225,
+   "fim": 5.7
+  },
+  {
+   "texto": "States",
+   "inicio": 5.7,
+   "fim": 6.075
+  },
+  {
+   "texto": "Marines,",
+   "inicio": 6.075,
+   "fim": 6.95
+  },
+  {
+   "texto": "removed",
+   "inicio": 7.075,
+   "fim": 7.562
+  },
+  {
+   "texto": "its",
+   "inicio": 7.562,
+   "fim": 7.763
+  },
+  {
+   "texto": "queen.",
+   "inicio": 7.763,
+   "fim": 8.775
+  },
+  {
+   "texto": "Five",
+   "inicio": 8.988,
+   "fim": 9.375
+  },
+  {
+   "texto": "years",
+   "inicio": 9.375,
+   "fim": 9.688
+  },
+  {
+   "texto": "later,",
+   "inicio": 9.688,
+   "fim": 10.325
+  },
+  {
+   "texto": "the",
+   "inicio": 10.425,
+   "fim": 10.6
+  },
+  {
+   "texto": "islands",
+   "inicio": 10.6,
+   "fim": 11.1
+  },
+  {
+   "texto": "belonged",
+   "inicio": 11.1,
+   "fim": 11.65
+  },
+  {
+   "texto": "to",
+   "inicio": 11.65,
+   "fim": 11.75
+  },
+  {
+   "texto": "the",
+   "inicio": 11.75,
+   "fim": 11.85
+  },
+  {
+   "texto": "United",
+   "inicio": 11.85,
+   "fim": 12.312
+  },
+  {
+   "texto": "States.",
+   "inicio": 12.312,
+   "fim": 13.125
+  }
+ ]
+}

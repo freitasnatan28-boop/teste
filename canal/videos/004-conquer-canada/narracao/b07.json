@@ -1,0 +1,153 @@
+{
+ "id": "b07",
+ "capitulo": "The Fourteenth Colony",
+ "visual": "Smallpox icons. British ships up the St. Lawrence. Retreat arrows south.",
+ "texto": "Smallpox tore through the American camps. In the spring of 1776, British reinforcements sailed up the Saint Lawrence River, and what was left of the American army retreated south.",
+ "palavras": [
+  {
+   "texto": "Smallpox",
+   "inicio": 0.4,
+   "fim": 1.062
+  },
+  {
+   "texto": "tore",
+   "inicio": 1.062,
+   "fim": 1.462
+  },
+  {
+   "texto": "through",
+   "inicio": 1.462,
+   "fim": 1.675
+  },
+  {
+   "texto": "the",
+   "inicio": 1.675,
+   "fim": 1.825
+  },
+  {
+   "texto": "American",
+   "inicio": 1.825,
+   "fim": 2.362
+  },
+  {
+   "texto": "camps.",
+   "inicio": 2.362,
+   "fim": 3.275
+  },
+  {
+   "texto": "In",
+   "inicio": 3.413,
+   "fim": 3.538
+  },
+  {
+   "texto": "the",
+   "inicio": 3.538,
+   "fim": 3.638
+  },
+  {
+   "texto": "spring",
+   "inicio": 3.638,
+   "fim": 4.025
+  },
+  {
+   "texto": "of",
+   "inicio": 4.025,
+   "fim": 4.162
+  },
+  {
+   "texto": "1776,",
+   "inicio": 4.162,
+   "fim": 5.775
+  },
+  {
+   "texto": "British",
+   "inicio": 5.912,
+   "fim": 6.362
+  },
+  {
+   "texto": "reinforcements",
+   "inicio": 6.362,
+   "fim": 7.325
+  },
+  {
+   "texto": "sailed",
+   "inicio": 7.325,
+   "fim": 7.688
+  },
+  {
+   "texto": "up",
+   "inicio": 7.688,
+   "fim": 7.875
+  },
+  {
+   "texto": "the",
+   "inicio": 7.875,
+   "fim": 8.012
+  },
+  {
+   "texto": "Saint",
+   "inicio": 8.012,
+   "fim": 8.363
+  },
+  {
+   "texto": "Lawrence",
+   "inicio": 8.363,
+   "fim": 8.812
+  },
+  {
+   "texto": "River,",
+   "inicio": 8.812,
+   "fim": 9.45
+  },
+  {
+   "texto": "and",
+   "inicio": 9.562,
+   "fim": 9.7
+  },
+  {
+   "texto": "what",
+   "inicio": 9.7,
+   "fim": 9.887
+  },
+  {
+   "texto": "was",
+   "inicio": 9.887,
+   "fim": 10.075
+  },
+  {
+   "texto": "left",
+   "inicio": 10.075,
+   "fim": 10.463
+  },
+  {
+   "texto": "of",
+   "inicio": 10.463,
+   "fim": 10.537
+  },
+  {
+   "texto": "the",
+   "inicio": 10.537,
+   "fim": 10.675
+  },
+  {
+   "texto": "American",
+   "inicio": 10.675,
+   "fim": 11.25
+  },
+  {
+   "texto": "army",
+   "inicio": 11.25,
+   "fim": 11.65
+  },
+  {
+   "texto": "retreated",
+   "inicio": 11.65,
+   "fim": 12.225
+  },
+  {
+   "texto": "south.",
+   "inicio": 12.225,
+   "fim": 12.975
+  }
+ ]
+}

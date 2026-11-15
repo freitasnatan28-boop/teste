@@ -1,0 +1,138 @@
+{
+ "id": "b11",
+ "capitulo": "A Mere Matter of Marching",
+ "visual": "\"1812\". Madison portrait. War declared. Arrows into Canada.",
+ "texto": "Then came 1812. The United States declared war on Britain, and the plan was simple: invade Canada while the British were busy fighting Napoleon in Europe.",
+ "palavras": [
+  {
+   "texto": "Then",
+   "inicio": 0.4,
+   "fim": 0.613
+  },
+  {
+   "texto": "came",
+   "inicio": 0.613,
+   "fim": 0.988
+  },
+  {
+   "texto": "1812.",
+   "inicio": 0.988,
+   "fim": 2.5
+  },
+  {
+   "texto": "The",
+   "inicio": 2.638,
+   "fim": 2.75
+  },
+  {
+   "texto": "United",
+   "inicio": 2.75,
+   "fim": 3.2
+  },
+  {
+   "texto": "States",
+   "inicio": 3.2,
+   "fim": 3.6
+  },
+  {
+   "texto": "declared",
+   "inicio": 3.6,
+   "fim": 4.112
+  },
+  {
+   "texto": "war",
+   "inicio": 4.112,
+   "fim": 4.475
+  },
+  {
+   "texto": "on",
+   "inicio": 4.475,
+   "fim": 4.688
+  },
+  {
+   "texto": "Britain,",
+   "inicio": 4.688,
+   "fim": 5.375
+  },
+  {
+   "texto": "and",
+   "inicio": 5.475,
+   "fim": 5.588
+  },
+  {
+   "texto": "the",
+   "inicio": 5.588,
+   "fim": 5.688
+  },
+  {
+   "texto": "plan",
+   "inicio": 5.688,
+   "fim": 6.15
+  },
+  {
+   "texto": "was",
+   "inicio": 6.15,
+   "fim": 6.325
+  },
+  {
+   "texto": "simple:",
+   "inicio": 6.325,
+   "fim": 7.1
+  },
+  {
+   "texto": "invade",
+   "inicio": 7.237,
+   "fim": 7.763
+  },
+  {
+   "texto": "Canada",
+   "inicio": 7.763,
+   "fim": 8.3
+  },
+  {
+   "texto": "while",
+   "inicio": 8.3,
+   "fim": 8.488
+  },
+  {
+   "texto": "the",
+   "inicio": 8.488,
+   "fim": 8.613
+  },
+  {
+   "texto": "British",
+   "inicio": 8.613,
+   "fim": 9.075
+  },
+  {
+   "texto": "were",
+   "inicio": 9.075,
+   "fim": 9.25
+  },
+  {
+   "texto": "busy",
+   "inicio": 9.25,
+   "fim": 9.688
+  },
+  {
+   "texto": "fighting",
+   "inicio": 9.688,
+   "fim": 10.175
+  },
+  {
+   "texto": "Napoleon",
+   "inicio": 10.175,
+   "fim": 10.85
+  },
+  {
+   "texto": "in",
+   "inicio": 10.85,
+   "fim": 11.012
+  },
+  {
+   "texto": "Europe.",
+   "inicio": 11.012,
+   "fim": 11.725
+  }
+ ]
+}

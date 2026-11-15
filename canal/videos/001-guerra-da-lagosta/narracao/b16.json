@@ -1,0 +1,218 @@
+{
+ "id": "b16",
+ "capitulo": "O Brasil se prepara pra guerra",
+ "visual": "Lista na tela, item por item: \"pouca munição\", \"pouco combustível\", \"navios precisando de reparo\".",
+ "texto": "E tinha mais. As bases no Recife estavam com falta de munição e de combustível. Vários navios precisavam de reparos. E a situação da munição era tão crítica que a frota brasileira não conseguiria manter um combate por mais de 30 minutos.",
+ "palavras": [
+  {
+   "texto": "E",
+   "inicio": 0,
+   "fim": 0.163
+  },
+  {
+   "texto": "tinha",
+   "inicio": 0.232,
+   "fim": 0.488
+  },
+  {
+   "texto": "mais.",
+   "inicio": 0.546,
+   "fim": 1.057
+  },
+  {
+   "texto": "As",
+   "inicio": 1.382,
+   "fim": 1.567
+  },
+  {
+   "texto": "bases",
+   "inicio": 1.649,
+   "fim": 2.067
+  },
+  {
+   "texto": "no",
+   "inicio": 2.113,
+   "fim": 2.194
+  },
+  {
+   "texto": "Recife",
+   "inicio": 2.229,
+   "fim": 2.856
+  },
+  {
+   "texto": "estavam",
+   "inicio": 3.007,
+   "fim": 3.506
+  },
+  {
+   "texto": "com",
+   "inicio": 3.564,
+   "fim": 3.704
+  },
+  {
+   "texto": "falta",
+   "inicio": 3.796,
+   "fim": 4.156
+  },
+  {
+   "texto": "de",
+   "inicio": 4.214,
+   "fim": 4.272
+  },
+  {
+   "texto": "munição",
+   "inicio": 4.319,
+   "fim": 4.934
+  },
+  {
+   "texto": "e",
+   "inicio": 5.085,
+   "fim": 5.201
+  },
+  {
+   "texto": "de",
+   "inicio": 5.259,
+   "fim": 5.317
+  },
+  {
+   "texto": "combustível.",
+   "inicio": 5.375,
+   "fim": 6.2
+  },
+  {
+   "texto": "Vários",
+   "inicio": 6.711,
+   "fim": 7.129
+  },
+  {
+   "texto": "navios",
+   "inicio": 7.175,
+   "fim": 7.512
+  },
+  {
+   "texto": "precisavam",
+   "inicio": 7.57,
+   "fim": 8.139
+  },
+  {
+   "texto": "de",
+   "inicio": 8.185,
+   "fim": 8.231
+  },
+  {
+   "texto": "reparos.",
+   "inicio": 8.278,
+   "fim": 8.928
+  },
+  {
+   "texto": "E",
+   "inicio": 9.207,
+   "fim": 9.323
+  },
+  {
+   "texto": "a",
+   "inicio": 9.404,
+   "fim": 9.427
+  },
+  {
+   "texto": "situação",
+   "inicio": 9.474,
+   "fim": 9.996
+  },
+  {
+   "texto": "da",
+   "inicio": 10.031,
+   "fim": 10.089
+  },
+  {
+   "texto": "munição",
+   "inicio": 10.136,
+   "fim": 10.646
+  },
+  {
+   "texto": "era",
+   "inicio": 10.855,
+   "fim": 11.099
+  },
+  {
+   "texto": "tão",
+   "inicio": 11.157,
+   "fim": 11.331
+  },
+  {
+   "texto": "crítica",
+   "inicio": 11.366,
+   "fim": 11.889
+  },
+  {
+   "texto": "que",
+   "inicio": 12.016,
+   "fim": 12.121
+  },
+  {
+   "texto": "a",
+   "inicio": 12.156,
+   "fim": 12.179
+  },
+  {
+   "texto": "frota",
+   "inicio": 12.237,
+   "fim": 12.527
+  },
+  {
+   "texto": "brasileira",
+   "inicio": 12.562,
+   "fim": 13.131
+  },
+  {
+   "texto": "não",
+   "inicio": 13.375,
+   "fim": 13.595
+  },
+  {
+   "texto": "conseguiria",
+   "inicio": 13.641,
+   "fim": 14.175
+  },
+  {
+   "texto": "manter",
+   "inicio": 14.222,
+   "fim": 14.477
+  },
+  {
+   "texto": "um",
+   "inicio": 14.524,
+   "fim": 14.57
+  },
+  {
+   "texto": "combate",
+   "inicio": 14.605,
+   "fim": 15.046
+  },
+  {
+   "texto": "por",
+   "inicio": 15.104,
+   "fim": 15.243
+  },
+  {
+   "texto": "mais",
+   "inicio": 15.36,
+   "fim": 15.638
+  },
+  {
+   "texto": "de",
+   "inicio": 15.673,
+   "fim": 15.743
+  },
+  {
+   "texto": "30",
+   "inicio": 15.894,
+   "fim": 16.137
+  },
+  {
+   "texto": "minutos.",
+   "inicio": 16.23,
+   "fim": 17.136
+  }
+ ]
+}

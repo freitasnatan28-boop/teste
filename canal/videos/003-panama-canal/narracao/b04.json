@@ -1,0 +1,258 @@
+{
+ "id": "b04",
+ "capitulo": "We're Taking It Back",
+ "visual": "Title over the map.",
+ "texto": "So why would the most powerful country on Earth give away one of the most valuable pieces of land on the planet? And why does it want it back now? To understand that, we need to go back to a time when ships had to sail around an entire continent.",
+ "palavras": [
+  {
+   "texto": "So",
+   "inicio": 0,
+   "fim": 0.255
+  },
+  {
+   "texto": "why",
+   "inicio": 0.325,
+   "fim": 0.546
+  },
+  {
+   "texto": "would",
+   "inicio": 0.615,
+   "fim": 0.801
+  },
+  {
+   "texto": "the",
+   "inicio": 0.836,
+   "fim": 0.906
+  },
+  {
+   "texto": "most",
+   "inicio": 0.964,
+   "fim": 1.184
+  },
+  {
+   "texto": "powerful",
+   "inicio": 1.254,
+   "fim": 1.707
+  },
+  {
+   "texto": "country",
+   "inicio": 1.765,
+   "fim": 2.113
+  },
+  {
+   "texto": "on",
+   "inicio": 2.183,
+   "fim": 2.264
+  },
+  {
+   "texto": "Earth",
+   "inicio": 2.334,
+   "fim": 2.577
+  },
+  {
+   "texto": "give",
+   "inicio": 2.902,
+   "fim": 3.123
+  },
+  {
+   "texto": "away",
+   "inicio": 3.158,
+   "fim": 3.367
+  },
+  {
+   "texto": "one",
+   "inicio": 3.437,
+   "fim": 3.576
+  },
+  {
+   "texto": "of",
+   "inicio": 3.611,
+   "fim": 3.657
+  },
+  {
+   "texto": "the",
+   "inicio": 3.715,
+   "fim": 3.785
+  },
+  {
+   "texto": "most",
+   "inicio": 3.843,
+   "fim": 4.063
+  },
+  {
+   "texto": "valuable",
+   "inicio": 4.145,
+   "fim": 4.737
+  },
+  {
+   "texto": "pieces",
+   "inicio": 4.772,
+   "fim": 5.178
+  },
+  {
+   "texto": "of",
+   "inicio": 5.248,
+   "fim": 5.317
+  },
+  {
+   "texto": "land",
+   "inicio": 5.387,
+   "fim": 5.654
+  },
+  {
+   "texto": "on",
+   "inicio": 5.724,
+   "fim": 5.817
+  },
+  {
+   "texto": "the",
+   "inicio": 5.863,
+   "fim": 5.933
+  },
+  {
+   "texto": "planet?",
+   "inicio": 5.991,
+   "fim": 6.618
+  },
+  {
+   "texto": "And",
+   "inicio": 7.001,
+   "fim": 7.175
+  },
+  {
+   "texto": "why",
+   "inicio": 7.233,
+   "fim": 7.454
+  },
+  {
+   "texto": "does",
+   "inicio": 7.535,
+   "fim": 7.709
+  },
+  {
+   "texto": "it",
+   "inicio": 7.767,
+   "fim": 7.848
+  },
+  {
+   "texto": "want",
+   "inicio": 7.906,
+   "fim": 8.15
+  },
+  {
+   "texto": "it",
+   "inicio": 8.208,
+   "fim": 8.29
+  },
+  {
+   "texto": "back",
+   "inicio": 8.348,
+   "fim": 8.615
+  },
+  {
+   "texto": "now?",
+   "inicio": 8.731,
+   "fim": 9.358
+  },
+  {
+   "texto": "To",
+   "inicio": 9.868,
+   "fim": 10.008
+  },
+  {
+   "texto": "understand",
+   "inicio": 10.124,
+   "fim": 10.728
+  },
+  {
+   "texto": "that,",
+   "inicio": 10.797,
+   "fim": 11.262
+  },
+  {
+   "texto": "we",
+   "inicio": 11.54,
+   "fim": 11.691
+  },
+  {
+   "texto": "need",
+   "inicio": 11.761,
+   "fim": 11.947
+  },
+  {
+   "texto": "to",
+   "inicio": 11.981,
+   "fim": 12.04
+  },
+  {
+   "texto": "go",
+   "inicio": 12.098,
+   "fim": 12.225
+  },
+  {
+   "texto": "back",
+   "inicio": 12.295,
+   "fim": 12.504
+  },
+  {
+   "texto": "to",
+   "inicio": 12.574,
+   "fim": 12.654
+  },
+  {
+   "texto": "a",
+   "inicio": 12.771,
+   "fim": 12.805
+  },
+  {
+   "texto": "time",
+   "inicio": 12.863,
+   "fim": 13.2
+  },
+  {
+   "texto": "when",
+   "inicio": 13.223,
+   "fim": 13.397
+  },
+  {
+   "texto": "ships",
+   "inicio": 13.479,
+   "fim": 13.839
+  },
+  {
+   "texto": "had",
+   "inicio": 13.897,
+   "fim": 14.059
+  },
+  {
+   "texto": "to",
+   "inicio": 14.106,
+   "fim": 14.164
+  },
+  {
+   "texto": "sail",
+   "inicio": 14.257,
+   "fim": 14.535
+  },
+  {
+   "texto": "around",
+   "inicio": 14.582,
+   "fim": 14.942
+  },
+  {
+   "texto": "an",
+   "inicio": 15.011,
+   "fim": 15.093
+  },
+  {
+   "texto": "entire",
+   "inicio": 15.162,
+   "fim": 15.65
+  },
+  {
+   "texto": "continent.",
+   "inicio": 15.708,
+   "fim": 16.95
+  }
+ ]
+}

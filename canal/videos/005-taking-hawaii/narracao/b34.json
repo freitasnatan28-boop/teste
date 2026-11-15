@@ -1,0 +1,133 @@
+{
+ "id": "b34",
+ "capitulo": "The Pattern",
+ "visual": "Tourist plane routes. Counter 10 MILLION VISITORS. Sovereignty flag.",
+ "texto": "Today, around ten million tourists visit Hawaii every year. And a Native Hawaiian sovereignty movement still argues that the kingdom was never legally given up.",
+ "palavras": [
+  {
+   "texto": "Today,",
+   "inicio": 0.35,
+   "fim": 0.875
+  },
+  {
+   "texto": "around",
+   "inicio": 0.988,
+   "fim": 1.413
+  },
+  {
+   "texto": "ten",
+   "inicio": 1.413,
+   "fim": 1.675
+  },
+  {
+   "texto": "million",
+   "inicio": 1.675,
+   "fim": 2.062
+  },
+  {
+   "texto": "tourists",
+   "inicio": 2.062,
+   "fim": 2.562
+  },
+  {
+   "texto": "visit",
+   "inicio": 2.562,
+   "fim": 2.9
+  },
+  {
+   "texto": "Hawaii",
+   "inicio": 2.9,
+   "fim": 3.663
+  },
+  {
+   "texto": "every",
+   "inicio": 3.663,
+   "fim": 4.037
+  },
+  {
+   "texto": "year.",
+   "inicio": 4.037,
+   "fim": 4.825
+  },
+  {
+   "texto": "And",
+   "inicio": 4.95,
+   "fim": 5.112
+  },
+  {
+   "texto": "a",
+   "inicio": 5.112,
+   "fim": 5.213
+  },
+  {
+   "texto": "Native",
+   "inicio": 5.213,
+   "fim": 5.65
+  },
+  {
+   "texto": "Hawaiian",
+   "inicio": 5.65,
+   "fim": 6.325
+  },
+  {
+   "texto": "sovereignty",
+   "inicio": 6.325,
+   "fim": 6.875
+  },
+  {
+   "texto": "movement",
+   "inicio": 6.875,
+   "fim": 7.362
+  },
+  {
+   "texto": "still",
+   "inicio": 7.362,
+   "fim": 7.713
+  },
+  {
+   "texto": "argues",
+   "inicio": 7.713,
+   "fim": 8.325
+  },
+  {
+   "texto": "that",
+   "inicio": 8.325,
+   "fim": 8.5
+  },
+  {
+   "texto": "the",
+   "inicio": 8.5,
+   "fim": 8.637
+  },
+  {
+   "texto": "kingdom",
+   "inicio": 8.637,
+   "fim": 9.05
+  },
+  {
+   "texto": "was",
+   "inicio": 9.05,
+   "fim": 9.3
+  },
+  {
+   "texto": "never",
+   "inicio": 9.3,
+   "fim": 9.662
+  },
+  {
+   "texto": "legally",
+   "inicio": 9.662,
+   "fim": 10.162
+  },
+  {
+   "texto": "given",
+   "inicio": 10.162,
+   "fim": 10.475
+  },
+  {
+   "texto": "up.",
+   "inicio": 10.475,
+   "fim": 11.05
+  }
+ ]
+}

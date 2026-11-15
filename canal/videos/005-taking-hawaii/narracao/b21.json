@@ -1,0 +1,158 @@
+{
+ "id": "b21",
+ "capitulo": "An Act of War",
+ "visual": "Cleveland portrait. Investigator icon. Report document. Stamp \"BLOUNT REPORT\".",
+ "texto": "At first, it almost worked. President Grover Cleveland sent an investigator, James Blount, to find out what happened. His conclusion: the overthrow could not have succeeded without the American marines.",
+ "palavras": [
+  {
+   "texto": "At",
+   "inicio": 0.375,
+   "fim": 0.562
+  },
+  {
+   "texto": "first,",
+   "inicio": 0.562,
+   "fim": 0.975
+  },
+  {
+   "texto": "it",
+   "inicio": 1.025,
+   "fim": 1.137
+  },
+  {
+   "texto": "almost",
+   "inicio": 1.137,
+   "fim": 1.637
+  },
+  {
+   "texto": "worked.",
+   "inicio": 1.637,
+   "fim": 2.4
+  },
+  {
+   "texto": "President",
+   "inicio": 2.538,
+   "fim": 3.025
+  },
+  {
+   "texto": "Grover",
+   "inicio": 3.025,
+   "fim": 3.487
+  },
+  {
+   "texto": "Cleveland",
+   "inicio": 3.487,
+   "fim": 4.138
+  },
+  {
+   "texto": "sent",
+   "inicio": 4.138,
+   "fim": 4.45
+  },
+  {
+   "texto": "an",
+   "inicio": 4.45,
+   "fim": 4.55
+  },
+  {
+   "texto": "investigator,",
+   "inicio": 4.55,
+   "fim": 5.475
+  },
+  {
+   "texto": "James",
+   "inicio": 5.562,
+   "fim": 6.037
+  },
+  {
+   "texto": "Blount,",
+   "inicio": 6.037,
+   "fim": 6.675
+  },
+  {
+   "texto": "to",
+   "inicio": 6.775,
+   "fim": 6.912
+  },
+  {
+   "texto": "find",
+   "inicio": 6.912,
+   "fim": 7.225
+  },
+  {
+   "texto": "out",
+   "inicio": 7.225,
+   "fim": 7.45
+  },
+  {
+   "texto": "what",
+   "inicio": 7.45,
+   "fim": 7.625
+  },
+  {
+   "texto": "happened.",
+   "inicio": 7.625,
+   "fim": 8.475
+  },
+  {
+   "texto": "His",
+   "inicio": 8.613,
+   "fim": 8.85
+  },
+  {
+   "texto": "conclusion:",
+   "inicio": 8.85,
+   "fim": 9.825
+  },
+  {
+   "texto": "the",
+   "inicio": 9.925,
+   "fim": 10.088
+  },
+  {
+   "texto": "overthrow",
+   "inicio": 10.088,
+   "fim": 10.725
+  },
+  {
+   "texto": "could",
+   "inicio": 10.725,
+   "fim": 10.925
+  },
+  {
+   "texto": "not",
+   "inicio": 10.925,
+   "fim": 11.113
+  },
+  {
+   "texto": "have",
+   "inicio": 11.113,
+   "fim": 11.25
+  },
+  {
+   "texto": "succeeded",
+   "inicio": 11.25,
+   "fim": 11.825
+  },
+  {
+   "texto": "without",
+   "inicio": 11.825,
+   "fim": 12.175
+  },
+  {
+   "texto": "the",
+   "inicio": 12.175,
+   "fim": 12.325
+  },
+  {
+   "texto": "American",
+   "inicio": 12.325,
+   "fim": 12.85
+  },
+  {
+   "texto": "marines.",
+   "inicio": 12.85,
+   "fim": 13.85
+  }
+ ]
+}

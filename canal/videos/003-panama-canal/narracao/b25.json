@@ -1,0 +1,113 @@
+{
+ "id": "b25",
+ "capitulo": "The Giveaway",
+ "visual": "\"1999\". Zone turns into Panama flag. Price tag $0.",
+ "texto": "Then, at noon on December 31st, 1999, control passed to Panama. After eighty-five years, the canal belonged to Panama. For nothing.",
+ "palavras": [
+  {
+   "texto": "Then,",
+   "inicio": 0,
+   "fim": 0.592
+  },
+  {
+   "texto": "at",
+   "inicio": 0.708,
+   "fim": 0.882
+  },
+  {
+   "texto": "noon",
+   "inicio": 0.94,
+   "fim": 1.277
+  },
+  {
+   "texto": "on",
+   "inicio": 1.358,
+   "fim": 1.451
+  },
+  {
+   "texto": "December",
+   "inicio": 1.509,
+   "fim": 1.974
+  },
+  {
+   "texto": "31st,",
+   "inicio": 2.055,
+   "fim": 2.844
+  },
+  {
+   "texto": "1999,",
+   "inicio": 2.879,
+   "fim": 4.238
+  },
+  {
+   "texto": "control",
+   "inicio": 4.516,
+   "fim": 5.004
+  },
+  {
+   "texto": "passed",
+   "inicio": 5.097,
+   "fim": 5.503
+  },
+  {
+   "texto": "to",
+   "inicio": 5.538,
+   "fim": 5.619
+  },
+  {
+   "texto": "Panama.",
+   "inicio": 5.689,
+   "fim": 6.49
+  },
+  {
+   "texto": "After",
+   "inicio": 6.873,
+   "fim": 7.21
+  },
+  {
+   "texto": "eighty-five",
+   "inicio": 7.291,
+   "fim": 7.883
+  },
+  {
+   "texto": "years,",
+   "inicio": 7.941,
+   "fim": 8.557
+  },
+  {
+   "texto": "the",
+   "inicio": 8.766,
+   "fim": 8.87
+  },
+  {
+   "texto": "canal",
+   "inicio": 8.928,
+   "fim": 9.334
+  },
+  {
+   "texto": "belonged",
+   "inicio": 9.416,
+   "fim": 9.915
+  },
+  {
+   "texto": "to",
+   "inicio": 9.95,
+   "fim": 10.019
+  },
+  {
+   "texto": "Panama.",
+   "inicio": 10.101,
+   "fim": 10.995
+  },
+  {
+   "texto": "For",
+   "inicio": 11.076,
+   "fim": 11.262
+  },
+  {
+   "texto": "nothing.",
+   "inicio": 11.32,
+   "fim": 12.028
+  }
+ ]
+}

@@ -1,0 +1,108 @@
+{
+ "id": "b24",
+ "capitulo": "An Act of War",
+ "visual": "Iolani Palace photo. Counter 8 MONTHS.",
+ "texto": "She spent about eight months as a prisoner in a single room of the palace where she had once ruled.",
+ "palavras": [
+  {
+   "texto": "She",
+   "inicio": 0.375,
+   "fim": 0.475
+  },
+  {
+   "texto": "spent",
+   "inicio": 0.475,
+   "fim": 0.762
+  },
+  {
+   "texto": "about",
+   "inicio": 0.762,
+   "fim": 1.087
+  },
+  {
+   "texto": "eight",
+   "inicio": 1.087,
+   "fim": 1.363
+  },
+  {
+   "texto": "months",
+   "inicio": 1.363,
+   "fim": 1.775
+  },
+  {
+   "texto": "as",
+   "inicio": 1.775,
+   "fim": 1.887
+  },
+  {
+   "texto": "a",
+   "inicio": 1.887,
+   "fim": 1.988
+  },
+  {
+   "texto": "prisoner",
+   "inicio": 1.988,
+   "fim": 2.5
+  },
+  {
+   "texto": "in",
+   "inicio": 2.5,
+   "fim": 2.625
+  },
+  {
+   "texto": "a",
+   "inicio": 2.625,
+   "fim": 2.763
+  },
+  {
+   "texto": "single",
+   "inicio": 2.763,
+   "fim": 3.212
+  },
+  {
+   "texto": "room",
+   "inicio": 3.212,
+   "fim": 3.513
+  },
+  {
+   "texto": "of",
+   "inicio": 3.513,
+   "fim": 3.587
+  },
+  {
+   "texto": "the",
+   "inicio": 3.587,
+   "fim": 3.688
+  },
+  {
+   "texto": "palace",
+   "inicio": 3.688,
+   "fim": 4.562
+  },
+  {
+   "texto": "where",
+   "inicio": 4.562,
+   "fim": 4.763
+  },
+  {
+   "texto": "she",
+   "inicio": 4.763,
+   "fim": 4.912
+  },
+  {
+   "texto": "had",
+   "inicio": 4.912,
+   "fim": 5.075
+  },
+  {
+   "texto": "once",
+   "inicio": 5.075,
+   "fim": 5.412
+  },
+  {
+   "texto": "ruled.",
+   "inicio": 5.412,
+   "fim": 6.25
+  }
+ ]
+}

@@ -1,0 +1,178 @@
+{
+ "id": "b10",
+ "capitulo": "The Fourteenth Colony",
+ "visual": "Loyalist routes north from New York and New England.",
+ "texto": "And when the Revolution ended, tens of thousands of Americans who had stayed loyal to the king fled north. Some of the people who built English Canada were Americans who refused to become American.",
+ "palavras": [
+  {
+   "texto": "And",
+   "inicio": 0.375,
+   "fim": 0.512
+  },
+  {
+   "texto": "when",
+   "inicio": 0.512,
+   "fim": 0.637
+  },
+  {
+   "texto": "the",
+   "inicio": 0.637,
+   "fim": 0.725
+  },
+  {
+   "texto": "Revolution",
+   "inicio": 0.725,
+   "fim": 1.363
+  },
+  {
+   "texto": "ended,",
+   "inicio": 1.363,
+   "fim": 2.05
+  },
+  {
+   "texto": "tens",
+   "inicio": 2.188,
+   "fim": 2.538
+  },
+  {
+   "texto": "of",
+   "inicio": 2.538,
+   "fim": 2.675
+  },
+  {
+   "texto": "thousands",
+   "inicio": 2.675,
+   "fim": 3.275
+  },
+  {
+   "texto": "of",
+   "inicio": 3.275,
+   "fim": 3.375
+  },
+  {
+   "texto": "Americans",
+   "inicio": 3.375,
+   "fim": 4.138
+  },
+  {
+   "texto": "who",
+   "inicio": 4.138,
+   "fim": 4.237
+  },
+  {
+   "texto": "had",
+   "inicio": 4.237,
+   "fim": 4.375
+  },
+  {
+   "texto": "stayed",
+   "inicio": 4.375,
+   "fim": 4.787
+  },
+  {
+   "texto": "loyal",
+   "inicio": 4.787,
+   "fim": 5.225
+  },
+  {
+   "texto": "to",
+   "inicio": 5.225,
+   "fim": 5.35
+  },
+  {
+   "texto": "the",
+   "inicio": 5.35,
+   "fim": 5.487
+  },
+  {
+   "texto": "king",
+   "inicio": 5.487,
+   "fim": 6.075
+  },
+  {
+   "texto": "fled",
+   "inicio": 6.075,
+   "fim": 6.388
+  },
+  {
+   "texto": "north.",
+   "inicio": 6.388,
+   "fim": 7.3
+  },
+  {
+   "texto": "Some",
+   "inicio": 7.475,
+   "fim": 7.688
+  },
+  {
+   "texto": "of",
+   "inicio": 7.688,
+   "fim": 7.763
+  },
+  {
+   "texto": "the",
+   "inicio": 7.763,
+   "fim": 7.85
+  },
+  {
+   "texto": "people",
+   "inicio": 7.85,
+   "fim": 8.225
+  },
+  {
+   "texto": "who",
+   "inicio": 8.225,
+   "fim": 8.412
+  },
+  {
+   "texto": "built",
+   "inicio": 8.412,
+   "fim": 8.713
+  },
+  {
+   "texto": "English",
+   "inicio": 8.713,
+   "fim": 9.137
+  },
+  {
+   "texto": "Canada",
+   "inicio": 9.137,
+   "fim": 9.925
+  },
+  {
+   "texto": "were",
+   "inicio": 9.925,
+   "fim": 10.125
+  },
+  {
+   "texto": "Americans",
+   "inicio": 10.125,
+   "fim": 10.9
+  },
+  {
+   "texto": "who",
+   "inicio": 10.9,
+   "fim": 11.05
+  },
+  {
+   "texto": "refused",
+   "inicio": 11.05,
+   "fim": 11.675
+  },
+  {
+   "texto": "to",
+   "inicio": 11.675,
+   "fim": 11.762
+  },
+  {
+   "texto": "become",
+   "inicio": 11.762,
+   "fim": 12.125
+  },
+  {
+   "texto": "American.",
+   "inicio": 12.125,
+   "fim": 13.175
+  }
+ ]
+}

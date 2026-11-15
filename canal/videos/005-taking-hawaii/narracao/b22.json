@@ -1,0 +1,158 @@
+{
+ "id": "b22",
+ "capitulo": "An Act of War",
+ "visual": "Cleveland bubble \"AN ACT OF WAR\". Queen portrait.",
+ "texto": "Cleveland called it an act of war against a friendly nation, and he asked for the queen to be restored. But the new government refused, and Congress would not act.",
+ "palavras": [
+  {
+   "texto": "Cleveland",
+   "inicio": 0.35,
+   "fim": 0.912
+  },
+  {
+   "texto": "called",
+   "inicio": 0.912,
+   "fim": 1.238
+  },
+  {
+   "texto": "it",
+   "inicio": 1.238,
+   "fim": 1.325
+  },
+  {
+   "texto": "an",
+   "inicio": 1.325,
+   "fim": 1.475
+  },
+  {
+   "texto": "act",
+   "inicio": 1.475,
+   "fim": 1.738
+  },
+  {
+   "texto": "of",
+   "inicio": 1.738,
+   "fim": 1.9
+  },
+  {
+   "texto": "war",
+   "inicio": 1.9,
+   "fim": 2.275
+  },
+  {
+   "texto": "against",
+   "inicio": 2.275,
+   "fim": 2.612
+  },
+  {
+   "texto": "a",
+   "inicio": 2.612,
+   "fim": 2.725
+  },
+  {
+   "texto": "friendly",
+   "inicio": 2.725,
+   "fim": 3.175
+  },
+  {
+   "texto": "nation,",
+   "inicio": 3.175,
+   "fim": 4.0
+  },
+  {
+   "texto": "and",
+   "inicio": 4.1,
+   "fim": 4.213
+  },
+  {
+   "texto": "he",
+   "inicio": 4.213,
+   "fim": 4.4
+  },
+  {
+   "texto": "asked",
+   "inicio": 4.4,
+   "fim": 4.8
+  },
+  {
+   "texto": "for",
+   "inicio": 4.8,
+   "fim": 4.925
+  },
+  {
+   "texto": "the",
+   "inicio": 4.925,
+   "fim": 5.062
+  },
+  {
+   "texto": "queen",
+   "inicio": 5.062,
+   "fim": 5.525
+  },
+  {
+   "texto": "to",
+   "inicio": 5.525,
+   "fim": 5.625
+  },
+  {
+   "texto": "be",
+   "inicio": 5.625,
+   "fim": 5.775
+  },
+  {
+   "texto": "restored.",
+   "inicio": 5.775,
+   "fim": 6.875
+  },
+  {
+   "texto": "But",
+   "inicio": 7.013,
+   "fim": 7.175
+  },
+  {
+   "texto": "the",
+   "inicio": 7.175,
+   "fim": 7.312
+  },
+  {
+   "texto": "new",
+   "inicio": 7.312,
+   "fim": 7.588
+  },
+  {
+   "texto": "government",
+   "inicio": 7.588,
+   "fim": 8.15
+  },
+  {
+   "texto": "refused,",
+   "inicio": 8.15,
+   "fim": 9.025
+  },
+  {
+   "texto": "and",
+   "inicio": 9.1,
+   "fim": 9.238
+  },
+  {
+   "texto": "Congress",
+   "inicio": 9.238,
+   "fim": 9.75
+  },
+  {
+   "texto": "would",
+   "inicio": 9.75,
+   "fim": 9.925
+  },
+  {
+   "texto": "not",
+   "inicio": 9.925,
+   "fim": 10.2
+  },
+  {
+   "texto": "act.",
+   "inicio": 10.2,
+   "fim": 10.925
+  }
+ ]
+}

@@ -1,0 +1,163 @@
+{
+ "id": "b31",
+ "capitulo": "The Fiftieth State",
+ "visual": "\"1993\". Apology document. Clinton signs. Counter 100 YEARS.",
+ "texto": "And in 1993, on the hundredth anniversary of the overthrow, Congress passed a resolution, and President Bill Clinton signed it. It apologized to Native Hawaiians for the overthrow of their kingdom.",
+ "palavras": [
+  {
+   "texto": "And",
+   "inicio": 0.375,
+   "fim": 0.512
+  },
+  {
+   "texto": "in",
+   "inicio": 0.512,
+   "fim": 0.6
+  },
+  {
+   "texto": "1993,",
+   "inicio": 0.6,
+   "fim": 2.0
+  },
+  {
+   "texto": "on",
+   "inicio": 2.1,
+   "fim": 2.237
+  },
+  {
+   "texto": "the",
+   "inicio": 2.237,
+   "fim": 2.375
+  },
+  {
+   "texto": "hundredth",
+   "inicio": 2.375,
+   "fim": 2.938
+  },
+  {
+   "texto": "anniversary",
+   "inicio": 2.938,
+   "fim": 3.775
+  },
+  {
+   "texto": "of",
+   "inicio": 3.775,
+   "fim": 3.862
+  },
+  {
+   "texto": "the",
+   "inicio": 3.862,
+   "fim": 4.013
+  },
+  {
+   "texto": "overthrow,",
+   "inicio": 4.013,
+   "fim": 4.975
+  },
+  {
+   "texto": "Congress",
+   "inicio": 5.138,
+   "fim": 5.662
+  },
+  {
+   "texto": "passed",
+   "inicio": 5.662,
+   "fim": 6.062
+  },
+  {
+   "texto": "a",
+   "inicio": 6.062,
+   "fim": 6.15
+  },
+  {
+   "texto": "resolution,",
+   "inicio": 6.15,
+   "fim": 7.225
+  },
+  {
+   "texto": "and",
+   "inicio": 7.338,
+   "fim": 7.487
+  },
+  {
+   "texto": "President",
+   "inicio": 7.487,
+   "fim": 8.088
+  },
+  {
+   "texto": "Bill",
+   "inicio": 8.088,
+   "fim": 8.387
+  },
+  {
+   "texto": "Clinton",
+   "inicio": 8.387,
+   "fim": 8.85
+  },
+  {
+   "texto": "signed",
+   "inicio": 8.85,
+   "fim": 9.25
+  },
+  {
+   "texto": "it.",
+   "inicio": 9.25,
+   "fim": 9.8
+  },
+  {
+   "texto": "It",
+   "inicio": 9.925,
+   "fim": 10.075
+  },
+  {
+   "texto": "apologized",
+   "inicio": 10.075,
+   "fim": 10.95
+  },
+  {
+   "texto": "to",
+   "inicio": 10.95,
+   "fim": 11.088
+  },
+  {
+   "texto": "Native",
+   "inicio": 11.088,
+   "fim": 11.45
+  },
+  {
+   "texto": "Hawaiians",
+   "inicio": 11.45,
+   "fim": 12.2
+  },
+  {
+   "texto": "for",
+   "inicio": 12.2,
+   "fim": 12.312
+  },
+  {
+   "texto": "the",
+   "inicio": 12.312,
+   "fim": 12.463
+  },
+  {
+   "texto": "overthrow",
+   "inicio": 12.463,
+   "fim": 13.125
+  },
+  {
+   "texto": "of",
+   "inicio": 13.125,
+   "fim": 13.225
+  },
+  {
+   "texto": "their",
+   "inicio": 13.225,
+   "fim": 13.438
+  },
+  {
+   "texto": "kingdom.",
+   "inicio": 13.438,
+   "fim": 14.275
+  }
+ ]
+}

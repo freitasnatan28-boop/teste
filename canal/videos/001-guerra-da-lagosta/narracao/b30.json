@@ -1,0 +1,153 @@
+{
+ "id": "b30",
+ "capitulo": "\"O Brasil não é um país sério\"",
+ "visual": "Volta ao mapa do começo, com a lagosta no centro.",
+ "texto": "Ou seja: a frase mais famosa contra o Brasil foi dita por um brasileiro. E a guerra mais famosa do Brasil contra a França foi por causa de lagostas.",
+ "palavras": [
+  {
+   "texto": "Ou",
+   "inicio": 0,
+   "fim": 0.221
+  },
+  {
+   "texto": "seja:",
+   "inicio": 0.302,
+   "fim": 0.789
+  },
+  {
+   "texto": "a",
+   "inicio": 1.033,
+   "fim": 1.091
+  },
+  {
+   "texto": "frase",
+   "inicio": 1.184,
+   "fim": 1.498
+  },
+  {
+   "texto": "mais",
+   "inicio": 1.556,
+   "fim": 1.718
+  },
+  {
+   "texto": "famosa",
+   "inicio": 1.776,
+   "fim": 2.264
+  },
+  {
+   "texto": "contra",
+   "inicio": 2.322,
+   "fim": 2.612
+  },
+  {
+   "texto": "o",
+   "inicio": 2.635,
+   "fim": 2.659
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 2.705,
+   "fim": 3.228
+  },
+  {
+   "texto": "foi",
+   "inicio": 3.402,
+   "fim": 3.599
+  },
+  {
+   "texto": "dita",
+   "inicio": 3.634,
+   "fim": 3.855
+  },
+  {
+   "texto": "por",
+   "inicio": 3.901,
+   "fim": 4.017
+  },
+  {
+   "texto": "um",
+   "inicio": 4.063,
+   "fim": 4.11
+  },
+  {
+   "texto": "brasileiro.",
+   "inicio": 4.145,
+   "fim": 4.83
+  },
+  {
+   "texto": "E",
+   "inicio": 5.341,
+   "fim": 5.457
+  },
+  {
+   "texto": "a",
+   "inicio": 5.55,
+   "fim": 5.573
+  },
+  {
+   "texto": "guerra",
+   "inicio": 5.666,
+   "fim": 5.991
+  },
+  {
+   "texto": "mais",
+   "inicio": 6.06,
+   "fim": 6.258
+  },
+  {
+   "texto": "famosa",
+   "inicio": 6.316,
+   "fim": 6.757
+  },
+  {
+   "texto": "do",
+   "inicio": 6.792,
+   "fim": 6.861
+  },
+  {
+   "texto": "Brasil",
+   "inicio": 6.908,
+   "fim": 7.349
+  },
+  {
+   "texto": "contra",
+   "inicio": 7.5,
+   "fim": 7.895
+  },
+  {
+   "texto": "a",
+   "inicio": 7.918,
+   "fim": 7.941
+  },
+  {
+   "texto": "França",
+   "inicio": 8.011,
+   "fim": 8.522
+  },
+  {
+   "texto": "foi",
+   "inicio": 8.673,
+   "fim": 8.87
+  },
+  {
+   "texto": "por",
+   "inicio": 8.905,
+   "fim": 9.033
+  },
+  {
+   "texto": "causa",
+   "inicio": 9.091,
+   "fim": 9.404
+  },
+  {
+   "texto": "de",
+   "inicio": 9.451,
+   "fim": 9.497
+  },
+  {
+   "texto": "lagostas.",
+   "inicio": 9.555,
+   "fim": 11.053
+  }
+ ]
+}

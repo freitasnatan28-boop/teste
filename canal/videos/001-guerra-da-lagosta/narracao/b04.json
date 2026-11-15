@@ -1,0 +1,218 @@
+{
+ "id": "b04",
+ "capitulo": "A França sem lagostas",
+ "visual": "Mapa da África com as colônias francesas acendendo e apagando, uma a uma.",
+ "texto": "Pra entender essa história, a gente precisa voltar pro começo dos anos 1960. Nessa época, a França estava perdendo quase todas as suas colônias na África. E, junto com as colônias, perdia também os mares onde os pescadores franceses trabalhavam há gerações.",
+ "palavras": [
+  {
+   "texto": "Pra",
+   "inicio": 0,
+   "fim": 0.221
+  },
+  {
+   "texto": "entender",
+   "inicio": 0.244,
+   "fim": 0.662
+  },
+  {
+   "texto": "essa",
+   "inicio": 0.72,
+   "fim": 0.836
+  },
+  {
+   "texto": "história,",
+   "inicio": 0.859,
+   "fim": 1.463
+  },
+  {
+   "texto": "a",
+   "inicio": 1.614,
+   "fim": 1.683
+  },
+  {
+   "texto": "gente",
+   "inicio": 1.753,
+   "fim": 1.962
+  },
+  {
+   "texto": "precisa",
+   "inicio": 2.02,
+   "fim": 2.415
+  },
+  {
+   "texto": "voltar",
+   "inicio": 2.45,
+   "fim": 2.821
+  },
+  {
+   "texto": "pro",
+   "inicio": 2.891,
+   "fim": 3.007
+  },
+  {
+   "texto": "começo",
+   "inicio": 3.042,
+   "fim": 3.518
+  },
+  {
+   "texto": "dos",
+   "inicio": 3.553,
+   "fim": 3.692
+  },
+  {
+   "texto": "anos",
+   "inicio": 3.773,
+   "fim": 3.994
+  },
+  {
+   "texto": "1960.",
+   "inicio": 4.11,
+   "fim": 5.968
+  },
+  {
+   "texto": "Nessa",
+   "inicio": 6.293,
+   "fim": 6.653
+  },
+  {
+   "texto": "época,",
+   "inicio": 6.734,
+   "fim": 7.221
+  },
+  {
+   "texto": "a",
+   "inicio": 7.372,
+   "fim": 7.43
+  },
+  {
+   "texto": "França",
+   "inicio": 7.523,
+   "fim": 7.825
+  },
+  {
+   "texto": "estava",
+   "inicio": 7.848,
+   "fim": 8.139
+  },
+  {
+   "texto": "perdendo",
+   "inicio": 8.197,
+   "fim": 8.649
+  },
+  {
+   "texto": "quase",
+   "inicio": 8.731,
+   "fim": 9.102
+  },
+  {
+   "texto": "todas",
+   "inicio": 9.172,
+   "fim": 9.509
+  },
+  {
+   "texto": "as",
+   "inicio": 9.567,
+   "fim": 9.636
+  },
+  {
+   "texto": "suas",
+   "inicio": 9.659,
+   "fim": 9.892
+  },
+  {
+   "texto": "colônias",
+   "inicio": 9.961,
+   "fim": 10.437
+  },
+  {
+   "texto": "na",
+   "inicio": 10.495,
+   "fim": 10.565
+  },
+  {
+   "texto": "África.",
+   "inicio": 10.635,
+   "fim": 11.157
+  },
+  {
+   "texto": "E,",
+   "inicio": 11.54,
+   "fim": 11.9
+  },
+  {
+   "texto": "junto",
+   "inicio": 12.144,
+   "fim": 12.492
+  },
+  {
+   "texto": "com",
+   "inicio": 12.55,
+   "fim": 12.655
+  },
+  {
+   "texto": "as",
+   "inicio": 12.713,
+   "fim": 12.783
+  },
+  {
+   "texto": "colônias,",
+   "inicio": 12.841,
+   "fim": 13.491
+  },
+  {
+   "texto": "perdia",
+   "inicio": 13.607,
+   "fim": 14.072
+  },
+  {
+   "texto": "também",
+   "inicio": 14.118,
+   "fim": 14.432
+  },
+  {
+   "texto": "os",
+   "inicio": 14.478,
+   "fim": 14.548
+  },
+  {
+   "texto": "mares",
+   "inicio": 14.629,
+   "fim": 14.989
+  },
+  {
+   "texto": "onde",
+   "inicio": 15.105,
+   "fim": 15.349
+  },
+  {
+   "texto": "os",
+   "inicio": 15.372,
+   "fim": 15.419
+  },
+  {
+   "texto": "pescadores",
+   "inicio": 15.5,
+   "fim": 16.034
+  },
+  {
+   "texto": "franceses",
+   "inicio": 16.08,
+   "fim": 16.591
+  },
+  {
+   "texto": "trabalhavam",
+   "inicio": 16.638,
+   "fim": 17.16
+  },
+  {
+   "texto": "há",
+   "inicio": 17.195,
+   "fim": 17.241
+  },
+  {
+   "texto": "gerações.",
+   "inicio": 17.276,
+   "fim": 18.251
+  }
+ ]
+}

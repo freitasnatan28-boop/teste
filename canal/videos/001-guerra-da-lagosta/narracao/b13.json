@@ -1,0 +1,203 @@
+{
+ "id": "b13",
+ "capitulo": "De Gaulle manda a Marinha",
+ "visual": "Foto do porta-aviões Clemenceau. Ícones dos navios saindo de Toulon.",
+ "texto": "No dia 11 de fevereiro de 1963, uma força-tarefa liderada pelo porta-aviões Clemenceau saiu do porto de Toulon. Eram contratorpedeiros, fragatas, um cruzador e um navio-tanque. Oficialmente, segundo o governo francês, era só uma missão de rotina no Atlântico.",
+ "palavras": [
+  {
+   "texto": "No",
+   "inicio": 0,
+   "fim": 0.163
+  },
+  {
+   "texto": "dia",
+   "inicio": 0.209,
+   "fim": 0.453
+  },
+  {
+   "texto": "11",
+   "inicio": 0.569,
+   "fim": 0.882
+  },
+  {
+   "texto": "de",
+   "inicio": 0.975,
+   "fim": 1.045
+  },
+  {
+   "texto": "fevereiro",
+   "inicio": 1.103,
+   "fim": 1.683
+  },
+  {
+   "texto": "de",
+   "inicio": 1.73,
+   "fim": 1.8
+  },
+  {
+   "texto": "1963,",
+   "inicio": 1.95,
+   "fim": 3.982
+  },
+  {
+   "texto": "uma",
+   "inicio": 4.296,
+   "fim": 4.481
+  },
+  {
+   "texto": "força-tarefa",
+   "inicio": 4.574,
+   "fim": 5.468
+  },
+  {
+   "texto": "liderada",
+   "inicio": 5.677,
+   "fim": 6.177
+  },
+  {
+   "texto": "pelo",
+   "inicio": 6.211,
+   "fim": 6.42
+  },
+  {
+   "texto": "porta-aviões",
+   "inicio": 6.49,
+   "fim": 7.326
+  },
+  {
+   "texto": "Clemansô",
+   "inicio": 7.57,
+   "fim": 8.266
+  },
+  {
+   "texto": "saiu",
+   "inicio": 8.766,
+   "fim": 9.125
+  },
+  {
+   "texto": "do",
+   "inicio": 9.16,
+   "fim": 9.23
+  },
+  {
+   "texto": "porto",
+   "inicio": 9.288,
+   "fim": 9.578
+  },
+  {
+   "texto": "de",
+   "inicio": 9.625,
+   "fim": 9.694
+  },
+  {
+   "texto": "Tulôn.",
+   "inicio": 9.752,
+   "fim": 10.228
+  },
+  {
+   "texto": "Eram",
+   "inicio": 10.658,
+   "fim": 10.96
+  },
+  {
+   "texto": "contratorpedeiros,",
+   "inicio": 11.029,
+   "fim": 12.283
+  },
+  {
+   "texto": "fragatas,",
+   "inicio": 12.458,
+   "fim": 13.34
+  },
+  {
+   "texto": "um",
+   "inicio": 13.491,
+   "fim": 13.584
+  },
+  {
+   "texto": "cruzador",
+   "inicio": 13.642,
+   "fim": 14.164
+  },
+  {
+   "texto": "e",
+   "inicio": 14.257,
+   "fim": 14.373
+  },
+  {
+   "texto": "um",
+   "inicio": 14.443,
+   "fim": 14.501
+  },
+  {
+   "texto": "navio-tanque.",
+   "inicio": 14.536,
+   "fim": 15.394
+  },
+  {
+   "texto": "Oficialmente,",
+   "inicio": 15.708,
+   "fim": 16.706
+  },
+  {
+   "texto": "segundo",
+   "inicio": 16.822,
+   "fim": 17.252
+  },
+  {
+   "texto": "o",
+   "inicio": 17.298,
+   "fim": 17.322
+  },
+  {
+   "texto": "governo",
+   "inicio": 17.357,
+   "fim": 17.728
+  },
+  {
+   "texto": "francês,",
+   "inicio": 17.774,
+   "fim": 18.483
+  },
+  {
+   "texto": "era",
+   "inicio": 18.599,
+   "fim": 18.808
+  },
+  {
+   "texto": "só",
+   "inicio": 18.889,
+   "fim": 19.04
+  },
+  {
+   "texto": "uma",
+   "inicio": 19.063,
+   "fim": 19.179
+  },
+  {
+   "texto": "missão",
+   "inicio": 19.214,
+   "fim": 19.528
+  },
+  {
+   "texto": "de",
+   "inicio": 19.562,
+   "fim": 19.62
+  },
+  {
+   "texto": "rotina",
+   "inicio": 19.667,
+   "fim": 20.085
+  },
+  {
+   "texto": "no",
+   "inicio": 20.131,
+   "fim": 20.189
+  },
+  {
+   "texto": "Atlântico.",
+   "inicio": 20.224,
+   "fim": 21.455
+  }
+ ]
+}

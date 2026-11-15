@@ -1,0 +1,198 @@
+{
+ "id": "b03",
+ "capitulo": "The 51st State",
+ "visual": "Canada huge on the map. Counters 40 MILLION vs 340 MILLION. Strip near the border lights up.",
+ "texto": "Canada is the second largest country on Earth, bigger than the entire United States. But it has only about forty million people, fewer than California. And most of them live within a hundred miles of the American border.",
+ "palavras": [
+  {
+   "texto": "Canada",
+   "inicio": 0.375,
+   "fim": 0.912
+  },
+  {
+   "texto": "is",
+   "inicio": 0.912,
+   "fim": 1.075
+  },
+  {
+   "texto": "the",
+   "inicio": 1.075,
+   "fim": 1.225
+  },
+  {
+   "texto": "second",
+   "inicio": 1.225,
+   "fim": 1.688
+  },
+  {
+   "texto": "largest",
+   "inicio": 1.688,
+   "fim": 2.175
+  },
+  {
+   "texto": "country",
+   "inicio": 2.175,
+   "fim": 2.65
+  },
+  {
+   "texto": "on",
+   "inicio": 2.65,
+   "fim": 2.862
+  },
+  {
+   "texto": "Earth,",
+   "inicio": 2.862,
+   "fim": 3.525
+  },
+  {
+   "texto": "bigger",
+   "inicio": 3.663,
+   "fim": 4.0
+  },
+  {
+   "texto": "than",
+   "inicio": 4.0,
+   "fim": 4.138
+  },
+  {
+   "texto": "the",
+   "inicio": 4.138,
+   "fim": 4.275
+  },
+  {
+   "texto": "entire",
+   "inicio": 4.275,
+   "fim": 4.875
+  },
+  {
+   "texto": "United",
+   "inicio": 4.875,
+   "fim": 5.338
+  },
+  {
+   "texto": "States.",
+   "inicio": 5.338,
+   "fim": 6.25
+  },
+  {
+   "texto": "But",
+   "inicio": 6.35,
+   "fim": 6.487
+  },
+  {
+   "texto": "it",
+   "inicio": 6.487,
+   "fim": 6.562
+  },
+  {
+   "texto": "has",
+   "inicio": 6.562,
+   "fim": 6.763
+  },
+  {
+   "texto": "only",
+   "inicio": 6.763,
+   "fim": 7.15
+  },
+  {
+   "texto": "about",
+   "inicio": 7.15,
+   "fim": 7.537
+  },
+  {
+   "texto": "forty",
+   "inicio": 7.537,
+   "fim": 8.025
+  },
+  {
+   "texto": "million",
+   "inicio": 8.025,
+   "fim": 8.475
+  },
+  {
+   "texto": "people,",
+   "inicio": 8.475,
+   "fim": 9.125
+  },
+  {
+   "texto": "fewer",
+   "inicio": 9.275,
+   "fim": 9.675
+  },
+  {
+   "texto": "than",
+   "inicio": 9.675,
+   "fim": 9.863
+  },
+  {
+   "texto": "California.",
+   "inicio": 9.863,
+   "fim": 11.05
+  },
+  {
+   "texto": "And",
+   "inicio": 11.175,
+   "fim": 11.325
+  },
+  {
+   "texto": "most",
+   "inicio": 11.325,
+   "fim": 11.613
+  },
+  {
+   "texto": "of",
+   "inicio": 11.613,
+   "fim": 11.7
+  },
+  {
+   "texto": "them",
+   "inicio": 11.7,
+   "fim": 11.938
+  },
+  {
+   "texto": "live",
+   "inicio": 11.938,
+   "fim": 12.225
+  },
+  {
+   "texto": "within",
+   "inicio": 12.225,
+   "fim": 12.525
+  },
+  {
+   "texto": "a",
+   "inicio": 12.525,
+   "fim": 12.637
+  },
+  {
+   "texto": "hundred",
+   "inicio": 12.637,
+   "fim": 13.088
+  },
+  {
+   "texto": "miles",
+   "inicio": 13.088,
+   "fim": 13.588
+  },
+  {
+   "texto": "of",
+   "inicio": 13.588,
+   "fim": 13.662
+  },
+  {
+   "texto": "the",
+   "inicio": 13.662,
+   "fim": 13.8
+  },
+  {
+   "texto": "American",
+   "inicio": 13.8,
+   "fim": 14.363
+  },
+  {
+   "texto": "border.",
+   "inicio": 14.363,
+   "fim": 15.175
+  }
+ ]
+}
